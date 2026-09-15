@@ -93,12 +93,17 @@ Custom career portals (no standard public API — each needs its own fetcher):
       Cloudflare-gated endpoint likely needs the headless-browser path, not
       `requests` — may not fit this pipeline as-is.
 - [ ] Susquehanna (SIG)
-- [ ] KKR — **investigated 2026-09-15, blocked.** kkr.com/careers loads but has
-      no standard ATS fingerprint (greenhouse/ashby/workday/lever/smartrecruiters
-      /eightfold all absent); jobs load via a custom/JS API. Greenhouse `kkr`
-      404s; Workday tenant `kkr` returns 422 on every dc/site (not a real
-      tenant). Needs browser capture to find the real endpoint.
-- [ ] Carlyle, HPS  (StepStone ✅ now live via Greenhouse)
+- [x] **KKR** ✅ wired — its careers page embeds a Greenhouse board under token
+      `stage` (found via the iframe `for=stage`; `kkr` itself 404s). 139 jobs,
+      ~36 US-metro. Confirmed company "Careers at KKR".
+- [ ] Carlyle, HPS  (StepStone ✅ live)
+
+**New firms wired this pass (from `Target_Financial_Firms.xlsx`, all Greenhouse):**
+- [x] William Blair (`williamblair`, 51) · EQT (`eqtpartners`, 25) ·
+      Ducera Partners (`ducerapartners`, 7) · LionTree (`liontree`, 1).
+- Note: bulk-probing the remaining ~40 unwired firms was unreliable in the
+  sandbox (network resets caused false negatives), so absence of a hit there is
+  NOT proof a firm lacks a public board — re-probe from a stable network.
 - [ ] PIMCO, AllianceBernstein
 - [ ] Remaining banks: Barclays, HSBC, UBS, BNP Paribas, SocGen, Nomura, RBC, TD, BMO, Scotiabank, CIBC
 - [ ] Middle-market: Stifel, Raymond James, Piper Sandler, William Blair, Baird, Oppenheimer, Cantor
