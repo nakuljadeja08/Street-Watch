@@ -35,6 +35,9 @@ GREENHOUSE = {   # firm -> board token  (boards-api.greenhouse.io/v1/boards/<tok
     "TPG": "tpgcareers", "Warburg Pincus": "warburgpincusllc",
     "iCapital": "icapitalnetwork", "CAIS": "cais", "BTIG": "btig27",
     "StepStone": "stepstone",                       # confirmed live (private markets)
+    "KKR": "stage",                                 # KKR embeds Greenhouse board token "stage"
+    "William Blair": "williamblair", "EQT": "eqtpartners",
+    "Ducera Partners": "ducerapartners", "LionTree": "liontree",
     "PJT Partners": "pjtpartnersprofessionals",     # may 404 — handled gracefully
 }
 ASHBY = {        # firm -> job board name (api.ashbyhq.com/posting-api/job-board/<name>)
