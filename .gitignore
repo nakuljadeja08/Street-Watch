@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.pyc
+
+# Local env / secrets — NEVER commit the service_role key
+.env
+*.env
+
+# Note: .street_watch_state.json, street_watch_jobs.json and .csv ARE tracked —
+# the daily GitHub Actions workflow commits them back (the newness ledger +
+# latest outputs). Do not ignore them.

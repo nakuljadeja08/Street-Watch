@@ -1,0 +1,37 @@
+name: Street Watch — daily job pull
+
+# Runs every morning at 11:00 UTC (~07:00 ET). Adjust as you like.
+on:
+  schedule:
+    - cron: "0 11 * * *"
+  workflow_dispatch: {}          # lets you trigger it manually from the Actions tab
+
+permissions:
+  contents: write                # so the run can commit the state file back
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: pip install requests
+
+      - name: Run pipeline
+        env:
+          SUPABASE_URL:         ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: python pipeline.py
+
+      - name: Persist state + outputs
+        run: |
+          git config user.name  "street-watch-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add .street_watch_state.json street_watch_jobs.json street_watch_jobs.csv || true
+          git commit -m "chore: daily job pull $(date -u +%F)" || echo "nothing to commit"
+          git push || echo "nothing to push"
