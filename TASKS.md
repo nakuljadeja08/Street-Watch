@@ -127,5 +127,10 @@ Custom career portals (no standard public API — each needs its own fetcher):
       (Workday/Goldman). Day-granular (posted_date is a DATE), so buckets are
       days, not literal hours.
 - [ ] Point the daily phone alert at the Supabase table (single source of truth) instead of re-searching
-- [ ] Add an "applied" write-back so the dashboard hides roles already in the Excel tracker
+- [x] **Application tracker** — built as `dashboard/` (React + Vite). Per-role
+      status (interested/applied/interview/offer/rejected) persisted to a new
+      Supabase `applications` table (`schema_applications.sql`, open anon write).
+      Supersedes the "hide roles already in the Excel tracker" idea — status now
+      lives in Supabase, filterable in the dashboard. ⚠️ **Run
+      `schema_applications.sql` once** before using the tracker.
 - [ ] Widen title keywords / add function tags (IB, S&T, PE, Research) for finer filtering
