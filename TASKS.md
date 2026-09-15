@@ -85,8 +85,20 @@ Custom career portals (no standard public API — each needs its own fetcher):
 - [ ] Citi (`jobs.citi.com` search API)
 - [ ] JPMorgan Chase
 - [ ] Jefferies, Evercore, Lazard, Centerview, Perella Weinberg, Rothschild
-- [ ] Citadel Securities, Susquehanna (SIG)
-- [ ] KKR, Carlyle, HPS  (StepStone ✅ now live via Greenhouse)
+- [ ] Citadel Securities — **investigated 2026-09-15, blocked.** Careers site
+      (citadelsecurities.com) is Cloudflare bot-gated (plain `requests` gets the
+      challenge, not JSON), and the SmartRecruiters slug `CitadelSecurities`
+      resolves but returns 0 postings. Real API needs browser capture (the
+      browser tool's policy check was down during this pass). Even once found, a
+      Cloudflare-gated endpoint likely needs the headless-browser path, not
+      `requests` — may not fit this pipeline as-is.
+- [ ] Susquehanna (SIG)
+- [ ] KKR — **investigated 2026-09-15, blocked.** kkr.com/careers loads but has
+      no standard ATS fingerprint (greenhouse/ashby/workday/lever/smartrecruiters
+      /eightfold all absent); jobs load via a custom/JS API. Greenhouse `kkr`
+      404s; Workday tenant `kkr` returns 422 on every dc/site (not a real
+      tenant). Needs browser capture to find the real endpoint.
+- [ ] Carlyle, HPS  (StepStone ✅ now live via Greenhouse)
 - [ ] PIMCO, AllianceBernstein
 - [ ] Remaining banks: Barclays, HSBC, UBS, BNP Paribas, SocGen, Nomura, RBC, TD, BMO, Scotiabank, CIBC
 - [ ] Middle-market: Stifel, Raymond James, Piper Sandler, William Blair, Baird, Oppenheimer, Cantor
