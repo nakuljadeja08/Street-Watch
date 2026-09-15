@@ -13,9 +13,11 @@ firms' ATS APIs  ──►  pipeline.py  ──►  Supabase `jobs` table  ─�
 | File | What it is |
 |------|-----------|
 | `pipeline.py` | The ingester. Fetch → filter → dedupe → JSON/CSV + Supabase upsert. |
-| `schema.sql` | One-time Supabase table + read policy. |
+| `schema.sql` | One-time Supabase `jobs` table + read policy. |
+| `schema_applications.sql` | One-time `applications` table (the tracker's store; open anon write). |
 | `.github/workflows/street-watch.yml` | Daily cron (11:00 UTC) that runs the pipeline. |
-| `index.html` | Live front-end that reads Supabase. Host on Vercel/Netlify/Pages. |
+| `dashboard/` | **React + Vite app** — live openings **plus an application tracker** (set Applied/Interview/… per role, saved to Supabase). The primary front-end; see `dashboard/README.md`. |
+| `index.html` | Legacy single-file read-only view (no tracker). Kept as a lightweight fallback. |
 
 ## Setup (~15 min)
 
