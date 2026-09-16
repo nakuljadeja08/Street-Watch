@@ -63,15 +63,20 @@ h1 em {                    /* editorial italic accent, like the reference */
   font-family: "IBM Plex Mono", monospace; font-size: 10px; text-transform: uppercase;
   letter-spacing: .1em; color: var(--soft); margin-top: 4px;
 }
-.stat.hot .num { color: var(--lip); }
+.stat.hot { border-color: var(--lip); background: var(--lipS); }
+.stat.hot .num { color: var(--lip); animation: hotpulse 2.4s ease-in-out infinite; }
 .stat.acc .num { color: var(--green); }
+@keyframes hotpulse { 0%, 100% { opacity: 1; } 50% { opacity: .62; } }
+@media (prefers-reduced-motion: reduce) { .stat.hot .num { animation: none; } }
 
 /* ---- filter bar ---- */
 .bar {
   position: sticky; top: 0; z-index: 5;
   background: color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); padding: 12px 0;
+  transition: box-shadow .18s ease, border-color .18s ease;
 }
+.bar.scrolled { box-shadow: 0 6px 18px rgba(42, 22, 32, .10); border-bottom-color: transparent; }
 .bar-in { max-width: 1040px; margin: 0 auto; padding: 0 22px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
 .seg { display: flex; background: var(--panel); border: 1px solid var(--line); border-radius: 999px; padding: 3px; gap: 2px; }
 .seg button {
@@ -89,6 +94,12 @@ input[type="search"]:focus { outline: 2px solid var(--rose); outline-offset: 1px
   font: inherit; font-size: 13px; padding: 8px 12px; border-radius: 999px;
   border: 1px solid var(--line); background: var(--panel); color: var(--ink); cursor: pointer;
 }
+.clearBtn {
+  font: inherit; font-size: 13px; padding: 8px 14px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--rose); background: var(--roseS); color: var(--rose); transition: .12s;
+}
+.clearBtn:hover { background: var(--rose); color: #fff; }
+.clearBtn.ghost { display: inline-block; margin-top: 14px; }
 
 /* ---- list ---- */
 main { padding: 22px 0 64px; }
@@ -132,3 +143,33 @@ code { font-family: "IBM Plex Mono", monospace; font-size: 12px; }
 .trackSel.s-interview { border-color: var(--rose); }
 .trackSel.s-offer { border-color: var(--gold); }
 .trackSel.s-rejected { border-color: var(--gray); }
+
+/* ---- notes editor (tracked cards) ---- */
+.noteAdd {
+  align-self: flex-start; margin-top: 2px; font: inherit; font-size: 12px;
+  background: transparent; border: 0; color: var(--soft); cursor: pointer; padding: 2px 0;
+  transition: color .12s;
+}
+.noteAdd:hover { color: var(--rose); }
+.noteBox {
+  margin-top: 2px; width: 100%; font: inherit; font-size: 12.5px; line-height: 1.45;
+  padding: 8px 10px; border-radius: 10px; border: 1px solid var(--line2);
+  background: var(--bg2); color: var(--ink); resize: vertical; min-height: 42px;
+}
+.noteBox:focus { outline: 2px solid var(--rose); outline-offset: 1px; border-color: transparent; }
+
+/* ---- loading skeletons ---- */
+.card.skel { pointer-events: none; box-shadow: none; }
+.card.skel:hover { transform: none; box-shadow: none; border-color: var(--line); }
+.sk-line {
+  border-radius: 6px;
+  background: linear-gradient(100deg, var(--panel2) 30%, var(--roseS) 50%, var(--panel2) 70%);
+  background-size: 200% 100%; animation: shimmer 1.3s linear infinite;
+}
+.sk-firm { height: 9px; width: 40%; }
+.sk-title { height: 15px; width: 92%; margin-top: 4px; }
+.sk-title.short { width: 60%; }
+.sk-loc { height: 10px; width: 70%; margin-top: 4px; }
+.sk-track { height: 34px; width: 100%; margin-top: 10px; border-radius: 10px; }
+@keyframes shimmer { to { background-position: -200% 0; } }
+@media (prefers-reduced-motion: reduce) { .sk-line { animation: none; } }
