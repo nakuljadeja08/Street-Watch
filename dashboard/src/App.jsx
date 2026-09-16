@@ -108,6 +108,22 @@ export default function App() {
   const effectiveDark = theme === "dark" || (theme === "auto" && prefersDark);
   const toggleTheme = () => setTheme(effectiveDark ? "light" : "dark");
 
+  // "/" focuses the search box (unless already typing in a field)
+  const searchRef = useRef(null);
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key !== "/" || e.metaKey || e.ctrlKey || e.altKey) return;
+      const el = document.activeElement;
+      const tag = el?.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || el?.isContentEditable)
+        return;
+      e.preventDefault();
+      searchRef.current?.focus();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
   // mirror filters/sort into the URL (replaceState — no history spam)
   useEffect(() => {
     const p = new URLSearchParams();
@@ -348,8 +364,9 @@ export default function App() {
             <option value="rejected">Rejected</option>
           </select>
           <input
+            ref={searchRef}
             type="search"
-            placeholder="Filter by firm or role…"
+            placeholder="Filter by firm or role…  ( / )"
             value={q}
             onChange={(e) => setQ(e.target.value)}
           />
