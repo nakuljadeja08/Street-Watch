@@ -89,9 +89,15 @@ Custom career portals (no standard public API — each needs its own fetcher):
 - [ ] JPMorgan Chase — careers moved to jpmorganchase.com (AEM marketing home);
       job search now sits on an Oracle Recruiting backend. Needs deeper browser
       capture of the Oracle/Phenom search API. Deferred.
-- [ ] Boutiques (Jefferies, Evercore, Lazard, Centerview, Perella, Rothschild,
-      Moelis-GH, Guggenheim-GH, Cantor, Stifel, Raymond James) — checked
-      Greenhouse: all 404. Need per-firm Workday tuple / custom mapping (browser).
+- [x] **Baird** ✅ wired (Workday `baird.wd1/Careers`, 113 jobs) — found via a
+      tenant probe.
+- [ ] Boutiques still unmapped — none on public Greenhouse. Workday tenant probe
+      (Evercore, Lazard, Carlyle, Nomura, Barclays, HSBC, UBS, Macquarie,
+      Rothschild, Perella, Centerview, Stifel, Raymond James, Piper Sandler,
+      PIMCO, AllianceBernstein, Hamilton Lane, HPS) found no hits under common
+      tenant/dc/site guesses. Known platforms: **Jefferies** → Oracle Talentlink
+      (`jefferies.tal.net`); **Evercore** → board not linked from marketing site.
+      Each needs individual browser capture of its real ATS.
 - [ ] Jefferies, Evercore, Lazard, Centerview, Perella Weinberg, Rothschild
 - [x] **Citadel Securities** ✅ wired (`fetch_citadel`). Their WordPress careers
       site loads via admin-ajax (`action=careers_listing_filter`,
