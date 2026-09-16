@@ -82,8 +82,16 @@ Custom career portals (no standard public API — each needs its own fetcher):
       the scaffold is best-effort. When the endpoint responds 200, copy the real
       request payload (DevTools → Network → POST /graphql) into
       `GS_GETROLES_QUERY`/`variables`. Fails gracefully until then.
-- [ ] Citi (`jobs.citi.com` search API)
-- [ ] JPMorgan Chase
+- [x] **Citi** ✅ wired (`fetch_citi`). `jobs.citi.com` Radancy results endpoint
+      (`/search-jobs/results`, JSON with an HTML card fragment); narrowed by metro
+      keyword, parsed for title/location/URL. Plain requests work (no bot gate).
+      Verified 1125 raw → 111 in-scope (NY 100, SF 9, Chicago 2).
+- [ ] JPMorgan Chase — careers moved to jpmorganchase.com (AEM marketing home);
+      job search now sits on an Oracle Recruiting backend. Needs deeper browser
+      capture of the Oracle/Phenom search API. Deferred.
+- [ ] Boutiques (Jefferies, Evercore, Lazard, Centerview, Perella, Rothschild,
+      Moelis-GH, Guggenheim-GH, Cantor, Stifel, Raymond James) — checked
+      Greenhouse: all 404. Need per-firm Workday tuple / custom mapping (browser).
 - [ ] Jefferies, Evercore, Lazard, Centerview, Perella Weinberg, Rothschild
 - [x] **Citadel Securities** ✅ wired (`fetch_citadel`). Their WordPress careers
       site loads via admin-ajax (`action=careers_listing_filter`,
