@@ -9,7 +9,7 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Bank of America",
@@ -21,7 +21,7 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Bank of America",
@@ -33,7 +33,7 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Bank of America",
@@ -45,7 +45,7 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Bank of America",
@@ -57,7 +57,7 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Bank of America",
@@ -69,7 +69,7 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Bank of America",
@@ -81,7 +81,7 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Bank of America",
@@ -93,7 +93,7 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blue Owl Capital",
@@ -105,7 +105,7 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blue Owl Capital",
@@ -117,7 +117,7 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blue Owl Capital",
@@ -129,7 +129,7 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blue Owl Capital",
@@ -141,18 +141,18 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blue Owl Capital",
-    "id": "wd-blueowl-blueowl-/job/Chicago---150---36/Real-Assets--Digital-Infrastructure-Associate_R-102326",
+    "id": "wd-blueowl-blueowl-/job/Chicago---150---36/Real-Assets--Digital-Infrastructure-Associate_R-102382",
     "title": "Real Assets, Digital Infrastructure Associate",
     "location": "Chicago - 150 - 36",
-    "url": "https://blueowl.wd1.myworkdayjobs.com/blueowl/job/Chicago---150---36/Real-Assets--Digital-Infrastructure-Associate_R-102326",
+    "url": "https://blueowl.wd1.myworkdayjobs.com/blueowl/job/Chicago---150---36/Real-Assets--Digital-Infrastructure-Associate_R-102382",
     "source": "workday",
     "posted_date": null,
     "metro": "Chicago",
-    "first_seen": "2026-09-15",
+    "first_seen": "2026-09-16",
     "is_new": true
   },
   {
@@ -165,7 +165,7 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blue Owl Capital",
@@ -177,6 +177,18 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
+    "is_new": false
+  },
+  {
+    "firm": "DRW",
+    "id": "gh-drweng-8201188",
+    "title": "Administrative Assistant - FICCO Trading Group",
+    "location": "Chicago",
+    "url": "https://job-boards.greenhouse.io/drweng/jobs/8201188",
+    "source": "greenhouse",
+    "posted_date": "2026-09-15",
+    "metro": "Chicago",
+    "first_seen": "2026-09-16",
     "is_new": true
   },
   {
@@ -189,7 +201,7 @@
     "posted_date": "2026-06-18",
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "DRW",
@@ -201,7 +213,7 @@
     "posted_date": "2026-01-23",
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "DRW",
@@ -213,7 +225,7 @@
     "posted_date": "2026-07-22",
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "DRW",
@@ -225,7 +237,7 @@
     "posted_date": "2026-07-13",
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "DRW",
@@ -237,7 +249,7 @@
     "posted_date": "2026-03-18",
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "DRW",
@@ -249,7 +261,7 @@
     "posted_date": "2026-08-11",
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "DRW",
@@ -261,7 +273,7 @@
     "posted_date": "2026-05-14",
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "DRW",
@@ -273,7 +285,7 @@
     "posted_date": "2026-08-13",
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "DRW",
@@ -285,7 +297,7 @@
     "posted_date": "2026-07-24",
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "DRW",
@@ -297,7 +309,7 @@
     "posted_date": "2026-06-12",
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Guggenheim Securities",
@@ -309,7 +321,7 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Guggenheim Securities",
@@ -321,7 +333,7 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Houlihan Lokey",
@@ -333,7 +345,7 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Houlihan Lokey",
@@ -345,7 +357,7 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Houlihan Lokey",
@@ -357,7 +369,7 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "IMC Trading",
@@ -369,7 +381,7 @@
     "posted_date": "2026-08-04",
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "IMC Trading",
@@ -381,7 +393,7 @@
     "posted_date": "2026-07-01",
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "IMC Trading",
@@ -393,7 +405,7 @@
     "posted_date": "2026-07-01",
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "IMC Trading",
@@ -405,7 +417,7 @@
     "posted_date": "2026-07-01",
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "IMC Trading",
@@ -417,7 +429,7 @@
     "posted_date": "2026-07-01",
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "IMC Trading",
@@ -429,7 +441,7 @@
     "posted_date": "2026-07-01",
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "IMC Trading",
@@ -441,7 +453,7 @@
     "posted_date": "2026-07-01",
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "IMC Trading",
@@ -453,7 +465,7 @@
     "posted_date": "2026-05-18",
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "IMC Trading",
@@ -465,7 +477,7 @@
     "posted_date": "2026-06-30",
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "IMC Trading",
@@ -477,7 +489,7 @@
     "posted_date": "2025-08-22",
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "IMC Trading",
@@ -489,7 +501,7 @@
     "posted_date": "2024-02-06",
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "IMC Trading",
@@ -501,7 +513,7 @@
     "posted_date": "2026-02-27",
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "IMC Trading",
@@ -513,7 +525,7 @@
     "posted_date": "2024-09-10",
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "IMC Trading",
@@ -525,7 +537,7 @@
     "posted_date": "2026-06-01",
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "IMC Trading",
@@ -537,7 +549,7 @@
     "posted_date": "2025-11-03",
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "IMC Trading",
@@ -549,7 +561,7 @@
     "posted_date": "2025-01-15",
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Invesco",
@@ -561,7 +573,7 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Invesco",
@@ -573,7 +585,7 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -585,31 +597,7 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/Oak-Brook-Illinois-United-States-of-America/Client-Relationship-Analyst_JR043772",
-    "title": "Client Relationship Analyst",
-    "location": "Oak Brook, Illinois, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/Oak-Brook-Illinois-United-States-of-America/Client-Relationship-Analyst_JR043772",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "Chicago",
-    "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/Barrington-Illinois-United-States-of-America/Client-Relationship-Analyst_JR043691",
-    "title": "Client Relationship Analyst",
-    "location": "Barrington, Illinois, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/Barrington-Illinois-United-States-of-America/Client-Relationship-Analyst_JR043691",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "Chicago",
-    "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -621,31 +609,31 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/Chicago-Illinois-United-States-of-America/Registered-Client-Relationship-Analyst_JR041302",
-    "title": "Registered Client Relationship Analyst",
-    "location": "Chicago, Illinois, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/Chicago-Illinois-United-States-of-America/Registered-Client-Relationship-Analyst_JR041302",
+    "id": "wd-ms-External-/job/Oak-Brook-Illinois-United-States-of-America/Client-Relationship-Analyst_JR043772",
+    "title": "Client Relationship Analyst",
+    "location": "Oak Brook, Illinois, United States of America",
+    "url": "https://ms.wd5.myworkdayjobs.com/External/job/Oak-Brook-Illinois-United-States-of-America/Client-Relationship-Analyst_JR043772",
     "source": "workday",
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/Chicago-Illinois-United-States-of-America/Registered-Client-Relationship-Analyst_JR038356-1",
-    "title": "Registered Client Relationship Analyst",
-    "location": "Chicago, Illinois, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/Chicago-Illinois-United-States-of-America/Registered-Client-Relationship-Analyst_JR038356-1",
+    "id": "wd-ms-External-/job/Barrington-Illinois-United-States-of-America/Client-Relationship-Analyst_JR043691",
+    "title": "Client Relationship Analyst",
+    "location": "Barrington, Illinois, United States of America",
+    "url": "https://ms.wd5.myworkdayjobs.com/External/job/Barrington-Illinois-United-States-of-America/Client-Relationship-Analyst_JR043691",
     "source": "workday",
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -657,7 +645,31 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
+  },
+  {
+    "firm": "Morgan Stanley",
+    "id": "wd-ms-External-/job/Chicago-Illinois-United-States-of-America/Registered-Client-Relationship-Analyst_JR041302",
+    "title": "Registered Client Relationship Analyst",
+    "location": "Chicago, Illinois, United States of America",
+    "url": "https://ms.wd5.myworkdayjobs.com/External/job/Chicago-Illinois-United-States-of-America/Registered-Client-Relationship-Analyst_JR041302",
+    "source": "workday",
+    "posted_date": null,
+    "metro": "Chicago",
+    "first_seen": "2026-09-15",
+    "is_new": false
+  },
+  {
+    "firm": "Morgan Stanley",
+    "id": "wd-ms-External-/job/Chicago-Illinois-United-States-of-America/Registered-Client-Relationship-Analyst_JR038356-1",
+    "title": "Registered Client Relationship Analyst",
+    "location": "Chicago, Illinois, United States of America",
+    "url": "https://ms.wd5.myworkdayjobs.com/External/job/Chicago-Illinois-United-States-of-America/Registered-Client-Relationship-Analyst_JR038356-1",
+    "source": "workday",
+    "posted_date": null,
+    "metro": "Chicago",
+    "first_seen": "2026-09-15",
+    "is_new": false
   },
   {
     "firm": "Neuberger Berman",
@@ -669,7 +681,7 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Neuberger Berman",
@@ -681,7 +693,7 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "PGIM",
@@ -693,7 +705,7 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "PGIM",
@@ -705,7 +717,7 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "PGIM",
@@ -717,7 +729,7 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "StepStone",
@@ -729,7 +741,7 @@
     "posted_date": "2026-05-12",
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "StepStone",
@@ -741,7 +753,7 @@
     "posted_date": "2026-05-12",
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Virtu Financial",
@@ -753,7 +765,7 @@
     "posted_date": "2020-02-04",
     "metro": "Chicago",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Wells Fargo",
@@ -765,6 +777,18 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
+    "is_new": false
+  },
+  {
+    "firm": "Wells Fargo",
+    "id": "wd-wf-WellsFargoJobs-/job/BLOOMINGTON-IL/Client-Associate_R-573588",
+    "title": "Client Associate",
+    "location": "BLOOMINGTON, IL",
+    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/BLOOMINGTON-IL/Client-Associate_R-573588",
+    "source": "workday",
+    "posted_date": null,
+    "metro": "Chicago",
+    "first_seen": "2026-09-16",
     "is_new": true
   },
   {
@@ -777,6 +801,126 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-09-15",
+    "is_new": false
+  },
+  {
+    "firm": "William Blair",
+    "id": "gh-williamblair-5237855007",
+    "title": "Associate I, CRU Risk",
+    "location": "Chicago, Illinois, United States",
+    "url": "https://www.williamblair.com/Careers/job-description?gh_jid=5237855007",
+    "source": "greenhouse",
+    "posted_date": "2026-09-14",
+    "metro": "Chicago",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "William Blair",
+    "id": "gh-williamblair-5226223007",
+    "title": "Business Analyst II",
+    "location": "Chicago, Illinois, United States",
+    "url": "https://www.williamblair.com/Careers/job-description?gh_jid=5226223007",
+    "source": "greenhouse",
+    "posted_date": "2026-08-31",
+    "metro": "Chicago",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "William Blair",
+    "id": "gh-williamblair-5227689007",
+    "title": "Client Services Associate (Entry-Level)",
+    "location": "Chicago, Illinois, United States",
+    "url": "https://www.williamblair.com/Careers/job-description?gh_jid=5227689007",
+    "source": "greenhouse",
+    "posted_date": "2026-09-01",
+    "metro": "Chicago",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "William Blair",
+    "id": "gh-williamblair-5215276007",
+    "title": "Compliance Analyst",
+    "location": "Chicago, Illinois, United States",
+    "url": "https://www.williamblair.com/Careers/job-description?gh_jid=5215276007",
+    "source": "greenhouse",
+    "posted_date": "2026-08-18",
+    "metro": "Chicago",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "William Blair",
+    "id": "gh-williamblair-5233970007",
+    "title": "Investment Accounting Associate (Entry-Level)",
+    "location": "Chicago, Illinois, United States",
+    "url": "https://www.williamblair.com/Careers/job-description?gh_jid=5233970007",
+    "source": "greenhouse",
+    "posted_date": "2026-09-09",
+    "metro": "Chicago",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "William Blair",
+    "id": "gh-williamblair-5104946007",
+    "title": "Investment Banking Associate - Consumer Products & Services",
+    "location": "Charlotte, North Carolina; Chicago, Illinois, United States",
+    "url": "https://www.williamblair.com/Careers/job-description?gh_jid=5104946007",
+    "source": "greenhouse",
+    "posted_date": "2026-04-14",
+    "metro": "Chicago",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "William Blair",
+    "id": "gh-williamblair-5190887007",
+    "title": "Investment Banking Associate - Supply Chain & Commercial Services (SCCS)",
+    "location": "Charlotte, North Carolina; Chicago, Illinois, United States",
+    "url": "https://www.williamblair.com/Careers/job-description?gh_jid=5190887007",
+    "source": "greenhouse",
+    "posted_date": "2026-07-20",
+    "metro": "Chicago",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "William Blair",
+    "id": "gh-williamblair-5005161007",
+    "title": "Investment Banking Associate - Tech Enabled Services",
+    "location": "Atlanta, Georgia; Chicago, Illinois, United States",
+    "url": "https://www.williamblair.com/Careers/job-description?gh_jid=5005161007",
+    "source": "greenhouse",
+    "posted_date": "2025-12-15",
+    "metro": "Chicago",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "William Blair",
+    "id": "gh-williamblair-5142867007",
+    "title": "Investment Banking Senior Analyst - Industrial Growth Products",
+    "location": "Chicago, Illinois, United States",
+    "url": "https://www.williamblair.com/Careers/job-description?gh_jid=5142867007",
+    "source": "greenhouse",
+    "posted_date": "2026-05-20",
+    "metro": "Chicago",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "William Blair",
+    "id": "gh-williamblair-5186505007",
+    "title": "Senior Research Associate - Global Equity (Technology)",
+    "location": "Chicago, Illinois, United States",
+    "url": "https://www.williamblair.com/Careers/job-description?gh_jid=5186505007",
+    "source": "greenhouse",
+    "posted_date": "2026-07-14",
+    "metro": "Chicago",
+    "first_seen": "2026-09-16",
     "is_new": true
   },
   {
@@ -789,7 +933,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Apollo Global Management",
@@ -801,6 +945,18 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
+    "is_new": false
+  },
+  {
+    "firm": "Apollo Global Management",
+    "id": "wd-athene-Apollo_Careers-/job/New-York-New-York/Associate--Compensation-Forecasting---Budgeting_R255005",
+    "title": "Associate, Compensation Forecasting & Budgeting",
+    "location": "New York, New York",
+    "url": "https://athene.wd5.myworkdayjobs.com/Apollo_Careers/job/New-York-New-York/Associate--Compensation-Forecasting---Budgeting_R255005",
+    "source": "workday",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
     "is_new": true
   },
   {
@@ -813,7 +969,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Apollo Global Management",
@@ -825,7 +981,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Apollo Global Management",
@@ -837,7 +993,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -849,19 +1005,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Ares Management",
-    "id": "wd-aresmgmt-External-/job/New-York-NY/Analyst--Investor-Services_R8277",
-    "title": "Analyst, Investor Services",
-    "location": "New York, NY",
-    "url": "https://aresmgmt.wd1.myworkdayjobs.com/External/job/New-York-NY/Analyst--Investor-Services_R8277",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -873,7 +1017,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -885,7 +1029,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -897,7 +1041,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -909,7 +1053,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -921,7 +1065,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -933,7 +1077,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -945,7 +1089,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -957,7 +1101,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -969,7 +1113,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -981,7 +1125,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -993,7 +1137,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -1005,7 +1149,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -1017,7 +1161,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -1029,7 +1173,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -1041,7 +1185,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -1053,7 +1197,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -1065,7 +1209,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -1077,7 +1221,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -1089,7 +1233,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -1101,7 +1245,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -1113,7 +1257,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -1125,7 +1269,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -1137,7 +1281,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -1149,7 +1293,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -1161,7 +1305,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -1173,7 +1317,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -1185,7 +1329,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -1197,7 +1341,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -1209,7 +1353,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -1221,7 +1365,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "BTIG",
@@ -1233,7 +1377,7 @@
     "posted_date": "2026-07-28",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "BTIG",
@@ -1245,7 +1389,7 @@
     "posted_date": "2023-09-01",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "BTIG",
@@ -1257,7 +1401,7 @@
     "posted_date": "2026-06-24",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "BTIG",
@@ -1269,7 +1413,7 @@
     "posted_date": "2026-08-06",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "BTIG",
@@ -1281,7 +1425,7 @@
     "posted_date": "2026-08-13",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "BTIG",
@@ -1293,7 +1437,7 @@
     "posted_date": "2026-08-28",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "BTIG",
@@ -1305,7 +1449,7 @@
     "posted_date": "2025-06-05",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Bank of America",
@@ -1317,7 +1461,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Bank of America",
@@ -1329,7 +1473,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Bank of America",
@@ -1341,7 +1485,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Bank of America",
@@ -1353,7 +1497,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Bank of America",
@@ -1365,7 +1509,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Bank of America",
@@ -1377,7 +1521,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Bank of America",
@@ -1389,7 +1533,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Bank of America",
@@ -1401,7 +1545,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Bank of America",
@@ -1413,7 +1557,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Bank of America",
@@ -1425,7 +1569,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Bank of America",
@@ -1437,7 +1581,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Bank of America",
@@ -1449,7 +1593,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Bank of America",
@@ -1461,7 +1605,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Bank of America",
@@ -1473,7 +1617,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Bank of America",
@@ -1485,7 +1629,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Bank of America",
@@ -1497,7 +1641,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Bank of America",
@@ -1509,7 +1653,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Bank of America",
@@ -1521,18 +1665,18 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Bank of America",
-    "id": "wd-ghr-Lateral-US-/job/New-York/Wealth-Management-Client-Associate_26029260-2",
+    "id": "wd-ghr-Lateral-US-/job/NEW-YORK/Wealth-Management-Client-Associate_26028754",
     "title": "Wealth Management Client Associate",
-    "location": "New York",
-    "url": "https://ghr.wd1.myworkdayjobs.com/Lateral-US/job/New-York/Wealth-Management-Client-Associate_26029260-2",
+    "location": "NEW YORK",
+    "url": "https://ghr.wd1.myworkdayjobs.com/Lateral-US/job/NEW-YORK/Wealth-Management-Client-Associate_26028754",
     "source": "workday",
     "posted_date": null,
     "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
+    "first_seen": "2026-09-16",
     "is_new": true
   },
   {
@@ -1545,7 +1689,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -1557,7 +1701,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -1569,7 +1713,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -1581,7 +1725,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -1593,7 +1737,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -1605,7 +1749,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -1617,7 +1761,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -1629,7 +1773,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -1641,7 +1785,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -1653,7 +1797,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -1665,7 +1809,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -1677,7 +1821,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -1689,7 +1833,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -1701,7 +1845,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -1713,7 +1857,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -1725,7 +1869,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -1737,7 +1881,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -1749,7 +1893,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -1761,6 +1905,18 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
+    "is_new": false
+  },
+  {
+    "firm": "Blackstone",
+    "id": "wd-blackstone-Blackstone_Careers-/job/New-York/Blackstone-Real-Estate-Debt-Strategies--BREDS--Finance---Operations--Associate_42298-1",
+    "title": "Blackstone Real Estate Debt Strategies (BREDS) Finance & Operations, Associate",
+    "location": "New York",
+    "url": "https://blackstone.wd1.myworkdayjobs.com/Blackstone_Careers/job/New-York/Blackstone-Real-Estate-Debt-Strategies--BREDS--Finance---Operations--Associate_42298-1",
+    "source": "workday",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
     "is_new": true
   },
   {
@@ -1773,7 +1929,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -1785,7 +1941,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -1797,7 +1953,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -1809,7 +1965,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -1821,7 +1977,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -1833,7 +1989,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -1845,7 +2001,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -1857,7 +2013,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -1869,7 +2025,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -1881,7 +2037,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -1893,7 +2049,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blue Owl Capital",
@@ -1905,7 +2061,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blue Owl Capital",
@@ -1917,7 +2073,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blue Owl Capital",
@@ -1929,7 +2085,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blue Owl Capital",
@@ -1941,7 +2097,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blue Owl Capital",
@@ -1953,7 +2109,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blue Owl Capital",
@@ -1965,7 +2121,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blue Owl Capital",
@@ -1977,7 +2133,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blue Owl Capital",
@@ -1989,7 +2145,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blue Owl Capital",
@@ -2001,7 +2157,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blue Owl Capital",
@@ -2013,7 +2169,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blue Owl Capital",
@@ -2025,7 +2181,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Brookfield Asset Management",
@@ -2037,7 +2193,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Brookfield Asset Management",
@@ -2049,7 +2205,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Brookfield Asset Management",
@@ -2061,7 +2217,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Brookfield Asset Management",
@@ -2073,7 +2229,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Brookfield Asset Management",
@@ -2085,7 +2241,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Brookfield Asset Management",
@@ -2097,7 +2253,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Brookfield Asset Management",
@@ -2109,7 +2265,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Brookfield Asset Management",
@@ -2121,7 +2277,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Brookfield Asset Management",
@@ -2133,7 +2289,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Brookfield Asset Management",
@@ -2145,7 +2301,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Brookfield Asset Management",
@@ -2157,7 +2313,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Brookfield Asset Management",
@@ -2169,7 +2325,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Brookfield Asset Management",
@@ -2181,7 +2337,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Brookfield Asset Management",
@@ -2193,7 +2349,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Brookfield Asset Management",
@@ -2205,7 +2361,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Brookfield Asset Management",
@@ -2217,7 +2373,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "CAIS",
@@ -2229,7 +2385,7 @@
     "posted_date": "2026-08-28",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "CAIS",
@@ -2241,7 +2397,7 @@
     "posted_date": "2026-06-19",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "CAIS",
@@ -2253,6 +2409,18 @@
     "posted_date": "2026-08-28",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
+    "is_new": false
+  },
+  {
+    "firm": "CAIS",
+    "id": "gh-cais-8809524002",
+    "title": "Partner Experience (Analyst \u2013 Associate)",
+    "location": "New York, New York",
+    "url": "https://job-boards.greenhouse.io/cais/jobs/8809524002",
+    "source": "greenhouse",
+    "posted_date": "2026-09-15",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
     "is_new": true
   },
   {
@@ -2265,7 +2433,7 @@
     "posted_date": "2026-08-18",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "CAIS",
@@ -2277,6 +2445,150 @@
     "posted_date": "2026-07-07",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
+    "is_new": false
+  },
+  {
+    "firm": "Citadel Securities",
+    "id": "cs-client-execution-trading",
+    "title": "Client Execution Trading",
+    "location": "New York",
+    "url": "https://www.citadelsecurities.com/careers/details/client-execution-trading/",
+    "source": "citadel",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "Citadel Securities",
+    "id": "cs-crypto-quant-researcher",
+    "title": "Crypto Quant Researcher",
+    "location": "Hong Kong, London, Miami, New York, Singapore",
+    "url": "https://www.citadelsecurities.com/careers/details/crypto-quant-researcher/",
+    "source": "citadel",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "Citadel Securities",
+    "id": "cs-machine-learning-researcher-phd-graduate-us",
+    "title": "Machine Learning Researcher \u2013 PhD Graduate (US)",
+    "location": "Miami, New York",
+    "url": "https://www.citadelsecurities.com/careers/details/machine-learning-researcher-phd-graduate-us/",
+    "source": "citadel",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "Citadel Securities",
+    "id": "cs-quantitative-research-engineer-phd-graduate-us",
+    "title": "Quantitative Research Engineer \u2013 PhD Graduate (US)",
+    "location": "Miami, New York",
+    "url": "https://www.citadelsecurities.com/careers/details/quantitative-research-engineer-phd-graduate-us/",
+    "source": "citadel",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "Citadel Securities",
+    "id": "cs-quantitative-researcher-quantitative-research-analyst",
+    "title": "Quantitative Researcher / Quantitative Research Analyst",
+    "location": "Hong Kong, London, Miami, New York, Singapore, Zurich",
+    "url": "https://www.citadelsecurities.com/careers/details/quantitative-researcher-quantitative-research-analyst/",
+    "source": "citadel",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "Citadel Securities",
+    "id": "cs-quantitative-researcher-phd-graduate-us",
+    "title": "Quantitative Researcher \u2013 PhD Graduate (US)",
+    "location": "Miami, New York",
+    "url": "https://www.citadelsecurities.com/careers/details/quantitative-researcher-phd-graduate-us/",
+    "source": "citadel",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "Citadel Securities",
+    "id": "cs-quantitative-trader",
+    "title": "Quantitative Trader",
+    "location": "Hong Kong, London, Miami, New York, Singapore",
+    "url": "https://www.citadelsecurities.com/careers/details/quantitative-trader/",
+    "source": "citadel",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "Citadel Securities",
+    "id": "cs-quantitative-trader-university-graduate-us-new-york",
+    "title": "Quantitative Trader \u2013 University Graduate (US \u2013 New York)",
+    "location": "New York",
+    "url": "https://www.citadelsecurities.com/careers/details/quantitative-trader-university-graduate-us-new-york/",
+    "source": "citadel",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "Citadel Securities",
+    "id": "cs-software-engineer-university-graduate-us",
+    "title": "Software Engineer \u2013 University Graduate (US)",
+    "location": "Miami, New York",
+    "url": "https://www.citadelsecurities.com/careers/details/software-engineer-university-graduate-us/",
+    "source": "citadel",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "Citadel Securities",
+    "id": "cs-systematic-options-trader",
+    "title": "Systematic Options Trader",
+    "location": "Miami, New York",
+    "url": "https://www.citadelsecurities.com/careers/details/systematic-options-trader/",
+    "source": "citadel",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "Citadel Securities",
+    "id": "cs-systematic-trader",
+    "title": "Systematic Trader",
+    "location": "Dublin, Gurugram, Hong Kong, London, New York, Singapore",
+    "url": "https://www.citadelsecurities.com/careers/details/systematic-trader/",
+    "source": "citadel",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "Citadel Securities",
+    "id": "cs-ui-engineer-global-trading-applications",
+    "title": "UI Engineer- Global Trading Applications",
+    "location": "New York",
+    "url": "https://www.citadelsecurities.com/careers/details/ui-engineer-global-trading-applications/",
+    "source": "citadel",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
     "is_new": true
   },
   {
@@ -2289,7 +2601,7 @@
     "posted_date": "2026-06-30",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "DRW",
@@ -2301,7 +2613,7 @@
     "posted_date": "2026-01-16",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "DRW",
@@ -2313,7 +2625,7 @@
     "posted_date": "2026-02-25",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "DRW",
@@ -2325,7 +2637,7 @@
     "posted_date": "2026-07-13",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "DRW",
@@ -2337,7 +2649,7 @@
     "posted_date": "2026-07-16",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Deutsche Bank",
@@ -2349,7 +2661,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Deutsche Bank",
@@ -2361,7 +2673,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Deutsche Bank",
@@ -2373,7 +2685,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Deutsche Bank",
@@ -2385,7 +2697,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Deutsche Bank",
@@ -2397,7 +2709,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Deutsche Bank",
@@ -2409,19 +2721,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Deutsche Bank",
-    "id": "wd-db-DBWebsite-/job/New-York-1-Columbus-Circle/Fixed-Income-Trading-Quantitative-Strategist----Analyst_R0429759",
-    "title": "Fixed Income Trading Quantitative Strategist -  Analyst",
-    "location": "New York, 1 Columbus Circle",
-    "url": "https://db.wd3.myworkdayjobs.com/DBWebsite/job/New-York-1-Columbus-Circle/Fixed-Income-Trading-Quantitative-Strategist----Analyst_R0429759",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Deutsche Bank",
@@ -2433,7 +2733,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Deutsche Bank",
@@ -2445,19 +2745,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Deutsche Bank",
-    "id": "wd-db-DBWebsite-/job/New-York-1-Columbus-Circle/Institutional-Client-Group--Rates-Sales--Americas---Associate_R0443497",
-    "title": "Institutional Client Group, Rates Sales, Americas \u2013 Associate",
-    "location": "New York, 1 Columbus Circle",
-    "url": "https://db.wd3.myworkdayjobs.com/DBWebsite/job/New-York-1-Columbus-Circle/Institutional-Client-Group--Rates-Sales--Americas---Associate_R0443497",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Deutsche Bank",
@@ -2469,7 +2757,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Deutsche Bank",
@@ -2481,19 +2769,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Deutsche Bank",
-    "id": "wd-db-DBWebsite-/job/New-York-1-Columbus-Circle/SETG---Associate-Origination_R0429008",
-    "title": "Investment Banking & Capital Markets \u2013 Strategic Equity Transactions Group (SETG) Originator Associate",
-    "location": "New York, 1 Columbus Circle",
-    "url": "https://db.wd3.myworkdayjobs.com/DBWebsite/job/New-York-1-Columbus-Circle/SETG---Associate-Origination_R0429008",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Deutsche Bank",
@@ -2505,7 +2781,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Deutsche Bank",
@@ -2517,7 +2793,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Deutsche Bank",
@@ -2529,7 +2805,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Deutsche Bank",
@@ -2541,7 +2817,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Deutsche Bank",
@@ -2553,7 +2829,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Deutsche Bank",
@@ -2565,7 +2841,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Deutsche Bank",
@@ -2577,7 +2853,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Deutsche Bank",
@@ -2589,7 +2865,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Deutsche Bank",
@@ -2601,7 +2877,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Deutsche Bank",
@@ -2613,7 +2889,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Deutsche Bank",
@@ -2625,6 +2901,54 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
+    "is_new": false
+  },
+  {
+    "firm": "Ducera Partners",
+    "id": "gh-ducerapartners-7581522003",
+    "title": "Analyst / Associate - Capital Solutions - New York",
+    "location": "New York, New York, United States",
+    "url": "https://job-boards.greenhouse.io/ducerapartners/jobs/7581522003",
+    "source": "greenhouse",
+    "posted_date": "2026-01-07",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "Ducera Partners",
+    "id": "gh-ducerapartners-7692641003",
+    "title": "Associate - Growth Equity Investing / Mergers & Acquisitions - New York",
+    "location": "New York, New York, United States",
+    "url": "https://job-boards.greenhouse.io/ducerapartners/jobs/7692641003",
+    "source": "greenhouse",
+    "posted_date": "2026-04-27",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "Ducera Partners",
+    "id": "gh-ducerapartners-6212936003",
+    "title": "Associate - Mergers & Acquisitions - New York",
+    "location": "New York, New York, United States",
+    "url": "https://job-boards.greenhouse.io/ducerapartners/jobs/6212936003",
+    "source": "greenhouse",
+    "posted_date": "2024-09-19",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "Ducera Partners",
+    "id": "gh-ducerapartners-6674183003",
+    "title": "Associate - Restructuring - New York",
+    "location": "New York, New York, United States",
+    "url": "https://job-boards.greenhouse.io/ducerapartners/jobs/6674183003",
+    "source": "greenhouse",
+    "posted_date": "2025-08-08",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
     "is_new": true
   },
   {
@@ -2637,7 +2961,7 @@
     "posted_date": "2026-08-13",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "General Atlantic",
@@ -2649,7 +2973,7 @@
     "posted_date": "2026-04-27",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "General Atlantic",
@@ -2661,7 +2985,7 @@
     "posted_date": "2026-06-05",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Guggenheim Securities",
@@ -2673,7 +2997,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Guggenheim Securities",
@@ -2685,7 +3009,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Guggenheim Securities",
@@ -2697,7 +3021,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Houlihan Lokey",
@@ -2709,7 +3033,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Houlihan Lokey",
@@ -2721,7 +3045,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Houlihan Lokey",
@@ -2733,7 +3057,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Houlihan Lokey",
@@ -2745,18 +3069,18 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Houlihan Lokey",
-    "id": "wd-hl-Lateral-/job/New-York-NY-USA/Investment-Banking-Senior-Analyst---Financial-Services_R3027",
-    "title": "Investment Banking Senior Analyst | Financial Services",
+    "id": "wd-hl-Lateral-/job/New-York-NY-USA/Investment-Banking-Senior-Analyst---FinTech_R3588-1",
+    "title": "Investment Banking Associate | FinTech",
     "location": "New York, NY, USA",
-    "url": "https://hl.wd1.myworkdayjobs.com/Lateral/job/New-York-NY-USA/Investment-Banking-Senior-Analyst---Financial-Services_R3027",
+    "url": "https://hl.wd1.myworkdayjobs.com/Lateral/job/New-York-NY-USA/Investment-Banking-Senior-Analyst---FinTech_R3588-1",
     "source": "workday",
     "posted_date": null,
     "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
+    "first_seen": "2026-09-16",
     "is_new": true
   },
   {
@@ -2769,7 +3093,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "IMC Trading",
@@ -2781,7 +3105,7 @@
     "posted_date": "2024-08-21",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "IMC Trading",
@@ -2793,19 +3117,7 @@
     "posted_date": "2025-12-18",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Invesco",
-    "id": "wd-invesco-IVZ-/job/New-York-New-York/Analyst--RFP_R-14576",
-    "title": "Analyst, RFP",
-    "location": "New York, New York",
-    "url": "https://invesco.wd1.myworkdayjobs.com/IVZ/job/New-York-New-York/Analyst--RFP_R-14576",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Invesco",
@@ -2817,7 +3129,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Invesco",
@@ -2829,7 +3141,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Invesco",
@@ -2841,7 +3153,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Invesco",
@@ -2853,7 +3165,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Invesco",
@@ -2865,7 +3177,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Invesco",
@@ -2877,7 +3189,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Jane Street",
@@ -2889,7 +3201,7 @@
     "posted_date": "2026-04-14",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Jane Street",
@@ -2901,7 +3213,7 @@
     "posted_date": "2026-03-02",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Jane Street",
@@ -2913,7 +3225,7 @@
     "posted_date": "2023-03-20",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Jane Street",
@@ -2925,7 +3237,7 @@
     "posted_date": "2025-12-19",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Jane Street",
@@ -2937,7 +3249,7 @@
     "posted_date": "2025-09-22",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Jane Street",
@@ -2949,7 +3261,7 @@
     "posted_date": "2026-02-13",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Jane Street",
@@ -2961,31 +3273,7 @@
     "posted_date": "2025-04-09",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Jane Street",
-    "id": "gh-janestreet-8498547002",
-    "title": "Quantitative Researcher",
-    "location": "New York, New York, United States",
-    "url": "https://www.janestreet.com/join-jane-street/apply/8498547002?gh_jid=8498547002",
-    "source": "greenhouse",
-    "posted_date": "2026-07-06",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Jane Street",
-    "id": "gh-janestreet-8573726002",
-    "title": "Quantitative Researcher",
-    "location": "New York, New York, United States",
-    "url": "https://www.janestreet.com/join-jane-street/apply/8573726002?gh_jid=8573726002",
-    "source": "greenhouse",
-    "posted_date": "2026-06-02",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Jane Street",
@@ -2997,7 +3285,31 @@
     "posted_date": "2022-08-01",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
+  },
+  {
+    "firm": "Jane Street",
+    "id": "gh-janestreet-8498547002",
+    "title": "Quantitative Researcher",
+    "location": "New York, New York, United States",
+    "url": "https://www.janestreet.com/join-jane-street/apply/8498547002?gh_jid=8498547002",
+    "source": "greenhouse",
+    "posted_date": "2026-07-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-15",
+    "is_new": false
+  },
+  {
+    "firm": "Jane Street",
+    "id": "gh-janestreet-8573726002",
+    "title": "Quantitative Researcher",
+    "location": "New York, New York, United States",
+    "url": "https://www.janestreet.com/join-jane-street/apply/8573726002?gh_jid=8573726002",
+    "source": "greenhouse",
+    "posted_date": "2026-06-02",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-15",
+    "is_new": false
   },
   {
     "firm": "Jane Street",
@@ -3009,19 +3321,7 @@
     "posted_date": "2026-06-01",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Jane Street",
-    "id": "gh-janestreet-8617344002",
-    "title": "Quantitative Trader",
-    "location": "New York, New York, United States",
-    "url": "https://www.janestreet.com/join-jane-street/apply/8617344002?gh_jid=8617344002",
-    "source": "greenhouse",
-    "posted_date": "2026-07-06",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Jane Street",
@@ -3033,7 +3333,19 @@
     "posted_date": "2020-07-15",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
+  },
+  {
+    "firm": "Jane Street",
+    "id": "gh-janestreet-8617344002",
+    "title": "Quantitative Trader",
+    "location": "New York, New York, United States",
+    "url": "https://www.janestreet.com/join-jane-street/apply/8617344002?gh_jid=8617344002",
+    "source": "greenhouse",
+    "posted_date": "2026-07-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-15",
+    "is_new": false
   },
   {
     "firm": "Jane Street",
@@ -3045,7 +3357,7 @@
     "posted_date": "2026-01-16",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Jane Street",
@@ -3057,6 +3369,102 @@
     "posted_date": "2026-07-07",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
+    "is_new": false
+  },
+  {
+    "firm": "KKR",
+    "id": "gh-stage-6120000004",
+    "title": "Actuarial Associate, Insurance Risk Modeling",
+    "location": "New York, New York, United States",
+    "url": "https://www.kkr.com/careers/career-opportunities/post?gh_jid=6120000004",
+    "source": "greenhouse",
+    "posted_date": "2026-07-20",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "KKR",
+    "id": "gh-stage-5977229004",
+    "title": "Associate, Insurance Strategy and M&A Team",
+    "location": "New York, New York, United States",
+    "url": "https://www.kkr.com/careers/career-opportunities/post?gh_jid=5977229004",
+    "source": "greenhouse",
+    "posted_date": "2026-04-20",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "KKR",
+    "id": "gh-stage-6111988004",
+    "title": "Associate, Next Generation Technology",
+    "location": "New York, New York, United States",
+    "url": "https://www.kkr.com/careers/career-opportunities/post?gh_jid=6111988004",
+    "source": "greenhouse",
+    "posted_date": "2026-07-08",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "KKR",
+    "id": "gh-stage-6136175004",
+    "title": "Private Equity Product Strategies Analyst/ Associate",
+    "location": "New York, New York, United States",
+    "url": "https://www.kkr.com/careers/career-opportunities/post?gh_jid=6136175004",
+    "source": "greenhouse",
+    "posted_date": "2026-08-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "KKR",
+    "id": "gh-stage-6132074004",
+    "title": "Private Markets Compliance Officer - Senior Analyst/Associate",
+    "location": "New York, New York, United States",
+    "url": "https://www.kkr.com/careers/career-opportunities/post?gh_jid=6132074004",
+    "source": "greenhouse",
+    "posted_date": "2026-08-04",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "KKR",
+    "id": "gh-stage-6145282004",
+    "title": "Talent Acquisition Analyst/Recruiting Coordinator",
+    "location": "New York, New York, United States",
+    "url": "https://www.kkr.com/careers/career-opportunities/post?gh_jid=6145282004",
+    "source": "greenhouse",
+    "posted_date": "2026-08-17",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "KKR",
+    "id": "gh-stage-5792739004",
+    "title": "US Credit Solutions Group, Associate",
+    "location": "New York",
+    "url": "https://www.kkr.com/careers/career-opportunities/post?gh_jid=5792739004",
+    "source": "greenhouse",
+    "posted_date": "2026-02-04",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "LionTree",
+    "id": "gh-liontree-5153692007",
+    "title": "Capital Markets - Research Associate",
+    "location": "New York",
+    "url": "https://job-boards.greenhouse.io/liontree/jobs/5153692007",
+    "source": "greenhouse",
+    "posted_date": "2026-06-03",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
     "is_new": true
   },
   {
@@ -3069,7 +3477,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Moelis & Company",
@@ -3081,7 +3489,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Moelis & Company",
@@ -3093,7 +3501,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Moelis & Company",
@@ -3105,7 +3513,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Moelis & Company",
@@ -3117,7 +3525,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Moelis & Company",
@@ -3129,7 +3537,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Moelis & Company",
@@ -3141,7 +3549,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Moelis & Company",
@@ -3153,7 +3561,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Moelis & Company",
@@ -3165,7 +3573,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Moelis & Company",
@@ -3177,7 +3585,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Moelis & Company",
@@ -3189,7 +3597,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Moelis & Company",
@@ -3201,7 +3609,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Moelis & Company",
@@ -3213,7 +3621,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Moelis & Company",
@@ -3225,7 +3633,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Moelis & Company",
@@ -3237,7 +3645,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Moelis & Company",
@@ -3249,7 +3657,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Moelis & Company",
@@ -3261,7 +3669,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Moelis & Company",
@@ -3273,7 +3681,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Moelis & Company",
@@ -3285,7 +3693,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Moelis & Company",
@@ -3297,7 +3705,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3309,19 +3717,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Alternatives-Risk-Management--Senior-Associate_JR040208-1",
-    "title": "Alternatives Risk Management, Senior Associate",
-    "location": "New York, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Alternatives-Risk-Management--Senior-Associate_JR040208-1",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3333,7 +3729,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3345,43 +3741,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Associate-Market-Manager_JR036489",
-    "title": "Associate Market Manager",
-    "location": "New York, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Associate-Market-Manager_JR036489",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/Purchase-New-York-United-States-of-America/Associate-Market-Manager_JR023914-1",
-    "title": "Associate Market Manager",
-    "location": "Purchase, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/Purchase-New-York-United-States-of-America/Associate-Market-Manager_JR023914-1",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/Rochester-New-York-United-States-of-America/Associate-Market-Manager_JR029988",
-    "title": "Associate Market Manager",
-    "location": "Rochester, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/Rochester-New-York-United-States-of-America/Associate-Market-Manager_JR029988",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3393,7 +3753,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3405,7 +3765,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3417,7 +3777,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3429,7 +3789,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3441,7 +3801,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3453,7 +3813,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3465,7 +3825,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3477,7 +3837,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3489,19 +3849,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/CLO-Warehouse-Lending--Securitized-Products-Group--Fixed-Income-Division---Analyst-Associate_JR037383",
-    "title": "CLO Warehouse Lending, Securitized Products Group, Fixed Income Division - Analyst/Associate",
-    "location": "New York, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/CLO-Warehouse-Lending--Securitized-Products-Group--Fixed-Income-Division---Analyst-Associate_JR037383",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3513,7 +3861,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3525,7 +3873,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3537,19 +3885,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/Utica-New-York-United-States-of-America/Client-Relationship-Analyst_JR037288-1",
-    "title": "Client Relationship Analyst",
-    "location": "Utica, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/Utica-New-York-United-States-of-America/Client-Relationship-Analyst_JR037288-1",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3561,7 +3897,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3573,19 +3909,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Data-Engineer---Financial-Crimes---Associate_PT-JR035703",
-    "title": "Data Engineer - Financial Crimes - Associate",
-    "location": "New York, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Data-Engineer---Financial-Crimes---Associate_PT-JR035703",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3597,7 +3921,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3609,7 +3933,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3621,7 +3945,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3633,7 +3957,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3645,7 +3969,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3657,7 +3981,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3669,7 +3993,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3681,7 +4005,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3693,7 +4017,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3705,7 +4029,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3717,7 +4041,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3729,7 +4053,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3741,7 +4065,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3753,7 +4077,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3765,7 +4089,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3777,7 +4101,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3789,7 +4113,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3801,7 +4125,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3813,7 +4137,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3825,19 +4149,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Global-Capital-Markets-Investment-Grade-Corporate-Coverage-Associate---New-York_JR040219-2",
-    "title": "Global Capital Markets Investment Grade Corporate Coverage Associate \u2013 New York",
-    "location": "New York, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Global-Capital-Markets-Investment-Grade-Corporate-Coverage-Associate---New-York_JR040219-2",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3849,7 +4161,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3861,7 +4173,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3873,7 +4185,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3885,7 +4197,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3897,7 +4209,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3909,7 +4221,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3921,7 +4233,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3933,7 +4245,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3945,7 +4257,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3957,7 +4269,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3969,19 +4281,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Investment-Banking-M-A-Associate---New-York_JR027943",
-    "title": "Investment Banking M&A Associate \u2013 New York",
-    "location": "New York, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Investment-Banking-M-A-Associate---New-York_JR027943",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -3993,43 +4293,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/Purchase-New-York-United-States-of-America/Investment-Due-Diligence-Analyst_PT-JR035297",
-    "title": "Investment Due Diligence Analyst",
-    "location": "Purchase, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/Purchase-New-York-United-States-of-America/Investment-Due-Diligence-Analyst_PT-JR035297",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/MSIM---Passport-Equity-Investment-Analyst--VP_JR036499-1",
-    "title": "MSIM - Passport Equity Investment Analyst, VP",
-    "location": "New York, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/MSIM---Passport-Equity-Investment-Analyst--VP_JR036499-1",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/MSIM---Portfolio-Specialist--Fixed-Income---Senior-Associate_JR039787",
-    "title": "MSIM - Portfolio Specialist, Fixed Income - Senior Associate",
-    "location": "New York, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/MSIM---Portfolio-Specialist--Fixed-Income---Senior-Associate_JR039787",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -4041,7 +4305,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -4053,7 +4317,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -4065,19 +4329,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Multi-Asset---Alternatives-Risk-Associate_JR040096-1",
-    "title": "Multi-Asset & Alternatives Risk Associate",
-    "location": "New York, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Multi-Asset---Alternatives-Risk-Associate_JR040096-1",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -4089,19 +4341,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Non-Agency-CMBS-Trading---Fixed-Income-Division---Analyst-Associate_JR038427",
-    "title": "Non-Agency CMBS Trading - Fixed Income Division - Analyst/Associate",
-    "location": "New York, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Non-Agency-CMBS-Trading---Fixed-Income-Division---Analyst-Associate_JR038427",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -4113,7 +4353,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -4125,31 +4365,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/Purchase-New-York-United-States-of-America/Portfolio-Associate_JR033302-1",
-    "title": "Portfolio Associate",
-    "location": "Purchase, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/Purchase-New-York-United-States-of-America/Portfolio-Associate_JR033302-1",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/Purchase-New-York-United-States-of-America/Portfolio-Management-Associate_JR035095-1",
-    "title": "Portfolio Management Associate",
-    "location": "Purchase, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/Purchase-New-York-United-States-of-America/Portfolio-Management-Associate_JR035095-1",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -4161,7 +4377,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -4173,31 +4389,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Private-Wealth-Management-Associate_JR038572",
-    "title": "Private Wealth Management Associate",
-    "location": "New York, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Private-Wealth-Management-Associate_JR038572",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Private-Wealth-Management-Client-Service-Associate_JR039106",
-    "title": "Private Wealth Management Client Service Associate",
-    "location": "New York, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Private-Wealth-Management-Client-Service-Associate_JR039106",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -4209,7 +4401,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -4221,7 +4413,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -4233,7 +4425,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -4245,7 +4437,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -4257,19 +4449,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/Garden-City-New-York-United-States-of-America/Registered-Client-Relationship-Analyst_JR040515",
-    "title": "Registered Client Relationship Analyst",
-    "location": "Garden City, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/Garden-City-New-York-United-States-of-America/Registered-Client-Relationship-Analyst_JR040515",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -4281,7 +4461,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -4293,7 +4473,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -4305,7 +4485,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -4317,54 +4497,30 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/Glens-Falls-New-York-United-States-of-America/Registered-Client-Service-Associate_JR039000-1",
-    "title": "Registered Client Service Associate",
-    "location": "Glens Falls, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/Glens-Falls-New-York-United-States-of-America/Registered-Client-Service-Associate_JR039000-1",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Regulatory-Oversight-and-Management---Investment-Management--Office-of-COO---Associate_JR040309",
-    "title": "Regulatory Oversight and Management - Investment Management, Office of COO - Associate",
+    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Return-To-Work---Finance-Associate---New-York--NY_JR043885",
+    "title": "Return To Work - Finance Associate | New York, NY",
     "location": "New York, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Regulatory-Oversight-and-Management---Investment-Management--Office-of-COO---Associate_JR040309",
+    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Return-To-Work---Finance-Associate---New-York--NY_JR043885",
     "source": "workday",
     "posted_date": null,
     "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
+    "first_seen": "2026-09-16",
     "is_new": true
   },
   {
     "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Regulatory-Reporting-Operations--Associate_PT-JR039557-1",
-    "title": "Regulatory Reporting Operations- Associate",
+    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Return-To-Work---Virtual-Engagement-Associate--VEA----New-York--NY_JR043619",
+    "title": "Return To Work - Virtual Engagement Associate (VEA) | New York, NY",
     "location": "New York, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Regulatory-Reporting-Operations--Associate_PT-JR039557-1",
+    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Return-To-Work---Virtual-Engagement-Associate--VEA----New-York--NY_JR043619",
     "source": "workday",
     "posted_date": null,
     "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Risk-Analyst_PT-JR037902-1",
-    "title": "Risk Analyst",
-    "location": "New York, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Risk-Analyst_PT-JR037902-1",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
+    "first_seen": "2026-09-16",
     "is_new": true
   },
   {
@@ -4377,7 +4533,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -4389,7 +4545,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -4401,19 +4557,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/WM-Equity-Derivative-Solutions-Platform-Transaction-Associate_PT-JR038842",
-    "title": "WM Equity Derivative Solutions Platform Transaction Associate",
-    "location": "New York, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/WM-Equity-Derivative-Solutions-Platform-Transaction-Associate_PT-JR038842",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -4425,7 +4569,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -4437,43 +4581,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Wealth-Management-Associate_JR040100",
-    "title": "Wealth Management Associate",
-    "location": "New York, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Wealth-Management-Associate_JR040100",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/Glens-Falls-New-York-United-States-of-America/Wealth-Management-Associate_JR040047-1",
-    "title": "Wealth Management Associate",
-    "location": "Glens Falls, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/Glens-Falls-New-York-United-States-of-America/Wealth-Management-Associate_JR040047-1",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/Purchase-New-York-United-States-of-America/Wealth-Management-Strategic-Solutions-Product-Owner-Business-Analyst---Associate_JR038430",
-    "title": "Wealth Management Strategic Solutions Product Owner/Business Analyst - Associate",
-    "location": "Purchase, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/Purchase-New-York-United-States-of-America/Wealth-Management-Strategic-Solutions-Product-Owner-Business-Analyst---Associate_JR038430",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Neuberger Berman",
@@ -4485,7 +4593,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Neuberger Berman",
@@ -4497,7 +4605,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Neuberger Berman",
@@ -4509,7 +4617,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Neuberger Berman",
@@ -4521,7 +4629,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Neuberger Berman",
@@ -4533,19 +4641,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Neuberger Berman",
-    "id": "wd-nb-NBCareers-/job/New-York-NY/Client-Associate_R0012306-1",
-    "title": "Client Associate",
-    "location": "New York, NY",
-    "url": "https://nb.wd1.myworkdayjobs.com/NBCareers/job/New-York-NY/Client-Associate_R0012306-1",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Neuberger Berman",
@@ -4557,7 +4653,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Neuberger Berman",
@@ -4569,7 +4665,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Neuberger Berman",
@@ -4581,7 +4677,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Neuberger Berman",
@@ -4593,7 +4689,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Neuberger Berman",
@@ -4605,7 +4701,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Neuberger Berman",
@@ -4617,7 +4713,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Neuberger Berman",
@@ -4629,7 +4725,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Neuberger Berman",
@@ -4641,7 +4737,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Neuberger Berman",
@@ -4653,7 +4749,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Neuberger Berman",
@@ -4665,7 +4761,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Neuberger Berman",
@@ -4677,7 +4773,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Neuberger Berman",
@@ -4689,7 +4785,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Neuberger Berman",
@@ -4701,7 +4797,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Neuberger Berman",
@@ -4713,7 +4809,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "PGIM",
@@ -4725,7 +4821,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "PGIM",
@@ -4737,7 +4833,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "StepStone",
@@ -4749,7 +4845,7 @@
     "posted_date": "2026-08-19",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "StepStone",
@@ -4761,7 +4857,7 @@
     "posted_date": "2026-08-03",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "StepStone",
@@ -4773,7 +4869,7 @@
     "posted_date": "2026-08-12",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "StepStone",
@@ -4785,7 +4881,7 @@
     "posted_date": "2026-06-26",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "StepStone",
@@ -4797,7 +4893,7 @@
     "posted_date": "2026-03-05",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "StepStone",
@@ -4809,7 +4905,7 @@
     "posted_date": "2026-08-03",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "StepStone",
@@ -4821,7 +4917,7 @@
     "posted_date": "2026-07-13",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "TPG",
@@ -4833,7 +4929,7 @@
     "posted_date": "2026-07-14",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "TPG",
@@ -4845,7 +4941,7 @@
     "posted_date": "2026-07-30",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "TPG",
@@ -4857,7 +4953,7 @@
     "posted_date": "2026-08-04",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "TPG",
@@ -4869,7 +4965,7 @@
     "posted_date": "2026-07-10",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "TPG",
@@ -4881,7 +4977,7 @@
     "posted_date": "2026-07-21",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "TPG",
@@ -4893,7 +4989,7 @@
     "posted_date": "2026-07-03",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "TPG",
@@ -4905,7 +5001,7 @@
     "posted_date": "2026-08-13",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "TPG",
@@ -4917,7 +5013,7 @@
     "posted_date": "2026-08-20",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "TPG",
@@ -4929,7 +5025,7 @@
     "posted_date": "2026-07-31",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "TPG",
@@ -4941,7 +5037,7 @@
     "posted_date": "2026-08-13",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "TPG",
@@ -4953,7 +5049,7 @@
     "posted_date": "2026-05-11",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Virtu Financial",
@@ -4965,7 +5061,7 @@
     "posted_date": "2022-04-18",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Virtu Financial",
@@ -4977,7 +5073,7 @@
     "posted_date": "2019-04-11",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Virtu Financial",
@@ -4989,7 +5085,7 @@
     "posted_date": "2025-05-16",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Warburg Pincus",
@@ -5001,6 +5097,42 @@
     "posted_date": "2025-10-28",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
+    "is_new": false
+  },
+  {
+    "firm": "Wells Fargo",
+    "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/Analyst--Corporate-Banking---Industrials-Portfolio-Management_R-575742",
+    "title": "Analyst, Corporate Banking - Industrials Portfolio Management",
+    "location": "NEW YORK, NY",
+    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/NEW-YORK-NY/Analyst--Corporate-Banking---Industrials-Portfolio-Management_R-575742",
+    "source": "workday",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "Wells Fargo",
+    "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/Associate--Commercial-Mortgage-Pursuit-Specialist_R-546836",
+    "title": "Associate, Commercial Mortgage Pursuit Specialist",
+    "location": "NEW YORK, NY",
+    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/NEW-YORK-NY/Associate--Commercial-Mortgage-Pursuit-Specialist_R-546836",
+    "source": "workday",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "Wells Fargo",
+    "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/Associate--Corporate-Rates-Sales_R-565847",
+    "title": "Associate, Corporate Rates Sales",
+    "location": "NEW YORK, NY",
+    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/NEW-YORK-NY/Associate--Corporate-Rates-Sales_R-565847",
+    "source": "workday",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
     "is_new": true
   },
   {
@@ -5013,7 +5145,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Wells Fargo",
@@ -5025,6 +5157,18 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
+    "is_new": false
+  },
+  {
+    "firm": "Wells Fargo",
+    "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/Corporate-Banking-Associate---Relationship-Management---TMT_R-575583",
+    "title": "Corporate Banking Associate \u2013 Relationship Management \u2013 TMT",
+    "location": "NEW YORK, NY",
+    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/NEW-YORK-NY/Corporate-Banking-Associate---Relationship-Management---TMT_R-575583",
+    "source": "workday",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
     "is_new": true
   },
   {
@@ -5037,7 +5181,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Wells Fargo",
@@ -5049,19 +5193,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Wells Fargo",
-    "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/Lead-Finance-Analyst--CIB-Markets_R-552294-1",
-    "title": "Lead Finance Analyst- CIB Markets",
-    "location": "NEW YORK, NY",
-    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/NEW-YORK-NY/Lead-Finance-Analyst--CIB-Markets_R-552294-1",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Wells Fargo",
@@ -5073,6 +5205,90 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
+    "is_new": false
+  },
+  {
+    "firm": "William Blair",
+    "id": "gh-williamblair-5226731007",
+    "title": "Investment Banking Analyst - Biotechnology",
+    "location": "Chicago, Illinois, United States; New York, New York",
+    "url": "https://www.williamblair.com/Careers/job-description?gh_jid=5226731007",
+    "source": "greenhouse",
+    "posted_date": "2026-09-01",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "William Blair",
+    "id": "gh-williamblair-5187601007",
+    "title": "Investment Banking Associate - Biotechnology",
+    "location": "Chicago, Illinois, United States; New York, New York",
+    "url": "https://www.williamblair.com/Careers/job-description?gh_jid=5187601007",
+    "source": "greenhouse",
+    "posted_date": "2026-07-17",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "William Blair",
+    "id": "gh-williamblair-4944362007",
+    "title": "Investment Banking Associate - Industrial Growth Products",
+    "location": "Chicago, Illinois, United States; New York, New York",
+    "url": "https://www.williamblair.com/Careers/job-description?gh_jid=4944362007",
+    "source": "greenhouse",
+    "posted_date": "2025-10-15",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "William Blair",
+    "id": "gh-williamblair-5186683007",
+    "title": "Investment Banking Associate - Industrial Growth Products (Energy/Energy Transition)",
+    "location": "Chicago, Illinois, United States; New York, New York",
+    "url": "https://www.williamblair.com/Careers/job-description?gh_jid=5186683007",
+    "source": "greenhouse",
+    "posted_date": "2026-07-15",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "William Blair",
+    "id": "gh-williamblair-5192918007",
+    "title": "Investment Banking Associate - Industrial Growth Products (Material Sciences)",
+    "location": "New York, New York",
+    "url": "https://www.williamblair.com/Careers/job-description?gh_jid=5192918007",
+    "source": "greenhouse",
+    "posted_date": "2026-07-22",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "William Blair",
+    "id": "gh-williamblair-5226724007",
+    "title": "Investment Banking Associate - Private Capital Advisory, GP-Led Secondaries",
+    "location": "New York, New York",
+    "url": "https://www.williamblair.com/Careers/job-description?gh_jid=5226724007",
+    "source": "greenhouse",
+    "posted_date": "2026-09-01",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "William Blair",
+    "id": "gh-williamblair-5214826007",
+    "title": "Senior Research Associate - Consumer Sector",
+    "location": "Chicago, Illinois, United States; New York, New York",
+    "url": "https://www.williamblair.com/Careers/job-description?gh_jid=5214826007",
+    "source": "greenhouse",
+    "posted_date": "2026-08-18",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
     "is_new": true
   },
   {
@@ -5085,7 +5301,7 @@
     "posted_date": "2026-08-14",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "iCapital",
@@ -5097,7 +5313,7 @@
     "posted_date": "2026-08-14",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "iCapital",
@@ -5109,7 +5325,7 @@
     "posted_date": "2026-04-06",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "iCapital",
@@ -5121,7 +5337,7 @@
     "posted_date": "2026-06-10",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "iCapital",
@@ -5133,7 +5349,7 @@
     "posted_date": "2026-05-20",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "iCapital",
@@ -5145,7 +5361,7 @@
     "posted_date": "2026-09-03",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "iCapital",
@@ -5157,7 +5373,7 @@
     "posted_date": "2026-04-14",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "iCapital",
@@ -5169,7 +5385,7 @@
     "posted_date": "2026-08-14",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "iCapital",
@@ -5181,7 +5397,7 @@
     "posted_date": "2026-08-19",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "iCapital",
@@ -5193,6 +5409,18 @@
     "posted_date": "2026-04-02",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
+    "is_new": false
+  },
+  {
+    "firm": "iCapital",
+    "id": "gh-icapitalnetwork-8812006002",
+    "title": "Regulatory and Compliance, Subscription Document Review - Associate",
+    "location": "New York, New York, United States",
+    "url": "https://job-boards.greenhouse.io/icapitalnetwork/jobs/8812006002",
+    "source": "greenhouse",
+    "posted_date": "2026-09-15",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
     "is_new": true
   },
   {
@@ -5205,7 +5433,7 @@
     "posted_date": "2026-09-09",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "iCapital",
@@ -5217,7 +5445,7 @@
     "posted_date": "2026-08-10",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "BTIG",
@@ -5229,7 +5457,7 @@
     "posted_date": "2026-07-28",
     "metro": "SF / Bay Area",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Bank of America",
@@ -5241,7 +5469,7 @@
     "posted_date": null,
     "metro": "SF / Bay Area",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Bank of America",
@@ -5253,7 +5481,7 @@
     "posted_date": null,
     "metro": "SF / Bay Area",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -5265,7 +5493,7 @@
     "posted_date": null,
     "metro": "SF / Bay Area",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -5277,7 +5505,7 @@
     "posted_date": null,
     "metro": "SF / Bay Area",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blue Owl Capital",
@@ -5289,6 +5517,18 @@
     "posted_date": null,
     "metro": "SF / Bay Area",
     "first_seen": "2026-09-15",
+    "is_new": false
+  },
+  {
+    "firm": "Ducera Partners",
+    "id": "gh-ducerapartners-6213002003",
+    "title": "Associate - Mergers & Acquisitions - San Francisco",
+    "location": "San Francisco, California, United States",
+    "url": "https://job-boards.greenhouse.io/ducerapartners/jobs/6213002003",
+    "source": "greenhouse",
+    "posted_date": "2024-09-19",
+    "metro": "SF / Bay Area",
+    "first_seen": "2026-09-16",
     "is_new": true
   },
   {
@@ -5301,6 +5541,18 @@
     "posted_date": null,
     "metro": "SF / Bay Area",
     "first_seen": "2026-09-15",
+    "is_new": false
+  },
+  {
+    "firm": "KKR",
+    "id": "gh-stage-6119767004",
+    "title": "Investment Operations Analyst",
+    "location": "San Francisco, California, United States",
+    "url": "https://www.kkr.com/careers/career-opportunities/post?gh_jid=6119767004",
+    "source": "greenhouse",
+    "posted_date": "2026-08-13",
+    "metro": "SF / Bay Area",
+    "first_seen": "2026-09-16",
     "is_new": true
   },
   {
@@ -5313,7 +5565,7 @@
     "posted_date": null,
     "metro": "SF / Bay Area",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -5325,7 +5577,7 @@
     "posted_date": null,
     "metro": "SF / Bay Area",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -5337,7 +5589,7 @@
     "posted_date": null,
     "metro": "SF / Bay Area",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -5349,19 +5601,7 @@
     "posted_date": null,
     "metro": "SF / Bay Area",
     "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/Palo-Alto-CA-1400/Private-Wealth-Management-Senior-Client-Relationship-Analyst_JR038195-1",
-    "title": "Private Wealth Management Senior Client Relationship Analyst",
-    "location": "Palo Alto CA 1400",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/Palo-Alto-CA-1400/Private-Wealth-Management-Senior-Client-Relationship-Analyst_JR038195-1",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "SF / Bay Area",
-    "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -5373,7 +5613,7 @@
     "posted_date": null,
     "metro": "SF / Bay Area",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -5385,7 +5625,7 @@
     "posted_date": null,
     "metro": "SF / Bay Area",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -5397,7 +5637,7 @@
     "posted_date": null,
     "metro": "SF / Bay Area",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -5409,7 +5649,7 @@
     "posted_date": null,
     "metro": "SF / Bay Area",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -5421,19 +5661,7 @@
     "posted_date": null,
     "metro": "SF / Bay Area",
     "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/Palo-Alto-California-United-States-of-America/Registered-Client-Service-Associate_JR036271-1",
-    "title": "Registered Client Service Associate",
-    "location": "Palo Alto, California, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/Palo-Alto-California-United-States-of-America/Registered-Client-Service-Associate_JR036271-1",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "SF / Bay Area",
-    "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -5445,7 +5673,7 @@
     "posted_date": null,
     "metro": "SF / Bay Area",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -5457,7 +5685,7 @@
     "posted_date": null,
     "metro": "SF / Bay Area",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -5469,19 +5697,7 @@
     "posted_date": null,
     "metro": "SF / Bay Area",
     "first_seen": "2026-09-15",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/Menlo-Park-California-United-States-of-America/Wealth-Management-Associate_JR007359",
-    "title": "Wealth Management Associate",
-    "location": "Menlo Park, California, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/Menlo-Park-California-United-States-of-America/Wealth-Management-Associate_JR007359",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "SF / Bay Area",
-    "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "PGIM",
@@ -5493,7 +5709,7 @@
     "posted_date": null,
     "metro": "SF / Bay Area",
     "first_seen": "2026-09-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "PGIM",
@@ -5505,6 +5721,42 @@
     "posted_date": null,
     "metro": "SF / Bay Area",
     "first_seen": "2026-09-15",
+    "is_new": false
+  },
+  {
+    "firm": "William Blair",
+    "id": "gh-williamblair-5181697007",
+    "title": "2027 Investment Banking Full-Time MBA Associate",
+    "location": "Atlanta, Georgia; Boston, Massachusetts; Charlotte, North Carolina; Chicago, Illinois, United States; Los Angeles, California; San Francisco, California",
+    "url": "https://www.williamblair.com/Careers/job-description?gh_jid=5181697007",
+    "source": "greenhouse",
+    "posted_date": "2026-07-14",
+    "metro": "SF / Bay Area",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "William Blair",
+    "id": "gh-williamblair-4730471007",
+    "title": "Investment Banking Associate - Technology",
+    "location": "Atlanta, Georgia; Chicago, Illinois, United States; Los Angeles, California; San Francisco, California",
+    "url": "https://www.williamblair.com/Careers/job-description?gh_jid=4730471007",
+    "source": "greenhouse",
+    "posted_date": "2025-06-09",
+    "metro": "SF / Bay Area",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "William Blair",
+    "id": "gh-williamblair-4715906007",
+    "title": "Investment Banking Senior Analyst - Technology",
+    "location": "Atlanta, Georgia; Chicago, Illinois, United States; Los Angeles, California; San Francisco, California",
+    "url": "https://www.williamblair.com/Careers/job-description?gh_jid=4715906007",
+    "source": "greenhouse",
+    "posted_date": "2026-01-28",
+    "metro": "SF / Bay Area",
+    "first_seen": "2026-09-16",
     "is_new": true
   }
 ]
