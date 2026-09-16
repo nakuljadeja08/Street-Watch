@@ -64,6 +64,7 @@ WORKDAY = {      # firm -> (tenant, datacenter, site)
     "Guggenheim Securities":    ("guggenheiminvestment", "wd5", "External"),
     "State Street":             ("statestreet","wd1", "Global"),
     "Baird":                    ("baird",      "wd1", "Careers"),
+    "BMO":                      ("bmo",        "wd3", "External"),
     # Best-effort tenant/site slugs from public careers URLs — a wrong site just
     # logs an error for that firm and skips it; correct it from the run output.
     # Still to map (custom / not-yet-found ATS): KKR, Carlyle, JPMorgan, Citi,
