@@ -47,7 +47,12 @@ behind Cloudflare; everything else uses plain `requests`.)
 ## Coverage — the registries in `pipeline.py`
 
 **Live now (Greenhouse):** Jane Street, DRW, IMC, Virtu, Optiver, Sixth Street,
-General Atlantic, TPG, Warburg Pincus, iCapital, CAIS, BTIG, StepStone, PJT*.
+General Atlantic, TPG, Warburg Pincus, iCapital, CAIS, BTIG, StepStone, **KKR**
+(token `stage`), **William Blair, EQT, Ducera Partners, LionTree**, PJT*.
+
+**Live now (custom fetchers):** **Citadel Securities** (WordPress admin-ajax via
+cloudscraper), **Citi** (`jobs.citi.com` Radancy results endpoint). Goldman
+(`higher.gs`) is scaffolded but its GraphQL is 404ing.
 
 **Wired, will flow once you run it (Workday — 19 firms):** Blackstone, Apollo,
 Blue Owl, Ares, Morgan Stanley, Houlihan Lokey, Wells Fargo, Moelis, Brookfield,
@@ -56,11 +61,12 @@ Wellington, Franklin Templeton, Guggenheim, State Street. (Tenant/site slugs are
 best-effort from public careers URLs — a wrong one just logs an error for that
 firm and skips it; fix it from the run output.)
 
-**Still to map (custom / not-yet-found ATS):** KKR, Carlyle, JPMorgan, Citi,
-Goldman Sachs (`higher.gs`), Jefferies, Evercore, Lazard, Centerview, Perella
-Weinberg, Rothschild, Nomura, RBC/TD/BMO/Scotia/CIBC, Barclays, HSBC, UBS, BNP,
-SocGen, Citadel Securities, SIG, PIMCO, AllianceBernstein, Hamilton Lane,
-StepStone, HPS. Drop each into the right registry dict at the top of
+**Still to map (custom / not-yet-found ATS):** JPMorgan (moved to
+jpmorganchase.com; Oracle Recruiting backend), Carlyle, Jefferies, Evercore,
+Lazard, Centerview, Perella Weinberg, Rothschild, Nomura, RBC/TD/BMO/Scotia/CIBC,
+Barclays, HSBC, UBS, BNP, SocGen, SIG, PIMCO, AllianceBernstein, Hamilton Lane,
+HPS. (Boutiques checked — none on public Greenhouse; they need per-firm Workday
+or custom mapping via the browser.) Drop each into the right registry dict at the top of
 `pipeline.py`:
 - **Greenhouse:** find the token → `<firm> careers greenhouse.io`
 - **Workday:** find `tenant.dcX.myworkdayjobs.com/<site>` → add `(tenant, dc, site)`
