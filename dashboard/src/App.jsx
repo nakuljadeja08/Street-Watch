@@ -149,6 +149,24 @@ export default function App() {
     });
   }, [jobs, apps, metro, recency, statusFilter, q]);
 
+  // how many rows are hidden purely for lacking a posted_date when a recency
+  // window is active (so "0 roles" under 24h is self-explanatory)
+  const hiddenNoDate = useMemo(() => {
+    if (recency === "all") return 0;
+    const needle = q.trim().toLowerCase();
+    let n = 0;
+    for (const j of jobs) {
+      if (metro !== "all" && j.metro !== metro) continue;
+      if (needle && !(j.firm + " " + j.title).toLowerCase().includes(needle)) continue;
+      const st = statusOf(j.id);
+      if (statusFilter === "tracked" && st === "none") continue;
+      if (statusFilter === "untracked" && st !== "none") continue;
+      if (["interested", "applied", "interview", "offer", "rejected"].includes(statusFilter) && st !== statusFilter) continue;
+      if (daysSince(j.posted_date) === null) n++;
+    }
+    return n;
+  }, [jobs, apps, metro, statusFilter, q, recency]);
+
   const stats = useMemo(() => {
     const c = { total: jobs.length, new: 0, applied: 0, interview: 0, offer: 0, tracked: 0 };
     for (const j of jobs) if (j.is_new) c.new++;
@@ -209,7 +227,11 @@ export default function App() {
       <main className="wrap">
         {error && <div className="err">{error}</div>}
         <div className="meta">
-          {loading ? "Loading…" : `${filtered.length} roles`}
+          {loading
+            ? "Loading…"
+            : `${filtered.length} roles` +
+              (recency !== "all" ? ` · posted ≤ ${recency === 1 || recency === "1" ? "24h" : recency + "d"}` : "") +
+              (hiddenNoDate ? ` · ${hiddenNoDate} hidden (no posted date)` : "")}
         </div>
         <div className="grid">
           {filtered.map((j) => {
