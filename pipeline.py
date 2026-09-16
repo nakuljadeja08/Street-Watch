@@ -324,6 +324,7 @@ def fetch_citadel(firm="Citadel Securities"):
 RADANCY = {              # firm -> host
     "Citi":     "jobs.citi.com",
     "Barclays": "search.jobs.barclays",
+    "ING":      "careers.ing.com",
 }
 RADANCY_METRO_KW = ["new york", "jersey city", "chicago", "san francisco", "bay area"]
 RADANCY_CARD_RE = re.compile(
@@ -408,7 +409,7 @@ def collect():
     rows = fetch_goldman("Goldman Sachs"); print(f"  {'Goldman Sachs':<24}{len(rows):>4}"); raw += rows
     print("Citadel Securities (cloudscraper)…")
     rows = fetch_citadel("Citadel Securities"); print(f"  {'Citadel Securities':<24}{len(rows):>4}"); raw += rows
-    print("Radancy (Citi, Barclays)…")
+    print("Radancy…")
     for f, host in RADANCY.items():
         rows = fetch_radancy(f, host, f.lower().split()[0]); print(f"  {f:<24}{len(rows):>4}"); raw += rows
 
