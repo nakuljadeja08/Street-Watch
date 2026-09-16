@@ -1,5 +1,6 @@
 /* Street Watch — "girlie" editorial theme: soft pink + cream + forest green,
-   Fraunces serif with italic accents. Committed light look. */
+   Fraunces serif with italic accents. Light by default; dark follows the
+   system unless the header toggle pins [data-theme]. */
 :root {
   color-scheme: light;
   --bg: #f7d7e0;          /* soft pink page */
@@ -12,6 +13,7 @@
   --line2: #ecd9c9;       /* cream border */
   --green: #17392a;       /* forest — primary accent/buttons */
   --greenS: #dbe7df;
+  --onGreen: #fdf3e2;     /* text on a green fill */
   --rose: #cf5f89;        /* hot rose accent */
   --roseS: #f8dde8;
   --lip: #c0392b;         /* lipstick red — NEW/hot */
@@ -22,6 +24,27 @@
   --goldS: #f2e7cb;
   --gray: #93818b;
   --grayS: #ece2e8;
+}
+/* dark palette — deep plum with brighter pinks/greens for contrast */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #1a1016; --bg2: #241820; --panel: #241a22; --panel2: #2e2029;
+    --ink: #f3e3ea; --soft: #b892a3; --line: #3a2833; --line2: #33242d;
+    --green: #7fb79b; --greenS: #23342c; --onGreen: #14231c;
+    --rose: #e888ac; --roseS: #3a2530; --lip: #f0798a; --lipS: #3d222a;
+    --blue: #8fb8d6; --blueS: #22303a; --gold: #d8b25e; --goldS: #37301c;
+    --gray: #a7929e; --grayS: #2c2530;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #1a1016; --bg2: #241820; --panel: #241a22; --panel2: #2e2029;
+  --ink: #f3e3ea; --soft: #b892a3; --line: #3a2833; --line2: #33242d;
+  --green: #7fb79b; --greenS: #23342c; --onGreen: #14231c;
+  --rose: #e888ac; --roseS: #3a2530; --lip: #f0798a; --lipS: #3d222a;
+  --blue: #8fb8d6; --blueS: #22303a; --gold: #d8b25e; --goldS: #37301c;
+  --gray: #a7929e; --grayS: #2c2530;
 }
 * { box-sizing: border-box; }
 body {
@@ -37,7 +60,17 @@ header {
     var(--panel);
   border-bottom: 1px solid var(--line);
   padding: 30px 0 22px;
+  position: relative;
 }
+.themeToggle {
+  position: absolute; top: 22px; right: 22px; z-index: 2;
+  width: 38px; height: 38px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--line); background: var(--panel); color: var(--rose);
+  font-size: 17px; line-height: 1; display: flex; align-items: center; justify-content: center;
+  transition: transform .14s, background .14s, color .14s, border-color .14s;
+}
+.themeToggle:hover { transform: rotate(-12deg); border-color: var(--rose); color: var(--rose); background: var(--roseS); }
+.themeToggle:focus-visible { outline: 2px solid var(--rose); outline-offset: 2px; }
 .eyebrow {
   font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .24em;
   text-transform: uppercase; color: var(--rose); margin: 0 0 6px;
@@ -84,7 +117,7 @@ h1 em {                    /* editorial italic accent, like the reference */
   padding: 6px 14px; border-radius: 999px; cursor: pointer; transition: .12s;
 }
 .seg button:hover { color: var(--ink); }
-.seg button[aria-pressed="true"] { background: var(--green); color: #fdf3e2; font-weight: 500; }
+.seg button[aria-pressed="true"] { background: var(--green); color: var(--onGreen); font-weight: 500; }
 input[type="search"] {
   flex: 1; min-width: 160px; font: inherit; font-size: 14px; padding: 9px 14px;
   border-radius: 999px; border: 1px solid var(--line); background: var(--panel); color: var(--ink);

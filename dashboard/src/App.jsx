@@ -42,16 +42,47 @@ function postedLabel(d) {
 }
 const today = () => new Date().toISOString().slice(0, 10);
 
+const SORTS = [
+  { v: "default", label: "Grouped" },
+  { v: "newest", label: "Newest" },
+  { v: "firm", label: "Firm A–Z" },
+];
+
+// read filter/sort state out of the URL so a link restores the same view
+function initialParams() {
+  try {
+    const p = new URLSearchParams(window.location.search);
+    return {
+      metro: p.get("metro") || "all",
+      recency: p.get("recency") || "all",
+      statusFilter: p.get("status") || "all",
+      q: p.get("q") || "",
+      sort: SORTS.some((s) => s.v === p.get("sort")) ? p.get("sort") : "default",
+    };
+  } catch {
+    return { metro: "all", recency: "all", statusFilter: "all", q: "", sort: "default" };
+  }
+}
+
 export default function App() {
+  const init = initialParams();
   const [jobs, setJobs] = useState([]);
   const [apps, setApps] = useState({}); // job_id -> {status, applied_at, notes}
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [metro, setMetro] = useState("all");
-  const [recency, setRecency] = useState("all");
-  const [statusFilter, setStatusFilter] = useState("all"); // all | tracked | untracked | <status>
-  const [q, setQ] = useState("");
+  const [metro, setMetro] = useState(init.metro);
+  const [recency, setRecency] = useState(init.recency);
+  const [statusFilter, setStatusFilter] = useState(init.statusFilter); // all | tracked | untracked | <status>
+  const [q, setQ] = useState(init.q);
+  const [sort, setSort] = useState(init.sort);
   const [scrolled, setScrolled] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    try {
+      return localStorage.getItem("sw-theme") || "auto";
+    } catch {
+      return "auto";
+    }
+  });
 
   // subtle shadow under the sticky filter bar once the page scrolls
   useEffect(() => {
@@ -59,6 +90,35 @@ export default function App() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // apply + persist the theme choice ("auto" follows the system)
+  useEffect(() => {
+    const root = document.documentElement;
+    if (theme === "auto") root.removeAttribute("data-theme");
+    else root.setAttribute("data-theme", theme);
+    try {
+      localStorage.setItem("sw-theme", theme);
+    } catch {}
+  }, [theme]);
+
+  const prefersDark =
+    typeof window !== "undefined" &&
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const effectiveDark = theme === "dark" || (theme === "auto" && prefersDark);
+  const toggleTheme = () => setTheme(effectiveDark ? "light" : "dark");
+
+  // mirror filters/sort into the URL (replaceState — no history spam)
+  useEffect(() => {
+    const p = new URLSearchParams();
+    if (metro !== "all") p.set("metro", metro);
+    if (recency !== "all") p.set("recency", String(recency));
+    if (statusFilter !== "all") p.set("status", statusFilter);
+    if (q.trim()) p.set("q", q.trim());
+    if (sort !== "default") p.set("sort", sort);
+    const qs = p.toString();
+    window.history.replaceState(null, "", qs ? `?${qs}` : window.location.pathname);
+  }, [metro, recency, statusFilter, q, sort]);
 
   useEffect(() => {
     (async () => {
@@ -93,12 +153,17 @@ export default function App() {
   const statusOf = (id) => apps[id]?.status || "none";
 
   const filtersActive =
-    metro !== "all" || recency !== "all" || statusFilter !== "all" || q.trim() !== "";
+    metro !== "all" ||
+    recency !== "all" ||
+    statusFilter !== "all" ||
+    q.trim() !== "" ||
+    sort !== "default";
   function clearFilters() {
     setMetro("all");
     setRecency("all");
     setStatusFilter("all");
     setQ("");
+    setSort("default");
   }
 
   async function saveNotes(job, raw) {
@@ -169,7 +234,7 @@ export default function App() {
   const filtered = useMemo(() => {
     const needle = q.trim().toLowerCase();
     const win = recency === "all" ? Infinity : Number(recency);
-    return jobs.filter((j) => {
+    const rows = jobs.filter((j) => {
       if (metro !== "all" && j.metro !== metro) return false;
       if (needle && !(j.firm + " " + j.title).toLowerCase().includes(needle)) return false;
       if (win !== Infinity) {
@@ -183,7 +248,18 @@ export default function App() {
         return false;
       return true;
     });
-  }, [jobs, apps, metro, recency, statusFilter, q]);
+    if (sort === "newest") {
+      // most-recently posted first; undated rows sink to the bottom
+      rows.sort((a, b) => (daysSince(a.posted_date) ?? Infinity) - (daysSince(b.posted_date) ?? Infinity));
+    } else if (sort === "firm") {
+      rows.sort(
+        (a, b) =>
+          (a.firm || "").localeCompare(b.firm || "") ||
+          (a.title || "").localeCompare(b.title || "")
+      );
+    }
+    return rows;
+  }, [jobs, apps, metro, recency, statusFilter, q, sort]);
 
   // how many rows are hidden purely for lacking a posted_date when a recency
   // window is active (so "0 roles" under 24h is self-explanatory)
@@ -220,6 +296,14 @@ export default function App() {
     <div className="app">
       <header>
         <div className="wrap">
+          <button
+            className="themeToggle"
+            onClick={toggleTheme}
+            aria-label={effectiveDark ? "Switch to light mode" : "Switch to dark mode"}
+            title={effectiveDark ? "Light mode" : "Dark mode"}
+          >
+            {effectiveDark ? "☀" : "☾"}
+          </button>
           <p className="eyebrow">Analyst &amp; Associate · Live from Supabase</p>
           <h1>Street <em>Watch</em></h1>
           <p className="sub">
@@ -241,6 +325,18 @@ export default function App() {
         <div className="bar-in">
           <Seg options={METROS.map((m) => ({ v: m, label: METRO_LABEL[m] }))} value={metro} onChange={setMetro} />
           <Seg options={RECENCY.map((r) => ({ v: r.d, label: r.label }))} value={recency} onChange={setRecency} />
+          <select
+            className="statusSel"
+            value={sort}
+            onChange={(e) => setSort(e.target.value)}
+            aria-label="Sort"
+          >
+            {SORTS.map((s) => (
+              <option key={s.v} value={s.v}>
+                {`Sort: ${s.label}`}
+              </option>
+            ))}
+          </select>
           <select className="statusSel" value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
             <option value="all">All statuses</option>
             <option value="untracked">Not tracked</option>
