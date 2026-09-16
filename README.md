@@ -51,8 +51,9 @@ General Atlantic, TPG, Warburg Pincus, iCapital, CAIS, BTIG, StepStone, **KKR**
 (token `stage`), **William Blair, EQT, Ducera Partners, LionTree**, PJT*.
 
 **Live now (custom fetchers):** **Citadel Securities** (WordPress admin-ajax via
-cloudscraper), **Citi** (`jobs.citi.com` Radancy results endpoint). Goldman
-(`higher.gs`) is scaffolded but its GraphQL is 404ing.
+cloudscraper), **Citi** and **Barclays** (Radancy `search-jobs/results` — one
+generic `fetch_radancy` handles both, add more banks to the `RADANCY` dict).
+Goldman (`higher.gs`) is scaffolded but its GraphQL is 404ing.
 
 **Wired, will flow once you run it (Workday — 19 firms):** Blackstone, Apollo,
 Blue Owl, Ares, Morgan Stanley, Houlihan Lokey, Wells Fargo, Moelis, Brookfield,
