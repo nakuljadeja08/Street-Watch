@@ -85,13 +85,13 @@ Custom career portals (no standard public API — each needs its own fetcher):
 - [ ] Citi (`jobs.citi.com` search API)
 - [ ] JPMorgan Chase
 - [ ] Jefferies, Evercore, Lazard, Centerview, Perella Weinberg, Rothschild
-- [ ] Citadel Securities — **investigated 2026-09-15, blocked.** Careers site
-      (citadelsecurities.com) is Cloudflare bot-gated (plain `requests` gets the
-      challenge, not JSON), and the SmartRecruiters slug `CitadelSecurities`
-      resolves but returns 0 postings. Real API needs browser capture (the
-      browser tool's policy check was down during this pass). Even once found, a
-      Cloudflare-gated endpoint likely needs the headless-browser path, not
-      `requests` — may not fit this pipeline as-is.
+- [x] **Citadel Securities** ✅ wired (`fetch_citadel`). Their WordPress careers
+      site loads via admin-ajax (`action=careers_listing_filter`,
+      `selected-job-sections=323,325,324,326`) returning JSON with an HTML
+      fragment of cards. It's behind Cloudflare, so the fetcher uses
+      `cloudscraper` (added to the workflow's pip install) to solve the JS
+      challenge — verified 84 jobs → 12 in-scope NY roles. Fails gracefully if
+      cloudscraper is missing or Cloudflare escalates.
 - [ ] Susquehanna (SIG)
 - [x] **KKR** ✅ wired — its careers page embeds a Greenhouse board under token
       `stage` (found via the iframe `for=stage`; `kkr` itself 404s). 139 jobs,

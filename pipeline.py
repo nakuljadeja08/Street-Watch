@@ -20,7 +20,7 @@ It will NOT run inside the Claude workspace (network locked to registries).
     python pipeline.py
 """
 from __future__ import annotations
-import csv, json, os, sys, time
+import csv, json, os, re, sys, time
 from datetime import datetime, timezone
 import requests
 
@@ -258,6 +258,60 @@ def fetch_goldman(firm="Goldman Sachs", search_text="", page_size=50, max_pages=
     return out
 
 
+# ---------------------------------------------------------------- Citadel Securities
+# Citadel Securities runs a WordPress careers site behind Cloudflare. The listing
+# loads via admin-ajax (action=careers_listing_filter) and returns JSON whose
+# `content` is an HTML fragment of cards. Plain requests get a Cloudflare "Just a
+# moment" 403, so this fetcher uses `cloudscraper` (pip install cloudscraper) to
+# solve the JS challenge. If cloudscraper isn't installed or the challenge can't
+# be solved, it logs and returns [] (graceful) — nothing else breaks.
+CS_AJAX = "https://www.citadelsecurities.com/wp-admin/admin-ajax.php"
+CS_SECTIONS = "323,325,324,326"   # WP taxonomy IDs for the job categories (all)
+# The fragment renders each card as an <a ...> whose attributes are split across
+# lines, so match the whole card anchor first, then pull fields out of it.
+CS_CARD_RE = re.compile(r'<a\b([^>]*?careers-listing-card[^>]*?)>(.*?)</a>', re.S)
+CS_HREF_RE = re.compile(r'href="([^"]+)"')
+CS_POS_RE = re.compile(r'data-position="([^"]*)"')
+CS_LOC_RE = re.compile(r'careers-listing-card__location">\s*(.*?)\s*</div>', re.S)
+
+
+def fetch_citadel(firm="Citadel Securities"):
+    try:
+        import cloudscraper
+    except Exception:
+        print("  ! citadel: cloudscraper not installed (pip install cloudscraper) — skipping",
+              file=sys.stderr)
+        return []
+    import html as _html
+    out = []
+    try:
+        s = cloudscraper.create_scraper(
+            browser={"browser": "chrome", "platform": "windows", "desktop": True})
+        body = {"action": "careers_listing_filter", "selected-job-sections": CS_SECTIONS,
+                "current_page": "1", "per_page": "500", "sort_order": "DESC"}
+        headers = {"X-Requested-With": "XMLHttpRequest",
+                   "Referer": "https://www.citadelsecurities.com/careers/open-opportunities/"}
+        r = s.post(CS_AJAX, headers=headers, data=body, timeout=45)
+        r.raise_for_status()
+        data = r.json()
+        content = data.get("content", "") or ""
+        for attrs, inner in CS_CARD_RE.findall(content):
+            href = CS_HREF_RE.search(attrs)
+            pos = CS_POS_RE.search(attrs)
+            loc = CS_LOC_RE.search(inner)
+            if not (href and pos):
+                continue
+            url = href.group(1).strip()
+            title = _html.unescape(pos.group(1)).strip()
+            loc_str = _html.unescape(re.sub(r"\s+", " ", loc.group(1))).strip() if loc else ""
+            slug = url.rstrip("/").rsplit("/", 1)[-1]
+            out.append(dict(firm=firm, id=f"cs-{slug}", title=title, location=loc_str,
+                            url=url, source="citadel", posted_date=None))
+    except Exception as e:
+        print(f"  ! citadel {firm}: {e}", file=sys.stderr)
+    return out
+
+
 # ---------------------------------------------------------------- filter/dedupe
 def metro_of(loc):
     l = loc.lower()
@@ -288,6 +342,8 @@ def collect():
         rows = fetch_workday(f, t, dc, s); print(f"  {f:<24}{len(rows):>4}"); raw += rows
     print("Goldman Sachs (higher.gs)…")
     rows = fetch_goldman("Goldman Sachs"); print(f"  {'Goldman Sachs':<24}{len(rows):>4}"); raw += rows
+    print("Citadel Securities (cloudscraper)…")
+    rows = fetch_citadel("Citadel Securities"); print(f"  {'Citadel Securities':<24}{len(rows):>4}"); raw += rows
 
     kept, seen = [], set()
     for r in raw:

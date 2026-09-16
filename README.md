@@ -39,7 +39,9 @@ firms' ATS APIs  ──►  pipeline.py  ──►  Supabase `jobs` table  ─�
 - Deploy the file to Vercel / Netlify / GitHub Pages. Done — it shows the live
   list and refreshes as the cron writes new rows.
 
-Test locally first: `pip install requests && python pipeline.py`
+Test locally first: `pip install requests cloudscraper && python pipeline.py`
+(`cloudscraper` is only needed for the Citadel Securities fetcher, which sits
+behind Cloudflare; everything else uses plain `requests`.)
 (prints the digest; add the two SUPABASE_* env vars to also write to the DB).
 
 ## Coverage — the registries in `pipeline.py`
@@ -81,6 +83,11 @@ slug likewise — both are stubbed and fail gracefully until confirmed.
   those as "unknown" and shows them only under "Any time".
 - Titles: market-makers (Jane Street, DRW, IMC…) get a wider keyword set
   (Trader / Quant Researcher / Graduate) so their junior roles aren't missed.
+- **Citadel Securities** (`fetch_citadel`) is live via its WordPress admin-ajax
+  listing, but that site is behind Cloudflare — so this one fetcher uses
+  `cloudscraper` to solve the JS challenge. If cloudscraper is missing or
+  Cloudflare escalates to a challenge it can't solve, the fetcher logs and
+  returns nothing (the rest of the run is unaffected).
 - **Goldman Sachs (`higher.gs`)** is scaffolded (`fetch_goldman`): the search
   posts operation `GetRoles` to `https://higher.gs.com/graphql`. That endpoint
   is currently 404 (GS-side), so the query is best-effort and fails gracefully
