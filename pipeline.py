@@ -313,50 +313,66 @@ def fetch_citadel(firm="Citadel Securities"):
     return out
 
 
-# ---------------------------------------------------------------- Citi
-# Citi runs a Radancy/TMP careers platform (jobs.citi.com). The results endpoint
-# returns JSON whose `results` is an HTML fragment of cards. Its free-text
-# Location param isn't honored, so we narrow by metro *keyword* and then let the
-# normal metro/title filters do the real work. Plain requests work (no bot gate).
-CITI_BASE = "https://jobs.citi.com/search-jobs/results"
-CITI_METRO_KW = ["new york", "jersey city", "chicago", "san francisco", "bay area"]
-CITI_ITEM_RE = re.compile(
-    r'<a class="sr-job-item__link" href="([^"]+)"[^>]*?data-job-id="(\d+)"[^>]*?>\s*'
-    r'(.*?)\s*</a>.*?sr-job-location">\s*(.*?)\s*</span>', re.S)
+# ---------------------------------------------------------------- Radancy/TMP
+# Several banks run the Radancy ("TalentBrew") careers platform: the endpoint
+# {host}/search-jobs/results returns JSON whose `results` is an HTML card
+# fragment. The free-text Location param isn't honored, so we narrow by metro
+# *keyword* and let the normal metro/title filters do the real work. Card themes
+# differ between tenants (Citi uses sr-job-item, Barclays uses job-title--link),
+# but all share a /job/ href, a data-job-id, and a "job-location" element — so
+# one generic parser handles them. Plain requests work (no bot gate).
+RADANCY = {              # firm -> host
+    "Citi":     "jobs.citi.com",
+    "Barclays": "search.jobs.barclays",
+}
+RADANCY_METRO_KW = ["new york", "jersey city", "chicago", "san francisco", "bay area"]
+RADANCY_CARD_RE = re.compile(
+    r'<a\b([^>]*?/job/[^>]*?)>(.*?)</a>'
+    r'.*?class="[^"]*job-location[^"]*"[^>]*>\s*(.*?)\s*</', re.S)
+RADANCY_HREF_RE = re.compile(r'href="([^"]+)"')
+RADANCY_JID_RE = re.compile(r'data-job-id="(\d+)"')
+_TAG_RE = re.compile(r"<[^>]+>")
 
 
-def fetch_citi(firm="Citi"):
+def fetch_radancy(firm, host, source):
     import html as _html
+    base = f"https://{host}/search-jobs/results"
     out, seen = [], set()
     try:
-        for kw in CITI_METRO_KW:
+        for kw in RADANCY_METRO_KW:
             page = 1
             while page <= 15:
                 params = {"ActiveFacetID": 0, "CurrentPage": page, "RecordsPerPage": 100,
                           "Keywords": kw, "SortCriteria": 0, "SearchType": 5,
                           "SearchResultsModuleName": "Search Results"}
-                r = requests.get(CITI_BASE, headers={**UA, "X-Requested-With": "XMLHttpRequest"},
+                r = requests.get(base, headers={**UA, "X-Requested-With": "XMLHttpRequest"},
                                  params=params, timeout=TIMEOUT)
                 r.raise_for_status()
                 frag = (r.json() or {}).get("results", "") or ""
-                items = CITI_ITEM_RE.findall(frag)
+                items = RADANCY_CARD_RE.findall(frag)
                 if not items:
                     break
-                for href, jid, title, loc in items:
+                for attrs, title_html, loc in items:
+                    hm = RADANCY_HREF_RE.search(attrs)
+                    if not hm:
+                        continue
+                    href = hm.group(1).strip()
+                    jm = RADANCY_JID_RE.search(attrs)
+                    jid = jm.group(1) if jm else href.rstrip("/").rsplit("/", 1)[-1]
                     if jid in seen:
                         continue
                     seen.add(jid)
-                    out.append(dict(firm=firm, id=f"citi-{jid}",
-                                    title=_html.unescape(re.sub(r"\s+", " ", title)).strip(),
-                                    location=_html.unescape(re.sub(r"\s+", " ", loc)).strip(),
-                                    url="https://jobs.citi.com" + href,
-                                    source="citi", posted_date=None))
+                    title = _html.unescape(re.sub(r"\s+", " ", _TAG_RE.sub("", title_html))).strip()
+                    loc_str = _html.unescape(re.sub(r"\s+", " ", loc)).strip()
+                    url = href if href.startswith("http") else f"https://{host}{href}"
+                    out.append(dict(firm=firm, id=f"{source}-{jid}", title=title,
+                                    location=loc_str, url=url, source=source, posted_date=None))
                 if len(items) < 100:
                     break
                 page += 1
                 time.sleep(0.25)
     except Exception as e:
-        print(f"  ! citi {firm}: {e}", file=sys.stderr)
+        print(f"  ! {source} {firm}: {e}", file=sys.stderr)
     return out
 
 
@@ -392,8 +408,9 @@ def collect():
     rows = fetch_goldman("Goldman Sachs"); print(f"  {'Goldman Sachs':<24}{len(rows):>4}"); raw += rows
     print("Citadel Securities (cloudscraper)…")
     rows = fetch_citadel("Citadel Securities"); print(f"  {'Citadel Securities':<24}{len(rows):>4}"); raw += rows
-    print("Citi (Radancy)…")
-    rows = fetch_citi("Citi"); print(f"  {'Citi':<24}{len(rows):>4}"); raw += rows
+    print("Radancy (Citi, Barclays)…")
+    for f, host in RADANCY.items():
+        rows = fetch_radancy(f, host, f.lower().split()[0]); print(f"  {f:<24}{len(rows):>4}"); raw += rows
 
     kept, seen = [], set()
     for r in raw:

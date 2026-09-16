@@ -82,10 +82,14 @@ Custom career portals (no standard public API — each needs its own fetcher):
       the scaffold is best-effort. When the endpoint responds 200, copy the real
       request payload (DevTools → Network → POST /graphql) into
       `GS_GETROLES_QUERY`/`variables`. Fails gracefully until then.
-- [x] **Citi** ✅ wired (`fetch_citi`). `jobs.citi.com` Radancy results endpoint
-      (`/search-jobs/results`, JSON with an HTML card fragment); narrowed by metro
-      keyword, parsed for title/location/URL. Plain requests work (no bot gate).
-      Verified 1125 raw → 111 in-scope (NY 100, SF 9, Chicago 2).
+- [x] **Citi** + **Barclays** ✅ wired via a generic **`fetch_radancy`** (Radancy
+      `/search-jobs/results`, JSON HTML fragment; narrowed by metro keyword). One
+      parser handles both card themes; add more banks to the `RADANCY` dict.
+      Citi ~113 in-scope, Barclays ~9. Plain requests, no bot gate.
+- [ ] Global-bank Workday probe (HSBC, UBS, BNP, SocGen, Nomura, Mizuho, MUFG,
+      SMBC, Macquarie, Standard Chartered, Santander, ING, …) → **no hits**; they
+      use custom/Avature/Radancy. Next: check each for a Radancy `search-jobs`
+      host (cheap), else per-firm browser capture.
 - [ ] JPMorgan Chase — careers moved to jpmorganchase.com (AEM marketing home);
       job search now sits on an Oracle Recruiting backend. Needs deeper browser
       capture of the Oracle/Phenom search API. Deferred.
