@@ -185,10 +185,10 @@ export default function App() {
       <header>
         <div className="wrap">
           <p className="eyebrow">Analyst &amp; Associate · Live from Supabase</p>
-          <h1>Street Watch</h1>
+          <h1>Street <em>Watch</em></h1>
           <p className="sub">
-            Live openings with a built-in application tracker. Set a status on any role —
-            it saves to Supabase instantly.
+            Your openings, your rhythm. Live Analyst &amp; Associate roles with a built-in
+            application tracker — set a status on any role and it saves to Supabase instantly.
           </p>
           <div className="stats">
             <Stat n={stats.total} label="roles" />
