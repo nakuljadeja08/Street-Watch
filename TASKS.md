@@ -123,7 +123,12 @@ Custom career portals (no standard public API — each needs its own fetcher):
   sandbox (network resets caused false negatives), so absence of a hit there is
   NOT proof a firm lacks a public board — re-probe from a stable network.
 - [ ] PIMCO, AllianceBernstein
-- [ ] Remaining banks: Barclays, HSBC, UBS, BNP Paribas, SocGen, Nomura, RBC, TD, BMO, Scotiabank, CIBC
+- [x] **BMO** (Workday bmo.wd3/External), **TD Bank** (td.wd3/TD_Bank_Careers),
+      **CIBC** (cibc.wd3/search — unusual slug), **Barclays** + **ING** (Radancy).
+      **RBC** = Phenom (`/widgets` batch API — deferred, heavier lift but high
+      leverage since many banks use Phenom). **Scotiabank** = SAP SuccessFactors
+      (deferred). Still open: HSBC (Avature), UBS, BNP, SocGen, Nomura, and the
+      rest of the global banks.
 - [ ] Middle-market: Stifel, Raymond James, Piper Sandler, William Blair, Baird, Oppenheimer, Cantor
 > Priority order (highest hiring volume first): **Goldman, Citi, Citadel Securities, KKR, JPMorgan.**
 
