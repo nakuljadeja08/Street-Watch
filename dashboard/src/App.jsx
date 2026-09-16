@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { supabase, STATUSES } from "./supabaseClient.js";
 
 const METROS = ["all", "NY + Jersey City", "SF / Bay Area", "Chicago"];
@@ -51,6 +51,14 @@ export default function App() {
   const [recency, setRecency] = useState("all");
   const [statusFilter, setStatusFilter] = useState("all"); // all | tracked | untracked | <status>
   const [q, setQ] = useState("");
+  const [scrolled, setScrolled] = useState(false);
+
+  // subtle shadow under the sticky filter bar once the page scrolls
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     (async () => {
@@ -83,6 +91,34 @@ export default function App() {
   }, []);
 
   const statusOf = (id) => apps[id]?.status || "none";
+
+  const filtersActive =
+    metro !== "all" || recency !== "all" || statusFilter !== "all" || q.trim() !== "";
+  function clearFilters() {
+    setMetro("all");
+    setRecency("all");
+    setStatusFilter("all");
+    setQ("");
+  }
+
+  async function saveNotes(job, raw) {
+    const prev = apps[job.id];
+    if (!prev) return; // notes only live on a tracked (existing) row
+    const value = raw.trim() || null;
+    if ((prev.notes || null) === value) return; // no-op
+    setApps((m) => ({ ...m, [job.id]: { ...m[job.id], notes: value } }));
+    try {
+      const { error } = await supabase
+        .from("applications")
+        .update({ notes: value })
+        .eq("job_id", job.id);
+      if (error) throw error;
+    } catch (e) {
+      setApps((m) => ({ ...m, [job.id]: { ...m[job.id], notes: prev.notes || null } }));
+      setError(`Could not save note: ${e.message || e}`);
+      setTimeout(() => setError(""), 4000);
+    }
+  }
 
   async function setStatus(job, next) {
     const prev = apps[job.id];
@@ -201,7 +237,7 @@ export default function App() {
         </div>
       </header>
 
-      <div className="bar">
+      <div className={`bar ${scrolled ? "scrolled" : ""}`}>
         <div className="bar-in">
           <Seg options={METROS.map((m) => ({ v: m, label: METRO_LABEL[m] }))} value={metro} onChange={setMetro} />
           <Seg options={RECENCY.map((r) => ({ v: r.d, label: r.label }))} value={recency} onChange={setRecency} />
@@ -221,6 +257,11 @@ export default function App() {
             value={q}
             onChange={(e) => setQ(e.target.value)}
           />
+          {filtersActive && (
+            <button className="clearBtn" onClick={clearFilters}>
+              Clear ✕
+            </button>
+          )}
         </div>
       </div>
 
@@ -234,6 +275,16 @@ export default function App() {
               (hiddenNoDate ? ` · ${hiddenNoDate} hidden (no posted date)` : "")}
         </div>
         <div className="grid">
+          {loading &&
+            Array.from({ length: 6 }).map((_, i) => (
+              <div className="card skel" key={`sk${i}`} aria-hidden="true">
+                <div className="sk-line sk-firm" />
+                <div className="sk-line sk-title" />
+                <div className="sk-line sk-title short" />
+                <div className="sk-line sk-loc" />
+                <div className="sk-line sk-track" />
+              </div>
+            ))}
           {filtered.map((j) => {
             const st = statusOf(j.id);
             const app = apps[j.id];
@@ -270,12 +321,26 @@ export default function App() {
                     ))}
                   </select>
                 </div>
+                {st !== "none" && (
+                  <NoteEditor value={app?.notes} onSave={(v) => saveNotes(j, v)} />
+                )}
               </div>
             );
           })}
         </div>
         {!loading && filtered.length === 0 && (
-          <div className="empty">No roles match the current filters.</div>
+          <div className="empty">
+            {filtersActive ? (
+              <>
+                No roles match these filters.
+                <button className="clearBtn ghost" onClick={clearFilters}>
+                  Clear filters
+                </button>
+              </>
+            ) : (
+              "No roles yet — the pipeline hasn't populated any openings."
+            )}
+          </div>
         )}
       </main>
 
@@ -286,6 +351,48 @@ export default function App() {
         </div>
       </footer>
     </div>
+  );
+}
+
+function NoteEditor({ value, onSave }) {
+  const [draft, setDraft] = useState(value || "");
+  const [open, setOpen] = useState(!!value);
+  const ref = useRef(null);
+  const openByUser = useRef(false);
+  useEffect(() => {
+    setDraft(value || "");
+    if (value) setOpen(true);
+  }, [value]);
+  useEffect(() => {
+    if (open && openByUser.current && ref.current) {
+      ref.current.focus();
+      openByUser.current = false;
+    }
+  }, [open]);
+
+  if (!open) {
+    return (
+      <button
+        className="noteAdd"
+        onClick={() => {
+          openByUser.current = true;
+          setOpen(true);
+        }}
+      >
+        ＋ Add note
+      </button>
+    );
+  }
+  return (
+    <textarea
+      ref={ref}
+      className="noteBox"
+      rows={2}
+      placeholder="Notes — recruiter, referral, deadline…"
+      value={draft}
+      onChange={(e) => setDraft(e.target.value)}
+      onBlur={() => onSave(draft)}
+    />
   );
 }
 
