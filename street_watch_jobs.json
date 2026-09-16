@@ -1,5 +1,29 @@
 [
   {
+    "firm": "Baird",
+    "id": "wd-baird-Careers-/job/IL-Chicago/Associate-Financial-Advisor_R2026932-1",
+    "title": "Associate Financial Advisor",
+    "location": "IL-Chicago",
+    "url": "https://baird.wd1.myworkdayjobs.com/Careers/job/IL-Chicago/Associate-Financial-Advisor_R2026932-1",
+    "source": "workday",
+    "posted_date": null,
+    "metro": "Chicago",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "Baird",
+    "id": "wd-baird-Careers-/job/IL-Chicago/Investment-Banking-Associate--Consumer_R2026317-1",
+    "title": "Investment Banking Associate - Consumer",
+    "location": "IL-Chicago",
+    "url": "https://baird.wd1.myworkdayjobs.com/Careers/job/IL-Chicago/Investment-Banking-Associate--Consumer_R2026317-1",
+    "source": "workday",
+    "posted_date": null,
+    "metro": "Chicago",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
     "firm": "Bank of America",
     "id": "wd-ghr-Lateral-US-/job/Chicago/Commercial-Associate---Commercial-Real-Estate-Team--Chicago-_26032834",
     "title": "Commercial Associate - Commercial Real Estate Team (Chicago)",
@@ -1692,18 +1716,6 @@
     "is_new": false
   },
   {
-    "firm": "Bank of America",
-    "id": "wd-ghr-Lateral-US-/job/NEW-YORK/Wealth-Management-Client-Associate_26028754",
-    "title": "Wealth Management Client Associate",
-    "location": "NEW YORK",
-    "url": "https://ghr.wd1.myworkdayjobs.com/Lateral-US/job/NEW-YORK/Wealth-Management-Client-Associate_26028754",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": true
-  },
-  {
     "firm": "Blackstone",
     "id": "wd-blackstone-Blackstone_Careers-/job/New-York/XMLNAME-2027-Blackstone-Private-Equity-Associate--New-York-_37621-1",
     "title": "2027 Blackstone Private Equity Associate (New York)",
@@ -3001,18 +3013,6 @@
   },
   {
     "firm": "Citi",
-    "id": "citi-99213748864",
-    "title": "Equity Research Senior Associate - FinTech",
-    "location": "New York, New York, United States",
-    "url": "https://jobs.citi.com/job/new-york/equity-research-senior-associate-fintech/287/99213748864",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": true
-  },
-  {
-    "firm": "Citi",
     "id": "citi-100479493424",
     "title": "Equity Research Senior Associate - FinTech",
     "location": "New York, New York, United States",
@@ -3709,6 +3709,18 @@
   },
   {
     "firm": "Citi",
+    "id": "citi-100709960624",
+    "title": "Senior Quantitative Analyst, Agency Prepayment Modeling",
+    "location": "New York, New York, United States",
+    "url": "https://jobs.citi.com/job/new-york/senior-quantitative-analyst-agency-prepayment-modeling/287/100709960624",
+    "source": "citi",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "Citi",
     "id": "citi-98236423728",
     "title": "Senior Quantitative Analyst, Front Office Market Risk \u2013 VP",
     "location": "New York, New York, United States",
@@ -4129,18 +4141,6 @@
   },
   {
     "firm": "Ducera Partners",
-    "id": "gh-ducerapartners-7581522003",
-    "title": "Analyst / Associate - Capital Solutions - New York",
-    "location": "New York, New York, United States",
-    "url": "https://job-boards.greenhouse.io/ducerapartners/jobs/7581522003",
-    "source": "greenhouse",
-    "posted_date": "2026-01-07",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": true
-  },
-  {
-    "firm": "Ducera Partners",
     "id": "gh-ducerapartners-7692641003",
     "title": "Associate - Growth Equity Investing / Mergers & Acquisitions - New York",
     "location": "New York, New York, United States",
@@ -4309,6 +4309,18 @@
   },
   {
     "firm": "Houlihan Lokey",
+    "id": "wd-hl-Lateral-/job/New-York-NY-USA/Investment-Banking-Associate---Technology_R3597",
+    "title": "Investment Banking Associate | Technology",
+    "location": "New York, NY, USA",
+    "url": "https://hl.wd1.myworkdayjobs.com/Lateral/job/New-York-NY-USA/Investment-Banking-Associate---Technology_R3597",
+    "source": "workday",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "Houlihan Lokey",
     "id": "wd-hl-Lateral-/job/New-York-NY-USA/Investment-Banking-Senior-Associate----Business-Services_R3454",
     "title": "Investment Banking Senior Associate |  Business Services",
     "location": "New York, NY, USA",
@@ -4345,34 +4357,10 @@
   },
   {
     "firm": "Invesco",
-    "id": "wd-invesco-IVZ-/job/New-York-New-York/Associate-Product-Manager_R-14463",
-    "title": "Associate Product Manager",
-    "location": "New York, New York",
-    "url": "https://invesco.wd1.myworkdayjobs.com/IVZ/job/New-York-New-York/Associate-Product-Manager_R-14463",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": false
-  },
-  {
-    "firm": "Invesco",
     "id": "wd-invesco-IVZ-/job/New-York-New-York/Business-Analyst--Investment-Compliance_R-14679",
     "title": "Business Analyst, Investment Compliance",
     "location": "New York, New York",
     "url": "https://invesco.wd1.myworkdayjobs.com/IVZ/job/New-York-New-York/Business-Analyst--Investment-Compliance_R-14679",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": false
-  },
-  {
-    "firm": "Invesco",
-    "id": "wd-invesco-IVZ-/job/New-York-New-York/Client-Portfolio-Analyst_R-14867",
-    "title": "Client Portfolio Analyst",
-    "location": "New York, New York",
-    "url": "https://invesco.wd1.myworkdayjobs.com/IVZ/job/New-York-New-York/Client-Portfolio-Analyst_R-14867",
     "source": "workday",
     "posted_date": null,
     "metro": "NY + Jersey City",
@@ -4501,12 +4489,12 @@
   },
   {
     "firm": "Jane Street",
-    "id": "gh-janestreet-6302325002",
+    "id": "gh-janestreet-8573726002",
     "title": "Quantitative Researcher",
     "location": "New York, New York, United States",
-    "url": "https://www.janestreet.com/join-jane-street/apply/6302325002?gh_jid=6302325002",
+    "url": "https://www.janestreet.com/join-jane-street/apply/8573726002?gh_jid=8573726002",
     "source": "greenhouse",
-    "posted_date": "2022-08-01",
+    "posted_date": "2026-06-02",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
     "is_new": false
@@ -4525,12 +4513,12 @@
   },
   {
     "firm": "Jane Street",
-    "id": "gh-janestreet-8573726002",
+    "id": "gh-janestreet-6302325002",
     "title": "Quantitative Researcher",
     "location": "New York, New York, United States",
-    "url": "https://www.janestreet.com/join-jane-street/apply/8573726002?gh_jid=8573726002",
+    "url": "https://www.janestreet.com/join-jane-street/apply/6302325002?gh_jid=6302325002",
     "source": "greenhouse",
-    "posted_date": "2026-06-02",
+    "posted_date": "2022-08-01",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
     "is_new": false
@@ -4549,24 +4537,24 @@
   },
   {
     "firm": "Jane Street",
-    "id": "gh-janestreet-4794171002",
-    "title": "Quantitative Trader",
-    "location": "New York, New York, United States",
-    "url": "https://www.janestreet.com/join-jane-street/apply/4794171002?gh_jid=4794171002",
-    "source": "greenhouse",
-    "posted_date": "2020-07-15",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": false
-  },
-  {
-    "firm": "Jane Street",
     "id": "gh-janestreet-8617344002",
     "title": "Quantitative Trader",
     "location": "New York, New York, United States",
     "url": "https://www.janestreet.com/join-jane-street/apply/8617344002?gh_jid=8617344002",
     "source": "greenhouse",
     "posted_date": "2026-07-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-15",
+    "is_new": false
+  },
+  {
+    "firm": "Jane Street",
+    "id": "gh-janestreet-4794171002",
+    "title": "Quantitative Trader",
+    "location": "New York, New York, United States",
+    "url": "https://www.janestreet.com/join-jane-street/apply/4794171002?gh_jid=4794171002",
+    "source": "greenhouse",
+    "posted_date": "2020-07-15",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
     "is_new": false
@@ -5209,6 +5197,18 @@
   },
   {
     "firm": "Morgan Stanley",
+    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Corporate-Treasury--Recovery-and-Resolution-Planning-Modeling---Associate_PT-JR043898",
+    "title": "Corporate Treasury, Recovery and Resolution Planning Modeling - Associate",
+    "location": "New York, New York, United States of America",
+    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Corporate-Treasury--Recovery-and-Resolution-Planning-Modeling---Associate_PT-JR043898",
+    "source": "workday",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "Morgan Stanley",
     "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Data-Engineer---Financial-Crimes---Associate_PT-JR035703",
     "title": "Data Engineer - Financial Crimes - Associate",
     "location": "New York, New York, United States of America",
@@ -5533,18 +5533,6 @@
   },
   {
     "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/IED--ETF-Quant-Strategist-Associate_JR029185-1",
-    "title": "Institutional Equity Division \u2013 Associate, ETF Quant Strategist (New York)",
-    "location": "New York, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/IED--ETF-Quant-Strategist-Associate_JR029185-1",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": false
-  },
-  {
-    "firm": "Morgan Stanley",
     "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Fund-Services---Portfolio-Analytics---Associate-Director_JR041727",
     "title": "Institutional Equity Division \u2013 Associate, Fund Services - Portfolio Analytics (New York)",
     "location": "New York, New York, United States of America",
@@ -5629,6 +5617,18 @@
   },
   {
     "firm": "Morgan Stanley",
+    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Investment-Banking-Private-Capital-Advisory-Analyst---New-York_JR043747",
+    "title": "Investment Banking Private Capital Advisory Analyst \u2013 New York",
+    "location": "New York, New York, United States of America",
+    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Investment-Banking-Private-Capital-Advisory-Analyst---New-York_JR043747",
+    "source": "workday",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": true
+  },
+  {
+    "firm": "Morgan Stanley",
     "id": "wd-ms-External-/job/Purchase-New-York-United-States-of-America/Investment-Due-Diligence-Analyst_PT-JR035297",
     "title": "Investment Due Diligence Analyst",
     "location": "Purchase, New York, United States of America",
@@ -5645,18 +5645,6 @@
     "title": "MSIM - Passport Equity Investment Analyst, VP",
     "location": "New York, New York, United States of America",
     "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/MSIM---Passport-Equity-Investment-Analyst--VP_JR036499-1",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": false
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/MSIM---Portfolio-Specialist--Fixed-Income---Senior-Associate_JR039787",
-    "title": "MSIM - Portfolio Specialist, Fixed Income - Senior Associate",
-    "location": "New York, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/MSIM---Portfolio-Specialist--Fixed-Income---Senior-Associate_JR039787",
     "source": "workday",
     "posted_date": null,
     "metro": "NY + Jersey City",
@@ -5813,18 +5801,6 @@
     "title": "Private Wealth Management Associate",
     "location": "New York, New York, United States of America",
     "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Private-Wealth-Management-Associate_JR038572",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": false
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Private-Wealth-Management-Client-Service-Associate_JR039106",
-    "title": "Private Wealth Management Client Service Associate",
-    "location": "New York, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Private-Wealth-Management-Client-Service-Associate_JR039106",
     "source": "workday",
     "posted_date": null,
     "metro": "NY + Jersey City",
@@ -6494,7 +6470,7 @@
   {
     "firm": "TPG",
     "id": "gh-tpgcareers-7792788003",
-    "title": "Compliance - Control Room, Analyst",
+    "title": "Compliance, Control Room, Analyst",
     "location": "New York - 245 Park Avenue",
     "url": "https://job-boards.greenhouse.io/tpgcareers/jobs/7792788003",
     "source": "greenhouse",
@@ -6542,7 +6518,7 @@
   {
     "firm": "TPG",
     "id": "gh-tpgcareers-7860999003",
-    "title": "Real Estate Finance - Investment Accountant, Senior Associate",
+    "title": "Real Estate Finance - Investment Accountant (US), Senior Associate",
     "location": "New York - 245 Park Avenue",
     "url": "https://job-boards.greenhouse.io/tpgcareers/jobs/7860999003",
     "source": "greenhouse",
