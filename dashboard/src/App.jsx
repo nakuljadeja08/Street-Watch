@@ -47,8 +47,10 @@ const SORTS = [
   { v: "newest", label: "Newest" },
   { v: "firm", label: "Firm A–Z" },
 ];
+// pipeline columns, left → right
+const BOARD_COLS = ["interested", "applied", "interview", "offer", "rejected"];
 
-// read filter/sort state out of the URL so a link restores the same view
+// read filter/sort/view state out of the URL so a link restores the same view
 function initialParams() {
   try {
     const p = new URLSearchParams(window.location.search);
@@ -58,9 +60,10 @@ function initialParams() {
       statusFilter: p.get("status") || "all",
       q: p.get("q") || "",
       sort: SORTS.some((s) => s.v === p.get("sort")) ? p.get("sort") : "default",
+      view: p.get("view") === "board" ? "board" : "list",
     };
   } catch {
-    return { metro: "all", recency: "all", statusFilter: "all", q: "", sort: "default" };
+    return { metro: "all", recency: "all", statusFilter: "all", q: "", sort: "default", view: "list" };
   }
 }
 
@@ -75,6 +78,8 @@ export default function App() {
   const [statusFilter, setStatusFilter] = useState(init.statusFilter); // all | tracked | untracked | <status>
   const [q, setQ] = useState(init.q);
   const [sort, setSort] = useState(init.sort);
+  const [view, setView] = useState(init.view); // list | board
+  const [dragOverCol, setDragOverCol] = useState(null);
   const [scrolled, setScrolled] = useState(false);
   const [theme, setTheme] = useState(() => {
     try {
@@ -132,9 +137,10 @@ export default function App() {
     if (statusFilter !== "all") p.set("status", statusFilter);
     if (q.trim()) p.set("q", q.trim());
     if (sort !== "default") p.set("sort", sort);
+    if (view !== "list") p.set("view", view);
     const qs = p.toString();
     window.history.replaceState(null, "", qs ? `?${qs}` : window.location.pathname);
-  }, [metro, recency, statusFilter, q, sort]);
+  }, [metro, recency, statusFilter, q, sort, view]);
 
   useEffect(() => {
     (async () => {
@@ -277,6 +283,35 @@ export default function App() {
     return rows;
   }, [jobs, apps, metro, recency, statusFilter, q, sort]);
 
+  // board view: tracked roles grouped by status. Honors metro/recency/search
+  // and the sort order, but ignores the status filter (columns cover all).
+  const board = useMemo(() => {
+    const needle = q.trim().toLowerCase();
+    const win = recency === "all" ? Infinity : Number(recency);
+    const cols = Object.fromEntries(BOARD_COLS.map((s) => [s, []]));
+    for (const j of jobs) {
+      const st = statusOf(j.id);
+      if (st === "none" || !cols[st]) continue;
+      if (metro !== "all" && j.metro !== metro) continue;
+      if (needle && !(j.firm + " " + j.title).toLowerCase().includes(needle)) continue;
+      if (win !== Infinity) {
+        const n = daysSince(j.posted_date);
+        if (n === null || n > win) continue;
+      }
+      cols[st].push(j);
+    }
+    const cmp =
+      sort === "firm"
+        ? (a, b) =>
+            (a.firm || "").localeCompare(b.firm || "") ||
+            (a.title || "").localeCompare(b.title || "")
+        : (a, b) => (daysSince(a.posted_date) ?? Infinity) - (daysSince(b.posted_date) ?? Infinity);
+    for (const s of BOARD_COLS) cols[s].sort(cmp);
+    return cols;
+  }, [jobs, apps, metro, recency, q, sort]);
+
+  const boardTotal = BOARD_COLS.reduce((n, s) => n + board[s].length, 0);
+
   // how many rows are hidden purely for lacking a posted_date when a recency
   // window is active (so "0 roles" under 24h is self-explanatory)
   const hiddenNoDate = useMemo(() => {
@@ -339,6 +374,14 @@ export default function App() {
 
       <div className={`bar ${scrolled ? "scrolled" : ""}`}>
         <div className="bar-in">
+          <Seg
+            options={[
+              { v: "list", label: "List" },
+              { v: "board", label: "Board" },
+            ]}
+            value={view}
+            onChange={setView}
+          />
           <Seg options={METROS.map((m) => ({ v: m, label: METRO_LABEL[m] }))} value={metro} onChange={setMetro} />
           <Seg options={RECENCY.map((r) => ({ v: r.d, label: r.label }))} value={recency} onChange={setRecency} />
           <select
@@ -353,16 +396,18 @@ export default function App() {
               </option>
             ))}
           </select>
-          <select className="statusSel" value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
-            <option value="all">All statuses</option>
-            <option value="untracked">Not tracked</option>
-            <option value="tracked">Tracked (any)</option>
-            <option value="interested">Interested</option>
-            <option value="applied">Applied</option>
-            <option value="interview">Interview</option>
-            <option value="offer">Offer</option>
-            <option value="rejected">Rejected</option>
-          </select>
+          {view === "list" && (
+            <select className="statusSel" value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
+              <option value="all">All statuses</option>
+              <option value="untracked">Not tracked</option>
+              <option value="tracked">Tracked (any)</option>
+              <option value="interested">Interested</option>
+              <option value="applied">Applied</option>
+              <option value="interview">Interview</option>
+              <option value="offer">Offer</option>
+              <option value="rejected">Rejected</option>
+            </select>
+          )}
           <input
             ref={searchRef}
             type="search"
@@ -383,10 +428,59 @@ export default function App() {
         <div className="meta">
           {loading
             ? "Loading…"
+            : view === "board"
+            ? `${boardTotal} tracked role${boardTotal === 1 ? "" : "s"} · drag a card between columns to update its status`
             : `${filtered.length} roles` +
               (recency !== "all" ? ` · posted ≤ ${recency === 1 || recency === "1" ? "24h" : recency + "d"}` : "") +
               (hiddenNoDate ? ` · ${hiddenNoDate} hidden (no posted date)` : "")}
         </div>
+
+        {view === "board" ? (
+          !loading && boardTotal === 0 ? (
+            <div className="empty">
+              {filtersActive
+                ? "No tracked roles match these filters."
+                : "Nothing tracked yet — set a status on a role in List view and it lands here."}
+            </div>
+          ) : (
+            <div className="board">
+              {BOARD_COLS.map((s) => (
+                <section
+                  key={s}
+                  className={`col ${dragOverCol === s ? "over" : ""}`}
+                  onDragOver={(e) => {
+                    e.preventDefault();
+                    e.dataTransfer.dropEffect = "move";
+                    if (dragOverCol !== s) setDragOverCol(s);
+                  }}
+                  onDragLeave={(e) => {
+                    if (!e.currentTarget.contains(e.relatedTarget)) setDragOverCol(null);
+                  }}
+                  onDrop={(e) => {
+                    e.preventDefault();
+                    setDragOverCol(null);
+                    const id = e.dataTransfer.getData("text/plain");
+                    const job = jobs.find((j) => String(j.id) === id);
+                    if (job && statusOf(job.id) !== s) setStatus(job, s);
+                  }}
+                >
+                  <div className="col-h">
+                    <span className={`dot ${STATUS_META[s].cls}`} />
+                    {STATUS_META[s].label}
+                    <span className="col-n">{board[s].length}</span>
+                  </div>
+                  <div className="col-body">
+                    {board[s].map((j) => (
+                      <BoardCard key={j.id} job={j} status={s} setStatus={setStatus} />
+                    ))}
+                    {board[s].length === 0 && <div className="col-empty">Drop here</div>}
+                  </div>
+                </section>
+              ))}
+            </div>
+          )
+        ) : (
+        <>
         <div className="grid">
           {loading &&
             Array.from({ length: 6 }).map((_, i) => (
@@ -455,6 +549,8 @@ export default function App() {
             )}
           </div>
         )}
+        </>
+        )}
       </main>
 
       <footer>
@@ -463,6 +559,41 @@ export default function App() {
           Supabase <code>applications</code> table.
         </div>
       </footer>
+    </div>
+  );
+}
+
+function BoardCard({ job, status, setStatus }) {
+  const age = postedLabel(job.posted_date);
+  return (
+    <div
+      className="bcard"
+      draggable
+      onDragStart={(e) => {
+        e.dataTransfer.setData("text/plain", String(job.id));
+        e.dataTransfer.effectAllowed = "move";
+        e.currentTarget.classList.add("dragging");
+      }}
+      onDragEnd={(e) => e.currentTarget.classList.remove("dragging")}
+    >
+      <div className="bof">{job.firm}</div>
+      <a className="brole" href={job.url} target="_blank" rel="noopener noreferrer">
+        {job.title}
+      </a>
+      <div className="bloc">{(job.location || job.metro) + (age ? ` · ${age}` : "")}</div>
+      <select
+        className="bmove"
+        value={status}
+        onChange={(e) => setStatus(job, e.target.value)}
+        aria-label="Move role to"
+      >
+        {BOARD_COLS.map((s) => (
+          <option key={s} value={s}>
+            {`→ ${STATUS_META[s].label}`}
+          </option>
+        ))}
+        <option value="none">✕ Remove</option>
+      </select>
     </div>
   );
 }
