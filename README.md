@@ -57,7 +57,7 @@ cloudscraper), **Citi** (`jobs.citi.com` Radancy results endpoint). Goldman
 **Wired, will flow once you run it (Workday — 19 firms):** Blackstone, Apollo,
 Blue Owl, Ares, Morgan Stanley, Houlihan Lokey, Wells Fargo, Moelis, Brookfield,
 Oaktree, Neuberger Berman, Deutsche Bank, Bank of America, PGIM, Invesco,
-Wellington, Franklin Templeton, Guggenheim, State Street. (Tenant/site slugs are
+Wellington, Franklin Templeton, Guggenheim, State Street, Baird. (Tenant/site slugs are
 best-effort from public careers URLs — a wrong one just logs an error for that
 firm and skips it; fix it from the run output.)
 
