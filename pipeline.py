@@ -153,6 +153,33 @@ def _posted(val):
     return d if d[:4].isdigit() and d[4] == "-" else None
 
 
+_WD_POSTED_RE = re.compile(r'posted\s+(\d+)\s*\+?\s*day', re.I)
+
+
+def _workday_posted(posted_on):
+    """Turn Workday's relative `postedOn` label into an approximate YYYY-MM-DD.
+    The CXS list payload never carries an absolute date — only a relative string,
+    and only on tenants configured to expose it (MS does; Blackstone omits it):
+      "Posted Today" / "Posted Yesterday" / "Posted N Days Ago" /
+      "Posted 30+ Days Ago"  — its only bucketed form; everything 0-29 is exact.
+    Map Today->0, Yesterday->1, "N Days"->N, and "30+"->31 so anything Workday has
+    collapsed into 30+ lands just over the 30-day line and gets aged out. Tenants
+    that omit `postedOn` yield None -> row kept (undated), exactly as before."""
+    if not posted_on:
+        return None
+    s = posted_on.strip().lower()
+    if "today" in s:
+        days = 0
+    elif "yesterday" in s:
+        days = 1
+    else:
+        m = _WD_POSTED_RE.search(s)
+        if not m:
+            return None
+        days = int(m.group(1)) + (1 if "+" in s else 0)  # "30+" -> at least 31
+    return (datetime.now(timezone.utc).date() - timedelta(days=days)).isoformat()
+
+
 def fetch_greenhouse(firm, token):
     url = f"https://boards-api.greenhouse.io/v1/boards/{token}/jobs"
     try:
@@ -450,7 +477,8 @@ def fetch_workday_site(firm, dc, tenant, site):
                                 title=(p.get("title") or "").strip(),
                                 location=(p.get("locationsText") or "").strip(),
                                 url=f"{host}/recruiting/{tenant}/{site}{path}",
-                                source="workday", posted_date=None))
+                                source="workday",
+                                posted_date=_workday_posted(p.get("postedOn"))))
             offset += LIMIT
             if offset >= total or len(posts) < LIMIT:
                 break
@@ -486,9 +514,10 @@ def fetch_workday(firm, tenant, dc, site):
                                 location=(p.get("locationsText") or "").strip(),
                                 # public URL needs the site segment; host+path alone 404s
                                 url=f"{host}/{site}{path}", source="workday",
-                                # Workday's list payload carries no post date (would
-                                # need a per-job detail fetch); leave null.
-                                posted_date=None))
+                                # Workday exposes only a relative `postedOn` label on
+                                # tenants configured for it; parse it to an approx date
+                                # (None when the tenant omits it — row kept as before).
+                                posted_date=_workday_posted(p.get("postedOn"))))
             offset += LIMIT
             # Stop when we've reached the first-page total, or the page came back
             # short (last page) — a belt-and-suspenders guard if `total` is wrong.
