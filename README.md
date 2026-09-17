@@ -55,6 +55,18 @@ cloudscraper), **Citi** and **Barclays** (Radancy `search-jobs/results` — one
 generic `fetch_radancy` handles both, add more banks to the `RADANCY` dict).
 Goldman (`higher.gs`) is scaffolded but its GraphQL is 404ing.
 
+**Green-priority firms (added 2026-09-17, client request):**
+- **Carlyle**, **Ardian** — Workday registry entries.
+- **Lazard** — Oracle Fusion Recruiting (`recruitingCEJobRequisitions` REST);
+  new generic `fetch_oracle` + `ORACLE` dict {host, siteNumber, siteName}. Analyst
+  NY/SF + Associate NY live.
+- **Oppenheimer & Co.** — HRM Direct; new generic `fetch_hrmdirect` (queries
+  `?city=` per target metro). ~26 NY roles.
+- **Macquarie Group** — PageUp; new generic `fetch_pageup` (server-rendered
+  SearchJobs, paged 9 at a time). ~588 reqs.
+- **BNP Paribas** — not wired: Akamai bot gate + custom `/en/search`; needs a
+  cloudscraper/browser approach like the Phenom banks.
+
 **Consulting firms (added 2026-09-17, client request):**
 - **Mars & Co** and **Altman Solon** — standard Greenhouse boards (`marscousg`,
   `altmansolonuslp`); dropped straight into the `GREENHOUSE` dict.

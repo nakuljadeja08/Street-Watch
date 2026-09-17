@@ -53,6 +53,17 @@ JIBE = {         # firm -> careers host  (https://<host>/api/jobs — Jibe/iCIMS
 PINPOINT = {     # firm -> careers host  (https://<host>/postings.json — Pinpoint ATS)
     "CIL Management Consultants": "careers.cil.com", # small board; Analyst NY/Chicago
 }
+ORACLE = {       # firm -> (host, siteNumber, siteName)  Oracle Fusion Recruiting (CE)
+    # Public REST at /hcmRestApi/resources/latest/recruitingCEJobRequisitions.
+    # siteNumber (CX_n) selects the career site; siteName builds the public URL.
+    "Lazard": ("icbpjb.fa.ocs.oraclecloud.com", "CX_1", "LazardProfessionalCareers"),
+}
+HRMDIRECT = {    # firm -> host  (ClearCompany/HRM Direct; opco.hrmdirect.com/employment)
+    "Oppenheimer & Co.": "opco.hrmdirect.com",       # filter by &city=; NY 26 / Chi / SF
+}
+PAGEUP = {       # firm -> (host, locale)  PageUp People (server-rendered SearchJobs)
+    "Macquarie Group": ("recruitment.macquarie.com", "en_US"),  # ~588 reqs, 9/page
+}
 WORKDAY = {      # firm -> (tenant, datacenter, site)
     "Blackstone":               ("blackstone", "wd1", "Blackstone_Careers"),
     "Apollo Global Management": ("athene",     "wd5", "Apollo_Careers"),
@@ -82,6 +93,10 @@ WORKDAY = {      # firm -> (tenant, datacenter, site)
     "U.S. Bancorp":             ("usbank",     "wd1", "US_Bank_Careers"),
     "KeyBank":                  ("keybank",    "wd5", "External_Career_Site"),
     "M&T Bank":                 ("mtb",        "wd5", "MTB"),
+    # Green-priority PE firms (added 2026-09-17) — tenant/site read off the live
+    # careers redirect and confirmed against the wd/cxs endpoint.
+    "Carlyle":                  ("carlyle",    "wd1", "Carlyle"),        # 79 reqs
+    "Ardian":                   ("ardian",     "wd103", "ArdianCareers"),# 74 reqs
     # Best-effort tenant/site slugs from public careers URLs — a wrong site just
     # logs an error for that firm and skips it; correct it from the run output.
     # Still to map (custom / not-yet-found ATS): KKR, Carlyle, JPMorgan, Citi,
@@ -219,6 +234,131 @@ def fetch_pinpoint(firm, host):
                             posted_date=None))
     except Exception as e:
         print(f"  ! pinpoint {firm}: {e}", file=sys.stderr)
+    return out
+
+
+def fetch_oracle(firm, host, site_number, site_name):
+    """Oracle Fusion Recruiting (Candidate Experience) — e.g. Lazard. The public
+    REST endpoint recruitingCEJobRequisitions returns clean JSON: reqs live under
+    items[0].requisitionList with Title / PrimaryLocation / PostedDate / Id, and
+    items[0].TotalJobsCount gives the count. Paged by limit/offset. Public URL is
+    /hcmUI/CandidateExperience/en/sites/<siteName>/job/<Id>."""
+    api = (f"https://{host}/hcmRestApi/resources/latest/recruitingCEJobRequisitions")
+    LIMIT = 200
+    out, offset, total = [], 0, None
+    try:
+        while offset < 5000:  # hard ceiling
+            finder = (f"findReqs;siteNumber={site_number},limit={LIMIT},"
+                      f"offset={offset},sortBy=POSTING_DATES_DESC")
+            params = {"onlyData": "true",
+                      "expand": "requisitionList.secondaryLocations,flexFieldsFacet.values",
+                      "finder": finder}
+            r = requests.get(api, headers={**UA, "Accept": "application/json"},
+                             params=params, timeout=TIMEOUT)
+            r.raise_for_status()
+            block = (r.json().get("items") or [{}])[0]
+            if total is None:
+                total = block.get("TotalJobsCount", 0)
+            reqs = block.get("requisitionList") or []
+            if not reqs:
+                break
+            for q in reqs:
+                rid = q.get("Id")
+                out.append(dict(firm=firm, id=f"oracle-{host}-{rid}",
+                                title=(q.get("Title") or "").strip(),
+                                location=(q.get("PrimaryLocation") or "").strip(),
+                                url=(f"https://{host}/hcmUI/CandidateExperience/en/"
+                                     f"sites/{site_name}/job/{rid}"),
+                                source="oracle",
+                                posted_date=_posted(q.get("PostedDate"))))
+            offset += LIMIT
+            if total and offset >= total:
+                break
+            time.sleep(0.25)
+    except Exception as e:
+        print(f"  ! oracle {firm}: {e}", file=sys.stderr)
+    return out
+
+
+def fetch_hrmdirect(firm, host):
+    """HRM Direct / ClearCompany boards (e.g. Oppenheimer). The list view carries
+    no structured location, but ?city=<name> returns only that city's jobs — so we
+    query each target city and tag the row with it. Server-rendered HTML (latin-1),
+    no bot gate; list has no post date, so posted_date is left null (row kept)."""
+    import html as _html
+    base = f"https://{host}/employment/job-openings.php"
+    item_re = re.compile(r'jobListTitle[^>]*>\s*<a\s+href="([^"]*req=(\d+)[^"]*)"[^>]*>'
+                         r'(.*?)</a>', re.S)
+    out, seen = [], set()
+    # cities map onto the METROS keys the downstream filter understands
+    for city in ("New York", "Jersey City", "Chicago", "San Francisco"):
+        try:
+            r = requests.get(base, headers=UA,
+                             params={"search": "true", "city": city}, timeout=TIMEOUT)
+            r.encoding = "latin-1"
+            for href, req, title in item_re.findall(r.text):
+                if req in seen:
+                    continue
+                seen.add(req)
+                title = _html.unescape(re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", title))).strip()
+                out.append(dict(firm=firm, id=f"hrm-{req}", title=title,
+                                location=city,
+                                url=f"https://{host}/employment/job-opening.php?req={req}",
+                                source="hrmdirect", posted_date=None))
+        except Exception as e:
+            print(f"  ! hrmdirect {firm} ({city}): {e}", file=sys.stderr)
+    return out
+
+
+_PAGEUP_CARD = re.compile(
+    r'article__header__text__title[^>]*>\s*<a[^>]*href="([^"]*JobDetail\?jobId=(\d+))"'
+    r'[^>]*>(.*?)</a>(.*?)(?=article__header__text__title|$)', re.S)
+_PAGEUP_LOC = re.compile(r'icon-location\.svg[\s\S]*?<p>\s*(.*?)\s*</p>', re.S)
+_PAGEUP_DATE = re.compile(r'(\d{1,2}\s+[A-Za-z]{3}\s+\d{4})')
+
+
+def fetch_pageup(firm, host, locale="en_US"):
+    """PageUp People boards (e.g. Macquarie). SearchJobs is server-rendered HTML,
+    fixed at 9 cards/page and paged by jobOffset; free-text search is ignored, so
+    we page the whole board and let the metro/title filters cut it down. Each card
+    yields title, jobId, office location, and a 'DD Mon YYYY' date."""
+    import html as _html
+    base = f"https://{host}/{locale}/careers/SearchJobs/"
+    out, offset, total = [], 0, None
+    try:
+        while offset < 3000:  # hard ceiling (~330 pages)
+            r = requests.get(base, headers={**UA, "X-Requested-With": "XMLHttpRequest"},
+                             params={"jobRecordsPerPage": 9, "jobOffset": offset},
+                             timeout=TIMEOUT)
+            r.raise_for_status()
+            html_txt = r.text
+            if total is None:
+                m = re.search(r'([\d,]+)\s+results', html_txt)
+                total = int(m.group(1).replace(",", "")) if m else 0
+            cards = _PAGEUP_CARD.findall(html_txt)
+            if not cards:
+                break
+            for href, jid, title, tail in cards:
+                lm = _PAGEUP_LOC.search(tail)
+                loc = _html.unescape(re.sub(r"<[^>]+>", "", lm.group(1))).strip() if lm else ""
+                dm = _PAGEUP_DATE.search(tail)
+                posted = None
+                if dm:
+                    try:
+                        posted = datetime.strptime(dm.group(1), "%d %b %Y").strftime("%Y-%m-%d")
+                    except Exception:
+                        posted = None
+                title = _html.unescape(re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", title))).strip()
+                out.append(dict(firm=firm, id=f"pageup-{host}-{jid}", title=title,
+                                location=loc,
+                                url=f"https://{host}/{locale}/careers/JobDetail?jobId={jid}",
+                                source="pageup", posted_date=posted))
+            offset += 9
+            if total and offset >= total:
+                break
+            time.sleep(0.25)
+    except Exception as e:
+        print(f"  ! pageup {firm}: {e}", file=sys.stderr)
     return out
 
 
@@ -512,6 +652,15 @@ def collect():
     print("Pinpoint…")
     for f, host in PINPOINT.items():
         rows = fetch_pinpoint(f, host); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    print("Oracle Recruiting…")
+    for f, (host, num, name) in ORACLE.items():
+        rows = fetch_oracle(f, host, num, name); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    print("HRM Direct…")
+    for f, host in HRMDIRECT.items():
+        rows = fetch_hrmdirect(f, host); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    print("PageUp…")
+    for f, (host, locale) in PAGEUP.items():
+        rows = fetch_pageup(f, host, locale); print(f"  {f:<24}{len(rows):>4}"); raw += rows
     print("Workday…")
     for f, (t, dc, s) in WORKDAY.items():
         rows = fetch_workday(f, t, dc, s); print(f"  {f:<24}{len(rows):>4}"); raw += rows

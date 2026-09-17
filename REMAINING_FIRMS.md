@@ -1,7 +1,21 @@
 # Street Watch — Remaining Firms
 
-From `Target_Financial_Firms.xlsx` (121 targets): **53 wired · 68 remaining.**
+From `Target_Financial_Firms.xlsx` (121 targets): **58 wired · 63 remaining**
+(plus 4 net-new consulting firms wired on request — see `CONSULTING_FIRMS.md`).
 Grouped by what we know about each firm's ATS platform. Updated 2026-09-17.
+
+### 🟢 Green-priority batch wired 2026-09-17 (5 of 6)
+Client marked these top priority. Fingerprinted each ATS via a live browser
+session and wired all but BNP:
+- **Carlyle** → Workday (`carlyle`/wd1/Carlyle, 79 reqs)
+- **Ardian** → Workday (`ardian`/wd103/ArdianCareers, 74 reqs)
+- **Lazard** → Oracle Fusion Recruiting (new `fetch_oracle`; Analyst NY/SF +
+  Associate NY live)
+- **Oppenheimer & Co.** → HRM Direct (new `fetch_hrmdirect`; NY 26 / Chi / SF)
+- **Macquarie Group** → PageUp (new `fetch_pageup`; ~588 reqs, paged)
+- **BNP Paribas** — ⚠️ still open: careers behind an **Akamai bot gate** with a
+  custom `/en/search` API; plain `requests` gets challenged. Needs a
+  cloudscraper/browser-session approach (same bucket as the Phenom banks).
 
 ## 🟡 Phenom People — one generic fetcher unlocks all of these
 Search runs through Phenom's `POST /widgets` batch API. `/api/rest/searchresults`
