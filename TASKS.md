@@ -129,7 +129,21 @@ Custom career portals (no standard public API — each needs its own fetcher):
       leverage since many banks use Phenom). **Scotiabank** = SAP SuccessFactors
       (deferred). Still open: HSBC (Avature), UBS, BNP, SocGen, Nomura, and the
       rest of the global banks.
-- [ ] Middle-market: Stifel, Raymond James, Piper Sandler, William Blair, Baird, Oppenheimer, Cantor
+- [x] **US regional banks (Workday, exact slug from careers page):** Capital One
+      (capitalone.wd12/Capital_One, 1916), U.S. Bancorp (usbank.wd1/
+      US_Bank_Careers, 1381), M&T Bank (mtb.wd5/MTB, 862), Northern Trust
+      (ntrs.wd1/northerntrust, 661), KeyBank (keybank.wd5/External_Career_Site,
+      614). URLs verified 200.
+- [ ] BNY, Fifth Third, Huntington — no ATS fingerprint on careers page; browser.
+- [ ] **Phenom cluster (RBC, PNC, Truist, Regions) — deferred, needs browser.**
+      Search = Phenom `POST /widgets` batch API; `/api/rest/searchresults` →
+      "Tenant not identified" (needs browser-established tenant context, so blind
+      requests fail). Sitemap exists but per-job crawl is too heavy. To finish:
+      capture the working `/widgets` request in the browser, then build one
+      generic Phenom fetcher (unlocks the whole cluster).
+- [x] **Age filter:** `age_ok()` drops listings with a known posted_date > 30
+      days old (Greenhouse/Ashby); undated sources (Workday/Citi/…) kept.
+- [ ] Middle-market: Stifel, Raymond James, Piper Sandler, Oppenheimer, Cantor
 > Priority order (highest hiring volume first): **Goldman, Citi, Citadel Securities, KKR, JPMorgan.**
 
 ---
