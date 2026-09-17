@@ -55,6 +55,20 @@ cloudscraper), **Citi** and **Barclays** (Radancy `search-jobs/results` — one
 generic `fetch_radancy` handles both, add more banks to the `RADANCY` dict).
 Goldman (`higher.gs`) is scaffolded but its GraphQL is 404ing.
 
+**Consulting firms (added 2026-09-17, client request):**
+- **Mars & Co** and **Altman Solon** — standard Greenhouse boards (`marscousg`,
+  `altmansolonuslp`); dropped straight into the `GREENHOUSE` dict.
+- **ZS Associates** — Jibe/iCIMS front at `jobs.zs.com/api/jobs` (paginated JSON);
+  new generic `fetch_jibe` + `JIBE` dict. ~275 postings.
+- **CIL** — Pinpoint ATS at `careers.cil.com/postings.json` (one-shot JSON); new
+  generic `fetch_pinpoint` + `PINPOINT` dict. Analyst roles in NY & Chicago.
+- **Still to map (heavier, per-firm):** **Simon-Kucher** — Cornerstone/CSOD
+  (`simon-kucher.csod.com`, careersite 6; `career-site/v1/.../jobs/search` needs a
+  bearer-token bootstrap — 401 without it; 85 US roles incl. NY 18 / Chi 17 / SF 10).
+  **L.E.K.** — Oracle Talentlink (`lek.tal.net`, session-based, same family as
+  Jefferies). **Strategy&** — no standalone board; roles live inside PwC's global
+  careers system and need isolating by brand. See `CONSULTING_FIRMS.md`.
+
 **Wired, will flow once you run it (Workday — 19 firms):** Blackstone, Apollo,
 Blue Owl, Ares, Morgan Stanley, Houlihan Lokey, Wells Fargo, Moelis, Brookfield,
 Oaktree, Neuberger Berman, Deutsche Bank, Bank of America, PGIM, Invesco,
