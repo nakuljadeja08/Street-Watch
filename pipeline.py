@@ -402,6 +402,23 @@ def title_ok(firm, title):
     return any(k in t for k in kws)
 
 
+MAX_AGE_DAYS = 30
+
+
+def age_ok(posted_date):
+    """Drop listings we KNOW are older than MAX_AGE_DAYS. Rows with no post date
+    (Workday/Citi/Citadel/Radancy) can't be aged, so they're kept — we only
+    exclude ones proven stale (from Greenhouse `first_published` / Ashby
+    `publishedAt`)."""
+    if not posted_date:
+        return True
+    try:
+        d = datetime.strptime(posted_date[:10], "%Y-%m-%d").date()
+    except Exception:
+        return True
+    return (datetime.now(timezone.utc).date() - d).days <= MAX_AGE_DAYS
+
+
 def collect():
     raw = []
     print("Greenhouse…")
@@ -424,7 +441,8 @@ def collect():
     kept, seen = [], set()
     for r in raw:
         m = metro_of(r["location"])
-        if m and title_ok(r["firm"], r["title"]) and r["id"] not in seen:
+        if (m and title_ok(r["firm"], r["title"]) and age_ok(r.get("posted_date"))
+                and r["id"] not in seen):
             seen.add(r["id"]); r["metro"] = m; kept.append(r)
     return kept
 
