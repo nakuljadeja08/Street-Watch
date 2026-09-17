@@ -687,11 +687,22 @@ RADANCY = {              # firm -> host
     "BlackRock":  "careers.blackrock.com",   # yellow-tier; ~151 NY hits
 }
 RADANCY_METRO_KW = ["new york", "jersey city", "chicago", "san francisco", "bay area"]
-RADANCY_CARD_RE = re.compile(
-    r'<a\b([^>]*?/job/[^>]*?)>(.*?)</a>'
-    r'.*?class="[^"]*job-location[^"]*"[^>]*>\s*(.*?)\s*</', re.S)
+# Radancy ships two card themes: a classic one (BlackRock/Barclays/ING) where the
+# location + date <span>s sit INSIDE the /job/ anchor, and Citi's sr-job-item theme
+# where they sit AFTER it. Splitting on the anchor and reading each card's window
+# (anchor start -> next anchor start) handles both — and, crucially, keeps the
+# location/date out of the title (the old single cross-card regex folded them into
+# the classic-theme title and read the *next* card's location).
+RADANCY_ANCHOR_RE = re.compile(r'<a\b([^>]*?/job/[^>]*?)>(.*?)</a>', re.S)
 RADANCY_HREF_RE = re.compile(r'href="([^"]+)"')
 RADANCY_JID_RE = re.compile(r'data-job-id="(\d+)"')
+# "sr-job-location" contains the substring "job-location", so this one class regex
+# matches both themes.
+RADANCY_LOC_RE = re.compile(r'class="[^"]*job-location[^"]*"[^>]*>\s*(.*?)\s*</', re.S)
+# Only the classic theme exposes a posted date, as MM/DD/YYYY. Absent -> null.
+RADANCY_DATE_RE = re.compile(r'job-date-posted[^"]*"[^>]*>\s*(\d{1,2}/\d{1,2}/\d{4})')
+RADANCY_SPAN_STRIP = re.compile(
+    r'<span\b[^>]*class="[^"]*(?:job-location|job-date-posted)[^"]*"[^>]*>.*?</span>', re.S)
 _TAG_RE = re.compile(r"<[^>]+>")
 
 
@@ -710,10 +721,11 @@ def fetch_radancy(firm, host, source):
                                  params=params, timeout=TIMEOUT)
                 r.raise_for_status()
                 frag = (r.json() or {}).get("results", "") or ""
-                items = RADANCY_CARD_RE.findall(frag)
-                if not items:
+                anchors = list(RADANCY_ANCHOR_RE.finditer(frag))
+                if not anchors:
                     break
-                for attrs, title_html, loc in items:
+                for i, a in enumerate(anchors):
+                    attrs, inner = a.group(1), a.group(2)
                     hm = RADANCY_HREF_RE.search(attrs)
                     if not hm:
                         continue
@@ -723,12 +735,27 @@ def fetch_radancy(firm, host, source):
                     if jid in seen:
                         continue
                     seen.add(jid)
-                    title = _html.unescape(re.sub(r"\s+", " ", _TAG_RE.sub("", title_html))).strip()
-                    loc_str = _html.unescape(re.sub(r"\s+", " ", loc)).strip()
+                    # card window ends at the next /job/ anchor (or a bounded tail)
+                    end = anchors[i + 1].start() if i + 1 < len(anchors) else a.end() + 800
+                    window = frag[a.start():end]
+                    # title = anchor inner minus any nested location/date spans
+                    title_src = RADANCY_SPAN_STRIP.sub("", inner)
+                    title = _html.unescape(re.sub(r"\s+", " ", _TAG_RE.sub("", title_src))).strip()
+                    lm = RADANCY_LOC_RE.search(window)
+                    loc_str = (_html.unescape(re.sub(r"\s+", " ", _TAG_RE.sub("", lm.group(1)))).strip()
+                               if lm else "")
+                    dm = RADANCY_DATE_RE.search(window)
+                    posted = None
+                    if dm:
+                        try:
+                            posted = datetime.strptime(dm.group(1), "%m/%d/%Y").strftime("%Y-%m-%d")
+                        except Exception:
+                            posted = None
                     url = href if href.startswith("http") else f"https://{host}{href}"
                     out.append(dict(firm=firm, id=f"{source}-{jid}", title=title,
-                                    location=loc_str, url=url, source=source, posted_date=None))
-                if len(items) < 100:
+                                    location=loc_str, url=url, source=source,
+                                    posted_date=posted))
+                if len(anchors) < 100:
                     break
                 page += 1
                 time.sleep(0.25)
