@@ -39,9 +39,19 @@ GREENHOUSE = {   # firm -> board token  (boards-api.greenhouse.io/v1/boards/<tok
     "William Blair": "williamblair", "EQT": "eqtpartners",
     "Ducera Partners": "ducerapartners", "LionTree": "liontree",
     "PJT Partners": "pjtpartnersprofessionals",     # may 404 — handled gracefully
+    # Consulting firms (added 2026-09-17 at client request) — both expose the
+    # standard public Greenhouse board JSON on the US host.
+    "Mars & Co": "marscousg",                        # NY-area consulting roles only
+    "Altman Solon": "altmansolonuslp",               # TMT strategy; US + EU board
 }
 ASHBY = {        # firm -> job board name (api.ashbyhq.com/posting-api/job-board/<name>)
     "Insight Partners": "insightpartners",          # verify the exact board slug
+}
+JIBE = {         # firm -> careers host  (https://<host>/api/jobs — Jibe/iCIMS front)
+    "ZS Associates": "jobs.zs.com",                 # 275 postings, paginated 10/page
+}
+PINPOINT = {     # firm -> careers host  (https://<host>/postings.json — Pinpoint ATS)
+    "CIL Management Consultants": "careers.cil.com", # small board; Analyst NY/Chicago
 }
 WORKDAY = {      # firm -> (tenant, datacenter, site)
     "Blackstone":               ("blackstone", "wd1", "Blackstone_Careers"),
@@ -88,13 +98,17 @@ METROS = {
                          "mountain view", "san mateo", "redwood city"],
     "Chicago":          ["chicago", ", il", "illinois"],
 }
-TITLES         = ["analyst", "associate"]
+# "consultant" added 2026-09-17 so consulting firms' entry level (Analyst /
+# Associate Consultant / Consultant) is captured; senior grades are still cut by
+# EXCLUDE (principal/director/…). Banks rarely title junior roles "consultant".
+TITLES         = ["analyst", "associate", "consultant"]
 TITLES_TRADING = TITLES + ["trader", "trading", "quantitative researcher",
                            "quant researcher", "graduate", "new grad"]
 TRADING_FIRMS  = {"Jane Street", "DRW", "IMC Trading", "Virtu Financial",
                   "Optiver", "Citadel Securities", "Susquehanna International Group"}
-EXCLUDE = ["intern", "internship", "vice president", " vp ", " vp,", "director",
-           "managing director", " md,", "principal", "head of", "co-op", "co op"]
+EXCLUDE = ["intern", "internship", "summer", "vice president", " vp ", " vp,",
+           "director", "managing director", " md,", "principal", "head of",
+           "co-op", "co op"]
 
 STATE_FILE = ".street_watch_state.json"
 
@@ -140,6 +154,71 @@ def fetch_ashby(firm, name):
                         location=(j.get("location") or "").strip(),
                         url=j.get("jobUrl") or j.get("applyUrl", ""), source="ashby",
                         posted_date=_posted(j.get("publishedAt"))))
+    return out
+
+
+def fetch_jibe(firm, host):
+    """Jibe/iCIMS-fronted careers sites (e.g. ZS at jobs.zs.com). The board serves
+    a clean paginated JSON API at /api/jobs; each row's fields live under `data`,
+    with `full_location` a "City, State; City, State" string and a `posted_date`
+    ISO timestamp. Public job URL is https://<host>/jobs/<slug>. Pages 10 at a
+    time until `totalCount` is reached (guarded so a bad payload can't loop)."""
+    base = f"https://{host}/api/jobs"
+    out, page, total = [], 1, None
+    try:
+        while page <= 200:  # hard ceiling; ZS is ~28 pages
+            params = {"page": page, "sortBy": "relevance",
+                      "descending": "false", "internal": "false"}
+            r = requests.get(base, headers=UA, params=params, timeout=TIMEOUT)
+            r.raise_for_status()
+            data = r.json()
+            if total is None:
+                total = data.get("totalCount") or data.get("count") or 0
+            rows = data.get("jobs", []) or []
+            if not rows:
+                break
+            for row in rows:
+                d = row.get("data", row) or {}
+                slug = str(d.get("slug") or d.get("req_id") or "")
+                loc = (d.get("full_location") or d.get("location_name")
+                       or ", ".join(x for x in [d.get("city"), d.get("state"),
+                                                d.get("country")] if x)).strip()
+                out.append(dict(firm=firm, id=f"jibe-{host}-{slug}",
+                                title=(d.get("title") or "").strip(),
+                                location=loc,
+                                url=f"https://{host}/jobs/{slug}", source="jibe",
+                                posted_date=_posted(d.get("posted_date"))))
+            page += 1
+            if total and page * 10 > total + 10:  # covered the reported total
+                break
+            time.sleep(0.25)
+    except Exception as e:
+        print(f"  ! jibe {firm}: {e}", file=sys.stderr)
+    return out
+
+
+def fetch_pinpoint(firm, host):
+    """Pinpoint ATS boards (e.g. CIL at careers.cil.com). GET /postings.json
+    returns every live posting in one shot under `data`; `location` is a nested
+    object (name/city/province) and `url` is the public posting URL. Pinpoint's
+    list payload carries no reliable post date, so posted_date is left null (the
+    row is kept — same treatment as Workday/Radancy)."""
+    out = []
+    try:
+        r = requests.get(f"https://{host}/postings.json", headers=UA, timeout=TIMEOUT)
+        r.raise_for_status()
+        for p in (r.json() or {}).get("data", []) or []:
+            loc = p.get("location") or {}
+            loc_str = ", ".join(x for x in [loc.get("name") or loc.get("city"),
+                                            loc.get("province")] if x).strip(", ")
+            url = p.get("url") or p.get("path") or ""
+            slug = url.rstrip("/").rsplit("/", 1)[-1] or str(p.get("id"))
+            out.append(dict(firm=firm, id=f"pinpoint-{slug}",
+                            title=(p.get("title") or "").strip(),
+                            location=loc_str, url=url, source="pinpoint",
+                            posted_date=None))
+    except Exception as e:
+        print(f"  ! pinpoint {firm}: {e}", file=sys.stderr)
     return out
 
 
@@ -427,6 +506,12 @@ def collect():
     print("Ashby…")
     for f, nm in ASHBY.items():
         rows = fetch_ashby(f, nm); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    print("Jibe/iCIMS…")
+    for f, host in JIBE.items():
+        rows = fetch_jibe(f, host); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    print("Pinpoint…")
+    for f, host in PINPOINT.items():
+        rows = fetch_pinpoint(f, host); print(f"  {f:<24}{len(rows):>4}"); raw += rows
     print("Workday…")
     for f, (t, dc, s) in WORKDAY.items():
         rows = fetch_workday(f, t, dc, s); print(f"  {f:<24}{len(rows):>4}"); raw += rows
