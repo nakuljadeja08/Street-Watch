@@ -21,7 +21,7 @@ It will NOT run inside the Claude workspace (network locked to registries).
 """
 from __future__ import annotations
 import csv, json, os, re, sys, time
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 import requests
 
 UA = {"User-Agent": "street-watch/0.2 (personal job tracker)"}
@@ -468,6 +468,21 @@ def push_supabase(rows):
             print(f"  ! supabase {r.status_code}: {r.text[:200]}", file=sys.stderr)
         else:
             print(f"  upserted {len(chunk)} rows")
+
+    # Purge stale DATED listings so the DB honors the <=MAX_AGE_DAYS rule. Only
+    # rows with a posted_date older than the cutoff are removed — undated rows
+    # (Workday/Citi/Citadel/Radancy) have null posted_date, which never matches
+    # `lt`, so they're left untouched. Filtered delete, never a blanket wipe.
+    cutoff = (datetime.now(timezone.utc).date() - timedelta(days=MAX_AGE_DAYS)).isoformat()
+    try:
+        d = requests.delete(f"{url}/rest/v1/jobs?posted_date=lt.{cutoff}",
+                            headers={**headers, "Prefer": "return=minimal"}, timeout=TIMEOUT)
+        if d.status_code < 300:
+            print(f"  purged listings posted before {cutoff}")
+        else:
+            print(f"  ! supabase purge {d.status_code}: {d.text[:150]}", file=sys.stderr)
+    except Exception as e:
+        print(f"  ! supabase purge failed: {e}", file=sys.stderr)
 
 
 # ---------------------------------------------------------------- main
