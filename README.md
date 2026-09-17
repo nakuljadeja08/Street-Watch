@@ -67,6 +67,22 @@ Goldman (`higher.gs`) is scaffolded but its GraphQL is 404ing.
 - **BNP Paribas** — not wired: Akamai bot gate + custom `/en/search`; needs a
   cloudscraper/browser approach like the Phenom banks.
 
+**Yellow-priority firms, wave 1 (added 2026-09-17, client request):**
+- **AllianceBernstein**, **Hamilton Lane**, **Piper Sandler** — Workday entries.
+- **Perella Weinberg** — Workday on the shared `myworkdaysite.com` host; new
+  generic `fetch_workday_site` + `WORKDAY_SITE` dict {dc, tenant, site}.
+- **BlackRock** — Radancy (`RADANCY` dict). **Solomon Partners** — Greenhouse.
+  **SIG** — Jibe (`JIBE` dict). **Cantor Fitzgerald** — Oracle (`ORACLE` dict).
+- **Stifel** — iCIMS; new generic `fetch_icims` + `ICIMS` dict (server-rendered
+  `iCIMS_JobCardItem`s, paged by `pr`). Also covers **KBW** (a Stifel company).
+- Can't wire yet: PIMCO / HPS / Qatalyst / Wedbush / Academy / Siebert /
+  Rothschild / ANZ (bot gates, email-only, or enterprise ATS) — see
+  `REMAINING_FIRMS.md`. The 14 EU/APAC banks are the next pass.
+
+Also note: NY metro matching now uses a standalone-`\bny\b` regex (`_NY_STATE_RE`)
+instead of loose `"manhattan"`/`", ny"` substrings — fixes false matches on
+"US-KS-Manhattan" and missed "NY, United States".
+
 **Consulting firms (added 2026-09-17, client request):**
 - **Mars & Co** and **Altman Solon** — standard Greenhouse boards (`marscousg`,
   `altmansolonuslp`); dropped straight into the `GREENHOUSE` dict.
