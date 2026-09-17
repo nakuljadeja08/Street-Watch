@@ -43,12 +43,14 @@ GREENHOUSE = {   # firm -> board token  (boards-api.greenhouse.io/v1/boards/<tok
     # standard public Greenhouse board JSON on the US host.
     "Mars & Co": "marscousg",                        # NY-area consulting roles only
     "Altman Solon": "altmansolonuslp",               # TMT strategy; US + EU board
+    "Solomon Partners": "solomonpartnersprofessionals",  # yellow-tier (advisory)
 }
 ASHBY = {        # firm -> job board name (api.ashbyhq.com/posting-api/job-board/<name>)
     "Insight Partners": "insightpartners",          # verify the exact board slug
 }
 JIBE = {         # firm -> careers host  (https://<host>/api/jobs — Jibe/iCIMS front)
     "ZS Associates": "jobs.zs.com",                 # 275 postings, paginated 10/page
+    "Susquehanna International Group": "careers.sig.com",  # trading firm; 265 postings
 }
 PINPOINT = {     # firm -> careers host  (https://<host>/postings.json — Pinpoint ATS)
     "CIL Management Consultants": "careers.cil.com", # small board; Analyst NY/Chicago
@@ -57,6 +59,10 @@ ORACLE = {       # firm -> (host, siteNumber, siteName)  Oracle Fusion Recruitin
     # Public REST at /hcmRestApi/resources/latest/recruitingCEJobRequisitions.
     # siteNumber (CX_n) selects the career site; siteName builds the public URL.
     "Lazard": ("icbpjb.fa.ocs.oraclecloud.com", "CX_1", "LazardProfessionalCareers"),
+    "Cantor Fitzgerald": ("hdow.fa.us6.oraclecloud.com", "CX_1003", "CX_1003"),  # 85 reqs
+}
+ICIMS = {        # firm -> host  (careers-<x>.icims.com; server-rendered JobCardItems)
+    "Stifel": "careers-stifel.icims.com",            # also carries KBW (Stifel co.)
 }
 HRMDIRECT = {    # firm -> host  (ClearCompany/HRM Direct; opco.hrmdirect.com/employment)
     "Oppenheimer & Co.": "opco.hrmdirect.com",       # filter by &city=; NY 26 / Chi / SF
@@ -97,6 +103,10 @@ WORKDAY = {      # firm -> (tenant, datacenter, site)
     # careers redirect and confirmed against the wd/cxs endpoint.
     "Carlyle":                  ("carlyle",    "wd1", "Carlyle"),        # 79 reqs
     "Ardian":                   ("ardian",     "wd103", "ArdianCareers"),# 74 reqs
+    # Yellow-priority batch (added 2026-09-17).
+    "AllianceBernstein":        ("abglobal",   "wd1", "alliancebernsteincareers"),
+    "Hamilton Lane":            ("hamiltonlane","wd108", "search"),
+    "Piper Sandler":            ("pipersandler","wd501", "Piper_Sandler_Careers"),  # 57
     # Best-effort tenant/site slugs from public careers URLs — a wrong site just
     # logs an error for that firm and skips it; correct it from the run output.
     # Still to map (custom / not-yet-found ATS): KKR, Carlyle, JPMorgan, Citi,
@@ -108,11 +118,19 @@ WORKDAY = {      # firm -> (tenant, datacenter, site)
 
 # ---------------------------------------------------------------- filters
 METROS = {
-    "NY + Jersey City": ["new york", "jersey city", "nyc", "manhattan", ", ny"],
+    # City-name substrings. NY's state-code is handled separately by _NY_STATE_RE
+    # below — a bare "manhattan"/", ny" substring wrongly matched Manhattan, KS
+    # ("US-KS-Manhattan") and missed "NY, United States", so the standalone-token
+    # regex replaces both.
+    "NY + Jersey City": ["new york", "jersey city", "nyc"],
     "SF / Bay Area":    ["san francisco", "bay area", "palo alto", "menlo park",
                          "mountain view", "san mateo", "redwood city"],
     "Chicago":          ["chicago", ", il", "illinois"],
 }
+# Standalone "NY" state code — matches "New York, NY", "NY, United States" and
+# ATS forms like "US-NY-New York", but never "Albany"/"Germany"/"Sunnyvale"
+# (the \b boundaries require NY to stand alone between non-word chars).
+_NY_STATE_RE = re.compile(r'\bny\b', re.I)
 # "consultant" added 2026-09-17 so consulting firms' entry level (Analyst /
 # Associate Consultant / Consultant) is captured; senior grades are still cut by
 # EXCLUDE (principal/director/…). Banks rarely title junior roles "consultant".
@@ -362,6 +380,89 @@ def fetch_pageup(firm, host, locale="en_US"):
     return out
 
 
+_ICIMS_ITEM = re.compile(r'iCIMS_JobCardItem(.*?)(?=iCIMS_JobCardItem|</ul>)', re.S)
+_ICIMS_LOC = re.compile(r'Location</span>\s*<span[^>]*>\s*(.*?)\s*</span>', re.S)
+_ICIMS_ANCHOR = re.compile(r'href="([^"]*/jobs/(\d+)/[^"]*)"[^>]*class="iCIMS_Anchor"', re.S)
+_ICIMS_TITLE = re.compile(r'<h3[^>]*>\s*(.*?)\s*</h3>', re.S)
+
+
+def fetch_icims(firm, host):
+    """iCIMS career portals (e.g. Stifel, which also carries KBW). The in-iframe
+    search page is server-rendered HTML: each `iCIMS_JobCardItem` holds a Location
+    label + value, and an anchor (`iCIMS_Anchor`) whose <h3> is the title. Paged by
+    `pr` (0-indexed, 50/page). No post date in the list, so posted_date is null."""
+    import html as _html
+    base = f"https://{host}/jobs/search"
+    out, page, seen = [], 0, set()
+    try:
+        while page < 40:  # hard ceiling (2000 reqs)
+            r = requests.get(base, headers=UA,
+                             params={"pr": page, "in_iframe": 1}, timeout=TIMEOUT)
+            r.raise_for_status()
+            items = _ICIMS_ITEM.findall(r.text)
+            if not items:
+                break
+            added = 0
+            for chunk in items:
+                a = _ICIMS_ANCHOR.search(chunk)
+                t = _ICIMS_TITLE.search(chunk)
+                if not (a and t):
+                    continue
+                jid = a.group(2)
+                if jid in seen:
+                    continue
+                seen.add(jid); added += 1
+                lm = _ICIMS_LOC.search(chunk)
+                loc = _html.unescape(re.sub(r"<[^>]+>", "", lm.group(1))).strip() if lm else ""
+                title = _html.unescape(re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", t.group(1)))).strip()
+                url = _html.unescape(a.group(1)).split("?")[0]
+                out.append(dict(firm=firm, id=f"icims-{host}-{jid}", title=title,
+                                location=loc, url=url, source="icims",
+                                posted_date=None))
+            if added == 0:
+                break
+            page += 1
+            time.sleep(0.25)
+    except Exception as e:
+        print(f"  ! icims {firm}: {e}", file=sys.stderr)
+    return out
+
+
+def fetch_workday_site(firm, dc, tenant, site):
+    """Workday tenants served on the shared myworkdaysite.com host (e.g. Perella
+    Weinberg). Identical CXS protocol to fetch_workday, but the URL shape is
+    https://<dc>.myworkdaysite.com/{wday/cxs|recruiting}/<tenant>/<site>."""
+    host = f"https://{dc}.myworkdaysite.com"
+    base = f"{host}/wday/cxs/{tenant}/{site}/jobs"
+    LIMIT = 20
+    out, offset, total = [], 0, None
+    try:
+        while True:
+            body = {"appliedFacets": {}, "limit": LIMIT, "offset": offset, "searchText": ""}
+            r = requests.post(base, headers={**UA, "Content-Type": "application/json"},
+                              json=body, timeout=TIMEOUT); r.raise_for_status()
+            data = r.json()
+            posts = data.get("jobPostings", [])
+            if total is None:
+                total = data.get("total", 0)
+            if not posts:
+                break
+            for p in posts:
+                path = p.get("externalPath", "")
+                out.append(dict(firm=firm, id=f"wds-{tenant}-{site}-{path}",
+                                title=(p.get("title") or "").strip(),
+                                location=(p.get("locationsText") or "").strip(),
+                                url=f"{host}/recruiting/{tenant}/{site}{path}",
+                                source="workday", posted_date=None))
+            offset += LIMIT
+            if offset >= total or len(posts) < LIMIT:
+                break
+            time.sleep(0.25)
+    except Exception as e:
+        print(f"  ! workday-site {firm}: {e}", file=sys.stderr)
+    return out
+
+
 def fetch_workday(firm, tenant, dc, site):
     base = f"https://{tenant}.{dc}.myworkdayjobs.com/wday/cxs/{tenant}/{site}/jobs"
     host = f"https://{tenant}.{dc}.myworkdayjobs.com"
@@ -548,10 +649,16 @@ def fetch_citadel(firm="Citadel Securities"):
 # differ between tenants (Citi uses sr-job-item, Barclays uses job-title--link),
 # but all share a /job/ href, a data-job-id, and a "job-location" element — so
 # one generic parser handles them. Plain requests work (no bot gate).
+WORKDAY_SITE = {  # firm -> (dc, tenant, site)  Workday on the myworkdaysite.com host
+    # Same CXS protocol as WORKDAY, but the URL shape is
+    # https://<dc>.myworkdaysite.com/{wday/cxs|recruiting}/<tenant>/<site>.
+    "Perella Weinberg Partners": ("wd1", "pwp", "PWP_Experienced_Opportunities"),
+}
 RADANCY = {              # firm -> host
-    "Citi":     "jobs.citi.com",
-    "Barclays": "search.jobs.barclays",
-    "ING":      "careers.ing.com",
+    "Citi":       "jobs.citi.com",
+    "Barclays":   "search.jobs.barclays",
+    "ING":        "careers.ing.com",
+    "BlackRock":  "careers.blackrock.com",   # yellow-tier; ~151 NY hits
 }
 RADANCY_METRO_KW = ["new york", "jersey city", "chicago", "san francisco", "bay area"]
 RADANCY_CARD_RE = re.compile(
@@ -610,6 +717,8 @@ def metro_of(loc):
     for m, needles in METROS.items():
         if any(n in l for n in needles):
             return m
+    if _NY_STATE_RE.search(loc):
+        return "NY + Jersey City"
     return None
 
 
@@ -661,9 +770,15 @@ def collect():
     print("PageUp…")
     for f, (host, locale) in PAGEUP.items():
         rows = fetch_pageup(f, host, locale); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    print("iCIMS…")
+    for f, host in ICIMS.items():
+        rows = fetch_icims(f, host); print(f"  {f:<24}{len(rows):>4}"); raw += rows
     print("Workday…")
     for f, (t, dc, s) in WORKDAY.items():
         rows = fetch_workday(f, t, dc, s); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    print("Workday (myworkdaysite)…")
+    for f, (dc, t, s) in WORKDAY_SITE.items():
+        rows = fetch_workday_site(f, dc, t, s); print(f"  {f:<24}{len(rows):>4}"); raw += rows
     print("Goldman Sachs (higher.gs)…")
     rows = fetch_goldman("Goldman Sachs"); print(f"  {'Goldman Sachs':<24}{len(rows):>4}"); raw += rows
     print("Citadel Securities (cloudscraper)…")

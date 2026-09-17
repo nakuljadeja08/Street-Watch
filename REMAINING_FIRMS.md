@@ -1,8 +1,32 @@
 # Street Watch — Remaining Firms
 
-From `Target_Financial_Firms.xlsx` (121 targets): **58 wired · 63 remaining**
+From `Target_Financial_Firms.xlsx` (121 targets): **67 wired · 54 remaining**
 (plus 4 net-new consulting firms wired on request — see `CONSULTING_FIRMS.md`).
 Grouped by what we know about each firm's ATS platform. Updated 2026-09-17.
+
+### 🟡 Yellow-priority batch — wave 1 wired 2026-09-17 (9)
+Fingerprinted each ATS via a live browser session:
+- **BlackRock** → Radancy (existing `fetch_radancy`; ~151 NY hits)
+- **AllianceBernstein**, **Hamilton Lane**, **Piper Sandler** → Workday
+- **Perella Weinberg Partners** → Workday on `myworkdaysite.com` (new
+  `fetch_workday_site` + `WORKDAY_SITE` dict)
+- **Solomon Partners** → Greenhouse (`solomonpartnersprofessionals`)
+- **Susquehanna International Group (SIG)** → Jibe (existing `fetch_jibe`; 265 reqs)
+- **Stifel** → iCIMS (new `fetch_icims`; ~50+ reqs) — also carries **KBW** (a
+  Stifel company; no separate board)
+- **Cantor Fitzgerald** → Oracle Fusion (existing `fetch_oracle`; 85 reqs)
+
+**Yellow — no public board / can't wire as-is:** PIMCO (Akamai bot gate, ATS not
+found) · HPS Investment Partners (renders no listings) · Qatalyst (email-only,
+`uscareers@qatalyst.com`) · Wedbush (marketing page + reCAPTCHA form, no board) ·
+Academy Securities (email-only) · Siebert Williams Shank (site blocked our access)
+· Rothschild & Co (ATS not exposed on landing — needs deeper capture) · ANZ
+(`careers.anz.com/go/…`, SuccessFactors/Avature family — needs a dedicated fetcher).
+
+**Yellow — still to fingerprint (14 European/APAC banks):** UBS, HSBC, Crédit
+Agricole CIB, Santander CIB, Natixis, BBVA CIB, Intesa Sanpaolo, Standard
+Chartered, Lloyds, Commerzbank, DZ BANK, Mizuho, Nomura, Daiwa — the heavy set
+(mostly Avature / SuccessFactors / Phenom); next pass.
 
 ### 🟢 Green-priority batch wired 2026-09-17 (5 of 6)
 Client marked these top priority. Fingerprinted each ATS via a live browser
