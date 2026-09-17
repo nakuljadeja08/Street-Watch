@@ -109,11 +109,8 @@ WORKDAY = {      # firm -> (tenant, datacenter, site)
     "Piper Sandler":            ("pipersandler","wd501", "Piper_Sandler_Careers"),  # 57
     # Best-effort tenant/site slugs from public careers URLs — a wrong site just
     # logs an error for that firm and skips it; correct it from the run output.
-    # Still to map (custom / not-yet-found ATS): KKR, Carlyle, JPMorgan, Citi,
-    #   Goldman Sachs, Jefferies, Evercore, Lazard, Centerview, Perella Weinberg,
-    #   Rothschild, Nomura, RBC, TD, BMO, Barclays, HSBC, UBS, BNP, SocGen,
-    #   Citadel Securities, Susquehanna (SIG), PIMCO, AllianceBernstein,
-    #   Hamilton Lane (hamiltonlane.wd108 — site slug unconfirmed), StepStone, HPS.
+    # Still to map (custom / not-yet-found ATS): JPMorgan, Jefferies, Evercore,
+    #   Centerview, Rothschild, Nomura, RBC, HSBC, UBS, BNP, SocGen, PIMCO, HPS.
 }
 
 # ---------------------------------------------------------------- filters
