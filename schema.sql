@@ -20,6 +20,9 @@ alter table public.jobs add column if not exists posted_date date;
 
 create index if not exists jobs_metro_idx on public.jobs (metro);
 create index if not exists jobs_firm_idx  on public.jobs (firm);
+-- Supports the pipeline's per-firm reconcile delete (firm = ? and updated_at < ?),
+-- which prunes roles a firm has delisted since the previous run.
+create index if not exists jobs_firm_updated_idx on public.jobs (firm, updated_at);
 
 -- Row Level Security: let the public (anon key) READ, but only the service
 -- key (used by the pipeline) WRITE.
