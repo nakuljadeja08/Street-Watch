@@ -35,10 +35,14 @@ firms' ATS APIs  ──►  pipeline.py  ──►  Supabase `jobs` table  ─�
 
 **3. Front-end** — the React app in `dashboard/`.
 - Run `schema_applications.sql` once (the tracker's store).
-- Deploy on Vercel from the `release` branch with **Root Directory = `dashboard`**
-  — no env vars needed (public anon key defaults in `src/config.js`). Full steps
-  in `dashboard/README.md`. It reads Supabase live and refreshes as the cron
-  writes new rows.
+- Deploy on Vercel: import the repo — the root `vercel.json` builds `dashboard/`
+  and serves `dashboard/dist`, so **no Root Directory change and no env vars are
+  needed** (public anon key defaults in `src/config.js`). It reads Supabase live
+  and refreshes as the cron writes new rows.
+- Optional: set the Vercel **Production Branch** to `release` so the daily data
+  commits on `main` don't trigger rebuilds (they don't need to — data is live
+  from Supabase). Publish updates with `git checkout release && git merge main
+  && git push`.
 
 Test locally first: `pip install requests cloudscraper && python pipeline.py`
 (`cloudscraper` is only needed for the Citadel Securities fetcher, which sits
