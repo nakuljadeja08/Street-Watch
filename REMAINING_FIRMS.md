@@ -58,8 +58,12 @@ cut it. These tenants front Workday, so `applyUrl` is a myworkdayjobs deep link.
   (`jobs.citizensbank.com`, `/search-jobs/`) — added to `RADANCY`, 170 raw
 
 ## 🔴 Confirmed other platforms (heavier, per-firm)
-- **JPMorgan Chase** — Oracle Recruiting backend (moved to jpmorganchase.com)
-- **Jefferies** — Oracle Talentlink (`jefferies.tal.net`)
+- **JPMorgan Chase** — ✅ wired 2026-09-18: Oracle Fusion CE at
+  `jpmc.fa.oraclecloud.com` (siteNumber `CX_1001`, siteName `CX_1001`), same
+  product as Lazard/Cantor. ~7,400 reqs globally; ~281 kept after filters.
+- **Jefferies** — Oracle Talentlink (`jefferies.tal.net`) behind a **Cloudflare
+  managed challenge** ("Quick Check Needed"). Same bucket as Citadel — needs a
+  cloudscraper session, and vacancies then load via a JS widget. Deferred.
 - **Scotiabank** — SAP SuccessFactors
 - **Evercore** — board not linked from marketing site (gated/separate)
 
@@ -114,4 +118,7 @@ TD Bank, CIBC, Northern Trust, Capital One, U.S. Bancorp, KeyBank, M&T Bank,
 Sixth Street, PJT Partners
 **Radancy (5):** Citi, Barclays, ING, BlackRock, Citizens Financial Group
 **Phenom (5):** RBC, PNC, Truist, Regions, Franklin Templeton
+**Oracle Fusion CE (3):** Lazard, Cantor Fitzgerald, JPMorgan Chase
+**Other (7):** ZS Associates + SIG (Jibe), CIL (Pinpoint), Oppenheimer (HRM Direct),
+Macquarie (PageUp), Stifel/KBW (iCIMS), Perella Weinberg (Workday myworkdaysite)
 **Custom (2):** Citadel Securities (cloudscraper), Goldman Sachs (scaffold, /graphql 404ing)

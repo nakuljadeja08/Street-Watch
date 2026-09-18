@@ -59,6 +59,10 @@ ORACLE = {       # firm -> (host, siteNumber, siteName)  Oracle Fusion Recruitin
     # siteNumber (CX_n) selects the career site; siteName builds the public URL.
     "Lazard": ("icbpjb.fa.ocs.oraclecloud.com", "CX_1", "LazardProfessionalCareers"),
     "Cantor Fitzgerald": ("hdow.fa.us6.oraclecloud.com", "CX_1003", "CX_1003"),  # 85 reqs
+    # JPMorgan runs the same Oracle Fusion CE product (added 2026-09-18). ~7,400
+    # reqs globally; fetch_oracle's 5000 offset ceiling still covers the whole
+    # <=30-day window (by offset ~4800 postings are already >40 days old).
+    "JPMorgan Chase": ("jpmc.fa.oraclecloud.com", "CX_1001", "CX_1001"),
 }
 ICIMS = {        # firm -> host  (careers-<x>.icims.com; server-rendered JobCardItems)
     "Stifel": "careers-stifel.icims.com",            # also carries KBW (Stifel co.)
@@ -110,8 +114,9 @@ WORKDAY = {      # firm -> (tenant, datacenter, site)
     "PJT Partners":             ("pjtpartners", "wd1", "Careers"),             # 52 reqs
     # Best-effort tenant/site slugs from public careers URLs — a wrong site just
     # logs an error for that firm and skips it; correct it from the run output.
-    # Still to map (custom / not-yet-found ATS): JPMorgan, Jefferies, Evercore,
-    #   Centerview, Rothschild, Nomura, RBC, HSBC, UBS, BNP, SocGen, PIMCO, HPS.
+    # Still to map (custom / not-yet-found ATS): Evercore, Centerview, Rothschild,
+    #   Nomura, HSBC, UBS, BNP, SocGen, PIMCO, HPS. (JPMorgan -> Oracle CE above;
+    #   RBC -> Phenom; Jefferies -> Talentlink behind Cloudflare, needs cloudscraper.)
 }
 
 # ---------------------------------------------------------------- filters
