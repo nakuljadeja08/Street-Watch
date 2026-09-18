@@ -5,8 +5,8 @@ Pulls real Analyst/Associate openings from firms' own hiring systems
 Supabase, and serves a live page. Runs itself every morning via GitHub Actions.
 
 ```
-firms' ATS APIs  ──►  pipeline.py  ──►  Supabase `jobs` table  ──►  index.html (live page)
-        (Greenhouse / Ashby / Workday)      (GitHub Actions cron, daily)
+firms' ATS APIs  ──►  pipeline.py  ──►  Supabase `jobs` table  ──►  dashboard/ (React app on Vercel)
+        (Greenhouse / Ashby / Workday …)   (GitHub Actions cron, daily)
 ```
 
 ## Files
@@ -16,8 +16,7 @@ firms' ATS APIs  ──►  pipeline.py  ──►  Supabase `jobs` table  ─�
 | `schema.sql` | One-time Supabase `jobs` table + read policy. |
 | `schema_applications.sql` | One-time `applications` table (the tracker's store; open anon write). |
 | `.github/workflows/street-watch.yml` | Daily cron (11:00 UTC) that runs the pipeline. |
-| `dashboard/` | **React + Vite app** — live openings **plus an application tracker** (set Applied/Interview/… per role, saved to Supabase). The primary front-end; see `dashboard/README.md`. |
-| `index.html` | Legacy single-file read-only view (no tracker). Kept as a lightweight fallback. |
+| `dashboard/` | **React + Vite app** — live openings **plus an application tracker** (set Applied/Interview/… per role, saved to Supabase). The front-end, deployed on Vercel from the `release` branch; see `dashboard/README.md`. |
 
 ## Setup (~15 min)
 
@@ -34,10 +33,12 @@ firms' ATS APIs  ──►  pipeline.py  ──►  Supabase `jobs` table  ─�
 - Actions tab → run **Street Watch — daily job pull** once (workflow_dispatch)
   to backfill. It then runs every morning on its own.
 
-**3. Front-end**
-- Open `index.html`, set `SUPABASE_URL` and `SUPABASE_ANON_KEY` at the top.
-- Deploy the file to Vercel / Netlify / GitHub Pages. Done — it shows the live
-  list and refreshes as the cron writes new rows.
+**3. Front-end** — the React app in `dashboard/`.
+- Run `schema_applications.sql` once (the tracker's store).
+- Deploy on Vercel from the `release` branch with **Root Directory = `dashboard`**
+  — no env vars needed (public anon key defaults in `src/config.js`). Full steps
+  in `dashboard/README.md`. It reads Supabase live and refreshes as the cron
+  writes new rows.
 
 Test locally first: `pip install requests cloudscraper && python pipeline.py`
 (`cloudscraper` is only needed for the Citadel Securities fetcher, which sits
