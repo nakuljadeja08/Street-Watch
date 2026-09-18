@@ -91,16 +91,29 @@ custom. Each needs an individual browser capture.
   PIMCO · AllianceBernstein
 
 ---
-### ✅ Wired so far (53)
-**Greenhouse (19):** Jane Street, DRW, IMC, Virtu, Optiver, Sixth Street, General
-Atlantic, TPG, Warburg Pincus, iCapital, CAIS, BTIG, StepStone, KKR, William Blair,
-EQT, Ducera, LionTree, PJT* — *Ashby (1):* Insight Partners*
-**Workday (28):** Blackstone, Apollo, Blue Owl, Ares, Morgan Stanley, Houlihan
-Lokey, Wells Fargo, Moelis, Brookfield, Oaktree, Neuberger Berman, Deutsche Bank,
-Bank of America, PGIM, Invesco, Wellington, Franklin Templeton, Guggenheim, State
-Street, Baird, BMO, TD Bank, CIBC, Northern Trust, Capital One, U.S. Bancorp,
-KeyBank, M&T Bank
-**Radancy (3):** Citi, Barclays, ING — **Custom (2):** Citadel Securities
-(cloudscraper), Goldman Sachs (scaffold, /graphql 404ing)
+### 🔧 Wired-but-empty firms fixed 2026-09-18
+- **Insight Partners** (Ashby) — slug was `insightpartners` (empty); correct slug
+  is `insight-partners` (hyphenated). Now returns roles.
+- **Sixth Street** — Greenhouse token `sixthstreet` 404s (dead board). Real ATS is
+  Workday `sixthstreet`/wd1/**SixthStreetCareers** (15 reqs). Moved GH → Workday.
+- **PJT Partners** — Greenhouse token `pjtpartnersprofessionals` 404s. Real ATS is
+  Workday `pjtpartners`/wd1/**Careers** (52 reqs). Moved GH → Workday.
+- **Franklin Templeton** — ⚠️ still empty: its Workday board
+  (`franklintempleton`/wd5/`Primary-External-1`) responds 200 but total=0, and the
+  real listings sit on a JS-only careers SPA that blocks headless + the browser
+  pane. Needs a browser capture. Left wired (contributes 0).
 
-\* wired but not currently returning data (no live public board found).
+### ✅ Wired so far
+**Greenhouse (17):** Jane Street, DRW, IMC, Virtu, Optiver, General Atlantic, TPG,
+Warburg Pincus, iCapital, CAIS, BTIG, StepStone, KKR, William Blair, EQT, Ducera,
+LionTree — **Ashby (1):** Insight Partners
+**Workday (30):** Blackstone, Apollo, Blue Owl, Ares, Morgan Stanley, Houlihan
+Lokey, Wells Fargo, Moelis, Brookfield, Oaktree, Neuberger Berman, Deutsche Bank,
+Bank of America, PGIM, Invesco, Wellington, Franklin Templeton*, Guggenheim, State
+Street, Baird, BMO, TD Bank, CIBC, Northern Trust, Capital One, U.S. Bancorp,
+KeyBank, M&T Bank, Sixth Street, PJT Partners
+**Radancy (5):** Citi, Barclays, ING, BlackRock, Citizens Financial Group
+**Phenom (4):** RBC, PNC, Truist, Regions
+**Custom (2):** Citadel Securities (cloudscraper), Goldman Sachs (scaffold, /graphql 404ing)
+
+\* wired but currently returning 0 (see Franklin Templeton note above).
