@@ -31,14 +31,13 @@ TIMEOUT = 25
 GREENHOUSE = {   # firm -> board token  (boards-api.greenhouse.io/v1/boards/<token>/jobs)
     "Jane Street": "janestreet", "DRW": "drweng", "IMC Trading": "imc",
     "Virtu Financial": "virtu", "Optiver": "optiverprivate",
-    "Sixth Street": "sixthstreet", "General Atlantic": "generalatlantic",
+    "General Atlantic": "generalatlantic",
     "TPG": "tpgcareers", "Warburg Pincus": "warburgpincusllc",
     "iCapital": "icapitalnetwork", "CAIS": "cais", "BTIG": "btig27",
     "StepStone": "stepstone",                       # confirmed live (private markets)
     "KKR": "stage",                                 # KKR embeds Greenhouse board token "stage"
     "William Blair": "williamblair", "EQT": "eqtpartners",
     "Ducera Partners": "ducerapartners", "LionTree": "liontree",
-    "PJT Partners": "pjtpartnersprofessionals",     # may 404 — handled gracefully
     # Consulting firms (added 2026-09-17 at client request) — both expose the
     # standard public Greenhouse board JSON on the US host.
     "Mars & Co": "marscousg",                        # NY-area consulting roles only
@@ -46,7 +45,7 @@ GREENHOUSE = {   # firm -> board token  (boards-api.greenhouse.io/v1/boards/<tok
     "Solomon Partners": "solomonpartnersprofessionals",  # yellow-tier (advisory)
 }
 ASHBY = {        # firm -> job board name (api.ashbyhq.com/posting-api/job-board/<name>)
-    "Insight Partners": "insightpartners",          # verify the exact board slug
+    "Insight Partners": "insight-partners",          # slug is hyphenated (was "insightpartners" = empty)
 }
 JIBE = {         # firm -> careers host  (https://<host>/api/jobs — Jibe/iCIMS front)
     "ZS Associates": "jobs.zs.com",                 # 275 postings, paginated 10/page
@@ -87,6 +86,9 @@ WORKDAY = {      # firm -> (tenant, datacenter, site)
     "PGIM":                     ("pru",        "wd5", "PGIM_Careers"),
     "Invesco":                  ("invesco",    "wd1", "IVZ"),
     "Wellington Management":    ("wellington", "wd5", "External"),
+    # NOTE: this board responds 200 but total=0 — FT's real listings are on a
+    # JS-only careers SPA we couldn't fingerprint headless; needs a browser
+    # capture. Left wired (harmless, contributes 0) pending that.
     "Franklin Templeton":       ("franklintempleton", "wd5", "Primary-External-1"),
     "Guggenheim Securities":    ("guggenheiminvestment", "wd5", "External"),
     "State Street":             ("statestreet","wd1", "Global"),
@@ -107,6 +109,9 @@ WORKDAY = {      # firm -> (tenant, datacenter, site)
     "AllianceBernstein":        ("abglobal",   "wd1", "alliancebernsteincareers"),
     "Hamilton Lane":            ("hamiltonlane","wd108", "search"),
     "Piper Sandler":            ("pipersandler","wd501", "Piper_Sandler_Careers"),  # 57
+    # Moved off dead Greenhouse boards to their real Workday tenants (2026-09-18).
+    "Sixth Street":             ("sixthstreet", "wd1", "SixthStreetCareers"),  # 15 reqs
+    "PJT Partners":             ("pjtpartners", "wd1", "Careers"),             # 52 reqs
     # Best-effort tenant/site slugs from public careers URLs — a wrong site just
     # logs an error for that firm and skips it; correct it from the run output.
     # Still to map (custom / not-yet-found ATS): JPMorgan, Jefferies, Evercore,
