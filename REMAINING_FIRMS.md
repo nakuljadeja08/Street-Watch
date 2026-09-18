@@ -41,15 +41,21 @@ session and wired all but BNP:
   custom `/en/search` API; plain `requests` gets challenged. Needs a
   cloudscraper/browser-session approach (same bucket as the Phenom banks).
 
-## 🟡 Phenom People — one generic fetcher unlocks all of these
-Search runs through Phenom's `POST /widgets` batch API. `/api/rest/searchresults`
-returns "Tenant not identified" — the API needs tenant context set by a real
-browser page load, so blind `requests` fail. **Blocked only on browser access.**
-- RBC Capital Markets
-- PNC Financial Services
-- Truist Securities
-- Regions Securities
-- Citizens Financial Group *(likely Phenom — confirm)*
+## ✅ Phenom People — wired 2026-09-18 (new `fetch_phenom`)
+Solved: job search is `POST https://<host>/widgets` with `ddoKey:"refineSearch"`.
+No cookie/CSRF/tenant handshake needed when the POST targets the firm's own
+careers host (tenant is keyed off the Host header) — the "Tenant not identified"
+error only hits the generic `/api/apps/*` paths, not `/widgets`. Response nests
+jobs under `refineSearch.data.jobs` with `refineSearch.totalHits`; each job has a
+real ISO `postedDate` (so the 30-day filter applies). Keyword search doesn't
+narrow by location, so we page the whole board and let the metro/title filters
+cut it. These tenants front Workday, so `applyUrl` is a myworkdayjobs deep link.
+- **RBC Capital Markets** → `jobs.rbc.com` (ca/en_ca) — 1436 raw
+- **PNC Financial Services** → `careers.pnc.com` — 2164 raw
+- **Truist Securities** → `careers.truist.com` — 1105 raw
+- **Regions Securities** → `careers.regions.com` — 529 raw
+- **Citizens Financial Group** → actually **Radancy**, not Phenom
+  (`jobs.citizensbank.com`, `/search-jobs/`) — added to `RADANCY`, 170 raw
 
 ## 🔴 Confirmed other platforms (heavier, per-firm)
 - **JPMorgan Chase** — Oracle Recruiting backend (moved to jpmorganchase.com)

@@ -685,6 +685,22 @@ RADANCY = {              # firm -> host
     "Barclays":   "search.jobs.barclays",
     "ING":        "careers.ing.com",
     "BlackRock":  "careers.blackrock.com",   # yellow-tier; ~151 NY hits
+    # Citizens' careers site looked Phenom at first glance but is actually Radancy
+    # (/search-jobs/ + SetSearchRequestGeoLocation) — same platform as Citi et al.
+    "Citizens Financial Group": "jobs.citizensbank.com",
+}
+PHENOM = {               # firm -> (host, country, lang)  Phenom People careers
+    # Phenom serves job search from POST https://<host>/widgets with
+    # ddoKey="refineSearch". No cookie/CSRF/tenant handshake is needed when the
+    # POST goes to the firm's own careers host (tenant is keyed off Host); the
+    # docs' "Tenant not identified" only happens on the generic /api/apps/* paths.
+    # Response: {refineSearch:{totalHits, data:{jobs:[…]}}}; each job carries a
+    # real ISO postedDate, so the 30-day filter applies. RBC/PNC/Truist/Regions
+    # all front Workday underneath, so applyUrl is a myworkdayjobs deep link.
+    "RBC Capital Markets":     ("jobs.rbc.com",       "ca", "en_ca"),
+    "PNC Financial Services":  ("careers.pnc.com",    "us", "en_us"),
+    "Truist Securities":       ("careers.truist.com", "us", "en_us"),
+    "Regions Securities":      ("careers.regions.com","us", "en_us"),
 }
 RADANCY_METRO_KW = ["new york", "jersey city", "chicago", "san francisco", "bay area"]
 # Radancy ships two card themes: a classic one (BlackRock/Barclays/ING) where the
@@ -764,6 +780,62 @@ def fetch_radancy(firm, host, source):
     return out
 
 
+def fetch_phenom(firm, host, country="us", lang="en_us"):
+    """Phenom People careers boards (e.g. RBC, PNC, Truist, Regions). Job search
+    is a POST to https://<host>/widgets with ddoKey="refineSearch"; the response
+    nests the page under refineSearch.data.jobs with refineSearch.totalHits for
+    pagination. Phenom's keyword field doesn't reliably narrow by location, so we
+    page the whole board and let the metro/title filters cut it down. Each job has
+    cityStateCountry, an ISO postedDate, and an applyUrl (a Workday deep link for
+    these tenants); we drop a trailing '/apply' so the link lands on the JD."""
+    base = f"https://{host}/widgets"
+    lang_short = lang.split("_")[0]
+    out, offset, total, SIZE = [], 0, None, 100
+    try:
+        while offset < 6000:  # hard ceiling
+            body = {"lang": lang, "deviceType": "desktop", "country": country,
+                    "ddoKey": "refineSearch", "sortBy": "", "subsearch": "",
+                    "from": offset, "jobs": True, "counts": True,
+                    "all_fields": ["category", "state", "city", "type", "country",
+                                   "subCategory", "seqNo"],
+                    "pageName": "search-results", "size": SIZE, "clearAll": False,
+                    "jdsource": "facets", "isSliderEnable": False,
+                    "isMultiLingual": False, "pageId": "", "siteType": "external",
+                    "keywords": "", "global": True, "selected_fields": {},
+                    "locationData": {}, "sort": {}, "esreqid": ""}
+            r = requests.post(base, headers={**UA, "Content-Type": "application/json"},
+                              json=body, timeout=TIMEOUT)
+            r.raise_for_status()
+            rs = (r.json() or {}).get("refineSearch") or {}
+            if total is None:
+                total = rs.get("totalHits") or 0
+            jobs = (rs.get("data") or {}).get("jobs") or []
+            if not jobs:
+                break
+            for j in jobs:
+                seq = j.get("jobSeqNo") or j.get("jobId") or j.get("reqId")
+                loc = (j.get("cityStateCountry") or j.get("cityState")
+                       or ", ".join(x for x in [j.get("city"), j.get("state"),
+                                                j.get("country")] if x)).strip()
+                url = (j.get("applyUrl") or "").strip()
+                if url.endswith("/apply"):
+                    url = url[:-6]
+                if not url:
+                    url = f"https://{host}/{country}/{lang_short}/job/{seq}"
+                out.append(dict(firm=firm, id=f"phenom-{host}-{seq}",
+                                title=(j.get("title") or "").strip(),
+                                location=loc, url=url, source="phenom",
+                                posted_date=_posted(j.get("postedDate")
+                                                    or j.get("dateCreated"))))
+            offset += SIZE
+            if total and offset >= total:
+                break
+            time.sleep(0.25)
+    except Exception as e:
+        print(f"  ! phenom {firm}: {e}", file=sys.stderr)
+    return out
+
+
 # ---------------------------------------------------------------- filter/dedupe
 def metro_of(loc):
     l = loc.lower()
@@ -839,6 +911,9 @@ def collect():
     print("Radancy…")
     for f, host in RADANCY.items():
         rows = fetch_radancy(f, host, f.lower().split()[0]); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    print("Phenom People…")
+    for f, (host, country, lang) in PHENOM.items():
+        rows = fetch_phenom(f, host, country, lang); print(f"  {f:<24}{len(rows):>4}"); raw += rows
 
     kept, seen = [], set()
     for r in raw:
@@ -858,10 +933,16 @@ def push_supabase(rows):
     headers = {"apikey": key, "Authorization": f"Bearer {key}",
                "Content-Type": "application/json",
                "Prefer": "resolution=merge-duplicates,return=minimal"}
+    # Stamp every row from THIS run with one shared timestamp. The upsert writes
+    # updated_at on both inserts and merge-duplicates, so after the push every
+    # currently-live listing carries `run_ts` while anything left over from an
+    # earlier run keeps its older timestamp — that's how the reconcile below
+    # spots the roles a firm has since delisted.
+    run_ts = datetime.now(timezone.utc).isoformat()
     # upsert in chunks — a network/HTTP failure here must not crash the run
     # (the JSON/CSV are already written; a daily cron should exit cleanly).
     for i in range(0, len(rows), 200):
-        chunk = rows[i:i+200]
+        chunk = [{**r, "updated_at": run_ts} for r in rows[i:i+200]]
         try:
             r = requests.post(endpoint, headers=headers, data=json.dumps(chunk), timeout=TIMEOUT)
         except Exception as e:
@@ -870,6 +951,27 @@ def push_supabase(rows):
             print(f"  ! supabase {r.status_code}: {r.text[:200]}", file=sys.stderr)
         else:
             print(f"  upserted {len(chunk)} rows")
+
+    # Reconcile: drop listings that have vanished from a firm's source since we
+    # last saw them (delisted / filled). A row is stale if its firm appeared in
+    # THIS run but the row itself wasn't refreshed (updated_at < run_ts). We only
+    # prune firms that returned at least one row this run, so a transient fetch
+    # failure — which yields zero rows for that firm — can never wipe its whole
+    # board. This is what finally ages out undated Workday/Radancy/iCIMS/etc.
+    # rows: their posted_date is null, so the DATED purge below can never reach
+    # them, and before this a delisted Workday role lingered on the dashboard
+    # indefinitely.
+    for firm in sorted({r["firm"] for r in rows}):
+        try:
+            d = requests.delete(f"{url}/rest/v1/jobs",
+                                headers={**headers, "Prefer": "return=minimal"},
+                                params={"firm": f"eq.{firm}", "updated_at": f"lt.{run_ts}"},
+                                timeout=TIMEOUT)
+            if d.status_code >= 300:
+                print(f"  ! supabase reconcile {firm} {d.status_code}: {d.text[:150]}",
+                      file=sys.stderr)
+        except Exception as e:
+            print(f"  ! supabase reconcile {firm} failed: {e}", file=sys.stderr)
 
     # Purge stale DATED listings so the DB honors the <=MAX_AGE_DAYS rule. Only
     # rows with a posted_date older than the cutoff are removed — undated rows
@@ -889,6 +991,14 @@ def push_supabase(rows):
 
 # ---------------------------------------------------------------- main
 def main():
+    # Job titles carry en-dashes/smart quotes; the Windows console defaults to
+    # cp1252, which can't encode them and would crash the final summary print
+    # (the Linux CI runner is UTF-8, so it never hit this). Force UTF-8 out.
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(encoding="utf-8", errors="replace")
+        except Exception:
+            pass
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     state = json.load(open(STATE_FILE)) if os.path.exists(STATE_FILE) else {}
     jobs = collect()
