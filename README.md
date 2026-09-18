@@ -39,10 +39,19 @@ firms' ATS APIs  ──►  pipeline.py  ──►  Supabase `jobs` table  ─�
   and serves `dashboard/dist`, so **no Root Directory change and no env vars are
   needed** (public anon key defaults in `src/config.js`). It reads Supabase live
   and refreshes as the cron writes new rows.
-- Optional: set the Vercel **Production Branch** to `release` so the daily data
-  commits on `main` don't trigger rebuilds (they don't need to — data is live
-  from Supabase). Publish updates with `git checkout release && git merge main
-  && git push`.
+
+## Deployment rule — Vercel deploys from `release` only
+`main` is for development (and the daily bot's data commits); **it is never
+deployed**. Vercel's Production Branch is **`release`**, and `vercel.json` sets
+`git.deploymentEnabled.main = false`, so a push to `main` never triggers a build
+even by accident. The deployed dashboard reads Supabase live, so it always shows
+the latest pull regardless of when `release` last built.
+
+**To publish the current `main` to the live site:**
+```bash
+git checkout release && git merge main && git push && git checkout main
+```
+Then Vercel builds `release` and the site updates.
 
 Test locally first: `pip install requests cloudscraper && python pipeline.py`
 (`cloudscraper` is only needed for the Citadel Securities fetcher, which sits
