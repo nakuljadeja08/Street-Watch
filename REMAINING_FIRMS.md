@@ -98,22 +98,20 @@ custom. Each needs an individual browser capture.
   Workday `sixthstreet`/wd1/**SixthStreetCareers** (15 reqs). Moved GH → Workday.
 - **PJT Partners** — Greenhouse token `pjtpartnersprofessionals` 404s. Real ATS is
   Workday `pjtpartners`/wd1/**Careers** (52 reqs). Moved GH → Workday.
-- **Franklin Templeton** — ⚠️ still empty: its Workday board
-  (`franklintempleton`/wd5/`Primary-External-1`) responds 200 but total=0, and the
-  real listings sit on a JS-only careers SPA that blocks headless + the browser
-  pane. Needs a browser capture. Left wired (contributes 0).
+- **Franklin Templeton** — ✅ solved via browser: the old Workday board
+  (`franklintempleton`/wd5/`Primary-External-1`) is dead (total=0). Its live
+  listings are **Phenom** at `careers.franklintempleton.com` (201 reqs). Moved
+  Workday → Phenom; now returns roles.
 
 ### ✅ Wired so far
 **Greenhouse (17):** Jane Street, DRW, IMC, Virtu, Optiver, General Atlantic, TPG,
 Warburg Pincus, iCapital, CAIS, BTIG, StepStone, KKR, William Blair, EQT, Ducera,
 LionTree — **Ashby (1):** Insight Partners
-**Workday (30):** Blackstone, Apollo, Blue Owl, Ares, Morgan Stanley, Houlihan
+**Workday (29):** Blackstone, Apollo, Blue Owl, Ares, Morgan Stanley, Houlihan
 Lokey, Wells Fargo, Moelis, Brookfield, Oaktree, Neuberger Berman, Deutsche Bank,
-Bank of America, PGIM, Invesco, Wellington, Franklin Templeton*, Guggenheim, State
-Street, Baird, BMO, TD Bank, CIBC, Northern Trust, Capital One, U.S. Bancorp,
-KeyBank, M&T Bank, Sixth Street, PJT Partners
+Bank of America, PGIM, Invesco, Wellington, Guggenheim, State Street, Baird, BMO,
+TD Bank, CIBC, Northern Trust, Capital One, U.S. Bancorp, KeyBank, M&T Bank,
+Sixth Street, PJT Partners
 **Radancy (5):** Citi, Barclays, ING, BlackRock, Citizens Financial Group
-**Phenom (4):** RBC, PNC, Truist, Regions
+**Phenom (5):** RBC, PNC, Truist, Regions, Franklin Templeton
 **Custom (2):** Citadel Securities (cloudscraper), Goldman Sachs (scaffold, /graphql 404ing)
-
-\* wired but currently returning 0 (see Franklin Templeton note above).

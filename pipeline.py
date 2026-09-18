@@ -86,10 +86,6 @@ WORKDAY = {      # firm -> (tenant, datacenter, site)
     "PGIM":                     ("pru",        "wd5", "PGIM_Careers"),
     "Invesco":                  ("invesco",    "wd1", "IVZ"),
     "Wellington Management":    ("wellington", "wd5", "External"),
-    # NOTE: this board responds 200 but total=0 — FT's real listings are on a
-    # JS-only careers SPA we couldn't fingerprint headless; needs a browser
-    # capture. Left wired (harmless, contributes 0) pending that.
-    "Franklin Templeton":       ("franklintempleton", "wd5", "Primary-External-1"),
     "Guggenheim Securities":    ("guggenheiminvestment", "wd5", "External"),
     "State Street":             ("statestreet","wd1", "Global"),
     "Baird":                    ("baird",      "wd1", "Careers"),
@@ -706,6 +702,9 @@ PHENOM = {               # firm -> (host, country, lang)  Phenom People careers
     "PNC Financial Services":  ("careers.pnc.com",    "us", "en_us"),
     "Truist Securities":       ("careers.truist.com", "us", "en_us"),
     "Regions Securities":      ("careers.regions.com","us", "en_us"),
+    # FT's old Workday board (wd5/Primary-External-1) is dead (total=0); its live
+    # listings are on Phenom at careers.franklintempleton.com (201 reqs).
+    "Franklin Templeton":      ("careers.franklintempleton.com", "us", "en_us"),
 }
 RADANCY_METRO_KW = ["new york", "jersey city", "chicago", "san francisco", "bay area"]
 # Radancy ships two card themes: a classic one (BlackRock/Barclays/ING) where the
