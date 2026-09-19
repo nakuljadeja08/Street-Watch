@@ -26,6 +26,14 @@ jobs:
         env:
           SUPABASE_URL:         ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          # Morning newsletter (optional, SMTP). If these are unset, pipeline.py
+          # skips the email cleanly. See README → Newsletter. NB: host/password
+          # secrets are spelled SMPT_* in repo settings (typo); mapped here.
+          SMTP_HOST:            ${{ secrets.SMPT_HOST }}
+          SMTP_USER:            ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD:        ${{ secrets.SMPT_PASSWORD }}
+          NEWSLETTER_TO:        ${{ secrets.NEWSLETTER_TO }}
+          DASHBOARD_URL:        ${{ secrets.DASHBOARD_URL }}
         run: python pipeline.py
 
       - name: Persist state + outputs

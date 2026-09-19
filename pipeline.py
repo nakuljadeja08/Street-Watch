@@ -998,6 +998,189 @@ def push_supabase(rows):
         print(f"  ! supabase purge failed: {e}", file=sys.stderr)
 
 
+# ---------------------------------------------------------------- newsletter
+def _newsletter_html(new_jobs, total, today, dash_url):
+    """Build an inbox-friendly HTML digest of today's NEW roles, styled to match
+    the dashboard's editorial theme (soft pink + cream + forest green, Fraunces
+    serif with italic-rose accents, IBM Plex Mono eyebrows/labels).
+
+    Grouped by metro, capped so a big day doesn't produce a wall of text — the
+    email is a teaser whose job is to make the reader click through. All styling
+    is inline so Gmail/Outlook render it without stripping; the Fraunces/Plex
+    web fonts load via <link> where supported and fall back to Georgia serif /
+    system monospace everywhere else. Light-only: email dark-mode is unreliable,
+    so we ship the dashboard's light palette."""
+    # dashboard palette (light)
+    BG, PANEL, BG2 = "#f7d7e0", "#fdf7ee", "#f3ecdb"
+    INK, SOFT, LINE, LINE2 = "#2a1620", "#9c7683", "#e9c3d1", "#ecd9c9"
+    GREEN, ON_GREEN, ROSE, LIP = "#17392a", "#fdf3e2", "#cf5f89", "#c0392b"
+    SERIF = "'Fraunces', Georgia, 'Times New Roman', serif"
+    MONO = "'IBM Plex Mono', ui-monospace, 'Courier New', monospace"
+    SANS = "'IBM Plex Sans', -apple-system, Segoe UI, Arial, sans-serif"
+
+    CAP = 40  # most rows we list inline; the rest roll up into a "+N more" line
+    shown = new_jobs[:CAP]
+    rows = []
+    cur = None
+    for j in shown:
+        if j["metro"] != cur:
+            cur = j["metro"]
+            rows.append(
+                f'<tr><td style="padding:20px 0 7px;font-family:{MONO};font-size:11px;'
+                f'letter-spacing:.16em;text-transform:uppercase;color:{ROSE}">'
+                f'✿ {_esc(cur)}</td></tr>')
+        title = _esc(j["title"])
+        firm = _esc(j["firm"])
+        loc = _esc(j.get("location") or "")
+        rows.append(
+            f'<tr><td style="padding:9px 0;border-bottom:1px solid {LINE2}">'
+            f'<div style="font-family:{MONO};font-size:9.5px;letter-spacing:.08em;'
+            f'text-transform:uppercase;color:{ROSE};padding-bottom:3px">{firm}</div>'
+            f'<a href="{_esc(j["url"])}" style="font-family:{SERIF};font-weight:600;'
+            f'font-size:16px;line-height:1.25;color:{INK};text-decoration:none">{title}</a>'
+            f'<div style="font-family:{SANS};font-size:12.5px;color:{SOFT};padding-top:2px">{loc}</div>'
+            f'</td></tr>')
+    more = len(new_jobs) - len(shown)
+    if more > 0:
+        rows.append(
+            f'<tr><td style="padding:14px 0 2px;font-family:{SERIF};font-style:italic;'
+            f'font-size:15px;color:{SOFT}">…and {more} more new role{"s" if more != 1 else ""} '
+            f'waiting on the board.</td></tr>')
+
+    n = len(new_jobs)
+    fonts = ("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;"
+             "1,9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap")
+    return f"""\
+<!doctype html><html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light only">
+<link rel="stylesheet" href="{fonts}">
+</head><body style="margin:0;background:{BG};padding:26px 12px;font-family:{SANS}">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;background:{PANEL};border-radius:18px;overflow:hidden;border:1px solid {LINE};box-shadow:0 8px 24px rgba(42,22,32,.10)">
+
+<tr><td style="padding:32px 34px 8px;background:linear-gradient(135deg,#f8dde8 0%,{PANEL} 60%)">
+  <div style="font-family:{MONO};font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:{ROSE};padding-bottom:8px">✿ Morning Digest</div>
+  <div style="font-family:{SERIF};font-weight:600;font-size:38px;line-height:1.05;color:{INK};letter-spacing:-.01em">Street <em style="font-style:italic;color:{ROSE}">Watch</em></div>
+  <div style="font-family:{SANS};font-size:14px;color:{SOFT};padding-top:8px">{today}</div>
+</td></tr>
+
+<tr><td style="padding:16px 34px 2px">
+  <table role="presentation" cellpadding="0" cellspacing="0"><tr>
+    <td style="background:{BG2};border:1px solid {LIP};border-radius:14px;padding:10px 18px;text-align:center">
+      <div style="font-family:{SERIF};font-size:26px;line-height:1;color:{LIP}">{n}</div>
+      <div style="font-family:{MONO};font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:{SOFT};padding-top:4px">New today</div>
+    </td>
+    <td style="width:10px"></td>
+    <td style="background:{BG2};border:1px solid {LINE2};border-radius:14px;padding:10px 18px;text-align:center">
+      <div style="font-family:{SERIF};font-size:26px;line-height:1;color:{GREEN}">{total}</div>
+      <div style="font-family:{MONO};font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:{SOFT};padding-top:4px">Live on board</div>
+    </td>
+  </tr></table>
+</td></tr>
+
+<tr><td style="padding:14px 34px 4px;font-family:{SERIF};font-style:italic;font-size:17px;color:{INK}">
+  {n} fresh opening{"s" if n != 1 else ""} landed since yesterday.
+</td></tr>
+
+<tr><td style="padding:2px 34px 8px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">{''.join(rows)}</table></td></tr>
+
+<tr><td style="padding:18px 34px 34px" align="center">
+  <a href="{_esc(dash_url)}" style="display:inline-block;background:{GREEN};color:{ON_GREEN};font-family:{SANS};font-weight:600;font-size:15px;text-decoration:none;padding:14px 32px;border-radius:999px">Open the dashboard →</a>
+</td></tr>
+</table>
+<div style="font-family:{MONO};font-size:10.5px;letter-spacing:.06em;color:{SOFT};padding:18px 0 0">STREET WATCH · sent automatically after the daily job pull</div>
+</td></tr></table></body></html>"""
+
+
+def _esc(s):
+    return (str(s).replace("&", "&amp;").replace("<", "&lt;")
+            .replace(">", "&gt;").replace('"', "&quot;"))
+
+
+def _newsletter_text(new_jobs, total, today, dash_url):
+    """Plain-text alternative part — what non-HTML clients (and spam filters)
+    read. Keeps the digest legible without any markup."""
+    lines = [f"Street Watch — {today} morning digest", ""]
+    n = len(new_jobs)
+    lines.append(f"{n} new role{'s' if n != 1 else ''} since yesterday ({total} live on the board).")
+    lines.append("")
+    cur = None
+    for j in new_jobs[:40]:
+        if j["metro"] != cur:
+            cur = j["metro"]; lines.append(f"[{cur}]")
+        loc = j.get("location") or ""
+        lines.append(f"  • {j['firm']} — {j['title']} · {loc}\n    {j['url']}")
+    more = n - min(n, 40)
+    if more > 0:
+        lines.append(f"  …and {more} more new role{'s' if more != 1 else ''}.")
+    lines += ["", f"Open the dashboard: {dash_url}"]
+    return "\n".join(lines)
+
+
+def send_newsletter(jobs, today):
+    """Email a morning digest of today's NEW roles over SMTP (Gmail or any host).
+
+    Opt-in and non-fatal: if the SMTP env isn't set we skip quietly, and any
+    send error is logged but never crashes the daily run. Set
+    NEWSLETTER_SEND_EMPTY=1 to still send on a zero-new day (default: skip).
+
+    Env:
+      SMTP_HOST      e.g. smtp.gmail.com          (required)
+      SMTP_PORT      587 STARTTLS / 465 SSL       (default 587)
+      SMTP_USER      login username / from addr   (required)
+      SMTP_PASSWORD  password or app-password     (required)
+      NEWSLETTER_TO  recipients, comma/semicolon-separated (required)
+      NEWSLETTER_FROM  From header (default: SMTP_USER)
+      DASHBOARD_URL    CTA link (default the Vercel site)
+    """
+    import smtplib
+    from email.mime.text import MIMEText
+    from email.mime.multipart import MIMEMultipart
+    from email.utils import formataddr
+
+    host = os.getenv("SMTP_HOST")
+    user = os.getenv("SMTP_USER")
+    password = os.getenv("SMTP_PASSWORD")
+    to = os.getenv("NEWSLETTER_TO")
+    if not (host and user and password and to):
+        print("Newsletter SMTP env not set (SMTP_HOST/SMTP_USER/SMTP_PASSWORD/NEWSLETTER_TO) — skipping email.")
+        return
+    port = int(os.getenv("SMTP_PORT") or "587")  # empty-string env (unset CI var) -> default
+    sender = os.getenv("NEWSLETTER_FROM") or formataddr(("Street Watch", user))
+    dash_url = os.getenv("DASHBOARD_URL") or "https://street-watch.vercel.app"
+    recipients = [a.strip() for a in re.split(r"[,;]", to) if a.strip()]
+
+    new_jobs = [j for j in jobs if j.get("is_new")]
+    if not new_jobs and os.getenv("NEWSLETTER_SEND_EMPTY", "") not in ("1", "true", "yes"):
+        print("Newsletter: no new roles today — skipping email (set NEWSLETTER_SEND_EMPTY=1 to force).")
+        return
+
+    n = len(new_jobs)
+    subject = (f"Street Watch — {n} new role{'s' if n != 1 else ''} this morning"
+               if n else "Street Watch — no new roles today")
+
+    msg = MIMEMultipart("alternative")
+    msg["Subject"] = subject
+    msg["From"] = sender
+    msg["To"] = ", ".join(recipients)
+    msg.attach(MIMEText(_newsletter_text(new_jobs, len(jobs), today, dash_url), "plain", "utf-8"))
+    msg.attach(MIMEText(_newsletter_html(new_jobs, len(jobs), today, dash_url), "html", "utf-8"))
+
+    try:
+        if port == 465:
+            server = smtplib.SMTP_SSL(host, port, timeout=TIMEOUT)
+        else:
+            server = smtplib.SMTP(host, port, timeout=TIMEOUT)
+            server.starttls()
+        with server:
+            server.login(user, password)
+            server.sendmail(user, recipients, msg.as_string())
+        print(f"  newsletter sent to {len(recipients)} recipient(s) ({n} new roles)")
+    except Exception as e:
+        print(f"  ! newsletter send failed: {e}", file=sys.stderr)
+
+
 # ---------------------------------------------------------------- main
 def main():
     # Job titles carry en-dashes/smart quotes; the Windows console defaults to
@@ -1029,6 +1212,7 @@ def main():
                         j.get("posted_date"), j["first_seen"], j["is_new"], j["url"]])
 
     push_supabase(jobs)
+    send_newsletter(jobs, today)
 
     print(f"\n=== {today}: {len(jobs)} roles ({new} new) ===")
     cur = None
