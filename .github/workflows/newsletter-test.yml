@@ -20,12 +20,9 @@ jobs:
 
       - name: Send test newsletter
         env:
-          # NB: the host/password secrets are spelled SMPT_* in the repo settings
-          # (typo kept because a secret can't be renamed without re-entering its
-          # value); we map them to the correctly-spelled env vars the code reads.
-          SMTP_HOST:            ${{ secrets.SMPT_HOST }}
+          SMTP_HOST:            ${{ secrets.SMTP_HOST }}
           SMTP_USER:            ${{ secrets.SMTP_USER }}
-          SMTP_PASSWORD:        ${{ secrets.SMPT_PASSWORD }}
+          SMTP_PASSWORD:        ${{ secrets.SMTP_PASSWORD }}
           NEWSLETTER_TO:        ${{ secrets.NEWSLETTER_TO }}
           DASHBOARD_URL:        ${{ secrets.DASHBOARD_URL }}
         run: python send_test_newsletter.py

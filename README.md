@@ -15,7 +15,9 @@ firms' ATS APIs  ──►  pipeline.py  ──►  Supabase `jobs` table  ─�
 | `pipeline.py` | The ingester. Fetch → filter → dedupe → JSON/CSV + Supabase upsert. |
 | `schema.sql` | One-time Supabase `jobs` table + read policy. |
 | `schema_applications.sql` | One-time `applications` table (the tracker's store; open anon write). |
-| `.github/workflows/street-watch.yml` | Daily cron (11:00 UTC) that runs the pipeline. |
+| `.github/workflows/street-watch.yml` | Daily cron (11:00 UTC) that runs the pipeline **and emails the morning newsletter**. |
+| `.github/workflows/newsletter-test.yml` | Manual button to re-send the newsletter from the last committed pull (no scrape). |
+| `send_test_newsletter.py` | Standalone sender used by the test workflow (and runnable locally). |
 | `dashboard/` | **React + Vite app** — live openings **plus an application tracker** (set Applied/Interview/… per role, saved to Supabase). The front-end, deployed on Vercel from the `release` branch; see `dashboard/README.md`. |
 
 ## Setup (~15 min)
@@ -57,6 +59,40 @@ Test locally first: `pip install requests cloudscraper && python pipeline.py`
 (`cloudscraper` is only needed for the Citadel Securities fetcher, which sits
 behind Cloudflare; everything else uses plain `requests`.)
 (prints the digest; add the two SUPABASE_* env vars to also write to the DB).
+
+## Morning newsletter (SMTP)
+
+After each daily pull, `pipeline.py` emails a digest of that morning's **new**
+roles — a teaser (dashboard-themed: soft pink/cream + Fraunces serif, a
+lipstick-red "new today" stat, a forest-green button) whose job is to pull the
+reader back to the live board. It opens with a *Good morning, Ms Tian* greeting
+and sends in **both** cases: a list of the new roles, or a short "nothing
+overnight" note on a quiet day.
+
+The send is **opt-in and non-fatal**: if the SMTP env isn't set it skips
+silently, and any send error is logged but never fails the run.
+
+**Env vars** (set as GitHub **secrets** unless noted; the daily workflow wires
+them in):
+
+| Var | Required | Notes |
+|-----|----------|-------|
+| `SMTP_HOST` | yes | e.g. `smtp.gmail.com` |
+| `SMTP_USER` | yes | login / default From address |
+| `SMTP_PASSWORD` | yes | **Gmail App Password**, not the account password |
+| `NEWSLETTER_TO` | yes | recipient(s), comma/semicolon-separated |
+| `DASHBOARD_URL` | yes | the CTA button target (the live Vercel URL) |
+| `SMTP_PORT` | no | `587` STARTTLS (default) or `465` SSL |
+| `NEWSLETTER_FROM` | no | overrides the From header (defaults to `SMTP_USER`) |
+| `NEWSLETTER_SEND_EMPTY` | no | `1` to send the greeting even on zero-new days; the daily workflow sets this |
+
+**Gmail setup:** enable 2-Step Verification → create an App Password (Google
+Account → Security → App passwords) → use it as `SMTP_PASSWORD`.
+
+**Test it anytime:** Actions tab → **Street Watch — test newsletter** →
+*Run workflow*. It re-sends from the last committed `street_watch_jobs.json`
+(forces a send even if nothing is new) without scraping or touching data. Or
+locally: set the env vars and `python send_test_newsletter.py`.
 
 ## Coverage — the registries in `pipeline.py`
 

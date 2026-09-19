@@ -1048,6 +1048,12 @@ def _newsletter_html(new_jobs, total, today, dash_url):
             f'waiting on the board.</td></tr>')
 
     n = len(new_jobs)
+    if n:
+        intro = f"{n} fresh opening{'s' if n != 1 else ''} landed since yesterday — a quick look below."
+        cta = "Open the dashboard →"
+    else:
+        intro = "No new roles overnight, but the board is still warm — worth a peek."
+        cta = "Browse the board →"
     fonts = ("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;"
              "1,9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap")
     return f"""\
@@ -1065,7 +1071,11 @@ def _newsletter_html(new_jobs, total, today, dash_url):
   <div style="font-family:{SANS};font-size:14px;color:{SOFT};padding-top:8px">{today}</div>
 </td></tr>
 
-<tr><td style="padding:16px 34px 2px">
+<tr><td style="padding:18px 34px 0;font-family:{SERIF};font-style:italic;font-size:19px;color:{INK}">
+  Good morning, Ms Tian ✿
+</td></tr>
+
+<tr><td style="padding:12px 34px 2px">
   <table role="presentation" cellpadding="0" cellspacing="0"><tr>
     <td style="background:{BG2};border:1px solid {LIP};border-radius:14px;padding:10px 18px;text-align:center">
       <div style="font-family:{SERIF};font-size:26px;line-height:1;color:{LIP}">{n}</div>
@@ -1080,13 +1090,13 @@ def _newsletter_html(new_jobs, total, today, dash_url):
 </td></tr>
 
 <tr><td style="padding:14px 34px 4px;font-family:{SERIF};font-style:italic;font-size:17px;color:{INK}">
-  {n} fresh opening{"s" if n != 1 else ""} landed since yesterday.
+  {intro}
 </td></tr>
 
 <tr><td style="padding:2px 34px 8px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">{''.join(rows)}</table></td></tr>
 
 <tr><td style="padding:18px 34px 34px" align="center">
-  <a href="{_esc(dash_url)}" style="display:inline-block;background:{GREEN};color:{ON_GREEN};font-family:{SANS};font-weight:600;font-size:15px;text-decoration:none;padding:14px 32px;border-radius:999px">Open the dashboard →</a>
+  <a href="{_esc(dash_url)}" style="display:inline-block;background:{GREEN};color:{ON_GREEN};font-family:{SANS};font-weight:600;font-size:15px;text-decoration:none;padding:14px 32px;border-radius:999px">{cta}</a>
 </td></tr>
 </table>
 <div style="font-family:{MONO};font-size:10.5px;letter-spacing:.06em;color:{SOFT};padding:18px 0 0">STREET WATCH · sent automatically after the daily job pull</div>
@@ -1101,9 +1111,12 @@ def _esc(s):
 def _newsletter_text(new_jobs, total, today, dash_url):
     """Plain-text alternative part — what non-HTML clients (and spam filters)
     read. Keeps the digest legible without any markup."""
-    lines = [f"Street Watch — {today} morning digest", ""]
+    lines = [f"Street Watch — {today} morning digest", "", "Good morning, Ms Tian", ""]
     n = len(new_jobs)
-    lines.append(f"{n} new role{'s' if n != 1 else ''} since yesterday ({total} live on the board).")
+    if n:
+        lines.append(f"{n} new role{'s' if n != 1 else ''} since yesterday ({total} live on the board).")
+    else:
+        lines.append(f"No new roles overnight — {total} still live on the board.")
     lines.append("")
     cur = None
     for j in new_jobs[:40]:
