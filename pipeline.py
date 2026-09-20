@@ -1131,6 +1131,67 @@ def _newsletter_text(new_jobs, total, today, dash_url):
     return "\n".join(lines)
 
 
+# Sunday is a rest day: no roles, just a warm note. Anything found on Sunday is
+# held back and folded into Monday's digest (see send_newsletter's Monday case).
+SUNDAY_MESSAGE = (
+    "Good morning, Ms Tian — have a lovely Sunday doing your favourite thing. "
+    "You deserve to relax a bit \U0001f642"
+)
+
+
+def _sunday_html(today, dash_url):
+    """A single-note Sunday email: the dashboard theme, none of the roles."""
+    BG, PANEL = "#f7d7e0", "#fdf7ee"
+    INK, SOFT, LINE = "#2a1620", "#9c7683", "#e9c3d1"
+    GREEN, ON_GREEN, ROSE = "#17392a", "#fdf3e2", "#cf5f89"
+    SERIF = "'Fraunces', Georgia, 'Times New Roman', serif"
+    MONO = "'IBM Plex Mono', ui-monospace, 'Courier New', monospace"
+    SANS = "'IBM Plex Sans', -apple-system, Segoe UI, Arial, sans-serif"
+    fonts = ("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;"
+             "1,9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap")
+    return f"""\
+<!doctype html><html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light only">
+<link rel="stylesheet" href="{fonts}">
+</head><body style="margin:0;background:{BG};padding:26px 12px;font-family:{SANS}">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;background:{PANEL};border-radius:18px;overflow:hidden;border:1px solid {LINE};box-shadow:0 8px 24px rgba(42,22,32,.10)">
+
+<tr><td style="padding:32px 34px 8px;background:linear-gradient(135deg,#f8dde8 0%,{PANEL} 60%)">
+  <div style="font-family:{MONO};font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:{ROSE};padding-bottom:8px">✿ Sunday</div>
+  <div style="font-family:{SERIF};font-weight:600;font-size:38px;line-height:1.05;color:{INK};letter-spacing:-.01em">Street <em style="font-style:italic;color:{ROSE}">Watch</em></div>
+  <div style="font-family:{SANS};font-size:14px;color:{SOFT};padding-top:8px">{today}</div>
+</td></tr>
+
+<tr><td style="padding:24px 34px 8px;font-family:{SERIF};font-style:italic;font-size:22px;line-height:1.4;color:{INK}">
+  {SUNDAY_MESSAGE}
+</td></tr>
+
+<tr><td style="padding:8px 34px 6px;font-family:{SERIF};font-size:16px;color:{SOFT}">
+  No roundup today — I'll gather anything that comes in and bring it to you tomorrow morning.
+</td></tr>
+
+<tr><td style="padding:18px 34px 34px" align="center">
+  <a href="{_esc(dash_url)}" style="display:inline-block;background:{GREEN};color:{ON_GREEN};font-family:{SANS};font-weight:600;font-size:15px;text-decoration:none;padding:14px 32px;border-radius:999px">Peek at the board →</a>
+</td></tr>
+</table>
+<div style="font-family:{MONO};font-size:10.5px;letter-spacing:.06em;color:{SOFT};padding:18px 0 0">STREET WATCH · Sundays are for resting</div>
+</td></tr></table></body></html>"""
+
+
+def _sunday_text(today, dash_url):
+    return "\n".join([
+        f"Street Watch — {today}",
+        "",
+        SUNDAY_MESSAGE,
+        "",
+        "No roundup today — I'll gather anything that comes in and bring it to you tomorrow morning.",
+        "",
+        f"The board is always here: {dash_url}",
+    ])
+
+
 def send_newsletter(jobs, today):
     """Email a morning digest of today's NEW roles over SMTP (Gmail or any host).
 
@@ -1164,7 +1225,30 @@ def send_newsletter(jobs, today):
     dash_url = os.getenv("DASHBOARD_URL") or "https://street-watch.vercel.app"
     recipients = [a.strip() for a in re.split(r"[,;]", to) if a.strip()]
 
-    new_jobs = [j for j in jobs if j.get("is_new")]
+    # Weekday drives what we send (from the UTC date the daily run stamps roles with):
+    #   Sunday  -> a rest-day note only, no roles (Sunday's finds are held back).
+    #   Monday  -> today's new roles PLUS Sunday's (which we skipped yesterday).
+    #   else    -> just today's new roles.
+    weekday = datetime.strptime(today, "%Y-%m-%d").weekday()  # Mon=0 … Sun=6
+
+    if weekday == 6:  # Sunday
+        msg = MIMEMultipart("alternative")
+        msg["Subject"] = "Street Watch — enjoy your Sunday, Ms Tian ✿"
+        msg["From"] = sender
+        msg["To"] = ", ".join(recipients)
+        msg.attach(MIMEText(_sunday_text(today, dash_url), "plain", "utf-8"))
+        msg.attach(MIMEText(_sunday_html(today, dash_url), "html", "utf-8"))
+        if _smtp_send(host, port, user, password, recipients, msg):
+            print(f"  newsletter sent to {len(recipients)} recipient(s) (Sunday rest note)")
+        return
+
+    if weekday == 0:  # Monday — fold in Sunday's held-back roles by first_seen
+        yesterday = (datetime.strptime(today, "%Y-%m-%d") - timedelta(days=1)).strftime("%Y-%m-%d")
+        window = {today, yesterday}
+        new_jobs = [j for j in jobs if j.get("first_seen") in window]
+    else:
+        new_jobs = [j for j in jobs if j.get("is_new")]
+
     if not new_jobs and os.getenv("NEWSLETTER_SEND_EMPTY", "") not in ("1", "true", "yes"):
         print("Newsletter: no new roles today — skipping email (set NEWSLETTER_SEND_EMPTY=1 to force).")
         return
@@ -1180,6 +1264,14 @@ def send_newsletter(jobs, today):
     msg.attach(MIMEText(_newsletter_text(new_jobs, len(jobs), today, dash_url), "plain", "utf-8"))
     msg.attach(MIMEText(_newsletter_html(new_jobs, len(jobs), today, dash_url), "html", "utf-8"))
 
+    if _smtp_send(host, port, user, password, recipients, msg):
+        print(f"  newsletter sent to {len(recipients)} recipient(s) ({n} new roles)")
+
+
+def _smtp_send(host, port, user, password, recipients, msg):
+    """Deliver a built message over SMTP. Non-fatal: logs and returns False on
+    any error so the daily run never crashes on a mail hiccup."""
+    import smtplib
     try:
         if port == 465:
             server = smtplib.SMTP_SSL(host, port, timeout=TIMEOUT)
@@ -1189,9 +1281,10 @@ def send_newsletter(jobs, today):
         with server:
             server.login(user, password)
             server.sendmail(user, recipients, msg.as_string())
-        print(f"  newsletter sent to {len(recipients)} recipient(s) ({n} new roles)")
+        return True
     except Exception as e:
         print(f"  ! newsletter send failed: {e}", file=sys.stderr)
+        return False
 
 
 # ---------------------------------------------------------------- main
