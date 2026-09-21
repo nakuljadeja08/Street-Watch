@@ -254,3 +254,37 @@ code { font-family: "IBM Plex Mono", monospace; font-size: 12px; }
   margin-top: 4px; font: inherit; font-size: 11.5px; padding: 4px 7px; border-radius: 8px;
   border: 1px solid var(--line); background: var(--panel2); color: var(--ink); cursor: pointer;
 }
+
+/* ---- "add your own" (custom off-list roles) ---- */
+.board-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.board-actions-hint { font-size: 12.5px; color: var(--soft); }
+.addBtn {
+  font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; border-radius: 999px;
+  padding: 7px 14px; border: 1px solid var(--rose); background: var(--roseS); color: var(--rose);
+  transition: .12s;
+}
+.addBtn:hover:not(:disabled) { background: var(--rose); color: #fff; }
+.addBtn.on { background: var(--rose); color: #fff; }
+.addBtn:disabled { opacity: .5; cursor: default; }
+/* "YOURS" tag on custom cards/rows — mirrors the NEW badge but in rose */
+.mine {
+  color: #fff; background: var(--rose); border-radius: 6px; padding: 1px 7px;
+  font-size: 9.5px; letter-spacing: .06em;
+}
+.addForm {
+  background: var(--bg2); border: 1px solid var(--line2); border-radius: 16px;
+  padding: 16px; margin-bottom: 18px; display: flex; flex-direction: column; gap: 12px;
+}
+.addRow { display: flex; gap: 12px; flex-wrap: wrap; }
+.addField { flex: 1 1 200px; display: flex; flex-direction: column; gap: 5px; }
+.addField > span {
+  font-family: "IBM Plex Mono", monospace; font-size: 10.5px; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--soft);
+}
+.addField input, .addField .statusSel {
+  font: inherit; font-size: 13px; padding: 8px 10px; border-radius: 10px;
+  border: 1px solid var(--line); background: var(--panel); color: var(--ink); width: 100%;
+}
+.addField input:focus, .addField .statusSel:focus { outline: 2px solid var(--rose); outline-offset: 1px; }
+.addActions { display: flex; justify-content: flex-end; gap: 10px; align-items: center; }
+.addActions .clearBtn.ghost { margin-top: 0; }

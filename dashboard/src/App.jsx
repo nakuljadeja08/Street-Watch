@@ -71,6 +71,8 @@ export default function App() {
   const init = initialParams();
   const [jobs, setJobs] = useState([]);
   const [apps, setApps] = useState({}); // job_id -> {status, applied_at, notes}
+  const [customJobs, setCustomJobs] = useState([]); // off-list roles you added yourself
+  const [addOpen, setAddOpen] = useState(false); // "add your own" form on the board
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [metro, setMetro] = useState(init.metro);
@@ -145,7 +147,7 @@ export default function App() {
   useEffect(() => {
     (async () => {
       try {
-        const [jRes, aRes] = await Promise.all([
+        const [jRes, aRes, cRes] = await Promise.all([
           supabase
             .from("jobs")
             .select("*")
@@ -153,6 +155,7 @@ export default function App() {
             .order("firm", { ascending: true })
             .order("title", { ascending: true }),
           supabase.from("applications").select("*"),
+          supabase.from("custom_jobs").select("*"),
         ]);
         if (jRes.error) throw jRes.error;
         // applications table may not exist yet — treat that as "no apps"
@@ -162,8 +165,13 @@ export default function App() {
         } else if (aRes.error) {
           console.warn("applications read failed (run schema_applications.sql?):", aRes.error.message);
         }
+        // custom_jobs table may not exist yet — treat that as "none added"
+        if (cRes.error) {
+          console.warn("custom_jobs read failed (run schema_custom_jobs.sql?):", cRes.error.message);
+        }
         setJobs(jRes.data || []);
         setApps(appMap);
+        setCustomJobs(!cRes.error && Array.isArray(cRes.data) ? cRes.data : []);
       } catch (e) {
         setError(e.message || String(e));
       } finally {
@@ -172,7 +180,42 @@ export default function App() {
     })();
   }, []);
 
-  const statusOf = (id) => apps[id]?.status || "none";
+  // represent each custom (off-list) role as a job-shaped object so it flows
+  // through the same list/board/stat rendering as scraped roles
+  const CUSTOM_PREFIX = "c_";
+  const customToJob = (c) => ({
+    id: CUSTOM_PREFIX + c.id,
+    custom: true,
+    custom_id: c.id,
+    firm: c.firm,
+    title: c.title,
+    location: c.location,
+    metro: c.metro,
+    url: c.url,
+    source: "added by you",
+    posted_date: null,
+    is_new: false,
+  });
+  const allJobs = useMemo(
+    () => [...jobs, ...customJobs.map(customToJob)],
+    [jobs, customJobs]
+  );
+  // status/notes for scraped roles live in `apps`; for custom roles they live
+  // inline on the custom_jobs row — merge both into one lookup by job id
+  const appMap = useMemo(() => {
+    const m = { ...apps };
+    for (const c of customJobs) {
+      m[CUSTOM_PREFIX + c.id] = {
+        job_id: CUSTOM_PREFIX + c.id,
+        status: c.status,
+        applied_at: c.applied_at,
+        notes: c.notes,
+      };
+    }
+    return m;
+  }, [apps, customJobs]);
+
+  const statusOf = (id) => appMap[id]?.status || "none";
 
   const filtersActive =
     metro !== "all" ||
@@ -189,9 +232,28 @@ export default function App() {
   }
 
   async function saveNotes(job, raw) {
+    const value = raw.trim() || null;
+
+    if (job.custom) {
+      const prev = customJobs.find((c) => c.id === job.custom_id);
+      if (!prev || (prev.notes || null) === value) return; // no-op
+      setCustomJobs((cs) => cs.map((c) => (c.id === job.custom_id ? { ...c, notes: value } : c)));
+      try {
+        const { error } = await supabase
+          .from("custom_jobs")
+          .update({ notes: value })
+          .eq("id", job.custom_id);
+        if (error) throw error;
+      } catch (e) {
+        setCustomJobs((cs) => cs.map((c) => (c.id === job.custom_id ? { ...c, notes: prev.notes || null } : c)));
+        setError(`Could not save note: ${e.message || e}`);
+        setTimeout(() => setError(""), 4000);
+      }
+      return;
+    }
+
     const prev = apps[job.id];
     if (!prev) return; // notes only live on a tracked (existing) row
-    const value = raw.trim() || null;
     if ((prev.notes || null) === value) return; // no-op
     setApps((m) => ({ ...m, [job.id]: { ...m[job.id], notes: value } }));
     try {
@@ -207,7 +269,66 @@ export default function App() {
     }
   }
 
+  // add an off-list role you applied to yourself; returns true on success
+  async function addCustom({ firm, title, location, url, metro, status }) {
+    const row = {
+      firm: firm.trim(),
+      title: title.trim(),
+      location: location.trim() || null,
+      url: url.trim() || null,
+      metro: metro || null,
+      status,
+      applied_at: status === "applied" ? today() : null,
+      notes: null,
+    };
+    try {
+      const { data, error } = await supabase
+        .from("custom_jobs")
+        .insert(row)
+        .select()
+        .single();
+      if (error) throw error;
+      setCustomJobs((cs) => [...cs, data]);
+      return true;
+    } catch (e) {
+      setError(`Could not add role: ${e.message || e}`);
+      setTimeout(() => setError(""), 5000);
+      return false;
+    }
+  }
+
   async function setStatus(job, next) {
+    if (job.custom) {
+      const prev = customJobs.find((c) => c.id === job.custom_id);
+      if (next === "none") {
+        // removing a custom role deletes it entirely (it only exists to be tracked)
+        setCustomJobs((cs) => cs.filter((c) => c.id !== job.custom_id));
+        try {
+          const { error } = await supabase.from("custom_jobs").delete().eq("id", job.custom_id);
+          if (error) throw error;
+        } catch (e) {
+          if (prev) setCustomJobs((cs) => [...cs, prev]);
+          setError(`Could not remove role: ${e.message || e}`);
+          setTimeout(() => setError(""), 4000);
+        }
+        return;
+      }
+      const applied_at = next === "applied" && !prev?.applied_at ? today() : prev?.applied_at || null;
+      setCustomJobs((cs) => cs.map((c) => (c.id === job.custom_id ? { ...c, status: next, applied_at } : c)));
+      try {
+        const { error } = await supabase
+          .from("custom_jobs")
+          .update({ status: next, applied_at })
+          .eq("id", job.custom_id);
+        if (error) throw error;
+      } catch (e) {
+        if (prev) setCustomJobs((cs) => cs.map((c) => (c.id === job.custom_id ? prev : c)));
+        setError(`Could not save status: ${e.message || e}`);
+        setTimeout(() => setError(""), 4000);
+      }
+      return;
+    }
+
     const prev = apps[job.id];
     // optimistic update
     setApps((m) => {
@@ -256,7 +377,7 @@ export default function App() {
   const filtered = useMemo(() => {
     const needle = q.trim().toLowerCase();
     const win = recency === "all" ? Infinity : Number(recency);
-    const rows = jobs.filter((j) => {
+    const rows = allJobs.filter((j) => {
       if (metro !== "all" && j.metro !== metro) return false;
       if (needle && !(j.firm + " " + j.title).toLowerCase().includes(needle)) return false;
       if (win !== Infinity) {
@@ -281,7 +402,7 @@ export default function App() {
       );
     }
     return rows;
-  }, [jobs, apps, metro, recency, statusFilter, q, sort]);
+  }, [allJobs, appMap, metro, recency, statusFilter, q, sort]);
 
   // board view: tracked roles grouped by status. Honors metro/recency/search
   // and the sort order, but ignores the status filter (columns cover all).
@@ -289,7 +410,7 @@ export default function App() {
     const needle = q.trim().toLowerCase();
     const win = recency === "all" ? Infinity : Number(recency);
     const cols = Object.fromEntries(BOARD_COLS.map((s) => [s, []]));
-    for (const j of jobs) {
+    for (const j of allJobs) {
       const st = statusOf(j.id);
       if (st === "none" || !cols[st]) continue;
       if (metro !== "all" && j.metro !== metro) continue;
@@ -308,7 +429,7 @@ export default function App() {
         : (a, b) => (daysSince(a.posted_date) ?? Infinity) - (daysSince(b.posted_date) ?? Infinity);
     for (const s of BOARD_COLS) cols[s].sort(cmp);
     return cols;
-  }, [jobs, apps, metro, recency, q, sort]);
+  }, [allJobs, appMap, metro, recency, q, sort]);
 
   const boardTotal = BOARD_COLS.reduce((n, s) => n + board[s].length, 0);
 
@@ -318,7 +439,7 @@ export default function App() {
     if (recency === "all") return 0;
     const needle = q.trim().toLowerCase();
     let n = 0;
-    for (const j of jobs) {
+    for (const j of allJobs) {
       if (metro !== "all" && j.metro !== metro) continue;
       if (needle && !(j.firm + " " + j.title).toLowerCase().includes(needle)) continue;
       const st = statusOf(j.id);
@@ -328,20 +449,20 @@ export default function App() {
       if (daysSince(j.posted_date) === null) n++;
     }
     return n;
-  }, [jobs, apps, metro, statusFilter, q, recency]);
+  }, [allJobs, appMap, metro, statusFilter, q, recency]);
 
   const stats = useMemo(() => {
     const c = { total: jobs.length, new: 0, applied: 0, interview: 0, offer: 0, tracked: 0 };
     for (const j of jobs) if (j.is_new) c.new++;
-    for (const id in apps) {
+    for (const id in appMap) {
       c.tracked++;
-      const s = apps[id].status;
+      const s = appMap[id].status;
       if (s === "applied") c.applied++;
       if (s === "interview") c.interview++;
       if (s === "offer") c.offer++;
     }
     return c;
-  }, [jobs, apps]);
+  }, [jobs, appMap]);
 
   return (
     <div className="app">
@@ -436,11 +557,33 @@ export default function App() {
         </div>
 
         {view === "board" ? (
-          !loading && boardTotal === 0 ? (
+          <>
+          <div className="board-actions">
+            <button
+              className={`addBtn ${addOpen ? "on" : ""}`}
+              onClick={() => setAddOpen((o) => !o)}
+            >
+              {addOpen ? "✕ Close" : "＋ Add your own"}
+            </button>
+            <span className="board-actions-hint">
+              Applied somewhere that isn't on the list? Add it here to track it.
+            </span>
+          </div>
+          {addOpen && (
+            <AddCustomForm
+              onAdd={async (fields) => {
+                const ok = await addCustom(fields);
+                if (ok) setAddOpen(false);
+                return ok;
+              }}
+              onCancel={() => setAddOpen(false)}
+            />
+          )}
+          {!loading && boardTotal === 0 ? (
             <div className="empty">
               {filtersActive
                 ? "No tracked roles match these filters."
-                : "Nothing tracked yet — set a status on a role in List view and it lands here."}
+                : "Nothing tracked yet — set a status on a role in List view, or use ＋ Add your own above."}
             </div>
           ) : (
             <div className="board">
@@ -460,7 +603,7 @@ export default function App() {
                     e.preventDefault();
                     setDragOverCol(null);
                     const id = e.dataTransfer.getData("text/plain");
-                    const job = jobs.find((j) => String(j.id) === id);
+                    const job = allJobs.find((j) => String(j.id) === id);
                     if (job && statusOf(job.id) !== s) setStatus(job, s);
                   }}
                 >
@@ -478,7 +621,8 @@ export default function App() {
                 </section>
               ))}
             </div>
-          )
+          )}
+          </>
         ) : (
         <>
         <div className="grid">
@@ -494,7 +638,7 @@ export default function App() {
             ))}
           {filtered.map((j) => {
             const st = statusOf(j.id);
-            const app = apps[j.id];
+            const app = appMap[j.id];
             const age = postedLabel(j.posted_date);
             return (
               <div className={`card ${st !== "none" ? "tracked" : ""}`} key={j.id}>
@@ -502,14 +646,19 @@ export default function App() {
                   <span>{j.firm}</span>
                   <span className="tags">
                     {j.is_new && <span className="new">NEW</span>}
+                    {j.custom && <span className="mine">YOURS</span>}
                     {st !== "none" && (
                       <span className={`pill ${STATUS_META[st].cls}`}>{STATUS_META[st].label}</span>
                     )}
                   </span>
                 </div>
-                <a className="role" href={j.url} target="_blank" rel="noopener noreferrer">
-                  {j.title}
-                </a>
+                {j.url ? (
+                  <a className="role" href={j.url} target="_blank" rel="noopener noreferrer">
+                    {j.title}
+                  </a>
+                ) : (
+                  <span className="role">{j.title}</span>
+                )}
                 <div className="loc">
                   {(j.location || j.metro) + " · " + j.source + (age ? ` · ${age}` : "")}
                   {app?.applied_at && st === "applied" ? ` · applied ${app.applied_at}` : ""}
@@ -563,6 +712,105 @@ export default function App() {
   );
 }
 
+function AddCustomForm({ onAdd, onCancel }) {
+  const [firm, setFirm] = useState("");
+  const [title, setTitle] = useState("");
+  const [location, setLocation] = useState("");
+  const [url, setUrl] = useState("");
+  const [metro, setMetro] = useState("");
+  const [status, setStatus] = useState("applied");
+  const [busy, setBusy] = useState(false);
+  const firmRef = useRef(null);
+
+  useEffect(() => {
+    firmRef.current?.focus();
+  }, []);
+
+  const canSave = firm.trim() && title.trim() && !busy;
+
+  async function submit(e) {
+    e.preventDefault();
+    if (!canSave) return;
+    setBusy(true);
+    const ok = await onAdd({ firm, title, location, url, metro, status });
+    setBusy(false);
+    if (!ok) return; // parent keeps the form open + shows the error
+  }
+
+  return (
+    <form className="addForm" onSubmit={submit}>
+      <div className="addRow">
+        <label className="addField">
+          <span>Firm *</span>
+          <input
+            ref={firmRef}
+            value={firm}
+            onChange={(e) => setFirm(e.target.value)}
+            placeholder="e.g. Evercore"
+          />
+        </label>
+        <label className="addField">
+          <span>Role *</span>
+          <input
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="e.g. Investment Banking Analyst"
+          />
+        </label>
+      </div>
+      <div className="addRow">
+        <label className="addField">
+          <span>Location</span>
+          <input
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+            placeholder="e.g. New York, NY"
+          />
+        </label>
+        <label className="addField">
+          <span>Link</span>
+          <input
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
+            placeholder="https://…"
+          />
+        </label>
+      </div>
+      <div className="addRow">
+        <label className="addField">
+          <span>Metro</span>
+          <select className="statusSel" value={metro} onChange={(e) => setMetro(e.target.value)}>
+            <option value="">— None / Other</option>
+            {METROS.filter((m) => m !== "all").map((m) => (
+              <option key={m} value={m}>
+                {m}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="addField">
+          <span>Stage</span>
+          <select className="statusSel" value={status} onChange={(e) => setStatus(e.target.value)}>
+            {BOARD_COLS.map((s) => (
+              <option key={s} value={s}>
+                {STATUS_META[s].label}
+              </option>
+            ))}
+          </select>
+        </label>
+      </div>
+      <div className="addActions">
+        <button type="button" className="clearBtn ghost" onClick={onCancel}>
+          Cancel
+        </button>
+        <button type="submit" className="addBtn on" disabled={!canSave}>
+          {busy ? "Adding…" : "Add role"}
+        </button>
+      </div>
+    </form>
+  );
+}
+
 function BoardCard({ job, status, setStatus }) {
   const age = postedLabel(job.posted_date);
   return (
@@ -576,10 +824,17 @@ function BoardCard({ job, status, setStatus }) {
       }}
       onDragEnd={(e) => e.currentTarget.classList.remove("dragging")}
     >
-      <div className="bof">{job.firm}</div>
-      <a className="brole" href={job.url} target="_blank" rel="noopener noreferrer">
-        {job.title}
-      </a>
+      <div className="bof">
+        {job.firm}
+        {job.custom && <span className="mine">YOURS</span>}
+      </div>
+      {job.url ? (
+        <a className="brole" href={job.url} target="_blank" rel="noopener noreferrer">
+          {job.title}
+        </a>
+      ) : (
+        <span className="brole">{job.title}</span>
+      )}
       <div className="bloc">{(job.location || job.metro) + (age ? ` · ${age}` : "")}</div>
       <select
         className="bmove"
