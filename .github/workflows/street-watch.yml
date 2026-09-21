@@ -1,9 +1,14 @@
 name: Street Watch — daily job pull
 
-# Runs every morning at 11:00 UTC (~07:00 ET). Adjust as you like.
+# Target: newsletter delivered BY 9am Eastern every day.
+# GitHub's scheduled queue is best-effort and delays top-of-hour (:00) crons by
+# hours, so we start early (10:20 UTC = ~6:20am EDT / 5:20am EST) and off :00.
+# Even with GitHub delay + ~20min runtime this completes well before 9am ET
+# (13:00 UTC in summer / 14:00 UTC in winter). NOTE: GitHub can't guarantee exact
+# scheduled timing — for a hard guarantee use an external trigger (see README).
 on:
   schedule:
-    - cron: "0 11 * * *"
+    - cron: "20 10 * * *"
   workflow_dispatch: {}          # lets you trigger it manually from the Actions tab
 
 permissions:
