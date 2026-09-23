@@ -128,8 +128,11 @@ METROS = {
     "NY + Jersey City": ["new york", "jersey city", "nyc"],
     "SF / Bay Area":    ["san francisco", "bay area", "palo alto", "menlo park",
                          "mountain view", "san mateo", "redwood city"],
-    "Chicago":          ["chicago", ", il", "illinois"],
+    "Chicago":          ["chicago", "illinois"],
 }
+# Standalone "IL" state code, same idea as _NY_STATE_RE: a bare ", il" substring
+# matched "Paris, Ile-de-France" and filed Paris roles under Chicago.
+_IL_STATE_RE = re.compile(r'\bil\b', re.I)
 # Standalone "NY" state code — matches "New York, NY", "NY, United States" and
 # ATS forms like "US-NY-New York", but never "Albany"/"Germany"/"Sunnyvale"
 # (the \b boundaries require NY to stand alone between non-word chars).
@@ -853,6 +856,8 @@ def metro_of(loc):
             return m
     if _NY_STATE_RE.search(loc):
         return "NY + Jersey City"
+    if _IL_STATE_RE.search(loc):
+        return "Chicago"
     return None
 
 
