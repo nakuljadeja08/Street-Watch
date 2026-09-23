@@ -18,6 +18,9 @@ firms' ATS APIs  ──►  pipeline.py  ──►  Supabase `jobs` table  ─�
 | `.github/workflows/street-watch.yml` | Daily run (external trigger 10:20 UTC + backup crons) that runs the pipeline **and emails the morning newsletter**. |
 | `.github/workflows/newsletter-test.yml` | Manual button to re-send the newsletter from the last committed pull (no scrape). |
 | `send_test_newsletter.py` | Standalone sender used by the test workflow (and runnable locally). |
+| `schema_ai_and_searches.sql` | One-time `saved_searches` table (anon r/w) + the private AI tables (`profile`, `job_details`, `ai_fit`, `ai_drafts` — service key only). |
+| `firm_categories.json` | Firm → type ("PE & Alts", "Bulge Bracket", …). Drives the dashboard's firm-type filter and saved-search alerts; shared by `pipeline.py` and `dashboard/`. |
+| `api/` | Vercel serverless routes for the **AI assistant** (resume, fit score, cover letter / "why this firm"). Call Claude server-side; see *AI assistant* below. |
 | `dashboard/` | **React + Vite app** — live openings **plus an application tracker** (set Applied/Interview/… per role, saved to Supabase). The front-end, deployed on Vercel from the `release` branch; see `dashboard/README.md`. |
 
 ## Setup (~15 min)
@@ -41,6 +44,49 @@ firms' ATS APIs  ──►  pipeline.py  ──►  Supabase `jobs` table  ─�
   and serves `dashboard/dist`, so **no Root Directory change and no env vars are
   needed** (public anon key defaults in `src/config.js`). It reads Supabase live
   and refreshes as the cron writes new rows.
+- Run `schema_ai_and_searches.sql` once for saved searches and the AI tables.
+
+## Saved searches
+
+Set filters on the dashboard (level, metro, firm type, keywords) → **☆ Save
+search** → name it (e.g. "SF PE Associate"). Each saved search becomes a chip
+under the filter bar with a count of roles first seen since you last marked it
+seen, and those roles are **pinned** at the top of the list until you hit
+*Mark seen*. The morning newsletter also lists each search's new matches above
+the full digest (`saved_search_hits` in `pipeline.py`; matching mirrors
+`matchesSearch` in `dashboard/src/App.jsx`). Firm types come from
+`firm_categories.json` — add new firms there.
+
+## AI assistant (fit score + cover letters)
+
+The dashboard's **✨ AI** button opens a panel where you connect with a
+passphrase and upload your resume (PDF or text; a PDF is transcribed once by
+Claude). Then each card gets:
+
+- **✨ Fit** — Claude reads the job posting and your resume and returns a 0–100
+  score with a one-line reason (shown on the card; sort by **Best fit**;
+  **✨ Score next 5** scores the next unscored roles in the list).
+- **✍ Write** — a first-draft cover letter and a "Why <firm>?" answer, using
+  your card notes (recruiter, referral…). Editable and copyable; saved per role.
+
+Job descriptions are fetched from each firm's own ATS (Workday/Greenhouse/Ashby/
+Oracle/Goldman APIs, else the page's JobPosting JSON-LD) and cached in
+`job_details`. When a site blocks that (Citadel's Cloudflare, a few others) the
+app asks you to paste the description once.
+
+The routes in `api/` run on Vercel and use `claude-sonnet-5`. Your resume, the
+drafts and the scores sit in Supabase tables that only the service key can
+read; the routes are gated by a passphrase so nobody else can use your API
+credits. **Vercel → Project → Settings → Environment Variables:**
+
+| Var | Notes |
+|-----|-------|
+| `ANTHROPIC_API_KEY` | Claude API key (console.anthropic.com) |
+| `SUPABASE_SERVICE_KEY` | the service_role key (same as the GitHub secret) |
+| `STREET_WATCH_KEY` | any passphrase you choose; type it into the ✨ AI panel once per browser |
+
+Rough cost: ~1¢ per fit score, ~3¢ per draft. Locally, put the same three vars
+in the root `.env`; `npm run dev` in `dashboard/` serves `api/` too.
 
 ## Deployment rule — Vercel deploys from `release` only
 `main` is for development (and the daily bot's data commits); **it is never

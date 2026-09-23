@@ -1,0 +1,39 @@
+{
+  "_comment": "Firm type for the dashboard's 'Firm type' filter and saved-search alerts. Shared by dashboard/ and pipeline.py. Firms not listed show as 'Other'.",
+  "Bulge Bracket": [
+    "Bank of America", "Barclays", "Citi", "Deutsche Bank", "Goldman Sachs",
+    "JPMorgan Chase", "Morgan Stanley", "Wells Fargo"
+  ],
+  "Elite Boutique": [
+    "Ducera Partners", "Guggenheim Securities", "Lazard", "Moelis & Company",
+    "PJT Partners", "Perella Weinberg Partners"
+  ],
+  "Middle Market IB": [
+    "BTIG", "Baird", "Cantor Fitzgerald", "Citizens Financial Group", "Houlihan Lokey",
+    "KeyBank", "Macquarie Group", "Oppenheimer & Co.", "Piper Sandler", "RBC Capital Markets",
+    "Regions Securities", "Solomon Partners", "Stifel", "Truist Securities", "William Blair"
+  ],
+  "PE & Alts": [
+    "Apollo Global Management", "Ardian", "Ares Management", "Blackstone", "Blue Owl Capital",
+    "Brookfield Asset Management", "Carlyle", "General Atlantic", "Hamilton Lane",
+    "Insight Partners", "KKR", "Oaktree Capital Management", "Sixth Street", "StepStone", "TPG"
+  ],
+  "Asset Management": [
+    "AllianceBernstein", "BlackRock", "Franklin Templeton", "Invesco", "Neuberger Berman",
+    "PGIM", "Wellington Management"
+  ],
+  "Banks": [
+    "BMO", "CIBC", "Capital One", "ING", "M&T Bank", "Northern Trust",
+    "PNC Financial Services", "State Street", "TD Bank", "U.S. Bancorp"
+  ],
+  "Trading": [
+    "Citadel Securities", "DRW", "IMC Trading", "Jane Street",
+    "Susquehanna International Group", "Virtu Financial"
+  ],
+  "Consulting": [
+    "Altman Solon", "CIL Management Consultants", "Mars & Co", "ZS Associates"
+  ],
+  "Fintech": [
+    "CAIS", "iCapital"
+  ]
+}
