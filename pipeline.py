@@ -537,67 +537,64 @@ def fetch_workday(firm, tenant, dc, site):
 
 
 # ---------------------------------------------------------------- Goldman Sachs (higher.gs)
-# SCAFFOLD — Goldman runs its careers site (higher.gs.com) as a Next.js + Apollo
-# app. Reverse-engineered 2026-09-15:
-#   • The results page issues a GraphQL POST to https://higher.gs.com/graphql
-#     with operationName "GetRoles" (confirmed: Apollo httpLink `uri: '/graphql'`,
-#     op names "GetRoles"/"Opportunities" in the bundle). Pagination is by page.
-#   • Each role's data (confirmed shape, type ExtendedRoleGraphQlDTO) has:
-#       roleId (e.g. "184219_GS_MID_CAREER"), jobTitle, corporateTitle
-#       ("Analyst"/"Associate"/…), locations[{city,state,country,primary}],
-#       division, status ("POSTED"), applyActive.
-#   • Public role URL is https://higher.gs.com/roles/<numeric-id> (numeric prefix
-#     of roleId). robots.txt allows only /roles/.
-#
-# NOTE: during scaffolding the live /graphql endpoint returned 404 from outside
-# GS's network (their own site's call 404'd too), so the exact GetRoles query
-# text + variable names could NOT be confirmed. The query below is a best-effort
-# reconstruction. Verify/adjust `GS_GETROLES_QUERY` and `variables` once the
-# endpoint responds 200 (open higher.gs.com → DevTools → Network → the POST to
-# /graphql → copy its request payload). Until then this fetcher fails gracefully
-# (logs and returns []), exactly like the other unconfirmed registries.
-GS_GRAPHQL = "https://higher.gs.com/graphql"
+# Goldman runs its careers site (higher.gs.com) as a Next.js + Apollo app. The
+# results page POSTs GraphQL op "GetRoles" to a separate gateway host (NOT
+# higher.gs.com/graphql, which 404s). Confirmed 2026-09-23 from the live site:
+#   • variables.searchQueryInput = {page:{pageSize,pageNumber}, sort, filters,
+#     experiences, searchTerm}; pageSize must be < 500 (100 works). pageNumber is
+#     0-BASED (starting at 1 silently skips the first page).
+#   • Each item: roleId ("154399_GS_MID_CAREER"), jobTitle, corporateTitle
+#     ("Analyst"/"Associate"/…), locations[{city,state,country,primary}], status.
+#   • Public role URL is https://higher.gs.com/roles/<numeric prefix of roleId>.
+# No posted date is exposed, so posted_date stays None (first_seen tracks age).
+GS_GRAPHQL = "https://api-higher.gs.com/gateway/api/v1/graphql"
 GS_ROLE_URL = "https://higher.gs.com/roles/{numeric_id}"
 GS_GETROLES_QUERY = """
-query GetRoles($searchText: String, $page: Int, $pageSize: Int) {
-  roles(searchText: $searchText, page: $page, pageSize: $pageSize) {
-    total
+query GetRoles($searchQueryInput: RoleSearchQueryInput!) {
+  roleSearch(searchQueryInput: $searchQueryInput) {
+    totalCount
     items {
       roleId
       jobTitle
       corporateTitle
       status
-      locations { city state country primary }
+      locations { primary state country city }
     }
   }
 }
 """.strip()
 
 
-def fetch_goldman(firm="Goldman Sachs", search_text="", page_size=50, max_pages=20):
-    """Scaffold fetcher for Goldman Sachs (higher.gs.com GraphQL). Returns rows in
-    the same shape as the other fetchers, or [] on any error (graceful)."""
-    headers = {**UA, "Content-Type": "application/json",
-               "Accept": "application/json",
-               # Apollo clients usually send these; harmless if ignored:
-               "apollographql-client-name": "higher"}
-    out, page = [], 1
+def fetch_goldman(firm="Goldman Sachs", search_text="", page_size=100, max_pages=30):
+    """Goldman Sachs via the higher.gs.com GraphQL gateway. Returns rows in the
+    same shape as the other fetchers, or whatever it got so far on error."""
+    import uuid
+    headers = {**UA, "Content-Type": "application/json", "Accept": "*/*",
+               "Origin": "https://higher.gs.com", "Referer": "https://higher.gs.com/",
+               "x-higher-session-id": str(uuid.uuid4())}
+    out, page = [], 0
     try:
-        while page <= max_pages:
+        while page < max_pages:
             body = {"operationName": "GetRoles", "query": GS_GETROLES_QUERY,
-                    "variables": {"searchText": search_text, "page": page,
-                                  "pageSize": page_size}}
-            r = requests.post(GS_GRAPHQL, headers=headers, json=body, timeout=TIMEOUT)
+                    "variables": {"searchQueryInput": {
+                        "page": {"pageSize": page_size, "pageNumber": page},
+                        "sort": {"sortStrategy": "RELEVANCE", "sortOrder": "DESC"},
+                        "filters": [],
+                        "experiences": ["EARLY_CAREER", "PROFESSIONAL"],
+                        "searchTerm": search_text}}}
+            r = requests.post(GS_GRAPHQL, json=body, timeout=TIMEOUT,
+                              headers={**headers, "x-higher-request-id": str(uuid.uuid4())})
             r.raise_for_status()
             payload = r.json()
             if payload.get("errors"):
                 print(f"  ! goldman GraphQL errors: {str(payload['errors'])[:160]}",
                       file=sys.stderr)
                 break
-            roles = (((payload.get("data") or {}).get("roles") or {}).get("items")) or []
-            if not roles:
-                break
+            data = ((payload.get("data") or {}).get("roleSearch")) or {}
+            roles = data.get("items") or []
             for role in roles:
+                if role.get("status") not in (None, "POSTED"):
+                    continue
                 rid = str(role.get("roleId") or "")
                 numeric = rid.split("_")[0]
                 loc = role.get("locations") or []
@@ -609,10 +606,12 @@ def fetch_goldman(firm="Goldman Sachs", search_text="", page_size=50, max_pages=
                 title = (role.get("jobTitle") or "").strip()
                 corp = (role.get("corporateTitle") or "").strip()
                 out.append(dict(firm=firm, id=f"gs-{rid}",
-                                title=f"{title} ({corp})" if corp else title,
+                                title=f"{title} ({corp})" if corp and corp.lower() not in title.lower() else title,
                                 location=loc_str,
                                 url=GS_ROLE_URL.format(numeric_id=numeric),
                                 source="goldman", posted_date=None))
+            if len(roles) < page_size or (page + 1) * page_size >= (data.get("totalCount") or 0):
+                break
             page += 1
             time.sleep(0.25)
     except Exception as e:
