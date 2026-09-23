@@ -126,7 +126,7 @@ General Atlantic, TPG, Warburg Pincus, iCapital, CAIS, BTIG, StepStone, **KKR**
 **Live now (custom fetchers):** **Citadel Securities** (WordPress admin-ajax via
 cloudscraper), **Citi** and **Barclays** (Radancy `search-jobs/results` — one
 generic `fetch_radancy` handles both, add more banks to the `RADANCY` dict).
-Goldman (`higher.gs`) is scaffolded but its GraphQL is 404ing.
+**Goldman Sachs** (`higher.gs` GraphQL gateway) is live too.
 
 **Green-priority firms (added 2026-09-17, client request):**
 - **Carlyle**, **Ardian** — Workday registry entries.
@@ -200,8 +200,8 @@ slug likewise — both are stubbed and fail gracefully until confirmed.
   the site segment (`host/{site}{externalPath}`) — `host + path` alone 404s.
 - **`posted_date`** is the date the firm posted the role: from Greenhouse
   (`first_published`) and Ashby (`publishedAt`). Workday's list payload carries
-  no date (a real one would need a per-job detail fetch) and Goldman is
-  scaffold-only, so both are `null` — the `index.html` recency filter treats
+  no date (a real one would need a per-job detail fetch) and Goldman's search
+  API exposes none, so both are `null` — the `index.html` recency filter treats
   those as "unknown" and shows them only under "Any time".
 - Titles: market-makers (Jane Street, DRW, IMC…) get a wider keyword set
   (Trader / Quant Researcher / Graduate) so their junior roles aren't missed.
@@ -210,7 +210,7 @@ slug likewise — both are stubbed and fail gracefully until confirmed.
   `cloudscraper` to solve the JS challenge. If cloudscraper is missing or
   Cloudflare escalates to a challenge it can't solve, the fetcher logs and
   returns nothing (the rest of the run is unaffected).
-- **Goldman Sachs (`higher.gs`)** is scaffolded (`fetch_goldman`): the search
-  posts operation `GetRoles` to `https://higher.gs.com/graphql`. That endpoint
-  is currently 404 (GS-side), so the query is best-effort and fails gracefully
-  until confirmed — see `pipeline.py` and `TASKS.md`.
+- **Goldman Sachs (`higher.gs`)** is live (`fetch_goldman`): the search posts
+  operation `GetRoles` to `https://api-higher.gs.com/gateway/api/v1/graphql`
+  (not `higher.gs.com/graphql`, which 404s). `pageNumber` is **0-based** and
+  `pageSize` must be < 500.

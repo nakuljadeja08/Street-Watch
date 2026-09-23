@@ -71,17 +71,11 @@ Last updated: 2026-09-15
 
 ## 📈 Expand coverage — remaining firms need per-firm ATS mapping
 Custom career portals (no standard public API — each needs its own fetcher):
-- [~] Goldman Sachs (`higher.gs`) — **scaffolded** in `pipeline.py`
-      (`fetch_goldman`, wired into `collect()`). Reverse-engineered: Next.js +
-      Apollo app; results page POSTs operation `GetRoles` to
-      `https://higher.gs.com/graphql`; role shape confirmed
-      (roleId/jobTitle/corporateTitle/locations/status); public URL
-      `https://higher.gs.com/roles/<numeric-id>`. **Blocker:** `/graphql`
-      currently returns 404 for everyone (GS's own site call 404s too), so the
-      exact `GetRoles` query text/variables couldn't be confirmed — the query in
-      the scaffold is best-effort. When the endpoint responds 200, copy the real
-      request payload (DevTools → Network → POST /graphql) into
-      `GS_GETROLES_QUERY`/`variables`. Fails gracefully until then.
+- [x] **Goldman Sachs** (`higher.gs`) ✅ live (2026-09-23). The real search
+      call is `GetRoles` → `https://api-higher.gs.com/gateway/api/v1/graphql`
+      (the old `higher.gs.com/graphql` guess 404s); variables are
+      `searchQueryInput{page{pageSize,pageNumber},sort,filters,experiences,searchTerm}`,
+      `pageNumber` 0-based. ~918 roles → ~103 after metro/title filters.
 - [x] **Citi** + **Barclays** ✅ wired via a generic **`fetch_radancy`** (Radancy
       `/search-jobs/results`, JSON HTML fragment; narrowed by metro keyword). One
       parser handles both card themes; add more banks to the `RADANCY` dict.

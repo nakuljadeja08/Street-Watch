@@ -121,4 +121,4 @@ Sixth Street, PJT Partners
 **Oracle Fusion CE (3):** Lazard, Cantor Fitzgerald, JPMorgan Chase
 **Other (7):** ZS Associates + SIG (Jibe), CIL (Pinpoint), Oppenheimer (HRM Direct),
 Macquarie (PageUp), Stifel/KBW (iCIMS), Perella Weinberg (Workday myworkdaysite)
-**Custom (2):** Citadel Securities (cloudscraper), Goldman Sachs (scaffold, /graphql 404ing)
+**Custom (2):** Citadel Securities (cloudscraper), Goldman Sachs (higher.gs GraphQL gateway)
