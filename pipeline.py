@@ -147,6 +147,7 @@ EXCLUDE = ["intern", "internship", "summer", "vice president", " vp ", " vp,",
            "co-op", "co op"]
 
 STATE_FILE = ".street_watch_state.json"
+NEWSLETTER_SENT_KEY = "__newsletter_sent__"   # state-file key: UTC date of the last delivered newsletter
 
 
 # ---------------------------------------------------------------- fetchers
@@ -1240,7 +1241,8 @@ def send_newsletter(jobs, today):
         msg.attach(MIMEText(_sunday_html(today, dash_url), "html", "utf-8"))
         if _smtp_send(host, port, user, password, recipients, msg):
             print(f"  newsletter sent to {len(recipients)} recipient(s) (Sunday rest note)")
-        return
+            return True
+        return False
 
     if weekday == 0:  # Monday — fold in Sunday's held-back roles by first_seen
         yesterday = (datetime.strptime(today, "%Y-%m-%d") - timedelta(days=1)).strftime("%Y-%m-%d")
@@ -1266,6 +1268,8 @@ def send_newsletter(jobs, today):
 
     if _smtp_send(host, port, user, password, recipients, msg):
         print(f"  newsletter sent to {len(recipients)} recipient(s) ({n} new roles)")
+        return True
+    return False
 
 
 def _smtp_send(host, port, user, password, recipients, msg):
@@ -1318,7 +1322,15 @@ def main():
                         j.get("posted_date"), j["first_seen"], j["is_new"], j["url"]])
 
     push_supabase(jobs)
-    send_newsletter(jobs, today)
+
+    # Several triggers can fire on the same day (backup crons, a late GitHub
+    # schedule, an external dispatch, a manual run) — only the first one mails.
+    # NEWSLETTER_FORCE=1 overrides for a deliberate re-send.
+    if state.get(NEWSLETTER_SENT_KEY) == today and os.getenv("NEWSLETTER_FORCE", "") not in ("1", "true", "yes"):
+        print(f"Newsletter already sent today ({today}) — skipping (set NEWSLETTER_FORCE=1 to re-send).")
+    elif send_newsletter(jobs, today):
+        state[NEWSLETTER_SENT_KEY] = today
+        json.dump(state, open(STATE_FILE, "w"))
 
     print(f"\n=== {today}: {len(jobs)} roles ({new} new) ===")
     cur = None
