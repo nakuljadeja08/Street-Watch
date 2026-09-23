@@ -1,15 +1,23 @@
 name: Street Watch — daily job pull
 
 # Target: newsletter delivered BY 9am Eastern every day.
-# GitHub's scheduled queue is best-effort and delays top-of-hour (:00) crons by
-# hours, so we start early (10:20 UTC = ~6:20am EDT / 5:20am EST) and off :00.
-# Even with GitHub delay + ~20min runtime this completes well before 9am ET
-# (13:00 UTC in summer / 14:00 UTC in winter). NOTE: GitHub can't guarantee exact
-# scheduled timing — for a hard guarantee use an external trigger (see README).
+# GitHub's scheduled queue is best-effort: in practice our 10:20 UTC cron has
+# started 4-5 HOURS late (~15:00 UTC = 11am ET) and some days never fires at all.
+# So the primary trigger is EXTERNAL — cron-job.org calls workflow_dispatch at
+# 10:20 UTC (see README -> "Reliable daily trigger"). The crons below are only
+# backups in case that external call fails. pipeline.py mails at most once per
+# UTC day, so extra runs just refresh the data without a duplicate email.
 on:
   schedule:
     - cron: "20 10 * * *"
-  workflow_dispatch: {}          # lets you trigger it manually from the Actions tab
+    - cron: "47 12 * * *"
+  workflow_dispatch: {}          # external trigger + manual button in the Actions tab
+
+# Never run two pulls at once: the second would start from stale state and its
+# push would be rejected. Queue it instead.
+concurrency:
+  group: street-watch-pull
+  cancel-in-progress: false
 
 permissions:
   contents: write                # so the run can commit the state file back
@@ -19,6 +27,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main              # latest main at run time, not the (possibly hours-old) trigger SHA
 
       - uses: actions/setup-python@v5
         with:
@@ -47,4 +57,5 @@ jobs:
           git config user.email "bot@users.noreply.github.com"
           git add .street_watch_state.json street_watch_jobs.json street_watch_jobs.csv || true
           git commit -m "chore: daily job pull $(date -u +%F)" || echo "nothing to commit"
-          git push || echo "nothing to push"
+          git pull --rebase origin main || true
+          git push

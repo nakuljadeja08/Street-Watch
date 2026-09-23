@@ -15,7 +15,7 @@ firms' ATS APIs  ──►  pipeline.py  ──►  Supabase `jobs` table  ─�
 | `pipeline.py` | The ingester. Fetch → filter → dedupe → JSON/CSV + Supabase upsert. |
 | `schema.sql` | One-time Supabase `jobs` table + read policy. |
 | `schema_applications.sql` | One-time `applications` table (the tracker's store; open anon write). |
-| `.github/workflows/street-watch.yml` | Daily cron (11:00 UTC) that runs the pipeline **and emails the morning newsletter**. |
+| `.github/workflows/street-watch.yml` | Daily run (external trigger 10:20 UTC + backup crons) that runs the pipeline **and emails the morning newsletter**. |
 | `.github/workflows/newsletter-test.yml` | Manual button to re-send the newsletter from the last committed pull (no scrape). |
 | `send_test_newsletter.py` | Standalone sender used by the test workflow (and runnable locally). |
 | `dashboard/` | **React + Vite app** — live openings **plus an application tracker** (set Applied/Interview/… per role, saved to Supabase). The front-end, deployed on Vercel from the `release` branch; see `dashboard/README.md`. |
@@ -85,6 +85,7 @@ them in):
 | `SMTP_PORT` | no | `587` STARTTLS (default) or `465` SSL |
 | `NEWSLETTER_FROM` | no | overrides the From header (defaults to `SMTP_USER`) |
 | `NEWSLETTER_SEND_EMPTY` | no | `1` to send the greeting even on zero-new days; the daily workflow sets this |
+| `NEWSLETTER_FORCE` | no | `1` to re-send even if today's newsletter already went out (normally one per UTC day) |
 
 **Gmail setup:** enable 2-Step Verification → create an App Password (Google
 Account → Security → App passwords) → use it as `SMTP_PASSWORD`.
@@ -93,6 +94,28 @@ Account → Security → App passwords) → use it as `SMTP_PASSWORD`.
 *Run workflow*. It re-sends from the last committed `street_watch_jobs.json`
 (forces a send even if nothing is new) without scraping or touching data. Or
 locally: set the env vars and `python send_test_newsletter.py`.
+
+### Reliable daily trigger
+
+GitHub's `schedule:` is best-effort. For this repo the 10:20 UTC cron has
+started **4–5 hours late** (≈11am ET) and on some days not at all, so the
+newsletter missed its 9am target. The fix is an external scheduler that calls
+the workflow's `workflow_dispatch` endpoint on time; the GitHub crons stay as
+backups. `pipeline.py` records the send date in `.street_watch_state.json`
+(`__newsletter_sent__`) and mails **at most once per UTC day**, so backup or
+manual runs only refresh data.
+
+Setup (once):
+
+1. GitHub → Settings → Developer settings → **Fine-grained token** → repo
+   `Street-Watch` only → permission **Actions: Read and write**.
+2. [cron-job.org](https://cron-job.org) (free) → new cron job:
+   - URL `https://api.github.com/repos/nakuljadeja08/Street-Watch/actions/workflows/street-watch.yml/dispatches`
+   - Method **POST**, schedule daily **10:20 UTC**
+   - Headers: `Authorization: Bearer <token>`, `Accept: application/vnd.github+json`,
+     `Content-Type: application/json`
+   - Body: `{"ref":"main"}` — success is HTTP **204**.
+3. Set a reminder to rotate the token before it expires.
 
 ## Coverage — the registries in `pipeline.py`
 
