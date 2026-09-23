@@ -1003,8 +1003,60 @@ def push_supabase(rows):
         print(f"  ! supabase purge failed: {e}", file=sys.stderr)
 
 
+# ---------------------------------------------------------------- saved searches
+# Named filter sets saved from the dashboard (Supabase `saved_searches`). New
+# roles matching one are called out at the top of the newsletter. The matching
+# mirrors matchesSearch() in dashboard/src/App.jsx; firm types come from the
+# same firm_categories.json the dashboard uses.
+_CATS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "firm_categories.json")
+try:
+    _FIRM_CAT = {firm: cat
+                 for cat, firms in json.load(open(_CATS_FILE, encoding="utf-8")).items()
+                 if not cat.startswith("_") for firm in firms}
+except Exception:
+    _FIRM_CAT = {}
+_LEVEL_RE = {"analyst": re.compile(r"\banalyst", re.I), "associate": re.compile(r"\bassociate", re.I)}
+
+
+def _matches_search(j, f):
+    if f.get("metro") not in (None, "", "all") and j.get("metro") != f["metro"]:
+        return False
+    if f.get("category") not in (None, "", "all") and _FIRM_CAT.get(j["firm"], "Other") != f["category"]:
+        return False
+    lvl = _LEVEL_RE.get(f.get("level") or "")
+    if lvl and not lvl.search(j.get("title") or ""):
+        return False
+    needle = (f.get("q") or "").strip().lower()
+    if needle and needle not in f"{j['firm']} {j['title']}".lower():
+        return False
+    return True
+
+
+def saved_search_hits(new_jobs):
+    """[(name, [matching new jobs])] for every saved search with a hit. Never
+    raises — a missing table or network error just means no section."""
+    url, key = os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_SERVICE_KEY")
+    if not (url and key and new_jobs):
+        return []
+    try:
+        r = requests.get(f"{url}/rest/v1/saved_searches",
+                         headers={"apikey": key, "Authorization": f"Bearer {key}"},
+                         params={"select": "name,filters", "order": "created_at"}, timeout=TIMEOUT)
+        r.raise_for_status()
+        searches = r.json()
+    except Exception as e:
+        print(f"  ! saved searches unavailable: {e}", file=sys.stderr)
+        return []
+    hits = []
+    for srch in searches:
+        found = [j for j in new_jobs if _matches_search(j, srch.get("filters") or {})]
+        if found:
+            hits.append((srch.get("name") or "Saved search", found))
+    return hits
+
+
 # ---------------------------------------------------------------- newsletter
-def _newsletter_html(new_jobs, total, today, dash_url):
+def _newsletter_html(new_jobs, total, today, dash_url, hits=()):
     """Build an inbox-friendly HTML digest of today's NEW roles, styled to match
     the dashboard's editorial theme (soft pink + cream + forest green, Fraunces
     serif with italic-rose accents, IBM Plex Mono eyebrows/labels).
@@ -1052,6 +1104,32 @@ def _newsletter_html(new_jobs, total, today, dash_url):
             f'font-size:15px;color:{SOFT}">…and {more} more new role{"s" if more != 1 else ""} '
             f'waiting on the board.</td></tr>')
 
+    # saved-search callouts, above the full list
+    pins = []
+    for name, found in hits:
+        pins.append(
+            f'<tr><td style="padding:14px 0 6px;font-family:{MONO};font-size:11px;'
+            f'letter-spacing:.12em;text-transform:uppercase;color:{GREEN}">'
+            f'★ {_esc(name)} · {len(found)} new</td></tr>')
+        for j in found[:8]:
+            pins.append(
+                f'<tr><td style="padding:6px 0;border-bottom:1px solid {LINE2}">'
+                f'<span style="font-family:{MONO};font-size:9.5px;letter-spacing:.08em;'
+                f'text-transform:uppercase;color:{ROSE}">{_esc(j["firm"])}</span> '
+                f'<a href="{_esc(j["url"])}" style="font-family:{SERIF};font-weight:600;font-size:15px;'
+                f'color:{INK};text-decoration:none">{_esc(j["title"])}</a>'
+                f'<span style="font-family:{SANS};font-size:12px;color:{SOFT}"> · {_esc(j.get("location") or "")}</span>'
+                f'</td></tr>')
+        if len(found) > 8:
+            pins.append(f'<tr><td style="padding:6px 0;font-family:{SERIF};font-style:italic;'
+                        f'font-size:14px;color:{SOFT}">…and {len(found) - 8} more below.</td></tr>')
+    pinned_block = (
+        f'<tr><td style="padding:14px 34px 4px"><table role="presentation" width="100%" cellpadding="0" '
+        f'cellspacing="0" style="background:#e4efe7;border:1px dashed {GREEN};border-radius:14px">'
+        f'<tr><td style="padding:4px 16px 12px"><table role="presentation" width="100%" cellpadding="0" '
+        f'cellspacing="0">{"".join(pins)}</table></td></tr></table></td></tr>'
+    ) if pins else ""
+
     n = len(new_jobs)
     if n:
         intro = f"{n} fresh opening{'s' if n != 1 else ''} landed since yesterday — a quick look below."
@@ -1097,6 +1175,7 @@ def _newsletter_html(new_jobs, total, today, dash_url):
 <tr><td style="padding:14px 34px 4px;font-family:{SERIF};font-style:italic;font-size:17px;color:{INK}">
   {intro}
 </td></tr>
+{pinned_block}
 
 <tr><td style="padding:2px 34px 8px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">{''.join(rows)}</table></td></tr>
 
@@ -1113,7 +1192,7 @@ def _esc(s):
             .replace(">", "&gt;").replace('"', "&quot;"))
 
 
-def _newsletter_text(new_jobs, total, today, dash_url):
+def _newsletter_text(new_jobs, total, today, dash_url, hits=()):
     """Plain-text alternative part — what non-HTML clients (and spam filters)
     read. Keeps the digest legible without any markup."""
     lines = [f"Street Watch — {today} morning digest", "", "Good morning, Ms Tian", ""]
@@ -1123,6 +1202,11 @@ def _newsletter_text(new_jobs, total, today, dash_url):
     else:
         lines.append(f"No new roles overnight — {total} still live on the board.")
     lines.append("")
+    for name, found in hits:
+        lines.append(f"★ {name} — {len(found)} new")
+        for j in found[:8]:
+            lines.append(f"  • {j['firm']} — {j['title']} · {j.get('location') or ''}\n    {j['url']}")
+        lines.append("")
     cur = None
     for j in new_jobs[:40]:
         if j["metro"] != cur:
@@ -1267,8 +1351,11 @@ def send_newsletter(jobs, today):
     msg["Subject"] = subject
     msg["From"] = sender
     msg["To"] = ", ".join(recipients)
-    msg.attach(MIMEText(_newsletter_text(new_jobs, len(jobs), today, dash_url), "plain", "utf-8"))
-    msg.attach(MIMEText(_newsletter_html(new_jobs, len(jobs), today, dash_url), "html", "utf-8"))
+    hits = saved_search_hits(new_jobs)
+    if hits:
+        print(f"  saved searches with new matches: {', '.join(f'{nm} ({len(f)})' for nm, f in hits)}")
+    msg.attach(MIMEText(_newsletter_text(new_jobs, len(jobs), today, dash_url, hits), "plain", "utf-8"))
+    msg.attach(MIMEText(_newsletter_html(new_jobs, len(jobs), today, dash_url, hits), "html", "utf-8"))
 
     if _smtp_send(host, port, user, password, recipients, msg):
         print(f"  newsletter sent to {len(recipients)} recipient(s) ({n} new roles)")

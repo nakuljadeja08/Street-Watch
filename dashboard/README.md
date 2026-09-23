@@ -44,3 +44,8 @@ The anon key is public by design (writes are governed by RLS); never put the
 - Per-role status dropdown → upserts to `applications` (deleting the row when
   set back to "Track…"). Setting **Applied** stamps `applied_at` with today.
 - Optimistic UI with revert-on-error.
+- Level (Analyst / Associate) and firm-type filters; **saved searches** with
+  pinned new matches (table `saved_searches`, see `../schema_ai_and_searches.sql`).
+- **✨ AI assistant** — fit scores and cover-letter drafts via the Vercel
+  functions in `../api/` (see the root README). In dev, `vite.config.js` serves
+  `../api/*.js` at `/api/*` with the root `.env` loaded.

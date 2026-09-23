@@ -1,5 +1,39 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { supabase, STATUSES } from "./supabaseClient.js";
+import FIRM_CATEGORIES from "../../firm_categories.json";
+
+// firm -> type ("PE & Alts", "Bulge Bracket", …); shared with pipeline.py
+const CATEGORIES = Object.keys(FIRM_CATEGORIES).filter((k) => !k.startsWith("_"));
+const FIRM_CAT = {};
+for (const c of CATEGORIES) for (const f of FIRM_CATEGORIES[c]) FIRM_CAT[f] = c;
+const categoryOf = (firm) => FIRM_CAT[firm] || "Other";
+
+const LEVELS = [
+  { v: "any", label: "Any level" },
+  { v: "analyst", label: "Analyst" },
+  { v: "associate", label: "Associate" },
+];
+const LEVEL_RE = { analyst: /\banalyst/i, associate: /\bassociate/i };
+
+// the part of the filter state a saved search captures
+function matchesSearch(j, f) {
+  if (f.metro && f.metro !== "all" && j.metro !== f.metro) return false;
+  if (f.category && f.category !== "all" && categoryOf(j.firm) !== f.category) return false;
+  if (f.level && f.level !== "any" && !LEVEL_RE[f.level]?.test(j.title || "")) return false;
+  const needle = (f.q || "").trim().toLowerCase();
+  if (needle && !(j.firm + " " + j.title).toLowerCase().includes(needle)) return false;
+  return true;
+}
+function describeSearch(f) {
+  return [
+    f.level && f.level !== "any" ? LEVELS.find((l) => l.v === f.level)?.label : null,
+    f.metro && f.metro !== "all" ? METRO_LABEL[f.metro] : null,
+    f.category && f.category !== "all" ? f.category : null,
+    f.q ? `“${f.q}”` : null,
+  ]
+    .filter(Boolean)
+    .join(" · ");
+}
 
 const METROS = ["all", "NY + Jersey City", "SF / Bay Area", "Chicago"];
 const METRO_LABEL = {
@@ -46,9 +80,32 @@ const SORTS = [
   { v: "default", label: "Grouped" },
   { v: "newest", label: "Newest" },
   { v: "firm", label: "Firm A–Z" },
+  { v: "fit", label: "Best fit" },
 ];
+const pickJob = (j) => ({ id: j.id, firm: j.firm, title: j.title, location: j.location, url: j.url });
+const fitClass = (s) => (s >= 80 ? "fit-hi" : s >= 60 ? "fit-mid" : "fit-lo");
 // pipeline columns, left → right
 const BOARD_COLS = ["interested", "applied", "interview", "offer", "rejected"];
+
+// Supabase caps each response at 1000 rows, so page through the jobs table
+// (sorted by metro, the cap used to silently drop most SF roles).
+async function fetchAllJobs() {
+  const PAGE = 1000;
+  const rows = [];
+  for (let from = 0; ; from += PAGE) {
+    const res = await supabase
+      .from("jobs")
+      .select("*")
+      .order("metro", { ascending: true })
+      .order("firm", { ascending: true })
+      .order("title", { ascending: true })
+      .order("id", { ascending: true })
+      .range(from, from + PAGE - 1);
+    if (res.error) return res;
+    rows.push(...res.data);
+    if (res.data.length < PAGE) return { data: rows, error: null };
+  }
+}
 
 // read filter/sort/view state out of the URL so a link restores the same view
 function initialParams() {
@@ -56,6 +113,8 @@ function initialParams() {
     const p = new URLSearchParams(window.location.search);
     return {
       metro: p.get("metro") || "all",
+      category: p.get("type") || "all",
+      level: LEVELS.some((l) => l.v === p.get("level")) ? p.get("level") : "any",
       recency: p.get("recency") || "all",
       statusFilter: p.get("status") || "all",
       q: p.get("q") || "",
@@ -63,7 +122,7 @@ function initialParams() {
       view: p.get("view") === "board" ? "board" : "list",
     };
   } catch {
-    return { metro: "all", recency: "all", statusFilter: "all", q: "", sort: "default", view: "list" };
+    return { metro: "all", category: "all", level: "any", recency: "all", statusFilter: "all", q: "", sort: "default", view: "list" };
   }
 }
 
@@ -76,6 +135,10 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [metro, setMetro] = useState(init.metro);
+  const [category, setCategory] = useState(init.category);
+  const [level, setLevel] = useState(init.level);
+  const [searches, setSearches] = useState([]); // saved searches (named filter sets)
+  const [naming, setNaming] = useState(false); // "save search" name box open
   const [recency, setRecency] = useState(init.recency);
   const [statusFilter, setStatusFilter] = useState(init.statusFilter); // all | tracked | untracked | <status>
   const [q, setQ] = useState(init.q);
@@ -135,6 +198,8 @@ export default function App() {
   useEffect(() => {
     const p = new URLSearchParams();
     if (metro !== "all") p.set("metro", metro);
+    if (category !== "all") p.set("type", category);
+    if (level !== "any") p.set("level", level);
     if (recency !== "all") p.set("recency", String(recency));
     if (statusFilter !== "all") p.set("status", statusFilter);
     if (q.trim()) p.set("q", q.trim());
@@ -142,20 +207,150 @@ export default function App() {
     if (view !== "list") p.set("view", view);
     const qs = p.toString();
     window.history.replaceState(null, "", qs ? `?${qs}` : window.location.pathname);
-  }, [metro, recency, statusFilter, q, sort, view]);
+  }, [metro, category, level, recency, statusFilter, q, sort, view]);
+
+  // ---------------------------------------------------------------- AI (fit score + drafts)
+  // The /api routes are gated by a passphrase (STREET_WATCH_KEY on Vercel)
+  // that lives only in this browser.
+  const [swKey, setSwKey] = useState(() => {
+    try {
+      return localStorage.getItem("sw-ai-key") || "";
+    } catch {
+      return "";
+    }
+  });
+  const [ai, setAi] = useState({ state: "off", resume: null, fits: {}, drafts: [], error: "" });
+  const [aiOpen, setAiOpen] = useState(false);
+  const [scoring, setScoring] = useState(() => new Set()); // job ids being scored
+  const [draftFor, setDraftFor] = useState(null); // job whose draft modal is open
+  const [pasteFor, setPasteFor] = useState(null); // job whose posting we couldn't fetch (fit)
+  const [noJd, setNoJd] = useState(() => new Set()); // unreadable postings — skipped by bulk scoring
+  const aiReady = ai.state === "ready" && !!ai.resume;
+
+  async function aiFetch(path, body) {
+    const r = await fetch(`/api/${path}`, {
+      method: body ? "POST" : "GET",
+      headers: { "x-sw-key": swKey, ...(body ? { "content-type": "application/json" } : {}) },
+      body: body ? JSON.stringify(body) : undefined,
+    });
+    let data = {};
+    try {
+      data = await r.json();
+    } catch {}
+    if (!r.ok) throw new Error(data.error || `Request failed (${r.status})`);
+    return data;
+  }
+
+  function flash(msg, ms = 5000) {
+    setError(msg);
+    setTimeout(() => setError((e) => (e === msg ? "" : e)), ms);
+  }
+
+  useEffect(() => {
+    try {
+      if (swKey) localStorage.setItem("sw-ai-key", swKey);
+      else localStorage.removeItem("sw-ai-key");
+    } catch {}
+    if (!swKey) {
+      setAi({ state: "off", resume: null, fits: {}, drafts: [], error: "" });
+      return;
+    }
+    let live = true;
+    setAi((a) => ({ ...a, state: "loading", error: "" }));
+    aiFetch("status")
+      .then((d) => live && setAi({ state: "ready", resume: d.resume, fits: d.fits || {}, drafts: d.drafts || [], error: "" }))
+      .catch((e) => live && setAi((a) => ({ ...a, state: "error", error: e.message })));
+    return () => {
+      live = false;
+    };
+  }, [swKey]);
+
+  async function scoreJobs(list, description) {
+    const ids = list.map((j) => j.id);
+    setScoring((s) => new Set([...s, ...ids]));
+    try {
+      const { results } = await aiFetch("fit", { jobs: list.map(pickJob), description });
+      const fits = {};
+      let missing = 0;
+      const failures = [];
+      for (const j of list) {
+        const r = results[j.id] || {};
+        if (r.score != null) fits[j.id] = { score: r.score, reason: r.reason };
+        else if (r.need_jd) missing++;
+        else if (r.error) failures.push(r.error);
+      }
+      setAi((a) => ({ ...a, fits: { ...a.fits, ...fits } }));
+      if (missing) setNoJd((s) => new Set([...s, ...list.filter((j) => results[j.id]?.need_jd).map((j) => j.id)]));
+      if (missing && list.length === 1) setPasteFor(list[0]);
+      else if (missing) flash(`${missing} posting${missing === 1 ? "" : "s"} couldn't be read automatically — use ✨ Fit on that card to paste the description.`, 7000);
+      if (failures.length) flash(`Scoring failed: ${failures[0]}`);
+    } catch (e) {
+      flash(`Scoring failed: ${e.message}`);
+    } finally {
+      setScoring((s) => {
+        const n = new Set(s);
+        ids.forEach((id) => n.delete(id));
+        return n;
+      });
+    }
+  }
+
+  // ---------------------------------------------------------------- saved searches
+  const currentSearch = { metro, category, level, q: q.trim() };
+  const searchable = metro !== "all" || category !== "all" || level !== "any" || q.trim() !== "";
+
+  async function saveSearch(name) {
+    const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+    const row = { name: name.trim() || describeSearch(currentSearch), filters: currentSearch, last_seen: yesterday };
+    try {
+      const { data, error } = await supabase.from("saved_searches").insert(row).select().single();
+      if (error) throw error;
+      setSearches((s) => [...s, data]);
+      setNaming(false);
+    } catch (e) {
+      flash(`Could not save search: ${e.message || e} (run schema_ai_and_searches.sql?)`);
+    }
+  }
+
+  async function deleteSearch(s) {
+    setSearches((all) => all.filter((x) => x.id !== s.id));
+    const { error } = await supabase.from("saved_searches").delete().eq("id", s.id);
+    if (error) {
+      setSearches((all) => [...all, s]);
+      flash(`Could not delete search: ${error.message}`);
+    }
+  }
+
+  async function markSeen(s) {
+    const t = today();
+    setSearches((all) => all.map((x) => (x.id === s.id ? { ...x, last_seen: t } : x)));
+    const { error } = await supabase.from("saved_searches").update({ last_seen: t }).eq("id", s.id);
+    if (error) {
+      setSearches((all) => all.map((x) => (x.id === s.id ? s : x)));
+      flash(`Could not update search: ${error.message}`);
+    }
+  }
+
+  function applySearch(s) {
+    const f = s.filters || {};
+    setMetro(f.metro || "all");
+    setCategory(f.category || "all");
+    setLevel(f.level || "any");
+    setQ(f.q || "");
+    setRecency("all");
+    setStatusFilter("all");
+    setView("list");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
   useEffect(() => {
     (async () => {
       try {
-        const [jRes, aRes, cRes] = await Promise.all([
-          supabase
-            .from("jobs")
-            .select("*")
-            .order("metro", { ascending: true })
-            .order("firm", { ascending: true })
-            .order("title", { ascending: true }),
+        const [jRes, aRes, cRes, sRes] = await Promise.all([
+          fetchAllJobs(),
           supabase.from("applications").select("*"),
           supabase.from("custom_jobs").select("*"),
+          supabase.from("saved_searches").select("*").order("created_at", { ascending: true }),
         ]);
         if (jRes.error) throw jRes.error;
         // applications table may not exist yet — treat that as "no apps"
@@ -172,6 +367,9 @@ export default function App() {
         setJobs(jRes.data || []);
         setApps(appMap);
         setCustomJobs(!cRes.error && Array.isArray(cRes.data) ? cRes.data : []);
+        // saved_searches table may not exist yet — treat that as "none saved"
+        if (sRes.error) console.warn("saved_searches read failed (run schema_ai_and_searches.sql?):", sRes.error.message);
+        setSearches(!sRes.error && Array.isArray(sRes.data) ? sRes.data : []);
       } catch (e) {
         setError(e.message || String(e));
       } finally {
@@ -219,12 +417,16 @@ export default function App() {
 
   const filtersActive =
     metro !== "all" ||
+    category !== "all" ||
+    level !== "any" ||
     recency !== "all" ||
     statusFilter !== "all" ||
     q.trim() !== "" ||
     sort !== "default";
   function clearFilters() {
     setMetro("all");
+    setCategory("all");
+    setLevel("any");
     setRecency("all");
     setStatusFilter("all");
     setQ("");
@@ -375,11 +577,10 @@ export default function App() {
   }
 
   const filtered = useMemo(() => {
-    const needle = q.trim().toLowerCase();
+    const f = { metro, category, level, q };
     const win = recency === "all" ? Infinity : Number(recency);
     const rows = allJobs.filter((j) => {
-      if (metro !== "all" && j.metro !== metro) return false;
-      if (needle && !(j.firm + " " + j.title).toLowerCase().includes(needle)) return false;
+      if (!matchesSearch(j, f)) return false;
       if (win !== Infinity) {
         const n = daysSince(j.posted_date);
         if (n === null || n > win) return false;
@@ -400,21 +601,23 @@ export default function App() {
           (a.firm || "").localeCompare(b.firm || "") ||
           (a.title || "").localeCompare(b.title || "")
       );
+    } else if (sort === "fit") {
+      // scored roles first, best fit on top; unscored keep their order below
+      rows.sort((a, b) => (ai.fits[b.id]?.score ?? -1) - (ai.fits[a.id]?.score ?? -1));
     }
     return rows;
-  }, [allJobs, appMap, metro, recency, statusFilter, q, sort]);
+  }, [allJobs, appMap, metro, category, level, recency, statusFilter, q, sort, ai.fits]);
 
   // board view: tracked roles grouped by status. Honors metro/recency/search
   // and the sort order, but ignores the status filter (columns cover all).
   const board = useMemo(() => {
-    const needle = q.trim().toLowerCase();
+    const f = { metro, category, level, q };
     const win = recency === "all" ? Infinity : Number(recency);
     const cols = Object.fromEntries(BOARD_COLS.map((s) => [s, []]));
     for (const j of allJobs) {
       const st = statusOf(j.id);
       if (st === "none" || !cols[st]) continue;
-      if (metro !== "all" && j.metro !== metro) continue;
-      if (needle && !(j.firm + " " + j.title).toLowerCase().includes(needle)) continue;
+      if (!matchesSearch(j, f)) continue;
       if (win !== Infinity) {
         const n = daysSince(j.posted_date);
         if (n === null || n > win) continue;
@@ -422,14 +625,16 @@ export default function App() {
       cols[st].push(j);
     }
     const cmp =
-      sort === "firm"
+      sort === "fit"
+        ? (a, b) => (ai.fits[b.id]?.score ?? -1) - (ai.fits[a.id]?.score ?? -1)
+        : sort === "firm"
         ? (a, b) =>
             (a.firm || "").localeCompare(b.firm || "") ||
             (a.title || "").localeCompare(b.title || "")
         : (a, b) => (daysSince(a.posted_date) ?? Infinity) - (daysSince(b.posted_date) ?? Infinity);
     for (const s of BOARD_COLS) cols[s].sort(cmp);
     return cols;
-  }, [allJobs, appMap, metro, recency, q, sort]);
+  }, [allJobs, appMap, metro, category, level, recency, q, sort, ai.fits]);
 
   const boardTotal = BOARD_COLS.reduce((n, s) => n + board[s].length, 0);
 
@@ -437,11 +642,10 @@ export default function App() {
   // window is active (so "0 roles" under 24h is self-explanatory)
   const hiddenNoDate = useMemo(() => {
     if (recency === "all") return 0;
-    const needle = q.trim().toLowerCase();
+    const f = { metro, category, level, q };
     let n = 0;
     for (const j of allJobs) {
-      if (metro !== "all" && j.metro !== metro) continue;
-      if (needle && !(j.firm + " " + j.title).toLowerCase().includes(needle)) continue;
+      if (!matchesSearch(j, f)) continue;
       const st = statusOf(j.id);
       if (statusFilter === "tracked" && st === "none") continue;
       if (statusFilter === "untracked" && st !== "none") continue;
@@ -449,7 +653,24 @@ export default function App() {
       if (daysSince(j.posted_date) === null) n++;
     }
     return n;
-  }, [allJobs, appMap, metro, statusFilter, q, recency]);
+  }, [allJobs, appMap, metro, category, level, statusFilter, q, recency]);
+
+  // saved searches → roles first seen after you last looked (scraped roles only)
+  const searchHits = useMemo(
+    () =>
+      searches.map((s) => ({
+        search: s,
+        fresh: jobs.filter((j) => j.first_seen && j.first_seen > s.last_seen && matchesSearch(j, s.filters || {})),
+      })),
+    [searches, jobs]
+  );
+  const pinned = searchHits.filter((h) => h.fresh.length);
+
+  // next few unscored roles in the current list order (for "Score next 5")
+  const unscoredVisible = useMemo(
+    () => (aiReady ? filtered.filter((j) => !ai.fits[j.id] && !scoring.has(j.id) && !noJd.has(j.id)).slice(0, 5) : []),
+    [aiReady, filtered, ai.fits, scoring, noJd]
+  );
 
   const stats = useMemo(() => {
     const c = { total: jobs.length, new: 0, applied: 0, interview: 0, offer: 0, tracked: 0 };
@@ -464,6 +685,77 @@ export default function App() {
     return c;
   }, [jobs, appMap]);
 
+  function renderCard(j) {
+    const st = statusOf(j.id);
+    const app = appMap[j.id];
+    const age = postedLabel(j.posted_date);
+    const fit = ai.fits[j.id];
+    const busy = scoring.has(j.id);
+    return (
+      <div className={`card ${st !== "none" ? "tracked" : ""}`} key={j.id}>
+        <div className="of">
+          <span>{j.firm}</span>
+          <span className="tags">
+            {fit && (
+              <span className={`fit ${fitClass(fit.score)}`} title="Fit score vs. your resume">
+                {fit.score}
+              </span>
+            )}
+            {j.is_new && <span className="new">NEW</span>}
+            {j.custom && <span className="mine">YOURS</span>}
+            {st !== "none" && (
+              <span className={`pill ${STATUS_META[st].cls}`}>{STATUS_META[st].label}</span>
+            )}
+          </span>
+        </div>
+        {j.url ? (
+          <a className="role" href={j.url} target="_blank" rel="noopener noreferrer">
+            {j.title}
+          </a>
+        ) : (
+          <span className="role">{j.title}</span>
+        )}
+        <div className="loc">
+          {(j.location || j.metro) + " · " + j.source + (age ? ` · ${age}` : "")}
+          {app?.applied_at && st === "applied" ? ` · applied ${app.applied_at}` : ""}
+        </div>
+        {fit?.reason && <div className="fitWhy">✨ {fit.reason}</div>}
+        <div className="track">
+          <select
+            className={`trackSel ${STATUS_META[st].cls}`}
+            value={st}
+            onChange={(e) => setStatus(j, e.target.value)}
+          >
+            <option value="none">— Track…</option>
+            {TRACKED.map((s) => (
+              <option key={s} value={s}>
+                {STATUS_META[s].label}
+              </option>
+            ))}
+          </select>
+          {aiReady && (
+            <>
+              <button
+                className="aiBtn"
+                disabled={busy}
+                onClick={() => scoreJobs([j])}
+                title={fit ? "Re-score fit" : "Score how well your resume fits this role"}
+              >
+                {busy ? "Scoring…" : fit ? "↻ Fit" : "✨ Fit"}
+              </button>
+              <button className="aiBtn" onClick={() => setDraftFor(j)} title="Cover letter + why this firm">
+                ✍ {ai.drafts.includes(j.id) ? "Draft" : "Write"}
+              </button>
+            </>
+          )}
+        </div>
+        {st !== "none" && (
+          <NoteEditor value={app?.notes} onSave={(v) => saveNotes(j, v)} />
+        )}
+      </div>
+    );
+  }
+
   return (
     <div className="app">
       <header>
@@ -475,6 +767,13 @@ export default function App() {
             title={effectiveDark ? "Light mode" : "Dark mode"}
           >
             {effectiveDark ? "☀" : "☾"}
+          </button>
+          <button
+            className={`aiToggle ${aiReady ? "on" : ""}`}
+            onClick={() => setAiOpen((o) => !o)}
+            title="Resume, fit scores and cover letters"
+          >
+            ✨ AI{aiReady ? "" : " setup"}
           </button>
           <p className="eyebrow">Analyst &amp; Associate · Live from Supabase</p>
           <h1>Street <em>Watch</em></h1>
@@ -493,6 +792,17 @@ export default function App() {
         </div>
       </header>
 
+      {aiOpen && (
+        <AiPanel
+          swKey={swKey}
+          setSwKey={setSwKey}
+          ai={ai}
+          aiFetch={aiFetch}
+          onResume={(resume) => setAi((a) => ({ ...a, resume }))}
+          onClose={() => setAiOpen(false)}
+        />
+      )}
+
       <div className={`bar ${scrolled ? "scrolled" : ""}`}>
         <div className="bar-in">
           <Seg
@@ -504,6 +814,20 @@ export default function App() {
             onChange={setView}
           />
           <Seg options={METROS.map((m) => ({ v: m, label: METRO_LABEL[m] }))} value={metro} onChange={setMetro} />
+          <Seg options={LEVELS} value={level} onChange={setLevel} />
+          <select
+            className="statusSel"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            aria-label="Firm type"
+          >
+            <option value="all">All firm types</option>
+            {[...CATEGORIES, "Other"].map((c) => (
+              <option key={c} value={c}>
+                {c}
+              </option>
+            ))}
+          </select>
           <Seg options={RECENCY.map((r) => ({ v: r.d, label: r.label }))} value={recency} onChange={setRecency} />
           <select
             className="statusSel"
@@ -541,7 +865,34 @@ export default function App() {
               Clear ✕
             </button>
           )}
+          {searchable && !naming && (
+            <button className="saveBtn" onClick={() => setNaming(true)} title="Save these filters and get alerts for new matches">
+              ☆ Save search
+            </button>
+          )}
         </div>
+        {(naming || searches.length > 0) && (
+          <div className="saved-in">
+            {naming && (
+              <SaveSearchForm
+                placeholder={describeSearch(currentSearch)}
+                onSave={saveSearch}
+                onCancel={() => setNaming(false)}
+              />
+            )}
+            {searchHits.map(({ search: s, fresh }) => (
+              <span className="chip" key={s.id}>
+                <button className="chip-main" onClick={() => applySearch(s)} title={describeSearch(s.filters || {})}>
+                  ★ {s.name}
+                  {fresh.length > 0 && <span className="chip-n">{fresh.length} new</span>}
+                </button>
+                <button className="chip-x" onClick={() => deleteSearch(s)} aria-label={`Delete saved search ${s.name}`}>
+                  ✕
+                </button>
+              </span>
+            ))}
+          </div>
+        )}
       </div>
 
       <main className="wrap">
@@ -554,6 +905,12 @@ export default function App() {
             : `${filtered.length} roles` +
               (recency !== "all" ? ` · posted ≤ ${recency === 1 || recency === "1" ? "24h" : recency + "d"}` : "") +
               (hiddenNoDate ? ` · ${hiddenNoDate} hidden (no posted date)` : "")}
+          {view === "list" && unscoredVisible.length > 0 && (
+            <button className="aiBtn meta-btn" onClick={() => scoreJobs(unscoredVisible)}>
+              ✨ Score next {unscoredVisible.length}
+            </button>
+          )}
+          {view === "list" && scoring.size > 0 && <span className="meta-busy"> · scoring {scoring.size}…</span>}
         </div>
 
         {view === "board" ? (
@@ -614,7 +971,14 @@ export default function App() {
                   </div>
                   <div className="col-body">
                     {board[s].map((j) => (
-                      <BoardCard key={j.id} job={j} status={s} setStatus={setStatus} />
+                      <BoardCard
+                        key={j.id}
+                        job={j}
+                        status={s}
+                        setStatus={setStatus}
+                        fit={ai.fits[j.id]}
+                        onDraft={aiReady ? () => setDraftFor(j) : null}
+                      />
                     ))}
                     {board[s].length === 0 && <div className="col-empty">Drop here</div>}
                   </div>
@@ -625,6 +989,33 @@ export default function App() {
           </>
         ) : (
         <>
+        {!loading && pinned.length > 0 && (
+          <section className="pinned">
+            {pinned.map(({ search: s, fresh }) => (
+              <div className="pin-group" key={s.id}>
+                <div className="pin-h">
+                  <span>
+                    📌 <b>{s.name}</b> · {fresh.length} new since {s.last_seen}
+                  </span>
+                  <span className="pin-actions">
+                    <button className="clearBtn ghost" onClick={() => applySearch(s)}>
+                      Open search
+                    </button>
+                    <button className="clearBtn ghost" onClick={() => markSeen(s)}>
+                      Mark seen ✓
+                    </button>
+                  </span>
+                </div>
+                <div className="grid">{fresh.slice(0, 6).map(renderCard)}</div>
+                {fresh.length > 6 && (
+                  <button className="pin-more" onClick={() => applySearch(s)}>
+                    + {fresh.length - 6} more — open the search
+                  </button>
+                )}
+              </div>
+            ))}
+          </section>
+        )}
         <div className="grid">
           {loading &&
             Array.from({ length: 6 }).map((_, i) => (
@@ -636,53 +1027,7 @@ export default function App() {
                 <div className="sk-line sk-track" />
               </div>
             ))}
-          {filtered.map((j) => {
-            const st = statusOf(j.id);
-            const app = appMap[j.id];
-            const age = postedLabel(j.posted_date);
-            return (
-              <div className={`card ${st !== "none" ? "tracked" : ""}`} key={j.id}>
-                <div className="of">
-                  <span>{j.firm}</span>
-                  <span className="tags">
-                    {j.is_new && <span className="new">NEW</span>}
-                    {j.custom && <span className="mine">YOURS</span>}
-                    {st !== "none" && (
-                      <span className={`pill ${STATUS_META[st].cls}`}>{STATUS_META[st].label}</span>
-                    )}
-                  </span>
-                </div>
-                {j.url ? (
-                  <a className="role" href={j.url} target="_blank" rel="noopener noreferrer">
-                    {j.title}
-                  </a>
-                ) : (
-                  <span className="role">{j.title}</span>
-                )}
-                <div className="loc">
-                  {(j.location || j.metro) + " · " + j.source + (age ? ` · ${age}` : "")}
-                  {app?.applied_at && st === "applied" ? ` · applied ${app.applied_at}` : ""}
-                </div>
-                <div className="track">
-                  <select
-                    className={`trackSel ${STATUS_META[st].cls}`}
-                    value={st}
-                    onChange={(e) => setStatus(j, e.target.value)}
-                  >
-                    <option value="none">— Track…</option>
-                    {TRACKED.map((s) => (
-                      <option key={s} value={s}>
-                        {STATUS_META[s].label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                {st !== "none" && (
-                  <NoteEditor value={app?.notes} onSave={(v) => saveNotes(j, v)} />
-                )}
-              </div>
-            );
-          })}
+          {filtered.map(renderCard)}
         </div>
         {!loading && filtered.length === 0 && (
           <div className="empty">
@@ -701,6 +1046,28 @@ export default function App() {
         </>
         )}
       </main>
+
+      {draftFor && (
+        <DraftModal
+          job={draftFor}
+          notes={appMap[draftFor.id]?.notes}
+          hasDraft={ai.drafts.includes(draftFor.id)}
+          aiFetch={aiFetch}
+          onSaved={(id) => setAi((a) => (a.drafts.includes(id) ? a : { ...a, drafts: [...a.drafts, id] }))}
+          onClose={() => setDraftFor(null)}
+        />
+      )}
+      {pasteFor && (
+        <PasteJdModal
+          job={pasteFor}
+          onSubmit={(text) => {
+            const job = pasteFor;
+            setPasteFor(null);
+            scoreJobs([job], text);
+          }}
+          onClose={() => setPasteFor(null)}
+        />
+      )}
 
       <footer>
         <div className="wrap">
@@ -811,7 +1178,7 @@ function AddCustomForm({ onAdd, onCancel }) {
   );
 }
 
-function BoardCard({ job, status, setStatus }) {
+function BoardCard({ job, status, setStatus, fit, onDraft }) {
   const age = postedLabel(job.posted_date);
   return (
     <div
@@ -827,6 +1194,11 @@ function BoardCard({ job, status, setStatus }) {
       <div className="bof">
         {job.firm}
         {job.custom && <span className="mine">YOURS</span>}
+        {fit && (
+          <span className={`fit ${fitClass(fit.score)}`} title={fit.reason}>
+            {fit.score}
+          </span>
+        )}
       </div>
       {job.url ? (
         <a className="brole" href={job.url} target="_blank" rel="noopener noreferrer">
@@ -849,6 +1221,11 @@ function BoardCard({ job, status, setStatus }) {
         ))}
         <option value="none">✕ Remove</option>
       </select>
+      {onDraft && (
+        <button className="aiBtn bdraft" onClick={onDraft}>
+          ✍ Cover letter
+        </button>
+      )}
     </div>
   );
 }
@@ -917,5 +1294,338 @@ function Seg({ options, value, onChange }) {
         </button>
       ))}
     </div>
+  );
+}
+
+function SaveSearchForm({ placeholder, onSave, onCancel }) {
+  const [name, setName] = useState("");
+  const [busy, setBusy] = useState(false);
+  const ref = useRef(null);
+  useEffect(() => {
+    ref.current?.focus();
+  }, []);
+  return (
+    <form
+      className="saveForm"
+      onSubmit={async (e) => {
+        e.preventDefault();
+        setBusy(true);
+        await onSave(name);
+        setBusy(false);
+      }}
+    >
+      <input
+        ref={ref}
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder={`Name this search — e.g. ${placeholder || "SF PE Associate"}`}
+        onKeyDown={(e) => e.key === "Escape" && onCancel()}
+      />
+      <button type="submit" className="addBtn on" disabled={busy}>
+        {busy ? "Saving…" : "Save"}
+      </button>
+      <button type="button" className="clearBtn ghost" onClick={onCancel}>
+        Cancel
+      </button>
+    </form>
+  );
+}
+
+// Read a File as base64 (no data: prefix)
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const r = new FileReader();
+    r.onload = () => resolve(String(r.result).split(",")[1] || "");
+    r.onerror = () => reject(r.error);
+    r.readAsDataURL(file);
+  });
+}
+
+function AiPanel({ swKey, setSwKey, ai, aiFetch, onResume, onClose }) {
+  const [keyDraft, setKeyDraft] = useState(swKey);
+  const [pasting, setPasting] = useState(false);
+  const [text, setText] = useState("");
+  const [busy, setBusy] = useState("");
+  const [msg, setMsg] = useState("");
+
+  async function upload(body, label) {
+    setBusy(label);
+    setMsg("");
+    try {
+      const { resume } = await aiFetch("resume", body);
+      onResume(resume);
+      setPasting(false);
+      setText("");
+      setMsg("Resume saved ✓");
+    } catch (e) {
+      setMsg(e.message);
+    } finally {
+      setBusy("");
+    }
+  }
+
+  async function onFile(e) {
+    const file = e.target.files?.[0];
+    e.target.value = "";
+    if (!file) return;
+    if (file.type === "application/pdf" || /\.pdf$/i.test(file.name)) {
+      // base64 adds ~33% and Vercel caps request bodies at ~4.5 MB
+      if (file.size > 3 * 1024 * 1024) return setMsg("That PDF is over 3 MB — export a smaller one or paste the text.");
+      upload({ pdf_base64: await fileToBase64(file) }, "Reading your PDF…");
+    } else {
+      upload({ text: await file.text() }, "Saving…");
+    }
+  }
+
+  const connected = ai.state === "ready";
+  return (
+    <section className="aiPanel">
+      <div className="wrap">
+        <div className="aiPanel-h">
+          <h2>✨ AI assistant</h2>
+          <button className="clearBtn ghost" onClick={onClose}>
+            Close ✕
+          </button>
+        </div>
+        <p className="aiPanel-sub">
+          Claude reads your resume and each job posting to give you a <b>fit score</b> with a one-line reason,
+          and writes a first-draft <b>cover letter</b> and <b>“Why this firm?”</b> answer on request.
+        </p>
+
+        <div className="aiStep">
+          <span className="aiStep-n">1</span>
+          <form
+            className="aiRow"
+            onSubmit={(e) => {
+              e.preventDefault();
+              setSwKey(keyDraft.trim());
+            }}
+          >
+            <label className="addField">
+              <span>Passphrase (STREET_WATCH_KEY)</span>
+              <input
+                type="password"
+                value={keyDraft}
+                onChange={(e) => setKeyDraft(e.target.value)}
+                placeholder="the passphrase you set on Vercel"
+                autoComplete="current-password"
+              />
+            </label>
+            <button type="submit" className="addBtn on">
+              {connected && keyDraft === swKey ? "Connected ✓" : "Connect"}
+            </button>
+            {swKey && (
+              <button
+                type="button"
+                className="clearBtn ghost"
+                onClick={() => {
+                  setKeyDraft("");
+                  setSwKey("");
+                }}
+              >
+                Forget
+              </button>
+            )}
+          </form>
+        </div>
+        {ai.state === "loading" && <div className="aiNote">Connecting…</div>}
+        {ai.state === "error" && <div className="aiNote bad">{ai.error}</div>}
+
+        {connected && (
+          <div className="aiStep">
+            <span className="aiStep-n">2</span>
+            <div className="aiResume">
+              {ai.resume ? (
+                <div className="aiNote">
+                  Resume on file · {ai.resume.chars.toLocaleString()} characters · updated{" "}
+                  {new Date(ai.resume.updated_at).toLocaleDateString()}
+                  <div className="aiPreview">{ai.resume.preview}…</div>
+                </div>
+              ) : (
+                <div className="aiNote">No resume yet — add one to turn on fit scores and drafts.</div>
+              )}
+              <div className="aiRow">
+                <label className={`addBtn on fileBtn ${busy ? "disabled" : ""}`}>
+                  {ai.resume ? "Replace resume (PDF / .txt)" : "Upload resume (PDF / .txt)"}
+                  <input type="file" accept=".pdf,.txt,.md,application/pdf,text/plain" onChange={onFile} disabled={!!busy} hidden />
+                </label>
+                <button className="clearBtn ghost" onClick={() => setPasting((p) => !p)} disabled={!!busy}>
+                  {pasting ? "Cancel paste" : "…or paste text"}
+                </button>
+              </div>
+              {pasting && (
+                <div className="aiRow col">
+                  <textarea
+                    className="noteBox big"
+                    rows={8}
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                    placeholder="Paste your resume as plain text"
+                  />
+                  <button className="addBtn on" disabled={!!busy || text.trim().length < 200} onClick={() => upload({ text }, "Saving…")}>
+                    Save resume
+                  </button>
+                </div>
+              )}
+              {busy && <div className="aiNote">{busy}</div>}
+              {msg && <div className={`aiNote ${msg.endsWith("✓") ? "" : "bad"}`}>{msg}</div>}
+            </div>
+          </div>
+        )}
+        {connected && ai.resume && (
+          <div className="aiNote">
+            Ready. Use <b>✨ Fit</b> / <b>✍ Write</b> on any card, <b>✨ Score next 5</b> above the list, or sort by{" "}
+            <b>Best fit</b>. Each score costs about 1¢ and each draft about 3¢ of Claude API usage.
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+function Modal({ title, onClose, children }) {
+  useEffect(() => {
+    const onKey = (e) => e.key === "Escape" && onClose();
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+  return (
+    <div className="modal-bg" onMouseDown={(e) => e.target === e.currentTarget && onClose()}>
+      <div className="modal" role="dialog" aria-modal="true" aria-label={title}>
+        <div className="modal-h">
+          <h3>{title}</h3>
+          <button className="clearBtn ghost" onClick={onClose} aria-label="Close">
+            ✕
+          </button>
+        </div>
+        {children}
+      </div>
+    </div>
+  );
+}
+
+function PasteJdModal({ job, onSubmit, onClose, busy }) {
+  const [text, setText] = useState("");
+  return (
+    <Modal title={`${job.firm} — ${job.title}`} onClose={onClose}>
+      <p className="aiNote">
+        This firm's careers site couldn't be read automatically.{" "}
+        {job.url && (
+          <a href={job.url} target="_blank" rel="noopener noreferrer">
+            Open the posting ↗
+          </a>
+        )}{" "}
+        and paste the job description here — it's saved, so you only do this once per role.
+      </p>
+      <textarea
+        className="noteBox big"
+        rows={12}
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder="Paste the full job description"
+        autoFocus
+      />
+      <div className="addActions">
+        <button className="clearBtn ghost" onClick={onClose}>
+          Cancel
+        </button>
+        <button className="addBtn on" disabled={busy || text.trim().length < 200} onClick={() => onSubmit(text)}>
+          Continue
+        </button>
+      </div>
+    </Modal>
+  );
+}
+
+function DraftModal({ job, notes, hasDraft, aiFetch, onSaved, onClose }) {
+  const [draft, setDraft] = useState(null);
+  const [tab, setTab] = useState("cover_letter");
+  const [state, setState] = useState("loading"); // loading | writing | ready | need_jd | error
+  const [err, setErr] = useState("");
+  const [copied, setCopied] = useState("");
+
+  async function generate(description) {
+    setState("writing");
+    setErr("");
+    try {
+      const d = await aiFetch("draft", { job: pickJob(job), notes, description });
+      if (d.need_jd) return setState("need_jd");
+      setDraft(d.draft);
+      setState("ready");
+      onSaved(job.id);
+    } catch (e) {
+      setErr(e.message);
+      setState("error");
+    }
+  }
+
+  useEffect(() => {
+    (async () => {
+      if (hasDraft) {
+        try {
+          const d = await aiFetch(`draft?job_id=${encodeURIComponent(job.id)}`);
+          if (d.draft) {
+            setDraft(d.draft);
+            return setState("ready");
+          }
+        } catch {}
+      }
+      generate();
+    })();
+  }, [job.id]);
+
+  if (state === "need_jd")
+    return <PasteJdModal job={job} onSubmit={(text) => generate(text)} onClose={onClose} />;
+
+  const text = draft?.[tab] || "";
+  return (
+    <Modal title={`${job.firm} — ${job.title}`} onClose={onClose}>
+      <Seg
+        options={[
+          { v: "cover_letter", label: "Cover letter" },
+          { v: "why_firm", label: `Why ${job.firm}?` },
+        ]}
+        value={tab}
+        onChange={setTab}
+      />
+      {(state === "loading" || state === "writing") && (
+        <div className="draft-wait">
+          {state === "loading" ? "Loading…" : "Claude is reading the posting and your resume and writing a first draft… (~20–40s)"}
+        </div>
+      )}
+      {state === "error" && <div className="aiNote bad">{err}</div>}
+      {state === "ready" && (
+        <>
+          <textarea
+            className="draftBox"
+            value={text}
+            onChange={(e) => setDraft((d) => ({ ...d, [tab]: e.target.value }))}
+            rows={16}
+          />
+          <div className="aiNote">
+            First draft from your resume{notes ? " and notes" : ""} — check every claim before sending.
+            {draft?.created_at && ` Written ${new Date(draft.created_at).toLocaleString()}.`}
+          </div>
+        </>
+      )}
+      <div className="addActions">
+        <button className="clearBtn ghost" disabled={state === "writing" || state === "loading"} onClick={() => generate()}>
+          ↻ Regenerate
+        </button>
+        <button
+          className="addBtn on"
+          disabled={state !== "ready"}
+          onClick={async () => {
+            try {
+              await navigator.clipboard.writeText(text);
+              setCopied(tab);
+              setTimeout(() => setCopied(""), 1500);
+            } catch {}
+          }}
+        >
+          {copied === tab ? "Copied ✓" : "Copy"}
+        </button>
+      </div>
+    </Modal>
   );
 }

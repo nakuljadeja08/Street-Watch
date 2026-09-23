@@ -1,0 +1,10 @@
+{
+  "name": "street-watch",
+  "private": true,
+  "type": "module",
+  "description": "Serverless AI routes in api/ (Vercel). The front-end lives in dashboard/.",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.128.0",
+    "@supabase/supabase-js": "^2.117.1"
+  }
+}
