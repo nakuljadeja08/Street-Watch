@@ -66,8 +66,11 @@ Claude). Then each card gets:
 - **✨ Fit** — Claude reads the job posting and your resume and returns a 0–100
   score with a one-line reason (shown on the card; sort by **Best fit**;
   **✨ Score next 5** scores the next unscored roles in the list).
-- **✍ Write** — a first-draft cover letter and a "Why <firm>?" answer, using
-  your card notes (recruiter, referral…). Editable and copyable; saved per role.
+- **✍ Write** — a first-draft cover letter and a "Why <firm>?" answer, written
+  to the rules of the `job-application-answers` skill (voice, structure, strict
+  no-dashes; see `api/_voice.js` to edit them). Claude web-searches the firm
+  first (cached per firm for 14 days), uses your card notes, and may ask one
+  follow-up question — answer it in the modal and hit *Regenerate with this*.
 
 Job descriptions are fetched from each firm's own ATS (Workday/Greenhouse/Ashby/
 Oracle/Goldman APIs, else the page's JobPosting JSON-LD) and cached in
