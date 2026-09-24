@@ -229,7 +229,7 @@ firm and skips it; fix it from the run output.)
 **Still to map (custom / not-yet-found ATS):** JPMorgan (moved to
 jpmorganchase.com; Oracle Recruiting backend), Carlyle, Jefferies, Evercore,
 Lazard, Centerview, Perella Weinberg, Rothschild, Nomura, RBC/TD/BMO/Scotia/CIBC,
-Barclays, HSBC, UBS, BNP, SocGen, SIG, PIMCO, AllianceBernstein, Hamilton Lane,
+Barclays, UBS, BNP, SocGen, SIG, PIMCO, AllianceBernstein, Hamilton Lane,
 HPS. (Boutiques checked — none on public Greenhouse; they need per-firm Workday
 or custom mapping via the browser.) Drop each into the right registry dict at the top of
 `pipeline.py`:

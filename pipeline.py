@@ -99,6 +99,7 @@ WORKDAY = {      # firm -> (tenant, datacenter, site)
     "Capital One":              ("capitalone", "wd12","Capital_One"),
     "U.S. Bancorp":             ("usbank",     "wd1", "US_Bank_Careers"),
     "KeyBank":                  ("keybank",    "wd5", "External_Career_Site"),
+    "Mizuho":                   ("mizuho",     "wd1", "mizuhoamericas"),   # added 2026-09-24
     # Green-priority PE firms (added 2026-09-17) — tenant/site read off the live
     # careers redirect and confirmed against the wd/cxs endpoint.
     "Carlyle":                  ("carlyle",    "wd1", "Carlyle"),        # 79 reqs
@@ -113,7 +114,7 @@ WORKDAY = {      # firm -> (tenant, datacenter, site)
     # Best-effort tenant/site slugs from public careers URLs — a wrong site just
     # logs an error for that firm and skips it; correct it from the run output.
     # Still to map (custom / not-yet-found ATS): Evercore, Centerview, Rothschild,
-    #   Nomura, HSBC, UBS, BNP, SocGen, PIMCO, HPS. (JPMorgan -> Oracle CE above;
+    #   Nomura, UBS, BNP, SocGen, PIMCO, HPS. (JPMorgan -> Oracle CE above;
     #   RBC -> Phenom; Jefferies -> Talentlink behind Cloudflare, needs cloudscraper.)
 }
 
@@ -708,12 +709,17 @@ PHENOM = {               # firm -> (host, country, lang)  Phenom People careers
     # real ISO postedDate, so the 30-day filter applies. RBC/PNC/Truist/Regions
     # all front Workday underneath, so applyUrl is a myworkdayjobs deep link.
     "RBC Capital Markets":     ("jobs.rbc.com",       "ca", "en_ca"),
-    "PNC Financial Services":  ("careers.pnc.com",    "us", "en_us"),
     "Truist Securities":       ("careers.truist.com", "us", "en_us"),
     "Regions Securities":      ("careers.regions.com","us", "en_us"),
     # FT's old Workday board (wd5/Primary-External-1) is dead (total=0); its live
     # listings are on Phenom at careers.franklintempleton.com (201 reqs).
     "Franklin Templeton":      ("careers.franklintempleton.com", "us", "en_us"),
+}
+EIGHTFOLD = {            # firm -> (host, domain, location query)  Eightfold AI careers
+    # HSBC moved off its Avature board (mycareer.hsbc.com now only holds
+    # pipeline/talent-pool cards) to Eightfold (2026-09-24). A "United States"
+    # location query returns every US req (~60); metro_of narrows it down.
+    "HSBC": ("portal.careers.hsbc.com", "hsbc.com", "United States"),
 }
 RADANCY_METRO_KW = ["new york", "jersey city", "chicago", "san francisco", "bay area"]
 # Radancy ships two card themes: a classic one (BlackRock/Barclays/ING) where the
@@ -849,6 +855,45 @@ def fetch_phenom(firm, host, country="us", lang="en_us"):
     return out
 
 
+def fetch_eightfold(firm, host, domain, location):
+    """Eightfold AI careers (e.g. HSBC). GET https://<host>/api/apply/v2/jobs
+    with domain/location/start/num; the server caps num at 10, so we page by 10
+    up to `count`. A role can list several locations, so they're joined — any
+    one of them in a metro keeps the row. t_create is a Unix timestamp."""
+    base = f"https://{host}/api/apply/v2/jobs"
+    out, start, total = [], 0, None
+    try:
+        while start < 2000:  # hard ceiling
+            r = requests.get(base, headers=UA, timeout=TIMEOUT,
+                             params={"domain": domain, "location": location,
+                                     "start": start, "num": 10})
+            r.raise_for_status()
+            d = r.json() or {}
+            if total is None:
+                total = d.get("count") or 0
+            jobs = d.get("positions") or []
+            if not jobs:
+                break
+            for j in jobs:
+                locs = j.get("locations") or [j.get("location") or ""]
+                ts = j.get("t_create")
+                posted = (datetime.fromtimestamp(ts, timezone.utc).strftime("%Y-%m-%d")
+                          if isinstance(ts, (int, float)) else None)
+                out.append(dict(firm=firm, id=f"eightfold-{host}-{j.get('id')}",
+                                title=(j.get("name") or "").strip(),
+                                location="; ".join(dict.fromkeys(l for l in locs if l)),
+                                url=j.get("canonicalPositionUrl")
+                                    or f"https://{host}/careers/job/{j.get('id')}",
+                                source="eightfold", posted_date=posted))
+            start += 10
+            if start >= total:
+                break
+            time.sleep(0.25)
+    except Exception as e:
+        print(f"  ! eightfold {firm}: {e}", file=sys.stderr)
+    return out
+
+
 # ---------------------------------------------------------------- filter/dedupe
 def metro_of(loc):
     l = loc.lower()
@@ -929,6 +974,9 @@ def collect():
     print("Phenom People…")
     for f, (host, country, lang) in PHENOM.items():
         rows = fetch_phenom(f, host, country, lang); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    print("Eightfold…")
+    for f, (host, domain, loc) in EIGHTFOLD.items():
+        rows = fetch_eightfold(f, host, domain, loc); print(f"  {f:<24}{len(rows):>4}"); raw += rows
 
     kept, seen = [], set()
     for r in raw:

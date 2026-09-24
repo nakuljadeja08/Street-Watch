@@ -23,8 +23,8 @@
     "PGIM", "Wellington Management"
   ],
   "Banks": [
-    "BMO", "CIBC", "Capital One", "ING",
-    "PNC Financial Services", "State Street", "TD Bank", "U.S. Bancorp"
+    "BMO", "CIBC", "Capital One", "HSBC", "ING", "Mizuho",
+    "State Street", "TD Bank", "U.S. Bancorp"
   ],
   "Trading": [
     "Citadel Securities", "DRW", "IMC Trading", "Jane Street",
