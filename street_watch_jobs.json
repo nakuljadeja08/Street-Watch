@@ -469,18 +469,6 @@
   },
   {
     "firm": "CIBC",
-    "id": "wd-cibc-search-/job/Chicago-IL/Sr-Financial-Analyst_2617779",
-    "title": "Sr. Financial Analyst",
-    "location": "Chicago, IL",
-    "url": "https://cibc.wd3.myworkdayjobs.com/search/job/Chicago-IL/Sr-Financial-Analyst_2617779",
-    "source": "workday",
-    "posted_date": "2026-09-21",
-    "metro": "Chicago",
-    "first_seen": "2026-09-17",
-    "is_new": false
-  },
-  {
-    "firm": "CIBC",
     "id": "wd-cibc-search-/job/Chicago-IL/Tech-Strategy-Analyst-I_2617630-1",
     "title": "Tech Strategy Analyst I",
     "location": "Chicago, IL",
@@ -865,18 +853,6 @@
   },
   {
     "firm": "JPMorgan Chase",
-    "id": "oracle-jpmc.fa.oraclecloud.com-210786236",
-    "title": "Data Scientist \u2014 Global Services Insights & Analytics, Commercial Banking - Sr. Associate",
-    "location": "Chicago, IL, United States",
-    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210786236",
-    "source": "oracle",
-    "posted_date": "2026-09-01",
-    "metro": "Chicago",
-    "first_seen": "2026-09-19",
-    "is_new": false
-  },
-  {
-    "firm": "JPMorgan Chase",
     "id": "oracle-jpmc.fa.oraclecloud.com-210788283",
     "title": "Financial Analysis Associate",
     "location": "Chicago, IL, United States",
@@ -1017,18 +993,6 @@
     "posted_date": "2026-09-22",
     "metro": "Chicago",
     "first_seen": "2026-09-22",
-    "is_new": false
-  },
-  {
-    "firm": "JPMorgan Chase",
-    "id": "oracle-jpmc.fa.oraclecloud.com-210772617",
-    "title": "Training Sr Associate",
-    "location": "Chicago, IL, United States",
-    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210772617",
-    "source": "oracle",
-    "posted_date": "2026-09-08",
-    "metro": "Chicago",
-    "first_seen": "2026-09-19",
     "is_new": false
   },
   {
@@ -1956,42 +1920,6 @@
     "is_new": false
   },
   {
-    "firm": "Ares Management",
-    "id": "wd-aresmgmt-External-/job/New-York-NY/Senior-Associate--Investment-Operations---Data---Reporting_R8159-1",
-    "title": "Sr. Associate - Investment Operations - Private Debt Data & Security Setup",
-    "location": "New York, NY",
-    "url": "https://aresmgmt.wd1.myworkdayjobs.com/External/job/New-York-NY/Senior-Associate--Investment-Operations---Data---Reporting_R8159-1",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": false
-  },
-  {
-    "firm": "Ares Management",
-    "id": "wd-aresmgmt-External-/job/New-York-NY/Sr-Associate---Investment-Operations--Private-Debt-Data---Security-Setup_R8246",
-    "title": "Sr. Associate - Investment Operations, Investment Data & Security Setup",
-    "location": "New York, NY",
-    "url": "https://aresmgmt.wd1.myworkdayjobs.com/External/job/New-York-NY/Sr-Associate---Investment-Operations--Private-Debt-Data---Security-Setup_R8246",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": false
-  },
-  {
-    "firm": "Ares Management",
-    "id": "wd-aresmgmt-External-/job/New-York-NY/Sr-Associate---Investment-Operations--Private-Debt-Data---Security-Setup_R8244",
-    "title": "Sr. Associate - Investment Operations, Private Debt Data & Security Setup",
-    "location": "New York, NY",
-    "url": "https://aresmgmt.wd1.myworkdayjobs.com/External/job/New-York-NY/Sr-Associate---Investment-Operations--Private-Debt-Data---Security-Setup_R8244",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": false
-  },
-  {
     "firm": "BMO",
     "id": "wd-bmo-External-/job/New-York-NY-USA/Analyst--Corporate-Banking--Project-and-Energy-Transition-Finance_R260025926",
     "title": "Analyst, Corporate Banking, Project and Energy Transition Finance",
@@ -2071,30 +1999,6 @@
     "url": "https://bmo.wd3.myworkdayjobs.com/External/job/New-York-NY-USA/Investment-Banking-Associate--Technology_R260025061-1",
     "source": "workday",
     "posted_date": "2026-08-27",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "BMO",
-    "id": "wd-bmo-External-/job/New-York-NY-USA/VP-Associate--Front-Office-Equity-Derivatives-Desk-Quant_R260025879",
-    "title": "VP/Associate, Front Office Equity Derivatives Desk Quant",
-    "location": "New York, NY, USA",
-    "url": "https://bmo.wd3.myworkdayjobs.com/External/job/New-York-NY-USA/VP-Associate--Front-Office-Equity-Derivatives-Desk-Quant_R260025879",
-    "source": "workday",
-    "posted_date": "2026-09-08",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "BMO",
-    "id": "wd-bmo-External-/job/New-York-NY-USA/VP-Associate--Front-Office-Flow-Derivatives-Trading-Strategist_R260025875",
-    "title": "VP/Associate, Front Office Flow Derivatives Trading Strategist (Software Developer)",
-    "location": "New York, NY, USA",
-    "url": "https://bmo.wd3.myworkdayjobs.com/External/job/New-York-NY-USA/VP-Associate--Front-Office-Flow-Derivatives-Trading-Strategist_R260025875",
-    "source": "workday",
-    "posted_date": "2026-09-09",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-16",
     "is_new": false
@@ -2338,18 +2242,6 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-24",
     "is_new": true
-  },
-  {
-    "firm": "Barclays",
-    "id": "barclays-99402587504",
-    "title": "Rates Quantitative Analyst -VP",
-    "location": "New York, United States",
-    "url": "https://search.jobs.barclays/job/new-york/rates-quantitative-analyst-vp/13015/99402587504",
-    "source": "barclays",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-18",
-    "is_new": false
   },
   {
     "firm": "Barclays",
@@ -3504,18 +3396,6 @@
     "is_new": false
   },
   {
-    "firm": "CIBC",
-    "id": "wd-cibc-search-/job/New-York-NY/Sr-Consultant--Business-Systems-Analysis_2611180",
-    "title": "Sr. Consultant, Business Systems Analysis, Fixed Income",
-    "location": "New York, NY",
-    "url": "https://cibc.wd3.myworkdayjobs.com/search/job/New-York-NY/Sr-Consultant--Business-Systems-Analysis_2611180",
-    "source": "workday",
-    "posted_date": "2026-09-21",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-17",
-    "is_new": false
-  },
-  {
     "firm": "CIL Management Consultants",
     "id": "pinpoint-2bbcc3fb-5472-4e4d-b12e-520129fa5a12",
     "title": "Analyst",
@@ -3597,18 +3477,6 @@
     "posted_date": "2026-09-18",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-19",
-    "is_new": false
-  },
-  {
-    "firm": "Capital One",
-    "id": "wd-capitalone-Capital_One-/job/New-York-NY/Sr-Business-Analyst--Commercial-Corporate-Bank_R1000610-2",
-    "title": "Sr Business Analyst, Commercial Corporate Bank",
-    "location": "New York, NY",
-    "url": "https://capitalone.wd12.myworkdayjobs.com/Capital_One/job/New-York-NY/Sr-Business-Analyst--Commercial-Corporate-Bank_R1000610-2",
-    "source": "workday",
-    "posted_date": "2026-09-15",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-17",
     "is_new": false
   },
   {
@@ -3913,30 +3781,6 @@
   },
   {
     "firm": "Citi",
-    "id": "citi-99971591184",
-    "title": "Capital Mgmt Sr. Analyst",
-    "location": "Getzville, New York, United States",
-    "url": "https://jobs.citi.com/job/getzville/capital-mgmt-sr-analyst/287/99971591184",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citi",
-    "id": "citi-100614545168",
-    "title": "Client Experience Associate SAFE ACT - AVP - New York",
-    "location": "New York, New York, United States",
-    "url": "https://jobs.citi.com/job/new-york/client-experience-associate-safe-act-avp-new-york/287/100614545168",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citi",
     "id": "citi-98695751264",
     "title": "Client Onboarding Associate Analyst",
     "location": "Getzville, New York, United States",
@@ -3997,30 +3841,6 @@
   },
   {
     "firm": "Citi",
-    "id": "citi-99038688112",
-    "title": "Corporate Banking Sr Analyst - Real Estate",
-    "location": "New York, New York, United States",
-    "url": "https://jobs.citi.com/job/new-york/corporate-banking-sr-analyst-real-estate/287/99038688112",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citi",
-    "id": "citi-98857340512",
-    "title": "Corporate Banking Sr. Associate - Power",
-    "location": "New York, New York, United States",
-    "url": "https://jobs.citi.com/job/new-york/corporate-banking-sr-associate-power/287/98857340512",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citi",
     "id": "citi-99075930176",
     "title": "Dedicated Lending Associate SAFE Act - B10 - NEW YORK",
     "location": "New York, New York, United States",
@@ -4037,18 +3857,6 @@
     "title": "Emerging Markets FX & Rates Research Strategist, LATAM \u2014 Senior Associate",
     "location": "New York, New York, United States",
     "url": "https://jobs.citi.com/job/new-york/emerging-markets-fx-and-rates-research-strategist-latam-senior-associate/287/99751153904",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citi",
-    "id": "citi-95371086400",
-    "title": "Equities Algorithmic Trading Quantitative Analyst, MQA \u2013 VP",
-    "location": "New York, New York, United States",
-    "url": "https://jobs.citi.com/job/new-york/equities-algorithmic-trading-quantitative-analyst-mqa-vp/287/95371086400",
     "source": "citi",
     "posted_date": null,
     "metro": "NY + Jersey City",
@@ -4309,18 +4117,6 @@
   },
   {
     "firm": "Citi",
-    "id": "citi-98588440080",
-    "title": "Investment Banking Associate / Sr. Associate - Industrials & Natural Resources",
-    "location": "New York, New York, United States",
-    "url": "https://jobs.citi.com/job/new-york/investment-banking-associate-sr-associate-industrials-and-natural-resources/287/98588440080",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citi",
     "id": "citi-72465907728",
     "title": "Investment Banking Associate/ Senior Associate, Mergers and Acquisitions (\"M&A\")",
     "location": "New York, New York, United States",
@@ -4405,42 +4201,6 @@
   },
   {
     "firm": "Citi",
-    "id": "citi-99221503584",
-    "title": "Investment Banking Sr Analyst - Financial Institutions",
-    "location": "New York, New York, United States",
-    "url": "https://jobs.citi.com/job/new-york/investment-banking-sr-analyst-financial-institutions/287/99221503584",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citi",
-    "id": "citi-100683576928",
-    "title": "Investment Banking Sr Associate",
-    "location": "New York, New York, United States",
-    "url": "https://jobs.citi.com/job/new-york/investment-banking-sr-associate/287/100683576928",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citi",
-    "id": "citi-99221503616",
-    "title": "Investment Banking Sr Associate - Financial Institutions Group",
-    "location": "New York, New York, United States",
-    "url": "https://jobs.citi.com/job/new-york/investment-banking-sr-associate-financial-institutions-group/287/99221503616",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citi",
     "id": "citi-99995232432",
     "title": "Market Operations Junior Analyst Program Hybrid",
     "location": "Getzville, New York, United States",
@@ -4465,54 +4225,6 @@
   },
   {
     "firm": "Citi",
-    "id": "citi-100430304704",
-    "title": "Model Validation 2nd LOD Sr. Lead Analyst",
-    "location": "New York, New York, United States",
-    "url": "https://jobs.citi.com/job/new-york/model-validation-2nd-lod-sr-lead-analyst/287/100430304704",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citi",
-    "id": "citi-101004975824",
-    "title": "Model Validation 2nd LOD Sr. Lead Analyst",
-    "location": "New York, New York, United States",
-    "url": "https://jobs.citi.com/job/new-york/model-validation-2nd-lod-sr-lead-analyst/287/101004975824",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-23",
-    "is_new": false
-  },
-  {
-    "firm": "Citi",
-    "id": "citi-96170581728",
-    "title": "Mortgage Quantitative Analyst, VP",
-    "location": "New York, New York, United States",
-    "url": "https://jobs.citi.com/job/new-york/mortgage-quantitative-analyst-vp/287/96170581728",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citi",
-    "id": "citi-99865815808",
-    "title": "Operational Risk Manager - Platform Utilities and Infrastructure Analyst-VP",
-    "location": "Getzville, New York, United States",
-    "url": "https://jobs.citi.com/job/getzville/operational-risk-manager-platform-utilities-and-infrastructure-analyst-vp/287/99865815808",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citi",
     "id": "citi-94059789152",
     "title": "Operations Core Project Lead Analyst",
     "location": "Getzville, New York, United States",
@@ -4525,34 +4237,10 @@
   },
   {
     "firm": "Citi",
-    "id": "citi-100362286192",
-    "title": "Portfolio Credit Risk Management 2nd LOD Sr. Lead Analyst - SVP",
-    "location": "Getzville, New York, United States",
-    "url": "https://jobs.citi.com/job/getzville/portfolio-credit-risk-management-2nd-lod-sr-lead-analyst-svp/287/100362286192",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citi",
     "id": "citi-98588459792",
     "title": "Quantitative Analyst \u2013 Rates XVA",
     "location": "New York, New York, United States",
     "url": "https://jobs.citi.com/job/new-york/quantitative-analyst-rates-xva/287/98588459792",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citi",
-    "id": "citi-98054564480",
-    "title": "Quantitative Analyst, Equities Algorithmic Trading, VP",
-    "location": "New York, New York, United States",
-    "url": "https://jobs.citi.com/job/new-york/quantitative-analyst-equities-algorithmic-trading-vp/287/98054564480",
     "source": "citi",
     "posted_date": null,
     "metro": "NY + Jersey City",
@@ -4597,70 +4285,10 @@
   },
   {
     "firm": "Citi",
-    "id": "citi-101076924880",
-    "title": "Research Sr Associate -Equity Research Strategist",
-    "location": "New York, New York, United States",
-    "url": "https://jobs.citi.com/job/new-york/research-sr-associate-equity-research-strategist/287/101076924880",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-24",
-    "is_new": true
-  },
-  {
-    "firm": "Citi",
-    "id": "citi-93647153104",
-    "title": "SVP, Trading Desk Information Mgmt. Sr Lead/Quantitative Analyst",
-    "location": "New York, New York, United States",
-    "url": "https://jobs.citi.com/job/new-york/svp-trading-desk-information-mgmt-sr-lead-quantitative-analyst/287/93647153104",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citi",
-    "id": "citi-99807522112",
-    "title": "Securities & Derivatives Sr Analyst Hybrid",
-    "location": "New York, New York, United States",
-    "url": "https://jobs.citi.com/job/new-york/securities-and-derivatives-sr-analyst-hybrid/287/99807522112",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citi",
-    "id": "citi-98236423728",
-    "title": "Senior Quantitative Analyst, Front Office Market Risk \u2013 VP",
-    "location": "New York, New York, United States",
-    "url": "https://jobs.citi.com/job/new-york/senior-quantitative-analyst-front-office-market-risk-vp/287/98236423728",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citi",
     "id": "citi-99340993552",
     "title": "Strategic Equity Solutions Advisory, Analyst/Associate",
     "location": "New York, New York, United States",
     "url": "https://jobs.citi.com/job/new-york/strategic-equity-solutions-advisory-analyst-associate/287/99340993552",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citi",
-    "id": "citi-99842627664",
-    "title": "Strategy Senior Analyst - AVP",
-    "location": "New York, New York, United States",
-    "url": "https://jobs.citi.com/job/new-york/strategy-senior-analyst-avp/287/99842627664",
     "source": "citi",
     "posted_date": null,
     "metro": "NY + Jersey City",
@@ -6961,18 +6589,6 @@
   },
   {
     "firm": "JPMorgan Chase",
-    "id": "oracle-jpmc.fa.oraclecloud.com-210784841",
-    "title": "Data Science Sr Associate",
-    "location": "Jersey City, NJ, United States",
-    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210784841",
-    "source": "oracle",
-    "posted_date": "2026-09-01",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-19",
-    "is_new": false
-  },
-  {
-    "firm": "JPMorgan Chase",
     "id": "oracle-jpmc.fa.oraclecloud.com-210781042",
     "title": "Data Scientist Senior Associate \u2014 Business Observability & AI Platform",
     "location": "Jersey City, NJ, United States",
@@ -6981,18 +6597,6 @@
     "posted_date": "2026-09-21",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-22",
-    "is_new": false
-  },
-  {
-    "firm": "JPMorgan Chase",
-    "id": "oracle-jpmc.fa.oraclecloud.com-210786446",
-    "title": "Data Solutions & Analytics Lead - Securities Services Finance - Sr Associate",
-    "location": "Jersey City, NJ, United States",
-    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210786446",
-    "source": "oracle",
-    "posted_date": "2026-09-01",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-19",
     "is_new": false
   },
   {
@@ -9481,18 +9085,6 @@
   },
   {
     "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Research---Associate-VP--AlphaWise-Quant-Researcher--New-York-_JR044664-1",
-    "title": "Research - Associate/VP, AlphaWise Quant Researcher (New York)",
-    "location": "New York, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Research---Associate-VP--AlphaWise-Quant-Researcher--New-York-_JR044664-1",
-    "source": "workday",
-    "posted_date": "2026-09-24",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-24",
-    "is_new": true
-  },
-  {
-    "firm": "Morgan Stanley",
     "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Return-To-Work---Finance-Associate---New-York--NY_JR043885",
     "title": "Return To Work - Finance Associate | New York, NY",
     "location": "New York, New York, United States of America",
@@ -9737,18 +9329,6 @@
     "title": "Investment Banking Healthcare M&A Associate",
     "location": "New York",
     "url": "https://opco.hrmdirect.com/employment/job-opening.php?req=3701148",
-    "source": "hrmdirect",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-17",
-    "is_new": false
-  },
-  {
-    "firm": "Oppenheimer & Co.",
-    "id": "hrm-3742508",
-    "title": "Investment Banking Sr. Analyst / Associate\u0096 Debt Private Placements",
-    "location": "New York",
-    "url": "https://opco.hrmdirect.com/employment/job-opening.php?req=3742508",
     "source": "hrmdirect",
     "posted_date": null,
     "metro": "NY + Jersey City",
@@ -11101,18 +10681,6 @@
   },
   {
     "firm": "Wells Fargo",
-    "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/Senior-Strategy---Planning-Consultant--SAVP---Wealth---Investment-Management--WIM--Strategy_R-575275",
-    "title": "Senior Strategy & Planning Consultant, SAVP - Wealth & Investment Management (WIM) Strategy",
-    "location": "NEW YORK, NY",
-    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/NEW-YORK-NY/Senior-Strategy---Planning-Consultant--SAVP---Wealth---Investment-Management--WIM--Strategy_R-575275",
-    "source": "workday",
-    "posted_date": "2026-09-24",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-17",
-    "is_new": false
-  },
-  {
-    "firm": "Wells Fargo",
     "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/Strategic-Initiatives-Consultant--Merchant-Services_R-577151",
     "title": "Strategic Initiatives Consultant, Merchant Services",
     "location": "NEW YORK, NY",
@@ -11613,42 +11181,6 @@
     "posted_date": null,
     "metro": "SF / Bay Area",
     "first_seen": "2026-09-23",
-    "is_new": false
-  },
-  {
-    "firm": "Citi",
-    "id": "citi-97781864528",
-    "title": "Client Experience Associate SAFE Act - AVP - San Francisco, CA",
-    "location": "San Francisco, California, United States",
-    "url": "https://jobs.citi.com/job/san-francisco/client-experience-associate-safe-act-avp-san-francisco-ca/287/97781864528",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "SF / Bay Area",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citi",
-    "id": "citi-98511073904",
-    "title": "Corporate Banker - TMT (Tech, Media, Telecom) - Associate / Sr. Associate",
-    "location": "San Francisco, California, United States",
-    "url": "https://jobs.citi.com/job/san-francisco/corporate-banker-tmt-tech-media-telecom-associate-sr-associate/287/98511073904",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "SF / Bay Area",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citi",
-    "id": "citi-98511074256",
-    "title": "Corporate Banking Sr Associate - TMT (Tech, Media, Telecom)",
-    "location": "San Francisco, California, United States",
-    "url": "https://jobs.citi.com/job/san-francisco/corporate-banking-sr-associate-tmt-tech-media-telecom/287/98511074256",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "SF / Bay Area",
-    "first_seen": "2026-09-16",
     "is_new": false
   },
   {
