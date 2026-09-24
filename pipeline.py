@@ -152,6 +152,9 @@ EXCLUDE = ["intern", "internship", "summer", "vice president", " vp ", " vp,",
 # "Hours" catches the hour-scheduled branch roles that don't say part time
 # ("Associate Banker, 30 Hours, …", TD's "(20 Hours Weekly)").
 _PART_TIME_RE = re.compile(r'part[\s-]?time|\bpt\b|\bhours\b', re.I)
+# VP-grade (VP, AVP, SVP, SAVP, EVP — incl. "VP/Associate" combos) and "Sr"/
+# "Sr." titles. EXCLUDE's " vp " substring missed "-VP", "VP/…" and AVP/SVP.
+_SENIOR_RE = re.compile(r'\b(?:a|s|sa|e)?vp\b|\bsr\b', re.I)
 
 STATE_FILE = ".street_watch_state.json"
 NEWSLETTER_SENT_KEY = "__newsletter_sent__"   # state-file key: UTC date of the last delivered newsletter
@@ -911,7 +914,7 @@ def metro_of(loc):
 
 def title_ok(firm, title):
     t = title.lower()
-    if any(x in t for x in EXCLUDE) or _PART_TIME_RE.search(title):
+    if any(x in t for x in EXCLUDE) or _PART_TIME_RE.search(title) or _SENIOR_RE.search(title):
         return False
     kws = TITLES_TRADING if firm in TRADING_FIRMS else TITLES
     return any(k in t for k in kws)
