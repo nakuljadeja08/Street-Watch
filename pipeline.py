@@ -1029,11 +1029,27 @@ def push_supabase(rows):
     # rows: their posted_date is null, so the DATED purge below can never reach
     # them, and before this a delisted Workday role lingered on the dashboard
     # indefinitely.
+    #
+    # Never delete a job that has a tracker entry: applications.job_id is
+    # `on delete cascade`, so pruning a delisted/filtered/aged-out role would
+    # silently erase the user's application record with it. If the lookup
+    # fails we skip both deletes rather than risk it.
+    try:
+        a = requests.get(f"{url}/rest/v1/applications", headers=headers,
+                         params={"select": "job_id"}, timeout=TIMEOUT)
+        a.raise_for_status()
+        tracked = sorted({x["job_id"] for x in a.json() if x.get("job_id")})
+    except Exception as e:
+        print(f"  ! applications lookup failed, skipping prune: {e}", file=sys.stderr)
+        return
+    keep = ({"id": "not.in.(" + ",".join(json.dumps(i) for i in tracked) + ")"}
+            if tracked else {})
     for firm in sorted({r["firm"] for r in rows}):
         try:
             d = requests.delete(f"{url}/rest/v1/jobs",
                                 headers={**headers, "Prefer": "return=minimal"},
-                                params={"firm": f"eq.{firm}", "updated_at": f"lt.{run_ts}"},
+                                params={"firm": f"eq.{firm}", "updated_at": f"lt.{run_ts}",
+                                        **keep},
                                 timeout=TIMEOUT)
             if d.status_code >= 300:
                 print(f"  ! supabase reconcile {firm} {d.status_code}: {d.text[:150]}",
@@ -1047,8 +1063,9 @@ def push_supabase(rows):
     # `lt`, so they're left untouched. Filtered delete, never a blanket wipe.
     cutoff = (datetime.now(timezone.utc).date() - timedelta(days=MAX_AGE_DAYS)).isoformat()
     try:
-        d = requests.delete(f"{url}/rest/v1/jobs?posted_date=lt.{cutoff}",
-                            headers={**headers, "Prefer": "return=minimal"}, timeout=TIMEOUT)
+        d = requests.delete(f"{url}/rest/v1/jobs",
+                            headers={**headers, "Prefer": "return=minimal"},
+                            params={"posted_date": f"lt.{cutoff}", **keep}, timeout=TIMEOUT)
         if d.status_code < 300:
             print(f"  purged listings posted before {cutoff}")
         else:
