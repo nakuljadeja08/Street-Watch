@@ -1,16 +1,18 @@
 name: Street Watch — daily job pull
 
-# Target: newsletter delivered BY 9am Eastern every day.
-# GitHub's scheduled queue is best-effort: in practice our 10:20 UTC cron has
-# started 4-5 HOURS late (~15:00 UTC = 11am ET) and some days never fires at all.
+# Target: run at 10:00 UTC (6am ET), newsletter delivered by ~6:30am ET.
+# GitHub's scheduled queue is best-effort: whatever cron time we set (11:00,
+# 10:20, 12:47 UTC), runs started 4-5 HOURS late (14:15-15:30 UTC) and some days
+# never fired at all (Sep 21, 22, 24 2026). Moving the cron doesn't fix that.
 # So the primary trigger is EXTERNAL — cron-job.org calls workflow_dispatch at
-# 10:20 UTC (see README -> "Reliable daily trigger"). The crons below are only
-# backups in case that external call fails. pipeline.py mails at most once per
-# UTC day, so extra runs just refresh the data without a duplicate email.
+# 10:00 UTC (see README -> "Reliable daily trigger"). The crons below are only
+# backups, set a few minutes past the hour because GitHub's queue is busiest on
+# the hour. pipeline.py mails at most once per UTC day, so extra runs just
+# refresh the data without a duplicate email.
 on:
   schedule:
-    - cron: "20 10 * * *"
-    - cron: "47 12 * * *"
+    - cron: "7 10 * * *"
+    - cron: "37 12 * * *"
   workflow_dispatch: {}          # external trigger + manual button in the Actions tab
 
 # Never run two pulls at once: the second would start from stale state and its
@@ -51,11 +53,24 @@ jobs:
           NEWSLETTER_SEND_EMPTY: "1"   # still send the morning greeting on zero-new days
         run: python pipeline.py
 
+      # This run's outputs are the newest data, so they always win. Rather than
+      # rebasing (which conflicted on 2026-09-24 when main changed the same JSON
+      # mid-run and failed the job), stash them, reset onto the latest main,
+      # copy them back and commit. Retry in case main moves again before push.
       - name: Persist state + outputs
         run: |
           git config user.name  "street-watch-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add .street_watch_state.json street_watch_jobs.json street_watch_jobs.csv || true
-          git commit -m "chore: daily job pull $(date -u +%F)" || echo "nothing to commit"
-          git pull --rebase origin main || true
-          git push
+          FILES=".street_watch_state.json street_watch_jobs.json street_watch_jobs.csv"
+          mkdir -p "$RUNNER_TEMP/out" && cp $FILES "$RUNNER_TEMP/out/"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git reset --hard origin/main
+            for f in $FILES; do cp "$RUNNER_TEMP/out/$f" "$f"; done
+            git add $FILES
+            if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+            git commit -m "chore: daily job pull $(date -u +%F)"
+            if git push origin HEAD:main; then exit 0; fi
+            echo "push rejected (attempt $attempt), retrying"; sleep $((attempt * 5))
+          done
+          exit 1
