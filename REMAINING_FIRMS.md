@@ -23,9 +23,9 @@ Academy Securities (email-only) · Siebert Williams Shank (site blocked our acce
 · Rothschild & Co (ATS not exposed on landing — needs deeper capture) · ANZ
 (`careers.anz.com/go/…`, SuccessFactors/Avature family — needs a dedicated fetcher).
 
-**Yellow — still to fingerprint (14 European/APAC banks):** UBS, HSBC, Crédit
+**Yellow — still to fingerprint (12 European/APAC banks):** UBS, Crédit
 Agricole CIB, Santander CIB, Natixis, BBVA CIB, Intesa Sanpaolo, Standard
-Chartered, Lloyds, Commerzbank, DZ BANK, Mizuho, Nomura, Daiwa — the heavy set
+Chartered, Lloyds, Commerzbank, DZ BANK, Nomura, Daiwa — the heavy set
 (mostly Avature / SuccessFactors / Phenom); next pass.
 
 ### 🟢 Green-priority batch wired 2026-09-17 (5 of 6)
@@ -51,7 +51,6 @@ real ISO `postedDate` (so the 30-day filter applies). Keyword search doesn't
 narrow by location, so we page the whole board and let the metro/title filters
 cut it. These tenants front Workday, so `applyUrl` is a myworkdayjobs deep link.
 - **RBC Capital Markets** → `jobs.rbc.com` (ca/en_ca) — 1436 raw
-- **PNC Financial Services** → `careers.pnc.com` — 2164 raw
 - **Truist Securities** → `careers.truist.com` — 1105 raw
 - **Regions Securities** → `careers.regions.com` — 529 raw
 - **Citizens Financial Group** → actually **Radancy**, not Phenom
@@ -75,10 +74,10 @@ cut it. These tenants front Workday, so `applyUrl` is a myworkdayjobs deep link.
 ## 🌍 Global / European / APAC banks — not yet investigated
 No Workday or Radancy hit under common guesses; likely Avature / SuccessFactors /
 custom. Each needs an individual browser capture.
-- HSBC *(Avature, likely)* · UBS · BNP Paribas · Société Générale ·
+- UBS · BNP Paribas · Société Générale ·
   Crédit Agricole CIB · Natixis · Santander CIB · BBVA CIB · UniCredit ·
   Intesa Sanpaolo · Standard Chartered · Rabobank · Lloyds Bank Corporate Markets ·
-  Commerzbank · DZ BANK · Mizuho · MUFG · SMBC Group · Nomura · Daiwa Capital Markets ·
+  Commerzbank · DZ BANK · MUFG · SMBC Group · Nomura · Daiwa Capital Markets ·
   Macquarie Group · ANZ · Westpac Institutional Bank · DBS Bank · CICC ·
   Bank of China · ICBC · National Bank Financial
 
@@ -111,13 +110,16 @@ custom. Each needs an individual browser capture.
 **Greenhouse (17):** Jane Street, DRW, IMC, Virtu, Optiver, General Atlantic, TPG,
 Warburg Pincus, iCapital, CAIS, BTIG, StepStone, KKR, William Blair, EQT, Ducera,
 LionTree — **Ashby (1):** Insight Partners
-**Workday (29):** Blackstone, Apollo, Blue Owl, Ares, Morgan Stanley, Houlihan
+**Workday (28):** Blackstone, Apollo, Blue Owl, Ares, Morgan Stanley, Houlihan
 Lokey, Wells Fargo, Moelis, Brookfield, Oaktree, Neuberger Berman, Deutsche Bank,
 Bank of America, PGIM, Invesco, Wellington, Guggenheim, State Street, Baird, BMO,
-TD Bank, CIBC, Northern Trust, Capital One, U.S. Bancorp, KeyBank, M&T Bank,
-Sixth Street, PJT Partners
+TD Bank, CIBC, Capital One, U.S. Bancorp, KeyBank, Mizuho, Sixth Street,
+PJT Partners
 **Radancy (5):** Citi, Barclays, ING, BlackRock, Citizens Financial Group
-**Phenom (5):** RBC, PNC, Truist, Regions, Franklin Templeton
+**Phenom (4):** RBC, Truist, Regions, Franklin Templeton
+**Eightfold (1):** HSBC (`portal.careers.hsbc.com`)
+
+*Removed 2026-09-24 at the user's request:* PNC, Northern Trust, M&T Bank.
 **Oracle Fusion CE (3):** Lazard, Cantor Fitzgerald, JPMorgan Chase
 **Other (7):** ZS Associates + SIG (Jibe), CIL (Pinpoint), Oppenheimer (HRM Direct),
 Macquarie (PageUp), Stifel/KBW (iCIMS), Perella Weinberg (Workday myworkdaysite)
