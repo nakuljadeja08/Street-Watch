@@ -146,8 +146,9 @@ locally: set the env vars and `python send_test_newsletter.py`.
 
 ### Reliable daily trigger
 
-GitHub's `schedule:` is best-effort. For this repo the 10:20 UTC cron has
-started **4–5 hours late** (≈11am ET) and on some days not at all, so the
+GitHub's `schedule:` is best-effort. For this repo every cron time we tried
+(11:00, 10:20, 12:47 UTC) started **4–5 hours late** (≈11am ET) and on some days
+not at all, so the
 newsletter missed its 9am target. The fix is an external scheduler that calls
 the workflow's `workflow_dispatch` endpoint on time; the GitHub crons stay as
 backups. `pipeline.py` records the send date in `.street_watch_state.json`
@@ -160,7 +161,7 @@ Setup (once):
    `Street-Watch` only → permission **Actions: Read and write**.
 2. [cron-job.org](https://cron-job.org) (free) → new cron job:
    - URL `https://api.github.com/repos/nakuljadeja08/Street-Watch/actions/workflows/street-watch.yml/dispatches`
-   - Method **POST**, schedule daily **10:20 UTC**
+   - Method **POST**, schedule daily **10:00 UTC** (timezone UTC)
    - Headers: `Authorization: Bearer <token>`, `Accept: application/vnd.github+json`,
      `Content-Type: application/json`
    - Body: `{"ref":"main"}` — success is HTTP **204**.
