@@ -154,7 +154,7 @@ EXCLUDE = ["intern", "internship", "summer", "vice president", " vp ", " vp,",
 _PART_TIME_RE = re.compile(r'part[\s-]?time|\bpt\b|\bhours\b', re.I)
 # VP-grade (VP, AVP, SVP, SAVP, EVP — incl. "VP/Associate" combos) and "Sr"/
 # "Sr." titles. EXCLUDE's " vp " substring missed "-VP", "VP/…" and AVP/SVP.
-_SENIOR_RE = re.compile(r'\b(?:a|s|sa|e)?vp\b|\bsr\b', re.I)
+_SENIOR_RE = re.compile(r'\b(?:a|s|sa|e)?vp\b|\bsr\b|\bsenior\b', re.I)
 
 STATE_FILE = ".street_watch_state.json"
 NEWSLETTER_SENT_KEY = "__newsletter_sent__"   # state-file key: UTC date of the last delivered newsletter
