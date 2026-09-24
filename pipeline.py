@@ -96,11 +96,9 @@ WORKDAY = {      # firm -> (tenant, datacenter, site)
     "BMO":                      ("bmo",        "wd3", "External"),
     "TD Bank":                  ("td",         "wd3", "TD_Bank_Careers"),
     "CIBC":                     ("cibc",       "wd3", "search"),
-    "Northern Trust":           ("ntrs",       "wd1", "northerntrust"),
     "Capital One":              ("capitalone", "wd12","Capital_One"),
     "U.S. Bancorp":             ("usbank",     "wd1", "US_Bank_Careers"),
     "KeyBank":                  ("keybank",    "wd5", "External_Career_Site"),
-    "M&T Bank":                 ("mtb",        "wd5", "MTB"),
     # Green-priority PE firms (added 2026-09-17) — tenant/site read off the live
     # careers redirect and confirmed against the wd/cxs endpoint.
     "Carlyle":                  ("carlyle",    "wd1", "Carlyle"),        # 79 reqs
@@ -148,6 +146,9 @@ TRADING_FIRMS  = {"Jane Street", "DRW", "IMC Trading", "Virtu Financial",
 EXCLUDE = ["intern", "internship", "summer", "vice president", " vp ", " vp,",
            "director", "managing director", " md,", "principal", "head of",
            "co-op", "co op"]
+# Part-time roles (e.g. JPMorgan's "Part Time (30 Hours) Associate Banker"
+# branch postings). "PT" only as a standalone token so it never hits "Opt…".
+_PART_TIME_RE = re.compile(r'part[\s-]?time|\bpt\b', re.I)
 
 STATE_FILE = ".street_watch_state.json"
 NEWSLETTER_SENT_KEY = "__newsletter_sent__"   # state-file key: UTC date of the last delivered newsletter
@@ -863,7 +864,7 @@ def metro_of(loc):
 
 def title_ok(firm, title):
     t = title.lower()
-    if any(x in t for x in EXCLUDE):
+    if any(x in t for x in EXCLUDE) or _PART_TIME_RE.search(title):
         return False
     kws = TITLES_TRADING if firm in TRADING_FIRMS else TITLES
     return any(k in t for k in kws)
