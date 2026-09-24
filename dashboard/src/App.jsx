@@ -1543,14 +1543,17 @@ function DraftModal({ job, notes, hasDraft, aiFetch, onSaved, onClose }) {
   const [state, setState] = useState("loading"); // loading | writing | ready | need_jd | error
   const [err, setErr] = useState("");
   const [copied, setCopied] = useState("");
+  const [extra, setExtra] = useState(null); // { question, alternative_angle, researched } from the last generation
+  const [guidance, setGuidance] = useState("");
 
   async function generate(description) {
     setState("writing");
     setErr("");
     try {
-      const d = await aiFetch("draft", { job: pickJob(job), notes, description });
+      const d = await aiFetch("draft", { job: pickJob(job), notes, guidance, description });
       if (d.need_jd) return setState("need_jd");
       setDraft(d.draft);
+      setExtra({ question: d.question, alternative_angle: d.alternative_angle, researched: d.researched });
       setState("ready");
       onSaved(job.id);
     } catch (e) {
@@ -1559,7 +1562,11 @@ function DraftModal({ job, notes, hasDraft, aiFetch, onSaved, onClose }) {
     }
   }
 
+  // load the saved draft or write one — once per open (StrictMode re-runs effects)
+  const started = useRef(false);
   useEffect(() => {
+    if (started.current) return;
+    started.current = true;
     (async () => {
       if (hasDraft) {
         try {
@@ -1590,7 +1597,9 @@ function DraftModal({ job, notes, hasDraft, aiFetch, onSaved, onClose }) {
       />
       {(state === "loading" || state === "writing") && (
         <div className="draft-wait">
-          {state === "loading" ? "Loading…" : "Claude is reading the posting and your resume and writing a first draft… (~20–40s)"}
+          {state === "loading"
+            ? "Loading…"
+            : `Researching ${job.firm}, reading the posting and your resume, and writing a first draft… (~30–60s)`}
         </div>
       )}
       {state === "error" && <div className="aiNote bad">{err}</div>}
@@ -1603,14 +1612,29 @@ function DraftModal({ job, notes, hasDraft, aiFetch, onSaved, onClose }) {
             rows={16}
           />
           <div className="aiNote">
-            First draft from your resume{notes ? " and notes" : ""} — check every claim before sending.
+            First draft from your resume{notes ? " and notes" : ""}
+            {extra?.researched ? ` plus web research on ${job.firm}` : ""}, check every claim before sending.
             {draft?.created_at && ` Written ${new Date(draft.created_at).toLocaleString()}.`}
+          </div>
+          {extra?.alternative_angle && <div className="aiNote">💡 Another angle: {extra.alternative_angle}</div>}
+          <div className="guide">
+            <label className="guide-q" htmlFor="draft-guidance">
+              {extra?.question ? `❓ ${extra.question}` : "Anything to emphasize or change? (optional)"}
+            </label>
+            <textarea
+              id="draft-guidance"
+              className="noteBox"
+              rows={2}
+              value={guidance}
+              onChange={(e) => setGuidance(e.target.value)}
+              placeholder={extra?.question ? "Your answer, then Regenerate" : "e.g. mention I met the team at the Stern info session"}
+            />
           </div>
         </>
       )}
       <div className="addActions">
         <button className="clearBtn ghost" disabled={state === "writing" || state === "loading"} onClick={() => generate()}>
-          ↻ Regenerate
+          {guidance.trim() ? "↻ Regenerate with this" : "↻ Regenerate"}
         </button>
         <button
           className="addBtn on"

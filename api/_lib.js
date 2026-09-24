@@ -90,6 +90,58 @@ export async function saveDescription(jobId, text) {
   if (error) console.warn(`job_details write failed: ${error.message}`);
 }
 
+// Firm research for drafts (the skill's "research the company" step): Claude
+// searches the web and writes a short fact brief. Cached per firm for 14 days
+// in job_details under a "research:<firm>" key, so roles at the same firm reuse
+// it. Returns "" if search is unavailable — drafting then proceeds without it.
+const RESEARCH_TTL_MS = 14 * 86400000;
+
+export async function researchFirm(job, description) {
+  const key = `research:${job.firm}`;
+  const { data } = await db().from("job_details").select("description, fetched_at").eq("job_id", key).maybeSingle();
+  if (data?.description && Date.now() - Date.parse(data.fetched_at) < RESEARCH_TTL_MS) return data.description;
+
+  try {
+    const messages = [
+      {
+        role: "user",
+        content:
+          `Research ${job.firm} for a candidate applying to "${job.title}"${job.location ? ` in ${job.location}` : ""}.\n` +
+          `Job posting excerpt:\n${description.slice(0, 3000)}\n\n` +
+          `Find: what the firm and this team/business actually do, notable recent news, deals or growth (last ~18 months, with dates), ` +
+          `and its stated values/culture or anything distinctive about how it works or trains junior staff. ` +
+          `Answer with 6 to 10 short factual bullets, each specific and true, with a date where relevant. No intro, no advice.`,
+      },
+    ];
+    let response;
+    for (let turn = 0; turn < 3; turn++) {
+      response = await claude().messages.create({
+        model: MODEL,
+        max_tokens: 6000,
+        output_config: { effort: "low" },
+        tools: [{ type: "web_search_20260209", name: "web_search", max_uses: 5 }],
+        messages,
+      });
+      if (response.stop_reason !== "pause_turn") break;
+      messages.push({ role: "assistant", content: response.content }); // server resumes the search loop
+    }
+    const brief = response.content
+      .filter((b) => b.type === "text")
+      .map((b) => b.text)
+      .join("")
+      .trim();
+    if (brief) {
+      await db()
+        .from("job_details")
+        .upsert({ job_id: key, description: brief, fetched_at: new Date().toISOString() });
+    }
+    return brief;
+  } catch (e) {
+    console.warn(`firm research failed for ${job.firm}: ${e.message}`);
+    return "";
+  }
+}
+
 export function jobHeader(job) {
   return [
     `Firm: ${job.firm}`,
