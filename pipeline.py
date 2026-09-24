@@ -149,7 +149,9 @@ EXCLUDE = ["intern", "internship", "summer", "vice president", " vp ", " vp,",
            "co-op", "co op"]
 # Part-time roles (e.g. JPMorgan's "Part Time (30 Hours) Associate Banker"
 # branch postings). "PT" only as a standalone token so it never hits "Opt…".
-_PART_TIME_RE = re.compile(r'part[\s-]?time|\bpt\b', re.I)
+# "Hours" catches the hour-scheduled branch roles that don't say part time
+# ("Associate Banker, 30 Hours, …", TD's "(20 Hours Weekly)").
+_PART_TIME_RE = re.compile(r'part[\s-]?time|\bpt\b|\bhours\b', re.I)
 
 STATE_FILE = ".street_watch_state.json"
 NEWSLETTER_SENT_KEY = "__newsletter_sent__"   # state-file key: UTC date of the last delivered newsletter
