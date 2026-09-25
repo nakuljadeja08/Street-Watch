@@ -24,6 +24,8 @@
   --goldS: #f2e7cb;
   --gray: #93818b;
   --grayS: #ece2e8;
+  --tPosted: #1f73c2;     /* trends chart: posted (CVD-checked vs --tRemoved) */
+  --tRemoved: #d9467c;    /* trends chart: taken down */
 }
 /* dark palette — deep plum with brighter pinks/greens for contrast */
 @media (prefers-color-scheme: dark) {
@@ -35,6 +37,7 @@
     --rose: #e888ac; --roseS: #3a2530; --lip: #f0798a; --lipS: #3d222a;
     --blue: #8fb8d6; --blueS: #22303a; --gold: #d8b25e; --goldS: #37301c;
     --gray: #a7929e; --grayS: #2c2530;
+    --tPosted: #3d95e8; --tRemoved: #e25586;
   }
 }
 :root[data-theme="dark"] {
@@ -45,6 +48,7 @@
   --rose: #e888ac; --roseS: #3a2530; --lip: #f0798a; --lipS: #3d222a;
   --blue: #8fb8d6; --blueS: #22303a; --gold: #d8b25e; --goldS: #37301c;
   --gray: #a7929e; --grayS: #2c2530;
+  --tPosted: #3d95e8; --tRemoved: #e25586;
 }
 * { box-sizing: border-box; }
 body {
@@ -418,3 +422,64 @@ code { font-family: "IBM Plex Mono", monospace; font-size: 12px; }
 
 .guide { display: flex; flex-direction: column; gap: 6px; }
 .guide-q { font-size: 13px; color: var(--ink); font-weight: 500; }
+
+/* ---- trends view ---- */
+.trends-top { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
+.trends-meta { margin: 0; }
+.trend-stats { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+.trend-stats .stat { background: var(--panel); border-color: var(--line); }
+.trend-stats .stat.t-posted { border-left: 4px solid var(--tPosted); }
+.trend-stats .stat.t-removed { border-left: 4px solid var(--tRemoved); }
+.trend-chart {
+  position: relative; background: var(--panel); border: 1px solid var(--line);
+  border-radius: 16px; padding: 12px 14px 6px; overflow: hidden;
+}
+.trend-chart svg { display: block; }
+.trend-chart .grid { stroke: var(--line2); stroke-width: 1; }
+.trend-chart .axis0 { stroke: var(--soft); stroke-width: 1; }
+.trend-chart .tick { font-family: "IBM Plex Mono", monospace; font-size: 10px; fill: var(--soft); }
+.trend-chart .bar-posted { fill: var(--tPosted); }
+.trend-chart .bar-removed { fill: var(--tRemoved); }
+.trend-chart rect:focus { outline: none; }
+.trend-chart rect:focus-visible { stroke: var(--rose); stroke-width: 2; }
+.trend-chart g { transition: opacity .12s; }
+.trend-legend { display: flex; gap: 16px; font-size: 12px; color: var(--soft); margin-bottom: 4px; }
+.trend-legend .key { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.key.t-posted { background: var(--tPosted); }
+.key.t-removed { background: var(--tRemoved); }
+.trend-tip {
+  position: absolute; top: 34px; pointer-events: none;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(42, 22, 32, .14); padding: 8px 11px; font-size: 12px;
+  color: var(--soft); white-space: nowrap;
+}
+.trend-tip b { color: var(--ink); font-size: 14px; margin-right: 4px; }
+.trend-tip .tip-day { font-family: "IBM Plex Mono", monospace; font-size: 11px; margin-bottom: 2px; }
+.trend-tip .tip-key { display: inline-block; width: 10px; height: 2px; margin-right: 6px; vertical-align: 4px; }
+.tip-key.t-posted { background: var(--tPosted); }
+.tip-key.t-removed { background: var(--tRemoved); }
+.trend-tip .tip-sub { margin-top: 2px; font-size: 11px; }
+.trends-note { font-size: 12.5px; color: var(--soft); margin: 12px 2px 18px; max-width: 80ch; }
+.trends-note b { color: var(--ink); font-weight: 500; }
+.trend-table {
+  width: 100%; border-collapse: collapse; background: var(--panel);
+  border: 1px solid var(--line); border-radius: 16px; overflow: hidden; font-size: 13.5px;
+}
+.trend-cap {
+  font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--soft); margin: 0 2px 8px;
+}
+.trend-table th, .trend-table td { padding: 8px 12px; border-bottom: 1px solid var(--line2); text-align: left; }
+.trend-table thead th { font-weight: 500; font-size: 11.5px; color: var(--soft); background: var(--panel2); }
+.trend-table tbody th { font-weight: 500; }
+.trend-table tr:last-child > * { border-bottom: 0; }
+.trend-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+.trend-table td.up { color: var(--green); font-weight: 500; }
+.trend-table td.down { color: var(--lip); font-weight: 500; }
+.trend-cat { display: block; font-size: 11px; font-weight: 400; color: var(--soft); }
+.trend-daily { margin-top: 16px; }
+.trend-daily summary { cursor: pointer; font-size: 13px; color: var(--soft); margin-bottom: 8px; }
+@media (max-width: 560px) {
+  .trend-table th, .trend-table td { padding: 7px 8px; }
+  .trend-chart { padding: 10px 8px 4px; }
+}
