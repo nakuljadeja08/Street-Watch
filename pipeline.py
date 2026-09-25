@@ -1236,7 +1236,110 @@ def saved_search_hits(new_jobs):
 
 
 # ---------------------------------------------------------------- newsletter
-def _newsletter_html(new_jobs, total, today, dash_url, hits=()):
+def trend_summary(trends, today, span=7):
+    """The newsletter's "hiring pulse": roles posted / taken down over the last
+    `span` days (ending today), today's own numbers, and the firms that grew or
+    shrank most. None when there's no trend history yet."""
+    start = (datetime.strptime(today, "%Y-%m-%d") - timedelta(days=span - 1)).strftime("%Y-%m-%d")
+    days = {d: c for d, c in (trends or {}).get("days", {}).items() if start <= d <= today}
+    if not days:
+        return None
+    firms, posted, removed = {}, 0, 0
+    for counts in days.values():
+        for key, (n, r, _a) in counts.items():
+            f = firms.setdefault(key.split("|", 1)[0], [0, 0])
+            f[0] += n; f[1] += r; posted += n; removed += r
+    today_counts = days.get(today, {}).values()
+    moves = [(f, n - r, n, r) for f, (n, r) in firms.items() if n or r]
+    return {
+        "span": span, "posted": posted, "removed": removed,
+        "has_today": today in days,
+        "today_posted": sum(c[0] for c in today_counts),
+        "today_removed": sum(c[1] for c in today_counts),
+        "growing": sorted((m for m in moves if m[1] > 0), key=lambda m: (-m[1], m[0]))[:3],
+        "shrinking": sorted((m for m in moves if m[1] < 0), key=lambda m: (m[1], m[0]))[:3],
+    }
+
+
+def _trends_url(dash_url):
+    return dash_url + ("&" if "?" in dash_url else "?") + "view=trends"
+
+
+def _signed(n):
+    return f"+{n}" if n > 0 else (f"\u2212{-n}" if n < 0 else "0")
+
+
+def _pulse_html(p, dash_url):
+    """Hiring-pulse block for the HTML digest (dashboard light palette; the
+    posted/taken-down blue and pink match the Trends chart)."""
+    if not p:
+        return ""
+    INK, SOFT, LINE2, BG2 = "#2a1620", "#9c7683", "#ecd9c9", "#f3ecdb"
+    GREEN, ROSE, LIP, POSTED, REMOVED = "#17392a", "#cf5f89", "#c0392b", "#1f73c2", "#d9467c"
+    SERIF = "'Fraunces', Georgia, 'Times New Roman', serif"
+    MONO = "'IBM Plex Mono', ui-monospace, 'Courier New', monospace"
+    SANS = "'IBM Plex Sans', -apple-system, Segoe UI, Arial, sans-serif"
+    net = p["posted"] - p["removed"]
+
+    def tile(num, label, color, edge):
+        return (f'<td style="background:{BG2};border:1px solid {LINE2};border-left:4px solid {edge};'
+                f'border-radius:12px;padding:9px 14px">'
+                f'<div style="font-family:{SERIF};font-size:22px;line-height:1;color:{color}">{num}</div>'
+                f'<div style="font-family:{MONO};font-size:9px;letter-spacing:.1em;text-transform:uppercase;'
+                f'color:{SOFT};padding-top:4px">{label}</div></td>')
+
+    def movers(title, items, color):
+        if not items:
+            return ""
+        cells = "".join(
+            f'<tr><td style="padding:3px 0;font-family:{SANS};font-size:13.5px;color:{INK}">{_esc(f)}</td>'
+            f'<td align="right" width="56" style="padding:3px 0 3px 10px;font-family:{SANS};font-size:13.5px;'
+            f'font-weight:600;color:{color};white-space:nowrap">{_signed(d)}</td>'
+            f'<td align="right" width="120" style="padding:3px 0 3px 10px;font-family:{MONO};font-size:10.5px;'
+            f'color:{SOFT};white-space:nowrap">{n} in · {r} out</td></tr>'
+            for f, d, n, r in items)
+        return (f'<tr><td style="padding:12px 0 3px;font-family:{MONO};font-size:10px;letter-spacing:.12em;'
+                f'text-transform:uppercase;color:{SOFT}">{title}</td></tr>'
+                f'<tr><td><table role="presentation" width="100%" cellpadding="0" cellspacing="0">{cells}</table></td></tr>')
+
+    today_line = (
+        f'<tr><td style="padding:10px 0 0;font-family:{SANS};font-size:13px;color:{SOFT}">'
+        f'Today\u2019s pull: <b style="color:{POSTED}">{p["today_posted"]} posted</b> · '
+        f'<b style="color:{REMOVED}">{p["today_removed"]} taken down</b></td></tr>'
+    ) if p["has_today"] else ""
+    return f"""
+<tr><td style="padding:18px 34px 4px">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid {LINE2}">
+  <tr><td style="padding:18px 0 10px">
+    <a href="{_esc(_trends_url(dash_url))}" style="font-family:{MONO};font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:{ROSE};text-decoration:none">✿ Hiring pulse · last {p["span"]} days →</a>
+  </td></tr>
+  <tr><td><table role="presentation" cellpadding="0" cellspacing="0"><tr>
+    {tile(p["posted"], "Posted", INK, POSTED)}<td style="width:8px"></td>
+    {tile(p["removed"], "Taken down", INK, REMOVED)}<td style="width:8px"></td>
+    {tile(_signed(net), "Net", GREEN if net > 0 else LIP if net < 0 else INK, LINE2)}
+  </tr></table></td></tr>
+  {today_line}
+  {movers("Growing", p["growing"], GREEN)}
+  {movers("Pulling back", p["shrinking"], LIP)}
+  </table>
+</td></tr>"""
+
+
+def _pulse_text(p, dash_url):
+    if not p:
+        return []
+    lines = ["", f"HIRING PULSE — last {p['span']} days",
+             f"  {p['posted']} posted · {p['removed']} taken down · net {_signed(p['posted'] - p['removed'])}"]
+    if p["has_today"]:
+        lines.append(f"  Today's pull: {p['today_posted']} posted · {p['today_removed']} taken down")
+    for title, items in (("Growing", p["growing"]), ("Pulling back", p["shrinking"])):
+        if items:
+            lines.append(f"  {title}: " + ", ".join(f"{f} {_signed(d)}" for f, d, _n, _r in items))
+    lines.append(f"  Trends: {_trends_url(dash_url)}")
+    return lines
+
+
+def _newsletter_html(new_jobs, total, today, dash_url, hits=(), pulse=None):
     """Build an inbox-friendly HTML digest of today's NEW roles, styled to match
     the dashboard's editorial theme (soft pink + cream + forest green, Fraunces
     serif with italic-rose accents, IBM Plex Mono eyebrows/labels).
@@ -1358,6 +1461,7 @@ def _newsletter_html(new_jobs, total, today, dash_url, hits=()):
 {pinned_block}
 
 <tr><td style="padding:2px 34px 8px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">{''.join(rows)}</table></td></tr>
+{_pulse_html(pulse, dash_url)}
 
 <tr><td style="padding:18px 34px 34px" align="center">
   <a href="{_esc(dash_url)}" style="display:inline-block;background:{GREEN};color:{ON_GREEN};font-family:{SANS};font-weight:600;font-size:15px;text-decoration:none;padding:14px 32px;border-radius:999px">{cta}</a>
@@ -1372,7 +1476,7 @@ def _esc(s):
             .replace(">", "&gt;").replace('"', "&quot;"))
 
 
-def _newsletter_text(new_jobs, total, today, dash_url, hits=()):
+def _newsletter_text(new_jobs, total, today, dash_url, hits=(), pulse=None):
     """Plain-text alternative part — what non-HTML clients (and spam filters)
     read. Keeps the digest legible without any markup."""
     lines = [f"Street Watch — {today} morning digest", "", "Good morning, Ms Tian", ""]
@@ -1396,6 +1500,7 @@ def _newsletter_text(new_jobs, total, today, dash_url, hits=()):
     more = n - min(n, 40)
     if more > 0:
         lines.append(f"  …and {more} more new role{'s' if more != 1 else ''}.")
+    lines += _pulse_text(pulse, dash_url)
     lines += ["", f"Open the dashboard: {dash_url}"]
     return "\n".join(lines)
 
@@ -1461,7 +1566,7 @@ def _sunday_text(today, dash_url):
     ])
 
 
-def send_newsletter(jobs, today):
+def send_newsletter(jobs, today, trends=None):
     """Email a morning digest of today's NEW roles over SMTP (Gmail or any host).
 
     Opt-in and non-fatal: if the SMTP env isn't set we skip quietly, and any
@@ -1476,6 +1581,9 @@ def send_newsletter(jobs, today):
       NEWSLETTER_TO  recipients, comma/semicolon-separated (required)
       NEWSLETTER_FROM  From header (default: SMTP_USER)
       DASHBOARD_URL    CTA link (default the Vercel site)
+
+    `trends` (the update_trends record) feeds the "hiring pulse" section; if
+    omitted it's read from TRENDS_FILE, so a re-send shows the same numbers.
     """
     import smtplib
     from email.mime.text import MIMEText
@@ -1532,10 +1640,16 @@ def send_newsletter(jobs, today):
     msg["From"] = sender
     msg["To"] = ", ".join(recipients)
     hits = saved_search_hits(new_jobs)
+    if trends is None and os.path.exists(TRENDS_FILE):
+        try:
+            trends = json.load(open(TRENDS_FILE))
+        except Exception as e:
+            print(f"  ! trends read failed, sending without the hiring pulse: {e}", file=sys.stderr)
+    pulse = trend_summary(trends, today)
     if hits:
         print(f"  saved searches with new matches: {', '.join(f'{nm} ({len(f)})' for nm, f in hits)}")
-    msg.attach(MIMEText(_newsletter_text(new_jobs, len(jobs), today, dash_url, hits), "plain", "utf-8"))
-    msg.attach(MIMEText(_newsletter_html(new_jobs, len(jobs), today, dash_url, hits), "html", "utf-8"))
+    msg.attach(MIMEText(_newsletter_text(new_jobs, len(jobs), today, dash_url, hits, pulse), "plain", "utf-8"))
+    msg.attach(MIMEText(_newsletter_html(new_jobs, len(jobs), today, dash_url, hits, pulse), "html", "utf-8"))
 
     if _smtp_send(host, port, user, password, recipients, msg):
         print(f"  newsletter sent to {len(recipients)} recipient(s) ({n} new roles)")
@@ -1605,7 +1719,7 @@ def main():
     # NEWSLETTER_FORCE=1 overrides for a deliberate re-send.
     if state.get(NEWSLETTER_SENT_KEY) == today and os.getenv("NEWSLETTER_FORCE", "") not in ("1", "true", "yes"):
         print(f"Newsletter already sent today ({today}) — skipping (set NEWSLETTER_FORCE=1 to re-send).")
-    elif send_newsletter(jobs, today):
+    elif send_newsletter(jobs, today, trends):
         state[NEWSLETTER_SENT_KEY] = today
         json.dump(state, open(STATE_FILE, "w"))
 
