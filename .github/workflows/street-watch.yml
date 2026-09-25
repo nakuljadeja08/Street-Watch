@@ -61,7 +61,7 @@ jobs:
         run: |
           git config user.name  "street-watch-bot"
           git config user.email "bot@users.noreply.github.com"
-          FILES=".street_watch_state.json street_watch_jobs.json street_watch_jobs.csv"
+          FILES=".street_watch_state.json .street_watch_trends.json street_watch_jobs.json street_watch_jobs.csv"
           mkdir -p "$RUNNER_TEMP/out" && cp $FILES "$RUNNER_TEMP/out/"
           for attempt in 1 2 3 4 5; do
             git fetch origin main

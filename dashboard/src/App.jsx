@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { supabase, STATUSES } from "./supabaseClient.js";
 import FIRM_CATEGORIES from "../../firm_categories.json";
+import Trends from "./Trends.jsx";
 
 // firm -> type ("PE & Alts", "Bulge Bracket", …); shared with pipeline.py
 const CATEGORIES = Object.keys(FIRM_CATEGORIES).filter((k) => !k.startsWith("_"));
@@ -119,7 +120,7 @@ function initialParams() {
       statusFilter: p.get("status") || "all",
       q: p.get("q") || "",
       sort: SORTS.some((s) => s.v === p.get("sort")) ? p.get("sort") : "default",
-      view: p.get("view") === "board" ? "board" : "list",
+      view: ["board", "trends"].includes(p.get("view")) ? p.get("view") : "list",
     };
   } catch {
     return { metro: "all", category: "all", level: "any", recency: "all", statusFilter: "all", q: "", sort: "default", view: "list" };
@@ -143,7 +144,7 @@ export default function App() {
   const [statusFilter, setStatusFilter] = useState(init.statusFilter); // all | tracked | untracked | <status>
   const [q, setQ] = useState(init.q);
   const [sort, setSort] = useState(init.sort);
-  const [view, setView] = useState(init.view); // list | board
+  const [view, setView] = useState(init.view); // list | board | trends
   const [dragOverCol, setDragOverCol] = useState(null);
   const [scrolled, setScrolled] = useState(false);
   const [theme, setTheme] = useState(() => {
@@ -809,12 +810,13 @@ export default function App() {
             options={[
               { v: "list", label: "List" },
               { v: "board", label: "Board" },
+              { v: "trends", label: "Trends" },
             ]}
             value={view}
             onChange={setView}
           />
           <Seg options={METROS.map((m) => ({ v: m, label: METRO_LABEL[m] }))} value={metro} onChange={setMetro} />
-          <Seg options={LEVELS} value={level} onChange={setLevel} />
+          {view !== "trends" && <Seg options={LEVELS} value={level} onChange={setLevel} />}
           <select
             className="statusSel"
             value={category}
@@ -828,19 +830,23 @@ export default function App() {
               </option>
             ))}
           </select>
-          <Seg options={RECENCY.map((r) => ({ v: r.d, label: r.label }))} value={recency} onChange={setRecency} />
-          <select
-            className="statusSel"
-            value={sort}
-            onChange={(e) => setSort(e.target.value)}
-            aria-label="Sort"
-          >
-            {SORTS.map((s) => (
-              <option key={s.v} value={s.v}>
-                {`Sort: ${s.label}`}
-              </option>
-            ))}
-          </select>
+          {view !== "trends" && (
+            <>
+              <Seg options={RECENCY.map((r) => ({ v: r.d, label: r.label }))} value={recency} onChange={setRecency} />
+              <select
+                className="statusSel"
+                value={sort}
+                onChange={(e) => setSort(e.target.value)}
+                aria-label="Sort"
+              >
+                {SORTS.map((s) => (
+                  <option key={s.v} value={s.v}>
+                    {`Sort: ${s.label}`}
+                  </option>
+                ))}
+              </select>
+            </>
+          )}
           {view === "list" && (
             <select className="statusSel" value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
               <option value="all">All statuses</option>
@@ -856,7 +862,7 @@ export default function App() {
           <input
             ref={searchRef}
             type="search"
-            placeholder="Filter by firm or role…  ( / )"
+            placeholder={view === "trends" ? "Filter by firm…  ( / )" : "Filter by firm or role…  ( / )"}
             value={q}
             onChange={(e) => setQ(e.target.value)}
           />
@@ -865,7 +871,7 @@ export default function App() {
               Clear ✕
             </button>
           )}
-          {searchable && !naming && (
+          {searchable && !naming && view !== "trends" && (
             <button className="saveBtn" onClick={() => setNaming(true)} title="Save these filters and get alerts for new matches">
               ☆ Save search
             </button>
@@ -897,6 +903,10 @@ export default function App() {
 
       <main className="wrap">
         {error && <div className="err">{error}</div>}
+        {view === "trends" ? (
+          <Trends metro={metro} category={category} q={q} categoryOf={categoryOf} />
+        ) : (
+        <>
         <div className="meta">
           {loading
             ? "Loading…"
@@ -1042,6 +1052,8 @@ export default function App() {
               "No roles yet — the pipeline hasn't populated any openings."
             )}
           </div>
+        )}
+        </>
         )}
         </>
         )}

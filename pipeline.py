@@ -989,7 +989,9 @@ def collect():
         if (m and title_ok(r["firm"], r["title"]) and age_ok(r.get("posted_date"))
                 and r["id"] not in seen):
             seen.add(r["id"]); r["metro"] = m; kept.append(r)
-    return kept
+    # `raw` (every posting each feed returned, before our filters) lets the
+    # trends tracker tell a role the firm took down from one we filtered out.
+    return kept, raw
 
 
 # ---------------------------------------------------------------- supabase
@@ -1072,6 +1074,113 @@ def push_supabase(rows):
             print(f"  ! supabase purge {d.status_code}: {d.text[:150]}", file=sys.stderr)
     except Exception as e:
         print(f"  ! supabase purge failed: {e}", file=sys.stderr)
+
+
+# ---------------------------------------------------------------- hiring trends
+# Per day, per (firm, metro): how many roles were posted, how many the firm took
+# down, and how many are live. The running record lives in TRENDS_FILE
+# (committed by the workflow) and each day's rows are mirrored to the Supabase
+# `hiring_trends` table (schema_trends.sql) for the dashboard's Trends view.
+#
+# The day's numbers are measured against the board as it stood at the end of
+# the PREVIOUS day (`baseline`), so the backup crons / manual re-runs that fire
+# later the same day just recompute the same day instead of double-counting.
+#   • new     — on the board with first_seen == today. Not counted for a firm's
+#               first day in the pipeline, so wiring up a new firm doesn't read
+#               as a hiring spike.
+#   • removed — on yesterday's board and gone from the firm's own feed today.
+#               A role that's still listed but no longer passes our filters (a
+#               new title rule, aged past MAX_AGE_DAYS) leaves the board without
+#               counting as a takedown.
+#   • active  — on the board at the end of the day.
+# If a firm's feed is down today (0 rows), its roles are carried forward from
+# yesterday rather than counted as taken down.
+TRENDS_FILE = ".street_watch_trends.json"
+
+
+def registered_firms():
+    """Every firm the pipeline currently scrapes."""
+    regs = (GREENHOUSE, ASHBY, JIBE, PINPOINT, ORACLE, HRMDIRECT, PAGEUP, ICIMS,
+            WORKDAY, WORKDAY_SITE, RADANCY, PHENOM, EIGHTFOLD)
+    return {f for reg in regs for f in reg} | {"Goldman Sachs", "Citadel Securities"}
+
+
+def update_trends(trends, board, listed, ok_firms, today, registered):
+    """Fold today's board into `trends` (mutated) and return today's rows.
+
+    board      today's filtered roles (dicts with id/firm/metro/first_seen)
+    listed     ids still present in the firms' feeds today (before filters)
+    ok_firms   firms whose feed returned at least one posting today
+    registered firms still scraped — roles of a dropped firm are forgotten,
+               not counted as taken down
+    """
+    snap = trends.get("snapshot")
+    if snap and snap["date"] < today:
+        trends["baseline"] = snap
+    base = trends.get("baseline")
+    if base and base["date"] >= today:
+        base = None
+    firms = trends.setdefault("firms", {})       # firm -> first day its feed worked
+    for f in ok_firms:
+        firms.setdefault(f, today)
+
+    counts, ids = {}, {}
+    def bump(firm, metro, i):
+        counts.setdefault((firm, metro), [0, 0, 0])[i] += 1
+
+    for j in board:
+        ids[j["id"]] = [j["firm"], j["metro"]]
+        bump(j["firm"], j["metro"], 2)
+        if base and j.get("first_seen") == today and firms.get(j["firm"], today) < today:
+            bump(j["firm"], j["metro"], 0)
+    for jid, (firm, metro) in (base["ids"] if base else {}).items():
+        if jid in ids or firm not in registered:
+            continue
+        if firm not in ok_firms:                 # feed down today — assume still up
+            ids[jid] = [firm, metro]; bump(firm, metro, 2)
+        elif jid not in listed:
+            bump(firm, metro, 1)
+
+    trends["snapshot"] = {"date": today, "ids": ids}
+    trends.setdefault("days", {})[today] = {
+        f"{firm}|{metro}": c for (firm, metro), c in sorted(counts.items())}
+    return trend_rows(today, trends["days"][today])
+
+
+def trend_rows(day, counts):
+    rows = []
+    for key, (n, r, a) in counts.items():
+        firm, metro = key.split("|", 1)
+        rows.append({"day": day, "firm": firm, "metro": metro,
+                     "new_count": n, "removed_count": r, "active_count": a})
+    return rows
+
+
+def push_trends(day_rows):
+    """Replace the given days' rows in Supabase `hiring_trends`. Non-fatal."""
+    url, key = os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_SERVICE_KEY")
+    if not (url and key) or not day_rows:
+        return
+    headers = {"apikey": key, "Authorization": f"Bearer {key}",
+               "Content-Type": "application/json", "Prefer": "return=minimal"}
+    endpoint = f"{url}/rest/v1/hiring_trends"
+    for day in sorted({r["day"] for r in day_rows}):
+        rows = [r for r in day_rows if r["day"] == day]
+        try:
+            # delete-then-insert so a firm/metro that emptied out since an
+            # earlier same-day run doesn't keep a stale row
+            d = requests.delete(endpoint, headers=headers, params={"day": f"eq.{day}"},
+                                timeout=TIMEOUT)
+            if d.status_code >= 300:
+                print(f"  ! trends clear {day} {d.status_code}: {d.text[:150]}", file=sys.stderr)
+                continue
+            p = requests.post(endpoint, headers=headers, data=json.dumps(rows), timeout=TIMEOUT)
+            if p.status_code >= 300:
+                print(f"  ! trends push {day} {p.status_code}: {p.text[:150]}", file=sys.stderr)
+            else:
+                print(f"  trends {day}: {len(rows)} rows")
+        except Exception as e:
+            print(f"  ! trends push {day} failed: {e}", file=sys.stderr)
 
 
 # ---------------------------------------------------------------- saved searches
@@ -1465,7 +1574,7 @@ def main():
             pass
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     state = json.load(open(STATE_FILE)) if os.path.exists(STATE_FILE) else {}
-    jobs = collect()
+    jobs, raw = collect()
 
     new = 0
     for j in jobs:
@@ -1484,6 +1593,12 @@ def main():
                         j.get("posted_date"), j["first_seen"], j["is_new"], j["url"]])
 
     push_supabase(jobs)
+
+    trends = json.load(open(TRENDS_FILE)) if os.path.exists(TRENDS_FILE) else {}
+    day_rows = update_trends(trends, jobs, {r["id"] for r in raw},
+                             {r["firm"] for r in raw}, today, registered_firms())
+    json.dump(trends, open(TRENDS_FILE, "w"), separators=(",", ":"))
+    push_trends(day_rows)
 
     # Several triggers can fire on the same day (backup crons, a late GitHub
     # schedule, an external dispatch, a manual run) — only the first one mails.
