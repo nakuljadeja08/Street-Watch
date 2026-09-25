@@ -104,6 +104,24 @@ export default function Trends({ metro, category, q, categoryOf }) {
   );
   const live = daily.length ? daily[daily.length - 1].active : 0;
 
+  const [exporting, setExporting] = useState(false);
+  async function downloadExcel() {
+    setExporting(true);
+    try {
+      await exportTrends({
+        daily,
+        firms,
+        detail: kept.filter((r) => days.includes(r.day)),
+        categoryOf,
+        filters: { metro, category, q: q.trim(), range, from: days[0], to: lastDay },
+      });
+    } catch (e) {
+      setError(`Excel export failed: ${e.message || e}`);
+    } finally {
+      setExporting(false);
+    }
+  }
+
   if (rows === null) return <div className="meta">Loading trends…</div>;
 
   return (
@@ -122,6 +140,16 @@ export default function Trends({ metro, category, q, categoryOf }) {
             ? `${fmtDay(days[0])} – ${fmtDay(lastDay)} · ${days.length} day${days.length === 1 ? "" : "s"} recorded`
             : "No history yet — it fills in after each daily pull."}
         </span>
+        {days.length > 0 && (
+          <button
+            className="exportBtn"
+            onClick={downloadExcel}
+            disabled={exporting}
+            title="Download these trends (current filters and range) as an Excel workbook"
+          >
+            {exporting ? "Preparing…" : "⬇ Excel"}
+          </button>
+        )}
       </div>
 
       <div className="trend-stats">
@@ -328,4 +356,65 @@ function niceStep(raw) {
   const p = Math.pow(10, Math.floor(Math.log10(Math.max(raw, 1))));
   const m = raw / p;
   return (m <= 1 ? 1 : m <= 2 ? 2 : m <= 5 ? 5 : 10) * p;
+}
+
+// Excel workbook of what the view shows (current filters + range): daily
+// totals, the per-firm table, the underlying day × firm × metro rows for
+// pivoting, and a sheet recording the filters and definitions. The writer is
+// loaded on demand so it stays out of the main bundle.
+async function exportTrends({ daily, firms, detail, categoryOf, filters }) {
+  const { default: writeExcelFile } = await import("write-excel-file/browser");
+  const B = (value) => ({ value, fontWeight: "bold" });
+  const date = (d) => ({ value: new Date(d + "T00:00:00Z"), type: Date, format: "yyyy-mm-dd" });
+  const n = (value) => ({ value, type: Number });
+
+  const dailySheet = [
+    ["Day", "Posted", "Taken down", "Net", "Live"].map(B),
+    ...daily.map((d) => [date(d.day), n(d.posted), n(d.removed), n(d.posted - d.removed), n(d.active)]),
+  ];
+  const firmSheet = [
+    ["Firm", "Firm type", "Posted", "Taken down", "Net", "Live"].map(B),
+    ...firms.map((f) => [f.firm, categoryOf(f.firm), n(f.posted), n(f.removed), n(f.posted - f.removed), n(f.active)]),
+  ];
+  const detailSheet = [
+    ["Day", "Firm", "Firm type", "Metro", "Posted", "Taken down", "Live"].map(B),
+    ...detail.map((r) => [
+      date(r.day), r.firm, categoryOf(r.firm), r.metro,
+      n(r.new_count), n(r.removed_count), n(r.active_count),
+    ]),
+  ];
+  const f = filters;
+  const aboutSheet = [
+    [B("Street Watch — hiring trends")],
+    ["Exported", new Date().toLocaleString()],
+    ["Days", `${f.from} to ${f.to}`],
+    ["Range", f.range === "all" ? "All time" : `Last ${f.range} days`],
+    ["Metro", f.metro === "all" ? "All" : f.metro],
+    ["Firm type", f.category === "all" ? "All" : f.category],
+    ["Firm filter", f.q || "(none)"],
+    [],
+    [B("Definitions")],
+    ["Posted", "New on the board that day (a firm's first day in the pipeline isn't counted)."],
+    ["Taken down", "Gone from the firm's own careers site since the previous day; roles we merely filter out don't count."],
+    ["Live", "Roles on the board at the end of the day (By firm: on the last day of the range)."],
+    ["Note", "A day the pull didn't run rolls into the next day's numbers."],
+  ];
+
+  const stem = [
+    "street-watch-hiring-trends",
+    f.metro !== "all" && f.metro,
+    f.category !== "all" && f.category,
+    f.q,
+    `${f.from}_to_${f.to}`,
+  ]
+    .filter(Boolean)
+    .join("-")
+    .replace(/[^\w.-]+/g, "-");
+
+  await writeExcelFile([
+    { data: dailySheet, sheet: "Daily", columns: [{ width: 12 }, { width: 10 }, { width: 12 }, { width: 8 }, { width: 8 }], stickyRowsCount: 1 },
+    { data: firmSheet, sheet: "By firm", columns: [{ width: 34 }, { width: 22 }, { width: 10 }, { width: 12 }, { width: 8 }, { width: 8 }], stickyRowsCount: 1 },
+    { data: detailSheet, sheet: "Detail", columns: [{ width: 12 }, { width: 34 }, { width: 22 }, { width: 18 }, { width: 10 }, { width: 12 }, { width: 8 }], stickyRowsCount: 1 },
+    { data: aboutSheet, sheet: "About", columns: [{ width: 14 }, { width: 90 }] },
+  ]).toFile(`${stem}.xlsx`);
 }
