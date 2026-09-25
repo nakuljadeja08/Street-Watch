@@ -148,6 +148,11 @@ reader back to the live board. It opens with a *Good morning, Ms Tian* greeting
 and sends in **both** cases: a list of the new roles, or a short "nothing
 overnight" note on a quiet day.
 
+Below the roles, a **hiring pulse** block summarises the last 7 days from the
+trends data: roles posted / taken down / net, today's pull, and the three firms
+growing and pulling back the most, linking to the dashboard's Trends view
+(`trend_summary` in `pipeline.py`; left out until there's trend history).
+
 The send is **opt-in and non-fatal**: if the SMTP env isn't set it skips
 silently, and any send error is logged but never fails the run.
 
