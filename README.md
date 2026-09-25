@@ -68,7 +68,9 @@ Claude). Then each card gets:
   **✨ Score next 5** scores the next unscored roles in the list).
 - **✍ Write** — a first-draft cover letter and a "Why <firm>?" answer, written
   to the rules of the `job-application-answers` skill (voice, structure, strict
-  no-dashes; see `api/_voice.js` to edit them). Claude web-searches the firm
+  no-dashes) plus the candidate's own narration pattern and story bank (open on
+  a real scene, one line pivot, firsthand proof, why this firm, humble close;
+  see `api/_voice.js` to edit them). Claude web-searches the firm
   first (cached per firm for 14 days), uses your card notes, and may ask one
   follow-up question — answer it in the modal and hit *Regenerate with this*.
 

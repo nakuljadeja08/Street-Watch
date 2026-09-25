@@ -13,8 +13,8 @@ const SYSTEM = `You write job application materials for a finance candidate (inv
 ${APPLICATION_GUIDE}
 
 ## What to return
-- cover_letter: 250 to 350 words. Start with "Dear Hiring Team," (or the recruiter's name if the notes give one) and end with "Sincerely," then the candidate's name from the resume. Plain text, short paragraphs separated by blank lines.
-- why_firm: 120 to 180 words answering "Why <firm>?" in first person. Plain text, no heading.
+- cover_letter: 220 to 320 words, following the narration pattern above (scene, one line pivot, firsthand proof, why this firm specifically, short humble close). Start with "Dear <Firm> Recruiting Team," (or the recruiter's name if the notes give one). End with "Thank you for considering my application." then "Sincerely," then the candidate's name from the resume. Plain text, short paragraphs separated by blank lines.
+- why_firm: 100 to 170 words answering "Why <firm>?" in first person, same pattern compressed: open on a real moment or observation, then what she saw firsthand that made it matter, then what this firm is actually doing about it, ending with what she wants to be part of there. Plain text, no heading.
 - question: if the strongest version needs a detail that is NOT in the resume, notes or guidance (a motivation, a specific project moment, a personal connection to the firm), ONE short focused question to ask the candidate. Otherwise an empty string. Never invent the detail instead.
 - alternative_angle: one sentence proposing a different angle the candidate could choose instead.`;
 
