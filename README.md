@@ -19,6 +19,9 @@ firms' ATS APIs  ──►  pipeline.py  ──►  Supabase `jobs` table  ─�
 | `.github/workflows/newsletter-test.yml` | Manual button to re-send the newsletter from the last committed pull (no scrape). |
 | `send_test_newsletter.py` | Standalone sender used by the test workflow (and runnable locally). |
 | `schema_ai_and_searches.sql` | One-time `saved_searches` table (anon r/w) + the private AI tables (`profile`, `job_details`, `ai_fit`, `ai_drafts` — service key only). |
+| `schema_trends.sql` | One-time `hiring_trends` table (public read) behind the dashboard's **Trends** view. |
+| `.street_watch_trends.json` | Running hiring-trends record + yesterday's board (the baseline takedowns are measured against); committed by the daily run. |
+| `backfill_trends.py` | One-off: rebuilds the trends history from the daily snapshots in git and pushes it to Supabase. |
 | `firm_categories.json` | Firm → type ("PE & Alts", "Bulge Bracket", …). Drives the dashboard's firm-type filter and saved-search alerts; shared by `pipeline.py` and `dashboard/`. |
 | `api/` | Vercel serverless routes for the **AI assistant** (resume, fit score, cover letter / "why this firm"). Call Claude server-side; see *AI assistant* below. |
 | `dashboard/` | **React + Vite app** — live openings **plus an application tracker** (set Applied/Interview/… per role, saved to Supabase). The front-end, deployed on Vercel from the `release` branch; see `dashboard/README.md`. |
@@ -56,6 +59,31 @@ seen, and those roles are **pinned** at the top of the list until you hit
 the full digest (`saved_search_hits` in `pipeline.py`; matching mirrors
 `matchesSearch` in `dashboard/src/App.jsx`). Firm types come from
 `firm_categories.json` — add new firms there.
+
+## Hiring trends
+
+The dashboard's **Trends** view shows, per day, how many roles were **posted**
+and how many were **taken down**, plus net change and roles live. It honors the
+metro, firm-type and firm-name filters and has 7d / 30d / all ranges, a
+per-firm table (who's hiring, who's pulling roles) and the daily numbers.
+
+After each pull `update_trends()` in `pipeline.py` compares today's board with
+the board at the end of the previous day and writes one row per (day, firm,
+metro) to Supabase `hiring_trends` (history also kept in
+`.street_watch_trends.json`). What counts:
+
+- **Posted**: first seen today. A firm's first day in the pipeline doesn't
+  count, so wiring up a new firm isn't read as a hiring spike.
+- **Taken down**: on yesterday's board and gone from the firm's own feed today.
+  A role still listed that we now filter out (a new title rule, past the 30-day
+  age cap) leaves the board without counting.
+- A firm whose feed fails (0 rows) is carried forward, not counted as taken down.
+- Same-day re-runs (backup crons, manual runs) recompute the day instead of
+  double counting. A missed day rolls into the next day's numbers.
+
+Setup: run `schema_trends.sql` once, then `python backfill_trends.py` with the
+two `SUPABASE_*` env vars set to load history from the git snapshots (starts
+2026-09-18; earlier days were pipeline build-out churn).
 
 ## AI assistant (fit score + cover letters)
 
