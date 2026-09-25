@@ -426,6 +426,13 @@ code { font-family: "IBM Plex Mono", monospace; font-size: 12px; }
 /* ---- trends view ---- */
 .trends-top { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
 .trends-meta { margin: 0; }
+.exportBtn {
+  margin-left: auto; font: inherit; font-size: 13px; padding: 7px 14px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--green); background: var(--panel); color: var(--green); transition: .12s;
+}
+.exportBtn:hover:not(:disabled) { background: var(--green); color: var(--onGreen); }
+.exportBtn:disabled { opacity: .6; cursor: progress; }
+.exportBtn:focus-visible { outline: 2px solid var(--rose); outline-offset: 2px; }
 .trend-stats { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
 .trend-stats .stat { background: var(--panel); border-color: var(--line); }
 .trend-stats .stat.t-posted { border-left: 4px solid var(--tPosted); }
