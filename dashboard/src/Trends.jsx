@@ -12,12 +12,12 @@ const RANGES = [
 ];
 
 // Supabase caps each response at 1000 rows (~10 days of firm × metro rows)
-async function fetchAllTrends() {
+async function fetchAllTrends(table) {
   const PAGE = 1000;
   const rows = [];
   for (let from = 0; ; from += PAGE) {
     const res = await supabase
-      .from("hiring_trends")
+      .from(table)
       .select("*")
       .order("day", { ascending: true })
       .order("firm", { ascending: true })
@@ -33,20 +33,20 @@ const fmtDay = (d) =>
   new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
 const signed = (n) => (n > 0 ? `+${n}` : n < 0 ? `−${-n}` : "0");
 
-export default function Trends({ metro, category, q, categoryOf }) {
+export default function Trends({ metro, category, q, categoryOf, table = "hiring_trends" }) {
   const [rows, setRows] = useState(null);
   const [error, setError] = useState("");
   const [range, setRange] = useState(30);
 
   useEffect(() => {
     (async () => {
-      const res = await fetchAllTrends();
+      const res = await fetchAllTrends(table);
       if (res.error) {
-        setError(`Couldn't load hiring trends (run schema_trends.sql?): ${res.error.message}`);
+        setError(`Couldn't load hiring trends (run ${table === "hiring_trends" ? "schema_trends.sql" : "schema_tech.sql"}?): ${res.error.message}`);
         setRows([]);
       } else setRows(res.data || []);
     })();
-  }, []);
+  }, [table]);
 
   const needle = q.trim().toLowerCase();
   const kept = useMemo(

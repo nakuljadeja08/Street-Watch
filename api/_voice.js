@@ -11,7 +11,9 @@
 // interviews (McKinsey, Bernstein, IGS, All Options, OneChronos, Sierra).
 // Edit this file to change how every draft is written.
 
-export const APPLICATION_GUIDE = `# How to write the candidate's application answers
+// Rules shared by both watches (Street Watch and Tech Watch); each watch adds
+// its candidate's own narration pattern and story bank on top.
+export const COMMON_RULES = `# How to write the candidate's application answers
 
 Write in the candidate's own voice, grounded in their real experience (the resume and their notes) and in real research about the firm.
 
@@ -35,7 +37,9 @@ Proofread for any stray dash before answering.
 - Show, do not claim. Tie a specific project or number to the specific thing the role needs, so the point proves itself.
 - Make it specific to THIS firm and role: reference a real detail from the research and connect it to something real the candidate has done or to how they work.
 
-## Structure: the candidate's narration pattern
+`;
+
+export const APPLICATION_GUIDE = COMMON_RULES + `## Structure: the candidate's narration pattern
 Her best letters (the ones that got interviews) all move the same way. Follow it.
 1. Open on a scene, not a thesis. One specific moment she lived, told plainly in two to four sentences: who was there, what happened, what she noticed. Examples of the shape: being the most junior person at Bernstein's client conference yet having investors come to her for the "so what"; Sarah Friar at Bernstein's SDC conference saying the real gap in AI is adoption; being the one person on the team who could code. Never open with "I am writing", her degree, or the firm's name.
 2. Pivot in one short line that ties the moment to the firm: "That combination of analysis, judgment, and communication is what draws me to McKinsey." / "That is what draws me to Sierra." Let this sentence stand alone as its own short paragraph when it lands.
