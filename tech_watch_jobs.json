@@ -1,18 +1,5 @@
 [
   {
-    "firm": "State Street",
-    "id": "wd-statestreet-Global-/job/Quincy-Massachusetts/SIEM-Data-Engineer_R-794331",
-    "title": "SIEM Data Engineer",
-    "location": "Quincy, Massachusetts",
-    "url": "https://statestreet.wd1.myworkdayjobs.com/Global/job/Quincy-Massachusetts/SIEM-Data-Engineer_R-794331",
-    "source": "workday",
-    "posted_date": "2026-08-27",
-    "metro": "Boston",
-    "sector": "Finance",
-    "first_seen": "2026-09-27",
-    "is_new": true
-  },
-  {
     "firm": "Bank of America",
     "id": "wd-ghr-Lateral-US-/job/Charlotte/Data-Engineer---Python-AI_26025219",
     "title": "Data Engineer \u2013 Python/AI",
@@ -477,19 +464,6 @@
     "posted_date": "2026-08-27",
     "metro": "Other US",
     "sector": "Tech",
-    "first_seen": "2026-09-27",
-    "is_new": true
-  },
-  {
-    "firm": "BlackRock",
-    "id": "blackrock-101011551744",
-    "title": "Associate, Data Protection Engineering",
-    "location": "Wilmington, DE",
-    "url": "https://careers.blackrock.com/job/wilmington/associate-data-protection-engineering/45831/101011551744",
-    "source": "blackrock",
-    "posted_date": "2026-09-22",
-    "metro": "Other US",
-    "sector": "Finance",
     "first_seen": "2026-09-27",
     "is_new": true
   },

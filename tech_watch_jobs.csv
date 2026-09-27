@@ -1,5 +1,4 @@
 metro,sector,firm,title,location,source,posted_date,first_seen,is_new,url
-Boston,Finance,State Street,SIEM Data Engineer,"Quincy, Massachusetts",workday,2026-08-27,2026-09-27,True,https://statestreet.wd1.myworkdayjobs.com/Global/job/Quincy-Massachusetts/SIEM-Data-Engineer_R-794331
 Charlotte,Finance,Bank of America,Data Engineer – Python/AI,Charlotte; Addison,workday,2026-09-25,2026-09-27,True,https://ghr.wd1.myworkdayjobs.com/Lateral-US/job/Charlotte/Data-Engineer---Python-AI_26025219
 Charlotte,Finance,Regions Securities,"Data Engineer - AWS, Snowflake","Charlotte, North Carolina, United States of America",phenom,2026-09-22,2026-09-27,True,https://regions.wd5.myworkdayjobs.com/Regions_Careers/job/Charlotte-NC---Charlotte-Uptown-Branch/Data-Engineer---AWS--Snowflake_R106073
 Chicago,Tech,Amazon,Data Engineer II - AMZ27957.1,"Chicago, Illinois, USA",amazon,2026-08-31,2026-09-27,True,https://www.amazon.jobs/en/jobs/10522873/data-engineer-ii-amz27957-1
@@ -36,7 +35,6 @@ NYC Area,Finance,TD Bank,Data Engineer II (US),"Mount Laurel, New Jersey",workda
 NYC Area,Tech,Vercel,"Software Engineer, Financial Data Platform","Hybrid - San Francisco, New York City",greenhouse,2026-08-28,2026-09-27,True,https://job-boards.greenhouse.io/vercel/jobs/5895013004
 Other US,Tech,Amazon,"Data Engineer II, Ring/Blink Customer Service Engineering and Insights","Hawthorne, California, USA",amazon,2026-09-25,2026-09-27,True,https://www.amazon.jobs/en/jobs/10560760/data-engineer-ii-ring-blink-customer-service-engineering-and-insights
 Other US,Tech,Amazon,"Data Engineer, Ring Agent Platforms","Hawthorne, California, USA",amazon,2026-08-27,2026-09-27,True,https://www.amazon.jobs/en/jobs/10517664/data-engineer-ring-agent-platforms
-Other US,Finance,BlackRock,"Associate, Data Protection Engineering","Wilmington, DE",blackrock,2026-09-22,2026-09-27,True,https://careers.blackrock.com/job/wilmington/associate-data-protection-engineering/45831/101011551744
 Other US,Finance,JPMorgan Chase,Data Engineering Associate,"OH, United States",oracle,2026-09-25,2026-09-27,True,https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210793562
 Other US,Tech,Linear,Analytics Engineer,North America,ashby,2026-08-11,2026-09-27,True,https://jobs.ashbyhq.com/linear/f272fc4a-91a7-4dcf-9cb5-3600ebaf14e1
 Other US,Tech,Lucid Motors,"Software Engineer, Data Infrastructure","Southfield, MI",greenhouse,2026-08-10,2026-09-27,True,https://lucidmotors.com/careers/search/5199841007?gh_jid=5199841007
