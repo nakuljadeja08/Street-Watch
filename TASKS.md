@@ -24,6 +24,59 @@ Last updated: 2026-09-15
 
 ---
 
+## 🛠 Tech Watch — custom fetchers (added 2026-09-27)
+
+Big data engineering employers not yet in `tech_pipeline.py`. Probed live on
+2026-09-27; ordered easiest first. For each one: add the fetcher/registry
+entry, run `TECH_NEWSLETTER=0 python tech_pipeline.py`, check the new rows pass
+the title/location rules, then update `TECH_FIRMS.md`. A firm's first day never
+counts as a hiring spike in Trends, so these can be added any day.
+
+### Quick wins (existing fetchers)
+- [ ] **Hudson River Trading**: Greenhouse board `wehrtyou` works (87 jobs). Add to
+      `GREENHOUSE["Finance"]`.
+- [ ] **Netflix**: Eightfold at `explore.jobs.netflix.net`, domain `netflix.com`
+      (133 hits for "data engineer"). Reuse `P.fetch_eightfold`, but pass a
+      `query` so it doesn't page the whole board. Netflix titles carry levels
+      (L4/L5/L6); decide the cut, since L5 is roughly senior. Add an exclude like
+      `L[5-9]` if so.
+- [ ] **Workday tenants that 404'd with a guessed site name**: Walmart, Discover,
+      BNY, Charles Schwab, Moody's, Comcast, Dell. Open each careers page, read
+      the real `<tenant>.<wdN>.myworkdayjobs.com/<site>` from the URL, and add it to
+      `WORKDAY`.
+
+### Medium (parse the page's embedded data)
+- [ ] **Google**: `google.com/about/careers/applications/jobs/results?q=data+engineer&location=United+States`
+      is server-rendered (≈1.4 MB). Parse the `AF_initDataCallback` JSON blob for
+      title / location / id, and page with `&page=N`.
+- [ ] **Apple**: `jobs.apple.com/en-us/search?search=data%20engineer&location=united-states-USA`
+      embeds its results in `__staticRouterHydrationData`. Parse that JSON and
+      page with `&page=N`.
+- [ ] **Bloomberg**: Avature board at `bloomberg.avature.net/careers/SearchJobs/data%20engineer`
+      (server-rendered HTML). Write a small Avature card parser, modeled on
+      `fetch_icims`.
+
+### Hard (need discovery or anti-bot handling)
+- [ ] **Microsoft**: the Eightfold API at `apply.careers.microsoft.com` returns 403
+      to plain requests. Try `cloudscraper` (already a dependency, used for
+      Citadel), or the older `gcsservices.careers.microsoft.com/search/api/v1/search`.
+- [ ] **Meta**: metacareers.com loads jobs through GraphQL with a per-session
+      `lsd` token that the plain page doesn't expose. Needs a token handshake,
+      which may not be worth it.
+- [ ] **Uber**: the old `uber.com/api/loadSearchJobsResults` now 404s. Find the
+      current endpoint in the browser's network tab on uber.com/careers.
+- [ ] **Two Sigma**: not on Greenhouse. Find its ATS from careers.twosigma.com.
+- [ ] **American Express**: not on the Eightfold host tried. Find its ATS from
+      aexp.com/careers.
+- [ ] **Citadel (hedge fund side)**: likely the same WordPress AJAX pattern as
+      `P.fetch_citadel` on citadel.com. Confirm, then parameterize that fetcher.
+
+### After adding fetchers
+- [ ] Re-check the 60-day age cap and the level rules against the new sources.
+- [ ] Update `TECH_FIRMS.md` group C and the README firm count.
+
+---
+
 ## ✅ Done
 - [x] Dashboard artifact (Street Watch) — live openings + firm-search grid + metro/recency filters
 - [x] Excel application tracker, pre-loaded with 34 live roles (`Street_Watch_Application_Tracker.xlsx`)
