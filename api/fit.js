@@ -3,19 +3,26 @@
 //   `description` (pasted by you) is only used when scoring a single role
 //   whose posting couldn't be fetched automatically.
 // Returns { results: { [job_id]: {score, reason} | {need_jd: true} | {error} } }
-import { MODEL, checkAuth, db, json, askJson, errorResponse, getResume, getDescription, saveDescription, jobHeader } from "./_lib.js";
+import { MODEL, checkAuth, db, json, askJson, errorResponse, getResume, getDescription, saveDescription, jobHeader, watchOf, tables } from "./_lib.js";
 import { fetchDescription } from "./_jd.js";
 
 const MAX_PER_CALL = 5;
 
-const SYSTEM = `You are a candid recruiting advisor for finance careers (investment banking, private equity, asset management, sales & trading, consulting).
-Given a candidate's resume and one job posting, score how well the candidate fits the role from 0 to 100:
+const RUBRIC = `Given a candidate's resume and one job posting, score how well the candidate fits the role from 0 to 100:
 - 85–100: strong fit — meets the stated experience level and core requirements; a credible, competitive applicant
 - 70–84: good fit — meets most requirements; one gap
 - 50–69: stretch — plausible but missing key experience, level or skills
 - 0–49: poor fit — wrong level, function or hard requirements unmet
 Weigh, in order: seniority/years of experience vs. the role's level, relevant functional experience, technical skills and credentials, industry/sector overlap, and hard requirements (work authorization, licenses, location) when stated.
 Be calibrated and honest; do not inflate. The reason is ONE line (max 20 words) naming the deciding factor, specific to this resume and role.`;
+
+const SYSTEM = {
+  street: `You are a candid recruiting advisor for finance careers (investment banking, private equity, asset management, sales & trading, consulting).
+${RUBRIC}`,
+  tech: `You are a candid recruiting advisor for data engineering careers at tech and finance companies (data engineer, analytics engineer, data platform engineer).
+Judge the stack match (SQL, Python/Scala, Spark, Airflow/orchestration, dbt, warehouses like Snowflake/BigQuery/Redshift/Databricks, streaming like Kafka, cloud platforms) and the years of experience the posting asks for against the resume. Domain experience (energy, finance) counts only when the posting values it.
+${RUBRIC}`,
+};
 
 const SCHEMA = {
   type: "object",
@@ -27,7 +34,7 @@ const SCHEMA = {
   additionalProperties: false,
 };
 
-async function scoreOne(job, resume, pasted) {
+async function scoreOne(job, resume, pasted, watch) {
   let description = pasted?.trim();
   if (description) await saveDescription(job.id, description);
   else description = await getDescription(job, fetchDescription);
@@ -35,7 +42,7 @@ async function scoreOne(job, resume, pasted) {
 
   const out = await askJson({
     system: [
-      { type: "text", text: SYSTEM },
+      { type: "text", text: SYSTEM[watch] },
       // resume is identical across a bulk run — let it cache
       { type: "text", text: `<resume>\n${resume}\n</resume>`, cache_control: { type: "ephemeral" } },
     ],
@@ -47,25 +54,26 @@ async function scoreOne(job, resume, pasted) {
   const score = Math.max(0, Math.min(100, Math.round(Number(out.score) || 0)));
   const reason = String(out.reason || "").trim().slice(0, 240);
   const { error } = await db()
-    .from("ai_fit")
+    .from(tables(watch).fit)
     .upsert({ job_id: job.id, score, reason, model: MODEL, created_at: new Date().toISOString() });
   if (error) console.warn(`ai_fit write failed: ${error.message}`);
   return { score, reason };
 }
 
 export async function POST(request) {
-  const denied = checkAuth(request);
+  const denied = await checkAuth(request);
   if (denied) return denied;
   try {
     const body = await request.json();
     const jobs = (body.jobs || []).filter((j) => j && j.id && j.firm && j.title).slice(0, MAX_PER_CALL);
     if (!jobs.length) return json({ error: "No roles given." }, 400);
 
-    const profile = await getResume();
+    const watch = watchOf(request);
+    const profile = await getResume(watch);
     if (!profile?.resume_text) return json({ error: "Add your resume first (✨ AI setup)." }, 400);
 
     const pasted = jobs.length === 1 ? body.description : null;
-    const settled = await Promise.allSettled(jobs.map((j) => scoreOne(j, profile.resume_text, pasted)));
+    const settled = await Promise.allSettled(jobs.map((j) => scoreOne(j, profile.resume_text, pasted, watch)));
     const results = {};
     settled.forEach((s, i) => {
       results[jobs[i].id] = s.status === "fulfilled" ? s.value : { error: s.reason?.message || String(s.reason) };

@@ -505,14 +505,18 @@ def fetch_workday_site(firm, dc, tenant, site):
     return out
 
 
-def fetch_workday(firm, tenant, dc, site):
+def fetch_workday(firm, tenant, dc, site, search_text="", relevant=None):
+    """`search_text` narrows the board server-side (Tech Watch passes "data
+    engineer"). Workday's search is fuzzy and relevance-sorted, so it can match
+    most of a big tenant; with `relevant` (title -> bool) paging stops at the
+    first page that has no relevant title."""
     base = f"https://{tenant}.{dc}.myworkdayjobs.com/wday/cxs/{tenant}/{site}/jobs"
     host = f"https://{tenant}.{dc}.myworkdayjobs.com"
     LIMIT = 20
     out, offset, total = [], 0, None
     try:
         while True:
-            body = {"appliedFacets": {}, "limit": LIMIT, "offset": offset, "searchText": ""}
+            body = {"appliedFacets": {}, "limit": LIMIT, "offset": offset, "searchText": search_text}
             r = requests.post(base, headers={**UA, "Content-Type": "application/json"},
                               json=body, timeout=TIMEOUT); r.raise_for_status()
             data = r.json()
@@ -536,6 +540,8 @@ def fetch_workday(firm, tenant, dc, site):
                                 # (None when the tenant omits it — row kept as before).
                                 posted_date=_workday_posted(p.get("postedOn"))))
             offset += LIMIT
+            if relevant and not any(relevant(p.get("title") or "") for p in posts):
+                break
             # Stop when we've reached the first-page total, or the page came back
             # short (last page) — a belt-and-suspenders guard if `total` is wrong.
             if offset >= total or len(posts) < LIMIT:
@@ -746,12 +752,12 @@ RADANCY_SPAN_STRIP = re.compile(
 _TAG_RE = re.compile(r"<[^>]+>")
 
 
-def fetch_radancy(firm, host, source):
+def fetch_radancy(firm, host, source, keywords=None):
     import html as _html
     base = f"https://{host}/search-jobs/results"
     out, seen = [], set()
     try:
-        for kw in RADANCY_METRO_KW:
+        for kw in keywords or RADANCY_METRO_KW:
             page = 1
             while page <= 15:
                 params = {"ActiveFacetID": 0, "CurrentPage": page, "RecordsPerPage": 100,
@@ -923,7 +929,7 @@ def title_ok(firm, title):
 MAX_AGE_DAYS = 30
 
 
-def age_ok(posted_date):
+def age_ok(posted_date, max_days=None):
     """Drop listings we KNOW are older than MAX_AGE_DAYS. Rows with no post date
     (Workday/Citi/Citadel/Radancy) can't be aged, so they're kept — we only
     exclude ones proven stale (from Greenhouse `first_published` / Ashby
@@ -934,7 +940,7 @@ def age_ok(posted_date):
         d = datetime.strptime(posted_date[:10], "%Y-%m-%d").date()
     except Exception:
         return True
-    return (datetime.now(timezone.utc).date() - d).days <= MAX_AGE_DAYS
+    return (datetime.now(timezone.utc).date() - d).days <= (max_days or MAX_AGE_DAYS)
 
 
 def collect():
@@ -995,11 +1001,11 @@ def collect():
 
 
 # ---------------------------------------------------------------- supabase
-def push_supabase(rows):
+def push_supabase(rows, table="jobs", apps_table="applications", max_age_days=None):
     url, key = os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_SERVICE_KEY")
     if not (url and key):
         print("Supabase env not set — skipping DB upsert."); return
-    endpoint = f"{url}/rest/v1/jobs?on_conflict=id"
+    endpoint = f"{url}/rest/v1/{table}?on_conflict=id"
     headers = {"apikey": key, "Authorization": f"Bearer {key}",
                "Content-Type": "application/json",
                "Prefer": "resolution=merge-duplicates,return=minimal"}
@@ -1037,7 +1043,7 @@ def push_supabase(rows):
     # silently erase the user's application record with it. If the lookup
     # fails we skip both deletes rather than risk it.
     try:
-        a = requests.get(f"{url}/rest/v1/applications", headers=headers,
+        a = requests.get(f"{url}/rest/v1/{apps_table}", headers=headers,
                          params={"select": "job_id"}, timeout=TIMEOUT)
         a.raise_for_status()
         tracked = sorted({x["job_id"] for x in a.json() if x.get("job_id")})
@@ -1048,7 +1054,7 @@ def push_supabase(rows):
             if tracked else {})
     for firm in sorted({r["firm"] for r in rows}):
         try:
-            d = requests.delete(f"{url}/rest/v1/jobs",
+            d = requests.delete(f"{url}/rest/v1/{table}",
                                 headers={**headers, "Prefer": "return=minimal"},
                                 params={"firm": f"eq.{firm}", "updated_at": f"lt.{run_ts}",
                                         **keep},
@@ -1063,9 +1069,9 @@ def push_supabase(rows):
     # rows with a posted_date older than the cutoff are removed — undated rows
     # (Workday/Citi/Citadel/Radancy) have null posted_date, which never matches
     # `lt`, so they're left untouched. Filtered delete, never a blanket wipe.
-    cutoff = (datetime.now(timezone.utc).date() - timedelta(days=MAX_AGE_DAYS)).isoformat()
+    cutoff = (datetime.now(timezone.utc).date() - timedelta(days=max_age_days or MAX_AGE_DAYS)).isoformat()
     try:
-        d = requests.delete(f"{url}/rest/v1/jobs",
+        d = requests.delete(f"{url}/rest/v1/{table}",
                             headers={**headers, "Prefer": "return=minimal"},
                             params={"posted_date": f"lt.{cutoff}", **keep}, timeout=TIMEOUT)
         if d.status_code < 300:
@@ -1156,14 +1162,14 @@ def trend_rows(day, counts):
     return rows
 
 
-def push_trends(day_rows):
-    """Replace the given days' rows in Supabase `hiring_trends`. Non-fatal."""
+def push_trends(day_rows, table="hiring_trends"):
+    """Replace the given days' rows in Supabase `table`. Non-fatal."""
     url, key = os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_SERVICE_KEY")
     if not (url and key) or not day_rows:
         return
     headers = {"apikey": key, "Authorization": f"Bearer {key}",
                "Content-Type": "application/json", "Prefer": "return=minimal"}
-    endpoint = f"{url}/rest/v1/hiring_trends"
+    endpoint = f"{url}/rest/v1/{table}"
     for day in sorted({r["day"] for r in day_rows}):
         rows = [r for r in day_rows if r["day"] == day]
         try:
@@ -1212,14 +1218,15 @@ def _matches_search(j, f):
     return True
 
 
-def saved_search_hits(new_jobs):
+def saved_search_hits(new_jobs, table="saved_searches", matches=None):
     """[(name, [matching new jobs])] for every saved search with a hit. Never
     raises — a missing table or network error just means no section."""
+    matches = matches or _matches_search
     url, key = os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_SERVICE_KEY")
     if not (url and key and new_jobs):
         return []
     try:
-        r = requests.get(f"{url}/rest/v1/saved_searches",
+        r = requests.get(f"{url}/rest/v1/{table}",
                          headers={"apikey": key, "Authorization": f"Bearer {key}"},
                          params={"select": "name,filters", "order": "created_at"}, timeout=TIMEOUT)
         r.raise_for_status()
@@ -1229,7 +1236,7 @@ def saved_search_hits(new_jobs):
         return []
     hits = []
     for srch in searches:
-        found = [j for j in new_jobs if _matches_search(j, srch.get("filters") or {})]
+        found = [j for j in new_jobs if matches(j, srch.get("filters") or {})]
         if found:
             hits.append((srch.get("name") or "Saved search", found))
     return hits

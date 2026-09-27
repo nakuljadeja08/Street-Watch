@@ -1,0 +1,224 @@
+/* Tech Watch: dev-tool board (sidebar / list / detail) with terminal chrome
+   (command line, log line, status bar). Tokens live on body.tw-body so the
+   shared Street Watch components rendered inside (Trends, draft modal) pick
+   up this palette through the same --bg/--ink/... variables. */
+body.tw-body {
+  --tw-bg: #fbfbfc; --tw-side: #f3f4f7; --tw-panel: #ffffff; --tw-hover: #f6f7f9;
+  --tw-ink: #0f1115; --tw-soft: #5b6270; --tw-faint: #8a919e; --tw-line: #e4e7ec;
+  --tw-acc: #2b59ff; --tw-accS: #e9eeff;
+  --tw-new: #0a8f5c; --tw-newS: #e3f5ec; --tw-bad: #c2410c; --tw-badS: #fdeee6;
+  --tw-tech: #3148c8; --tw-techS: #e8ecfd; --tw-fin: #8a5a00; --tw-finS: #fbf1dc; --tw-ftc: #0f766e; --tw-ftcS: #e3f3f1;
+  /* terminal chrome: dark in both themes */
+  --tw-term: #0d1117; --tw-term2: #161b22; --tw-termInk: #c9d1d9; --tw-termDim: #6e7681;
+  --tw-cyan: #79c0ff; --tw-amber: #e3b341; --tw-green: #7ee787;
+
+  --bg: var(--tw-bg); --bg2: var(--tw-side); --panel: var(--tw-panel); --panel2: var(--tw-side);
+  --ink: var(--tw-ink); --soft: var(--tw-soft); --line: var(--tw-line); --line2: var(--tw-line);
+  --green: var(--tw-ink); --greenS: var(--tw-side); --onGreen: var(--tw-bg);
+  --rose: var(--tw-acc); --roseS: var(--tw-accS); --lip: var(--tw-bad); --lipS: var(--tw-badS);
+  --blue: var(--tw-acc); --blueS: var(--tw-accS); --gold: var(--tw-fin); --goldS: var(--tw-finS);
+  --gray: var(--tw-faint); --grayS: var(--tw-side);
+  --tPosted: #2b59ff; --tRemoved: #e8590c;
+  background: var(--tw-bg); color: var(--tw-ink);
+  font-family: "Geist", "IBM Plex Sans", system-ui, sans-serif;
+  display: block;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) body.tw-body {
+    --tw-bg: #0c0d10; --tw-side: #111317; --tw-panel: #14161b; --tw-hover: #181b21;
+    --tw-ink: #eceef2; --tw-soft: #9aa1ad; --tw-faint: #6b7280; --tw-line: #23262e;
+    --tw-acc: #7c9bff; --tw-accS: #1b2340;
+    --tw-new: #4fd49a; --tw-newS: #12291f; --tw-bad: #ff8a65; --tw-badS: #33201a;
+    --tw-tech: #95a7ff; --tw-techS: #1c2240; --tw-fin: #e3b45a; --tw-finS: #2c2412; --tw-ftc: #5fd3c4; --tw-ftcS: #112a28;
+    --tPosted: #7c9bff; --tRemoved: #ff8a65;
+  }
+}
+:root[data-theme="dark"] body.tw-body {
+  --tw-bg: #0c0d10; --tw-side: #111317; --tw-panel: #14161b; --tw-hover: #181b21;
+  --tw-ink: #eceef2; --tw-soft: #9aa1ad; --tw-faint: #6b7280; --tw-line: #23262e;
+  --tw-acc: #7c9bff; --tw-accS: #1b2340;
+  --tw-new: #4fd49a; --tw-newS: #12291f; --tw-bad: #ff8a65; --tw-badS: #33201a;
+  --tw-tech: #95a7ff; --tw-techS: #1c2240; --tw-fin: #e3b45a; --tw-finS: #2c2412; --tw-ftc: #5fd3c4; --tw-ftcS: #112a28;
+  --tPosted: #7c9bff; --tRemoved: #ff8a65;
+}
+
+/* shared components rendered inside Tech Watch drop the serif */
+body.tw-body .modal-h h3, body.tw-body .draft-wait, body.tw-body .trends .num,
+body.tw-body .trends h2, body.tw-body .trends h3, body.tw-body .tstat b, body.tw-body .empty {
+  font-family: "Geist", "IBM Plex Sans", sans-serif; font-style: normal;
+}
+body.tw-body .modal { border-radius: 10px; }
+body.tw-body .addBtn, body.tw-body .clearBtn { border-radius: 7px; }
+
+.tw { min-height: 100vh; display: flex; flex-direction: column; }
+.tw-mono, .tw kbd, .tw-age, .tw-badge, .tw-kv dt, .tw-log, .tw-status, .tw-cmd, .tw-group h2, .tw-nav .n, .tw-fit, .tw-logo {
+  font-family: "JetBrains Mono", "Geist Mono", ui-monospace, monospace;
+}
+.tw-shell { flex: 1; display: grid; grid-template-columns: 220px minmax(0, 1fr); min-height: 0; }
+
+/* ---- sidebar ---- */
+.tw-side {
+  background: var(--tw-side); border-right: 1px solid var(--tw-line); padding: 16px 12px;
+  display: flex; flex-direction: column; gap: 18px; position: sticky; top: 0; height: 100vh; overflow-y: auto;
+}
+.tw-logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 15px; letter-spacing: -.02em; padding: 2px 6px; }
+.tw-group h2 { margin: 0 0 6px; padding: 0 8px; font-size: 10.5px; font-weight: 500; color: var(--tw-faint); letter-spacing: .1em; text-transform: uppercase; }
+.tw-navs { display: grid; gap: 1px; }
+.tw-nav {
+  all: unset; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; gap: 8px;
+  width: 100%; padding: 6px 8px; border-radius: 6px; font-size: 13px; color: var(--tw-soft); cursor: pointer;
+}
+.tw-nav:hover { background: var(--tw-panel); color: var(--tw-ink); }
+.tw-nav.on { background: var(--tw-panel); color: var(--tw-ink); box-shadow: 0 0 0 1px var(--tw-line); }
+.tw-nav:focus-visible { outline: 2px solid var(--tw-acc); }
+.tw-nav .n { font-size: 11.5px; color: var(--tw-faint); font-variant-numeric: tabular-nums; }
+.tw-saved { display: flex; align-items: center; }
+.tw-saved .tw-nav { flex: 1; min-width: 0; }
+.tw-saved .tw-mono { font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tw-x { all: unset; cursor: pointer; padding: 2px 8px; color: var(--tw-faint); border-radius: 4px; }
+.tw-x:hover { color: var(--tw-bad); }
+.tw-x:focus-visible { outline: 2px solid var(--tw-acc); }
+.tw-side-foot { margin-top: auto; display: flex; gap: 6px; flex-wrap: wrap; }
+
+/* ---- buttons ---- */
+.tw-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 7px 12px; border-radius: 7px; border: 1px solid var(--tw-ink); background: var(--tw-ink); color: var(--tw-bg);
+  font: 500 13px "Geist", "IBM Plex Sans", sans-serif; cursor: pointer; text-decoration: none; white-space: nowrap;
+}
+.tw-btn.ghost { background: var(--tw-panel); color: var(--tw-ink); border-color: var(--tw-line); }
+.tw-btn.ghost:hover:not(:disabled) { border-color: var(--tw-soft); }
+.tw-btn.pri { background: var(--tw-acc); border-color: var(--tw-acc); color: #fff; }
+.tw-btn.small { padding: 3px 9px; font-size: 12px; }
+.tw-btn:disabled, .tw-btn.disabled { opacity: .5; cursor: default; }
+.tw-btn:focus-visible { outline: 2px solid var(--tw-acc); outline-offset: 2px; }
+
+/* ---- command line + log (terminal chrome) ---- */
+.tw-main { min-width: 0; display: flex; flex-direction: column; }
+.tw-cmd {
+  display: flex; align-items: center; gap: 10px; padding: 10px 16px;
+  background: var(--tw-term); color: var(--tw-termInk); font-size: 14px;
+  position: sticky; top: 0; z-index: 5;
+}
+.tw-prompt { color: var(--tw-cyan); font-weight: 700; flex: none; }
+.tw-cmd input {
+  flex: 1; min-width: 0; background: transparent; border: 0; outline: none; color: var(--tw-termInk);
+  font: inherit; caret-color: var(--tw-cyan);
+}
+.tw-cmd input::placeholder { color: #4b535d; }
+.tw-cmd kbd { font-size: 11px; padding: 1px 6px; border: 1px solid #30363d; border-radius: 4px; color: var(--tw-termDim); }
+.tw-cmd .tw-btn.ghost { background: transparent; color: var(--tw-amber); border-color: #30363d; padding: 3px 9px; }
+.tw-cmd:focus-within { box-shadow: inset 0 -2px 0 var(--tw-cyan); }
+.tw-log {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 6px 8px; padding: 7px 16px;
+  background: var(--tw-term2); color: var(--tw-termInk); font-size: 12px; border-bottom: 1px solid var(--tw-line);
+}
+.tw-log .ok { color: var(--tw-green); }
+.tw-log .gain { color: var(--tw-green); }
+.tw-log .dim, .tw-log .sep { color: var(--tw-termDim); }
+.tw-chip { color: var(--tw-amber); border: 1px solid #3a3320; border-radius: 4px; padding: 0 6px; }
+.tw-log .tw-btn { margin-left: auto; background: transparent; color: var(--tw-cyan); border-color: #30363d; }
+
+.tw-err { margin: 10px 16px 0; padding: 8px 12px; border-radius: 7px; background: var(--tw-badS); color: var(--tw-bad); font-size: 13px; }
+.tw-hint { font-size: 12.5px; color: var(--tw-soft); padding: 0 8px; }
+.tw-section .tw-hint, .tw-panel .tw-hint { padding: 0; }
+
+/* ---- list + detail ---- */
+.tw-body { flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) 360px; min-height: 0; }
+.tw-list { min-width: 0; }
+.tw-empty { padding: 40px 16px; color: var(--tw-soft); font: 13px "JetBrains Mono", monospace; }
+.tw-row {
+  all: unset; box-sizing: border-box; width: 100%; cursor: pointer;
+  display: grid; grid-template-columns: 32px minmax(0, 1fr) auto; gap: 12px; align-items: center;
+  padding: 10px 16px; border-bottom: 1px solid var(--tw-line);
+}
+.tw-row:hover { background: var(--tw-hover); }
+.tw-row.on { background: var(--tw-accS); box-shadow: inset 2px 0 0 var(--tw-acc); }
+.tw-row:focus-visible { outline: 2px solid var(--tw-acc); outline-offset: -2px; }
+.tw-mono-badge {
+  width: 32px; height: 32px; border-radius: 7px; display: grid; place-items: center;
+  font: 600 13px "JetBrains Mono", monospace; background: var(--tw-panel); border: 1px solid var(--tw-line); color: var(--tw-soft);
+}
+.tw-row-main { min-width: 0; display: flex; flex-direction: column; }
+.tw-row-title { font-weight: 500; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tw-row-meta { font-size: 12.5px; color: var(--tw-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tw-row-tags { display: flex; align-items: center; gap: 6px; }
+.tw-badge { font-size: 11px; padding: 1px 7px; border-radius: 5px; background: var(--tw-side); color: var(--tw-soft); }
+.tw-badge.new { background: var(--tw-newS); color: var(--tw-new); }
+.tw-badge.sec-tech { background: var(--tw-techS); color: var(--tw-tech); }
+.tw-badge.sec-fintech { background: var(--tw-ftcS); color: var(--tw-ftc); }
+.tw-badge.sec-finance { background: var(--tw-finS); color: var(--tw-fin); }
+.tw-badge.st-applied, .tw-badge.st-interview, .tw-badge.st-offer { background: var(--tw-accS); color: var(--tw-acc); }
+.tw-badge.st-rejected { background: var(--tw-badS); color: var(--tw-bad); }
+.tw-age { font-size: 12px; color: var(--tw-faint); width: 30px; text-align: right; font-variant-numeric: tabular-nums; }
+.tw-fit { font-size: 11.5px; font-weight: 700; padding: 1px 6px; border-radius: 5px; font-variant-numeric: tabular-nums; }
+.tw-fit.hi { background: var(--tw-newS); color: var(--tw-new); }
+.tw-fit.mid { background: var(--tw-finS); color: var(--tw-fin); }
+.tw-fit.lo { background: var(--tw-side); color: var(--tw-faint); }
+
+.tw-detail {
+  border-left: 1px solid var(--tw-line); background: var(--tw-panel); padding: 18px;
+  display: flex; flex-direction: column; gap: 16px;
+  position: sticky; top: 76px; align-self: start; max-height: calc(100vh - 76px); overflow-y: auto;
+}
+.tw-detail-firm { font-size: 13px; color: var(--tw-soft); }
+.tw-detail-title { margin: 2px 0 0; font-size: 19px; line-height: 1.3; font-weight: 600; text-wrap: balance; }
+.tw-kv { display: grid; grid-template-columns: 84px 1fr; gap: 5px 10px; margin: 0; font-size: 13px; }
+.tw-kv dt { color: var(--tw-faint); font-size: 12px; padding-top: 1px; }
+.tw-kv dd { margin: 0; overflow-wrap: anywhere; }
+.tw-section { display: flex; flex-direction: column; gap: 8px; }
+.tw-section h3 { margin: 0; font: 500 11px "JetBrains Mono", monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--tw-faint); }
+.tw-status-btns { display: flex; flex-wrap: wrap; gap: 4px; }
+.tw-status-btns button {
+  font: 500 12px "Geist", sans-serif; padding: 5px 9px; border-radius: 6px; cursor: pointer;
+  border: 1px solid var(--tw-line); background: var(--tw-bg); color: var(--tw-soft);
+}
+.tw-status-btns button:hover { color: var(--tw-ink); border-color: var(--tw-soft); }
+.tw-status-btns button.on { background: var(--tw-ink); color: var(--tw-bg); border-color: var(--tw-ink); }
+.tw-status-btns button.on.st-rejected { background: var(--tw-bad); border-color: var(--tw-bad); color: #fff; }
+.tw-status-btns button:focus-visible { outline: 2px solid var(--tw-acc); outline-offset: 1px; }
+.tw-notes {
+  width: 100%; font: 13px "Geist", sans-serif; padding: 8px 10px; border-radius: 7px; resize: vertical;
+  border: 1px solid var(--tw-line); background: var(--tw-bg); color: var(--tw-ink);
+}
+.tw-notes:focus { outline: 2px solid var(--tw-acc); outline-offset: 0; border-color: transparent; }
+.tw-fitbar { display: flex; align-items: center; gap: 10px; }
+.tw-fitbar .bar { flex: 1; height: 6px; border-radius: 3px; background: var(--tw-line); overflow: hidden; }
+.tw-fitbar .bar i { display: block; height: 100%; background: var(--tw-acc); }
+.tw-fitbar b { font: 700 14px "JetBrains Mono", monospace; }
+.tw-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto; }
+.tw-actions .tw-btn { flex: 1; }
+
+/* ---- AI panel ---- */
+.tw-panel { margin: 12px 16px 0; padding: 14px 16px; border: 1px solid var(--tw-line); border-radius: 10px; background: var(--tw-panel); display: flex; flex-direction: column; gap: 10px; }
+.tw-panel-h { display: flex; justify-content: space-between; align-items: center; }
+.tw-panel-h h2 { margin: 0; font-size: 16px; }
+.tw-panel-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.tw-panel-row.col { flex-direction: column; align-items: flex-end; }
+.tw-preview { margin: 0; white-space: pre-wrap; font: 12px "JetBrains Mono", monospace; color: var(--tw-soft); background: var(--tw-side); padding: 8px 10px; border-radius: 6px; max-height: 110px; overflow: auto; }
+
+/* ---- trends ---- */
+.tw-trends { padding: 16px; }
+
+/* ---- status bar ---- */
+.tw-status {
+  position: sticky; bottom: 0; z-index: 5; display: flex; flex-wrap: wrap; font-size: 12px;
+  background: var(--tw-term); color: var(--tw-termDim); border-top: 1px solid #21262d;
+}
+.tw-status span { padding: 4px 12px; }
+.tw-status .mode { background: var(--tw-cyan); color: var(--tw-term); font-weight: 700; }
+.tw-status .keys { margin-left: auto; }
+
+@media (max-width: 1100px) {
+  .tw-body { grid-template-columns: 1fr; }
+  .tw-detail { position: static; max-height: none; border-left: 0; border-top: 1px solid var(--tw-line); }
+}
+@media (max-width: 760px) {
+  .tw-shell { grid-template-columns: 1fr; }
+  .tw-side { position: static; height: auto; flex-direction: row; flex-wrap: wrap; gap: 10px 16px; border-right: 0; border-bottom: 1px solid var(--tw-line); }
+  .tw-group { flex: 1 1 150px; }
+  .tw-status .keys, .tw-cmd kbd { display: none; }
+  .tw-row { grid-template-columns: minmax(0, 1fr); }
+  .tw-mono-badge { display: none; }
+  .tw-row-tags { flex-wrap: wrap; }
+}

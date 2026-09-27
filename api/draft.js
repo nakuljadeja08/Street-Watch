@@ -4,19 +4,29 @@
 //   `guidance` is the candidate's answer to the draft's follow-up question (or
 //   anything they want emphasized); it steers a regeneration.
 // Follows the user's job-application-answers skill (see _voice.js).
-import { MODEL, checkAuth, db, json, askJson, errorResponse, getResume, getDescription, saveDescription, jobHeader, researchFirm } from "./_lib.js";
+import { MODEL, checkAuth, db, json, askJson, errorResponse, getResume, getDescription, saveDescription, jobHeader, researchFirm, watchOf, tables } from "./_lib.js";
 import { fetchDescription } from "./_jd.js";
 import { APPLICATION_GUIDE, stripDashes } from "./_voice.js";
+import { TECH_APPLICATION_GUIDE, techReturnSpec } from "./_voice_tech.js";
 
-const SYSTEM = `You write job application materials for a finance candidate (investment banking, PE, asset management, markets, consulting).
-
-${APPLICATION_GUIDE}
-
-## What to return
+const RETURN_SPEC = `## What to return
 - cover_letter: 220 to 320 words, following the narration pattern above (scene, one line pivot, firsthand proof, why this firm specifically, short humble close). Start with "Dear <Firm> Recruiting Team," (or the recruiter's name if the notes give one). End with "Thank you for considering my application." then "Sincerely," then the candidate's name from the resume. Plain text, short paragraphs separated by blank lines.
 - why_firm: 100 to 170 words answering "Why <firm>?" in first person, same pattern compressed: open on a real moment or observation, then what she saw firsthand that made it matter, then what this firm is actually doing about it, ending with what she wants to be part of there. Plain text, no heading.
 - question: if the strongest version needs a detail that is NOT in the resume, notes or guidance (a motivation, a specific project moment, a personal connection to the firm), ONE short focused question to ask the candidate. Otherwise an empty string. Never invent the detail instead.
 - alternative_angle: one sentence proposing a different angle the candidate could choose instead.`;
+
+const SYSTEM = {
+  street: `You write job application materials for a finance candidate (investment banking, PE, asset management, markets, consulting).
+
+${APPLICATION_GUIDE}
+
+${RETURN_SPEC}`,
+  tech: `You write job application materials for a data engineering candidate applying to tech and finance companies.
+
+${TECH_APPLICATION_GUIDE}
+
+${techReturnSpec(RETURN_SPEC)}`,
+};
 
 const SCHEMA = {
   type: "object",
@@ -31,12 +41,12 @@ const SCHEMA = {
 };
 
 export async function GET(request) {
-  const denied = checkAuth(request);
+  const denied = await checkAuth(request);
   if (denied) return denied;
   const jobId = new URL(request.url).searchParams.get("job_id");
   if (!jobId) return json({ error: "job_id is required." }, 400);
   const { data, error } = await db()
-    .from("ai_drafts")
+    .from(tables(watchOf(request)).drafts)
     .select("cover_letter, why_firm, created_at")
     .eq("job_id", jobId)
     .maybeSingle();
@@ -45,13 +55,14 @@ export async function GET(request) {
 }
 
 export async function POST(request) {
-  const denied = checkAuth(request);
+  const denied = await checkAuth(request);
   if (denied) return denied;
   try {
     const { job, notes, guidance, description: pasted } = await request.json();
     if (!job?.id || !job.firm || !job.title) return json({ error: "Missing role." }, 400);
 
-    const profile = await getResume();
+    const watch = watchOf(request);
+    const profile = await getResume(watch);
     if (!profile?.resume_text) return json({ error: "Add your resume first (✨ AI setup)." }, 400);
 
     let description = pasted?.trim();
@@ -62,7 +73,7 @@ export async function POST(request) {
     const research = await researchFirm(job, description);
 
     const out = await askJson({
-      system: SYSTEM,
+      system: SYSTEM[watch],
       effort: "medium",
       maxTokens: 12000,
       schema: SCHEMA,
@@ -84,7 +95,7 @@ export async function POST(request) {
       created_at: new Date().toISOString(),
     };
     const { error } = await db()
-      .from("ai_drafts")
+      .from(tables(watch).drafts)
       .upsert({ job_id: job.id, ...draft, model: MODEL });
     if (error) console.warn(`ai_drafts write failed: ${error.message}`);
     return json({

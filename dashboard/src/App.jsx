@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { supabase, STATUSES } from "./supabaseClient.js";
+import { supabase, STATUSES, authHeaders } from "./supabaseClient.js";
 import FIRM_CATEGORIES from "../../firm_categories.json";
 import Trends from "./Trends.jsx";
 
@@ -127,7 +127,7 @@ function initialParams() {
   }
 }
 
-export default function App() {
+export default function App({ signedIn = false, header = null }) {
   const init = initialParams();
   const [jobs, setJobs] = useState([]);
   const [apps, setApps] = useState({}); // job_id -> {status, applied_at, notes}
@@ -231,7 +231,11 @@ export default function App() {
   async function aiFetch(path, body) {
     const r = await fetch(`/api/${path}`, {
       method: body ? "POST" : "GET",
-      headers: { "x-sw-key": swKey, ...(body ? { "content-type": "application/json" } : {}) },
+      headers: {
+        ...(await authHeaders()),
+        ...(swKey ? { "x-sw-key": swKey } : {}),
+        ...(body ? { "content-type": "application/json" } : {}),
+      },
       body: body ? JSON.stringify(body) : undefined,
     });
     let data = {};
@@ -252,7 +256,7 @@ export default function App() {
       if (swKey) localStorage.setItem("sw-ai-key", swKey);
       else localStorage.removeItem("sw-ai-key");
     } catch {}
-    if (!swKey) {
+    if (!swKey && !signedIn) {
       setAi({ state: "off", resume: null, fits: {}, drafts: [], error: "" });
       return;
     }
@@ -264,7 +268,7 @@ export default function App() {
     return () => {
       live = false;
     };
-  }, [swKey]);
+  }, [swKey, signedIn]);
 
   async function scoreJobs(list, description) {
     const ids = list.map((j) => j.id);
@@ -759,6 +763,7 @@ export default function App() {
 
   return (
     <div className="app">
+      {header}
       <header>
         <div className="wrap">
           <button
@@ -1344,7 +1349,7 @@ function SaveSearchForm({ placeholder, onSave, onCancel }) {
 }
 
 // Read a File as base64 (no data: prefix)
-function fileToBase64(file) {
+export function fileToBase64(file) {
   return new Promise((resolve, reject) => {
     const r = new FileReader();
     r.onload = () => resolve(String(r.result).split(",")[1] || "");
@@ -1495,7 +1500,7 @@ function AiPanel({ swKey, setSwKey, ai, aiFetch, onResume, onClose }) {
   );
 }
 
-function Modal({ title, onClose, children }) {
+export function Modal({ title, onClose, children }) {
   useEffect(() => {
     const onKey = (e) => e.key === "Escape" && onClose();
     window.addEventListener("keydown", onKey);
@@ -1516,7 +1521,7 @@ function Modal({ title, onClose, children }) {
   );
 }
 
-function PasteJdModal({ job, onSubmit, onClose, busy }) {
+export function PasteJdModal({ job, onSubmit, onClose, busy }) {
   const [text, setText] = useState("");
   return (
     <Modal title={`${job.firm} — ${job.title}`} onClose={onClose}>
@@ -1549,7 +1554,7 @@ function PasteJdModal({ job, onSubmit, onClose, busy }) {
   );
 }
 
-function DraftModal({ job, notes, hasDraft, aiFetch, onSaved, onClose }) {
+export function DraftModal({ job, notes, hasDraft, aiFetch, onSaved, onClose }) {
   const [draft, setDraft] = useState(null);
   const [tab, setTab] = useState("cover_letter");
   const [state, setState] = useState("loading"); // loading | writing | ready | need_jd | error
