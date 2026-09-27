@@ -69,7 +69,7 @@ tech firms' ATS APIs + Street Watch's finance firms  ──►  tech_pipeline.py
   Lever, Workday, Amazon's jobs API) listed in `TECH_FIRMS.md`, plus every
   Street Watch firm except the consulting shops, searched for data roles.
   Google, Meta, Microsoft, Uber, Netflix, Bloomberg, AmEx and Two Sigma need
-  custom fetchers and aren't wired yet.
+  custom fetchers and aren't wired yet (task list in `TASKS.md`).
 - **Titles in:** Data Engineer (I / II), Analytics Engineer, Data Platform /
   Infrastructure Engineer, ETL and Big Data roles.
 - **Titles out:** Senior, Staff, Principal, Lead, Manager and up; level III+
@@ -120,9 +120,8 @@ Setup, done 2026-09-27:
 2. Authentication → Users → *Add user* for each person, then run
    `schema_auth.sql` with the two emails filled in (keep real emails out of
    the committed file; this repo is public).
-3. **Still to do:** once both of you have signed in on the live site, run
-   `schema_auth_lockdown.sql` to remove the old open (anon) write access to
-   Street Watch's tracker tables.
+3. `schema_auth_lockdown.sql`: removed the old open (anon) write access to
+   Street Watch's tracker tables, so only signed-in users can change them.
 
 Local preview without signing in: `VITE_SKIP_LOGIN=1 npm run dev` in
 `dashboard/` (dev builds only; Tech Watch falls back to the last local pull).
