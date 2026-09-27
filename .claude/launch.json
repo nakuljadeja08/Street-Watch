@@ -4,9 +4,26 @@
     {
       "name": "dashboard",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev", "--", "--port", "5178", "--strictPort"],
+      "runtimeArgs": [
+        "run",
+        "dev",
+        "--",
+        "--port",
+        "5178",
+        "--strictPort"
+      ],
       "cwd": "dashboard",
       "port": 5178
+    },
+    {
+      "name": "dashboard-preview",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": [
+        "/c",
+        "set VITE_SKIP_LOGIN=1&& npm run dev -- --port 5179 --strictPort"
+      ],
+      "cwd": "dashboard",
+      "port": 5179
     }
   ]
 }

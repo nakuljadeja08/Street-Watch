@@ -174,6 +174,26 @@ async function generic(url) {
   return htmlToText(main);
 }
 
+async function lever(jobId) {
+  // lever-<board>-<uuid>; the uuid itself contains dashes
+  const m = jobId.match(/^lever-(.+?)-([0-9a-f]{8}-[0-9a-f-]{27})$/i);
+  if (!m) return "";
+  const d = await (await get(`https://api.lever.co/v0/postings/${m[1]}/${m[2]}`)).json();
+  const lists = (d.lists || []).map((l) => `${l.text}\n${htmlToText(l.content || "")}`).join("\n\n");
+  return [d.descriptionPlain || htmlToText(d.description || ""), lists, d.additionalPlain || ""]
+    .filter(Boolean)
+    .join("\n\n")
+    .trim();
+}
+
+async function amazon(url) {
+  // amazon.jobs pages: the posting is the run of <div class="section"><h2>…
+  // blocks (Description / Basic / Preferred Qualifications); the rest is chrome.
+  const html = await (await get(url)).text();
+  const parts = html.split('<div class="section"><h2>').slice(1);
+  return parts.map((p) => htmlToText("<h2>" + p.split('<div class="section')[0])).join("\n\n").trim();
+}
+
 // ---------------------------------------------------------------- entry
 export async function fetchDescription(job) {
   const id = String(job.id || "");
@@ -186,6 +206,8 @@ export async function fetchDescription(job) {
   if (id.startsWith("gh-")) attempts.push(() => greenhouse(id));
   if (id.startsWith("ashby-")) attempts.push(() => ashby(id));
   if (id.startsWith("gs-")) attempts.push(() => goldman(id));
+  if (id.startsWith("lever-")) attempts.push(() => lever(id));
+  if (id.startsWith("amazon-") && u) attempts.push(() => amazon(u.href));
   if (u && /myworkday(jobs|site)\.com$/.test(u.host)) attempts.push(() => workday(u));
   if (u && /oraclecloud\.com$/.test(u.host)) attempts.push(() => oracle(u));
   if (u) attempts.push(() => generic(u.href));
