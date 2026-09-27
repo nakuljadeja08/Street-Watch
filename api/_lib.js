@@ -21,12 +21,30 @@ export function json(data, status = 200) {
 }
 
 // Returns an error Response when the request isn't allowed, else null.
-export function checkAuth(request) {
-  const want = process.env.STREET_WATCH_KEY;
-  if (!want) return json({ error: "Server is missing STREET_WATCH_KEY." }, 500);
-  if (request.headers.get("x-sw-key") !== want) return json({ error: "Wrong passphrase." }, 401);
+// Accepts either a signed-in Supabase session (Authorization: Bearer <jwt>,
+// sent by the dashboard after login) or the STREET_WATCH_KEY passphrase.
+export async function checkAuth(request) {
   if (!process.env.SUPABASE_SERVICE_KEY) return json({ error: "Server is missing SUPABASE_SERVICE_KEY." }, 500);
-  return null;
+  const want = process.env.STREET_WATCH_KEY;
+  if (want && request.headers.get("x-sw-key") === want) return null;
+  const token = (request.headers.get("authorization") || "").replace(/^Bearer\s+/i, "");
+  if (token) {
+    const { data, error } = await db().auth.getUser(token);
+    if (!error && data?.user) return null;
+  }
+  return json({ error: want ? "Sign in (or enter the passphrase) to use AI." : "Sign in to use AI." }, 401);
+}
+
+// Which board a request is for ("street" | "tech"), from the x-watch header.
+// Each watch keeps its own resume, fit scores and drafts.
+export function watchOf(request) {
+  return request.headers.get("x-watch") === "tech" ? "tech" : "street";
+}
+
+export function tables(watch) {
+  return watch === "tech"
+    ? { profile: "tech_profile", fit: "tech_ai_fit", drafts: "tech_ai_drafts" }
+    : { profile: "profile", fit: "ai_fit", drafts: "ai_drafts" };
 }
 
 let _db;
@@ -44,8 +62,8 @@ function claude() {
   return _claude;
 }
 
-export async function getResume() {
-  const { data, error } = await db().from("profile").select("resume_text, updated_at").eq("id", 1).maybeSingle();
+export async function getResume(watch = "street") {
+  const { data, error } = await db().from(tables(watch).profile).select("resume_text, updated_at").eq("id", 1).maybeSingle();
   if (error) throw new Error(`profile read failed: ${error.message}`);
   return data;
 }

@@ -1,15 +1,16 @@
 // GET /api/status — everything the dashboard needs on load: whether a resume
 // is on file, every fit score, and which roles already have a draft.
-import { checkAuth, db, json, errorResponse } from "./_lib.js";
+import { checkAuth, db, json, errorResponse, watchOf, tables } from "./_lib.js";
 
 export async function GET(request) {
-  const denied = checkAuth(request);
+  const denied = await checkAuth(request);
   if (denied) return denied;
   try {
+    const t = tables(watchOf(request));
     const [p, f, d] = await Promise.all([
-      db().from("profile").select("updated_at, resume_text").eq("id", 1).maybeSingle(),
-      db().from("ai_fit").select("job_id, score, reason"),
-      db().from("ai_drafts").select("job_id"),
+      db().from(t.profile).select("updated_at, resume_text").eq("id", 1).maybeSingle(),
+      db().from(t.fit).select("job_id, score, reason"),
+      db().from(t.drafts).select("job_id"),
     ]);
     for (const r of [p, f, d]) if (r.error) throw new Error(r.error.message);
     const fits = {};

@@ -49,6 +49,40 @@ firms' ATS APIs  ──►  pipeline.py  ──►  Supabase `jobs` table  ─�
   and refreshes as the cron writes new rows.
 - Run `schema_ai_and_searches.sql` once for saved searches and the AI tables.
 
+## Tech Watch (second board) and login
+
+The site now has two boards behind one login: **Street Watch** at `/` (Ms
+Tian's finance roles) and **Tech Watch** at `/tech` (Nakul's data
+engineering roles). Either account can open both; the bar at the top
+switches between them.
+
+- **Pipeline:** `tech_pipeline.py` reuses `pipeline.py`'s fetchers but has its
+  own firm list (`TECH_FIRMS.md`), title rules (data / analytics / data
+  platform engineer; no Senior, Staff, Lead, Manager, ML engineer, level III+),
+  US-only location rules grouped into hubs (NYC Area, SF Bay Area, Seattle, …,
+  Remote (US), Other US) and a 60-day age cap. It writes `tech_watch_jobs.json`
+  / `.csv`, `.tech_watch_state.json`, `.tech_watch_trends.json` and the
+  Supabase `tech_*` tables, and emails its own digest to `NEWSLETTER_TO`.
+  It runs as the `tech` job in the same daily workflow.
+- **Board:** `dashboard/src/TechApp.jsx`. One command line drives every
+  filter (`spark sector:fintech hub:nyc new status:applied sort:fit`); the
+  sidebar, saved searches and the URL just write that command. Keys: `/` or
+  ⌘K search, `j`/`k` move, `o` open, `a` applied, `f` score fit, `w` write.
+- **AI:** the same `/api` routes, with `x-watch: tech` selecting Tech Watch's
+  own resume, scores and drafts (`tech_profile`, `tech_ai_fit`,
+  `tech_ai_drafts`) and a data engineering prompt (`api/_voice_tech.js`).
+  Signed-in users don't need the passphrase.
+
+**One-time setup (Supabase):**
+1. SQL Editor → run `schema_tech.sql`.
+2. Authentication → Users → *Add user* for each of you (email + password,
+   auto-confirm). Then run `schema_auth.sql` with the two emails filled in.
+3. Once both of you can sign in, run `schema_auth_lockdown.sql` to remove the
+   old open write access to Street Watch's tracker tables.
+
+Local preview without signing in: `VITE_SKIP_LOGIN=1 npm run dev` in
+`dashboard/` (dev builds only; Tech Watch falls back to the last local pull).
+
 ## Saved searches
 
 Set filters on the dashboard (level, metro, firm type, keywords) → **☆ Save
