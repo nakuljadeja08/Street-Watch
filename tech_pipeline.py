@@ -202,19 +202,19 @@ def fetch_workday(firm, tenant, dc, site):
 
 # ---------------------------------------------------------------- filters
 # In: data engineering titles. Out: senior grades, management, ML engineering,
-# interns, pre-sales/architect roles and hardware "data center" jobs.
+# software engineering (any title with "software"), interns, pre-sales/architect
+# roles, security and hardware "data center" jobs.
 _DE_RE = re.compile(
     r"\bdata\s+(?:\w+\s+){0,2}?engineer"              # Data / Cloud Data / Data Platform Engineer
     r"|\bdata\s+engineering\b|\bdata\s+developer\b"
     r"|\banalytics\s+engineer"
     r"|\b(?:etl|elt)\b"
-    r"|\bbig\s+data\b"
-    r"|\bsoftware\s+engineer\b[^()]*?\bdata\b", re.I)
+    r"|\bbig\s+data\b", re.I)
 _DE_EXCLUDE_RE = re.compile(
     r"\b(?:senior|sr|staff|principal|lead|leader|manager|mgr|director|head|chief|"
     r"vp|avp|svp|evp|vice\s+president|distinguished|fellow|"
     r"intern|internship|co-?op|summer|apprentice|"
-    r"architect|specialist|sales|presales|siem|"
+    r"architect|specialist|sales|presales|siem|software|"
     r"iii|iv)\b"
     r"|machine\s+learning\s+engineer|\bml\s*(?:ops)?\s+engineer|\bmlops\b"
     r"|data\s+cent(?:er|re)|data\s+(?:protection|security|privacy|loss)|part[\s-]?time"
