@@ -612,6 +612,19 @@
   },
   {
     "firm": "Amazon",
+    "id": "amazon-10562430",
+    "title": "Data Engineer II, AWS Analytics Engineering - FDT",
+    "location": "Seattle, Washington, USA",
+    "url": "https://www.amazon.jobs/en/jobs/10562430/data-engineer-ii-aws-analytics-engineering-fdt",
+    "source": "amazon",
+    "posted_date": "2026-09-28",
+    "metro": "Seattle",
+    "sector": "Tech",
+    "first_seen": "2026-09-28",
+    "is_new": true
+  },
+  {
+    "firm": "Amazon",
     "id": "amazon-10534615",
     "title": "Data Engineer II, PXT EXR-Ops Tech",
     "location": "Bellevue, Washington, USA",
