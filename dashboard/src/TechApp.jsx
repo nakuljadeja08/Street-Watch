@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { supabase, authHeaders } from "./supabaseClient.js";
 import Trends from "./Trends.jsx";
-import { DraftModal, PasteJdModal, fileToBase64 } from "./App.jsx";
+import { DraftModal, OutsideDraftModal, PasteJdModal, fileToBase64 } from "./App.jsx";
 import "./tech.css";
 
 // Tech Watch: data engineering roles (tech_pipeline.py -> Supabase tech_*).
@@ -164,16 +164,17 @@ export default function TechApp({ header, signedIn }) {
   }, [cmd, view]);
 
   // ------------------------------------------------------------ AI
-  const [ai, setAi] = useState({ state: "off", resume: null, fits: {}, drafts: [], error: "" });
+  const [ai, setAi] = useState({ state: "off", resume: null, fits: {}, drafts: [], outside: [], error: "" });
   const [aiOpen, setAiOpen] = useState(false);
   const [scoring, setScoring] = useState(() => new Set());
   const [draftFor, setDraftFor] = useState(null);
+  const [outsideOpen, setOutsideOpen] = useState(false); // cover letter for a role not on the board
   const [pasteFor, setPasteFor] = useState(null);
   const aiReady = ai.state === "ready" && !!ai.resume;
 
-  async function aiFetch(path, body) {
+  async function aiFetch(path, body, method) {
     const r = await fetch(`/api/${path}`, {
-      method: body ? "POST" : "GET",
+      method: method || (body ? "POST" : "GET"),
       headers: { ...(await authHeaders()), "x-watch": "tech", ...(body ? { "content-type": "application/json" } : {}) },
       body: body ? JSON.stringify(body) : undefined,
     });
@@ -190,7 +191,7 @@ export default function TechApp({ header, signedIn }) {
     let live = true;
     setAi((a) => ({ ...a, state: "loading" }));
     aiFetch("status")
-      .then((d) => live && setAi({ state: "ready", resume: d.resume, fits: d.fits || {}, drafts: d.drafts || [], error: "" }))
+      .then((d) => live && setAi({ state: "ready", resume: d.resume, fits: d.fits || {}, drafts: d.drafts || [], outside: d.outside || [], error: "" }))
       .catch((e) => live && setAi((a) => ({ ...a, state: "error", error: e.message })));
     return () => {
       live = false;
@@ -330,7 +331,7 @@ export default function TechApp({ header, signedIn }) {
         cmdRef.current?.select();
         return;
       }
-      if (typing || e.metaKey || e.ctrlKey || e.altKey || draftFor || pasteFor || view !== "list") return;
+      if (typing || e.metaKey || e.ctrlKey || e.altKey || draftFor || pasteFor || outsideOpen || view !== "list") return;
       const i = rows.findIndex((j) => j.id === sel?.id);
       if (e.key === "j" || e.key === "ArrowDown") {
         e.preventDefault();
@@ -347,7 +348,7 @@ export default function TechApp({ header, signedIn }) {
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [rows, sel, draftFor, pasteFor, view, aiReady, apps]);
+  }, [rows, sel, draftFor, pasteFor, outsideOpen, view, aiReady, apps]);
 
   useEffect(() => {
     listRef.current?.querySelector(".tw-row.on")?.scrollIntoView({ block: "nearest" });
@@ -397,6 +398,9 @@ export default function TechApp({ header, signedIn }) {
               </NavItem>
             ))}
             <NavItem on={view === "trends"} onClick={() => setView(view === "trends" ? "list" : "trends")}>Hiring trends</NavItem>
+            <NavItem on={outsideOpen} n={ai.outside.length || null} onClick={() => (aiReady ? setOutsideOpen(true) : setAiOpen(true))}>
+              ✍ Outside job
+            </NavItem>
           </NavGroup>
 
           <NavGroup title="Where">
@@ -559,6 +563,21 @@ export default function TechApp({ header, signedIn }) {
           aiFetch={aiFetch}
           onSaved={(id) => setAi((a) => ({ ...a, drafts: a.drafts.includes(id) ? a.drafts : [...a.drafts, id] }))}
           onClose={() => setDraftFor(null)}
+        />
+      )}
+      {outsideOpen && (
+        <OutsideDraftModal
+          outside={ai.outside}
+          aiFetch={aiFetch}
+          onSaved={(job) =>
+            setAi((a) => ({
+              ...a,
+              drafts: a.drafts.includes(job.id) ? a.drafts : [...a.drafts, job.id],
+              outside: [{ ...job, created_at: new Date().toISOString() }, ...a.outside.filter((o) => o.id !== job.id)],
+            }))
+          }
+          onDeleted={(id) => setAi((a) => ({ ...a, outside: a.outside.filter((o) => o.id !== id), drafts: a.drafts.filter((d) => d !== id) }))}
+          onClose={() => setOutsideOpen(false)}
         />
       )}
       {pasteFor && (

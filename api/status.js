@@ -1,5 +1,6 @@
 // GET /api/status — everything the dashboard needs on load: whether a resume
-// is on file, every fit score, and which roles already have a draft.
+// is on file, every fit score, which roles already have a draft, and the
+// outside-job drafts (roles not on the board) so they can be reopened.
 import { checkAuth, db, json, errorResponse, watchOf, tables } from "./_lib.js";
 
 export async function GET(request) {
@@ -13,6 +14,12 @@ export async function GET(request) {
       db().from(t.drafts).select("job_id"),
     ]);
     for (const r of [p, f, d]) if (r.error) throw new Error(r.error.message);
+    // needs the `job` column from schema_outside_drafts.sql; empty until then
+    const o = await db()
+      .from(t.drafts)
+      .select("job_id, job, created_at")
+      .like("job_id", "x\\_%")
+      .order("created_at", { ascending: false });
     const fits = {};
     for (const row of f.data || []) fits[row.job_id] = { score: row.score, reason: row.reason };
     return json({
@@ -21,6 +28,7 @@ export async function GET(request) {
         : null,
       fits,
       drafts: (d.data || []).map((r) => r.job_id),
+      outside: o.error ? [] : (o.data || []).filter((r) => r.job).map((r) => ({ id: r.job_id, ...r.job, created_at: r.created_at })),
     });
   } catch (e) {
     return errorResponse(e);

@@ -19,6 +19,7 @@ firms' ATS APIs  ──►  pipeline.py  ──►  Supabase `jobs` table  ─�
 | `.github/workflows/newsletter-test.yml` | Manual button to re-send the newsletter from the last committed pull (no scrape). |
 | `send_test_newsletter.py` | Standalone sender used by the test workflow (and runnable locally). |
 | `schema_ai_and_searches.sql` | One-time `saved_searches` table (anon r/w) + the private AI tables (`profile`, `job_details`, `ai_fit`, `ai_drafts` — service key only). |
+| `schema_outside_drafts.sql` | Adds a `job` column to `ai_drafts` / `tech_ai_drafts` so cover letters for outside jobs can be listed and reopened. |
 | `schema_trends.sql` | One-time `hiring_trends` table (public read) behind the dashboard's **Trends** view. |
 | `.street_watch_trends.json` | Running hiring-trends record + yesterday's board (the baseline takedowns are measured against); committed by the daily run. |
 | `tech_pipeline.py` | Tech Watch ingester (data engineering roles); see *Tech Watch* below. |
@@ -178,6 +179,11 @@ Claude). Then each card gets:
   see `api/_voice.js` to edit them). Claude web-searches the firm
   first (cached per firm for 14 days), uses your card notes, and may ask one
   follow-up question — answer it in the modal and hit *Regenerate with this*.
+- **✍ Outside job** — a cover letter for a role that isn't on the board (AI
+  panel or Board view on Street Watch, sidebar on Tech Watch). Enter the
+  company, role and pasted job description; it drafts the same way. These use
+  job ids starting `x_`, keep the posting in `job_details`, and are listed under
+  *Earlier outside drafts* to reopen or delete (needs `schema_outside_drafts.sql`).
 
 Job descriptions are fetched from each firm's own ATS (Workday/Greenhouse/Ashby/
 Oracle/Goldman APIs, else the page's JobPosting JSON-LD) and cached in
