@@ -3025,6 +3025,18 @@
   },
   {
     "firm": "Citi",
+    "id": "citi-101275078944",
+    "title": "Cash and Trade Processing Intermediate Associate Analyst",
+    "location": "Jersey City, New Jersey, United States",
+    "url": "https://jobs.citi.com/job/jersey-city/cash-and-trade-processing-intermediate-associate-analyst/287/101275078944",
+    "source": "citi",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-28",
+    "is_new": true
+  },
+  {
+    "firm": "Citi",
     "id": "citi-98695751264",
     "title": "Client Onboarding Associate Analyst",
     "location": "Getzville, New York, United States",
@@ -3501,18 +3513,6 @@
     "posted_date": "2026-09-11",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": false
-  },
-  {
-    "firm": "Franklin Templeton",
-    "id": "phenom-careers.franklintempleton.com-FTGFTMUS869636EXTERNALENUS",
-    "title": "Quantitative Insurance Solutions Analyst (EG-NYC)",
-    "location": "New York, New York, United States of America",
-    "url": "https://franklintempleton.wd5.myworkdayjobs.com/Primary-External-1/job/New-York-New-York-United-States-of-America/Quantitative-Insurance-Solutions-Analyst--EG-NYC-_869636",
-    "source": "phenom",
-    "posted_date": "2026-09-14",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-19",
     "is_new": false
   },
   {
@@ -4090,6 +4090,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-23",
     "is_new": false
+  },
+  {
+    "firm": "Goldman Sachs",
+    "id": "gs-185524_GS_EARLY_CAREER",
+    "title": "Global Banking & Markets - IB Capital Solutions Group - Corporate Derivatives Analyst - New York",
+    "location": "New York, NY, United States",
+    "url": "https://higher.gs.com/roles/185524",
+    "source": "goldman",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-28",
+    "is_new": true
   },
   {
     "firm": "Goldman Sachs",
@@ -5002,6 +5014,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-19",
     "is_new": false
+  },
+  {
+    "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210792445",
+    "title": "Counterparty Credit Risk - Collateral and Margin Associate",
+    "location": "NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210792445",
+    "source": "oracle",
+    "posted_date": "2026-09-28",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-28",
+    "is_new": true
   },
   {
     "firm": "JPMorgan Chase",
@@ -6373,6 +6397,18 @@
   },
   {
     "firm": "Morgan Stanley",
+    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Associate--Risk---Policy-Management_JR031784",
+    "title": "Associate, Risk / Policy Management",
+    "location": "New York, New York, United States of America",
+    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Associate--Risk---Policy-Management_JR031784",
+    "source": "workday",
+    "posted_date": "2026-09-28",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-28",
+    "is_new": true
+  },
+  {
+    "firm": "Morgan Stanley",
     "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Associate--SEC-Reporting_PT-JR041702",
     "title": "Associate, SEC Reporting",
     "location": "New York, New York, United States of America",
@@ -6541,18 +6577,6 @@
   },
   {
     "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Global-Capital-Markets---Associate--Strategic-Lending-Group_JR044540-1",
-    "title": "Global Capital Markets - Associate, Strategic Lending Group",
-    "location": "New York, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Global-Capital-Markets---Associate--Strategic-Lending-Group_JR044540-1",
-    "source": "workday",
-    "posted_date": "2026-09-23",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-24",
-    "is_new": false
-  },
-  {
-    "firm": "Morgan Stanley",
     "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Global-Capital-Markets---Analyst-Associate--Alternative-Capital-Solutions--New-York-_JR043862-1",
     "title": "Global Capital Markets \u2013 Analyst/Associate, Alternative Capital Solutions (New York)",
     "location": "New York, New York, United States of America",
@@ -6669,18 +6693,6 @@
     "posted_date": "2026-09-16",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Investment-Banking-Transportation-Analyst---New-York_JR044511-1",
-    "title": "Investment Banking Transportation Analyst - New York",
-    "location": "New York, New York, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Investment-Banking-Transportation-Analyst---New-York_JR044511-1",
-    "source": "workday",
-    "posted_date": "2026-09-23",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-23",
     "is_new": false
   },
   {
@@ -7393,24 +7405,12 @@
   },
   {
     "firm": "RBC Capital Markets",
-    "id": "phenom-jobs.rbc.com-RBCAA0088R0000187752EXTERNALENCA",
-    "title": "Associate, Equity Derivatives Structurer",
-    "location": "New York, New York, United States of America",
-    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Associate--Equity-Derivatives-Structurer_R-0000187752",
+    "id": "phenom-jobs.rbc.com-RBCAA0088R0000164359EXTERNALENCA",
+    "title": "Associate, U.S. Regulatory Reporting",
+    "location": "Jersey City, New Jersey, United States of America",
+    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/Jersey-City-New-Jersey-United-States-of-America/Associate--US-Regulatory-Reporting_R-0000164359-1",
     "source": "phenom",
-    "posted_date": "2026-09-23",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-23",
-    "is_new": false
-  },
-  {
-    "firm": "RBC Capital Markets",
-    "id": "phenom-jobs.rbc.com-RBCAA0088R0000177417EXTERNALENCA",
-    "title": "Associate, Non-Traditional ABS Origination",
-    "location": "New York, New York, United States of America",
-    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Associate--Non-Traditional-ABS-Origination_R-0000177417",
-    "source": "phenom",
-    "posted_date": "2026-09-09",
+    "posted_date": "2026-09-02",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-18",
     "is_new": false
@@ -7423,6 +7423,18 @@
     "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/Jericho-New-York-United-States-of-America/Client-Associate-Registered-Client-Associate_R-0000185622",
     "source": "phenom",
     "posted_date": "2026-09-01",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-18",
+    "is_new": false
+  },
+  {
+    "firm": "RBC Capital Markets",
+    "id": "phenom-jobs.rbc.com-RBCAA0088R0000187068EXTERNALENCA",
+    "title": "Counterparty Credit Risk Analyst (GRM)",
+    "location": "New York, New York, United States of America",
+    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Counterparty-Credit-Risk-Analyst--GRM-_R-0000187068",
+    "source": "phenom",
+    "posted_date": "2026-09-16",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-18",
     "is_new": false
@@ -7933,18 +7945,6 @@
   },
   {
     "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0119281EXTERNALENUS",
-    "title": "2027 Truist Securities - Investment Banking Technology, Media & Telecom Associate Program (MBA) Full-Time",
-    "location": "New York, New York, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY---50-Hudson-Yards/XMLNAME-2027-Truist-Securities---Investment-Banking-Technology--Media---Telecom-Associate-Program--MBA--Full-Time_R0119281-1",
-    "source": "phenom",
-    "posted_date": "2026-09-17",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-18",
-    "is_new": false
-  },
-  {
-    "firm": "Truist Securities",
     "id": "phenom-careers.truist.com-TBJTBFUSR0118569EXTERNALENUS",
     "title": "Associate I,  Asset Securitization Group",
     "location": "New York, New York, USA",
@@ -8041,6 +8041,18 @@
   },
   {
     "firm": "Truist Securities",
+    "id": "phenom-careers.truist.com-TBJTBFUSR0118792EXTERNALENUS",
+    "title": "Investment Grade Debt Capital Markets Analyst",
+    "location": "New York, New York, USA",
+    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY---50-Hudson-Yards/Investment-Grade-DCM-Analyst-II_R0118792",
+    "source": "phenom",
+    "posted_date": "2026-09-22",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-18",
+    "is_new": false
+  },
+  {
+    "firm": "Truist Securities",
     "id": "phenom-careers.truist.com-TBJTBFUSR0119679EXTERNALENUS",
     "title": "Treasury Sales Consultant - Middle Market",
     "location": "New York, New York, USA",
@@ -8066,11 +8078,11 @@
   {
     "firm": "U.S. Bancorp",
     "id": "wd-usbank-US_Bank_Careers-/job/New-York-NY/Payment-Sales-Consultant---Private-Capital-and-Global-Asset-Management_2026-0029688",
-    "title": "Payment Sales Consultant - Private Capital and Global Asset Management",
+    "title": "Payment Sales Consultant - Insurance",
     "location": "New York, NY",
     "url": "https://usbank.wd1.myworkdayjobs.com/US_Bank_Careers/job/New-York-NY/Payment-Sales-Consultant---Private-Capital-and-Global-Asset-Management_2026-0029688",
     "source": "workday",
-    "posted_date": "2026-09-24",
+    "posted_date": "2026-09-28",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-25",
     "is_new": false
