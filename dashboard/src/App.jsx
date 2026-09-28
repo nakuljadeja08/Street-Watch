@@ -479,7 +479,7 @@ export default function App({ signedIn = false, header = null }) {
     }
   }
 
-  // add an off-list role you applied to yourself; returns true on success
+  // add an off-list role you applied to yourself; returns the new row, or null
   async function addCustom({ firm, title, location, url, metro, status }) {
     const row = {
       firm: firm.trim(),
@@ -499,11 +499,11 @@ export default function App({ signedIn = false, header = null }) {
         .single();
       if (error) throw error;
       setCustomJobs((cs) => [...cs, data]);
-      return true;
+      return data;
     } catch (e) {
       setError(`Could not add role: ${e.message || e}`);
       setTimeout(() => setError(""), 5000);
-      return false;
+      return null;
     }
   }
 
@@ -952,10 +952,14 @@ export default function App({ signedIn = false, header = null }) {
           </div>
           {addOpen && (
             <AddCustomForm
+              aiReady={aiReady}
               onAdd={async (fields) => {
-                const ok = await addCustom(fields);
-                if (ok) setAddOpen(false);
-                return ok;
+                const row = await addCustom(fields);
+                if (!row) return false;
+                setAddOpen(false);
+                // a pasted posting drafts the cover letter straight away
+                if (fields.jd) setDraftFor({ ...customToJob(row), pastedJd: fields.jd });
+                return true;
               }}
               onCancel={() => setAddOpen(false)}
             />
@@ -1076,6 +1080,7 @@ export default function App({ signedIn = false, header = null }) {
       {draftFor && (
         <DraftModal
           job={draftFor}
+          description={draftFor.pastedJd}
           notes={appMap[draftFor.id]?.notes}
           hasDraft={ai.drafts.includes(draftFor.id)}
           aiFetch={aiFetch}
@@ -1120,13 +1125,14 @@ export default function App({ signedIn = false, header = null }) {
   );
 }
 
-function AddCustomForm({ onAdd, onCancel }) {
+function AddCustomForm({ aiReady, onAdd, onCancel }) {
   const [firm, setFirm] = useState("");
   const [title, setTitle] = useState("");
   const [location, setLocation] = useState("");
   const [url, setUrl] = useState("");
   const [metro, setMetro] = useState("");
   const [status, setStatus] = useState("applied");
+  const [jd, setJd] = useState("");
   const [busy, setBusy] = useState(false);
   const firmRef = useRef(null);
 
@@ -1134,13 +1140,14 @@ function AddCustomForm({ onAdd, onCancel }) {
     firmRef.current?.focus();
   }, []);
 
-  const canSave = firm.trim() && title.trim() && !busy;
+  const withJd = aiReady && jd.trim().length >= 200;
+  const canSave = firm.trim() && title.trim() && !busy && (!jd.trim() || withJd);
 
   async function submit(e) {
     e.preventDefault();
     if (!canSave) return;
     setBusy(true);
-    const ok = await onAdd({ firm, title, location, url, metro, status });
+    const ok = await onAdd({ firm, title, location, url, metro, status, jd: withJd ? jd.trim() : "" });
     setBusy(false);
     if (!ok) return; // parent keeps the form open + shows the error
   }
@@ -1207,12 +1214,25 @@ function AddCustomForm({ onAdd, onCancel }) {
           </select>
         </label>
       </div>
+      {aiReady && (
+        <label className="addField">
+          <span>Job description (optional, to write a cover letter)</span>
+          <textarea
+            className="noteBox big"
+            rows={5}
+            value={jd}
+            onChange={(e) => setJd(e.target.value)}
+            placeholder="Paste the posting to draft a cover letter as soon as the role is added"
+          />
+        </label>
+      )}
+      {jd.trim() && !withJd && <div className="aiNote">Paste the full posting (at least a paragraph or two), or clear it.</div>}
       <div className="addActions">
         <button type="button" className="clearBtn ghost" onClick={onCancel}>
           Cancel
         </button>
         <button type="submit" className="addBtn on" disabled={!canSave}>
-          {busy ? "Adding…" : "Add role"}
+          {busy ? "Adding…" : withJd ? "Add role & write cover letter" : "Add role"}
         </button>
       </div>
     </form>
