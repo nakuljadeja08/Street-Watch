@@ -1,6 +1,10 @@
-// GET  /api/draft?job_id=…  — the saved draft for a role (or { draft: null })
-// POST /api/draft           — write a fresh cover letter + "why this firm"
+// GET    /api/draft?job_id=…  — the saved draft for a role (or { draft: null })
+// POST   /api/draft           — write a fresh cover letter + "why this firm"
 //   Body: { job: { id, firm, title, location, url }, notes?, guidance?, description? }
+// DELETE /api/draft?job_id=x_… — forget an outside draft and its pasted posting
+//
+// Outside jobs (not on either board) use ids starting "x_" and carry their
+// details on the draft row's `job` column (schema_outside_drafts.sql).
 //   `guidance` is the candidate's answer to the draft's follow-up question (or
 //   anything they want emphasized); it steers a regeneration.
 // Follows the user's job-application-answers skill (see _voice.js).
@@ -8,6 +12,8 @@ import { MODEL, checkAuth, db, json, askJson, errorResponse, getResume, getDescr
 import { fetchDescription } from "./_jd.js";
 import { APPLICATION_GUIDE, stripDashes } from "./_voice.js";
 import { TECH_APPLICATION_GUIDE, techReturnSpec } from "./_voice_tech.js";
+
+const OUTSIDE_PREFIX = "x_";
 
 const RETURN_SPEC = `## What to return
 - cover_letter: 220 to 320 words, following the narration pattern above (scene, one line pivot, firsthand proof, why this firm specifically, short humble close). Start with "Dear <Firm> Recruiting Team," (or the recruiter's name if the notes give one). End with "Thank you for considering my application." then "Sincerely," then the candidate's name from the resume. Plain text, short paragraphs separated by blank lines.
@@ -94,9 +100,17 @@ export async function POST(request) {
       why_firm: stripDashes(String(out.why_firm || "").trim()),
       created_at: new Date().toISOString(),
     };
-    const { error } = await db()
-      .from(tables(watch).drafts)
-      .upsert({ job_id: job.id, ...draft, model: MODEL });
+    const row = { job_id: job.id, ...draft, model: MODEL };
+    if (job.id.startsWith(OUTSIDE_PREFIX)) {
+      row.job = { firm: job.firm, title: job.title, location: job.location || null, url: job.url || null };
+    }
+    let { error } = await db().from(tables(watch).drafts).upsert(row);
+    if (error && row.job) {
+      // schema_outside_drafts.sql not run yet: still save the letter itself
+      console.warn(`outside draft needs schema_outside_drafts.sql: ${error.message}`);
+      delete row.job;
+      ({ error } = await db().from(tables(watch).drafts).upsert(row));
+    }
     if (error) console.warn(`ai_drafts write failed: ${error.message}`);
     return json({
       draft,
@@ -107,4 +121,18 @@ export async function POST(request) {
   } catch (e) {
     return errorResponse(e);
   }
+}
+
+export async function DELETE(request) {
+  const denied = await checkAuth(request);
+  if (denied) return denied;
+  const jobId = new URL(request.url).searchParams.get("job_id") || "";
+  if (!jobId.startsWith(OUTSIDE_PREFIX)) return json({ error: "Only outside drafts can be deleted." }, 400);
+  const [d, j] = await Promise.all([
+    db().from(tables(watchOf(request)).drafts).delete().eq("job_id", jobId),
+    db().from("job_details").delete().eq("job_id", jobId),
+  ]);
+  const error = d.error || j.error;
+  if (error) return json({ error: error.message }, 500);
+  return json({ ok: true });
 }

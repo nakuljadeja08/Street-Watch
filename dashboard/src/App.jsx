@@ -83,6 +83,8 @@ const SORTS = [
   { v: "firm", label: "Firm A–Z" },
   { v: "fit", label: "Best fit" },
 ];
+// cover letters for roles on neither board ("✍ Outside job") use this id prefix
+export const OUTSIDE_PREFIX = "x_";
 const pickJob = (j) => ({ id: j.id, firm: j.firm, title: j.title, location: j.location, url: j.url });
 const fitClass = (s) => (s >= 80 ? "fit-hi" : s >= 60 ? "fit-mid" : "fit-lo");
 // pipeline columns, left → right
@@ -220,17 +222,18 @@ export default function App({ signedIn = false, header = null }) {
       return "";
     }
   });
-  const [ai, setAi] = useState({ state: "off", resume: null, fits: {}, drafts: [], error: "" });
+  const [ai, setAi] = useState({ state: "off", resume: null, fits: {}, drafts: [], outside: [], error: "" });
   const [aiOpen, setAiOpen] = useState(false);
   const [scoring, setScoring] = useState(() => new Set()); // job ids being scored
   const [draftFor, setDraftFor] = useState(null); // job whose draft modal is open
+  const [outsideOpen, setOutsideOpen] = useState(false); // cover letter for a role not on the board
   const [pasteFor, setPasteFor] = useState(null); // job whose posting we couldn't fetch (fit)
   const [noJd, setNoJd] = useState(() => new Set()); // unreadable postings — skipped by bulk scoring
   const aiReady = ai.state === "ready" && !!ai.resume;
 
-  async function aiFetch(path, body) {
+  async function aiFetch(path, body, method) {
     const r = await fetch(`/api/${path}`, {
-      method: body ? "POST" : "GET",
+      method: method || (body ? "POST" : "GET"),
       headers: {
         ...(await authHeaders()),
         ...(swKey ? { "x-sw-key": swKey } : {}),
@@ -257,13 +260,13 @@ export default function App({ signedIn = false, header = null }) {
       else localStorage.removeItem("sw-ai-key");
     } catch {}
     if (!swKey && !signedIn) {
-      setAi({ state: "off", resume: null, fits: {}, drafts: [], error: "" });
+      setAi({ state: "off", resume: null, fits: {}, drafts: [], outside: [], error: "" });
       return;
     }
     let live = true;
     setAi((a) => ({ ...a, state: "loading", error: "" }));
     aiFetch("status")
-      .then((d) => live && setAi({ state: "ready", resume: d.resume, fits: d.fits || {}, drafts: d.drafts || [], error: "" }))
+      .then((d) => live && setAi({ state: "ready", resume: d.resume, fits: d.fits || {}, drafts: d.drafts || [], outside: d.outside || [], error: "" }))
       .catch((e) => live && setAi((a) => ({ ...a, state: "error", error: e.message })));
     return () => {
       live = false;
@@ -805,6 +808,7 @@ export default function App({ signedIn = false, header = null }) {
           ai={ai}
           aiFetch={aiFetch}
           onResume={(resume) => setAi((a) => ({ ...a, resume }))}
+          onOutside={() => setOutsideOpen(true)}
           onClose={() => setAiOpen(false)}
         />
       )}
@@ -937,6 +941,11 @@ export default function App({ signedIn = false, header = null }) {
             >
               {addOpen ? "✕ Close" : "＋ Add your own"}
             </button>
+            {aiReady && (
+              <button className="addBtn" onClick={() => setOutsideOpen(true)} title="Draft a cover letter for a role that isn't on the board">
+                ✍ Outside job
+              </button>
+            )}
             <span className="board-actions-hint">
               Applied somewhere that isn't on the list? Add it here to track it.
             </span>
@@ -1072,6 +1081,21 @@ export default function App({ signedIn = false, header = null }) {
           aiFetch={aiFetch}
           onSaved={(id) => setAi((a) => (a.drafts.includes(id) ? a : { ...a, drafts: [...a.drafts, id] }))}
           onClose={() => setDraftFor(null)}
+        />
+      )}
+      {outsideOpen && (
+        <OutsideDraftModal
+          outside={ai.outside}
+          aiFetch={aiFetch}
+          onSaved={(job) =>
+            setAi((a) => ({
+              ...a,
+              drafts: a.drafts.includes(job.id) ? a.drafts : [...a.drafts, job.id],
+              outside: [{ ...job, created_at: new Date().toISOString() }, ...a.outside.filter((o) => o.id !== job.id)],
+            }))
+          }
+          onDeleted={(id) => setAi((a) => ({ ...a, outside: a.outside.filter((o) => o.id !== id), drafts: a.drafts.filter((d) => d !== id) }))}
+          onClose={() => setOutsideOpen(false)}
         />
       )}
       {pasteFor && (
@@ -1358,7 +1382,7 @@ export function fileToBase64(file) {
   });
 }
 
-function AiPanel({ swKey, setSwKey, ai, aiFetch, onResume, onClose }) {
+function AiPanel({ swKey, setSwKey, ai, aiFetch, onResume, onOutside, onClose }) {
   const [keyDraft, setKeyDraft] = useState(swKey);
   const [pasting, setPasting] = useState(false);
   const [text, setText] = useState("");
@@ -1495,6 +1519,14 @@ function AiPanel({ swKey, setSwKey, ai, aiFetch, onResume, onClose }) {
             <b>Best fit</b>. Each score costs about 1¢ and each draft about 3¢ of Claude API usage.
           </div>
         )}
+        {connected && ai.resume && (
+          <div className="aiRow">
+            <button className="addBtn" onClick={onOutside}>
+              ✍ Cover letter for an outside job
+            </button>
+            <span className="aiNote">Found a role that isn't on the list? Paste its posting and draft one here.</span>
+          </div>
+        )}
       </div>
     </section>
   );
@@ -1554,7 +1586,7 @@ export function PasteJdModal({ job, onSubmit, onClose, busy }) {
   );
 }
 
-export function DraftModal({ job, notes, hasDraft, aiFetch, onSaved, onClose }) {
+export function DraftModal({ job, notes, hasDraft, aiFetch, onSaved, onClose, description: pasted }) {
   const [draft, setDraft] = useState(null);
   const [tab, setTab] = useState("cover_letter");
   const [state, setState] = useState("loading"); // loading | writing | ready | need_jd | error
@@ -1594,7 +1626,7 @@ export function DraftModal({ job, notes, hasDraft, aiFetch, onSaved, onClose }) 
           }
         } catch {}
       }
-      generate();
+      generate(pasted);
     })();
   }, [job.id]);
 
@@ -1630,6 +1662,7 @@ export function DraftModal({ job, notes, hasDraft, aiFetch, onSaved, onClose }) 
           />
           <div className="aiNote">
             First draft from your resume{notes ? " and notes" : ""}
+            {String(job.id).startsWith(OUTSIDE_PREFIX) ? " and the posting you pasted" : ""}
             {extra?.researched ? ` plus web research on ${job.firm}` : ""}, check every claim before sending.
             {draft?.created_at && ` Written ${new Date(draft.created_at).toLocaleString()}.`}
           </div>
@@ -1667,6 +1700,131 @@ export function DraftModal({ job, notes, hasDraft, aiFetch, onSaved, onClose }) 
           {copied === tab ? "Copied ✓" : "Copy"}
         </button>
       </div>
+    </Modal>
+  );
+}
+
+// "✍ Outside job": a cover letter for a role that isn't on the board. Paste
+// the posting, and it drafts through the same /api/draft flow as any listed
+// role; past outside drafts are listed so they can be reopened.
+export function OutsideDraftModal({ outside = [], aiFetch, onSaved, onDeleted, onClose }) {
+  const [job, setJob] = useState(null); // { id, firm, title, location, url } once chosen
+  const [fresh, setFresh] = useState(false); // new role, so draft from `jd` instead of loading
+  const [firm, setFirm] = useState("");
+  const [title, setTitle] = useState("");
+  const [location, setLocation] = useState("");
+  const [url, setUrl] = useState("");
+  const [jd, setJd] = useState("");
+  const [err, setErr] = useState("");
+
+  const canWrite = firm.trim() && title.trim() && jd.trim().length >= 200;
+
+  if (job)
+    return (
+      <DraftModal
+        job={job}
+        hasDraft={!fresh}
+        description={fresh ? jd : undefined}
+        aiFetch={aiFetch}
+        onSaved={() => onSaved(job)}
+        onClose={onClose}
+      />
+    );
+
+  async function remove(o) {
+    if (!window.confirm(`Delete the cover letter for ${o.firm} — ${o.title}?`)) return;
+    try {
+      await aiFetch(`draft?job_id=${encodeURIComponent(o.id)}`, undefined, "DELETE");
+      onDeleted(o.id);
+    } catch (e) {
+      setErr(e.message);
+    }
+  }
+
+  return (
+    <Modal title="Cover letter for an outside job" onClose={onClose}>
+      <p className="aiNote">
+        For a role that isn't on the board: fill in the basics and paste the job description. It drafts the same way as listed roles
+        (your resume, web research on the company, then a cover letter and a “Why this company?” answer).
+      </p>
+      <form
+        className="outsideForm"
+        onSubmit={(e) => {
+          e.preventDefault();
+          if (!canWrite) return;
+          setFresh(true);
+          setJob({
+            id: OUTSIDE_PREFIX + crypto.randomUUID(),
+            firm: firm.trim(),
+            title: title.trim(),
+            location: location.trim() || null,
+            url: url.trim() || null,
+          });
+        }}
+      >
+        <div className="addRow">
+          <label className="addField">
+            <span>Company *</span>
+            <input value={firm} onChange={(e) => setFirm(e.target.value)} placeholder="e.g. Stripe" autoFocus />
+          </label>
+          <label className="addField">
+            <span>Role *</span>
+            <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="e.g. Data Engineer" />
+          </label>
+        </div>
+        <div className="addRow">
+          <label className="addField">
+            <span>Location</span>
+            <input value={location} onChange={(e) => setLocation(e.target.value)} placeholder="e.g. New York, NY" />
+          </label>
+          <label className="addField">
+            <span>Link</span>
+            <input value={url} onChange={(e) => setUrl(e.target.value)} placeholder="https://…" />
+          </label>
+        </div>
+        <label className="addField">
+          <span>Job description *</span>
+          <textarea
+            className="noteBox big"
+            rows={10}
+            value={jd}
+            onChange={(e) => setJd(e.target.value)}
+            placeholder="Paste the full job description"
+          />
+        </label>
+        {jd.trim() && jd.trim().length < 200 && <div className="aiNote">Paste the full posting (at least a paragraph or two).</div>}
+        <div className="addActions">
+          <button type="button" className="clearBtn ghost" onClick={onClose}>
+            Cancel
+          </button>
+          <button type="submit" className="addBtn on" disabled={!canWrite}>
+            ✍ Write cover letter
+          </button>
+        </div>
+      </form>
+      {err && <div className="aiNote bad">{err}</div>}
+      {outside.length > 0 && (
+        <div className="outsideList">
+          <div className="outsideList-h">Earlier outside drafts</div>
+          {outside.map((o) => (
+            <div className="outsideItem" key={o.id}>
+              <button
+                className="outsideOpen"
+                onClick={() => {
+                  setFresh(false);
+                  setJob({ id: o.id, firm: o.firm, title: o.title, location: o.location, url: o.url });
+                }}
+              >
+                <b>{o.firm}</b> · {o.title}
+                <span className="outsideDate">{new Date(o.created_at).toLocaleDateString()}</span>
+              </button>
+              <button className="clearBtn ghost" aria-label={`Delete draft for ${o.firm}`} onClick={() => remove(o)}>
+                ✕
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
     </Modal>
   );
 }

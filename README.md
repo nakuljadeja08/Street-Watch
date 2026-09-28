@@ -19,8 +19,12 @@ firms' ATS APIs  ──►  pipeline.py  ──►  Supabase `jobs` table  ─�
 | `.github/workflows/newsletter-test.yml` | Manual button to re-send the newsletter from the last committed pull (no scrape). |
 | `send_test_newsletter.py` | Standalone sender used by the test workflow (and runnable locally). |
 | `schema_ai_and_searches.sql` | One-time `saved_searches` table (anon r/w) + the private AI tables (`profile`, `job_details`, `ai_fit`, `ai_drafts` — service key only). |
+| `schema_outside_drafts.sql` | Adds a `job` column to `ai_drafts` / `tech_ai_drafts` so cover letters for outside jobs can be listed and reopened. |
 | `schema_trends.sql` | One-time `hiring_trends` table (public read) behind the dashboard's **Trends** view. |
 | `.street_watch_trends.json` | Running hiring-trends record + yesterday's board (the baseline takedowns are measured against); committed by the daily run. |
+| `tech_pipeline.py` | Tech Watch ingester (data engineering roles); see *Tech Watch* below. |
+| `schema_tech.sql`, `schema_auth.sql`, `schema_auth_lockdown.sql` | Tech Watch tables; login profiles + signed-in access; removing the old open write access. |
+| `TECH_FIRMS.md` | Tech Watch firm list and which big employers still need custom fetchers. |
 | `backfill_trends.py` | One-off: rebuilds the trends history from the daily snapshots in git and pushes it to Supabase. |
 | `firm_categories.json` | Firm → type ("PE & Alts", "Bulge Bracket", …). Drives the dashboard's firm-type filter and saved-search alerts; shared by `pipeline.py` and `dashboard/`. |
 | `api/` | Vercel serverless routes for the **AI assistant** (resume, fit score, cover letter / "why this firm"). Call Claude server-side; see *AI assistant* below. |
@@ -51,34 +55,74 @@ firms' ATS APIs  ──►  pipeline.py  ──►  Supabase `jobs` table  ─�
 
 ## Tech Watch (second board) and login
 
-The site now has two boards behind one login: **Street Watch** at `/` (Ms
-Tian's finance roles) and **Tech Watch** at `/tech` (Nakul's data
-engineering roles). Either account can open both; the bar at the top
-switches between them.
+The site has two boards behind one login: **Street Watch** at `/` (Ms Tian's
+finance roles) and **Tech Watch** at `/tech` (Nakul's data engineering
+roles). Either account can open both; the bar at the top switches boards and
+signs out. Live since 2026-09-27.
 
-- **Pipeline:** `tech_pipeline.py` reuses `pipeline.py`'s fetchers but has its
-  own firm list (`TECH_FIRMS.md`), title rules (data / analytics / data
-  platform engineer; no Senior, Staff, Lead, Manager, ML engineer, level III+),
-  US-only location rules grouped into hubs (NYC Area, SF Bay Area, Seattle, …,
-  Remote (US), Other US) and a 60-day age cap. It writes `tech_watch_jobs.json`
-  / `.csv`, `.tech_watch_state.json`, `.tech_watch_trends.json` and the
-  Supabase `tech_*` tables, and emails its own digest to `NEWSLETTER_TO`.
-  It runs as the `tech` job in the same daily workflow.
-- **Board:** `dashboard/src/TechApp.jsx`. One command line drives every
-  filter (`spark sector:fintech hub:nyc new status:applied sort:fit`); the
-  sidebar, saved searches and the URL just write that command. Keys: `/` or
-  ⌘K search, `j`/`k` move, `o` open, `a` applied, `f` score fit, `w` write.
-- **AI:** the same `/api` routes, with `x-watch: tech` selecting Tech Watch's
-  own resume, scores and drafts (`tech_profile`, `tech_ai_fit`,
-  `tech_ai_drafts`) and a data engineering prompt (`api/_voice_tech.js`).
-  Signed-in users don't need the passphrase.
+```
+tech firms' ATS APIs + Street Watch's finance firms  ──►  tech_pipeline.py  ──►  Supabase tech_* tables  ──►  dashboard /tech
+                                                          (same daily workflow, `tech` job)
+```
 
-**One-time setup (Supabase):**
-1. SQL Editor → run `schema_tech.sql`.
-2. Authentication → Users → *Add user* for each of you (email + password,
-   auto-confirm). Then run `schema_auth.sql` with the two emails filled in.
-3. Once both of you can sign in, run `schema_auth_lockdown.sql` to remove the
-   old open write access to Street Watch's tracker tables.
+### What it pulls
+- **Firms:** about 110 tech, fintech and finance boards (Greenhouse, Ashby,
+  Lever, Workday, Amazon's jobs API) listed in `TECH_FIRMS.md`, plus every
+  Street Watch firm except the consulting shops, searched for data roles.
+  Google, Meta, Microsoft, Uber, Netflix, Bloomberg, AmEx and Two Sigma need
+  custom fetchers and aren't wired yet (task list in `TASKS.md`).
+- **Titles in:** Data Engineer (I / II), Analytics Engineer, Data Platform /
+  Infrastructure Engineer, ETL and Big Data roles.
+- **Titles out:** Senior, Staff, Principal, Lead, Manager and up; level III+
+  (and Capital One's numbered level 4+); **any title with "software"**; ML
+  engineers; interns; architects, specialists, sales; security (SIEM, data
+  protection) and data center roles. Rules: `_DE_RE` / `_DE_EXCLUDE_RE` in
+  `tech_pipeline.py`.
+- **Where:** US only (including remote US), grouped into hubs: NYC Area, SF Bay
+  Area, Seattle, Chicago, Boston, Texas, DC / Virginia, Los Angeles,
+  Charlotte, Atlanta, Denver, Remote (US), Other US. Workday's "3 Locations"
+  rows are resolved from the job detail.
+- **Age:** kept up to **60 days** after posting (data reqs stay open longer
+  than banking ones; Street Watch stays at 30).
+
+### Outputs
+`tech_watch_jobs.json` / `.csv`, `.tech_watch_state.json` (newness ledger),
+`.tech_watch_trends.json`, and the Supabase tables `tech_jobs`,
+`tech_hiring_trends`, `tech_applications`, `tech_saved_searches`,
+`tech_profile`, `tech_ai_fit`, `tech_ai_drafts` (`schema_tech.sql`).
+The morning "Tech Watch" digest goes to the same `NEWSLETTER_TO` as Street
+Watch's, from the first run on 2026-09-28. Set `TECH_NEWSLETTER=0` to run a
+pull without the email:
+
+```bash
+TECH_NEWSLETTER=0 python tech_pipeline.py
+```
+
+### The board
+`dashboard/src/TechApp.jsx`: a dev-tool layout (sidebar, list, detail pane)
+driven by one terminal-style command line. Every filter is a token in it
+(`snowflake sector:fintech hub:nyc new status:applied sort:fit age:14`); the
+sidebar, saved searches and the URL just write that command. Keys: `/` or ⌘K
+search, `j`/`k` move, `o` open posting, `a` mark applied, `f` score fit, `w`
+write cover letter. Light and dark themes; Trends reads `tech_hiring_trends`.
+
+### AI
+The same `/api` routes, with an `x-watch: tech` header selecting Tech Watch's
+own resume, fit scores and drafts. Fit scoring uses a data engineering rubric;
+cover letters follow `api/_voice_tech.js`, built from Nakul's own letters
+(open on the company's data stakes, map the posting, production proof, name
+gaps plainly, why this company). Signed-in users don't need the passphrase.
+
+### Login
+Supabase Auth (email + password), one account each. `user_profiles` holds the
+display name and home board (`schema_auth.sql`). Sessions persist per browser.
+Setup, done 2026-09-27:
+1. Run `schema_tech.sql`.
+2. Authentication → Users → *Add user* for each person, then run
+   `schema_auth.sql` with the two emails filled in (keep real emails out of
+   the committed file; this repo is public).
+3. `schema_auth_lockdown.sql`: removed the old open (anon) write access to
+   Street Watch's tracker tables, so only signed-in users can change them.
 
 Local preview without signing in: `VITE_SKIP_LOGIN=1 npm run dev` in
 `dashboard/` (dev builds only; Tech Watch falls back to the last local pull).
@@ -135,6 +179,11 @@ Claude). Then each card gets:
   see `api/_voice.js` to edit them). Claude web-searches the firm
   first (cached per firm for 14 days), uses your card notes, and may ask one
   follow-up question — answer it in the modal and hit *Regenerate with this*.
+- **✍ Outside job** — a cover letter for a role that isn't on the board (AI
+  panel or Board view on Street Watch, sidebar on Tech Watch). Enter the
+  company, role and pasted job description; it drafts the same way. These use
+  job ids starting `x_`, keep the posting in `job_details`, and are listed under
+  *Earlier outside drafts* to reopen or delete (needs `schema_outside_drafts.sql`).
 
 Job descriptions are fetched from each firm's own ATS (Workday/Greenhouse/Ashby/
 Oracle/Goldman APIs, else the page's JobPosting JSON-LD) and cached in

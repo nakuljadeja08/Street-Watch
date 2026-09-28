@@ -411,6 +411,21 @@ code { font-family: "IBM Plex Mono", monospace; font-size: 12px; }
   border: 1px solid var(--line2); background: var(--bg2); color: var(--ink); resize: vertical;
 }
 .draftBox:focus { outline: 2px solid var(--rose); outline-offset: 1px; border-color: transparent; }
+/* ---- outside-job drafts ---- */
+.outsideForm { display: flex; flex-direction: column; gap: 12px; }
+.outsideList { border-top: 1px solid var(--line); padding-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+.outsideList-h {
+  font-family: "IBM Plex Mono", monospace; font-size: 10.5px; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--soft);
+}
+.outsideItem { display: flex; align-items: center; gap: 8px; }
+.outsideItem .clearBtn.ghost { margin-top: 0; }
+.outsideOpen {
+  flex: 1; min-width: 0; display: flex; gap: 6px; align-items: baseline; text-align: left; font: inherit; font-size: 13px;
+  padding: 8px 10px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg2); color: var(--ink); cursor: pointer;
+}
+.outsideOpen:hover { border-color: var(--rose); }
+.outsideDate { margin-left: auto; color: var(--soft); font-size: 12px; white-space: nowrap; }
 .draft-wait { padding: 40px 10px; text-align: center; color: var(--soft); font-style: italic; font-family: "Fraunces", serif; }
 @media (max-width: 560px) {
   /* the filter bar wraps to ~6 rows on a phone — let it scroll away */
