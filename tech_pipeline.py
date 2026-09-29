@@ -108,6 +108,78 @@ WORKDAY = {      # firm -> (tenant, datacenter, site), searched for SEARCH
     },
 }
 
+# Expansion wave (probed live 2026-09-29, see TECH_FIRMS.md "Wave 2"). Each
+# board answered on its API that day; most had no matching role yet and are
+# wired for coverage.
+GREENHOUSE["Tech"].update({
+    "SpaceX": "spacex", "Klaviyo": "klaviyo", "Oscar Health": "oscar",
+    "Hex": "hextechnologies", "Dataiku": "dataiku", "Collibra": "collibra",
+    "Mixpanel": "mixpanel", "Grafana Labs": "grafanalabs", "Glean": "gleanwork",
+    "Verkada": "verkada", "Motive": "gomotive", "Rubrik": "rubrik", "Wiz": "wizinc",
+    "Braze": "braze", "Faire": "faire", "Celonis": "celonis", "Airtable": "airtable",
+    "Webflow": "webflow", "Cockroach Labs": "cockroachlabs", "PagerDuty": "pagerduty",
+    "Nextdoor": "nextdoor", "Flatiron Health": "flatironhealth", "Zocdoc": "zocdoc",
+    "Netskope": "netskope", "Komodo Health": "komodohealth",
+    "Abnormal Security": "abnormalsecurity", "Coursera": "coursera", "Udemy": "udemy",
+    "Sweetgreen": "sweetgreen", "SeatGeek": "seatgeek", "Attentive": "attentive",
+    "Justworks": "justworks", "Oura": "oura", "Calendly": "calendly", "Fastly": "fastly",
+    "Netlify": "netlify", "Algolia": "algolia", "Contentful": "contentful",
+    "Sprout Social": "sproutsocial", "Qualtrics": "qualtrics",
+})
+GREENHOUSE["Fintech"].update({
+    "Upstart": "upstart", "Bill.com": "billcom", "Adyen": "adyen", "Payoneer": "payoneer",
+    "Fireblocks": "fireblocks", "Alloy": "alloy", "Mission Lane": "missionlane",
+    "Earnin": "earnin",
+})
+GREENHOUSE["Finance"].update({
+    "Bridgewater": "bridgewater89", "Clear Street": "clearstreet", "AQR": "aqr",
+    "Man Group": "mangroup", "Squarepoint": "squarepointcapital", "WorldQuant": "worldquant",
+    "Old Mission": "oldmissioncapital", "Chicago Trading Company": "chicagotrading",
+    "Geneva Trading": "genevatrading", "ExodusPoint": "exoduspoint",
+})
+ASHBY["Tech"].update({
+    "Cohere": "cohere", "Confluent": "confluent", "ClickHouse": "clickhouse",
+    "Astronomer": "astronomer", "Airbyte": "airbyte", "Monte Carlo": "montecarlodata",
+    "Amplitude": "amplitude", "Harvey": "harvey", "Quora": "quora", "Anyscale": "anyscale",
+    "1Password": "1password", "Expensify": "expensify", "Nuna": "nuna", "Sentry": "sentry",
+    "Temporal": "temporal", "Instructure": "instructure", "Whoop": "whoop",
+    "Strava": "strava", "Miro": "miro", "Zapier": "zapier", "Sisense": "sisense",
+})
+ASHBY["Fintech"].update({
+    "Socure": "socure", "Sardine": "sardine", "NerdWallet": "nerdwallet",
+    "Nubank": "nubank", "Circle": "circle", "Paxos": "paxos", "Acorns": "acorns",
+})
+ASHBY["Finance"] = {"Voleon": "voleon"}
+LEVER["Tech"].update({"Zoox": "zoox", "Gopuff": "gopuff", "AllTrails": "alltrails"})
+LEVER["Finance"] = {"Belvedere Trading": "belvederetrading"}
+WORKDAY["Tech"].update({
+    "Chewy": ("chewy", "wd5", "External"),
+    "Zillow": ("zillow", "wd5", "Zillow_Group_External"),
+    "eBay": ("ebay", "wd5", "apply"),
+    "Expedia": ("expedia", "wd108", "search"),
+    "Red Hat": ("redhat", "wd5", "jobs"),
+    "Nike": ("nike", "wd1", "nke"),
+    "Warner Bros. Discovery": ("warnerbros", "wd5", "global"),
+})
+WORKDAY["Fintech"].update({
+    "Fiserv": ("fiserv", "wd5", "EXT"),
+    "FIS": ("fis", "wd5", "SearchJobs"),
+    "Global Payments": ("tsys", "wd1", "TSYS"),
+})
+WORKDAY["Finance"].update({
+    "Equifax": ("equifax", "wd5", "External"),
+    "TransUnion": ("transunion", "wd5", "TransUnion"),
+    "Vanguard": ("vanguard", "wd5", "vanguard_external"),
+    "Raymond James": ("raymondjames", "wd1", "RaymondJamesCareers"),
+    "LPL Financial": ("lplfinancial", "wd1", "External"),
+    "Prudential": ("pru", "wd5", "Careers"),
+    "Allstate": ("allstate", "wd5", "allstate_careers"),
+    "CME Group": ("cmegroup", "wd1", "cme_careers"),
+    "Cboe": ("cboe", "wd1", "External_Career_CBOE"),
+    "FactSet": ("factset", "wd108", "FactSetCareers"),
+    "Broadridge": ("broadridge", "wd5", "Careers"),
+})
+
 # Custom-fetcher firms (TASKS.md, added 2026-09-28). Same ATS products Street
 # Watch already scrapes, so they reuse its fetchers.
 ORACLE = {"Tech": {"Dell": ("enterpriseplatform.dell.com", "CX_1001", "careers")}}
