@@ -77,3 +77,26 @@ since those post the most data roles.
   (Greenhouse), Netflix (Eightfold), Walmart and Comcast (Workday), Dell (Oracle
   Fusion) and Charles Schwab (Radancy). BNY and Moody's are still open (see
   TASKS.md).
+- **2026-09-29, Wave 2**: 106 firms added. Every board below answered its
+  public API that day; most had no matching role yet and are wired for coverage.
+  - *Had matching roles when probed:* SpaceX, Bridgewater, Zoox, Gopuff, Clear
+    Street, Socure, Sardine, NerdWallet, Cohere, Klaviyo, Oscar Health, Chewy,
+    Equifax.
+  - *Trading / hedge funds:* AQR, Man Group, Squarepoint, WorldQuant, Old
+    Mission, Chicago Trading Co, Geneva Trading, Belvedere, Voleon, ExodusPoint.
+  - *Finance / market infrastructure (Workday):* Vanguard, Raymond James, LPL,
+    Prudential, Allstate, CME Group, Cboe, FactSet, Broadridge, TransUnion;
+    payments (Fintech): Fiserv, FIS, Global Payments.
+  - *Fintech:* Nubank, Upstart, Bill.com, Adyen, Payoneer, Circle, Paxos,
+    Fireblocks, Alloy, Mission Lane, Earnin, Acorns.
+  - *Data tooling:* Confluent, ClickHouse, Hex, Astronomer, Airbyte, Monte
+    Carlo, Dataiku, Collibra, Mixpanel, Amplitude, Grafana Labs.
+  - *Tech:* Zillow, eBay, Expedia, Red Hat, Nike, Warner Bros. Discovery, Glean,
+    Harvey, Verkada, Motive, Rubrik, Wiz, Braze, Faire, Celonis, and 36 smaller
+    Greenhouse/Ashby/Lever boards (see `tech_pipeline.py`).
+  - *Not added (outside tech/finance scope, pending a decision):* Travelers, GM,
+    Boeing, Humana, Home Depot, Cigna, CVS, Elevance.
+  - *Need custom fetchers:* Two Sigma, D. E. Shaw, Millennium, Citadel (fund),
+    Balyasny, Five Rings, XTX, MSCI, ICE, DTCC, Intuit, ServiceNow, Palo Alto
+    Networks, Atlassian, Shopify, HubSpot, Rippling, dbt Labs, Anduril,
+    Marqeta, Revolut, Klarna.
