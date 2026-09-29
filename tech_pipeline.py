@@ -59,6 +59,7 @@ GREENHOUSE = {
     "Finance": {
         "Point72": "point72", "Jump Trading": "jumptrading", "Akuna Capital": "akunacapital",
         "Tower Research Capital": "towerresearchcapital", "Schonfeld": "schonfeld",
+        "Hudson River Trading": "wehrtyou",
     },
 }
 ASHBY = {
@@ -88,6 +89,8 @@ WORKDAY = {      # firm -> (tenant, datacenter, site), searched for SEARCH
         "Snap": ("snapchat", "wd1", "snap"),
         "Target": ("target", "wd5", "targetcareers"),
         "Disney": ("disney", "wd5", "disneycareer"),
+        "Walmart": ("walmart", "wd504", "WalmartExternal"),
+        "Comcast": ("comcast", "wd115", "Comcast_Careers"),
     },
     "Fintech": {
         "PayPal": ("paypal", "wd1", "jobs"),
@@ -105,6 +108,12 @@ WORKDAY = {      # firm -> (tenant, datacenter, site), searched for SEARCH
     },
 }
 
+# Custom-fetcher firms (TASKS.md, added 2026-09-28). Same ATS products Street
+# Watch already scrapes, so they reuse its fetchers.
+ORACLE = {"Tech": {"Dell": ("enterpriseplatform.dell.com", "CX_1001", "careers")}}
+RADANCY = {"Finance": {"Charles Schwab": "www.schwabjobs.com"}}
+EIGHTFOLD = {"Tech": {"Netflix": ("explore.jobs.netflix.net", "netflix.com", "United States")}}
+
 # Street Watch's finance firms are scanned too, minus the consulting shops
 # (Tech Watch covers tech and finance only).
 _STREET_CAT = P._FIRM_CAT
@@ -112,14 +121,13 @@ def _street(reg):
     return {f: v for f, v in reg.items() if _STREET_CAT.get(f) != "Consulting"}
 
 SECTOR = {}
-for _reg in (GREENHOUSE, ASHBY, LEVER, WORKDAY):
+for _reg in (GREENHOUSE, ASHBY, LEVER, WORKDAY, ORACLE, RADANCY, EIGHTFOLD):
     for _sec, _firms in _reg.items():
         for _f in _firms:
             SECTOR[_f] = _sec
 for _f in P.registered_firms():
     if _STREET_CAT.get(_f) != "Consulting":
         SECTOR.setdefault(_f, "Fintech" if _STREET_CAT.get(_f) == "Fintech" else "Finance")
-SECTOR["Amazon"] = "Tech"
 
 
 # ---------------------------------------------------------------- new fetchers
@@ -141,40 +149,6 @@ def fetch_lever(firm, name):
                         url=j.get("hostedUrl", ""), source="lever",
                         posted_date=(datetime.fromtimestamp(ts / 1000, timezone.utc).strftime("%Y-%m-%d")
                                      if isinstance(ts, (int, float)) else None)))
-    return out
-
-
-def fetch_amazon(query=SEARCH, max_rows=1500):
-    """amazon.jobs public search JSON (US only, newest first)."""
-    out, offset, total = [], 0, None
-    try:
-        while offset < max_rows:
-            r = requests.get("https://www.amazon.jobs/en/search.json", headers=UA, timeout=TIMEOUT,
-                             params={"base_query": query, "country": "USA", "result_limit": 100,
-                                     "offset": offset, "sort": "recent"})
-            r.raise_for_status()
-            d = r.json()
-            total = d.get("hits", 0) if total is None else total
-            jobs = d.get("jobs") or []
-            if not jobs:
-                break
-            for j in jobs:
-                try:
-                    posted = datetime.strptime(" ".join((j.get("posted_date") or "").split()),
-                                               "%B %d, %Y").strftime("%Y-%m-%d")
-                except ValueError:
-                    posted = None
-                out.append(dict(firm="Amazon", id=f"amazon-{j.get('id_icims')}",
-                                title=(j.get("title") or "").strip(),
-                                location=j.get("normalized_location") or j.get("location") or "",
-                                url="https://www.amazon.jobs" + (j.get("job_path") or ""),
-                                source="amazon", posted_date=posted))
-            offset += 100
-            if offset >= total:
-                break
-            time.sleep(0.25)
-    except Exception as e:
-        print(f"  ! amazon: {e}", file=sys.stderr)
     return out
 
 
@@ -218,7 +192,8 @@ _DE_EXCLUDE_RE = re.compile(
     r"iii|iv)\b"
     r"|machine\s+learning\s+engineer|\bml\s*(?:ops)?\s+engineer|\bmlops\b"
     r"|data\s+cent(?:er|re)|data\s+(?:protection|security|privacy|loss)|part[\s-]?time"
-    r"|\bengineer\s+[4-9]\b", re.I)
+    r"|\bengineer\s+[4-9]\b"
+    r"|\bL[5-9]\b", re.I)                                # Netflix levels: L5+ is senior
 
 
 def _looks_de(title):
@@ -342,17 +317,19 @@ def collect():
     raw += _run("Workday (myworkdaysite)…", list(_street(P.WORKDAY_SITE).items()),
                 lambda f, dc, t, s: P.fetch_workday_site(f, dc, t, s))
     raw += _run("Jibe/iCIMS…", list(_street(P.JIBE).items()), P.fetch_jibe)
-    raw += _run("Oracle Recruiting…", list(_street(P.ORACLE).items()), P.fetch_oracle)
+    raw += _run("Oracle Recruiting…", _flat(ORACLE) + list(_street(P.ORACLE).items()), P.fetch_oracle)
     raw += _run("HRM Direct…", list(_street(P.HRMDIRECT).items()), P.fetch_hrmdirect)
     raw += _run("PageUp…", list(_street(P.PAGEUP).items()), P.fetch_pageup)
     raw += _run("iCIMS…", list(_street(P.ICIMS).items()), P.fetch_icims)
-    raw += _run("Radancy…", list(_street(P.RADANCY).items()),
+    raw += _run("Radancy…", _flat(RADANCY) + list(_street(P.RADANCY).items()),
                 lambda f, host: P.fetch_radancy(f, host, f.lower().split()[0], keywords=[SEARCH]))
     raw += _run("Phenom People…", list(_street(P.PHENOM).items()), P.fetch_phenom)
     raw += _run("Eightfold…", list(_street(P.EIGHTFOLD).items()), P.fetch_eightfold)
-    print("Goldman Sachs / Citadel Securities / Amazon…")
+    raw += _run("Eightfold (search)…", _flat(EIGHTFOLD),
+                lambda f, host, domain, loc: P.fetch_eightfold(f, host, domain, loc, query=SEARCH))
+    print("Goldman Sachs / Citadel Securities…")
     for rows in (P.fetch_goldman("Goldman Sachs", search_text=SEARCH),
-                 P.fetch_citadel("Citadel Securities"), fetch_amazon()):
+                 P.fetch_citadel("Citadel Securities")):
         print(f"  {(rows[0]['firm'] if rows else '—'):<28}{len(rows):>5}")
         raw += rows
 
