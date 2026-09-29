@@ -54,20 +54,26 @@ counts as a hiring spike in Trends, so these can be added any day.
       (Discover is now part of Capital One, already wired).
 
 ### Medium (parse the page's embedded data)
-- [ ] **Google**: `google.com/about/careers/applications/jobs/results?q=data+engineer&location=United+States`
-      is server-rendered (≈1.4 MB). Parse the `AF_initDataCallback` JSON blob for
-      title / location / id, and page with `&page=N`.
+- [x] **Google** (2026-09-29): `fetch_google` parses the `ds:1`
+      `AF_initDataCallback` blob. A bare "data engineer" search matches ~1,000
+      jobs, because it searches descriptions too, so it runs 7 exact-phrase
+      queries instead (1–2 pages each). Google rarely uses the DE title: its data
+      work is mostly "Software Engineer, …" (excluded). Its "Data Cloud Customer
+      Engineer" roles are pre-sales, so `customer|solutions|forward deployed
+      engineer` titles are now excluded.
 - [ ] **Apple**: `jobs.apple.com/en-us/search?search=data%20engineer&location=united-states-USA`
       embeds its results in `__staticRouterHydrationData`. Parse that JSON and
       page with `&page=N`.
-- [ ] **Bloomberg**: Avature board at `bloomberg.avature.net/careers/SearchJobs/data%20engineer`
-      (server-rendered HTML). Write a small Avature card parser, modeled on
-      `fetch_icims`.
+- [x] **Bloomberg** (2026-09-29): `fetch_bloomberg` parses the Avature cards.
+      Pages are 12 cards (larger page sizes are ignored), and cards have no
+      posted date. Its DE roles are titled "Data Management Professional - Data
+      Engineering"; all were Senior on day one.
 
 ### Hard (need discovery or anti-bot handling)
-- [ ] **Microsoft**: the Eightfold API at `apply.careers.microsoft.com` returns 403
-      to plain requests. Try `cloudscraper` (already a dependency, used for
-      Citadel), or the older `gcsservices.careers.microsoft.com/search/api/v1/search`.
+- [x] **Microsoft** (2026-09-29): `fetch_microsoft` calls
+      `/api/pcsx/search`. It returns 429 unless a session cookie from
+      `/careers` is sent first. The old `gcsservices` host is dead. Results are
+      relevance-sorted, so paging stops at the first page with no DE title.
 - [ ] **Meta**: metacareers.com loads jobs through GraphQL with a per-session
       `lsd` token that the plain page doesn't expose. Needs a token handshake,
       which may not be worth it.

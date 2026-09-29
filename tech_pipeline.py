@@ -185,6 +185,8 @@ WORKDAY["Finance"].update({
 ORACLE = {"Tech": {"Dell": ("enterpriseplatform.dell.com", "CX_1001", "careers")}}
 RADANCY = {"Finance": {"Charles Schwab": "www.schwabjobs.com"}}
 EIGHTFOLD = {"Tech": {"Netflix": ("explore.jobs.netflix.net", "netflix.com", "United States")}}
+# Own-API fetchers below (fetch_google / fetch_microsoft / fetch_bloomberg).
+CUSTOM = {"Tech": ["Google", "Microsoft"], "Fintech": ["Bloomberg"]}
 
 # Street Watch's finance firms are scanned too, minus the consulting shops
 # (Tech Watch covers tech and finance only).
@@ -193,7 +195,7 @@ def _street(reg):
     return {f: v for f, v in reg.items() if _STREET_CAT.get(f) != "Consulting"}
 
 SECTOR = {}
-for _reg in (GREENHOUSE, ASHBY, LEVER, WORKDAY, ORACLE, RADANCY, EIGHTFOLD):
+for _reg in (GREENHOUSE, ASHBY, LEVER, WORKDAY, ORACLE, RADANCY, EIGHTFOLD, CUSTOM):
     for _sec, _firms in _reg.items():
         for _f in _firms:
             SECTOR[_f] = _sec
@@ -221,6 +223,121 @@ def fetch_lever(firm, name):
                         url=j.get("hostedUrl", ""), source="lever",
                         posted_date=(datetime.fromtimestamp(ts / 1000, timezone.utc).strftime("%Y-%m-%d")
                                      if isinstance(ts, (int, float)) else None)))
+    return out
+
+
+# Big-tech boards with their own APIs (TASKS.md "Medium"/"Hard", 2026-09-29).
+# Google and Microsoft search job text as well as titles, so each fetcher runs a
+# few narrow queries and title_ok() does the real filtering.
+GOOGLE_QUERIES = ['"data engineer"', '"data engineering"', '"analytics engineer"',
+                  '"data platform"', '"data infrastructure"', '"etl"', '"big data"']
+
+
+def fetch_google(max_pages=10):
+    """google.com/about/careers is server-rendered: page N's results are the JSON
+    array in its AF_initDataCallback 'ds:1' blob. Each job is a positional list:
+    [0] id, [1] title, [9] locations ([[label, ...], ...]), [12] [created_ts, ns]."""
+    base = "https://www.google.com/about/careers/applications/jobs/results"
+    out, seen = [], set()
+    for q in GOOGLE_QUERIES:
+        for page in range(1, max_pages + 1):
+            try:
+                r = requests.get(base, headers=UA, timeout=TIMEOUT,
+                                 params={"q": q, "location": "United States", "page": page})
+                r.raise_for_status()
+                t = r.text
+                i = t.find("AF_initDataCallback({key: 'ds:1'")
+                j = t.find("data:", i) + 5
+                data = json.loads(t[j:t.find(", sideChannel", j)])
+            except Exception as e:
+                print(f"  ! google {q}: {e}", file=sys.stderr); break
+            jobs = data[0] or []
+            for job in jobs:
+                if job[0] in seen:
+                    continue
+                seen.add(job[0])
+                ts = (job[12] or [None])[0] if len(job) > 12 else None
+                out.append(dict(firm="Google", id=f"google-{job[0]}", title=(job[1] or "").strip(),
+                                location="; ".join(l[0] for l in job[9] or [] if l),
+                                url=f"{base}/{job[0]}", source="google",
+                                posted_date=(datetime.fromtimestamp(ts, timezone.utc).strftime("%Y-%m-%d")
+                                             if isinstance(ts, (int, float)) else None)))
+            if len(jobs) < 20 or page * 20 >= (data[2] or 0):
+                break
+            time.sleep(0.5)
+    return out
+
+
+def fetch_microsoft(query=SEARCH, max_pages=40):
+    """Microsoft's Eightfold "pcsx" search at apply.careers.microsoft.com. Bare
+    requests get 429; a cookie from the careers page first makes it answer.
+    10 results a page, relevance-sorted, so paging stops at the first page with
+    no data-engineering title."""
+    host = "https://apply.careers.microsoft.com"
+    s = requests.Session(); s.headers.update(UA)
+    out = []
+    try:
+        s.get(f"{host}/careers", params={"query": query, "location": "United States"}, timeout=TIMEOUT)
+        for page in range(max_pages):
+            r = s.get(f"{host}/api/pcsx/search", timeout=TIMEOUT,
+                      headers={"Accept": "application/json", "Referer": f"{host}/careers"},
+                      params={"domain": "microsoft.com", "query": query,
+                              "location": "United States", "start": page * 10})
+            r.raise_for_status()
+            d = (r.json() or {}).get("data") or {}
+            jobs = d.get("positions") or []
+            for j in jobs:
+                ts = j.get("postedTs")
+                out.append(dict(firm="Microsoft", id=f"microsoft-{j.get('id')}",
+                                title=(j.get("name") or "").strip(),
+                                location="; ".join(j.get("standardizedLocations") or j.get("locations") or []),
+                                url=host + (j.get("positionUrl") or f"/careers/job/{j.get('id')}"),
+                                source="microsoft",
+                                posted_date=(datetime.fromtimestamp(ts, timezone.utc).strftime("%Y-%m-%d")
+                                             if isinstance(ts, (int, float)) else None)))
+            if (not jobs or (page + 1) * 10 >= (d.get("count") or 0)
+                    or not any(_looks_de(j.get("name") or "") for j in jobs)):
+                break
+            time.sleep(0.5)
+    except Exception as e:
+        print(f"  ! microsoft: {e}", file=sys.stderr)
+    return out
+
+
+_AVATURE_CARD_RE = re.compile(
+    r'<h3[^>]*>\s*<a[^>]*href="([^"]+/JobDetail/[^"]+?/(\d+))"[^>]*>(.*?)</a>', re.S)
+
+
+def fetch_bloomberg(query=SEARCH, max_rows=600):
+    """Bloomberg's Avature board (bloomberg.avature.net) is server-rendered HTML:
+    each result card has the title link (…/JobDetail/<slug>/<id>) and a
+    location span. Paged by jobOffset, 12 cards a page (larger
+    jobRecordsPerPage values are ignored). Cards carry no posted date."""
+    import html as _html
+    base = f"https://bloomberg.avature.net/careers/SearchJobs/{requests.utils.quote(query)}"
+    out, seen = [], set()
+    try:
+        for offset in range(0, max_rows, 12):
+            r = requests.get(base, headers=UA, timeout=TIMEOUT,
+                             params={"jobRecordsPerPage": 12, "jobOffset": offset})
+            r.raise_for_status()
+            cards = re.findall(r'<article class="article article--result".*?</article>', r.text, re.S)
+            new = 0
+            for c in cards:
+                m = _AVATURE_CARD_RE.search(c)
+                if not m or m.group(2) in seen:
+                    continue
+                seen.add(m.group(2)); new += 1
+                loc = re.search(r'list-item-location">([^<]*)<', c)
+                out.append(dict(firm="Bloomberg", id=f"bloomberg-{m.group(2)}",
+                                title=_html.unescape(re.sub(r"\s+", " ", m.group(3))).strip(),
+                                location=_html.unescape(loc.group(1)).strip() if loc else "",
+                                url=m.group(1), source="avature", posted_date=None))
+            if not new:
+                break
+            time.sleep(0.25)
+    except Exception as e:
+        print(f"  ! bloomberg: {e}", file=sys.stderr)
     return out
 
 
@@ -265,6 +382,7 @@ _DE_EXCLUDE_RE = re.compile(
     r"|machine\s+learning\s+engineer|\bml\s*(?:ops)?\s+engineer|\bmlops\b"
     r"|data\s+cent(?:er|re)|data\s+(?:protection|security|privacy|loss)|part[\s-]?time"
     r"|\bengineer\s+[4-9]\b"
+    r"|\b(?:customer|solutions?|forward\s+deployed)\s+engineer"  # pre-sales (e.g. Google's "Data Cloud Customer Engineer")
     r"|\bL[5-9]\b", re.I)                                # Netflix levels: L5+ is senior
 
 
@@ -399,9 +517,10 @@ def collect():
     raw += _run("Eightfold…", list(_street(P.EIGHTFOLD).items()), P.fetch_eightfold)
     raw += _run("Eightfold (search)…", _flat(EIGHTFOLD),
                 lambda f, host, domain, loc: P.fetch_eightfold(f, host, domain, loc, query=SEARCH))
-    print("Goldman Sachs / Citadel Securities…")
+    print("Goldman Sachs / Citadel Securities / Google / Microsoft / Bloomberg…")
     for rows in (P.fetch_goldman("Goldman Sachs", search_text=SEARCH),
-                 P.fetch_citadel("Citadel Securities")):
+                 P.fetch_citadel("Citadel Securities"),
+                 fetch_google(), fetch_microsoft(), fetch_bloomberg()):
         print(f"  {(rows[0]['firm'] if rows else '—'):<28}{len(rows):>5}")
         raw += rows
 
