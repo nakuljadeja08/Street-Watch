@@ -74,9 +74,12 @@ counts as a hiring spike in Trends, so these can be added any day.
       `/api/pcsx/search`. It returns 429 unless a session cookie from
       `/careers` is sent first. The old `gcsservices` host is dead. Results are
       relevance-sorted, so paging stops at the first page with no DE title.
-- [ ] **Meta**: metacareers.com loads jobs through GraphQL with a per-session
-      `lsd` token that the plain page doesn't expose. Needs a token handshake,
-      which may not be worth it.
+- [x] **Meta** (2026-09-29): `fetch_meta`. The anonymous `/jobsearch/` page
+      embeds the LSD token, so there's no real handshake. POST `/graphql` with it
+      and `CareersJobSearchResultsV2DataQuery` (doc_id in `META_DOC_ID`); one
+      call returns every match. If Meta rotates the doc_id, the run logs
+      "doc_id stale?" and returns 0; recapture it from the browser network tab.
+      "Technical Leadership" titles (Meta's IC6+ track) are now excluded.
 - [ ] **Uber**: the old `uber.com/api/loadSearchJobsResults` now 404s. Find the
       current endpoint in the browser's network tab on uber.com/careers.
 - [ ] **Two Sigma**: not on Greenhouse. Find its ATS from careers.twosigma.com.

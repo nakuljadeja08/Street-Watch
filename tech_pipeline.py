@@ -185,8 +185,8 @@ WORKDAY["Finance"].update({
 ORACLE = {"Tech": {"Dell": ("enterpriseplatform.dell.com", "CX_1001", "careers")}}
 RADANCY = {"Finance": {"Charles Schwab": "www.schwabjobs.com"}}
 EIGHTFOLD = {"Tech": {"Netflix": ("explore.jobs.netflix.net", "netflix.com", "United States")}}
-# Own-API fetchers below (fetch_google / fetch_microsoft / fetch_bloomberg).
-CUSTOM = {"Tech": ["Google", "Microsoft"], "Fintech": ["Bloomberg"]}
+# Own-API fetchers below (fetch_google / fetch_microsoft / fetch_bloomberg / fetch_meta).
+CUSTOM = {"Tech": ["Google", "Microsoft", "Meta"], "Fintech": ["Bloomberg"]}
 
 # Street Watch's finance firms are scanned too, minus the consulting shops
 # (Tech Watch covers tech and finance only).
@@ -304,6 +304,50 @@ def fetch_microsoft(query=SEARCH, max_pages=40):
     return out
 
 
+# Meta's careers site (metacareers.com) is a Relay app. The anonymous jobsearch
+# page embeds an LSD token; posting it with the search query's persisted doc_id
+# returns every match in one response. Meta can rotate doc_id on a redeploy:
+# if the fetch logs "doc_id stale", recapture it from the browser's network tab
+# (friendly name CareersJobSearchResultsV2DataQuery).
+META_DOC_ID = "27129360303422352"
+
+
+def fetch_meta(query=SEARCH):
+    """One GraphQL call for all matches; each job has id, title and locations.
+    Results carry no posted date."""
+    host = "https://www.metacareers.com"
+    s = requests.Session(); s.headers.update(UA)
+    try:
+        page = s.get(f"{host}/jobsearch/", params={"q": query}, timeout=TIMEOUT).text
+        m = re.search(r'"LSD",\[\],\{"token":"([^"]+)"', page)
+        if not m:
+            print("  ! meta: no LSD token on the jobsearch page", file=sys.stderr); return []
+        lsd = m.group(1)
+        variables = {"search_input": {"q": query, "divisions": [], "offices": [], "roles": [],
+                                      "leadership_levels": [], "saved_jobs": [], "saved_searches": [],
+                                      "sub_teams": [], "teams": [], "is_leadership": False,
+                                      "is_remote_only": False, "sort_by_new": False,
+                                      "results_per_page": None},
+                     "viewasUserID": None, "isLoggedIn": False}
+        r = s.post(f"{host}/graphql", timeout=TIMEOUT,
+                   headers={"X-FB-LSD": lsd, "Origin": host, "Referer": f"{host}/jobsearch/"},
+                   data={"lsd": lsd, "fb_api_caller_class": "RelayModern",
+                         "fb_api_req_friendly_name": "CareersJobSearchResultsV2DataQuery",
+                         "variables": json.dumps(variables), "doc_id": META_DOC_ID,
+                         "server_timestamps": "true"})
+        r.raise_for_status()
+        # Relay can stream several JSON objects, one per line; the first holds the data
+        data = (json.loads(r.text.split("\n", 1)[0]).get("data") or {}).get("job_search_with_featured_jobs_v2")
+        if not data:
+            print(f"  ! meta: doc_id stale? response: {r.text[:200]}", file=sys.stderr); return []
+    except Exception as e:
+        print(f"  ! meta: {e}", file=sys.stderr); return []
+    return [dict(firm="Meta", id=f"meta-{j.get('id')}", title=(j.get("title") or "").strip(),
+                 location="; ".join(j.get("locations") or []),
+                 url=f"{host}/profile/job_details/{j.get('id')}", source="meta", posted_date=None)
+            for j in data.get("all_jobs") or []]
+
+
 _AVATURE_CARD_RE = re.compile(
     r'<h3[^>]*>\s*<a[^>]*href="([^"]+/JobDetail/[^"]+?/(\d+))"[^>]*>(.*?)</a>', re.S)
 
@@ -374,7 +418,7 @@ _DE_RE = re.compile(
     r"|\b(?:etl|elt)\b"
     r"|\bbig\s+data\b", re.I)
 _DE_EXCLUDE_RE = re.compile(
-    r"\b(?:senior|sr|staff|principal|lead|leader|manager|mgr|director|head|chief|"
+    r"\b(?:senior|sr|staff|principal|lead|leader|leadership|manager|mgr|director|head|chief|"
     r"vp|avp|svp|evp|vice\s+president|distinguished|fellow|"
     r"intern|internship|co-?op|summer|apprentice|"
     r"architect|specialist|sales|presales|siem|software|"
@@ -517,10 +561,10 @@ def collect():
     raw += _run("Eightfold…", list(_street(P.EIGHTFOLD).items()), P.fetch_eightfold)
     raw += _run("Eightfold (search)…", _flat(EIGHTFOLD),
                 lambda f, host, domain, loc: P.fetch_eightfold(f, host, domain, loc, query=SEARCH))
-    print("Goldman Sachs / Citadel Securities / Google / Microsoft / Bloomberg…")
+    print("Goldman Sachs / Citadel Securities / Google / Microsoft / Bloomberg / Meta…")
     for rows in (P.fetch_goldman("Goldman Sachs", search_text=SEARCH),
                  P.fetch_citadel("Citadel Securities"),
-                 fetch_google(), fetch_microsoft(), fetch_bloomberg()):
+                 fetch_google(), fetch_microsoft(), fetch_bloomberg(), fetch_meta()):
         print(f"  {(rows[0]['firm'] if rows else '—'):<28}{len(rows):>5}")
         raw += rows
 
