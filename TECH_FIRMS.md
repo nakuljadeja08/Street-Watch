@@ -14,7 +14,6 @@ worth wiring: it costs one API call a day and roles come and go.
 
 | Firm | Sector | ATS | DE now |
 |------|--------|-----|-------:|
-| Amazon | Big tech | amazon.jobs JSON (new fetcher, easy) | ~400 |
 | Capital One | Finance | Workday (already wired) | many |
 | Anthropic | AI | Greenhouse | 5 |
 | OpenAI | AI | Ashby | 3 |
@@ -70,3 +69,11 @@ already covered by Street Watch fetchers.
 My suggestion: wire all of A and B now, and add custom fetchers for Google,
 Meta, Microsoft, Uber, Netflix, Bloomberg, AmEx and Two Sigma in a second pass,
 since those post the most data roles.
+
+## Changes after launch
+
+- **2026-09-28**: Amazon removed at the user's request. Its feed dominated the
+  board (32 of 65 roles). Added from section C: Hudson River Trading
+  (Greenhouse), Netflix (Eightfold), Walmart and Comcast (Workday), Dell (Oracle
+  Fusion) and Charles Schwab (Radancy). BNY and Moody's are still open (see
+  TASKS.md).

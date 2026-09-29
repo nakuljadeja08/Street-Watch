@@ -32,18 +32,26 @@ entry, run `TECH_NEWSLETTER=0 python tech_pipeline.py`, check the new rows pass
 the title/location rules, then update `TECH_FIRMS.md`. A firm's first day never
 counts as a hiring spike in Trends, so these can be added any day.
 
-### Quick wins (existing fetchers)
-- [ ] **Hudson River Trading**: Greenhouse board `wehrtyou` works (87 jobs). Add to
-      `GREENHOUSE["Finance"]`.
-- [ ] **Netflix**: Eightfold at `explore.jobs.netflix.net`, domain `netflix.com`
-      (133 hits for "data engineer"). Reuse `P.fetch_eightfold`, but pass a
-      `query` so it doesn't page the whole board. Netflix titles carry levels
-      (L4/L5/L6); decide the cut, since L5 is roughly senior. Add an exclude like
-      `L[5-9]` if so.
-- [ ] **Workday tenants that 404'd with a guessed site name**: Walmart, Discover,
-      BNY, Charles Schwab, Moody's, Comcast, Dell. Open each careers page, read
-      the real `<tenant>.<wdN>.myworkdayjobs.com/<site>` from the URL, and add it to
-      `WORKDAY`.
+### Quick wins (existing fetchers) — done 2026-09-28
+- [x] **Hudson River Trading**: Greenhouse `wehrtyou` in `GREENHOUSE["Finance"]`.
+- [x] **Netflix**: Eightfold `explore.jobs.netflix.net` / `netflix.com`, searched
+      with `query` (new optional arg on `P.fetch_eightfold`). Titles with `L5`+
+      are excluded as senior (L3/L4 kept).
+- [x] **Walmart**: Workday moved to `wd504` (`walmart`/wd504/WalmartExternal).
+- [x] **Comcast**: Workday `comcast`/wd115/Comcast_Careers.
+- [x] **Dell**: left Workday for Oracle Fusion CE (`enterpriseplatform.dell.com`,
+      `CX_1001`, site `careers`) — tech `ORACLE` dict.
+- [x] **Charles Schwab**: Radancy at `www.schwabjobs.com` — tech `RADANCY` dict.
+      Its cards add req-id/"Save for Later" text to the anchor, so
+      `fetch_radancy` now takes the title from the card's heading when there is
+      one (also fixes Citizens' titles, which had location text appended).
+- [ ] **BNY**: careers link redirects to Eightfold `bnymellon.eightfold.ai`, but
+      the API 404s for domains `bny.com` / `bnymellon.com` and the page shows
+      "domain not found" — capture the real domain from a job page's network tab.
+- [ ] **Moody's**: no Workday tenant found under `moodys` on any data center;
+      fingerprint careers.moodys.com in the browser.
+- [x] **Discover**: skip — its Workday board redirects to a maintenance page
+      (Discover is now part of Capital One, already wired).
 
 ### Medium (parse the page's embedded data)
 - [ ] **Google**: `google.com/about/careers/applications/jobs/results?q=data+engineer&location=United+States`

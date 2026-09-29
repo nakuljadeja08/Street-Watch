@@ -702,6 +702,7 @@ WORKDAY_SITE = {  # firm -> (dc, tenant, site)  Workday on the myworkdaysite.com
     # https://<dc>.myworkdaysite.com/{wday/cxs|recruiting}/<tenant>/<site>.
     "Perella Weinberg Partners": ("wd1", "pwp", "PWP_Experienced_Opportunities"),
 }
+RADANCY_HEAD_RE = re.compile(r"<h[1-4][^>]*>(.*?)</h[1-4]>", re.S | re.I)
 RADANCY = {              # firm -> host
     "Citi":       "jobs.citi.com",
     "Barclays":   "search.jobs.barclays",
@@ -786,6 +787,11 @@ def fetch_radancy(firm, host, source, keywords=None):
                     window = frag[a.start():end]
                     # title = anchor inner minus any nested location/date spans
                     title_src = RADANCY_SPAN_STRIP.sub("", inner)
+                    # some hosts (Schwab) put the title in a heading and add req-id /
+                    # "Save for Later" text to the anchor; the heading alone is the title
+                    hd = RADANCY_HEAD_RE.search(inner)
+                    if hd:
+                        title_src = hd.group(1)
                     title = _html.unescape(re.sub(r"\s+", " ", _TAG_RE.sub("", title_src))).strip()
                     lm = RADANCY_LOC_RE.search(window)
                     loc_str = (_html.unescape(re.sub(r"\s+", " ", _TAG_RE.sub("", lm.group(1)))).strip()
@@ -866,18 +872,20 @@ def fetch_phenom(firm, host, country="us", lang="en_us"):
     return out
 
 
-def fetch_eightfold(firm, host, domain, location):
+def fetch_eightfold(firm, host, domain, location, query=None):
     """Eightfold AI careers (e.g. HSBC). GET https://<host>/api/apply/v2/jobs
     with domain/location/start/num; the server caps num at 10, so we page by 10
     up to `count`. A role can list several locations, so they're joined — any
-    one of them in a metro keeps the row. t_create is a Unix timestamp."""
+    one of them in a metro keeps the row. t_create is a Unix timestamp. `query`
+    narrows big boards server-side (Tech Watch passes "data engineer")."""
     base = f"https://{host}/api/apply/v2/jobs"
     out, start, total = [], 0, None
     try:
         while start < 2000:  # hard ceiling
             r = requests.get(base, headers=UA, timeout=TIMEOUT,
                              params={"domain": domain, "location": location,
-                                     "start": start, "num": 10})
+                                     "start": start, "num": 10,
+                                     **({"query": query} if query else {})})
             r.raise_for_status()
             d = r.json() or {}
             if total is None:
