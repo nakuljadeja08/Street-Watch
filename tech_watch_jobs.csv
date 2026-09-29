@@ -1,5 +1,4 @@
 metro,sector,firm,title,location,source,posted_date,first_seen,is_new,url
-Charlotte,Finance,Bank of America,Data Engineer – Python/AI,Charlotte; Addison,workday,2026-09-25,2026-09-27,False,https://ghr.wd1.myworkdayjobs.com/Lateral-US/job/Charlotte/Data-Engineer---Python-AI_26025219
 Chicago,Finance,CIBC,"Databricks Data Engineer, Risk Technology","Chicago, IL",workday,2026-09-17,2026-09-27,False,https://cibc.wd3.myworkdayjobs.com/search/job/Chicago-IL/Senior-Software-Engineer---US-Risk-Technology_2613362
 Chicago,Finance,IMC Trading,Data Engineer - Infrastructure,"Chicago, United States",greenhouse,2026-08-05,2026-09-27,False,https://job-boards.eu.greenhouse.io/imc/jobs/4945646101
 Chicago,Finance,Northern Trust,Cloud Data Platform Engineer,"Chicago, IL",workday,2026-08-29,2026-09-27,False,https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Cloud-Data-Platform-Engineer_R158514-1
@@ -24,7 +23,6 @@ Other US,Finance,Charles Schwab,ETL Developer - Data Engineer,"Southlake, TX",ch
 Other US,Finance,Charles Schwab,ETL Engineer,"Southlake, TX",charles,,2026-09-29,True,https://www.schwabjobs.com/job/southlake/etl-engineer/33727/100685603200
 Other US,Finance,JPMorgan Chase,Data Engineering Associate,"OH, United States",oracle,2026-09-25,2026-09-27,False,https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210793562
 Other US,Tech,Linear,Analytics Engineer,North America,ashby,2026-08-11,2026-09-27,False,https://jobs.ashbyhq.com/linear/f272fc4a-91a7-4dcf-9cb5-3600ebaf14e1
-Other US,Fintech,Mastercard,Data Engineer II,"O'Fallon, Missouri",workday,2026-09-28,2026-09-29,True,https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/OFallon-Missouri/Data-Engineer-II_R-286580
 Other US,Tech,Snowflake,Analytics Engineer - Finance,IN-Pune,ashby,2026-09-10,2026-09-27,False,https://jobs.ashbyhq.com/snowflake/6ced2190-98f0-4ca0-b128-ef655e38d0be
 Other US,Finance,Susquehanna International Group,"Data Engineer, Alternative Data | Delta One Trading | Experienced Hire","Bala Cynwyd (Philadelphia Area), Pennsylvania",jibe,2026-08-25,2026-09-27,False,https://careers.sig.com/jobs/11370
 Other US,Finance,Susquehanna International Group,Quantitative/Data Developer | Fixed Income | Experienced Hire,"Bala Cynwyd (Philadelphia Area), Pennsylvania",jibe,2026-09-28,2026-09-29,True,https://careers.sig.com/jobs/10778

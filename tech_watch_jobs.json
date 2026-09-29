@@ -1,18 +1,5 @@
 [
   {
-    "firm": "Bank of America",
-    "id": "wd-ghr-Lateral-US-/job/Charlotte/Data-Engineer---Python-AI_26025219",
-    "title": "Data Engineer \u2013 Python/AI",
-    "location": "Charlotte; Addison",
-    "url": "https://ghr.wd1.myworkdayjobs.com/Lateral-US/job/Charlotte/Data-Engineer---Python-AI_26025219",
-    "source": "workday",
-    "posted_date": "2026-09-25",
-    "metro": "Charlotte",
-    "sector": "Finance",
-    "first_seen": "2026-09-27",
-    "is_new": false
-  },
-  {
     "firm": "CIBC",
     "id": "wd-cibc-search-/job/Chicago-IL/Senior-Software-Engineer---US-Risk-Technology_2613362",
     "title": "Databricks Data Engineer, Risk Technology",
@@ -323,19 +310,6 @@
     "sector": "Tech",
     "first_seen": "2026-09-27",
     "is_new": false
-  },
-  {
-    "firm": "Mastercard",
-    "id": "wd-mastercard-CorporateCareers-/job/OFallon-Missouri/Data-Engineer-II_R-286580",
-    "title": "Data Engineer II",
-    "location": "O'Fallon, Missouri",
-    "url": "https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/OFallon-Missouri/Data-Engineer-II_R-286580",
-    "source": "workday",
-    "posted_date": "2026-09-28",
-    "metro": "Other US",
-    "sector": "Fintech",
-    "first_seen": "2026-09-29",
-    "is_new": true
   },
   {
     "firm": "Snowflake",
