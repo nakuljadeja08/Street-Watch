@@ -1176,6 +1176,18 @@
     "is_new": false
   },
   {
+    "firm": "Altman Solon",
+    "id": "gh-altmansolonuslp-4989948101",
+    "title": "Analyst",
+    "location": "Boston, MA; New York, NY; San Francisco, CA; Los Angeles, CA",
+    "url": "https://www.altmansolon.com/careers/job-opportunities?gh_jid=4989948101",
+    "source": "greenhouse",
+    "posted_date": "2026-09-29",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-29",
+    "is_new": true
+  },
+  {
     "firm": "Apollo Global Management",
     "id": "wd-athene-Apollo_Careers-/job/New-York-New-York/Analyst--Fund-Accounting---Core-Credit_R255002-5",
     "title": "Analyst, Fund Accounting - Core Credit",
@@ -1441,6 +1453,18 @@
   },
   {
     "firm": "Ares Management",
+    "id": "wd-aresmgmt-External-/job/New-York-NY/Associate--Real-Estate-Equity_R8600",
+    "title": "Associate, Real Estate Equity",
+    "location": "New York, NY",
+    "url": "https://aresmgmt.wd1.myworkdayjobs.com/External/job/New-York-NY/Associate--Real-Estate-Equity_R8600",
+    "source": "workday",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-29",
+    "is_new": true
+  },
+  {
+    "firm": "Ares Management",
     "id": "wd-aresmgmt-External-/job/New-York-NY/Senior-Associate--Strategic-Partnerships_R7402",
     "title": "Associate, Strategic Partnerships",
     "location": "New York, NY",
@@ -1665,18 +1689,6 @@
     "posted_date": "2026-09-25",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-26",
-    "is_new": false
-  },
-  {
-    "firm": "Bank of America",
-    "id": "wd-ghr-Lateral-US-/job/New-York/Private-Wealth-Client-Associate_26035441",
-    "title": "Private Wealth Client Associate",
-    "location": "New York",
-    "url": "https://ghr.wd1.myworkdayjobs.com/Lateral-US/job/New-York/Private-Wealth-Client-Associate_26035441",
-    "source": "workday",
-    "posted_date": "2026-09-25",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-25",
     "is_new": false
   },
   {
@@ -1930,6 +1942,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-17",
     "is_new": false
+  },
+  {
+    "firm": "BlackRock",
+    "id": "blackrock-98752046896",
+    "title": "Associate, Private Credit/PEP Quality Control Financial Reporting, PFS",
+    "location": "New York, NY",
+    "url": "https://careers.blackrock.com/job/new-york/associate-private-credit-pep-quality-control-financial-reporting-pfs/45831/98752046896",
+    "source": "blackrock",
+    "posted_date": "2026-09-29",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-29",
+    "is_new": true
   },
   {
     "firm": "BlackRock",
@@ -4105,6 +4129,18 @@
   },
   {
     "firm": "Goldman Sachs",
+    "id": "gs-169228_GS_EARLY_CAREER",
+    "title": "Global Investment Research, Credit Research Analyst",
+    "location": "New York, NY, United States",
+    "url": "https://higher.gs.com/roles/169228",
+    "source": "goldman",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-29",
+    "is_new": true
+  },
+  {
+    "firm": "Goldman Sachs",
     "id": "gs-180084_GS_MID_CAREER",
     "title": "Global Investment Research, US Economics Research Associate",
     "location": "New York, NY, United States",
@@ -4133,18 +4169,6 @@
     "title": "Human Capital Management, Talent Management, Associate, New York City",
     "location": "New York, NY, United States",
     "url": "https://higher.gs.com/roles/183379",
-    "source": "goldman",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-23",
-    "is_new": false
-  },
-  {
-    "firm": "Goldman Sachs",
-    "id": "gs-180087_GS_MID_CAREER",
-    "title": "Marcus by Goldman Sachs, Digital Marketing Manager \u2013 Aggregator Marketing Lead, Associate - New York",
-    "location": "New York, NY, United States",
-    "url": "https://higher.gs.com/roles/180087",
     "source": "goldman",
     "posted_date": null,
     "metro": "NY + Jersey City",
@@ -4795,18 +4819,6 @@
     "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210788461",
     "source": "oracle",
     "posted_date": "2026-09-14",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-19",
-    "is_new": false
-  },
-  {
-    "firm": "JPMorgan Chase",
-    "id": "oracle-jpmc.fa.oraclecloud.com-210763100",
-    "title": "Consumer & Community Bank - Strategy, Associate",
-    "location": "New York, NY, United States",
-    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210763100",
-    "source": "oracle",
-    "posted_date": "2026-09-28",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-19",
     "is_new": false
@@ -7285,6 +7297,18 @@
   },
   {
     "firm": "RBC Capital Markets",
+    "id": "phenom-jobs.rbc.com-RBCAA0088R0000186586EXTERNALENCA",
+    "title": "2027 Capital Markets, AidenEdge Program Winter Analyst (4 Months)",
+    "location": "New York, New York, United States of America",
+    "url": "https://rbc.wd3.myworkdayjobs.com/RBCEARLYTALENT1/job/BROOKFIELD-PLACE-FKA-3-WORLD-FINANCIAL-CENTER-200-VESEY-STREETNEW-YORK/XMLNAME-2027-Capital-Markets--AidenEdge-Program-Winter-Analyst--4-Months-_R-0000186586",
+    "source": "phenom",
+    "posted_date": "2026-09-10",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-18",
+    "is_new": false
+  },
+  {
+    "firm": "RBC Capital Markets",
     "id": "phenom-jobs.rbc.com-RBCAA0088R0000186969EXTERNALENCA",
     "title": "Analyst, Trade Support",
     "location": "New York, New York, United States of America",
@@ -7315,30 +7339,6 @@
     "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Analyst-Associate--Market-Risk-Governance---Reporting_R-0000186845",
     "source": "phenom",
     "posted_date": "2026-09-17",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-18",
-    "is_new": false
-  },
-  {
-    "firm": "RBC Capital Markets",
-    "id": "phenom-jobs.rbc.com-RBCAA0088R0000187752EXTERNALENCA",
-    "title": "Associate, Equity Derivatives Structurer",
-    "location": "New York, New York, United States of America",
-    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Associate--Equity-Derivatives-Structurer_R-0000187752",
-    "source": "phenom",
-    "posted_date": "2026-09-23",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-23",
-    "is_new": false
-  },
-  {
-    "firm": "RBC Capital Markets",
-    "id": "phenom-jobs.rbc.com-RBCAA0088R0000184124EXTERNALENCA",
-    "title": "Associate, Market Data Governance - COO Group",
-    "location": "Jersey City, New Jersey, United States of America",
-    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/Jersey-City-New-Jersey-United-States-of-America/Market-Data-Compliance-Specialist_R-0000184124-1",
-    "source": "phenom",
-    "posted_date": "2026-09-03",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-18",
     "is_new": false
@@ -7522,6 +7522,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-17",
     "is_new": false
+  },
+  {
+    "firm": "Stifel",
+    "id": "icims-careers-stifel.icims.com-9976",
+    "title": "Registered - Client Service Associate",
+    "location": "US-NY-New York",
+    "url": "https://careers-stifel.icims.com/jobs/9976/registered---client-service-associate/job",
+    "source": "icims",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-29",
+    "is_new": true
   },
   {
     "firm": "Stifel",
@@ -8017,6 +8029,18 @@
   },
   {
     "firm": "Truist Securities",
+    "id": "phenom-careers.truist.com-TBJTBFUSR0114373EXTERNALENUS",
+    "title": "FIG Investment Banking Associate",
+    "location": "New York, New York, USA",
+    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY/FIG-Investment-Banking-Associate_R0114373",
+    "source": "phenom",
+    "posted_date": "2026-09-28",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-29",
+    "is_new": true
+  },
+  {
+    "firm": "Truist Securities",
     "id": "phenom-careers.truist.com-TBJTBFUSR0118282EXTERNALENUS",
     "title": "Investment Banking Analyst - Energy (Power, Utilities & Infrastructure)",
     "location": "New York, New York, USA",
@@ -8037,6 +8061,18 @@
     "posted_date": "2026-09-18",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-19",
+    "is_new": false
+  },
+  {
+    "firm": "Truist Securities",
+    "id": "phenom-careers.truist.com-TBJTBFUSR0118792EXTERNALENUS",
+    "title": "Investment Grade Debt Capital Markets Analyst",
+    "location": "New York, New York, USA",
+    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY---50-Hudson-Yards/Investment-Grade-DCM-Analyst-II_R0118792",
+    "source": "phenom",
+    "posted_date": "2026-09-28",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-18",
     "is_new": false
   },
   {
@@ -8110,6 +8146,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
     "is_new": false
+  },
+  {
+    "firm": "Wells Fargo",
+    "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/Investment-Banking-Associate---Equity-Capital-Markets--ECM-_R-528047",
+    "title": "Associate, Investment Banking - Equity Capital Markets",
+    "location": "NEW YORK, NY",
+    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/NEW-YORK-NY/Investment-Banking-Associate---Equity-Capital-Markets--ECM-_R-528047",
+    "source": "workday",
+    "posted_date": "2026-09-29",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-29",
+    "is_new": true
   },
   {
     "firm": "Wells Fargo",
@@ -9058,6 +9106,18 @@
     "metro": "SF / Bay Area",
     "first_seen": "2026-09-18",
     "is_new": false
+  },
+  {
+    "firm": "U.S. Bancorp",
+    "id": "wd-usbank-US_Bank_Careers-/job/San-Francisco-CA/Centralized-Support-Associate_2026-0030172",
+    "title": "Centralized Support Associate",
+    "location": "San Francisco, CA",
+    "url": "https://usbank.wd1.myworkdayjobs.com/US_Bank_Careers/job/San-Francisco-CA/Centralized-Support-Associate_2026-0030172",
+    "source": "workday",
+    "posted_date": "2026-09-29",
+    "metro": "SF / Bay Area",
+    "first_seen": "2026-09-29",
+    "is_new": true
   },
   {
     "firm": "U.S. Bancorp",
