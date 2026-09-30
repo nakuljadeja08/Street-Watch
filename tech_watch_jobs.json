@@ -91,19 +91,6 @@
     "is_new": false
   },
   {
-    "firm": "Disney",
-    "id": "wd-disney-disneycareer-/job/Lake-Buena-Vista-FL-USA/Data-Engineer_10159484",
-    "title": "Data Engineer",
-    "location": "Lake Buena Vista, FL, USA; Burbank, CA, USA",
-    "url": "https://disney.wd5.myworkdayjobs.com/disneycareer/job/Lake-Buena-Vista-FL-USA/Data-Engineer_10159484",
-    "source": "workday",
-    "posted_date": "2026-09-24",
-    "metro": "Los Angeles",
-    "sector": "Tech",
-    "first_seen": "2026-09-27",
-    "is_new": false
-  },
-  {
     "firm": "Anthropic",
     "id": "gh-anthropic-5418610008",
     "title": "Data Engineer, GTM",
@@ -778,6 +765,19 @@
     "sector": "Finance",
     "first_seen": "2026-09-29",
     "is_new": false
+  },
+  {
+    "firm": "Citi",
+    "id": "citi-101350240064",
+    "title": "Data Platform Engineer, Cybersecurity Operations",
+    "location": "Irving, Texas, United States",
+    "url": "https://jobs.citi.com/job/irving/data-platform-engineer-cybersecurity-operations/287/101350240064",
+    "source": "citi",
+    "posted_date": null,
+    "metro": "Texas",
+    "sector": "Finance",
+    "first_seen": "2026-09-30",
+    "is_new": true
   },
   {
     "firm": "eBay",
