@@ -481,18 +481,6 @@
   },
   {
     "firm": "Deutsche Bank",
-    "id": "wd-db-DBWebsite-/job/Chicago-222-South-Riverside-Plaza/Relationship-Management-Analyst--US-Wealth_R0449142-2",
-    "title": "Relationship Management Analyst, US Wealth",
-    "location": "Chicago, 222 South Riverside Plaza",
-    "url": "https://db.wd3.myworkdayjobs.com/DBWebsite/job/Chicago-222-South-Riverside-Plaza/Relationship-Management-Analyst--US-Wealth_R0449142-2",
-    "source": "workday",
-    "posted_date": "2026-09-30",
-    "metro": "Chicago",
-    "first_seen": "2026-09-30",
-    "is_new": true
-  },
-  {
-    "firm": "Deutsche Bank",
     "id": "wd-db-DBWebsite-/job/Chicago-222-South-Riverside-Plaza/Relationship-Management-Analyst--US-Wealth_R0449150-2",
     "title": "Relationship Management Analyst, US Wealth",
     "location": "Chicago, 222 South Riverside Plaza",
@@ -1813,18 +1801,6 @@
   },
   {
     "firm": "Barclays",
-    "id": "barclays-98861300448",
-    "title": "Investment Banking Analyst, Consumer and Retail Group (CRG)",
-    "location": "New York, United States",
-    "url": "https://search.jobs.barclays/job/new-york/investment-banking-analyst-consumer-and-retail-group-crg/13015/98861300448",
-    "source": "barclays",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-24",
-    "is_new": false
-  },
-  {
-    "firm": "Barclays",
     "id": "barclays-101270804048",
     "title": "Research Analyst",
     "location": "New York, United States",
@@ -1930,6 +1906,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-23",
     "is_new": false
+  },
+  {
+    "firm": "BlackRock",
+    "id": "blackrock-99189702976",
+    "title": "Associate, Institutional - Pensions",
+    "location": "New York, NY",
+    "url": "https://careers.blackrock.com/job/new-york/associate-institutional-pensions/45831/99189702976",
+    "source": "blackrock",
+    "posted_date": "2026-09-30",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-30",
+    "is_new": true
   },
   {
     "firm": "BlackRock",
@@ -2808,6 +2796,18 @@
     "is_new": false
   },
   {
+    "firm": "Cantor Fitzgerald",
+    "id": "oracle-hdow.fa.us6.oraclecloud.com-250094",
+    "title": "Real Estate Investment Banking Analyst (class of 2027)",
+    "location": "NY, United States",
+    "url": "https://hdow.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/250094",
+    "source": "oracle",
+    "posted_date": "2026-09-30",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-30",
+    "is_new": true
+  },
+  {
     "firm": "Capital One",
     "id": "wd-capitalone-Capital_One-/job/New-York-NY/Associate--Tech-Operations_R1001929-1",
     "title": "Associate, Tech Operations",
@@ -3427,6 +3427,18 @@
     "url": "https://db.wd3.myworkdayjobs.com/DBWebsite/job/New-York-1-Columbus-Circle/Global-Corporate-Coverage-Associate--Non-Bank-Financial-Institutions_R0446398",
     "source": "workday",
     "posted_date": "2026-09-11",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-15",
+    "is_new": false
+  },
+  {
+    "firm": "Deutsche Bank",
+    "id": "wd-db-DBWebsite-/job/New-York-1-Columbus-Circle/Banker--Real-Estate--Gaming--Lodging-and-Leisure--REGLL--Associate_R0437867",
+    "title": "Investment Banker\u2013 Real Estate, Gaming, Lodging and Leisure (REGLL) Associate",
+    "location": "New York, 1 Columbus Circle",
+    "url": "https://db.wd3.myworkdayjobs.com/DBWebsite/job/New-York-1-Columbus-Circle/Banker--Real-Estate--Gaming--Lodging-and-Leisure--REGLL--Associate_R0437867",
+    "source": "workday",
+    "posted_date": "2026-09-30",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
     "is_new": false
@@ -5065,18 +5077,6 @@
   },
   {
     "firm": "JPMorgan Chase",
-    "id": "oracle-jpmc.fa.oraclecloud.com-210784830",
-    "title": "Data Science Associate",
-    "location": "New York, NY, United States",
-    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210784830",
-    "source": "oracle",
-    "posted_date": "2026-09-24",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-25",
-    "is_new": false
-  },
-  {
-    "firm": "JPMorgan Chase",
     "id": "oracle-jpmc.fa.oraclecloud.com-210788523",
     "title": "Digital Signage Program Associate",
     "location": "Brooklyn, NY, United States",
@@ -5253,6 +5253,18 @@
     "posted_date": "2026-09-22",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-19",
+    "is_new": false
+  },
+  {
+    "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210795527",
+    "title": "HR/EX CDAO Data Risk & Governance Associate",
+    "location": "New York, NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210795527",
+    "source": "oracle",
+    "posted_date": "2026-09-30",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-29",
     "is_new": false
   },
   {
@@ -7501,14 +7513,14 @@
   },
   {
     "firm": "RBC Capital Markets",
-    "id": "phenom-jobs.rbc.com-RBCAA0088R0000184124EXTERNALENCA",
-    "title": "Associate, Market Data Governance - COO Group",
-    "location": "Jersey City, New Jersey, United States of America",
-    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/Jersey-City-New-Jersey-United-States-of-America/Market-Data-Compliance-Specialist_R-0000184124-1",
+    "id": "phenom-jobs.rbc.com-RBCAA0088R0000187752EXTERNALENCA",
+    "title": "Associate, Equity Derivatives Structurer",
+    "location": "New York, New York, United States of America",
+    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Associate--Equity-Derivatives-Structurer_R-0000187752",
     "source": "phenom",
-    "posted_date": "2026-09-03",
+    "posted_date": "2026-09-23",
     "metro": "NY + Jersey City",
-    "first_seen": "2026-09-18",
+    "first_seen": "2026-09-23",
     "is_new": false
   },
   {
@@ -7570,18 +7582,6 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-30",
     "is_new": true
-  },
-  {
-    "firm": "RBC Capital Markets",
-    "id": "phenom-jobs.rbc.com-RBCAA0088R0000188042EXTERNALENCA",
-    "title": "Regulatory Reporting Business Analyst",
-    "location": "Jersey City, New Jersey, United States of America",
-    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/Jersey-City-New-Jersey-United-States-of-America/Regulatory-Reporting-Business-Analyst_R-0000188042-1",
-    "source": "phenom",
-    "posted_date": "2026-09-16",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-18",
-    "is_new": false
   },
   {
     "firm": "Sixth Street",
@@ -8113,18 +8113,6 @@
   },
   {
     "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0119838EXTERNALENUS",
-    "title": "ECM Corporate Services Associate  III",
-    "location": "New York, New York, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY/ECM-Corporate-Services-Associate--III_R0119838",
-    "source": "phenom",
-    "posted_date": "2026-09-29",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-29",
-    "is_new": false
-  },
-  {
-    "firm": "Truist Securities",
     "id": "phenom-careers.truist.com-TBJTBFUSR0118998EXTERNALENUS",
     "title": "Equity Research Analyst - Building Products (Industrials)",
     "location": "New York, New York, USA",
@@ -8218,18 +8206,6 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-25",
     "is_new": false
-  },
-  {
-    "firm": "U.S. Bancorp",
-    "id": "wd-usbank-US_Bank_Careers-/job/New-York-NY/FX---Derivatives-Sales-Analyst_2026-0026923",
-    "title": "FX & Derivatives Sales Analyst",
-    "location": "New York, NY",
-    "url": "https://usbank.wd1.myworkdayjobs.com/US_Bank_Careers/job/New-York-NY/FX---Derivatives-Sales-Analyst_2026-0026923",
-    "source": "workday",
-    "posted_date": "2026-09-30",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-30",
-    "is_new": true
   },
   {
     "firm": "U.S. Bancorp",
