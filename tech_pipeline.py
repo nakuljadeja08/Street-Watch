@@ -434,7 +434,25 @@ def _looks_de(title):
     return bool(_DE_RE.search(title))
 
 
-def title_ok(title):
+# At data-infrastructure companies the data engineering work is titled
+# "Software Engineer - Data Platform / Distributed Data Systems / ...". For
+# these firms only, a software-engineer title that names a data area passes;
+# the seniority and role exclusions above still apply.
+DATA_INFRA = {
+    "Databricks", "Snowflake", "Confluent", "ClickHouse", "Fivetran", "Starburst",
+    "Airbyte", "Astronomer", "Monte Carlo", "MongoDB", "Elastic", "Cockroach Labs",
+    "Sigma Computing", "Hex", "Dataiku", "Collibra",
+}
+_INFRA_SWE_RE = re.compile(r"\bsoftware\s+(?:engineer|developer)", re.I)
+_INFRA_DATA_RE = re.compile(
+    r"\bdata\b|\bdatabases?\b|\bdatasets?\b|lakehouse|warehous|\bpipelines?\b|streaming"
+    r"|ingestion|\betl\b|\bspark\b|\bkafka\b|\bflink\b|lakeflow", re.I)
+_SOFTWARE_RE = re.compile(r"\bsoftware\b", re.I)
+
+
+def title_ok(title, firm=None):
+    if firm in DATA_INFRA and _INFRA_SWE_RE.search(title) and _INFRA_DATA_RE.search(title):
+        return not _DE_EXCLUDE_RE.search(_SOFTWARE_RE.sub("", title))
     return _looks_de(title) and not _DE_EXCLUDE_RE.search(title)
 
 
@@ -570,7 +588,7 @@ def collect():
 
     kept, seen = [], set()
     for r in raw:
-        if r["id"] in seen or not title_ok(r["title"]) or not P.age_ok(r.get("posted_date"), MAX_AGE_DAYS):
+        if r["id"] in seen or not title_ok(r["title"], r["firm"]) or not P.age_ok(r.get("posted_date"), MAX_AGE_DAYS):
             continue
         hub = us_hub(r["location"])
         if hub:
