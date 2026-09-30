@@ -100,3 +100,12 @@ since those post the most data roles.
     Balyasny, Five Rings, XTX, MSCI, ICE, DTCC, Intuit, ServiceNow, Palo Alto
     Networks, Atlassian, Shopify, HubSpot, Rippling, dbt Labs, Anduril,
     Marqeta, Revolut, Klarna.
+- **2026-09-30, data-infra title rule**: titles containing "software" are still
+  excluded in general, but at data-infrastructure companies (`DATA_INFRA` in
+  `tech_pipeline.py`: Databricks, Snowflake, Confluent, ClickHouse, Fivetran,
+  Starburst, Airbyte, Astronomer, Monte Carlo, MongoDB, Elastic, Cockroach Labs,
+  Sigma Computing, Hex, Dataiku, Collibra) a "Software Engineer/Developer" title
+  that names a data area (data, database, pipelines, streaming, warehouse,
+  ingestion, ETL, Spark, Kafka, Flink) passes. Seniority, intern and pre-sales
+  exclusions still apply. It matched 4 roles on day one, none of them both in
+  the US and under 60 days old.
