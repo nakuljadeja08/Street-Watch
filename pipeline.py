@@ -48,6 +48,8 @@ GREENHOUSE = {   # firm -> board token  (boards-api.greenhouse.io/v1/boards/<tok
     "Stripe": "stripe", "Brex": "brex", "Chime": "chime",
     "Galaxy Digital": "galaxydigitalservices",
     "On Holding": "onrunning",
+    # Auction houses (added 2026-10-01): luxury segment, see AUCTION_HOUSES.
+    "Sotheby's": "sothebys",
 }
 ASHBY = {        # firm -> job board name (api.ashbyhq.com/posting-api/job-board/<name>)
     "Insight Partners": "insight-partners",          # slug is hyphenated (was "insightpartners" = empty)
@@ -122,6 +124,7 @@ WORKDAY = {      # firm -> (tenant, datacenter, site)
     # Fashion (added 2026-09-30) — narrowed server-side by WORKDAY_FACETS.
     "Richemont":                ("richemont",  "wd3", "Richemont"),     # Cartier, VC&A, IWC…
     "Tapestry":                 ("tapestry",   "wd108", "Tapestry_Careers"),  # Coach, Kate Spade
+    "Christie's":               ("christies",  "wd3", "Christies_Careers"),   # auction house, ~30 global
     # Best-effort tenant/site slugs from public careers URLs — a wrong site just
     # logs an error for that firm and skips it; correct it from the run output.
     # Still to map (custom / not-yet-found ATS): Evercore, Centerview, Rothschild,
@@ -1078,7 +1081,11 @@ PRODUCT_GTM_FIRMS = {
     "LVMH", "Richemont", "Kering", "Estée Lauder", "Tapestry", "Moncler", "Prada",
     "On Holding",
     "Stripe", "Brex", "Chime", "Ramp", "Plaid", "Rogo", "Bastion", "Galaxy Digital",
+    "Christie's", "Sotheby's",
 }
+# Auction houses also keep analyst/associate titles (client success, finance
+# services, sale coordination), since they sit between finance and luxury.
+AUCTION_HOUSES = {"Christie's", "Sotheby's"}
 _PRODUCT_GTM_RE = re.compile(
     r"\bproduct\b|go[\s-]to[\s-]market|\bgtm\b|business development|\bpartnerships?\b"
     r"|\bpartner (?:manager|success|marketing)|account (?:executive|manager)|\bsales\b"
@@ -1114,7 +1121,9 @@ def title_ok(firm, title):
     if _MANAGER_RE.search(title) and segment_of(firm) in ("fintech", "fashion"):
         return False
     if firm in PRODUCT_GTM_FIRMS:
-        return bool(_PRODUCT_GTM_RE.search(title)) and not _PRODUCT_GTM_EXCLUDE_RE.search(title)
+        if _PRODUCT_GTM_EXCLUDE_RE.search(title):
+            return False
+        return bool(_PRODUCT_GTM_RE.search(title)) or (firm in AUCTION_HOUSES and any(k in t for k in TITLES))
     kws = TITLES_TRADING if firm in TRADING_FIRMS else TITLES
     return any(k in t for k in kws)
 
