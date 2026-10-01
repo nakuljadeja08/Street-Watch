@@ -1080,6 +1080,46 @@ def fetch_paylocity(firm, guid):
     return out
 
 
+RAGO_URL = "https://www.ragoarts.com/contact/opportunities"
+
+
+def fetch_rago(firm="Rago | Wright"):
+    """Rago/Wright list openings on a CMS page, not an ATS. The page's Inertia
+    `data-page` JSON holds text blocks: an <h3> title, then a "Location(s) –" line."""
+    import html as _html
+    try:
+        r = requests.get(RAGO_URL, headers=UA, timeout=TIMEOUT); r.raise_for_status()
+        m = re.search(r'data-page="([^"]+)"', r.text)
+        page = json.loads(_html.unescape(m.group(1))) if m else {}
+    except Exception as e:
+        print(f"  ! rago {firm}: {e}", file=sys.stderr); return []
+    texts = []
+    def walk(o):
+        if isinstance(o, dict):
+            if isinstance(o.get("text"), str):
+                texts.append(_html.unescape(o["text"]).replace("\xa0", " "))
+            for v in o.values():
+                walk(v)
+        elif isinstance(o, list):
+            for v in o:
+                walk(v)
+    walk(page)
+    out, title = [], None
+    for t in texts:
+        h = re.search(r"<h3[^>]*>(.*?)</h3>", t, re.S)
+        if h:
+            title = re.sub(r"<[^>]+>", "", h.group(1)).strip()
+            continue
+        loc = re.search(r"Locations?\s*[–:-]\s*([^<\n]+)", t)
+        if title and loc:
+            slug = re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-")
+            out.append(dict(firm=firm, id=f"rago-{slug}", title=title,
+                            location=loc.group(1).strip(), url=RAGO_URL,
+                            source="ragoarts", posted_date=None))
+            title = None
+    return out
+
+
 def fetch_successfactors(firm, host, locations=("New York", "San Francisco", "Chicago")):
     """SAP SuccessFactors Career Site Builder (e.g. jobs.pradagroup.com). The
     /search/ page is server-rendered; one query per metro via `locationsearch`,
@@ -1135,12 +1175,13 @@ PRODUCT_GTM_FIRMS = {
     "On Holding",
     "Stripe", "Brex", "Chime", "Ramp", "Plaid", "Rogo", "Bastion", "Galaxy Digital",
     "Christie's", "Sotheby's", "Phillips", "Bonhams", "Doyle",
-    "Freeman's | Hindman",
+    "Freeman's | Hindman", "Rago | Wright",
 }
 # Auction houses also keep analyst/associate titles (client success, finance
 # services), since they sit between finance and luxury, plus their entry-level
 # cataloguer and sale/department coordinator seats.
-AUCTION_HOUSES = {"Christie's", "Sotheby's", "Phillips", "Bonhams", "Doyle", "Freeman's | Hindman"}
+AUCTION_HOUSES = {"Christie's", "Sotheby's", "Phillips", "Bonhams", "Doyle", "Freeman's | Hindman",
+                  "Rago | Wright"}
 AUCTION_TITLES = TITLES + ["cataloguer", "cataloger", "coordinator"]
 _PRODUCT_GTM_RE = re.compile(
     r"\bproduct\b|go[\s-]to[\s-]market|\bgtm\b|business development|\bpartnerships?\b"
@@ -1152,7 +1193,7 @@ _PRODUCT_GTM_EXCLUDE_RE = re.compile(
     r"client advis|sales (?:associate|advisor|support|professional|lead|and service|& service)"
     r"|beauty advisor|\bstore\b|boutique|\bstock\b|key ?holder|cashier|visual merchandis"
     r"|\bartist\b|ambassador|engineer|designer|\bstaff\b|\blead\b|group product|counsel"
-    r"|seasonal|\btemporary\b|\btemp\b|fixed[\s-]term|freelance"
+    r"|seasonal|day of auction|\btemporary\b|\btemp\b|fixed[\s-]term|freelance"
     # GTM-adjacent support functions that aren't Product/GTM work themselves
     r"|recruit|sourcer|talent acquisition|people (?:business )?partner|accountant"
     r"|compliance|technical account|support specialist", re.I)
@@ -1258,6 +1299,8 @@ def collect():
     print("Paylocity…")
     for f, guid in PAYLOCITY.items():
         rows = fetch_paylocity(f, guid); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    print("Rago | Wright (ragoarts.com)…")
+    rows = fetch_rago(); print(f"  {'Rago | Wright':<24}{len(rows):>4}"); raw += rows
     print("LVMH (lvmh.com)…")
     rows = fetch_lvmh("LVMH"); print(f"  {'LVMH':<24}{len(rows):>4}"); raw += rows
 
@@ -1381,7 +1424,7 @@ def registered_firms():
     regs = (GREENHOUSE, ASHBY, JIBE, PINPOINT, ORACLE, HRMDIRECT, PAGEUP, ICIMS,
             WORKDAY, WORKDAY_SITE, RADANCY, PHENOM, EIGHTFOLD, EIGHTFOLD_PCSX, SUCCESSFACTORS,
             BAMBOOHR, PAYLOCITY)
-    return {f for reg in regs for f in reg} | {"Goldman Sachs", "Citadel Securities", "LVMH"}
+    return {f for reg in regs for f in reg} | {"Goldman Sachs", "Citadel Securities", "LVMH", "Rago | Wright"}
 
 
 def update_trends(trends, board, listed, ok_firms, today, registered):
