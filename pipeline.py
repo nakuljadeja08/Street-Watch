@@ -768,6 +768,10 @@ EIGHTFOLD_PCSX = {       # firm -> (host, domain, location)  Eightfold's newer "
 SUCCESSFACTORS = {       # firm -> host  SAP SuccessFactors Career Site Builder
     "Prada": "jobs.pradagroup.com",
 }
+BAMBOOHR = {             # firm -> subdomain  (<sub>.bamboohr.com/careers/list)
+    "Phillips": "phillipsauctioneers",               # auction house, ~10 global
+    "Bonhams": "bonhams",                            # auction house, ~10 global
+}
 RADANCY_METRO_KW = ["new york", "jersey city", "chicago", "san francisco", "bay area"]
 # Radancy ships two card themes: a classic one (BlackRock/Barclays/ING) where the
 # location + date <span>s sit INSIDE the /job/ anchor, and Citi's sr-job-item theme
@@ -1027,6 +1031,27 @@ _SF_LINK = re.compile(r'<a href="(/job/[^"]*?/(\d+)/)"[^>]*class="jobTitle-link"
 _SF_LOC = re.compile(r'<span class="jobLocation">\s*(.*?)\s*</span>', re.S)
 
 
+def fetch_bamboohr(firm, sub):
+    """BambooHR's public careers list. It gives no post date, so rows can't be aged."""
+    try:
+        r = requests.get(f"https://{sub}.bamboohr.com/careers/list", headers=UA, timeout=TIMEOUT)
+        r.raise_for_status()
+        data = r.json()
+    except Exception as e:
+        print(f"  ! bamboohr {firm}: {e}", file=sys.stderr); return []
+    out = []
+    for j in data.get("result", []):
+        loc = j.get("location") or {}
+        where = ", ".join(x for x in (loc.get("city"), loc.get("state")) if x)
+        if j.get("isRemote"):
+            where = f"{where} (Remote)" if where else "Remote"
+        out.append(dict(firm=firm, id=f"bamboo-{sub}-{j.get('id')}",
+                        title=(j.get("jobOpeningName") or "").strip(), location=where,
+                        url=f"https://{sub}.bamboohr.com/careers/{j.get('id')}",
+                        source="bamboohr", posted_date=None))
+    return out
+
+
 def fetch_successfactors(firm, host, locations=("New York", "San Francisco", "Chicago")):
     """SAP SuccessFactors Career Site Builder (e.g. jobs.pradagroup.com). The
     /search/ page is server-rendered; one query per metro via `locationsearch`,
@@ -1081,11 +1106,13 @@ PRODUCT_GTM_FIRMS = {
     "LVMH", "Richemont", "Kering", "Estée Lauder", "Tapestry", "Moncler", "Prada",
     "On Holding",
     "Stripe", "Brex", "Chime", "Ramp", "Plaid", "Rogo", "Bastion", "Galaxy Digital",
-    "Christie's", "Sotheby's",
+    "Christie's", "Sotheby's", "Phillips", "Bonhams",
 }
 # Auction houses also keep analyst/associate titles (client success, finance
-# services, sale coordination), since they sit between finance and luxury.
-AUCTION_HOUSES = {"Christie's", "Sotheby's"}
+# services), since they sit between finance and luxury, plus their entry-level
+# cataloguer and sale/department coordinator seats.
+AUCTION_HOUSES = {"Christie's", "Sotheby's", "Phillips", "Bonhams"}
+AUCTION_TITLES = TITLES + ["cataloguer", "cataloger", "coordinator"]
 _PRODUCT_GTM_RE = re.compile(
     r"\bproduct\b|go[\s-]to[\s-]market|\bgtm\b|business development|\bpartnerships?\b"
     r"|\bpartner (?:manager|success|marketing)|account (?:executive|manager)|\bsales\b"
@@ -1096,7 +1123,7 @@ _PRODUCT_GTM_EXCLUDE_RE = re.compile(
     r"client advis|sales (?:associate|advisor|support|professional|lead|and service|& service)"
     r"|beauty advisor|\bstore\b|boutique|\bstock\b|key ?holder|cashier|visual merchandis"
     r"|\bartist\b|ambassador|engineer|designer|\bstaff\b|\blead\b|group product|counsel"
-    r"|seasonal|temporary|\btemp\b|fixed[\s-]term|freelance"
+    r"|seasonal|\btemporary\b|\btemp\b|fixed[\s-]term|freelance"
     # GTM-adjacent support functions that aren't Product/GTM work themselves
     r"|recruit|sourcer|talent acquisition|people (?:business )?partner|accountant"
     r"|compliance|technical account|support specialist", re.I)
@@ -1123,7 +1150,7 @@ def title_ok(firm, title):
     if firm in PRODUCT_GTM_FIRMS:
         if _PRODUCT_GTM_EXCLUDE_RE.search(title):
             return False
-        return bool(_PRODUCT_GTM_RE.search(title)) or (firm in AUCTION_HOUSES and any(k in t for k in TITLES))
+        return bool(_PRODUCT_GTM_RE.search(title)) or (firm in AUCTION_HOUSES and any(k in t for k in AUCTION_TITLES))
     kws = TITLES_TRADING if firm in TRADING_FIRMS else TITLES
     return any(k in t for k in kws)
 
@@ -1196,6 +1223,9 @@ def collect():
     print("SuccessFactors…")
     for f, host in SUCCESSFACTORS.items():
         rows = fetch_successfactors(f, host); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    print("BambooHR…")
+    for f, sub in BAMBOOHR.items():
+        rows = fetch_bamboohr(f, sub); print(f"  {f:<24}{len(rows):>4}"); raw += rows
     print("LVMH (lvmh.com)…")
     rows = fetch_lvmh("LVMH"); print(f"  {'LVMH':<24}{len(rows):>4}"); raw += rows
 
@@ -1317,7 +1347,8 @@ TRENDS_FILE = ".street_watch_trends.json"
 def registered_firms():
     """Every firm the pipeline currently scrapes."""
     regs = (GREENHOUSE, ASHBY, JIBE, PINPOINT, ORACLE, HRMDIRECT, PAGEUP, ICIMS,
-            WORKDAY, WORKDAY_SITE, RADANCY, PHENOM, EIGHTFOLD, EIGHTFOLD_PCSX, SUCCESSFACTORS)
+            WORKDAY, WORKDAY_SITE, RADANCY, PHENOM, EIGHTFOLD, EIGHTFOLD_PCSX, SUCCESSFACTORS,
+            BAMBOOHR)
     return {f for reg in regs for f in reg} | {"Goldman Sachs", "Citadel Securities", "LVMH"}
 
 
