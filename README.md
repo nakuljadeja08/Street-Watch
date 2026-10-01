@@ -6,6 +6,8 @@ Supabase, and serves a live page. Runs itself every morning via GitHub Actions.
 At the fintech and fashion firms (`PRODUCT_GTM_FIRMS` in `pipeline.py`) it
 pulls Product and go-to-market roles instead: product, sales, partnerships,
 marketing and merchandising, with store roles and senior grades left out.
+Account Executive roles are dropped everywhere, and "Specialist" titles at
+fintech firms, as both are senior seats.
 
 ```
 firms' ATS APIs  ──►  pipeline.py  ──►  Supabase `jobs` table  ──►  dashboard/ (React app on Vercel)
@@ -27,6 +29,7 @@ firms' ATS APIs  ──►  pipeline.py  ──►  Supabase `jobs` table  ─�
 | `.street_watch_trends.json` | Running hiring-trends record + yesterday's board (the baseline takedowns are measured against); committed by the daily run. |
 | `tech_pipeline.py` | Tech Watch ingester (data engineering roles); see *Tech Watch* below. |
 | `schema_tech.sql`, `schema_auth.sql`, `schema_auth_lockdown.sql` | Tech Watch tables; login profiles + signed-in access; removing the old open write access. |
+| `schema_tech_custom_jobs.sql` | Tech Watch `tech_custom_jobs` table: roles you applied to off the board (signed-in r/w). |
 | `TECH_FIRMS.md` | Tech Watch firm list and which big employers still need custom fetchers. |
 | `backfill_trends.py` | One-off: rebuilds the trends history from the daily snapshots in git and pushes it to Supabase. |
 | `firm_categories.json` | Firm → type ("PE & Alts", "Bulge Bracket", …). Drives the dashboard's firm-type filter and saved-search alerts; shared by `pipeline.py` and `dashboard/`. |
@@ -109,6 +112,12 @@ driven by one terminal-style command line. Every filter is a token in it
 sidebar, saved searches and the URL just write that command. Keys: `/` or ⌘K
 search, `j`/`k` move, `o` open posting, `a` mark applied, `f` score fit, `w`
 write cover letter. Light and dark themes; Trends reads `tech_hiring_trends`.
+
+**＋ Track outside job** (sidebar, under Tracker) adds a role you applied to
+off the board: company, role, link, location, stage and notes. These live in
+`tech_custom_jobs` (run `schema_tech_custom_jobs.sql` once), show up in the
+list with an `outside` tag, and filter with the `outside` token (*Added by
+me*). Clearing the status or *Remove from tracker* deletes one.
 
 ### AI
 The same `/api` routes, with an `x-watch: tech` header selecting Tech Watch's
