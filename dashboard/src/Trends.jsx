@@ -33,7 +33,7 @@ const fmtDay = (d) =>
   new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
 const signed = (n) => (n > 0 ? `+${n}` : n < 0 ? `−${-n}` : "0");
 
-export default function Trends({ metro, category, q, categoryOf, table = "hiring_trends" }) {
+export default function Trends({ metro, category, q, categoryOf, segment = "all", segmentOf = null, table = "hiring_trends" }) {
   const [rows, setRows] = useState(null);
   const [error, setError] = useState("");
   const [range, setRange] = useState(30);
@@ -54,10 +54,11 @@ export default function Trends({ metro, category, q, categoryOf, table = "hiring
       (rows || []).filter(
         (r) =>
           (metro === "all" || r.metro === metro) &&
+          (segment === "all" || !segmentOf || segmentOf(r.firm) === segment) &&
           (category === "all" || categoryOf(r.firm) === category) &&
           (!needle || r.firm.toLowerCase().includes(needle))
       ),
-    [rows, metro, category, needle, categoryOf]
+    [rows, metro, segment, segmentOf, category, needle, categoryOf]
   );
 
   // every day the pipeline recorded (even if the filters leave it empty)
