@@ -9,8 +9,9 @@ marketing and merchandising, with store roles and senior grades left out.
 Account Executive roles are dropped everywhere, "Specialist" titles at
 fintech firms, and "Manager" titles at fintech and fashion firms (Assistant and Associate
 Manager excepted), as all are
-senior seats. The auction houses (Christie's, Sotheby's) use the same
-rule but also keep Analyst and Associate titles.
+senior seats. The auction houses (Christie's, Sotheby's, Phillips,
+Bonhams) use the same rule but also keep Analyst, Associate, Cataloguer and
+Coordinator titles.
 
 ```
 firms' ATS APIs  ──►  pipeline.py  ──►  Supabase `jobs` table  ──►  dashboard/ (React app on Vercel)
