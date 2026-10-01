@@ -13,16 +13,16 @@
     "is_new": false
   },
   {
-    "firm": "Google",
-    "id": "google-114385783674020550",
-    "title": "Agentic Data Cloud Databases Engineer, Google Cloud",
-    "location": "Addison, TX, USA; Austin, TX, USA; Chicago, IL, USA",
-    "url": "https://www.google.com/about/careers/applications/jobs/results/114385783674020550",
-    "source": "google",
-    "posted_date": "2026-09-10",
+    "firm": "Comcast",
+    "id": "wd-comcast-Comcast_Careers-/job/IL---Chicago-350-N-Orleans-St-1300N/Data-Engineer-3---Reston--VA---Freewheel_R444945",
+    "title": "Data Engineer 3 - Reston, VA - Freewheel",
+    "location": "IL - Chicago, 350 N. Orleans St 1300N; VA - Reston, 11951 Freedom Dr Ste 900",
+    "url": "https://comcast.wd115.myworkdayjobs.com/Comcast_Careers/job/IL---Chicago-350-N-Orleans-St-1300N/Data-Engineer-3---Reston--VA---Freewheel_R444945",
+    "source": "workday",
+    "posted_date": "2026-09-22",
     "metro": "Chicago",
     "sector": "Tech",
-    "first_seen": "2026-09-30",
+    "first_seen": "2026-10-01",
     "is_new": true
   },
   {
@@ -45,7 +45,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Cloud-Data-Platform-Engineer_R158514-1",
     "source": "workday",
-    "posted_date": "2026-08-30",
+    "posted_date": "2026-08-31",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -58,7 +58,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Analytics-Engineer_R150313",
     "source": "workday",
-    "posted_date": "2026-08-30",
+    "posted_date": "2026-08-31",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -71,7 +71,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Program-Engineer_R150311",
     "source": "workday",
-    "posted_date": "2026-08-30",
+    "posted_date": "2026-08-31",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -153,7 +153,7 @@
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-09-30",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Cohere",
@@ -166,7 +166,7 @@
     "metro": "NYC Area",
     "sector": "Tech",
     "first_seen": "2026-09-30",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Figma",
@@ -222,19 +222,6 @@
   },
   {
     "firm": "Meta",
-    "id": "meta-438521235471941",
-    "title": "Data Engineer, Product Analytics",
-    "location": "Bellevue, WA; Redmond, WA; Menlo Park, CA; Seattle, WA; Burlingame, CA; New York, NY; San Francisco, CA",
-    "url": "https://www.metacareers.com/profile/job_details/438521235471941",
-    "source": "meta",
-    "posted_date": null,
-    "metro": "NYC Area",
-    "sector": "Tech",
-    "first_seen": "2026-09-30",
-    "is_new": true
-  },
-  {
-    "firm": "Meta",
     "id": "meta-3713685685437806",
     "title": "Data Engineer, Product Analytics",
     "location": "Remote, US; Bellevue, WA; Menlo Park, CA; Washington, DC; New York, NY; San Francisco, CA; Chicago, IL; Fremont, CA",
@@ -244,7 +231,20 @@
     "metro": "NYC Area",
     "sector": "Tech",
     "first_seen": "2026-09-30",
-    "is_new": true
+    "is_new": false
+  },
+  {
+    "firm": "Meta",
+    "id": "meta-438521235471941",
+    "title": "Data Engineer, Product Analytics",
+    "location": "Bellevue, WA; Redmond, WA; Menlo Park, CA; Seattle, WA; Burlingame, CA; New York, NY; San Francisco, CA",
+    "url": "https://www.metacareers.com/profile/job_details/438521235471941",
+    "source": "meta",
+    "posted_date": null,
+    "metro": "NYC Area",
+    "sector": "Tech",
+    "first_seen": "2026-09-30",
+    "is_new": false
   },
   {
     "firm": "Meta",
@@ -257,7 +257,7 @@
     "metro": "NYC Area",
     "sector": "Tech",
     "first_seen": "2026-09-30",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Meta",
@@ -270,7 +270,7 @@
     "metro": "NYC Area",
     "sector": "Tech",
     "first_seen": "2026-09-30",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Mizuho",
@@ -279,7 +279,7 @@
     "location": "MetroPark",
     "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/MetroPark/Cloud-Data-Engineer_R7127",
     "source": "workday",
-    "posted_date": "2026-08-30",
+    "posted_date": "2026-08-31",
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -374,6 +374,19 @@
     "metro": "Other US",
     "sector": "Tech",
     "first_seen": "2026-09-30",
+    "is_new": false
+  },
+  {
+    "firm": "Comcast",
+    "id": "wd-comcast-Comcast_Careers-/job/PA---West-Chester-1354-Boot-Rd/Data-Engineer_R442548",
+    "title": "Product Data Engineer (Databricks, PySpark, AWS)",
+    "location": "PA - West Chester, 1354 Boot Rd",
+    "url": "https://comcast.wd115.myworkdayjobs.com/Comcast_Careers/job/PA---West-Chester-1354-Boot-Rd/Data-Engineer_R442548",
+    "source": "workday",
+    "posted_date": "2026-09-04",
+    "metro": "Other US",
+    "sector": "Tech",
+    "first_seen": "2026-10-01",
     "is_new": true
   },
   {
@@ -387,6 +400,19 @@
     "metro": "Other US",
     "sector": "Tech",
     "first_seen": "2026-09-30",
+    "is_new": false
+  },
+  {
+    "firm": "HP",
+    "id": "wd-hp-ExternalCareerSite-/job/Spring-Texas-United-States-of-America/Quality-Data-Engineer_3164674",
+    "title": "Quality Data Engineer",
+    "location": "Spring, Texas, United States of America",
+    "url": "https://hp.wd5.myworkdayjobs.com/ExternalCareerSite/job/Spring-Texas-United-States-of-America/Quality-Data-Engineer_3164674",
+    "source": "workday",
+    "posted_date": "2026-09-30",
+    "metro": "Other US",
+    "sector": "Tech",
+    "first_seen": "2026-10-01",
     "is_new": true
   },
   {
@@ -455,6 +481,19 @@
     "is_new": false
   },
   {
+    "firm": "Comcast",
+    "id": "wd-comcast-Comcast_Careers-/job/PA---Virtual---C/Data-Engineer-2_R444603",
+    "title": "Data Engineer 2",
+    "location": "PA - Virtual - C; FL - Virtual - B - EST; IL - Virtual - B; MA - Virtual - C",
+    "url": "https://comcast.wd115.myworkdayjobs.com/Comcast_Careers/job/PA---Virtual---C/Data-Engineer-2_R444603",
+    "source": "workday",
+    "posted_date": "2026-09-30",
+    "metro": "Remote (US)",
+    "sector": "Tech",
+    "first_seen": "2026-10-01",
+    "is_new": true
+  },
+  {
     "firm": "Hamilton Lane",
     "id": "wd-hamiltonlane-search-/job/Conshohocken-PA-USA/ETL-Data-Engineer--Python---Snowflake-_R003039",
     "title": "ETL Data Engineer (Python & Snowflake)",
@@ -478,7 +517,7 @@
     "metro": "Remote (US)",
     "sector": "Tech",
     "first_seen": "2026-09-30",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Adobe",
@@ -517,7 +556,7 @@
     "metro": "SF Bay Area",
     "sector": "Tech",
     "first_seen": "2026-09-30",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Google",
@@ -530,7 +569,7 @@
     "metro": "SF Bay Area",
     "sector": "Tech",
     "first_seen": "2026-09-30",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Meta",
@@ -543,7 +582,7 @@
     "metro": "SF Bay Area",
     "sector": "Tech",
     "first_seen": "2026-09-30",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Meta",
@@ -556,7 +595,7 @@
     "metro": "SF Bay Area",
     "sector": "Tech",
     "first_seen": "2026-09-30",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Meta",
@@ -569,7 +608,7 @@
     "metro": "SF Bay Area",
     "sector": "Tech",
     "first_seen": "2026-09-30",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Meta",
@@ -582,7 +621,7 @@
     "metro": "SF Bay Area",
     "sector": "Tech",
     "first_seen": "2026-09-30",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "NVIDIA",
@@ -621,7 +660,7 @@
     "metro": "SF Bay Area",
     "sector": "Fintech",
     "first_seen": "2026-09-30",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Zoox",
@@ -634,7 +673,33 @@
     "metro": "SF Bay Area",
     "sector": "Tech",
     "first_seen": "2026-09-30",
+    "is_new": false
+  },
+  {
+    "firm": "Expedia",
+    "id": "wd-expedia-search-/job/Washington---Seattle-Campus/Global-Data-Sharing-Engineer_R-110073-1",
+    "title": "Global Data Sharing Engineer",
+    "location": "Washington - Seattle Campus",
+    "url": "https://expedia.wd108.myworkdayjobs.com/search/job/Washington---Seattle-Campus/Global-Data-Sharing-Engineer_R-110073-1",
+    "source": "workday",
+    "posted_date": "2026-10-01",
+    "metro": "Seattle",
+    "sector": "Tech",
+    "first_seen": "2026-10-01",
     "is_new": true
+  },
+  {
+    "firm": "Google",
+    "id": "google-114385783674020550",
+    "title": "Agentic Data Cloud Databases Engineer, Google Cloud",
+    "location": "Addison, TX, USA; Austin, TX, USA; Chicago, IL, USA; Kirkland, WA, USA",
+    "url": "https://www.google.com/about/careers/applications/jobs/results/114385783674020550",
+    "source": "google",
+    "posted_date": "2026-09-10",
+    "metro": "Seattle",
+    "sector": "Tech",
+    "first_seen": "2026-09-30",
+    "is_new": false
   },
   {
     "firm": "Microsoft",
@@ -647,7 +712,7 @@
     "metro": "Seattle",
     "sector": "Tech",
     "first_seen": "2026-09-30",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "SpaceX",
@@ -660,19 +725,6 @@
     "metro": "Seattle",
     "sector": "Tech",
     "first_seen": "2026-09-30",
-    "is_new": true
-  },
-  {
-    "firm": "Charles Schwab",
-    "id": "charles-98187448432",
-    "title": "AI/ML Ops and Data Engineer",
-    "location": "Southlake, TX; Austin, TX; Phoenix, AZ",
-    "url": "https://www.schwabjobs.com/job/southlake/ai-ml-ops-and-data-engineer/33727/98187448432",
-    "source": "charles",
-    "posted_date": null,
-    "metro": "Texas",
-    "sector": "Finance",
-    "first_seen": "2026-09-29",
     "is_new": false
   },
   {
@@ -707,19 +759,6 @@
     "title": "Data Engineer",
     "location": "Austin, TX; Southlake, TX",
     "url": "https://www.schwabjobs.com/job/austin/data-engineer/33727/100738780800",
-    "source": "charles",
-    "posted_date": null,
-    "metro": "Texas",
-    "sector": "Finance",
-    "first_seen": "2026-09-29",
-    "is_new": false
-  },
-  {
-    "firm": "Charles Schwab",
-    "id": "charles-95589210400",
-    "title": "Data Engineer",
-    "location": "Austin, TX",
-    "url": "https://www.schwabjobs.com/job/austin/data-engineer/33727/95589210400",
     "source": "charles",
     "posted_date": null,
     "metro": "Texas",
@@ -764,7 +803,7 @@
     "metro": "Texas",
     "sector": "Finance",
     "first_seen": "2026-09-30",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "eBay",
@@ -777,6 +816,6 @@
     "metro": "Texas",
     "sector": "Tech",
     "first_seen": "2026-09-30",
-    "is_new": true
+    "is_new": false
   }
 ]
