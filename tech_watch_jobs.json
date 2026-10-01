@@ -13,19 +13,6 @@
     "is_new": false
   },
   {
-    "firm": "Comcast",
-    "id": "wd-comcast-Comcast_Careers-/job/IL---Chicago-350-N-Orleans-St-1300N/Data-Engineer-3---Reston--VA---Freewheel_R444945",
-    "title": "Data Engineer 3 - Reston, VA - Freewheel",
-    "location": "IL - Chicago, 350 N. Orleans St 1300N; VA - Reston, 11951 Freedom Dr Ste 900",
-    "url": "https://comcast.wd115.myworkdayjobs.com/Comcast_Careers/job/IL---Chicago-350-N-Orleans-St-1300N/Data-Engineer-3---Reston--VA---Freewheel_R444945",
-    "source": "workday",
-    "posted_date": "2026-09-22",
-    "metro": "Chicago",
-    "sector": "Tech",
-    "first_seen": "2026-10-01",
-    "is_new": true
-  },
-  {
     "firm": "IMC Trading",
     "id": "gh-imc-4945646101",
     "title": "Data Engineer - Infrastructure",
@@ -377,19 +364,6 @@
     "is_new": false
   },
   {
-    "firm": "Comcast",
-    "id": "wd-comcast-Comcast_Careers-/job/PA---West-Chester-1354-Boot-Rd/Data-Engineer_R442548",
-    "title": "Product Data Engineer (Databricks, PySpark, AWS)",
-    "location": "PA - West Chester, 1354 Boot Rd",
-    "url": "https://comcast.wd115.myworkdayjobs.com/Comcast_Careers/job/PA---West-Chester-1354-Boot-Rd/Data-Engineer_R442548",
-    "source": "workday",
-    "posted_date": "2026-09-04",
-    "metro": "Other US",
-    "sector": "Tech",
-    "first_seen": "2026-10-01",
-    "is_new": true
-  },
-  {
     "firm": "Gopuff",
     "id": "lever-gopuff-bfa7bc15-793e-486c-a3f5-b27d84c53025",
     "title": "Analytics Engineer",
@@ -479,19 +453,6 @@
     "sector": "Finance",
     "first_seen": "2026-09-29",
     "is_new": false
-  },
-  {
-    "firm": "Comcast",
-    "id": "wd-comcast-Comcast_Careers-/job/PA---Virtual---C/Data-Engineer-2_R444603",
-    "title": "Data Engineer 2",
-    "location": "PA - Virtual - C; FL - Virtual - B - EST; IL - Virtual - B; MA - Virtual - C",
-    "url": "https://comcast.wd115.myworkdayjobs.com/Comcast_Careers/job/PA---Virtual---C/Data-Engineer-2_R444603",
-    "source": "workday",
-    "posted_date": "2026-09-30",
-    "metro": "Remote (US)",
-    "sector": "Tech",
-    "first_seen": "2026-10-01",
-    "is_new": true
   },
   {
     "firm": "Hamilton Lane",
@@ -648,6 +609,19 @@
     "sector": "Tech",
     "first_seen": "2026-09-27",
     "is_new": false
+  },
+  {
+    "firm": "OpenAI",
+    "id": "ashby-openai-c25fd30e-056e-4a26-af80-7ea1074fc56e",
+    "title": "Data Engineer, Hardware & Consumer Devices",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/openai/c25fd30e-056e-4a26-af80-7ea1074fc56e",
+    "source": "ashby",
+    "posted_date": "2026-10-01",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-01",
+    "is_new": true
   },
   {
     "firm": "Socure",
