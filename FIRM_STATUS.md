@@ -1,6 +1,6 @@
 # Street Watch — Firm Status
 
-Updated 2026-10-01. **94 firms live** across three dashboard segments. Of the
+Updated 2026-10-01. **96 firms live** across three dashboard segments. Of the
 121 original finance targets (`Target_Financial_Firms.xlsx`), **73 are live, 45
 remain and 3 were removed** at your request.
 
@@ -8,7 +8,7 @@ remain and 3 were removed** at your request.
 |---|---|---|
 | Finance | 74 | Analyst / Associate (+ trader / quant at trading firms) |
 | Fintech | 10 | Product, GTM, Investor Relations |
-| Fashion & Luxury | 10 | Product, GTM, Investor Relations (store roles excluded); auction houses also Analyst / Associate |
+| Fashion & Luxury | 12 | Product, GTM, Investor Relations (store roles excluded); auction houses also Analyst / Associate / Cataloguer / Coordinator |
 
 ---
 
@@ -39,10 +39,10 @@ remain and 3 were removed** at your request.
 Bastion · Brex · CAIS · Chime · Galaxy Digital · iCapital · Plaid · Ramp · Rogo ·
 Stripe
 
-### Fashion & Luxury (10)
-Christie's (auction house) · Estée Lauder · Kering (Gucci, Saint Laurent, Bottega Veneta, Balenciaga…) · LVMH
+### Fashion & Luxury (12)
+Bonhams (auction house) · Christie's (auction house) · Estée Lauder · Kering (Gucci, Saint Laurent, Bottega Veneta, Balenciaga…) · LVMH
 (all maisons: Louis Vuitton, Dior, Tiffany, Sephora, Moët Hennessy…) · Moncler
-(+ Stone Island) · On Holding · Prada (+ Miu Miu) · Richemont (Cartier, Van
+(+ Stone Island) · On Holding · Phillips (auction house) · Prada (+ Miu Miu) · Richemont (Cartier, Van
 Cleef & Arpels, IWC…) · Sotheby's (auction house) · Tapestry (Coach, Kate Spade)
 
 ---
