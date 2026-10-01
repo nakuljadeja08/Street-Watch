@@ -1,5 +1,7 @@
 # Street Watch — Remaining Firms
 
+> **Superseded by [FIRM_STATUS.md](FIRM_STATUS.md)** (current finished/remaining list). Kept for the per-firm ATS notes below.
+
 From `Target_Financial_Firms.xlsx` (121 targets): **67 wired · 54 remaining**
 (plus 4 net-new consulting firms wired on request — see `CONSULTING_FIRMS.md`).
 Grouped by what we know about each firm's ATS platform. Updated 2026-09-17.

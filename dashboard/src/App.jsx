@@ -9,16 +9,41 @@ const FIRM_CAT = {};
 for (const c of CATEGORIES) for (const f of FIRM_CATEGORIES[c]) FIRM_CAT[f] = c;
 const categoryOf = (firm) => FIRM_CAT[firm] || "Other";
 
-const LEVELS = [
-  { v: "any", label: "Any level" },
-  { v: "analyst", label: "Analyst" },
-  { v: "associate", label: "Associate" },
+// Segments split the board into traditional finance, fintech and fashion; each
+// has its own firm types and role buttons. Mirrors segment_of() in pipeline.py.
+const SEGMENTS = [
+  { v: "all", label: "All segments" },
+  { v: "finance", label: "Finance" },
+  { v: "fintech", label: "Fintech" },
+  { v: "fashion", label: "Fashion" },
 ];
-const LEVEL_RE = { analyst: /\banalyst/i, associate: /\bassociate/i };
+const SEGMENT_OF_CAT = { "Fashion & Luxury": "fashion", Fintech: "fintech" };
+const segmentOfCat = (cat) => SEGMENT_OF_CAT[cat] || "finance";
+const segmentOf = (firm) => segmentOfCat(categoryOf(firm));
+
+// Analyst/Associate for finance; Product/GTM/IR at fintech and fashion firms,
+// which are pulled for those roles (PRODUCT_GTM_FIRMS in pipeline.py).
+const LEVELS = [
+  { v: "any", label: "Any role" },
+  { v: "analyst", label: "Analyst", seg: ["all", "finance"] },
+  { v: "associate", label: "Associate", seg: ["all", "finance"] },
+  { v: "product", label: "Product", seg: ["all", "fintech", "fashion"] },
+  { v: "gtm", label: "GTM", seg: ["all", "fintech", "fashion"] },
+  { v: "ir", label: "Investor Rel.", seg: ["fintech", "fashion"] },
+];
+const levelsFor = (segment) => LEVELS.filter((l) => !l.seg || l.seg.includes(segment));
+const LEVEL_RE = {
+  analyst: /\banalyst/i,
+  associate: /\bassociate/i,
+  product: /\bproduct\b|merchandis|\bplanner\b/i,
+  gtm: /\bsales\b|account (?:executive|manager)|partner|business development|go[\s-]to[\s-]market|\bgtm\b|marketing|customer success|wholesale|commercial|\bgrowth\b|revenue operations|strategy (?:&|and) operations/i,
+  ir: /investor relations/i,
+};
 
 // the part of the filter state a saved search captures
 function matchesSearch(j, f) {
   if (f.metro && f.metro !== "all" && j.metro !== f.metro) return false;
+  if (f.segment && f.segment !== "all" && segmentOf(j.firm) !== f.segment) return false;
   if (f.category && f.category !== "all" && categoryOf(j.firm) !== f.category) return false;
   if (f.level && f.level !== "any" && !LEVEL_RE[f.level]?.test(j.title || "")) return false;
   const needle = (f.q || "").trim().toLowerCase();
@@ -27,6 +52,7 @@ function matchesSearch(j, f) {
 }
 function describeSearch(f) {
   return [
+    f.segment && f.segment !== "all" ? SEGMENTS.find((s) => s.v === f.segment)?.label : null,
     f.level && f.level !== "any" ? LEVELS.find((l) => l.v === f.level)?.label : null,
     f.metro && f.metro !== "all" ? METRO_LABEL[f.metro] : null,
     f.category && f.category !== "all" ? f.category : null,
@@ -116,6 +142,7 @@ function initialParams() {
     const p = new URLSearchParams(window.location.search);
     return {
       metro: p.get("metro") || "all",
+      segment: SEGMENTS.some((s) => s.v === p.get("seg")) ? p.get("seg") : "all",
       category: p.get("type") || "all",
       level: LEVELS.some((l) => l.v === p.get("level")) ? p.get("level") : "any",
       recency: p.get("recency") || "all",
@@ -125,7 +152,7 @@ function initialParams() {
       view: ["board", "trends"].includes(p.get("view")) ? p.get("view") : "list",
     };
   } catch {
-    return { metro: "all", category: "all", level: "any", recency: "all", statusFilter: "all", q: "", sort: "default", view: "list" };
+    return { metro: "all", segment: "all", category: "all", level: "any", recency: "all", statusFilter: "all", q: "", sort: "default", view: "list" };
   }
 }
 
@@ -138,8 +165,15 @@ export default function App({ signedIn = false, header = null }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [metro, setMetro] = useState(init.metro);
+  const [segment, setSegmentState] = useState(init.segment);
   const [category, setCategory] = useState(init.category);
   const [level, setLevel] = useState(init.level);
+  // switching segment drops a firm type / role button the new segment doesn't have
+  function setSegment(s) {
+    setSegmentState(s);
+    if (s !== "all" && category !== "all" && segmentOfCat(category) !== s) setCategory("all");
+    if (!levelsFor(s).some((l) => l.v === level)) setLevel("any");
+  }
   const [searches, setSearches] = useState([]); // saved searches (named filter sets)
   const [naming, setNaming] = useState(false); // "save search" name box open
   const [recency, setRecency] = useState(init.recency);
@@ -201,6 +235,7 @@ export default function App({ signedIn = false, header = null }) {
   useEffect(() => {
     const p = new URLSearchParams();
     if (metro !== "all") p.set("metro", metro);
+    if (segment !== "all") p.set("seg", segment);
     if (category !== "all") p.set("type", category);
     if (level !== "any") p.set("level", level);
     if (recency !== "all") p.set("recency", String(recency));
@@ -210,7 +245,7 @@ export default function App({ signedIn = false, header = null }) {
     if (view !== "list") p.set("view", view);
     const qs = p.toString();
     window.history.replaceState(null, "", qs ? `?${qs}` : window.location.pathname);
-  }, [metro, category, level, recency, statusFilter, q, sort, view]);
+  }, [metro, segment, category, level, recency, statusFilter, q, sort, view]);
 
   // ---------------------------------------------------------------- AI (fit score + drafts)
   // The /api routes are gated by a passphrase (STREET_WATCH_KEY on Vercel)
@@ -304,8 +339,8 @@ export default function App({ signedIn = false, header = null }) {
   }
 
   // ---------------------------------------------------------------- saved searches
-  const currentSearch = { metro, category, level, q: q.trim() };
-  const searchable = metro !== "all" || category !== "all" || level !== "any" || q.trim() !== "";
+  const currentSearch = { metro, segment, category, level, q: q.trim() };
+  const searchable = metro !== "all" || segment !== "all" || category !== "all" || level !== "any" || q.trim() !== "";
 
   async function saveSearch(name) {
     const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
@@ -342,6 +377,7 @@ export default function App({ signedIn = false, header = null }) {
   function applySearch(s) {
     const f = s.filters || {};
     setMetro(f.metro || "all");
+    setSegmentState(f.segment || "all");
     setCategory(f.category || "all");
     setLevel(f.level || "any");
     setQ(f.q || "");
@@ -425,6 +461,7 @@ export default function App({ signedIn = false, header = null }) {
 
   const filtersActive =
     metro !== "all" ||
+    segment !== "all" ||
     category !== "all" ||
     level !== "any" ||
     recency !== "all" ||
@@ -433,6 +470,7 @@ export default function App({ signedIn = false, header = null }) {
     sort !== "default";
   function clearFilters() {
     setMetro("all");
+    setSegmentState("all");
     setCategory("all");
     setLevel("any");
     setRecency("all");
@@ -585,7 +623,7 @@ export default function App({ signedIn = false, header = null }) {
   }
 
   const filtered = useMemo(() => {
-    const f = { metro, category, level, q };
+    const f = { metro, segment, category, level, q };
     const win = recency === "all" ? Infinity : Number(recency);
     const rows = allJobs.filter((j) => {
       if (!matchesSearch(j, f)) return false;
@@ -614,12 +652,12 @@ export default function App({ signedIn = false, header = null }) {
       rows.sort((a, b) => (ai.fits[b.id]?.score ?? -1) - (ai.fits[a.id]?.score ?? -1));
     }
     return rows;
-  }, [allJobs, appMap, metro, category, level, recency, statusFilter, q, sort, ai.fits]);
+  }, [allJobs, appMap, metro, segment, category, level, recency, statusFilter, q, sort, ai.fits]);
 
   // board view: tracked roles grouped by status. Honors metro/recency/search
   // and the sort order, but ignores the status filter (columns cover all).
   const board = useMemo(() => {
-    const f = { metro, category, level, q };
+    const f = { metro, segment, category, level, q };
     const win = recency === "all" ? Infinity : Number(recency);
     const cols = Object.fromEntries(BOARD_COLS.map((s) => [s, []]));
     for (const j of allJobs) {
@@ -642,7 +680,7 @@ export default function App({ signedIn = false, header = null }) {
         : (a, b) => (daysSince(a.posted_date) ?? Infinity) - (daysSince(b.posted_date) ?? Infinity);
     for (const s of BOARD_COLS) cols[s].sort(cmp);
     return cols;
-  }, [allJobs, appMap, metro, category, level, recency, q, sort, ai.fits]);
+  }, [allJobs, appMap, metro, segment, category, level, recency, q, sort, ai.fits]);
 
   const boardTotal = BOARD_COLS.reduce((n, s) => n + board[s].length, 0);
 
@@ -650,7 +688,7 @@ export default function App({ signedIn = false, header = null }) {
   // window is active (so "0 roles" under 24h is self-explanatory)
   const hiddenNoDate = useMemo(() => {
     if (recency === "all") return 0;
-    const f = { metro, category, level, q };
+    const f = { metro, segment, category, level, q };
     let n = 0;
     for (const j of allJobs) {
       if (!matchesSearch(j, f)) continue;
@@ -661,7 +699,7 @@ export default function App({ signedIn = false, header = null }) {
       if (daysSince(j.posted_date) === null) n++;
     }
     return n;
-  }, [allJobs, appMap, metro, category, level, statusFilter, q, recency]);
+  }, [allJobs, appMap, metro, segment, category, level, statusFilter, q, recency]);
 
   // saved searches → roles first seen after you last looked (scraped roles only)
   const searchHits = useMemo(
@@ -784,10 +822,10 @@ export default function App({ signedIn = false, header = null }) {
           >
             ✨ AI{aiReady ? "" : " setup"}
           </button>
-          <p className="eyebrow">Analyst &amp; Associate · Live from Supabase</p>
+          <p className="eyebrow">Finance · Fintech · Fashion · Live from Supabase</p>
           <h1>Street <em>Watch</em></h1>
           <p className="sub">
-            Your openings, your rhythm. Live Analyst &amp; Associate roles with a built-in
+            Your openings, your rhythm. Live finance, fintech and fashion roles with a built-in
             application tracker — set a status on any role and it saves to Supabase instantly.
           </p>
           <div className="stats">
@@ -824,8 +862,9 @@ export default function App({ signedIn = false, header = null }) {
             value={view}
             onChange={setView}
           />
+          <Seg options={SEGMENTS} value={segment} onChange={setSegment} />
           <Seg options={METROS.map((m) => ({ v: m, label: METRO_LABEL[m] }))} value={metro} onChange={setMetro} />
-          {view !== "trends" && <Seg options={LEVELS} value={level} onChange={setLevel} />}
+          {view !== "trends" && <Seg options={levelsFor(segment)} value={level} onChange={setLevel} />}
           <select
             className="statusSel"
             value={category}
@@ -833,7 +872,7 @@ export default function App({ signedIn = false, header = null }) {
             aria-label="Firm type"
           >
             <option value="all">All firm types</option>
-            {[...CATEGORIES, "Other"].map((c) => (
+            {[...CATEGORIES, "Other"].filter((c) => segment === "all" || segmentOfCat(c) === segment).map((c) => (
               <option key={c} value={c}>
                 {c}
               </option>
@@ -913,7 +952,7 @@ export default function App({ signedIn = false, header = null }) {
       <main className="wrap">
         {error && <div className="err">{error}</div>}
         {view === "trends" ? (
-          <Trends metro={metro} category={category} q={q} categoryOf={categoryOf} />
+          <Trends metro={metro} segment={segment} segmentOf={segmentOf} category={category} q={q} categoryOf={categoryOf} />
         ) : (
         <>
         <div className="meta">

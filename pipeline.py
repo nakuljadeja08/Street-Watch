@@ -1084,7 +1084,7 @@ _PRODUCT_GTM_RE = re.compile(
     r"|\bpartner (?:manager|success|marketing)|account (?:executive|manager)|\bsales\b"
     r"|\bgrowth\b|\bmarketing\b|merchandis|\bwholesale\b|\bcommercial\b|\bplanner\b"
     r"|revenue operations|\brevops\b|business operations|\bbizops\b"
-    r"|strategy (?:&|and) operations|customer success", re.I)
+    r"|strategy (?:&|and) operations|customer success|investor relations", re.I)
 _PRODUCT_GTM_EXCLUDE_RE = re.compile(
     r"client advis|sales (?:associate|advisor|support|professional|lead|and service|& service)"
     r"|beauty advisor|\bstore\b|boutique|\bstock\b|key ?holder|cashier|visual merchandis"
@@ -1388,11 +1388,29 @@ try:
                  if not cat.startswith("_") for firm in firms}
 except Exception:
     _FIRM_CAT = {}
-_LEVEL_RE = {"analyst": re.compile(r"\banalyst", re.I), "associate": re.compile(r"\bassociate", re.I)}
+# Role buttons. Analyst/Associate for finance; Product/GTM/IR for the fintech
+# and fashion segments (keep in sync with LEVEL_RE in App.jsx).
+_LEVEL_RE = {
+    "analyst": re.compile(r"\banalyst", re.I),
+    "associate": re.compile(r"\bassociate", re.I),
+    "product": re.compile(r"\bproduct\b|merchandis|\bplanner\b", re.I),
+    "gtm": re.compile(r"\bsales\b|account (?:executive|manager)|partner|business development"
+                      r"|go[\s-]to[\s-]market|\bgtm\b|marketing|customer success|wholesale"
+                      r"|commercial|\bgrowth\b|revenue operations|strategy (?:&|and) operations", re.I),
+    "ir": re.compile(r"investor relations", re.I),
+}
+
+
+def segment_of(firm):
+    """Dashboard segment: "fashion", "fintech" or "finance" (everything else)."""
+    cat = _FIRM_CAT.get(firm)
+    return {"Fashion & Luxury": "fashion", "Fintech": "fintech"}.get(cat, "finance")
 
 
 def _matches_search(j, f):
     if f.get("metro") not in (None, "", "all") and j.get("metro") != f["metro"]:
+        return False
+    if f.get("segment") not in (None, "", "all") and segment_of(j["firm"]) != f["segment"]:
         return False
     if f.get("category") not in (None, "", "all") and _FIRM_CAT.get(j["firm"], "Other") != f["category"]:
         return False

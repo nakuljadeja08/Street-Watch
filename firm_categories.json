@@ -5,7 +5,7 @@
     "JPMorgan Chase", "Morgan Stanley", "Wells Fargo"
   ],
   "Elite Boutique": [
-    "Ducera Partners", "Guggenheim Securities", "Lazard", "Moelis & Company",
+    "Ducera Partners", "Guggenheim Securities", "Lazard", "LionTree", "Moelis & Company",
     "PJT Partners", "Perella Weinberg Partners"
   ],
   "Middle Market IB": [
@@ -15,8 +15,9 @@
   ],
   "PE & Alts": [
     "Apollo Global Management", "Ardian", "Ares Management", "Blackstone", "Blue Owl Capital",
-    "Brookfield Asset Management", "Carlyle", "General Atlantic", "Hamilton Lane",
-    "Insight Partners", "KKR", "Oaktree Capital Management", "Sixth Street", "StepStone", "TPG"
+    "Brookfield Asset Management", "Carlyle", "EQT", "General Atlantic", "Hamilton Lane",
+    "Insight Partners", "KKR", "Oaktree Capital Management", "Sixth Street", "StepStone", "TPG",
+    "Warburg Pincus"
   ],
   "Asset Management": [
     "AllianceBernstein", "BlackRock", "Franklin Templeton", "Invesco", "Neuberger Berman",
@@ -27,7 +28,7 @@
     "State Street", "TD Bank", "U.S. Bancorp"
   ],
   "Trading": [
-    "Citadel Securities", "DRW", "IMC Trading", "Jane Street",
+    "Citadel Securities", "DRW", "IMC Trading", "Jane Street", "Optiver",
     "Susquehanna International Group", "Virtu Financial"
   ],
   "Consulting": [
