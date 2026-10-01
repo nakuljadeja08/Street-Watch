@@ -188,19 +188,23 @@ EIGHTFOLD = {"Tech": {"Netflix": ("explore.jobs.netflix.net", "netflix.com", "Un
 # Own-API fetchers below (fetch_google / fetch_microsoft / fetch_bloomberg / fetch_meta).
 CUSTOM = {"Tech": ["Google", "Microsoft", "Meta"], "Fintech": ["Bloomberg"]}
 
-# Street Watch's finance firms are scanned too, minus the consulting shops
-# (Tech Watch covers tech and finance only).
+# Street Watch's finance firms are scanned too, minus the consulting shops and
+# fashion houses (Tech Watch covers tech and finance only) and any firm Tech
+# Watch already lists itself (Stripe, Brex, Chime, Ramp, Plaid).
 _STREET_CAT = P._FIRM_CAT
+_STREET_SKIP = {"Consulting", "Fashion & Luxury"}
 def _street(reg):
-    return {f: v for f, v in reg.items() if _STREET_CAT.get(f) != "Consulting"}
+    return {f: v for f, v in reg.items()
+            if _STREET_CAT.get(f) not in _STREET_SKIP and f not in _OWN}
 
 SECTOR = {}
 for _reg in (GREENHOUSE, ASHBY, LEVER, WORKDAY, ORACLE, RADANCY, EIGHTFOLD, CUSTOM):
     for _sec, _firms in _reg.items():
         for _f in _firms:
             SECTOR[_f] = _sec
+_OWN = set(SECTOR)
 for _f in P.registered_firms():
-    if _STREET_CAT.get(_f) != "Consulting":
+    if _STREET_CAT.get(_f) not in _STREET_SKIP:
         SECTOR.setdefault(_f, "Fintech" if _STREET_CAT.get(_f) == "Fintech" else "Finance")
 
 
