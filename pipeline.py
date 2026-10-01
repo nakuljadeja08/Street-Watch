@@ -1100,7 +1100,7 @@ _PRODUCT_GTM_EXCLUDE_RE = re.compile(
 # (user, 2026-10-01).
 _ACCOUNT_EXEC_RE = re.compile(r"account exec", re.I)
 _SPECIALIST_RE = re.compile(r"specialist", re.I)
-_MANAGER_RE = re.compile(r"manager", re.I)
+_MANAGER_RE = re.compile(r"(?<!assistant )(?<!associate )manager", re.I)  # Assistant/Associate Manager stay
 
 
 def title_ok(firm, title):
