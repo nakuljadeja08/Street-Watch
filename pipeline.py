@@ -773,6 +773,9 @@ BAMBOOHR = {             # firm -> subdomain  (<sub>.bamboohr.com/careers/list)
     "Bonhams": "bonhams",                            # auction house, ~10 global
     "Doyle": "doyle",                                # NY auction house, small board
 }
+PAYLOCITY = {            # firm -> company GUID  (recruiting.paylocity.com/recruiting/jobs/All/<guid>)
+    "Freeman's | Hindman": "7f667f0a-f178-4020-a9dc-7979f0175f37",  # merged 2023; Chicago, Philly, NY…
+}
 # Heritage Auctions (Dallas) isn't wired: ha.com sits behind a DataDome bot
 # check and no public ATS board was found (2026-10-01).
 RADANCY_METRO_KW = ["new york", "jersey city", "chicago", "san francisco", "bay area"]
@@ -1055,6 +1058,28 @@ def fetch_bamboohr(firm, sub):
     return out
 
 
+def fetch_paylocity(firm, guid):
+    """Paylocity's careers page embeds every posting in `window.pageData`."""
+    try:
+        r = requests.get(f"https://recruiting.paylocity.com/recruiting/jobs/All/{guid}",
+                         headers=UA, timeout=TIMEOUT); r.raise_for_status()
+        m = re.search(r"window\.pageData\s*=\s*(\{.*?\});\s*\n", r.text, re.S)
+        data = json.loads(m.group(1)) if m else {}
+    except Exception as e:
+        print(f"  ! paylocity {firm}: {e}", file=sys.stderr); return []
+    out = []
+    for j in data.get("Jobs", []):
+        loc = j.get("JobLocation") or {}
+        where = ", ".join(x for x in (loc.get("City"), loc.get("State")) if x) or j.get("LocationName") or ""
+        if j.get("IsRemote"):
+            where = f"{where} (Remote)" if where else "Remote"
+        out.append(dict(firm=firm, id=f"paylocity-{j.get('JobId')}",
+                        title=(j.get("JobTitle") or "").strip(), location=where,
+                        url=f"https://recruiting.paylocity.com/Recruiting/Jobs/Details/{j.get('JobId')}",
+                        source="paylocity", posted_date=_posted(j.get("PublishedDate"))))
+    return out
+
+
 def fetch_successfactors(firm, host, locations=("New York", "San Francisco", "Chicago")):
     """SAP SuccessFactors Career Site Builder (e.g. jobs.pradagroup.com). The
     /search/ page is server-rendered; one query per metro via `locationsearch`,
@@ -1110,11 +1135,12 @@ PRODUCT_GTM_FIRMS = {
     "On Holding",
     "Stripe", "Brex", "Chime", "Ramp", "Plaid", "Rogo", "Bastion", "Galaxy Digital",
     "Christie's", "Sotheby's", "Phillips", "Bonhams", "Doyle",
+    "Freeman's | Hindman",
 }
 # Auction houses also keep analyst/associate titles (client success, finance
 # services), since they sit between finance and luxury, plus their entry-level
 # cataloguer and sale/department coordinator seats.
-AUCTION_HOUSES = {"Christie's", "Sotheby's", "Phillips", "Bonhams", "Doyle"}
+AUCTION_HOUSES = {"Christie's", "Sotheby's", "Phillips", "Bonhams", "Doyle", "Freeman's | Hindman"}
 AUCTION_TITLES = TITLES + ["cataloguer", "cataloger", "coordinator"]
 _PRODUCT_GTM_RE = re.compile(
     r"\bproduct\b|go[\s-]to[\s-]market|\bgtm\b|business development|\bpartnerships?\b"
@@ -1229,6 +1255,9 @@ def collect():
     print("BambooHR…")
     for f, sub in BAMBOOHR.items():
         rows = fetch_bamboohr(f, sub); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    print("Paylocity…")
+    for f, guid in PAYLOCITY.items():
+        rows = fetch_paylocity(f, guid); print(f"  {f:<24}{len(rows):>4}"); raw += rows
     print("LVMH (lvmh.com)…")
     rows = fetch_lvmh("LVMH"); print(f"  {'LVMH':<24}{len(rows):>4}"); raw += rows
 
@@ -1351,7 +1380,7 @@ def registered_firms():
     """Every firm the pipeline currently scrapes."""
     regs = (GREENHOUSE, ASHBY, JIBE, PINPOINT, ORACLE, HRMDIRECT, PAGEUP, ICIMS,
             WORKDAY, WORKDAY_SITE, RADANCY, PHENOM, EIGHTFOLD, EIGHTFOLD_PCSX, SUCCESSFACTORS,
-            BAMBOOHR)
+            BAMBOOHR, PAYLOCITY)
     return {f for reg in regs for f in reg} | {"Goldman Sachs", "Citadel Securities", "LVMH"}
 
 
