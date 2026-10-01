@@ -771,7 +771,10 @@ SUCCESSFACTORS = {       # firm -> host  SAP SuccessFactors Career Site Builder
 BAMBOOHR = {             # firm -> subdomain  (<sub>.bamboohr.com/careers/list)
     "Phillips": "phillipsauctioneers",               # auction house, ~10 global
     "Bonhams": "bonhams",                            # auction house, ~10 global
+    "Doyle": "doyle",                                # NY auction house, small board
 }
+# Heritage Auctions (Dallas) isn't wired: ha.com sits behind a DataDome bot
+# check and no public ATS board was found (2026-10-01).
 RADANCY_METRO_KW = ["new york", "jersey city", "chicago", "san francisco", "bay area"]
 # Radancy ships two card themes: a classic one (BlackRock/Barclays/ING) where the
 # location + date <span>s sit INSIDE the /job/ anchor, and Citi's sr-job-item theme
@@ -1106,12 +1109,12 @@ PRODUCT_GTM_FIRMS = {
     "LVMH", "Richemont", "Kering", "Estée Lauder", "Tapestry", "Moncler", "Prada",
     "On Holding",
     "Stripe", "Brex", "Chime", "Ramp", "Plaid", "Rogo", "Bastion", "Galaxy Digital",
-    "Christie's", "Sotheby's", "Phillips", "Bonhams",
+    "Christie's", "Sotheby's", "Phillips", "Bonhams", "Doyle",
 }
 # Auction houses also keep analyst/associate titles (client success, finance
 # services), since they sit between finance and luxury, plus their entry-level
 # cataloguer and sale/department coordinator seats.
-AUCTION_HOUSES = {"Christie's", "Sotheby's", "Phillips", "Bonhams"}
+AUCTION_HOUSES = {"Christie's", "Sotheby's", "Phillips", "Bonhams", "Doyle"}
 AUCTION_TITLES = TITLES + ["cataloguer", "cataloger", "coordinator"]
 _PRODUCT_GTM_RE = re.compile(
     r"\bproduct\b|go[\s-]to[\s-]market|\bgtm\b|business development|\bpartnerships?\b"

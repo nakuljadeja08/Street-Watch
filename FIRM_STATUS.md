@@ -1,6 +1,6 @@
 # Street Watch — Firm Status
 
-Updated 2026-10-01. **96 firms live** across three dashboard segments. Of the
+Updated 2026-10-01. **97 firms live** across three dashboard segments. Of the
 121 original finance targets (`Target_Financial_Firms.xlsx`), **73 are live, 45
 remain and 3 were removed** at your request.
 
@@ -8,7 +8,7 @@ remain and 3 were removed** at your request.
 |---|---|---|
 | Finance | 74 | Analyst / Associate (+ trader / quant at trading firms) |
 | Fintech | 10 | Product, GTM, Investor Relations |
-| Fashion & Luxury | 12 | Product, GTM, Investor Relations (store roles excluded); auction houses also Analyst / Associate / Cataloguer / Coordinator |
+| Fashion & Luxury | 13 | Product, GTM, Investor Relations (store roles excluded); auction houses also Analyst / Associate / Cataloguer / Coordinator |
 
 ---
 
@@ -39,18 +39,19 @@ remain and 3 were removed** at your request.
 Bastion · Brex · CAIS · Chime · Galaxy Digital · iCapital · Plaid · Ramp · Rogo ·
 Stripe
 
-### Fashion & Luxury (12)
-Bonhams (auction house) · Christie's (auction house) · Estée Lauder · Kering (Gucci, Saint Laurent, Bottega Veneta, Balenciaga…) · LVMH
+### Fashion & Luxury (13)
+Bonhams (auction house) · Christie's (auction house) · Doyle (auction house) · Estée Lauder · Kering (Gucci, Saint Laurent, Bottega Veneta, Balenciaga…) · LVMH
 (all maisons: Louis Vuitton, Dior, Tiffany, Sephora, Moët Hennessy…) · Moncler
 (+ Stone Island) · On Holding · Phillips (auction house) · Prada (+ Miu Miu) · Richemont (Cartier, Van
 Cleef & Arpels, IWC…) · Sotheby's (auction house) · Tapestry (Coach, Kate Spade)
 
 ---
 
-## ⏳ Remaining (45 finance targets + Hermès)
+## ⏳ Remaining (45 finance targets + Hermès, Heritage Auctions)
 
-### Blocked: bot protection or no public job board (9)
+### Blocked: bot protection or no public job board (10)
 - **Hermès:** careers site shows an "Access is temporarily restricted" bot wall
+- **Heritage Auctions:** ha.com shows a DataDome bot check; no public ATS board found (Dallas-based, outside our metros anyway)
 - **BNP Paribas, PIMCO:** Akamai bot gate
 - **Jefferies:** Cloudflare challenge (Oracle Talentlink)
 - **HPS Investment Partners:** page renders no listings
