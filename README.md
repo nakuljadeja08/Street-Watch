@@ -10,7 +10,7 @@ Account Executive roles are dropped everywhere, "Specialist" titles at
 fintech firms, and "Manager" titles at fintech and fashion firms (Assistant and Associate
 Manager excepted), as all are
 senior seats. The auction houses (Christie's, Sotheby's, Phillips,
-Bonhams, Doyle) use the same rule but also keep Analyst, Associate, Cataloguer and
+Bonhams, Doyle, Freeman's | Hindman) use the same rule but also keep Analyst, Associate, Cataloguer and
 Coordinator titles.
 
 ```
