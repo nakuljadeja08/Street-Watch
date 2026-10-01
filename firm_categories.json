@@ -34,6 +34,10 @@
     "Altman Solon", "CIL Management Consultants", "Mars & Co", "ZS Associates"
   ],
   "Fintech": [
-    "CAIS", "iCapital"
+    "Bastion", "Brex", "CAIS", "Chime", "Galaxy Digital", "iCapital", "Plaid", "Ramp",
+    "Rogo", "Stripe"
+  ],
+  "Fashion & Luxury": [
+    "Estée Lauder", "Kering", "LVMH", "Moncler", "On Holding", "Prada", "Richemont", "Tapestry"
   ]
 }
