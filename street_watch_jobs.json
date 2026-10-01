@@ -1536,42 +1536,6 @@
     "is_new": false
   },
   {
-    "firm": "BTIG",
-    "id": "gh-btig27-8840895002",
-    "title": "Business Operations & Analytics, Associate",
-    "location": "New York, New York, United States",
-    "url": "https://job-boards.greenhouse.io/btig27/jobs/8840895002",
-    "source": "greenhouse",
-    "posted_date": "2026-09-23",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-24",
-    "is_new": false
-  },
-  {
-    "firm": "BTIG",
-    "id": "gh-btig27-8820862002",
-    "title": "Equity Research Supervisory Analyst",
-    "location": "New York, New York, United States",
-    "url": "https://job-boards.greenhouse.io/btig27/jobs/8820862002",
-    "source": "greenhouse",
-    "posted_date": "2026-09-18",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-19",
-    "is_new": false
-  },
-  {
-    "firm": "BTIG",
-    "id": "gh-btig27-8859835002",
-    "title": "Equity Research, Associate, Chemicals",
-    "location": "New York, New York, United States",
-    "url": "https://job-boards.greenhouse.io/btig27/jobs/8859835002",
-    "source": "greenhouse",
-    "posted_date": "2026-10-01",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-01",
-    "is_new": true
-  },
-  {
     "firm": "Bank of America",
     "id": "wd-ghr-Lateral-US-/job/New-York/Alternative-Investments-Sales-Strategy-Analyst_26025230-2",
     "title": "Alternative Investments Sales Strategy Analyst",
@@ -3517,6 +3481,18 @@
   },
   {
     "firm": "Deutsche Bank",
+    "id": "wd-db-DBWebsite-/job/New-York-1-Columbus-Circle/Associate--Loans-Strat--Group-Strategic-Analytics_R0453927",
+    "title": "Associate, Loans Strat, Group Strategic Analytics",
+    "location": "New York, 1 Columbus Circle",
+    "url": "https://db.wd3.myworkdayjobs.com/DBWebsite/job/New-York-1-Columbus-Circle/Associate--Loans-Strat--Group-Strategic-Analytics_R0453927",
+    "source": "workday",
+    "posted_date": "2026-10-01",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-01",
+    "is_new": true
+  },
+  {
+    "firm": "Deutsche Bank",
     "id": "wd-db-DBWebsite-/job/New-York-1-Columbus-Circle/BIN-Sponsorship-Product-Analyst_R0440662",
     "title": "BIN Sponsorship Product Analyst",
     "location": "New York, 1 Columbus Circle",
@@ -3685,10 +3661,10 @@
   },
   {
     "firm": "Est\u00e9e Lauder",
-    "id": "eightfold-careers.elcompanies.com-1168275465567",
+    "id": "eightfold-careers.elcompanies.com-1168275465769",
     "title": "Assistant Manager, Performance Marketing",
     "location": "New York, NY, US",
-    "url": "https://careers.elcompanies.com/careers/job/1168275465567",
+    "url": "https://careers.elcompanies.com/careers/job/1168275465769",
     "source": "eightfold",
     "posted_date": "2026-09-29",
     "metro": "NY + Jersey City",
@@ -3697,10 +3673,10 @@
   },
   {
     "firm": "Est\u00e9e Lauder",
-    "id": "eightfold-careers.elcompanies.com-1168275465769",
+    "id": "eightfold-careers.elcompanies.com-1168275465567",
     "title": "Assistant Manager, Performance Marketing",
     "location": "New York, NY, US",
-    "url": "https://careers.elcompanies.com/careers/job/1168275465769",
+    "url": "https://careers.elcompanies.com/careers/job/1168275465567",
     "source": "eightfold",
     "posted_date": "2026-09-29",
     "metro": "NY + Jersey City",
@@ -3753,18 +3729,6 @@
     "posted_date": "2026-09-29",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-29",
-    "is_new": false
-  },
-  {
-    "firm": "Franklin Templeton",
-    "id": "phenom-careers.franklintempleton.com-FTGFTMUS869636EXTERNALENUS",
-    "title": "Quantitative Insurance Solutions Analyst (EG-NYC)",
-    "location": "New York, New York, United States of America",
-    "url": "https://franklintempleton.wd5.myworkdayjobs.com/Primary-External-1/job/New-York-New-York-United-States-of-America/Quantitative-Insurance-Solutions-Analyst--EG-NYC-_869636",
-    "source": "phenom",
-    "posted_date": "2026-09-14",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-19",
     "is_new": false
   },
   {
@@ -5449,6 +5413,18 @@
   },
   {
     "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210795527",
+    "title": "HR/EX CDAO Data Risk & Governance Associate",
+    "location": "New York, NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210795527",
+    "source": "oracle",
+    "posted_date": "2026-10-01",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-29",
+    "is_new": false
+  },
+  {
+    "firm": "JPMorgan Chase",
     "id": "oracle-jpmc.fa.oraclecloud.com-210788498",
     "title": "Hiring Event Associate Banker - Staten Island Market - Staten Island, NY",
     "location": "Staten Island, NY, United States",
@@ -5470,6 +5446,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-23",
     "is_new": false
+  },
+  {
+    "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210679590",
+    "title": "Investment Banking - Business Services - Associate",
+    "location": "New York, NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210679590",
+    "source": "oracle",
+    "posted_date": "2026-10-01",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-01",
+    "is_new": true
   },
   {
     "firm": "JPMorgan Chase",
@@ -5626,6 +5614,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-19",
     "is_new": false
+  },
+  {
+    "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210796701",
+    "title": "J.P. Morgan Wealth Management - Private Client Investment Associate Team Leader- New York, NY",
+    "location": "New York, NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210796701",
+    "source": "oracle",
+    "posted_date": "2026-10-01",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-01",
+    "is_new": true
   },
   {
     "firm": "JPMorgan Chase",
@@ -8449,14 +8449,14 @@
   },
   {
     "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0119838EXTERNALENUS",
-    "title": "ECM Corporate Services Associate  III",
+    "id": "phenom-careers.truist.com-TBJTBFUSR0118998EXTERNALENUS",
+    "title": "Equity Research Analyst - Building Products (Industrials)",
     "location": "New York, New York, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY/ECM-Corporate-Services-Associate--III_R0119838",
+    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY/Equity-Research-Analyst---Building-Products--Industrials-_R0118998",
     "source": "phenom",
-    "posted_date": "2026-09-29",
+    "posted_date": "2026-09-18",
     "metro": "NY + Jersey City",
-    "first_seen": "2026-09-29",
+    "first_seen": "2026-09-19",
     "is_new": false
   },
   {
@@ -8467,18 +8467,6 @@
     "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY/Equity-Research-Associate---Industrials---Machinery---E-C_R0116377",
     "source": "phenom",
     "posted_date": "2026-09-04",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-18",
-    "is_new": false
-  },
-  {
-    "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0119256EXTERNALENUS",
-    "title": "Equity Research Associate - REITs",
-    "location": "New York, New York, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY/Equity-Research-Associate---REITs_R0119256",
-    "source": "phenom",
-    "posted_date": "2026-09-15",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-18",
     "is_new": false
@@ -8997,18 +8985,6 @@
     "posted_date": "2026-09-18",
     "metro": "SF / Bay Area",
     "first_seen": "2026-09-19",
-    "is_new": false
-  },
-  {
-    "firm": "Altman Solon",
-    "id": "gh-altmansolonuslp-4989948101",
-    "title": "Analyst",
-    "location": "Boston, MA;  San Francisco, CA; Los Angeles, CA",
-    "url": "https://www.altmansolon.com/careers/job-opportunities?gh_jid=4989948101",
-    "source": "greenhouse",
-    "posted_date": "2026-09-29",
-    "metro": "SF / Bay Area",
-    "first_seen": "2026-09-29",
     "is_new": false
   },
   {
