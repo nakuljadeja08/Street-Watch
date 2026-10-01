@@ -30,9 +30,28 @@ function daysSince(d) {
 const ageOf = (j) => daysSince(j.posted_date) ?? daysSince(j.first_seen);
 const pickJob = (j) => ({ id: j.id, firm: j.firm, title: j.title, location: j.location, url: j.url });
 
+// Outside jobs: roles applied to off the board (tech_custom_jobs). They're
+// shaped like board rows so the list, detail and tracker treat them the same.
+const CUSTOM_PREFIX = "c_";
+const customToJob = (c) => ({
+  id: CUSTOM_PREFIX + c.id,
+  custom: true,
+  custom_id: c.id,
+  firm: c.firm,
+  title: c.title,
+  location: c.location,
+  url: c.url,
+  metro: null,
+  sector: "Outside",
+  source: "added by you",
+  posted_date: null,
+  first_seen: (c.created_at || "").slice(0, 10),
+  is_new: false,
+});
+
 // "sector:fintech hub:nyc new spark" -> filter spec. Unknown words search.
 export function parseCmd(cmd) {
-  const f = { words: [], sector: null, hub: null, status: null, sort: "new", isNew: false, days: null };
+  const f = { words: [], sector: null, hub: null, status: null, sort: "new", isNew: false, outside: false, days: null };
   for (const tok of cmd.trim().split(/\s+/).filter(Boolean)) {
     const [k, ...rest] = tok.split(":");
     const v = rest.join(":").toLowerCase();
@@ -43,6 +62,7 @@ export function parseCmd(cmd) {
     else if (rest.length && key === "sort") f.sort = SORTS.includes(v) ? v : "new";
     else if (rest.length && key === "age") f.days = Number(v) || null;
     else if (!rest.length && key === "new") f.isNew = true;
+    else if (!rest.length && key === "outside") f.outside = true;
     else if (!rest.length && key === "remote") f.hub = "Remote (US)";
     else f.words.push(tok.toLowerCase());
   }
@@ -54,6 +74,7 @@ function matches(j, f, status) {
   if (f.sector && j.sector !== f.sector) return false;
   if (f.hub && j.metro !== f.hub) return false;
   if (f.isNew && !j.is_new) return false;
+  if (f.outside && !j.custom) return false;
   if (f.days != null) {
     const a = ageOf(j);
     if (a == null || a > f.days) return false;
@@ -92,6 +113,8 @@ function initialCmd() {
 export default function TechApp({ header, signedIn }) {
   const [jobs, setJobs] = useState([]);
   const [apps, setApps] = useState({});
+  const [customs, setCustoms] = useState([]); // tech_custom_jobs rows
+  const [addOpen, setAddOpen] = useState(false);
   const [searches, setSearches] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -118,10 +141,11 @@ export default function TechApp({ header, signedIn }) {
   useEffect(() => {
     (async () => {
       try {
-        const [jRes, aRes, sRes] = await Promise.all([
+        const [jRes, aRes, sRes, cRes] = await Promise.all([
           fetchAll("tech_jobs"),
           supabase.from("tech_applications").select("*"),
           supabase.from("tech_saved_searches").select("*").order("created_at"),
+          supabase.from("tech_custom_jobs").select("*").order("created_at"),
         ]);
         let rows = jRes.data;
         if (jRes.error) {
@@ -135,6 +159,8 @@ export default function TechApp({ header, signedIn }) {
         setJobs(rows || []);
         if (!aRes.error) setApps(Object.fromEntries(aRes.data.map((a) => [a.job_id, a])));
         if (!sRes.error) setSearches(sRes.data || []);
+        if (cRes.error) console.warn("tech_custom_jobs read failed (run schema_tech_custom_jobs.sql?):", cRes.error.message);
+        else setCustoms(cRes.data || []);
       } catch (e) {
         setError(`Couldn't load Tech Watch (run schema_tech.sql?): ${e.message || e}`);
       } finally {
@@ -223,7 +249,54 @@ export default function TechApp({ header, signedIn }) {
   }
 
   // ------------------------------------------------------------ tracker
+  async function addCustom({ firm, title, location, url, status, notes }) {
+    const row = {
+      firm: firm.trim(),
+      title: title.trim(),
+      location: location.trim() || null,
+      url: url.trim() || null,
+      status,
+      applied_at: status === "applied" ? today() : null,
+      notes: notes.trim() || null,
+    };
+    const { data, error } = await supabase.from("tech_custom_jobs").insert(row).select().single();
+    if (error) {
+      flash(`Could not add job: ${error.message}`);
+      return null;
+    }
+    setCustoms((cs) => [...cs, data]);
+    return data;
+  }
+
+  async function updateCustom(job, patch) {
+    const prev = customs.find((c) => c.id === job.custom_id);
+    if (!prev) return;
+    setCustoms((cs) => cs.map((c) => (c.id === prev.id ? { ...c, ...patch } : c)));
+    const { error } = await supabase.from("tech_custom_jobs").update(patch).eq("id", prev.id);
+    if (error) {
+      setCustoms((cs) => cs.map((c) => (c.id === prev.id ? prev : c)));
+      flash(`Could not save: ${error.message}`);
+    }
+  }
+
+  async function removeCustom(job) {
+    const prev = customs.find((c) => c.id === job.custom_id);
+    if (!prev || !window.confirm(`Remove ${prev.title} at ${prev.firm} from your tracker?`)) return;
+    setCustoms((cs) => cs.filter((c) => c.id !== prev.id));
+    const { error } = await supabase.from("tech_custom_jobs").delete().eq("id", prev.id);
+    if (error) {
+      setCustoms((cs) => [...cs, prev]);
+      flash(`Could not remove job: ${error.message}`);
+    }
+  }
+
   async function setStatus(job, next) {
+    if (job.custom) {
+      // an outside job only exists to be tracked, so clearing its status removes it
+      if (!next) return removeCustom(job);
+      const prev = tracked[job.id];
+      return updateCustom(job, { status: next, applied_at: next === "applied" && !prev?.applied_at ? today() : prev?.applied_at || null });
+    }
     const prev = apps[job.id];
     const row = next
       ? {
@@ -254,8 +327,12 @@ export default function TechApp({ header, signedIn }) {
   }
 
   async function saveNotes(job, raw) {
-    const prev = apps[job.id];
     const notes = raw.trim() || null;
+    if (job.custom) {
+      if ((tracked[job.id]?.notes || null) !== notes) updateCustom(job, { notes });
+      return;
+    }
+    const prev = apps[job.id];
     if (!prev || (prev.notes || null) === notes) return;
     setApps((m) => ({ ...m, [job.id]: { ...prev, notes } }));
     const { error } = await supabase.from("tech_applications").update({ notes }).eq("job_id", job.id);
@@ -289,19 +366,26 @@ export default function TechApp({ header, signedIn }) {
   }
 
   // ------------------------------------------------------------ derived
-  const statusOf = (id) => apps[id]?.status || null;
+  const allJobs = useMemo(() => [...jobs, ...customs.map(customToJob)], [jobs, customs]);
+  // tracker rows by job id: board roles from tech_applications, outside jobs inline
+  const tracked = useMemo(() => {
+    const m = { ...apps };
+    for (const c of customs) m[CUSTOM_PREFIX + c.id] = { status: c.status, applied_at: c.applied_at, notes: c.notes };
+    return m;
+  }, [apps, customs]);
+  const statusOf = (id) => tracked[id]?.status || null;
   const rows = useMemo(() => {
-    const out = jobs.filter((j) => matches(j, spec, statusOf(j.id)));
+    const out = allJobs.filter((j) => matches(j, spec, statusOf(j.id)));
     const fit = (j) => ai.fits[j.id]?.score ?? -1;
     if (spec.sort === "fit") out.sort((a, b) => fit(b) - fit(a) || (ageOf(a) ?? 99) - (ageOf(b) ?? 99));
     else if (spec.sort === "firm") out.sort((a, b) => a.firm.localeCompare(b.firm) || a.title.localeCompare(b.title));
     else out.sort((a, b) => (ageOf(a) ?? 99) - (ageOf(b) ?? 99) || a.firm.localeCompare(b.firm));
     return out;
-  }, [jobs, spec, apps, ai.fits]);
+  }, [allJobs, spec, tracked, ai.fits]);
 
   const counts = useMemo(() => {
-    const c = { all: jobs.length, new: 0, sector: {}, hub: {}, status: {} };
-    for (const j of jobs) {
+    const c = { all: allJobs.length, new: 0, outside: customs.length, sector: {}, hub: {}, status: {} };
+    for (const j of allJobs) {
       if (j.is_new) c.new++;
       c.sector[j.sector] = (c.sector[j.sector] || 0) + 1;
       c.hub[j.metro] = (c.hub[j.metro] || 0) + 1;
@@ -309,7 +393,7 @@ export default function TechApp({ header, signedIn }) {
       if (st) c.status[st] = (c.status[st] || 0) + 1;
     }
     return c;
-  }, [jobs, apps]);
+  }, [allJobs, tracked]);
 
   const sectorOfFirm = useMemo(() => {
     const m = {};
@@ -331,7 +415,7 @@ export default function TechApp({ header, signedIn }) {
         cmdRef.current?.select();
         return;
       }
-      if (typing || e.metaKey || e.ctrlKey || e.altKey || draftFor || pasteFor || outsideOpen || view !== "list") return;
+      if (typing || e.metaKey || e.ctrlKey || e.altKey || draftFor || pasteFor || outsideOpen || addOpen || view !== "list") return;
       const i = rows.findIndex((j) => j.id === sel?.id);
       if (e.key === "j" || e.key === "ArrowDown") {
         e.preventDefault();
@@ -348,7 +432,7 @@ export default function TechApp({ header, signedIn }) {
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [rows, sel, draftFor, pasteFor, outsideOpen, view, aiReady, apps]);
+  }, [rows, sel, draftFor, pasteFor, outsideOpen, addOpen, view, aiReady, tracked]);
 
   useEffect(() => {
     listRef.current?.querySelector(".tw-row.on")?.scrollIntoView({ block: "nearest" });
@@ -369,6 +453,7 @@ export default function TechApp({ header, signedIn }) {
     spec.hub && `hub:${SLUG_OF[spec.hub]}`,
     spec.status && `status:${spec.status}`,
     spec.isNew && "new",
+    spec.outside && "outside",
     spec.days != null && `age:${spec.days}`,
     spec.q && `grep "${spec.q}"`,
     spec.sort !== "new" && `sort:${spec.sort}`,
@@ -417,6 +502,12 @@ export default function TechApp({ header, signedIn }) {
                 {STATUS_LABEL[s]}
               </NavItem>
             ))}
+            <NavItem on={spec.outside} n={counts.outside} onClick={() => toggleToken("outside")}>
+              Added by me
+            </NavItem>
+            <NavItem on={addOpen} onClick={() => setAddOpen((o) => !o)}>
+              ＋ Track outside job
+            </NavItem>
           </NavGroup>
 
           <NavGroup title="Saved">
@@ -500,6 +591,18 @@ export default function TechApp({ header, signedIn }) {
           </div>
 
           {error && <div className="tw-err" role="alert">{error}</div>}
+          {addOpen && (
+            <AddOutsidePanel
+              onAdd={async (fields) => {
+                const row = await addCustom(fields);
+                if (!row) return;
+                setAddOpen(false);
+                setView("list");
+                setSelId(CUSTOM_PREFIX + row.id);
+              }}
+              onClose={() => setAddOpen(false)}
+            />
+          )}
           {aiOpen && <ResumePanel ai={ai} setAi={setAi} aiFetch={aiFetch} signedIn={signedIn} onClose={() => setAiOpen(false)} />}
 
           {view === "trends" ? (
@@ -531,7 +634,7 @@ export default function TechApp({ header, signedIn }) {
               {sel && (
                 <Detail
                   job={sel}
-                  app={apps[sel.id]}
+                  app={tracked[sel.id]}
                   fit={ai.fits[sel.id]}
                   scoring={scoring.has(sel.id)}
                   aiReady={aiReady}
@@ -541,6 +644,7 @@ export default function TechApp({ header, signedIn }) {
                   onFit={() => scoreJobs([sel])}
                   onDraft={() => setDraftFor(sel)}
                   onSetupAi={() => setAiOpen(true)}
+                  onRemove={sel.custom ? () => removeCustom(sel) : null}
                 />
               )}
             </div>
@@ -558,7 +662,7 @@ export default function TechApp({ header, signedIn }) {
       {draftFor && (
         <DraftModal
           job={draftFor}
-          notes={apps[draftFor.id]?.notes || ""}
+          notes={tracked[draftFor.id]?.notes || ""}
           hasDraft={ai.drafts.includes(draftFor.id)}
           aiFetch={aiFetch}
           onSaved={(id) => setAi((a) => ({ ...a, drafts: a.drafts.includes(id) ? a.drafts : [...a.drafts, id] }))}
@@ -623,7 +727,7 @@ function Row({ job, on, status, fit, onClick }) {
       <span className="tw-row-main">
         <span className="tw-row-title">{job.title}</span>
         <span className="tw-row-meta">
-          {job.firm} · {job.location || job.metro}
+          {job.firm} · {job.location || job.metro || job.source}
         </span>
       </span>
       <span className="tw-row-tags">
@@ -637,7 +741,7 @@ function Row({ job, on, status, fit, onClick }) {
   );
 }
 
-function Detail({ job, app, fit, scoring, aiReady, hasDraft, onStatus, onNotes, onFit, onDraft, onSetupAi }) {
+function Detail({ job, app, fit, scoring, aiReady, hasDraft, onStatus, onNotes, onFit, onDraft, onSetupAi, onRemove }) {
   const [notes, setNotes] = useState(app?.notes || "");
   useEffect(() => setNotes(app?.notes || ""), [job.id, app?.notes]);
   const posted = ageOf(job);
@@ -647,6 +751,16 @@ function Detail({ job, app, fit, scoring, aiReady, hasDraft, onStatus, onNotes, 
         <div className="tw-detail-firm">{job.firm}</div>
         <h2 className="tw-detail-title">{job.title}</h2>
       </div>
+      {job.custom ? (
+        <dl className="tw-kv">
+          <dt>location</dt>
+          <dd>{job.location || "—"}</dd>
+          <dt>added</dt>
+          <dd>{job.first_seen || "—"}</dd>
+          <dt>source</dt>
+          <dd>{job.source}</dd>
+        </dl>
+      ) : (
       <dl className="tw-kv">
         <dt>location</dt>
         <dd>{job.location || "—"}</dd>
@@ -661,6 +775,7 @@ function Detail({ job, app, fit, scoring, aiReady, hasDraft, onStatus, onNotes, 
         <dt>source</dt>
         <dd>{job.source}</dd>
       </dl>
+      )}
 
       <div className="tw-section">
         <h3>Track</h3>
@@ -682,6 +797,11 @@ function Detail({ job, app, fit, scoring, aiReady, hasDraft, onStatus, onNotes, 
           />
         )}
         {app?.applied_at && <div className="tw-hint">applied {app.applied_at}</div>}
+        {onRemove && (
+          <button className="tw-btn ghost small" onClick={onRemove}>
+            Remove from tracker
+          </button>
+        )}
       </div>
 
       <div className="tw-section">
@@ -718,6 +838,70 @@ function Detail({ job, app, fit, scoring, aiReady, hasDraft, onStatus, onNotes, 
         )}
       </div>
     </aside>
+  );
+}
+
+function AddOutsidePanel({ onAdd, onClose }) {
+  const [f, setF] = useState({ firm: "", title: "", url: "", location: "", status: "applied", notes: "" });
+  const [busy, setBusy] = useState(false);
+  const set = (k) => (e) => setF((x) => ({ ...x, [k]: e.target.value }));
+  const canSave = f.firm.trim() && f.title.trim() && !busy;
+
+  async function submit(e) {
+    e.preventDefault();
+    if (!canSave) return;
+    setBusy(true);
+    await onAdd(f);
+    setBusy(false);
+  }
+
+  return (
+    <form className="tw-panel" aria-label="Track an outside job" onSubmit={submit}>
+      <div className="tw-panel-h">
+        <h2>＋ Track an outside job</h2>
+        <button type="button" className="tw-btn ghost small" onClick={onClose}>
+          Close
+        </button>
+      </div>
+      <p className="tw-hint">Applied somewhere that isn't on the board? Add it here to track it with everything else.</p>
+      <div className="tw-form">
+        <label>
+          <span>company *</span>
+          <input value={f.firm} onChange={set("firm")} placeholder="e.g. Snowflake" autoFocus />
+        </label>
+        <label>
+          <span>role *</span>
+          <input value={f.title} onChange={set("title")} placeholder="e.g. Data Engineer I" />
+        </label>
+        <label>
+          <span>link</span>
+          <input value={f.url} onChange={set("url")} placeholder="https://…" type="url" />
+        </label>
+        <label>
+          <span>location</span>
+          <input value={f.location} onChange={set("location")} placeholder="e.g. New York, NY or Remote" />
+        </label>
+        <label>
+          <span>stage</span>
+          <select value={f.status} onChange={set("status")}>
+            {STATUSES.map((s) => (
+              <option key={s} value={s}>
+                {STATUS_LABEL[s]}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="wide">
+          <span>notes</span>
+          <textarea rows={2} value={f.notes} onChange={set("notes")} placeholder="Referral, recruiter, salary, where you found it…" />
+        </label>
+      </div>
+      <div className="tw-panel-row">
+        <button className="tw-btn pri" type="submit" disabled={!canSave}>
+          {busy ? "Adding…" : "Add to tracker"}
+        </button>
+      </div>
+    </form>
   );
 }
 
