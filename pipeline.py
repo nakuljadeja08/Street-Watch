@@ -1096,9 +1096,11 @@ _PRODUCT_GTM_EXCLUDE_RE = re.compile(
 
 
 # Account Executive roles are quota-carrying senior sales seats, and fintech
-# "Specialist" titles are senior individual-contributor roles (user, 2026-10-01).
+# "Specialist" and fintech/fashion "Manager" titles are too senior for her
+# (user, 2026-10-01).
 _ACCOUNT_EXEC_RE = re.compile(r"account exec", re.I)
 _SPECIALIST_RE = re.compile(r"specialist", re.I)
+_MANAGER_RE = re.compile(r"manager", re.I)
 
 
 def title_ok(firm, title):
@@ -1108,6 +1110,8 @@ def title_ok(firm, title):
     if _ACCOUNT_EXEC_RE.search(title):
         return False
     if _SPECIALIST_RE.search(title) and segment_of(firm) == "fintech":
+        return False
+    if _MANAGER_RE.search(title) and segment_of(firm) in ("fintech", "fashion"):
         return False
     if firm in PRODUCT_GTM_FIRMS:
         return bool(_PRODUCT_GTM_RE.search(title)) and not _PRODUCT_GTM_EXCLUDE_RE.search(title)

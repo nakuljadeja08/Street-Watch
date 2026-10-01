@@ -6,8 +6,9 @@ Supabase, and serves a live page. Runs itself every morning via GitHub Actions.
 At the fintech and fashion firms (`PRODUCT_GTM_FIRMS` in `pipeline.py`) it
 pulls Product and go-to-market roles instead: product, sales, partnerships,
 marketing and merchandising, with store roles and senior grades left out.
-Account Executive roles are dropped everywhere, and "Specialist" titles at
-fintech firms, as both are senior seats.
+Account Executive roles are dropped everywhere, "Specialist" titles at
+fintech firms, and "Manager" titles at fintech and fashion firms, as all are
+senior seats.
 
 ```
 firms' ATS APIs  ──►  pipeline.py  ──►  Supabase `jobs` table  ──►  dashboard/ (React app on Vercel)
