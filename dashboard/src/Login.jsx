@@ -9,9 +9,9 @@ export default function Login({ onSignedIn }) {
     <div className="login">
       <Half
         watch="street"
-        eyebrow="Profile 01 · Finance"
+        eyebrow="Profile 01 · Finance · Fintech · Fashion"
         title={<h1 className="login-sw-title">Street <em>Watch</em></h1>}
-        who="Analyst and Associate roles at banks, private equity, hedge funds and advisory firms."
+        who="Analyst and Associate roles in finance, plus Product and GTM roles at fintech and luxury fashion houses."
         button="Open Street Watch"
         onSignedIn={onSignedIn}
       />
