@@ -222,3 +222,16 @@ body.tw-body .addBtn, body.tw-body .clearBtn { border-radius: 7px; }
   .tw-mono-badge { display: none; }
   .tw-row-tags { flex-wrap: wrap; }
 }
+
+/* outside jobs */
+.tw-badge.sec-outside { background: var(--tw-accS); color: var(--tw-acc); }
+.tw-form { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 12px; }
+.tw-form label { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.tw-form label.wide { grid-column: 1 / -1; }
+.tw-form span { font: 12px "JetBrains Mono", monospace; color: var(--tw-soft); }
+.tw-form input, .tw-form select, .tw-form textarea {
+  font: inherit; font-size: 13.5px; padding: 7px 9px; border-radius: 7px; border: 1px solid var(--tw-line);
+  background: var(--tw-bg); color: var(--tw-ink); min-width: 0; resize: vertical;
+}
+.tw-form input:focus, .tw-form select:focus, .tw-form textarea:focus { outline: 2px solid var(--tw-acc); outline-offset: 0; border-color: transparent; }
+@media (max-width: 640px) { .tw-form { grid-template-columns: 1fr; } }
