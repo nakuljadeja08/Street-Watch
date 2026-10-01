@@ -3,6 +3,9 @@
 Pulls real Analyst/Associate openings from firms' own hiring systems
 (Greenhouse + Ashby + Workday), de-dupes, flags what's new, stores them in
 Supabase, and serves a live page. Runs itself every morning via GitHub Actions.
+At the fintech and fashion firms (`PRODUCT_GTM_FIRMS` in `pipeline.py`) it
+pulls Product and go-to-market roles instead: product, sales, partnerships,
+marketing and merchandising, with store roles and senior grades left out.
 
 ```
 firms' ATS APIs  ──►  pipeline.py  ──►  Supabase `jobs` table  ──►  dashboard/ (React app on Vercel)
@@ -68,7 +71,8 @@ tech firms' ATS APIs + Street Watch's finance firms  ──►  tech_pipeline.py
 ### What it pulls
 - **Firms:** about 110 tech, fintech and finance boards (Greenhouse, Ashby,
   Lever, Workday, Amazon's jobs API) listed in `TECH_FIRMS.md`, plus every
-  Street Watch firm except the consulting shops, searched for data roles.
+  Street Watch firm except the consulting shops and fashion houses, searched
+  for data roles.
   Google, Meta, Microsoft, Uber, Netflix, Bloomberg, AmEx and Two Sigma need
   custom fetchers and aren't wired yet (task list in `TASKS.md`).
 - **Titles in:** Data Engineer (I / II), Analytics Engineer, Data Platform /

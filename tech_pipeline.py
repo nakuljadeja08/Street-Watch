@@ -59,6 +59,7 @@ GREENHOUSE = {
     "Finance": {
         "Point72": "point72", "Jump Trading": "jumptrading", "Akuna Capital": "akunacapital",
         "Tower Research Capital": "towerresearchcapital", "Schonfeld": "schonfeld",
+        "Hudson River Trading": "wehrtyou",
     },
 }
 ASHBY = {
@@ -88,6 +89,8 @@ WORKDAY = {      # firm -> (tenant, datacenter, site), searched for SEARCH
         "Snap": ("snapchat", "wd1", "snap"),
         "Target": ("target", "wd5", "targetcareers"),
         "Disney": ("disney", "wd5", "disneycareer"),
+        "Walmart": ("walmart", "wd504", "WalmartExternal"),
+        "Comcast": ("comcast", "wd115", "Comcast_Careers"),
     },
     "Fintech": {
         "PayPal": ("paypal", "wd1", "jobs"),
@@ -105,21 +108,104 @@ WORKDAY = {      # firm -> (tenant, datacenter, site), searched for SEARCH
     },
 }
 
-# Street Watch's finance firms are scanned too, minus the consulting shops
-# (Tech Watch covers tech and finance only).
+# Expansion wave (probed live 2026-09-29, see TECH_FIRMS.md "Wave 2"). Each
+# board answered on its API that day; most had no matching role yet and are
+# wired for coverage.
+GREENHOUSE["Tech"].update({
+    "SpaceX": "spacex", "Klaviyo": "klaviyo", "Oscar Health": "oscar",
+    "Hex": "hextechnologies", "Dataiku": "dataiku", "Collibra": "collibra",
+    "Mixpanel": "mixpanel", "Grafana Labs": "grafanalabs", "Glean": "gleanwork",
+    "Verkada": "verkada", "Motive": "gomotive", "Rubrik": "rubrik", "Wiz": "wizinc",
+    "Braze": "braze", "Faire": "faire", "Celonis": "celonis", "Airtable": "airtable",
+    "Webflow": "webflow", "Cockroach Labs": "cockroachlabs", "PagerDuty": "pagerduty",
+    "Nextdoor": "nextdoor", "Flatiron Health": "flatironhealth", "Zocdoc": "zocdoc",
+    "Netskope": "netskope", "Komodo Health": "komodohealth",
+    "Abnormal Security": "abnormalsecurity", "Coursera": "coursera", "Udemy": "udemy",
+    "Sweetgreen": "sweetgreen", "SeatGeek": "seatgeek", "Attentive": "attentive",
+    "Justworks": "justworks", "Oura": "oura", "Calendly": "calendly", "Fastly": "fastly",
+    "Netlify": "netlify", "Algolia": "algolia", "Contentful": "contentful",
+    "Sprout Social": "sproutsocial", "Qualtrics": "qualtrics",
+})
+GREENHOUSE["Fintech"].update({
+    "Upstart": "upstart", "Bill.com": "billcom", "Adyen": "adyen", "Payoneer": "payoneer",
+    "Fireblocks": "fireblocks", "Alloy": "alloy", "Mission Lane": "missionlane",
+    "Earnin": "earnin",
+})
+GREENHOUSE["Finance"].update({
+    "Bridgewater": "bridgewater89", "Clear Street": "clearstreet", "AQR": "aqr",
+    "Man Group": "mangroup", "Squarepoint": "squarepointcapital", "WorldQuant": "worldquant",
+    "Old Mission": "oldmissioncapital", "Chicago Trading Company": "chicagotrading",
+    "Geneva Trading": "genevatrading", "ExodusPoint": "exoduspoint",
+})
+ASHBY["Tech"].update({
+    "Cohere": "cohere", "Confluent": "confluent", "ClickHouse": "clickhouse",
+    "Astronomer": "astronomer", "Airbyte": "airbyte", "Monte Carlo": "montecarlodata",
+    "Amplitude": "amplitude", "Harvey": "harvey", "Quora": "quora", "Anyscale": "anyscale",
+    "1Password": "1password", "Expensify": "expensify", "Nuna": "nuna", "Sentry": "sentry",
+    "Temporal": "temporal", "Instructure": "instructure", "Whoop": "whoop",
+    "Strava": "strava", "Miro": "miro", "Zapier": "zapier", "Sisense": "sisense",
+})
+ASHBY["Fintech"].update({
+    "Socure": "socure", "Sardine": "sardine", "NerdWallet": "nerdwallet",
+    "Nubank": "nubank", "Circle": "circle", "Paxos": "paxos", "Acorns": "acorns",
+})
+ASHBY["Finance"] = {"Voleon": "voleon"}
+LEVER["Tech"].update({"Zoox": "zoox", "Gopuff": "gopuff", "AllTrails": "alltrails"})
+LEVER["Finance"] = {"Belvedere Trading": "belvederetrading"}
+WORKDAY["Tech"].update({
+    "Chewy": ("chewy", "wd5", "External"),
+    "Zillow": ("zillow", "wd5", "Zillow_Group_External"),
+    "eBay": ("ebay", "wd5", "apply"),
+    "Expedia": ("expedia", "wd108", "search"),
+    "Red Hat": ("redhat", "wd5", "jobs"),
+    "Nike": ("nike", "wd1", "nke"),
+    "Warner Bros. Discovery": ("warnerbros", "wd5", "global"),
+})
+WORKDAY["Fintech"].update({
+    "Fiserv": ("fiserv", "wd5", "EXT"),
+    "FIS": ("fis", "wd5", "SearchJobs"),
+    "Global Payments": ("tsys", "wd1", "TSYS"),
+})
+WORKDAY["Finance"].update({
+    "Equifax": ("equifax", "wd5", "External"),
+    "TransUnion": ("transunion", "wd5", "TransUnion"),
+    "Vanguard": ("vanguard", "wd5", "vanguard_external"),
+    "Raymond James": ("raymondjames", "wd1", "RaymondJamesCareers"),
+    "LPL Financial": ("lplfinancial", "wd1", "External"),
+    "Prudential": ("pru", "wd5", "Careers"),
+    "Allstate": ("allstate", "wd5", "allstate_careers"),
+    "CME Group": ("cmegroup", "wd1", "cme_careers"),
+    "Cboe": ("cboe", "wd1", "External_Career_CBOE"),
+    "FactSet": ("factset", "wd108", "FactSetCareers"),
+    "Broadridge": ("broadridge", "wd5", "Careers"),
+})
+
+# Custom-fetcher firms (TASKS.md, added 2026-09-28). Same ATS products Street
+# Watch already scrapes, so they reuse its fetchers.
+ORACLE = {"Tech": {"Dell": ("enterpriseplatform.dell.com", "CX_1001", "careers")}}
+RADANCY = {"Finance": {"Charles Schwab": "www.schwabjobs.com"}}
+EIGHTFOLD = {"Tech": {"Netflix": ("explore.jobs.netflix.net", "netflix.com", "United States")}}
+# Own-API fetchers below (fetch_google / fetch_microsoft / fetch_bloomberg / fetch_meta).
+CUSTOM = {"Tech": ["Google", "Microsoft", "Meta"], "Fintech": ["Bloomberg"]}
+
+# Street Watch's finance firms are scanned too, minus the consulting shops and
+# fashion houses (Tech Watch covers tech and finance only) and any firm Tech
+# Watch already lists itself (Stripe, Brex, Chime, Ramp, Plaid).
 _STREET_CAT = P._FIRM_CAT
+_STREET_SKIP = {"Consulting", "Fashion & Luxury"}
 def _street(reg):
-    return {f: v for f, v in reg.items() if _STREET_CAT.get(f) != "Consulting"}
+    return {f: v for f, v in reg.items()
+            if _STREET_CAT.get(f) not in _STREET_SKIP and f not in _OWN}
 
 SECTOR = {}
-for _reg in (GREENHOUSE, ASHBY, LEVER, WORKDAY):
+for _reg in (GREENHOUSE, ASHBY, LEVER, WORKDAY, ORACLE, RADANCY, EIGHTFOLD, CUSTOM):
     for _sec, _firms in _reg.items():
         for _f in _firms:
             SECTOR[_f] = _sec
+_OWN = set(SECTOR)
 for _f in P.registered_firms():
-    if _STREET_CAT.get(_f) != "Consulting":
+    if _STREET_CAT.get(_f) not in _STREET_SKIP:
         SECTOR.setdefault(_f, "Fintech" if _STREET_CAT.get(_f) == "Fintech" else "Finance")
-SECTOR["Amazon"] = "Tech"
 
 
 # ---------------------------------------------------------------- new fetchers
@@ -144,37 +230,162 @@ def fetch_lever(firm, name):
     return out
 
 
-def fetch_amazon(query=SEARCH, max_rows=1500):
-    """amazon.jobs public search JSON (US only, newest first)."""
-    out, offset, total = [], 0, None
-    try:
-        while offset < max_rows:
-            r = requests.get("https://www.amazon.jobs/en/search.json", headers=UA, timeout=TIMEOUT,
-                             params={"base_query": query, "country": "USA", "result_limit": 100,
-                                     "offset": offset, "sort": "recent"})
-            r.raise_for_status()
-            d = r.json()
-            total = d.get("hits", 0) if total is None else total
-            jobs = d.get("jobs") or []
-            if not jobs:
+# Big-tech boards with their own APIs (TASKS.md "Medium"/"Hard", 2026-09-29).
+# Google and Microsoft search job text as well as titles, so each fetcher runs a
+# few narrow queries and title_ok() does the real filtering.
+GOOGLE_QUERIES = ['"data engineer"', '"data engineering"', '"analytics engineer"',
+                  '"data platform"', '"data infrastructure"', '"etl"', '"big data"']
+
+
+def fetch_google(max_pages=10):
+    """google.com/about/careers is server-rendered: page N's results are the JSON
+    array in its AF_initDataCallback 'ds:1' blob. Each job is a positional list:
+    [0] id, [1] title, [9] locations ([[label, ...], ...]), [12] [created_ts, ns]."""
+    base = "https://www.google.com/about/careers/applications/jobs/results"
+    out, seen = [], set()
+    for q in GOOGLE_QUERIES:
+        for page in range(1, max_pages + 1):
+            try:
+                r = requests.get(base, headers=UA, timeout=TIMEOUT,
+                                 params={"q": q, "location": "United States", "page": page})
+                r.raise_for_status()
+                t = r.text
+                i = t.find("AF_initDataCallback({key: 'ds:1'")
+                j = t.find("data:", i) + 5
+                data = json.loads(t[j:t.find(", sideChannel", j)])
+            except Exception as e:
+                print(f"  ! google {q}: {e}", file=sys.stderr); break
+            jobs = data[0] or []
+            for job in jobs:
+                if job[0] in seen:
+                    continue
+                seen.add(job[0])
+                ts = (job[12] or [None])[0] if len(job) > 12 else None
+                out.append(dict(firm="Google", id=f"google-{job[0]}", title=(job[1] or "").strip(),
+                                location="; ".join(l[0] for l in job[9] or [] if l),
+                                url=f"{base}/{job[0]}", source="google",
+                                posted_date=(datetime.fromtimestamp(ts, timezone.utc).strftime("%Y-%m-%d")
+                                             if isinstance(ts, (int, float)) else None)))
+            if len(jobs) < 20 or page * 20 >= (data[2] or 0):
                 break
+            time.sleep(0.5)
+    return out
+
+
+def fetch_microsoft(query=SEARCH, max_pages=40):
+    """Microsoft's Eightfold "pcsx" search at apply.careers.microsoft.com. Bare
+    requests get 429; a cookie from the careers page first makes it answer.
+    10 results a page, relevance-sorted, so paging stops at the first page with
+    no data-engineering title."""
+    host = "https://apply.careers.microsoft.com"
+    s = requests.Session(); s.headers.update(UA)
+    out = []
+    try:
+        s.get(f"{host}/careers", params={"query": query, "location": "United States"}, timeout=TIMEOUT)
+        for page in range(max_pages):
+            r = s.get(f"{host}/api/pcsx/search", timeout=TIMEOUT,
+                      headers={"Accept": "application/json", "Referer": f"{host}/careers"},
+                      params={"domain": "microsoft.com", "query": query,
+                              "location": "United States", "start": page * 10})
+            r.raise_for_status()
+            d = (r.json() or {}).get("data") or {}
+            jobs = d.get("positions") or []
             for j in jobs:
-                try:
-                    posted = datetime.strptime(" ".join((j.get("posted_date") or "").split()),
-                                               "%B %d, %Y").strftime("%Y-%m-%d")
-                except ValueError:
-                    posted = None
-                out.append(dict(firm="Amazon", id=f"amazon-{j.get('id_icims')}",
-                                title=(j.get("title") or "").strip(),
-                                location=j.get("normalized_location") or j.get("location") or "",
-                                url="https://www.amazon.jobs" + (j.get("job_path") or ""),
-                                source="amazon", posted_date=posted))
-            offset += 100
-            if offset >= total:
+                ts = j.get("postedTs")
+                out.append(dict(firm="Microsoft", id=f"microsoft-{j.get('id')}",
+                                title=(j.get("name") or "").strip(),
+                                location="; ".join(j.get("standardizedLocations") or j.get("locations") or []),
+                                url=host + (j.get("positionUrl") or f"/careers/job/{j.get('id')}"),
+                                source="microsoft",
+                                posted_date=(datetime.fromtimestamp(ts, timezone.utc).strftime("%Y-%m-%d")
+                                             if isinstance(ts, (int, float)) else None)))
+            if (not jobs or (page + 1) * 10 >= (d.get("count") or 0)
+                    or not any(_looks_de(j.get("name") or "") for j in jobs)):
+                break
+            time.sleep(0.5)
+    except Exception as e:
+        print(f"  ! microsoft: {e}", file=sys.stderr)
+    return out
+
+
+# Meta's careers site (metacareers.com) is a Relay app. The anonymous jobsearch
+# page embeds an LSD token; posting it with the search query's persisted doc_id
+# returns every match in one response. Meta can rotate doc_id on a redeploy:
+# if the fetch logs "doc_id stale", recapture it from the browser's network tab
+# (friendly name CareersJobSearchResultsV2DataQuery).
+META_DOC_ID = "27129360303422352"
+
+
+def fetch_meta(query=SEARCH):
+    """One GraphQL call for all matches; each job has id, title and locations.
+    Results carry no posted date."""
+    host = "https://www.metacareers.com"
+    s = requests.Session(); s.headers.update(UA)
+    try:
+        page = s.get(f"{host}/jobsearch/", params={"q": query}, timeout=TIMEOUT).text
+        m = re.search(r'"LSD",\[\],\{"token":"([^"]+)"', page)
+        if not m:
+            print("  ! meta: no LSD token on the jobsearch page", file=sys.stderr); return []
+        lsd = m.group(1)
+        variables = {"search_input": {"q": query, "divisions": [], "offices": [], "roles": [],
+                                      "leadership_levels": [], "saved_jobs": [], "saved_searches": [],
+                                      "sub_teams": [], "teams": [], "is_leadership": False,
+                                      "is_remote_only": False, "sort_by_new": False,
+                                      "results_per_page": None},
+                     "viewasUserID": None, "isLoggedIn": False}
+        r = s.post(f"{host}/graphql", timeout=TIMEOUT,
+                   headers={"X-FB-LSD": lsd, "Origin": host, "Referer": f"{host}/jobsearch/"},
+                   data={"lsd": lsd, "fb_api_caller_class": "RelayModern",
+                         "fb_api_req_friendly_name": "CareersJobSearchResultsV2DataQuery",
+                         "variables": json.dumps(variables), "doc_id": META_DOC_ID,
+                         "server_timestamps": "true"})
+        r.raise_for_status()
+        # Relay can stream several JSON objects, one per line; the first holds the data
+        data = (json.loads(r.text.split("\n", 1)[0]).get("data") or {}).get("job_search_with_featured_jobs_v2")
+        if not data:
+            print(f"  ! meta: doc_id stale? response: {r.text[:200]}", file=sys.stderr); return []
+    except Exception as e:
+        print(f"  ! meta: {e}", file=sys.stderr); return []
+    return [dict(firm="Meta", id=f"meta-{j.get('id')}", title=(j.get("title") or "").strip(),
+                 location="; ".join(j.get("locations") or []),
+                 url=f"{host}/profile/job_details/{j.get('id')}", source="meta", posted_date=None)
+            for j in data.get("all_jobs") or []]
+
+
+_AVATURE_CARD_RE = re.compile(
+    r'<h3[^>]*>\s*<a[^>]*href="([^"]+/JobDetail/[^"]+?/(\d+))"[^>]*>(.*?)</a>', re.S)
+
+
+def fetch_bloomberg(query=SEARCH, max_rows=600):
+    """Bloomberg's Avature board (bloomberg.avature.net) is server-rendered HTML:
+    each result card has the title link (…/JobDetail/<slug>/<id>) and a
+    location span. Paged by jobOffset, 12 cards a page (larger
+    jobRecordsPerPage values are ignored). Cards carry no posted date."""
+    import html as _html
+    base = f"https://bloomberg.avature.net/careers/SearchJobs/{requests.utils.quote(query)}"
+    out, seen = [], set()
+    try:
+        for offset in range(0, max_rows, 12):
+            r = requests.get(base, headers=UA, timeout=TIMEOUT,
+                             params={"jobRecordsPerPage": 12, "jobOffset": offset})
+            r.raise_for_status()
+            cards = re.findall(r'<article class="article article--result".*?</article>', r.text, re.S)
+            new = 0
+            for c in cards:
+                m = _AVATURE_CARD_RE.search(c)
+                if not m or m.group(2) in seen:
+                    continue
+                seen.add(m.group(2)); new += 1
+                loc = re.search(r'list-item-location">([^<]*)<', c)
+                out.append(dict(firm="Bloomberg", id=f"bloomberg-{m.group(2)}",
+                                title=_html.unescape(re.sub(r"\s+", " ", m.group(3))).strip(),
+                                location=_html.unescape(loc.group(1)).strip() if loc else "",
+                                url=m.group(1), source="avature", posted_date=None))
+            if not new:
                 break
             time.sleep(0.25)
     except Exception as e:
-        print(f"  ! amazon: {e}", file=sys.stderr)
+        print(f"  ! bloomberg: {e}", file=sys.stderr)
     return out
 
 
@@ -211,21 +422,41 @@ _DE_RE = re.compile(
     r"|\b(?:etl|elt)\b"
     r"|\bbig\s+data\b", re.I)
 _DE_EXCLUDE_RE = re.compile(
-    r"\b(?:senior|sr|staff|principal|lead|leader|manager|mgr|director|head|chief|"
+    r"\b(?:senior|sr|staff|principal|lead|leader|leadership|manager|mgr|director|head|chief|"
     r"vp|avp|svp|evp|vice\s+president|distinguished|fellow|"
     r"intern|internship|co-?op|summer|apprentice|"
     r"architect|specialist|sales|presales|siem|software|"
     r"iii|iv)\b"
     r"|machine\s+learning\s+engineer|\bml\s*(?:ops)?\s+engineer|\bmlops\b"
     r"|data\s+cent(?:er|re)|data\s+(?:protection|security|privacy|loss)|part[\s-]?time"
-    r"|\bengineer\s+[4-9]\b", re.I)
+    r"|\bengineer\s+[4-9]\b"
+    r"|\b(?:customer|solutions?|forward\s+deployed)\s+engineer"  # pre-sales (e.g. Google's "Data Cloud Customer Engineer")
+    r"|\bL[5-9]\b", re.I)                                # Netflix levels: L5+ is senior
 
 
 def _looks_de(title):
     return bool(_DE_RE.search(title))
 
 
-def title_ok(title):
+# At data-infrastructure companies the data engineering work is titled
+# "Software Engineer - Data Platform / Distributed Data Systems / ...". For
+# these firms only, a software-engineer title that names a data area passes;
+# the seniority and role exclusions above still apply.
+DATA_INFRA = {
+    "Databricks", "Snowflake", "Confluent", "ClickHouse", "Fivetran", "Starburst",
+    "Airbyte", "Astronomer", "Monte Carlo", "MongoDB", "Elastic", "Cockroach Labs",
+    "Sigma Computing", "Hex", "Dataiku", "Collibra",
+}
+_INFRA_SWE_RE = re.compile(r"\bsoftware\s+(?:engineer|developer)", re.I)
+_INFRA_DATA_RE = re.compile(
+    r"\bdata\b|\bdatabases?\b|\bdatasets?\b|lakehouse|warehous|\bpipelines?\b|streaming"
+    r"|ingestion|\betl\b|\bspark\b|\bkafka\b|\bflink\b|lakeflow", re.I)
+_SOFTWARE_RE = re.compile(r"\bsoftware\b", re.I)
+
+
+def title_ok(title, firm=None):
+    if firm in DATA_INFRA and _INFRA_SWE_RE.search(title) and _INFRA_DATA_RE.search(title):
+        return not _DE_EXCLUDE_RE.search(_SOFTWARE_RE.sub("", title))
     return _looks_de(title) and not _DE_EXCLUDE_RE.search(title)
 
 
@@ -342,23 +573,26 @@ def collect():
     raw += _run("Workday (myworkdaysite)…", list(_street(P.WORKDAY_SITE).items()),
                 lambda f, dc, t, s: P.fetch_workday_site(f, dc, t, s))
     raw += _run("Jibe/iCIMS…", list(_street(P.JIBE).items()), P.fetch_jibe)
-    raw += _run("Oracle Recruiting…", list(_street(P.ORACLE).items()), P.fetch_oracle)
+    raw += _run("Oracle Recruiting…", _flat(ORACLE) + list(_street(P.ORACLE).items()), P.fetch_oracle)
     raw += _run("HRM Direct…", list(_street(P.HRMDIRECT).items()), P.fetch_hrmdirect)
     raw += _run("PageUp…", list(_street(P.PAGEUP).items()), P.fetch_pageup)
     raw += _run("iCIMS…", list(_street(P.ICIMS).items()), P.fetch_icims)
-    raw += _run("Radancy…", list(_street(P.RADANCY).items()),
+    raw += _run("Radancy…", _flat(RADANCY) + list(_street(P.RADANCY).items()),
                 lambda f, host: P.fetch_radancy(f, host, f.lower().split()[0], keywords=[SEARCH]))
     raw += _run("Phenom People…", list(_street(P.PHENOM).items()), P.fetch_phenom)
     raw += _run("Eightfold…", list(_street(P.EIGHTFOLD).items()), P.fetch_eightfold)
-    print("Goldman Sachs / Citadel Securities / Amazon…")
+    raw += _run("Eightfold (search)…", _flat(EIGHTFOLD),
+                lambda f, host, domain, loc: P.fetch_eightfold(f, host, domain, loc, query=SEARCH))
+    print("Goldman Sachs / Citadel Securities / Google / Microsoft / Bloomberg / Meta…")
     for rows in (P.fetch_goldman("Goldman Sachs", search_text=SEARCH),
-                 P.fetch_citadel("Citadel Securities"), fetch_amazon()):
+                 P.fetch_citadel("Citadel Securities"),
+                 fetch_google(), fetch_microsoft(), fetch_bloomberg(), fetch_meta()):
         print(f"  {(rows[0]['firm'] if rows else '—'):<28}{len(rows):>5}")
         raw += rows
 
     kept, seen = [], set()
     for r in raw:
-        if r["id"] in seen or not title_ok(r["title"]) or not P.age_ok(r.get("posted_date"), MAX_AGE_DAYS):
+        if r["id"] in seen or not title_ok(r["title"], r["firm"]) or not P.age_ok(r.get("posted_date"), MAX_AGE_DAYS):
             continue
         hub = us_hub(r["location"])
         if hub:

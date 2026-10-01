@@ -43,13 +43,21 @@ GREENHOUSE = {   # firm -> board token  (boards-api.greenhouse.io/v1/boards/<tok
     "Mars & Co": "marscousg",                        # NY-area consulting roles only
     "Altman Solon": "altmansolonuslp",               # TMT strategy; US + EU board
     "Solomon Partners": "solomonpartnersprofessionals",  # yellow-tier (advisory)
+    # Fintech + fashion batch (added 2026-09-30) — Product/GTM roles only, see
+    # PRODUCT_GTM_FIRMS. Stripe/Brex/Chime are also Tech Watch boards.
+    "Stripe": "stripe", "Brex": "brex", "Chime": "chime",
+    "Galaxy Digital": "galaxydigitalservices",
+    "On Holding": "onrunning",
 }
 ASHBY = {        # firm -> job board name (api.ashbyhq.com/posting-api/job-board/<name>)
     "Insight Partners": "insight-partners",          # slug is hyphenated (was "insightpartners" = empty)
+    "Ramp": "ramp", "Plaid": "plaid", "Rogo": "rogo",
+    "Bastion": "bastion",                            # stablecoin infra (jobs.ashbyhq.com/bastion)
 }
 JIBE = {         # firm -> careers host  (https://<host>/api/jobs — Jibe/iCIMS front)
     "ZS Associates": "jobs.zs.com",                 # 275 postings, paginated 10/page
     "Susquehanna International Group": "careers.sig.com",  # trading firm; 265 postings
+    "Moncler": "jobs.monclergroup.com",             # Moncler + Stone Island, global (~210)
 }
 PINPOINT = {     # firm -> careers host  (https://<host>/postings.json — Pinpoint ATS)
     "CIL Management Consultants": "careers.cil.com", # small board; Analyst NY/Chicago
@@ -111,11 +119,26 @@ WORKDAY = {      # firm -> (tenant, datacenter, site)
     # Moved off dead Greenhouse boards to their real Workday tenants (2026-09-18).
     "Sixth Street":             ("sixthstreet", "wd1", "SixthStreetCareers"),  # 15 reqs
     "PJT Partners":             ("pjtpartners", "wd1", "Careers"),             # 52 reqs
+    # Fashion (added 2026-09-30) — narrowed server-side by WORKDAY_FACETS.
+    "Richemont":                ("richemont",  "wd3", "Richemont"),     # Cartier, VC&A, IWC…
+    "Tapestry":                 ("tapestry",   "wd108", "Tapestry_Careers"),  # Coach, Kate Spade
     # Best-effort tenant/site slugs from public careers URLs — a wrong site just
     # logs an error for that firm and skips it; correct it from the run output.
     # Still to map (custom / not-yet-found ATS): Evercore, Centerview, Rothschild,
     #   Nomura, UBS, BNP, SocGen, PIMCO, HPS. (JPMorgan -> Oracle CE above;
     #   RBC -> Phenom; Jefferies -> Talentlink behind Cloudflare, needs cloudscraper.)
+}
+
+# Workday `appliedFacets` for tenants too big to page whole. Workday stops at
+# 2000 results (Tapestry reports exactly 2000, mostly US stores), so these
+# narrow server-side to the country/states we keep; metro_of still applies.
+WORKDAY_FACETS = {
+    "Richemont": {"locationCountry": ["bc33aa3152ec42d4995f4791a106ed09"]},   # USA, ~230
+    "Tapestry":  {"locationRegionStateProvince": [
+        "9819bf0148e54f89adb255aa7bead635",    # New York
+        "9b56fe16bdf74b2cbad8b644cdf6015a",    # New Jersey
+        "ec3d210e4240442e99a28fa70419aec5",    # California
+        "d8bb292ed9fe44a2899a990ad569538c"]},  # Illinois
 }
 
 # ---------------------------------------------------------------- filters
@@ -505,7 +528,7 @@ def fetch_workday_site(firm, dc, tenant, site):
     return out
 
 
-def fetch_workday(firm, tenant, dc, site, search_text="", relevant=None):
+def fetch_workday(firm, tenant, dc, site, search_text="", relevant=None, facets=None):
     """`search_text` narrows the board server-side (Tech Watch passes "data
     engineer"). Workday's search is fuzzy and relevance-sorted, so it can match
     most of a big tenant; with `relevant` (title -> bool) paging stops at the
@@ -516,7 +539,7 @@ def fetch_workday(firm, tenant, dc, site, search_text="", relevant=None):
     out, offset, total = [], 0, None
     try:
         while True:
-            body = {"appliedFacets": {}, "limit": LIMIT, "offset": offset, "searchText": search_text}
+            body = {"appliedFacets": facets or {}, "limit": LIMIT, "offset": offset, "searchText": search_text}
             r = requests.post(base, headers={**UA, "Content-Type": "application/json"},
                               json=body, timeout=TIMEOUT); r.raise_for_status()
             data = r.json()
@@ -702,6 +725,7 @@ WORKDAY_SITE = {  # firm -> (dc, tenant, site)  Workday on the myworkdaysite.com
     # https://<dc>.myworkdaysite.com/{wday/cxs|recruiting}/<tenant>/<site>.
     "Perella Weinberg Partners": ("wd1", "pwp", "PWP_Experienced_Opportunities"),
 }
+RADANCY_HEAD_RE = re.compile(r"<h[1-4][^>]*>(.*?)</h[1-4]>", re.S | re.I)
 RADANCY = {              # firm -> host
     "Citi":       "jobs.citi.com",
     "Barclays":   "search.jobs.barclays",
@@ -731,6 +755,15 @@ EIGHTFOLD = {            # firm -> (host, domain, location query)  Eightfold AI 
     # pipeline/talent-pool cards) to Eightfold (2026-09-24). A "United States"
     # location query returns every US req (~60); metro_of narrows it down.
     "HSBC": ("portal.careers.hsbc.com", "hsbc.com", "United States"),
+}
+EIGHTFOLD_PCSX = {       # firm -> (host, domain, location)  Eightfold's newer "pcsx" search
+    # /api/apply/v2/jobs answers 403 "Not authorized for PCSX" on these tenants;
+    # /api/pcsx/search works once the careers page has set a session cookie.
+    "Kering":       ("careers.kering.com",      "kering.com",      "United States"),  # ~200 US
+    "Estée Lauder": ("careers.elcompanies.com", "elcompanies.com", "United States"),  # ~700 US
+}
+SUCCESSFACTORS = {       # firm -> host  SAP SuccessFactors Career Site Builder
+    "Prada": "jobs.pradagroup.com",
 }
 RADANCY_METRO_KW = ["new york", "jersey city", "chicago", "san francisco", "bay area"]
 # Radancy ships two card themes: a classic one (BlackRock/Barclays/ING) where the
@@ -786,6 +819,11 @@ def fetch_radancy(firm, host, source, keywords=None):
                     window = frag[a.start():end]
                     # title = anchor inner minus any nested location/date spans
                     title_src = RADANCY_SPAN_STRIP.sub("", inner)
+                    # some hosts (Schwab) put the title in a heading and add req-id /
+                    # "Save for Later" text to the anchor; the heading alone is the title
+                    hd = RADANCY_HEAD_RE.search(inner)
+                    if hd:
+                        title_src = hd.group(1)
                     title = _html.unescape(re.sub(r"\s+", " ", _TAG_RE.sub("", title_src))).strip()
                     lm = RADANCY_LOC_RE.search(window)
                     loc_str = (_html.unescape(re.sub(r"\s+", " ", _TAG_RE.sub("", lm.group(1)))).strip()
@@ -866,18 +904,20 @@ def fetch_phenom(firm, host, country="us", lang="en_us"):
     return out
 
 
-def fetch_eightfold(firm, host, domain, location):
+def fetch_eightfold(firm, host, domain, location, query=None):
     """Eightfold AI careers (e.g. HSBC). GET https://<host>/api/apply/v2/jobs
     with domain/location/start/num; the server caps num at 10, so we page by 10
     up to `count`. A role can list several locations, so they're joined — any
-    one of them in a metro keeps the row. t_create is a Unix timestamp."""
+    one of them in a metro keeps the row. t_create is a Unix timestamp. `query`
+    narrows big boards server-side (Tech Watch passes "data engineer")."""
     base = f"https://{host}/api/apply/v2/jobs"
     out, start, total = [], 0, None
     try:
         while start < 2000:  # hard ceiling
             r = requests.get(base, headers=UA, timeout=TIMEOUT,
                              params={"domain": domain, "location": location,
-                                     "start": start, "num": 10})
+                                     "start": start, "num": 10,
+                                     **({"query": query} if query else {})})
             r.raise_for_status()
             d = r.json() or {}
             if total is None:
@@ -905,6 +945,118 @@ def fetch_eightfold(firm, host, domain, location):
     return out
 
 
+def fetch_eightfold_pcsx(firm, host, domain, location):
+    """Eightfold "pcsx" search (Kering, Estée Lauder). A bare request gets 403;
+    GETting /careers first sets the session cookie the API wants. 10 per page;
+    postedTs is a Unix timestamp."""
+    s = requests.Session(); s.headers.update(UA)
+    out, start, total = [], 0, None
+    try:
+        s.get(f"https://{host}/careers", params={"location": location}, timeout=TIMEOUT)
+        while start < 2000:  # hard ceiling
+            r = s.get(f"https://{host}/api/pcsx/search", timeout=TIMEOUT,
+                      headers={"Accept": "application/json", "Referer": f"https://{host}/careers"},
+                      params={"domain": domain, "query": "", "location": location, "start": start})
+            r.raise_for_status()
+            d = (r.json() or {}).get("data") or {}
+            if total is None:
+                total = d.get("count") or 0
+            jobs = d.get("positions") or []
+            if not jobs:
+                break
+            for j in jobs:
+                ts = j.get("postedTs")
+                out.append(dict(firm=firm, id=f"eightfold-{host}-{j.get('id')}",
+                                title=(j.get("name") or "").strip(),
+                                location="; ".join(j.get("standardizedLocations") or j.get("locations") or []),
+                                url=f"https://{host}" + (j.get("positionUrl") or f"/careers/job/{j.get('id')}"),
+                                source="eightfold",
+                                posted_date=(datetime.fromtimestamp(ts, timezone.utc).strftime("%Y-%m-%d")
+                                             if isinstance(ts, (int, float)) else None)))
+            start += 10
+            if start >= total:
+                break
+            time.sleep(0.25)
+    except Exception as e:
+        print(f"  ! eightfold-pcsx {firm}: {e}", file=sys.stderr)
+    return out
+
+
+# LVMH lists every maison's openings (Sephora, Tiffany, Louis Vuitton, Dior…) on
+# lvmh.com, whose /api/search proxies an Algolia multi-query. Store roles are
+# ~90% of the US board, so `functionFilter:-Retail` drops them server-side.
+LVMH_SEARCH = "https://www.lvmh.com/api/search"
+
+
+def fetch_lvmh(firm="LVMH", country="United States"):
+    out, page, pages = [], 0, 1
+    try:
+        while page < min(pages, 50):
+            body = {"queries": [{"indexName": "PRD-en-us-timestamp-desc", "params": {
+                "filters": "category:job", "query": "", "hitsPerPage": 100, "page": page,
+                "facetFilters": [[f"countryRegionFilter:{country}"], ["functionFilter:-Retail"]]}}]}
+            r = requests.post(LVMH_SEARCH, json=body, timeout=TIMEOUT,
+                              headers={**UA, "Content-Type": "application/json",
+                                       "Referer": "https://www.lvmh.com/en/join-us/our-job-offers"})
+            r.raise_for_status()
+            res = (r.json().get("results") or [{}])[0]
+            pages = res.get("nbPages") or 0
+            for h in res.get("hits") or []:
+                ts = h.get("publicationTimestamp")
+                name, maison = (h.get("name") or "").strip(), (h.get("maison") or "").strip()
+                out.append(dict(firm=firm, id=f"lvmh-{h.get('objectID') or h.get('atsId')}",
+                                # the maison is the real employer, so keep it visible
+                                title=f"{name} ({maison})" if maison and maison != firm else name,
+                                location=", ".join(x for x in [h.get("city"), h.get("regionState"),
+                                                               h.get("countryRegion")] if x),
+                                url=h.get("link") or "", source="lvmh",
+                                posted_date=(datetime.fromtimestamp(ts, timezone.utc).strftime("%Y-%m-%d")
+                                             if isinstance(ts, (int, float)) else None)))
+            page += 1
+            time.sleep(0.25)
+    except Exception as e:
+        print(f"  ! lvmh: {e}", file=sys.stderr)
+    return out
+
+
+_SF_ROW = re.compile(r'<tr class="data-row">(.*?)</tr>', re.S)
+_SF_LINK = re.compile(r'<a href="(/job/[^"]*?/(\d+)/)"[^>]*class="jobTitle-link">(.*?)</a>', re.S)
+_SF_LOC = re.compile(r'<span class="jobLocation">\s*(.*?)\s*</span>', re.S)
+
+
+def fetch_successfactors(firm, host, locations=("New York", "San Francisco", "Chicago")):
+    """SAP SuccessFactors Career Site Builder (e.g. jobs.pradagroup.com). The
+    /search/ page is server-rendered; one query per metro via `locationsearch`,
+    paged by `startrow` (25/page). No post date in the list."""
+    import html as _html
+    out, seen = [], set()
+    try:
+        for loc in locations:
+            for start in range(0, 500, 25):
+                r = requests.get(f"https://{host}/search/", headers=UA, timeout=TIMEOUT,
+                                 params={"q": "", "locationsearch": loc, "startrow": start})
+                r.raise_for_status()
+                rows = _SF_ROW.findall(r.text)
+                added = 0
+                for row in rows:
+                    a = _SF_LINK.search(row)
+                    if not a or a.group(2) in seen:
+                        continue
+                    seen.add(a.group(2)); added += 1
+                    lm = _SF_LOC.search(row)
+                    out.append(dict(firm=firm, id=f"sf-{host}-{a.group(2)}",
+                                    title=_html.unescape(re.sub(r"\s+", " ", a.group(3))).strip(),
+                                    location=_html.unescape(lm.group(1)).strip() if lm else "",
+                                    url=f"https://{host}{a.group(1)}", source="successfactors",
+                                    posted_date=None))
+                if added == 0 or len(rows) < 25:
+                    break
+                time.sleep(0.25)
+    except Exception as e:
+        print(f"  ! successfactors {firm}: {e}", file=sys.stderr)
+    return out
+
+
 # ---------------------------------------------------------------- filter/dedupe
 def metro_of(loc):
     l = loc.lower()
@@ -918,10 +1070,37 @@ def metro_of(loc):
     return None
 
 
+# Fintech + fashion firms (added 2026-09-30): Ms Tian wants Product and
+# go-to-market roles there, not analyst/associate banking titles. Seniority cuts
+# (EXCLUDE, _SENIOR_RE, part-time) still apply; store/boutique roles (the bulk
+# of every luxury board) and engineering/design are dropped.
+PRODUCT_GTM_FIRMS = {
+    "LVMH", "Richemont", "Kering", "Estée Lauder", "Tapestry", "Moncler", "Prada",
+    "On Holding",
+    "Stripe", "Brex", "Chime", "Ramp", "Plaid", "Rogo", "Bastion", "Galaxy Digital",
+}
+_PRODUCT_GTM_RE = re.compile(
+    r"\bproduct\b|go[\s-]to[\s-]market|\bgtm\b|business development|\bpartnerships?\b"
+    r"|\bpartner (?:manager|success|marketing)|account (?:executive|manager)|\bsales\b"
+    r"|\bgrowth\b|\bmarketing\b|merchandis|\bwholesale\b|\bcommercial\b|\bplanner\b"
+    r"|revenue operations|\brevops\b|business operations|\bbizops\b"
+    r"|strategy (?:&|and) operations|customer success|investor relations", re.I)
+_PRODUCT_GTM_EXCLUDE_RE = re.compile(
+    r"client advis|sales (?:associate|advisor|support|professional|lead|and service|& service)"
+    r"|beauty advisor|\bstore\b|boutique|\bstock\b|key ?holder|cashier|visual merchandis"
+    r"|\bartist\b|ambassador|engineer|designer|\bstaff\b|\blead\b|group product|counsel"
+    r"|seasonal|temporary|\btemp\b|fixed[\s-]term|freelance"
+    # GTM-adjacent support functions that aren't Product/GTM work themselves
+    r"|recruit|sourcer|talent acquisition|people (?:business )?partner|accountant"
+    r"|compliance|technical account|support specialist", re.I)
+
+
 def title_ok(firm, title):
     t = title.lower()
     if any(x in t for x in EXCLUDE) or _PART_TIME_RE.search(title) or _SENIOR_RE.search(title):
         return False
+    if firm in PRODUCT_GTM_FIRMS:
+        return bool(_PRODUCT_GTM_RE.search(title)) and not _PRODUCT_GTM_EXCLUDE_RE.search(title)
     kws = TITLES_TRADING if firm in TRADING_FIRMS else TITLES
     return any(k in t for k in kws)
 
@@ -971,7 +1150,7 @@ def collect():
         rows = fetch_icims(f, host); print(f"  {f:<24}{len(rows):>4}"); raw += rows
     print("Workday…")
     for f, (t, dc, s) in WORKDAY.items():
-        rows = fetch_workday(f, t, dc, s); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+        rows = fetch_workday(f, t, dc, s, facets=WORKDAY_FACETS.get(f)); print(f"  {f:<24}{len(rows):>4}"); raw += rows
     print("Workday (myworkdaysite)…")
     for f, (dc, t, s) in WORKDAY_SITE.items():
         rows = fetch_workday_site(f, dc, t, s); print(f"  {f:<24}{len(rows):>4}"); raw += rows
@@ -988,6 +1167,14 @@ def collect():
     print("Eightfold…")
     for f, (host, domain, loc) in EIGHTFOLD.items():
         rows = fetch_eightfold(f, host, domain, loc); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    print("Eightfold (pcsx)…")
+    for f, (host, domain, loc) in EIGHTFOLD_PCSX.items():
+        rows = fetch_eightfold_pcsx(f, host, domain, loc); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    print("SuccessFactors…")
+    for f, host in SUCCESSFACTORS.items():
+        rows = fetch_successfactors(f, host); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    print("LVMH (lvmh.com)…")
+    rows = fetch_lvmh("LVMH"); print(f"  {'LVMH':<24}{len(rows):>4}"); raw += rows
 
     kept, seen = [], set()
     for r in raw:
@@ -1107,8 +1294,8 @@ TRENDS_FILE = ".street_watch_trends.json"
 def registered_firms():
     """Every firm the pipeline currently scrapes."""
     regs = (GREENHOUSE, ASHBY, JIBE, PINPOINT, ORACLE, HRMDIRECT, PAGEUP, ICIMS,
-            WORKDAY, WORKDAY_SITE, RADANCY, PHENOM, EIGHTFOLD)
-    return {f for reg in regs for f in reg} | {"Goldman Sachs", "Citadel Securities"}
+            WORKDAY, WORKDAY_SITE, RADANCY, PHENOM, EIGHTFOLD, EIGHTFOLD_PCSX, SUCCESSFACTORS)
+    return {f for reg in regs for f in reg} | {"Goldman Sachs", "Citadel Securities", "LVMH"}
 
 
 def update_trends(trends, board, listed, ok_firms, today, registered):
@@ -1201,11 +1388,29 @@ try:
                  if not cat.startswith("_") for firm in firms}
 except Exception:
     _FIRM_CAT = {}
-_LEVEL_RE = {"analyst": re.compile(r"\banalyst", re.I), "associate": re.compile(r"\bassociate", re.I)}
+# Role buttons. Analyst/Associate for finance; Product/GTM/IR for the fintech
+# and fashion segments (keep in sync with LEVEL_RE in App.jsx).
+_LEVEL_RE = {
+    "analyst": re.compile(r"\banalyst", re.I),
+    "associate": re.compile(r"\bassociate", re.I),
+    "product": re.compile(r"\bproduct\b|merchandis|\bplanner\b", re.I),
+    "gtm": re.compile(r"\bsales\b|account (?:executive|manager)|partner|business development"
+                      r"|go[\s-]to[\s-]market|\bgtm\b|marketing|customer success|wholesale"
+                      r"|commercial|\bgrowth\b|revenue operations|strategy (?:&|and) operations", re.I),
+    "ir": re.compile(r"investor relations", re.I),
+}
+
+
+def segment_of(firm):
+    """Dashboard segment: "fashion", "fintech" or "finance" (everything else)."""
+    cat = _FIRM_CAT.get(firm)
+    return {"Fashion & Luxury": "fashion", "Fintech": "fintech"}.get(cat, "finance")
 
 
 def _matches_search(j, f):
     if f.get("metro") not in (None, "", "all") and j.get("metro") != f["metro"]:
+        return False
+    if f.get("segment") not in (None, "", "all") and segment_of(j["firm"]) != f["segment"]:
         return False
     if f.get("category") not in (None, "", "all") and _FIRM_CAT.get(j["firm"], "Other") != f["category"]:
         return False
