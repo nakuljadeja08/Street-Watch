@@ -1044,18 +1044,6 @@
     "is_new": true
   },
   {
-    "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0118288EXTERNALENUS",
-    "title": "Investment Banking Analyst - Industrials",
-    "location": "Chicago, Illinois, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Chicago-IL/Investment-Banking-Analyst---Industrials_R0118288",
-    "source": "phenom",
-    "posted_date": "2026-09-30",
-    "metro": "Chicago",
-    "first_seen": "2026-10-01",
-    "is_new": true
-  },
-  {
     "firm": "U.S. Bancorp",
     "id": "wd-usbank-US_Bank_Careers-/job/Springfield-IL/Client-Relationship-Consultant-2--Banker----Land-of-Lincoln--Springfield--IL_2026-0022732",
     "title": "Client Relationship Consultant 2 (Banker) - Land of Lincoln, Springfield, IL - $1,500 Sign On Bonus",
@@ -2520,6 +2508,30 @@
     "is_new": false
   },
   {
+    "firm": "Bonhams",
+    "id": "bamboo-bonhams-679",
+    "title": "Business Associate",
+    "location": "New York, New York",
+    "url": "https://bonhams.bamboohr.com/careers/679",
+    "source": "bamboohr",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-01",
+    "is_new": true
+  },
+  {
+    "firm": "Bonhams",
+    "id": "bamboo-bonhams-688",
+    "title": "Sale Coordinator, American & Design",
+    "location": "New York, New York",
+    "url": "https://bonhams.bamboohr.com/careers/688",
+    "source": "bamboohr",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-01",
+    "is_new": true
+  },
+  {
     "firm": "Brookfield Asset Management",
     "id": "wd-brookfield-brookfield-/job/New-York-New-York/Analyst--Investor-Applications_R2049135",
     "title": "Analyst, Business Applications",
@@ -3454,6 +3466,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-18",
     "is_new": false
+  },
+  {
+    "firm": "Citizens Financial Group",
+    "id": "citizens-98603993136",
+    "title": "Development Consultant",
+    "location": "Johnston, Rhode Island; Westwood, Massachusetts; New York, New York",
+    "url": "https://jobs.citizensbank.com/job/johnston/development-consultant/288/98603993136",
+    "source": "citizens",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-01",
+    "is_new": true
   },
   {
     "firm": "DRW",
@@ -4981,18 +5005,6 @@
   },
   {
     "firm": "JPMorgan Chase",
-    "id": "oracle-jpmc.fa.oraclecloud.com-210777286",
-    "title": "Asset Management \u2013 Alternatives Client Account Manager \u2013 Associate",
-    "location": "New York, NY, United States",
-    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210777286",
-    "source": "oracle",
-    "posted_date": "2026-09-30",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-30",
-    "is_new": false
-  },
-  {
-    "firm": "JPMorgan Chase",
     "id": "oracle-jpmc.fa.oraclecloud.com-210774560",
     "title": "Asset Management, ETF Product Specialist \u2013 Associate",
     "location": "New York, NY, United States",
@@ -5686,6 +5698,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-22",
     "is_new": false
+  },
+  {
+    "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210775341",
+    "title": "PricingDirect Evaluator - Securitized Products Group - Analyst",
+    "location": "New York, NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210775341",
+    "source": "oracle",
+    "posted_date": "2026-10-01",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-01",
+    "is_new": true
   },
   {
     "firm": "JPMorgan Chase",
@@ -7524,6 +7548,18 @@
     "is_new": false
   },
   {
+    "firm": "Phillips",
+    "id": "bamboo-phillipsauctioneers-521",
+    "title": "Cataloguer, Modern & Contemporary Art, New York",
+    "location": "New York, New York",
+    "url": "https://phillipsauctioneers.bamboohr.com/careers/521",
+    "source": "bamboohr",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-01",
+    "is_new": true
+  },
+  {
     "firm": "Piper Sandler",
     "id": "wd-pipersandler-Piper_Sandler_Careers-/job/New-York-NY/Associate-Attorney---Fixed-Income_R-100695",
     "title": "Associate Attorney \u2013 Fixed Income",
@@ -7666,18 +7702,6 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-01",
     "is_new": true
-  },
-  {
-    "firm": "RBC Capital Markets",
-    "id": "phenom-jobs.rbc.com-RBCAA0088R0000184124EXTERNALENCA",
-    "title": "Associate, Market Data Governance - COO Group",
-    "location": "Jersey City, New Jersey, United States of America",
-    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/Jersey-City-New-Jersey-United-States-of-America/Market-Data-Compliance-Specialist_R-0000184124-1",
-    "source": "phenom",
-    "posted_date": "2026-09-03",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-18",
-    "is_new": false
   },
   {
     "firm": "RBC Capital Markets",
@@ -8293,6 +8317,18 @@
   },
   {
     "firm": "TD Bank",
+    "id": "wd-td-TD_Bank_Careers-/job/Forest-Hills-New-York/Commercial-Sales-Associate-I--US-_R_1497255",
+    "title": "Commercial Sales Associate I (US)",
+    "location": "Forest Hills, New York",
+    "url": "https://td.wd3.myworkdayjobs.com/TD_Bank_Careers/job/Forest-Hills-New-York/Commercial-Sales-Associate-I--US-_R_1497255",
+    "source": "workday",
+    "posted_date": "2026-10-01",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-01",
+    "is_new": true
+  },
+  {
+    "firm": "TD Bank",
     "id": "wd-td-TD_Bank_Careers-/job/New-York-New-York/Equity-Research-Associate---Consumer-Restaurants_R_1502983",
     "title": "Equity Research Associate - Consumer Restaurants",
     "location": "New York, New York",
@@ -8425,18 +8461,6 @@
   },
   {
     "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0118998EXTERNALENUS",
-    "title": "Equity Research Analyst - Building Products (Industrials)",
-    "location": "New York, New York, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY/Equity-Research-Analyst---Building-Products--Industrials-_R0118998",
-    "source": "phenom",
-    "posted_date": "2026-09-18",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-19",
-    "is_new": false
-  },
-  {
-    "firm": "Truist Securities",
     "id": "phenom-careers.truist.com-TBJTBFUSR0116377EXTERNALENUS",
     "title": "Equity Research Associate - Industrials / Machinery / E&C",
     "location": "New York, New York, USA",
@@ -8461,6 +8485,18 @@
   },
   {
     "firm": "Truist Securities",
+    "id": "phenom-careers.truist.com-TBJTBFUSR0114373EXTERNALENUS",
+    "title": "FIG Investment Banking Associate",
+    "location": "New York, New York, USA",
+    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY/FIG-Investment-Banking-Associate_R0114373",
+    "source": "phenom",
+    "posted_date": "2026-09-28",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-29",
+    "is_new": false
+  },
+  {
+    "firm": "Truist Securities",
     "id": "phenom-careers.truist.com-TBJTBFUSR0118282EXTERNALENUS",
     "title": "Investment Banking Analyst - Energy (Power, Utilities & Infrastructure)",
     "location": "New York, New York, USA",
@@ -8481,18 +8517,6 @@
     "posted_date": "2026-09-18",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-19",
-    "is_new": false
-  },
-  {
-    "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0118792EXTERNALENUS",
-    "title": "Investment Grade Debt Capital Markets Analyst",
-    "location": "New York, New York, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY---50-Hudson-Yards/Investment-Grade-DCM-Analyst-II_R0118792",
-    "source": "phenom",
-    "posted_date": "2026-10-01",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-18",
     "is_new": false
   },
   {
@@ -8973,6 +8997,18 @@
     "posted_date": "2026-09-18",
     "metro": "SF / Bay Area",
     "first_seen": "2026-09-19",
+    "is_new": false
+  },
+  {
+    "firm": "Altman Solon",
+    "id": "gh-altmansolonuslp-4989948101",
+    "title": "Analyst",
+    "location": "Boston, MA;  San Francisco, CA; Los Angeles, CA",
+    "url": "https://www.altmansolon.com/careers/job-opportunities?gh_jid=4989948101",
+    "source": "greenhouse",
+    "posted_date": "2026-09-29",
+    "metro": "SF / Bay Area",
+    "first_seen": "2026-09-29",
     "is_new": false
   },
   {
