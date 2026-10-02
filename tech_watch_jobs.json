@@ -32,7 +32,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Cloud-Data-Platform-Engineer_R158514-1",
     "source": "workday",
-    "posted_date": "2026-08-31",
+    "posted_date": "2026-09-01",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -45,7 +45,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Analytics-Engineer_R150313",
     "source": "workday",
-    "posted_date": "2026-08-31",
+    "posted_date": "2026-09-01",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -58,7 +58,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Program-Engineer_R150311",
     "source": "workday",
-    "posted_date": "2026-08-31",
+    "posted_date": "2026-09-01",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -266,7 +266,7 @@
     "location": "MetroPark",
     "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/MetroPark/Cloud-Data-Engineer_R7127",
     "source": "workday",
-    "posted_date": "2026-08-31",
+    "posted_date": "2026-09-01",
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -326,19 +326,6 @@
   },
   {
     "firm": "Charles Schwab",
-    "id": "charles-95734216864",
-    "title": "ETL Developer - Data Engineer",
-    "location": "Southlake, TX",
-    "url": "https://www.schwabjobs.com/job/southlake/etl-developer-data-engineer/33727/95734216864",
-    "source": "charles",
-    "posted_date": null,
-    "metro": "Other US",
-    "sector": "Finance",
-    "first_seen": "2026-09-29",
-    "is_new": false
-  },
-  {
-    "firm": "Charles Schwab",
     "id": "charles-100685603200",
     "title": "ETL Engineer",
     "location": "Southlake, TX",
@@ -362,6 +349,19 @@
     "sector": "Tech",
     "first_seen": "2026-09-30",
     "is_new": false
+  },
+  {
+    "firm": "Fidelity",
+    "id": "wd-fmr-FidelityCareers-/job/Salt-Lake-City-UT/Data-Engineer--Analytics---Performance-Insights_2135554",
+    "title": "Data Engineer, Analytics & Performance Insights",
+    "location": "Salt Lake City, UT",
+    "url": "https://fmr.wd1.myworkdayjobs.com/FidelityCareers/job/Salt-Lake-City-UT/Data-Engineer--Analytics---Performance-Insights_2135554",
+    "source": "workday",
+    "posted_date": "2026-10-01",
+    "metro": "Other US",
+    "sector": "Finance",
+    "first_seen": "2026-10-02",
+    "is_new": true
   },
   {
     "firm": "Gopuff",
@@ -536,7 +536,7 @@
     "firm": "Meta",
     "id": "meta-4647361298838627",
     "title": "Data Engineer, Analytics (Ranking, AI)",
-    "location": "Sunnyvale, CA; Bellevue, WA; Menlo Park, CA; Seattle, WA",
+    "location": "Sunnyvale, CA; Menlo Park, CA",
     "url": "https://www.metacareers.com/profile/job_details/4647361298838627",
     "source": "meta",
     "posted_date": null,
@@ -621,7 +621,7 @@
     "metro": "SF Bay Area",
     "sector": "Tech",
     "first_seen": "2026-10-01",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Socure",
@@ -660,7 +660,7 @@
     "metro": "Seattle",
     "sector": "Tech",
     "first_seen": "2026-10-01",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Google",
@@ -755,16 +755,16 @@
   },
   {
     "firm": "Charles Schwab",
-    "id": "charles-98187448448",
-    "title": "Machine Learning Ops Data Engineer",
-    "location": "Southlake, TX; Austin, TX; Phoenix, AZ",
-    "url": "https://www.schwabjobs.com/job/southlake/machine-learning-ops-data-engineer/33727/98187448448",
+    "id": "charles-95593502240",
+    "title": "Data Engineer",
+    "location": "Austin, TX",
+    "url": "https://www.schwabjobs.com/job/austin/data-engineer/33727/95593502240",
     "source": "charles",
     "posted_date": null,
     "metro": "Texas",
     "sector": "Finance",
-    "first_seen": "2026-09-29",
-    "is_new": false
+    "first_seen": "2026-10-02",
+    "is_new": true
   },
   {
     "firm": "Charles Schwab",
