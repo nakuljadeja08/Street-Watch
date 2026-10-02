@@ -925,18 +925,6 @@
   },
   {
     "firm": "Morgan Stanley",
-    "id": "wd-ms-External-/job/Oak-Brook-Illinois-United-States-of-America/Registered-Client-Relationship-Analyst_JR037728",
-    "title": "Registered Client Relationship Analyst",
-    "location": "Oak Brook, Illinois, United States of America",
-    "url": "https://ms.wd5.myworkdayjobs.com/External/job/Oak-Brook-Illinois-United-States-of-America/Registered-Client-Relationship-Analyst_JR037728",
-    "source": "workday",
-    "posted_date": "2026-09-15",
-    "metro": "Chicago",
-    "first_seen": "2026-09-15",
-    "is_new": false
-  },
-  {
-    "firm": "Morgan Stanley",
     "id": "wd-ms-External-/job/Chicago-Illinois-United-States-of-America/Registered-Client-Relationship-Analyst_JR038356-1",
     "title": "Registered Client Relationship Analyst",
     "location": "Chicago, Illinois, United States of America",
@@ -1041,18 +1029,6 @@
     "posted_date": "2026-09-04",
     "metro": "Chicago",
     "first_seen": "2026-10-01",
-    "is_new": false
-  },
-  {
-    "firm": "U.S. Bancorp",
-    "id": "wd-usbank-US_Bank_Careers-/job/Springfield-IL/Client-Relationship-Consultant-2--Banker----Land-of-Lincoln--Springfield--IL_2026-0022732",
-    "title": "Client Relationship Consultant 2 (Banker) - Land of Lincoln, Springfield, IL - $1,500 Sign On Bonus",
-    "location": "Springfield, IL",
-    "url": "https://usbank.wd1.myworkdayjobs.com/US_Bank_Careers/job/Springfield-IL/Client-Relationship-Consultant-2--Banker----Land-of-Lincoln--Springfield--IL_2026-0022732",
-    "source": "workday",
-    "posted_date": "2026-10-01",
-    "metro": "Chicago",
-    "first_seen": "2026-09-17",
     "is_new": false
   },
   {
@@ -1789,6 +1765,30 @@
   },
   {
     "firm": "Barclays",
+    "id": "barclays-101448524592",
+    "title": "Fundamental Credit Research Analyst",
+    "location": "New York, United States",
+    "url": "https://search.jobs.barclays/job/new-york/fundamental-credit-research-analyst/13015/101448524592",
+    "source": "barclays",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-02",
+    "is_new": true
+  },
+  {
+    "firm": "Barclays",
+    "id": "barclays-101448524064",
+    "title": "High Yield Credit Research Analyst",
+    "location": "New York, United States",
+    "url": "https://search.jobs.barclays/job/new-york/high-yield-credit-research-analyst/13015/101448524064",
+    "source": "barclays",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-02",
+    "is_new": true
+  },
+  {
+    "firm": "Barclays",
     "id": "barclays-101270804048",
     "title": "Research Analyst",
     "location": "New York, United States",
@@ -1901,18 +1901,6 @@
     "title": "Associate, External Reporting",
     "location": "New York, NY",
     "url": "https://careers.blackrock.com/job/new-york/associate-external-reporting/45831/101011551856",
-    "source": "blackrock",
-    "posted_date": "2026-09-22",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-23",
-    "is_new": false
-  },
-  {
-    "firm": "BlackRock",
-    "id": "blackrock-101002685552",
-    "title": "Associate, GPS Active Strategy & Innovation",
-    "location": "New York, NY",
-    "url": "https://careers.blackrock.com/job/new-york/associate-gps-active-strategy-and-innovation/45831/101002685552",
     "source": "blackrock",
     "posted_date": "2026-09-22",
     "metro": "NY + Jersey City",
@@ -3145,18 +3133,6 @@
   },
   {
     "firm": "Citi",
-    "id": "citi-101406626784",
-    "title": "Cash and Trade Processing Analyst 2",
-    "location": "Getzville, New York, United States",
-    "url": "https://jobs.citi.com/job/getzville/cash-and-trade-processing-analyst-2/287/101406626784",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-02",
-    "is_new": true
-  },
-  {
-    "firm": "Citi",
     "id": "citi-101275078944",
     "title": "Cash and Trade Processing Intermediate Associate Analyst",
     "location": "Jersey City, New Jersey, United States",
@@ -3305,6 +3281,30 @@
     "title": "Market Operations Junior Analyst Program Hybrid",
     "location": "Getzville, New York, United States",
     "url": "https://jobs.citi.com/job/getzville/market-operations-junior-analyst-program-hybrid/287/99995232432",
+    "source": "citi",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": false
+  },
+  {
+    "firm": "Citi",
+    "id": "citi-99405744832",
+    "title": "Markets Quantitative Analyst - Capital Analytics",
+    "location": "New York, New York, United States",
+    "url": "https://jobs.citi.com/job/new-york/markets-quantitative-analyst-capital-analytics/287/99405744832",
+    "source": "citi",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": false
+  },
+  {
+    "firm": "Citi",
+    "id": "citi-94059789152",
+    "title": "Operations Core Project Lead Analyst",
+    "location": "Getzville, New York, United States",
+    "url": "https://jobs.citi.com/job/getzville/operations-core-project-lead-analyst/287/94059789152",
     "source": "citi",
     "posted_date": null,
     "metro": "NY + Jersey City",
@@ -3705,6 +3705,18 @@
     "posted_date": "2026-09-14",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-19",
+    "is_new": false
+  },
+  {
+    "firm": "Goldman Sachs",
+    "id": "gs-182624_GS_MID_CAREER",
+    "title": "AWM, GS Ayco, Training and Development, Associate - Albany",
+    "location": "Albany, NY, United States",
+    "url": "https://higher.gs.com/roles/182624",
+    "source": "goldman",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-23",
     "is_new": false
   },
   {
@@ -4309,6 +4321,18 @@
   },
   {
     "firm": "Goldman Sachs",
+    "id": "gs-169228_GS_EARLY_CAREER",
+    "title": "Global Investment Research, Credit Research Analyst",
+    "location": "New York, NY, United States",
+    "url": "https://higher.gs.com/roles/169228",
+    "source": "goldman",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-29",
+    "is_new": false
+  },
+  {
+    "firm": "Goldman Sachs",
     "id": "gs-180084_GS_MID_CAREER",
     "title": "Global Investment Research, US Economics Research Associate",
     "location": "New York, NY, United States",
@@ -4485,6 +4509,18 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-23",
+    "is_new": false
+  },
+  {
+    "firm": "HSBC",
+    "id": "eightfold-portal.careers.hsbc.com-563774612255719",
+    "title": "Associate - Consumer, Retail Sector Coverage",
+    "location": "New York, New York, United States",
+    "url": "https://portal.careers.hsbc.com/careers/job/563774612255719",
+    "source": "eightfold",
+    "posted_date": "2026-09-14",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-24",
     "is_new": false
   },
   {
@@ -4761,18 +4797,6 @@
     "posted_date": "2026-09-14",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-19",
-    "is_new": false
-  },
-  {
-    "firm": "JPMorgan Chase",
-    "id": "oracle-jpmc.fa.oraclecloud.com-210788723",
-    "title": "AI Associate Engineer for Sales Assistant Platform Technology - Software Engineer III",
-    "location": "Jersey City, NJ, United States",
-    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210788723",
-    "source": "oracle",
-    "posted_date": "2026-09-30",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-01",
     "is_new": false
   },
   {
@@ -6072,6 +6096,54 @@
     "is_new": false
   },
   {
+    "firm": "LVMH",
+    "id": "lvmh-PCD22420",
+    "title": "Assistant Planner, Sephora Account (Parfums Christian Dior)",
+    "location": "New York, New York, United States",
+    "url": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PYZFK026203F3VBQB798N7VG6-1097732&langCode=en_US",
+    "source": "lvmh",
+    "posted_date": "2026-09-29",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-01",
+    "is_new": false
+  },
+  {
+    "firm": "LVMH",
+    "id": "lvmh-MHUS01313",
+    "title": "Associate Manager, Field Marketing \u2013 Champagne & Sparkling (Mo\u00ebt Hennessy)",
+    "location": "New York, New York, United States",
+    "url": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PYZFK026203F3VBQB798N7VG6-1095017&langCode=en_US",
+    "source": "lvmh",
+    "posted_date": "2026-09-15",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-01",
+    "is_new": false
+  },
+  {
+    "firm": "LVMH",
+    "id": "lvmh-FRSH01071",
+    "title": "Associate Manager, Product Innovation (Fresh)",
+    "location": "New York, New York, United States",
+    "url": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PYZFK026203F3VBQB798N7VG6-1093621&langCode=en_US",
+    "source": "lvmh",
+    "posted_date": "2026-09-09",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-01",
+    "is_new": false
+  },
+  {
+    "firm": "LVMH",
+    "id": "lvmh-MHUS01316",
+    "title": "Marketing Operations Specialist (Mo\u00ebt Hennessy)",
+    "location": "New York, New York, United States",
+    "url": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PYZFK026203F3VBQB798N7VG6-1097102&langCode=en_US",
+    "source": "lvmh",
+    "posted_date": "2026-09-27",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-01",
+    "is_new": false
+  },
+  {
     "firm": "Lazard",
     "id": "oracle-icbpjb.fa.ocs.oraclecloud.com-6454",
     "title": "AUM Reporting Analyst",
@@ -7356,6 +7428,18 @@
     "is_new": false
   },
   {
+    "firm": "PJT Partners",
+    "id": "wd-pjtpartners-Careers-/job/New-York/HR-Payroll-Associate_R0003552",
+    "title": "HR Payroll Associate",
+    "location": "New York",
+    "url": "https://pjtpartners.wd1.myworkdayjobs.com/Careers/job/New-York/HR-Payroll-Associate_R0003552",
+    "source": "workday",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-02",
+    "is_new": true
+  },
+  {
     "firm": "Perella Weinberg Partners",
     "id": "wds-pwp-PWP_Experienced_Opportunities-/job/New-York/Associate--Restructuring--Advisory_R0000064",
     "title": "Associate, Restructuring, Advisory",
@@ -7525,6 +7609,18 @@
   },
   {
     "firm": "RBC Capital Markets",
+    "id": "phenom-jobs.rbc.com-RBCAA0088R0000183168EXTERNALENCA",
+    "title": "Associate, Financial Institutions Group Corporate Banking",
+    "location": "New York, New York, United States of America",
+    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Associate--Financial-Institutions-Group-Corporate-Banking_R-0000183168",
+    "source": "phenom",
+    "posted_date": "2026-10-02",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-02",
+    "is_new": true
+  },
+  {
+    "firm": "RBC Capital Markets",
     "id": "phenom-jobs.rbc.com-RBCAA0088R0000184124EXTERNALENCA",
     "title": "Associate, Market Data Governance - COO Group",
     "location": "Jersey City, New Jersey, United States of America",
@@ -7549,18 +7645,6 @@
   },
   {
     "firm": "RBC Capital Markets",
-    "id": "phenom-jobs.rbc.com-RBCAA0088R0000188521EXTERNALENCA",
-    "title": "Audit Analyst, Capital Markets",
-    "location": "Jersey City, New Jersey, United States of America",
-    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/Jersey-City-New-Jersey-United-States-of-America/Audit-Analyst--Capital-Markets_R-0000188521-1",
-    "source": "phenom",
-    "posted_date": "2026-09-30",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-01",
-    "is_new": false
-  },
-  {
-    "firm": "RBC Capital Markets",
     "id": "phenom-jobs.rbc.com-RBCAA0088R0000187068EXTERNALENCA",
     "title": "Counterparty Credit Risk Analyst (GRM)",
     "location": "New York, New York, United States of America",
@@ -7569,18 +7653,6 @@
     "posted_date": "2026-09-16",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-18",
-    "is_new": false
-  },
-  {
-    "firm": "RBC Capital Markets",
-    "id": "phenom-jobs.rbc.com-RBCAA0088R0000189296EXTERNALENCA",
-    "title": "Investment Associate, US Municipal Finance, Community Investments, Renewables",
-    "location": "New York, New York, United States of America",
-    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Investment-Associate--US-Municipal-Finance--Community-Investments_R-0000189296-1",
-    "source": "phenom",
-    "posted_date": "2026-09-29",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-30",
     "is_new": false
   },
   {
@@ -8341,6 +8413,18 @@
   },
   {
     "firm": "Wells Fargo",
+    "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/Change-Implementation-Consultant_R-579507",
+    "title": "Change Implementation Consultant",
+    "location": "NEW YORK, NY",
+    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/NEW-YORK-NY/Change-Implementation-Consultant_R-579507",
+    "source": "workday",
+    "posted_date": "2026-10-02",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-02",
+    "is_new": true
+  },
+  {
+    "firm": "Wells Fargo",
     "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/Equity-Research-Analyst--Business---Information-Services_R-572907",
     "title": "Equity Research Analyst, Business & Information Services",
     "location": "NEW YORK, NY",
@@ -8349,6 +8433,18 @@
     "posted_date": "2026-10-01",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-25",
+    "is_new": false
+  },
+  {
+    "firm": "Wells Fargo",
+    "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/Equity-Research-Associate--Software---Small---Mid-Cap_R-572381",
+    "title": "Equity Research Associate, Software - Small & Mid-Cap",
+    "location": "NEW YORK, NY",
+    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/NEW-YORK-NY/Equity-Research-Associate--Software---Small---Mid-Cap_R-572381",
+    "source": "workday",
+    "posted_date": "2026-10-02",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-15",
     "is_new": false
   },
   {
@@ -8820,6 +8916,18 @@
     "is_new": false
   },
   {
+    "firm": "Blue Owl Capital",
+    "id": "wd-blueowl-blueowl-/job/Menlo-Park-CA/Blue-Owl-Technology-Solutions--Technology-Growth-Investing--Associate_R-102265",
+    "title": "Blue Owl Technology Solutions, Technology Growth Investing, Associate",
+    "location": "Menlo Park, CA",
+    "url": "https://blueowl.wd1.myworkdayjobs.com/blueowl/job/Menlo-Park-CA/Blue-Owl-Technology-Solutions--Technology-Growth-Investing--Associate_R-102265",
+    "source": "workday",
+    "posted_date": "2026-10-02",
+    "metro": "SF / Bay Area",
+    "first_seen": "2026-09-15",
+    "is_new": false
+  },
+  {
     "firm": "Brex",
     "id": "gh-brex-8814410002",
     "title": "Outbound Sales Development Representative",
@@ -9009,6 +9117,18 @@
     "posted_date": "2026-09-09",
     "metro": "SF / Bay Area",
     "first_seen": "2026-09-19",
+    "is_new": false
+  },
+  {
+    "firm": "LVMH",
+    "id": "lvmh-293924",
+    "title": "Assistant Merchant, Merchandising, Digital, Fragrance (Sephora)",
+    "location": "San Francisco, United States",
+    "url": "https://career55.sapsf.eu/sfcareer/jobreqcareer?company=SephoraUS&jobId=293924",
+    "source": "lvmh",
+    "posted_date": "2026-09-22",
+    "metro": "SF / Bay Area",
+    "first_seen": "2026-10-01",
     "is_new": false
   },
   {
@@ -9252,6 +9372,18 @@
     "is_new": false
   },
   {
+    "firm": "RBC Capital Markets",
+    "id": "phenom-jobs.rbc.com-RBCAA0088R0000186755EXTERNALENCA",
+    "title": "Client Associate/Registered Client Associate",
+    "location": "San Francisco, California, United States of America",
+    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/San-Francisco-California-United-States-of-America/Client-Associate-Registered-Client-Associate_R-0000186755",
+    "source": "phenom",
+    "posted_date": "2026-09-03",
+    "metro": "SF / Bay Area",
+    "first_seen": "2026-09-18",
+    "is_new": false
+  },
+  {
     "firm": "Stripe",
     "id": "gh-stripe-8222219",
     "title": "Americas Field Marketing, AI",
@@ -9358,6 +9490,18 @@
     "metro": "SF / Bay Area",
     "first_seen": "2026-09-23",
     "is_new": false
+  },
+  {
+    "firm": "ZS Associates",
+    "id": "jibe-jobs.zs.com-67605",
+    "title": "AI Engineer Associate Consultant",
+    "location": "Princeton, New Jersey; Bellevue, Washington; South San Francisco, California; Thousand Oaks, California",
+    "url": "https://jobs.zs.com/jobs/67605",
+    "source": "jibe",
+    "posted_date": "2026-10-02",
+    "metro": "SF / Bay Area",
+    "first_seen": "2026-10-02",
+    "is_new": true
   },
   {
     "firm": "ZS Associates",
