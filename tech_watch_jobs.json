@@ -1,18 +1,5 @@
 [
   {
-    "firm": "CIBC",
-    "id": "wd-cibc-search-/job/Chicago-IL/Senior-Software-Engineer---US-Risk-Technology_2613362",
-    "title": "Databricks Data Engineer, Risk Technology",
-    "location": "Chicago, IL",
-    "url": "https://cibc.wd3.myworkdayjobs.com/search/job/Chicago-IL/Senior-Software-Engineer---US-Risk-Technology_2613362",
-    "source": "workday",
-    "posted_date": "2026-09-17",
-    "metro": "Chicago",
-    "sector": "Finance",
-    "first_seen": "2026-09-27",
-    "is_new": false
-  },
-  {
     "firm": "IMC Trading",
     "id": "gh-imc-4945646101",
     "title": "Data Engineer - Infrastructure",
@@ -32,7 +19,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Cloud-Data-Platform-Engineer_R158514-1",
     "source": "workday",
-    "posted_date": "2026-09-01",
+    "posted_date": "2026-09-02",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -45,7 +32,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Analytics-Engineer_R150313",
     "source": "workday",
-    "posted_date": "2026-09-01",
+    "posted_date": "2026-09-02",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -58,7 +45,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Program-Engineer_R150311",
     "source": "workday",
-    "posted_date": "2026-09-01",
+    "posted_date": "2026-09-02",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -266,7 +253,7 @@
     "location": "MetroPark",
     "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/MetroPark/Cloud-Data-Engineer_R7127",
     "source": "workday",
-    "posted_date": "2026-09-01",
+    "posted_date": "2026-09-02",
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -325,19 +312,6 @@
     "is_new": false
   },
   {
-    "firm": "Charles Schwab",
-    "id": "charles-100685603200",
-    "title": "ETL Engineer",
-    "location": "Southlake, TX",
-    "url": "https://www.schwabjobs.com/job/southlake/etl-engineer/33727/100685603200",
-    "source": "charles",
-    "posted_date": null,
-    "metro": "Other US",
-    "sector": "Finance",
-    "first_seen": "2026-09-29",
-    "is_new": false
-  },
-  {
     "firm": "Chewy",
     "id": "wd-chewy-External-/job/Plantation-FL/Data-Engineer-II--Financial-Intelligence_R30670",
     "title": "Data Engineer II, Financial Intelligence",
@@ -349,19 +323,6 @@
     "sector": "Tech",
     "first_seen": "2026-09-30",
     "is_new": false
-  },
-  {
-    "firm": "Fidelity",
-    "id": "wd-fmr-FidelityCareers-/job/Salt-Lake-City-UT/Data-Engineer--Analytics---Performance-Insights_2135554",
-    "title": "Data Engineer, Analytics & Performance Insights",
-    "location": "Salt Lake City, UT",
-    "url": "https://fmr.wd1.myworkdayjobs.com/FidelityCareers/job/Salt-Lake-City-UT/Data-Engineer--Analytics---Performance-Insights_2135554",
-    "source": "workday",
-    "posted_date": "2026-10-01",
-    "metro": "Other US",
-    "sector": "Finance",
-    "first_seen": "2026-10-02",
-    "is_new": true
   },
   {
     "firm": "Gopuff",
@@ -403,6 +364,19 @@
     "is_new": false
   },
   {
+    "firm": "Mastercard",
+    "id": "wd-mastercard-CorporateCareers-/job/OFallon-Missouri/Data-Engineer-II_R-286580",
+    "title": "Data Engineer II",
+    "location": "O'Fallon, Missouri",
+    "url": "https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/OFallon-Missouri/Data-Engineer-II_R-286580",
+    "source": "workday",
+    "posted_date": "2026-09-28",
+    "metro": "Other US",
+    "sector": "Fintech",
+    "first_seen": "2026-09-29",
+    "is_new": false
+  },
+  {
     "firm": "Snowflake",
     "id": "ashby-snowflake-6ced2190-98f0-4ca0-b128-ef655e38d0be",
     "title": "Analytics Engineer - Finance",
@@ -440,6 +414,32 @@
     "sector": "Finance",
     "first_seen": "2026-09-29",
     "is_new": false
+  },
+  {
+    "firm": "Allstate",
+    "id": "wd-allstate-allstate_careers-/job/USA---IL-Remote/Data-Analytics-Engineer--Remote--US-_R35409-1",
+    "title": "Data Analytics Engineer (Remote, US)",
+    "location": "USA - IL (Remote)",
+    "url": "https://allstate.wd5.myworkdayjobs.com/allstate_careers/job/USA---IL-Remote/Data-Analytics-Engineer--Remote--US-_R35409-1",
+    "source": "workday",
+    "posted_date": "2026-10-02",
+    "metro": "Remote (US)",
+    "sector": "Finance",
+    "first_seen": "2026-10-03",
+    "is_new": true
+  },
+  {
+    "firm": "Allstate",
+    "id": "wd-allstate-allstate_careers-/job/USA---IL-Remote/Data-Engineer--Remote--US-_R35408-1",
+    "title": "Data Engineer (Remote, US)",
+    "location": "USA - IL (Remote)",
+    "url": "https://allstate.wd5.myworkdayjobs.com/allstate_careers/job/USA---IL-Remote/Data-Engineer--Remote--US-_R35408-1",
+    "source": "workday",
+    "posted_date": "2026-10-02",
+    "metro": "Remote (US)",
+    "sector": "Finance",
+    "first_seen": "2026-10-03",
+    "is_new": true
   },
   {
     "firm": "Hamilton Lane",
@@ -751,19 +751,6 @@
     "metro": "Texas",
     "sector": "Finance",
     "first_seen": "2026-10-02",
-    "is_new": true
-  },
-  {
-    "firm": "Charles Schwab",
-    "id": "charles-98102690752",
-    "title": "Platform Support Data Engineer",
-    "location": "Southlake, TX; Austin, TX",
-    "url": "https://www.schwabjobs.com/job/southlake/platform-support-data-engineer/33727/98102690752",
-    "source": "charles",
-    "posted_date": null,
-    "metro": "Texas",
-    "sector": "Finance",
-    "first_seen": "2026-09-29",
     "is_new": false
   },
   {
