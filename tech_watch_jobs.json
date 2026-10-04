@@ -19,7 +19,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Cloud-Data-Platform-Engineer_R158514-1",
     "source": "workday",
-    "posted_date": "2026-09-02",
+    "posted_date": "2026-09-03",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -32,7 +32,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Analytics-Engineer_R150313",
     "source": "workday",
-    "posted_date": "2026-09-02",
+    "posted_date": "2026-09-03",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -45,7 +45,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Program-Engineer_R150311",
     "source": "workday",
-    "posted_date": "2026-09-02",
+    "posted_date": "2026-09-03",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -253,7 +253,7 @@
     "location": "MetroPark",
     "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/MetroPark/Cloud-Data-Engineer_R7127",
     "source": "workday",
-    "posted_date": "2026-09-02",
+    "posted_date": "2026-09-03",
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -318,7 +318,7 @@
     "location": "Plantation, FL",
     "url": "https://chewy.wd5.myworkdayjobs.com/External/job/Plantation-FL/Data-Engineer-II--Financial-Intelligence_R30670",
     "source": "workday",
-    "posted_date": "2026-09-02",
+    "posted_date": "2026-09-03",
     "metro": "Other US",
     "sector": "Tech",
     "first_seen": "2026-09-30",
@@ -426,7 +426,7 @@
     "metro": "Remote (US)",
     "sector": "Finance",
     "first_seen": "2026-10-03",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Allstate",
@@ -439,7 +439,7 @@
     "metro": "Remote (US)",
     "sector": "Finance",
     "first_seen": "2026-10-03",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Hamilton Lane",
@@ -703,19 +703,6 @@
   },
   {
     "firm": "Charles Schwab",
-    "id": "charles-99231496432",
-    "title": "Data Engineer",
-    "location": "Austin, TX; Southlake, TX",
-    "url": "https://www.schwabjobs.com/job/austin/data-engineer/33727/99231496432",
-    "source": "charles",
-    "posted_date": null,
-    "metro": "Texas",
-    "sector": "Finance",
-    "first_seen": "2026-09-29",
-    "is_new": false
-  },
-  {
-    "firm": "Charles Schwab",
     "id": "charles-93425305520",
     "title": "Data Engineer",
     "location": "Austin, TX; Southlake, TX",
@@ -738,19 +725,6 @@
     "metro": "Texas",
     "sector": "Finance",
     "first_seen": "2026-09-29",
-    "is_new": false
-  },
-  {
-    "firm": "Charles Schwab",
-    "id": "charles-95593502240",
-    "title": "Data Engineer",
-    "location": "Austin, TX",
-    "url": "https://www.schwabjobs.com/job/austin/data-engineer/33727/95593502240",
-    "source": "charles",
-    "posted_date": null,
-    "metro": "Texas",
-    "sector": "Finance",
-    "first_seen": "2026-10-02",
     "is_new": false
   },
   {
