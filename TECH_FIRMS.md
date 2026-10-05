@@ -109,3 +109,22 @@ since those post the most data roles.
   ingestion, ETL, Spark, Kafka, Flink) passes. Seniority, intern and pre-sales
   exclusions still apply. It matched 4 roles on day one, none of them both in
   the US and under 60 days old.
+
+### 2026-10-05: staffing agencies (sector "Agency")
+Big employers fill many contract and contract-to-hire data roles through
+agencies, posted only on the agency's own board. Searched nationwide for
+"data engineer"; the usual title and US filters apply, and each title is tagged
+Contract / Contract-to-hire / Direct hire.
+
+| Agency | Board | DE roles at launch |
+|---|---|---:|
+| Robert Half | roberthalf.com `/jobs/all/data-engineer` | 32 |
+| Motion Recruitment (incl. Jobspring) | data-engineering specialty page (20 newest) | 8 |
+| TEKsystems (Allegis tech brand) | Phenom, keyword search | 7 |
+| Randstad | randstadusa.com, relevance-sorted; stops at first page with no DE title | 5 |
+| Blue Signal | Loxo-hosted board | 1 |
+| Michael Page | michaelpage.com `/jobs/data-engineer` | 0 |
+| Harvey Nash | careers.harveynashusa.com (whole board, one page) | 0 |
+
+Not added: Hays US (search pages 404), Atrium, Adecco, Goodwin, Alexander
+Chapman (UK), BW Global USA (no job board; generic "training" site).
