@@ -1864,6 +1864,107 @@ def _pulse_html(p, dash_url):
 </td></tr>"""
 
 
+# ---------------------------------------------------------------- recruiter nudge
+# Both newsletters end with recruiter outreach from the private recruiter list
+# (schema_recruiters.sql): on Mondays three people to contact this week, and
+# any day the follow-ups that have come due. The repo and its Actions logs are
+# public, so nothing here prints names, only counts.
+_OPEN_OUTREACH = {"none", "emailed", "follow_up", "replied", "call"}
+
+
+def recruiter_nudge(watch, today):
+    """{"picks": [...], "due": [...]} for `watch` ("street" | "tech"), or None
+    if Supabase isn't configured or the recruiter tables don't exist yet."""
+    url, key = os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_SERVICE_KEY")
+    if not (url and key):
+        return None
+    h = {"apikey": key, "Authorization": f"Bearer {key}"}
+    sk = "tech_score" if watch == "tech" else "street_score"
+
+    def get(path):
+        r = requests.get(f"{url}/rest/v1/{path}", headers=h, timeout=TIMEOUT)
+        r.raise_for_status()
+        return r.json()
+    try:
+        firms = {f["id"]: f for f in get("recruiter_firms?select=id,name,type&limit=5000")}
+        contacts = get(f"recruiter_contacts?select=id,name,title,firm_id,{sk}&{sk}=not.is.null&order={sk}.desc&limit=5000")
+        outreach = {o["contact_id"]: o for o in
+                    get(f"recruiter_outreach?select=contact_id,status,next_date&watch=eq.{watch}&limit=5000")}
+    except Exception as e:
+        print(f"  recruiter nudge skipped ({type(e).__name__})", file=sys.stderr)
+        return None
+    by_id = {c["id"]: c for c in contacts}
+    def card(c, o=None):
+        f = firms.get(c["firm_id"], {})
+        return dict(name=c["name"], title=c.get("title") or "", firm=f.get("name", ""),
+                    contingency=(f.get("type") or "").lower().startswith("contingency"),
+                    next_date=(o or {}).get("next_date"))
+    due = sorted((o for o in outreach.values()
+                  if o.get("next_date") and o["next_date"] <= today and o["status"] in _OPEN_OUTREACH
+                  and o["contact_id"] in by_id), key=lambda o: o["next_date"])
+    picks = []
+    if datetime.strptime(today, "%Y-%m-%d").weekday() == 0:   # Mondays
+        pool, firms_seen = [], set()
+        for c in contacts:   # best first, one person per firm, never contacted
+            if c["firm_id"] in firms_seen or (outreach.get(c["id"]) or {}).get("status", "none") != "none":
+                continue
+            firms_seen.add(c["firm_id"]); pool.append(c)
+            if len(pool) >= 30:
+                break
+        if pool:   # rotate through the top 30 week by week so the names change
+            start = (datetime.strptime(today, "%Y-%m-%d").isocalendar()[1] * 3) % len(pool)
+            picks = [card(c) for c in (pool[start:] + pool[:start])[:3]]
+    return dict(picks=picks, due=[card(by_id[o["contact_id"]], o) for o in due[:6]])
+
+
+def _recruiters_html(nudge, link, ink, soft, line, accent, label_font, body_font):
+    """Recruiter block for an HTML digest, in the calling newsletter's colors."""
+    if not nudge or not (nudge["picks"] or nudge["due"]):
+        return ""
+    def rows(title, items, due=False):
+        if not items:
+            return ""
+        cells = "".join(
+            f'<tr><td style="padding:4px 0;font-family:{body_font};font-size:13.5px;color:{ink}">'
+            f'<b>{_esc(r["name"])}</b> · {_esc(r["firm"])}'
+            f'<div style="font-size:12px;color:{soft}">{_esc(r["title"])}'
+            f'{" · contingency firm" if r["contingency"] and not due else ""}'
+            f'{" · due " + _esc(r["next_date"]) if due else ""}</div></td></tr>'
+            for r in items)
+        return (f'<tr><td style="padding:10px 0 3px;font-family:{label_font};font-size:10px;letter-spacing:.12em;'
+                f'text-transform:uppercase;color:{soft}">{title}</td></tr>'
+                f'<tr><td><table role="presentation" width="100%" cellpadding="0" cellspacing="0">{cells}</table></td></tr>')
+    return f"""
+<tr><td style="padding:18px 34px 4px">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid {line}">
+  <tr><td style="padding:18px 0 4px">
+    <a href="{_esc(link)}" style="font-family:{label_font};font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:{accent};text-decoration:none">Recruiter outreach →</a>
+  </td></tr>
+  {rows("Three to contact this week", nudge["picks"])}
+  {rows("Follow-ups due", nudge["due"], due=True)}
+  <tr><td style="padding:8px 0 0;font-family:{body_font};font-size:12px;color:{soft}">Open a name on the Recruiters page to draft an email and log it.</td></tr>
+  </table>
+</td></tr>"""
+
+
+def _recruiters_text(nudge, link):
+    if not nudge or not (nudge["picks"] or nudge["due"]):
+        return []
+    lines = ["", "RECRUITER OUTREACH"]
+    if nudge["picks"]:
+        lines.append("Three to contact this week:")
+        lines += [f"  • {r['name']} · {r['firm']} ({r['title']})" for r in nudge["picks"]]
+    if nudge["due"]:
+        lines.append("Follow-ups due:")
+        lines += [f"  • {r['name']} · {r['firm']} (due {r['next_date']})" for r in nudge["due"]]
+    lines.append(f"Recruiters page: {link}")
+    return lines
+
+
+def _recruiters_link(board_url):
+    return board_url + ("&" if "?" in board_url else "?") + "view=recruiters"
+
+
 def _pulse_text(p, dash_url):
     if not p:
         return []
@@ -1878,7 +1979,7 @@ def _pulse_text(p, dash_url):
     return lines
 
 
-def _newsletter_html(new_jobs, total, today, dash_url, hits=(), pulse=None):
+def _newsletter_html(new_jobs, total, today, dash_url, hits=(), pulse=None, recruiters=None):
     """Build an inbox-friendly HTML digest of today's NEW roles, styled to match
     the dashboard's editorial theme (soft pink + cream + forest green, Fraunces
     serif with italic-rose accents, IBM Plex Mono eyebrows/labels).
@@ -2001,6 +2102,7 @@ def _newsletter_html(new_jobs, total, today, dash_url, hits=(), pulse=None):
 
 <tr><td style="padding:2px 34px 8px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">{''.join(rows)}</table></td></tr>
 {_pulse_html(pulse, dash_url)}
+{_recruiters_html(recruiters, _recruiters_link(dash_url), INK, SOFT, LINE2, ROSE, MONO, SANS)}
 
 <tr><td style="padding:18px 34px 34px" align="center">
   <a href="{_esc(dash_url)}" style="display:inline-block;background:{GREEN};color:{ON_GREEN};font-family:{SANS};font-weight:600;font-size:15px;text-decoration:none;padding:14px 32px;border-radius:999px">{cta}</a>
@@ -2015,7 +2117,7 @@ def _esc(s):
             .replace(">", "&gt;").replace('"', "&quot;"))
 
 
-def _newsletter_text(new_jobs, total, today, dash_url, hits=(), pulse=None):
+def _newsletter_text(new_jobs, total, today, dash_url, hits=(), pulse=None, recruiters=None):
     """Plain-text alternative part — what non-HTML clients (and spam filters)
     read. Keeps the digest legible without any markup."""
     lines = [f"Street Watch — {today} morning digest", "", "Good morning, Ms Tian", ""]
@@ -2040,6 +2142,7 @@ def _newsletter_text(new_jobs, total, today, dash_url, hits=(), pulse=None):
     if more > 0:
         lines.append(f"  …and {more} more new role{'s' if more != 1 else ''}.")
     lines += _pulse_text(pulse, dash_url)
+    lines += _recruiters_text(recruiters, _recruiters_link(dash_url))
     lines += ["", f"Open the dashboard: {dash_url}"]
     return "\n".join(lines)
 
@@ -2187,8 +2290,9 @@ def send_newsletter(jobs, today, trends=None):
     pulse = trend_summary(trends, today)
     if hits:
         print(f"  saved searches with new matches: {', '.join(f'{nm} ({len(f)})' for nm, f in hits)}")
-    msg.attach(MIMEText(_newsletter_text(new_jobs, len(jobs), today, dash_url, hits, pulse), "plain", "utf-8"))
-    msg.attach(MIMEText(_newsletter_html(new_jobs, len(jobs), today, dash_url, hits, pulse), "html", "utf-8"))
+    recruiters = recruiter_nudge("street", today)
+    msg.attach(MIMEText(_newsletter_text(new_jobs, len(jobs), today, dash_url, hits, pulse, recruiters), "plain", "utf-8"))
+    msg.attach(MIMEText(_newsletter_html(new_jobs, len(jobs), today, dash_url, hits, pulse, recruiters), "html", "utf-8"))
 
     if _smtp_send(host, port, user, password, recipients, msg):
         print(f"  newsletter sent to {len(recipients)} recipient(s) ({n} new roles)")

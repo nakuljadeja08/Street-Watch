@@ -762,7 +762,7 @@ def _pulse_html(p, url):
 </td></tr>"""
 
 
-def _newsletter_html(new_jobs, total, today, url, hits=(), pulse=None):
+def _newsletter_html(new_jobs, total, today, url, hits=(), pulse=None, recruiters=None):
     CAP = 40
     rows, cur = [], None
     for j in new_jobs[:CAP]:
@@ -815,6 +815,7 @@ def _newsletter_html(new_jobs, total, today, url, hits=(), pulse=None):
 {pinned}
 <tr><td style="padding:4px 32px 10px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">{''.join(rows)}</table></td></tr>
 {_pulse_html(pulse, url)}
+{P._recruiters_html(recruiters, P._recruiters_link(url), INK, SOFT, LINE, ACC, MONO, SANS)}
 <tr><td style="padding:18px 32px 32px" align="center">
   <a href="{_esc(url)}" style="display:inline-block;background:{INK};color:#ffffff;font-family:{MONO};font-weight:500;font-size:14px;text-decoration:none;padding:12px 26px;border-radius:8px">$ open tech-watch →</a>
 </td></tr>
@@ -823,7 +824,7 @@ def _newsletter_html(new_jobs, total, today, url, hits=(), pulse=None):
 </td></tr></table></body></html>"""
 
 
-def _newsletter_text(new_jobs, total, today, url, hits=(), pulse=None):
+def _newsletter_text(new_jobs, total, today, url, hits=(), pulse=None, recruiters=None):
     n = len(new_jobs)
     lines = [f"Tech Watch — {today}", "", "Good morning, Nakul.", "",
              f"{n} new data role{'s' if n != 1 else ''} since yesterday ({total} live)." if n
@@ -840,6 +841,7 @@ def _newsletter_text(new_jobs, total, today, url, hits=(), pulse=None):
     if n > 40:
         lines.append(f"  … {n - 40} more on the board.")
     lines += P._pulse_text(pulse, url)
+    lines += P._recruiters_text(recruiters, P._recruiters_link(url))
     lines += ["", f"Open Tech Watch: {url}"]
     return "\n".join(lines)
 
@@ -869,8 +871,9 @@ def send_newsletter(jobs, today, trends=None):
     msg["To"] = ", ".join(recipients)
     hits = P.saved_search_hits(new_jobs, table=TABLES["searches"], matches=_matches_search)
     pulse = P.trend_summary(trends, today)
-    msg.attach(MIMEText(_newsletter_text(new_jobs, len(jobs), today, url, hits, pulse), "plain", "utf-8"))
-    msg.attach(MIMEText(_newsletter_html(new_jobs, len(jobs), today, url, hits, pulse), "html", "utf-8"))
+    recruiters = P.recruiter_nudge("tech", today)
+    msg.attach(MIMEText(_newsletter_text(new_jobs, len(jobs), today, url, hits, pulse, recruiters), "plain", "utf-8"))
+    msg.attach(MIMEText(_newsletter_html(new_jobs, len(jobs), today, url, hits, pulse, recruiters), "html", "utf-8"))
     if P._smtp_send(host, port, user, password, recipients, msg):
         print(f"  tech newsletter sent to {len(recipients)} recipient(s) ({n} new roles)")
         return True
