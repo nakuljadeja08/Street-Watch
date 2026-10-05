@@ -1,4 +1,5 @@
 metro,sector,firm,title,location,source,posted_date,first_seen,is_new,url
+Atlanta,Fintech,Global Payments,AI & Data Platform Engineer,"ALPHARETTA, GEORGIA",workday,2026-10-05,2026-10-05,True,https://tsys.wd1.myworkdayjobs.com/TSYS/job/ALPHARETTA-GEORGIA/AI---Data-Platform-Engineer_R0074577
 Atlanta,Agency,Motion Recruitment,Cybersecurity Data Engineer - Python/SQL/PowerBi/Security Analytics · Contract,"Alpharetta, Georgia",motion,,2026-10-05,True,https://motionrecruitment.com/tech-jobs/alpharetta/contract/cybersecurity-data-engineer-python-sql-powerbi-security-analytics/888444
 Atlanta,Agency,Motion Recruitment,Threat Detection & Security Analytics Engineer - Georgia · Contract,"Alpharetta, Georgia",motion,,2026-10-05,True,https://motionrecruitment.com/tech-jobs/alpharetta/contract/threat-detection-and-security-analytics-engineer-georgia/888545
 Atlanta,Agency,Robert Half,Data Engineer · Direct hire,"Atlanta, GA",roberthalf,2026-10-02,2026-10-05,True,https://www.roberthalf.com/us/en/job/atlanta-ga/data-engineer/00900-9504405226-usen
@@ -10,7 +11,7 @@ Chicago,Finance,Northern Trust,Cloud Data Platform Engineer,"Chicago, IL",workda
 Chicago,Finance,Northern Trust,Data Analytics Engineer,"Chicago, IL",workday,2026-09-04,2026-09-27,False,https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Analytics-Engineer_R150313
 Chicago,Finance,Northern Trust,Data Program Engineer,"Chicago, IL",workday,2026-09-04,2026-09-27,False,https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Program-Engineer_R150311
 Chicago,Agency,Robert Half,Data Engineer · Direct hire,"Chicago, IL",roberthalf,2026-09-28,2026-10-05,True,https://www.roberthalf.com/us/en/job/chicago-il/data-engineer/01340-0013490212-usen
-Chicago,Agency,TEKsystems,Data Engineer (Databricks) · Contract,"North Chicago, Illinois, USA",phenom,2026-10-01,2026-10-05,True,https://careers.teksystems.com/us/en/job/TESYUSJP006321513ENUS
+Chicago,Agency,Robert Half,Data Engineer · Direct hire,"Chicago, IL",roberthalf,2026-09-09,2026-10-05,True,https://www.roberthalf.com/us/en/job/chicago-il/data-engineer/01300-0013433936-usen
 Chicago,Finance,U.S. Bancorp,Infrastructure Data Analytics Engineer,"Hopkins, MN; Atlanta, GA; Chicago, IL; Gresham, OR; Denver, CO; Charlotte, NC; Brookfield, WI; Irving, TX; Earth City, MO",workday,2026-09-23,2026-09-27,False,https://usbank.wd1.myworkdayjobs.com/US_Bank_Careers/job/Hopkins-MN/Infrastructure-Data-Analytics-Engineer_2026-0020380-1
 DC / Virginia,Agency,Randstad,Data Engineer · Contract,"Washington, District of Columbia",randstad,2026-10-05,2026-10-05,True,https://www.randstadusa.com/jobs/4/1345955/data-engineer_washington/
 Los Angeles,Agency,Robert Half,Data Engineer · Direct hire,"Los Angeles, CA",roberthalf,2026-09-09,2026-10-05,True,https://www.roberthalf.com/us/en/job/los-angeles-ca/data-engineer/00320-0013503591-usen
@@ -37,6 +38,7 @@ NYC Area,Agency,Robert Half,Data Engineer · Direct hire,"Princeton, NJ",roberth
 NYC Area,Finance,Susquehanna International Group,"Data Engineer, Alternative Data | Delta One Trading | Experienced Hire","New York, New York",jibe,2026-09-18,2026-09-27,False,https://careers.sig.com/jobs/11542
 Other US,Tech,Chewy,"Data Engineer II, Financial Intelligence","Plantation, FL",workday,2026-09-04,2026-09-30,False,https://chewy.wd5.myworkdayjobs.com/External/job/Plantation-FL/Data-Engineer-II--Financial-Intelligence_R30670
 Other US,Tech,Comcast,"Platform Data Engineer - (DataBricks, PySpark, AWS)","PA - West Chester, 1354 Boot Rd",workday,2026-10-05,2026-10-05,True,https://comcast.wd115.myworkdayjobs.com/Comcast_Careers/job/PA---West-Chester-1354-Boot-Rd/Platform-Data-Engineer----DataBricks--PySpark--AWS-_R442523
+Other US,Tech,Elastic,"Analytics Engineer, HR Analytics",United States,greenhouse,2026-10-05,2026-10-05,True,https://jobs.elastic.co/jobs?gh_jid=8244449&gh_jid=8244449
 Other US,Finance,Fidelity,"Data Engineer, Analytics & Performance Insights","Salt Lake City, UT",workday,2026-10-05,2026-10-02,False,https://fmr.wd1.myworkdayjobs.com/FidelityCareers/job/Salt-Lake-City-UT/Data-Engineer--Analytics---Performance-Insights_2135554
 Other US,Tech,Gopuff,Analytics Engineer,"Philadelphia, PA; Miami, FL",lever,2026-09-10,2026-09-30,False,https://jobs.lever.co/gopuff/bfa7bc15-793e-486c-a3f5-b27d84c53025
 Other US,Finance,JPMorgan Chase,Data Engineering Associate,"OH, United States",oracle,2026-09-25,2026-09-27,False,https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210793562
