@@ -1368,18 +1368,6 @@
     "is_new": true
   },
   {
-    "firm": "Aston Carter",
-    "id": "phenom-careers.astoncarter.com-ASCAUSJP006304045ENUS",
-    "title": "Executive Operations Associate \u00b7 Contract",
-    "location": "New York, New York, USA",
-    "url": "https://careers.astoncarter.com/us/en/job/ASCAUSJP006304045ENUS",
-    "source": "phenom",
-    "posted_date": "2026-09-23",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-05",
-    "is_new": true
-  },
-  {
     "firm": "BMO",
     "id": "wd-bmo-External-/job/New-York-NY-USA/Analyst--Corporate-Banking--Project-and-Energy-Transition-Finance_R260025926",
     "title": "Analyst, Corporate Banking, Project and Energy Transition Finance",
@@ -1749,6 +1737,18 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-28",
+    "is_new": false
+  },
+  {
+    "firm": "Barclays",
+    "id": "barclays-99217215456",
+    "title": "Residential Warehouse Trader Analyst",
+    "location": "New York, United States",
+    "url": "https://search.jobs.barclays/job/new-york/residential-warehouse-trader-analyst/13015/99217215456",
+    "source": "barclays",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-29",
     "is_new": false
   },
   {
@@ -3597,6 +3597,18 @@
     "posted_date": "2026-09-29",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-29",
+    "is_new": false
+  },
+  {
+    "firm": "Franklin Templeton",
+    "id": "phenom-careers.franklintempleton.com-FTGFTMUS869636EXTERNALENUS",
+    "title": "Quantitative Insurance Solutions Analyst (EG-NYC)",
+    "location": "New York, New York, United States of America",
+    "url": "https://franklintempleton.wd5.myworkdayjobs.com/Primary-External-1/job/New-York-New-York-United-States-of-America/Quantitative-Insurance-Solutions-Analyst--EG-NYC-_869636",
+    "source": "phenom",
+    "posted_date": "2026-09-14",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-19",
     "is_new": false
   },
   {
@@ -5518,6 +5530,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-02",
     "is_new": false
+  },
+  {
+    "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210769245",
+    "title": "Quantitative Trading & Research - Residential Finance - Associate",
+    "location": "New York, NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210769245",
+    "source": "oracle",
+    "posted_date": "2026-10-05",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-05",
+    "is_new": true
   },
   {
     "firm": "JPMorgan Chase",
@@ -8002,6 +8026,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-19",
     "is_new": false
+  },
+  {
+    "firm": "Truist Securities",
+    "id": "phenom-careers.truist.com-TBJTBFUSR0118083EXTERNALENUS",
+    "title": "Equity Research Associate - (Services)",
+    "location": "New York, New York, USA",
+    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY/Equity-Research-Associate---IT-Services_R0118083",
+    "source": "phenom",
+    "posted_date": "2026-10-04",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-05",
+    "is_new": true
   },
   {
     "firm": "Truist Securities",
