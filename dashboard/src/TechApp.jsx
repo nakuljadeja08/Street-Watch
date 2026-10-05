@@ -17,7 +17,7 @@ const HUBS = [
 ];
 const HUB_OF = Object.fromEntries(HUBS);
 const SLUG_OF = Object.fromEntries(HUBS.map(([s, n]) => [n, s]));
-const SECTORS = ["Tech", "Fintech", "Finance"];
+const SECTORS = ["Tech", "Fintech", "Finance", "Agency"];
 const STATUSES = ["interested", "applied", "interview", "offer", "rejected"];
 const STATUS_LABEL = { interested: "Interested", applied: "Applied", interview: "Interview", offer: "Offer", rejected: "Rejected" };
 const SORTS = ["new", "fit", "firm"];

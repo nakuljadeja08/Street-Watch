@@ -187,18 +187,21 @@ RADANCY = {"Finance": {"Charles Schwab": "www.schwabjobs.com"}}
 EIGHTFOLD = {"Tech": {"Netflix": ("explore.jobs.netflix.net", "netflix.com", "United States")}}
 # Own-API fetchers below (fetch_google / fetch_microsoft / fetch_bloomberg / fetch_meta).
 CUSTOM = {"Tech": ["Google", "Microsoft", "Meta"], "Fintech": ["Bloomberg"]}
+# Staffing agencies (fetch_agencies below); their rows get the "Agency" sector.
+AGENCIES = {"Agency": ["Robert Half", "Randstad", "Michael Page", "TEKsystems",
+                       "Motion Recruitment", "Harvey Nash", "Blue Signal"]}
 
 # Street Watch's finance firms are scanned too, minus the consulting shops and
 # fashion houses (Tech Watch covers tech and finance only) and any firm Tech
 # Watch already lists itself (Stripe, Brex, Chime, Ramp, Plaid).
 _STREET_CAT = P._FIRM_CAT
-_STREET_SKIP = {"Consulting", "Fashion & Luxury"}
+_STREET_SKIP = {"Consulting", "Fashion & Luxury", "Staffing Agency"}  # agencies: Tech Watch has its own list
 def _street(reg):
     return {f: v for f, v in reg.items()
             if _STREET_CAT.get(f) not in _STREET_SKIP and f not in _OWN}
 
 SECTOR = {}
-for _reg in (GREENHOUSE, ASHBY, LEVER, WORKDAY, ORACLE, RADANCY, EIGHTFOLD, CUSTOM):
+for _reg in (GREENHOUSE, ASHBY, LEVER, WORKDAY, ORACLE, RADANCY, EIGHTFOLD, CUSTOM, AGENCIES):
     for _sec, _firms in _reg.items():
         for _f in _firms:
             SECTOR[_f] = _sec
@@ -387,6 +390,104 @@ def fetch_bloomberg(query=SEARCH, max_rows=600):
     except Exception as e:
         print(f"  ! bloomberg: {e}", file=sys.stderr)
     return out
+
+
+# ---------------------------------------------------------------- staffing agencies
+# Big employers fill many contract and contract-to-hire data roles through
+# agencies, posted only on the agency's board (added 2026-10-05). Street Watch's
+# agency fetchers are reused with nationwide "data engineer" searches; Motion,
+# Harvey Nash and Blue Signal are tech-only agencies with their own boards.
+_SLUG = SEARCH.replace(" ", "-")
+
+
+def fetch_teksystems(firm="TEKsystems"):
+    """Allegis's tech brand, on Phenom like Aston Carter; keyword-searched (the
+    whole board is ~2.5k jobs)."""
+    return P.fetch_phenom(firm, "careers.teksystems.com", agency=True, keywords=SEARCH)
+
+
+_MOTION_ITEM_RE = re.compile(
+    r'<a href="(/tech-jobs/[^"/]+/([a-z-]+)/[^"/]+/(\d+))"><h2[^>]*>(.*?)</h2>(.*?)</li>', re.S)
+
+
+def fetch_motion(firm="Motion Recruitment"):
+    """Motion Recruitment (incl. Jobspring Partners). Its data-engineering specialty
+    page server-renders the 20 newest jobs; the URL carries the hire type."""
+    import html as _html
+    try:
+        r = requests.get("https://motionrecruitment.com/tech-jobs/data-engineering",
+                         headers=P._BROWSER_UA, timeout=TIMEOUT); r.raise_for_status()
+    except Exception as e:
+        print(f"  ! motion: {e}", file=sys.stderr); return []
+    out = []
+    for href, kind, jid, title, body in _MOTION_ITEM_RE.findall(r.text):
+        loc = re.search(r"<p>([^<]*)</p>", body)
+        loc = loc.group(1).strip() if loc else ""
+        if re.search(r"<b>[^<]*remote", body, re.I):
+            loc = f"{loc} (Remote)" if loc else "Remote"
+        out.append(dict(firm=firm, id=f"motion-{jid}",
+                        title=P._tagged(_html.unescape(P._TAG_RE.sub("", title)).strip(), kind.replace("-", " ")),
+                        location=_html.unescape(loc), url=f"https://motionrecruitment.com{href}",
+                        source="motion", posted_date=None))
+    return out
+
+
+_HN_ITEM_RE = re.compile(r'<div class="job-item[^"]*"([^>]*)>.*?href="([^"]*/job-details/([^"/]+)/)"', re.S)
+
+
+def fetch_harvey_nash(firm="Harvey Nash"):
+    """Harvey Nash USA lists its whole board on one page; each card carries
+    data-title / data-location / data-type attributes."""
+    import html as _html
+    try:
+        r = requests.get("https://careers.harveynashusa.com/jobsearch/",
+                         headers=P._BROWSER_UA, timeout=TIMEOUT); r.raise_for_status()
+    except Exception as e:
+        print(f"  ! harvey nash: {e}", file=sys.stderr); return []
+    out = []
+    for attrs, url, slug in _HN_ITEM_RE.findall(r.text):
+        a = dict(re.findall(r'data-([a-z]+)="([^"]*)"', attrs))
+        out.append(dict(firm=firm, id=f"harveynash-{slug}",
+                        title=P._tagged(_html.unescape(a.get("title", "")).strip(), a.get("type")),
+                        location=_html.unescape(a.get("location", "")), url=url,
+                        source="harveynash", posted_date=None))
+    return out
+
+
+_LOXO_CARD_RE = re.compile(
+    r"class='job-title'[^>]*href=\"(/job/[^\"]+)\"\s*>\s*(.*?)\s*</a>.*?class='job-location'[^>]*>.*?</i>\s*(.*?)\s*</div>", re.S)
+
+
+def fetch_blue_signal(firm="Blue Signal"):
+    """Blue Signal's job board is hosted on Loxo: one page with every opening."""
+    import html as _html
+    base = "https://blue-signal-search.app.loxo.co"
+    try:
+        r = requests.get(f"{base}/blue-signal-search", headers=P._BROWSER_UA, timeout=TIMEOUT)
+        r.raise_for_status()
+    except Exception as e:
+        print(f"  ! blue signal: {e}", file=sys.stderr); return []
+    out, seen = [], set()
+    for href, title, loc in _LOXO_CARD_RE.findall(r.text):
+        if href in seen:
+            continue
+        seen.add(href)
+        out.append(dict(firm=firm, id=f"bluesignal-{href.rsplit('/', 1)[-1].rstrip('=')}",
+                        title=_html.unescape(title).strip(), location=_html.unescape(loc).strip(),
+                        url=base + href, source="loxo", posted_date=None))
+    return out
+
+
+def fetch_agencies():
+    return [
+        ("Robert Half", P.fetch_robert_half("Robert Half", searches=[("all", _SLUG)])),
+        ("Randstad", P.fetch_randstad("Randstad", paths=[f"q-{_SLUG}"], relevant=_looks_de, max_pages=15)),
+        ("Michael Page", P.fetch_michael_page("Michael Page", paths=[_SLUG])),
+        ("TEKsystems", fetch_teksystems()),
+        ("Motion Recruitment", fetch_motion()),
+        ("Harvey Nash", fetch_harvey_nash()),
+        ("Blue Signal", fetch_blue_signal()),
+    ]
 
 
 _MULTI_LOC_RE = re.compile(r"^\d+\s+locations?$", re.I)
@@ -589,6 +690,10 @@ def collect():
                  fetch_google(), fetch_microsoft(), fetch_bloomberg(), fetch_meta()):
         print(f"  {(rows[0]['firm'] if rows else '—'):<28}{len(rows):>5}")
         raw += rows
+    print("Staffing agencies…")
+    for f, rows in fetch_agencies():
+        print(f"  {f:<28}{len(rows):>5}")
+        raw += rows
 
     kept, seen = [], set()
     for r in raw:
@@ -623,7 +728,8 @@ def _matches_search(j, f):
 # terminal header. Inline styles, light-only (email dark mode is unreliable).
 BG, PANEL, INK, SOFT, FAINT, LINE = "#eef0f4", "#ffffff", "#0f1115", "#5b6270", "#8a919e", "#e4e7ec"
 ACC, NEW, TERM, TERM_INK, TERM_DIM, AMBER, CYAN = "#2b59ff", "#0a8f5c", "#0d1117", "#c9d1d9", "#6e7681", "#e3b341", "#79c0ff"
-SECT = {"Tech": ("#e8ecfd", "#3148c8"), "Fintech": ("#e6f4f1", "#0f766e"), "Finance": ("#fbf1dc", "#8a5a00")}
+SECT = {"Tech": ("#e8ecfd", "#3148c8"), "Fintech": ("#e6f4f1", "#0f766e"), "Finance": ("#fbf1dc", "#8a5a00"),
+        "Agency": ("#f3eafb", "#7a3aa8")}
 SANS = "'Geist', 'IBM Plex Sans', -apple-system, Segoe UI, Arial, sans-serif"
 MONO = "'JetBrains Mono', 'Geist Mono', ui-monospace, 'Courier New', monospace"
 FONTS = ("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&"
