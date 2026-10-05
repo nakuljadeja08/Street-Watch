@@ -412,3 +412,24 @@ slug likewise — both are stubbed and fail gracefully until confirmed.
   operation `GetRoles` to `https://api-higher.gs.com/gateway/api/v1/graphql`
   (not `higher.gs.com/graphql`, which 404s). `pageNumber` is **0-based** and
   `pageSize` must be < 500.
+
+## Recruiter outreach (both watches)
+A private recruiter list (a Custom Databanks "Executive Search System" PDF) powers
+a **Recruiters** page on each board, a "recruiters who cover this role" list on
+each job (👥 on Street Watch cards, a Recruiters section in Tech Watch's detail
+pane), AI-drafted outreach emails, and a recruiter block in both newsletters
+(Mondays: three people to contact this week; any day: follow-ups due).
+
+The list is **never committed** (this repo is public) or bundled into the
+dashboard. It lives only in Supabase, readable only by the two accounts in
+`user_profiles`:
+
+1. Run `schema_recruiters.sql` in Supabase → SQL Editor.
+2. `python import_recruiters.py "C:/path/to/Recruiter.pdf"` (uses `.env`'s service
+   key; re-run any time to refresh, outreach history is kept).
+
+Each contact gets a `street_score` / `tech_score` (contingency firms, lower salary
+floors, recruiter-level people and matching industry/function codes rank higher).
+Outreach (status, follow-up date, notes, draft) is stored per watch in
+`recruiter_outreach`. `/api/outreach` drafts the email; nothing is ever sent
+automatically. Newsletter code logs only counts, never names (Actions logs are public).

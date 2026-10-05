@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { supabase, STATUSES, authHeaders } from "./supabaseClient.js";
 import FIRM_CATEGORIES from "../../firm_categories.json";
 import Trends from "./Trends.jsx";
+import { useRecruiters, RecruitersView, RecruitersButton } from "./Recruiters.jsx";
 
 // firm -> type ("PE & Alts", "Bulge Bracket", …); shared with pipeline.py
 const CATEGORIES = Object.keys(FIRM_CATEGORIES).filter((k) => !k.startsWith("_"));
@@ -149,7 +150,7 @@ function initialParams() {
       statusFilter: p.get("status") || "all",
       q: p.get("q") || "",
       sort: SORTS.some((s) => s.v === p.get("sort")) ? p.get("sort") : "default",
-      view: ["board", "trends"].includes(p.get("view")) ? p.get("view") : "list",
+      view: ["board", "trends", "recruiters"].includes(p.get("view")) ? p.get("view") : "list",
     };
   } catch {
     return { metro: "all", segment: "all", category: "all", level: "any", recency: "all", statusFilter: "all", q: "", sort: "default", view: "list" };
@@ -265,6 +266,7 @@ export default function App({ signedIn = false, header = null }) {
   const [pasteFor, setPasteFor] = useState(null); // job whose posting we couldn't fetch (fit)
   const [noJd, setNoJd] = useState(() => new Set()); // unreadable postings — skipped by bulk scoring
   const aiReady = ai.state === "ready" && !!ai.resume;
+  const rec = useRecruiters("street");
 
   async function aiFetch(path, body, method) {
     const r = await fetch(`/api/${path}`, {
@@ -794,6 +796,16 @@ export default function App({ signedIn = false, header = null }) {
               </button>
             </>
           )}
+          {!j.custom && (
+            <RecruitersButton
+              rec={rec}
+              job={j}
+              category={categoryOf(j.firm)}
+              aiFetch={aiFetch}
+              aiReady={aiReady}
+              onSetupAi={() => setAiOpen(true)}
+            />
+          )}
         </div>
         {st !== "none" && (
           <NoteEditor value={app?.notes} onSave={(v) => saveNotes(j, v)} />
@@ -858,10 +870,13 @@ export default function App({ signedIn = false, header = null }) {
               { v: "list", label: "List" },
               { v: "board", label: "Board" },
               { v: "trends", label: "Trends" },
+              { v: "recruiters", label: "Recruiters" },
             ]}
             value={view}
             onChange={setView}
           />
+          {view !== "recruiters" && (
+          <>
           <Seg options={SEGMENTS} value={segment} onChange={setSegment} />
           <Seg options={METROS.map((m) => ({ v: m, label: METRO_LABEL[m] }))} value={metro} onChange={setMetro} />
           {view !== "trends" && <Seg options={levelsFor(segment)} value={level} onChange={setLevel} />}
@@ -924,8 +939,10 @@ export default function App({ signedIn = false, header = null }) {
               ☆ Save search
             </button>
           )}
+          </>
+          )}
         </div>
-        {(naming || searches.length > 0) && (
+        {view !== "recruiters" && (naming || searches.length > 0) && (
           <div className="saved-in">
             {naming && (
               <SaveSearchForm
@@ -953,6 +970,8 @@ export default function App({ signedIn = false, header = null }) {
         {error && <div className="err">{error}</div>}
         {view === "trends" ? (
           <Trends metro={metro} segment={segment} segmentOf={segmentOf} category={category} q={q} categoryOf={categoryOf} />
+        ) : view === "recruiters" ? (
+          <RecruitersView rec={rec} aiFetch={aiFetch} aiReady={aiReady} onSetupAi={() => setAiOpen(true)} />
         ) : (
         <>
         <div className="meta">

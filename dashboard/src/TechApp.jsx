@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { supabase, authHeaders } from "./supabaseClient.js";
 import Trends from "./Trends.jsx";
 import { DraftModal, OutsideDraftModal, PasteJdModal, fileToBase64 } from "./App.jsx";
+import { useRecruiters, RecruitersView, RecruiterMatches } from "./Recruiters.jsx";
 import "./tech.css";
 
 // Tech Watch: data engineering roles (tech_pipeline.py -> Supabase tech_*).
@@ -120,7 +121,10 @@ export default function TechApp({ header, signedIn }) {
   const [error, setError] = useState("");
   const [cmd, setCmd] = useState(initialCmd);
   const [cmdFocus, setCmdFocus] = useState(false);
-  const [view, setView] = useState(() => (new URLSearchParams(window.location.search).get("view") === "trends" ? "trends" : "list"));
+  const [view, setView] = useState(() => {
+    const v = new URLSearchParams(window.location.search).get("view");
+    return v === "trends" || v === "recruiters" ? v : "list";
+  });
   const [selId, setSelId] = useState(null);
   const [theme, setTheme] = useState(() => {
     try {
@@ -197,6 +201,7 @@ export default function TechApp({ header, signedIn }) {
   const [outsideOpen, setOutsideOpen] = useState(false); // cover letter for a role not on the board
   const [pasteFor, setPasteFor] = useState(null);
   const aiReady = ai.state === "ready" && !!ai.resume;
+  const rec = useRecruiters("tech");
 
   async function aiFetch(path, body, method) {
     const r = await fetch(`/api/${path}`, {
@@ -483,6 +488,7 @@ export default function TechApp({ header, signedIn }) {
               </NavItem>
             ))}
             <NavItem on={view === "trends"} onClick={() => setView(view === "trends" ? "list" : "trends")}>Hiring trends</NavItem>
+            <NavItem on={view === "recruiters"} onClick={() => setView(view === "recruiters" ? "list" : "recruiters")}>Recruiters</NavItem>
             <NavItem on={outsideOpen} n={ai.outside.length || null} onClick={() => (aiReady ? setOutsideOpen(true) : setAiOpen(true))}>
               ✍ Outside job
             </NavItem>
@@ -605,7 +611,11 @@ export default function TechApp({ header, signedIn }) {
           )}
           {aiOpen && <ResumePanel ai={ai} setAi={setAi} aiFetch={aiFetch} signedIn={signedIn} onClose={() => setAiOpen(false)} />}
 
-          {view === "trends" ? (
+          {view === "recruiters" ? (
+            <div className="tw-trends">
+              <RecruitersView rec={rec} aiFetch={aiFetch} aiReady={aiReady} onSetupAi={() => setAiOpen(true)} />
+            </div>
+          ) : view === "trends" ? (
             <div className="tw-trends">
               <Trends
                 table="tech_hiring_trends"
@@ -645,6 +655,11 @@ export default function TechApp({ header, signedIn }) {
                   onDraft={() => setDraftFor(sel)}
                   onSetupAi={() => setAiOpen(true)}
                   onRemove={sel.custom ? () => removeCustom(sel) : null}
+                  recruiters={
+                    sel.custom ? null : (
+                      <RecruiterMatches rec={rec} job={sel} aiFetch={aiFetch} aiReady={aiReady} onSetupAi={() => setAiOpen(true)} compact />
+                    )
+                  }
                 />
               )}
             </div>
@@ -652,7 +667,7 @@ export default function TechApp({ header, signedIn }) {
 
           <div className="tw-status">
             <span className="mode">{cmdFocus ? "INSERT" : "NORMAL"}</span>
-            <span>{view === "trends" ? "trends" : `${rows.length} rows`}</span>
+            <span>{view === "list" ? `${rows.length} rows` : view}</span>
             <span>sort: {spec.sort}</span>
             <span className="keys">/ search · j k move · o open · a applied · f fit · w write</span>
           </div>
@@ -741,7 +756,7 @@ function Row({ job, on, status, fit, onClick }) {
   );
 }
 
-function Detail({ job, app, fit, scoring, aiReady, hasDraft, onStatus, onNotes, onFit, onDraft, onSetupAi, onRemove }) {
+function Detail({ job, app, fit, scoring, aiReady, hasDraft, onStatus, onNotes, onFit, onDraft, onSetupAi, onRemove, recruiters }) {
   const [notes, setNotes] = useState(app?.notes || "");
   useEffect(() => setNotes(app?.notes || ""), [job.id, app?.notes]);
   const posted = ageOf(job);
@@ -826,6 +841,13 @@ function Detail({ job, app, fit, scoring, aiReady, hasDraft, onStatus, onNotes, 
           </button>
         )}
       </div>
+
+      {recruiters && (
+        <div className="tw-section">
+          <h3>Recruiters</h3>
+          {recruiters}
+        </div>
+      )}
 
       <div className="tw-actions">
         <button className="tw-btn ghost" onClick={aiReady ? onDraft : onSetupAi}>
