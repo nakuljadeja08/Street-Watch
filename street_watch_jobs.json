@@ -97,18 +97,6 @@
   },
   {
     "firm": "BMO",
-    "id": "wd-bmo-External-/job/Westchester-IL-USA/Associate-Banker_R260026330",
-    "title": "Associate Banker",
-    "location": "Westchester, IL, USA",
-    "url": "https://bmo.wd3.myworkdayjobs.com/External/job/Westchester-IL-USA/Associate-Banker_R260026330",
-    "source": "workday",
-    "posted_date": "2026-09-14",
-    "metro": "Chicago",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "BMO",
     "id": "wd-bmo-External-/job/Chicago-IL-USA/Associate-Banker_R260026456",
     "title": "Associate Banker",
     "location": "Chicago, IL, USA",
@@ -1368,6 +1356,18 @@
     "is_new": true
   },
   {
+    "firm": "Aston Carter",
+    "id": "phenom-careers.astoncarter.com-ASCAUSJP006304045ENUS",
+    "title": "Executive Operations Associate \u00b7 Contract",
+    "location": "New York, New York, USA",
+    "url": "https://careers.astoncarter.com/us/en/job/ASCAUSJP006304045ENUS",
+    "source": "phenom",
+    "posted_date": "2026-09-23",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-05",
+    "is_new": true
+  },
+  {
     "firm": "BMO",
     "id": "wd-bmo-External-/job/New-York-NY-USA/Analyst--Corporate-Banking--Project-and-Energy-Transition-Finance_R260025926",
     "title": "Analyst, Corporate Banking, Project and Energy Transition Finance",
@@ -2089,18 +2089,6 @@
   },
   {
     "firm": "Blackstone",
-    "id": "wd-blackstone-Blackstone_Careers-/job/New-York/BXHF---Content-Associate_42647-2",
-    "title": "BXHF - Content Associate",
-    "location": "New York",
-    "url": "https://blackstone.wd1.myworkdayjobs.com/Blackstone_Careers/job/New-York/BXHF---Content-Associate_42647-2",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": false
-  },
-  {
-    "firm": "Blackstone",
     "id": "wd-blackstone-Blackstone_Careers-/job/New-York/BXMA---Business---Financial-Evaluation---Analyst_45566",
     "title": "BXMA - Business & Financial Evaluation - Analyst",
     "location": "New York",
@@ -2361,18 +2349,6 @@
     "posted_date": "2026-09-14",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-17",
-    "is_new": false
-  },
-  {
-    "firm": "Bonhams",
-    "id": "bamboo-bonhams-679",
-    "title": "Business Associate",
-    "location": "New York, New York",
-    "url": "https://bonhams.bamboohr.com/careers/679",
-    "source": "bamboohr",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-01",
     "is_new": false
   },
   {
@@ -2820,6 +2796,18 @@
     "is_new": false
   },
   {
+    "firm": "Christie's",
+    "id": "wd-christies-Christies_Careers-/job/New-York/Specialist--Private-Sales--Jewellery-and-Watches_JR00015171",
+    "title": "Specialist, Private Sales, Jewellery and Watches",
+    "location": "New York",
+    "url": "https://christies.wd3.myworkdayjobs.com/Christies_Careers/job/New-York/Specialist--Private-Sales--Jewellery-and-Watches_JR00015171",
+    "source": "workday",
+    "posted_date": "2026-10-05",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-05",
+    "is_new": true
+  },
+  {
     "firm": "Citadel Securities",
     "id": "cs-client-execution-trading",
     "title": "Client Execution Trading",
@@ -3045,18 +3033,6 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-23",
-    "is_new": false
-  },
-  {
-    "firm": "Citi",
-    "id": "citi-97845636336",
-    "title": "Banking - Capital Markets, Full Time Analyst, New York - USA, 2027",
-    "location": "New York, New York, United States",
-    "url": "https://jobs.citi.com/job/new-york/banking-capital-markets-full-time-analyst-new-york-usa-2027/287/97845636336",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
     "is_new": false
   },
   {
@@ -3313,6 +3289,18 @@
   },
   {
     "firm": "DRW",
+    "id": "gh-drweng-8256366",
+    "title": "Quantitative Researcher - Prediction Markets",
+    "location": "New York",
+    "url": "https://job-boards.greenhouse.io/drweng/jobs/8256366",
+    "source": "greenhouse",
+    "posted_date": "2026-10-05",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-05",
+    "is_new": true
+  },
+  {
+    "firm": "DRW",
     "id": "gh-drweng-8238021",
     "title": "Risk Product Analyst",
     "location": "New York",
@@ -3413,30 +3401,6 @@
     "title": "Investment Banking & Capital Markets \u2013 Strategic Equity Transactions Group (SETG) Associate",
     "location": "New York, 1 Columbus Circle",
     "url": "https://db.wd3.myworkdayjobs.com/DBWebsite/job/New-York-1-Columbus-Circle/Investment-Banking---Capital-Markets---Strategic-Equity-Transactions-Group--SETG--Associate_R0447623",
-    "source": "workday",
-    "posted_date": "2026-09-11",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": false
-  },
-  {
-    "firm": "Deutsche Bank",
-    "id": "wd-db-DBWebsite-/job/New-York-1-Columbus-Circle/Investment-Banking-and-Capital-Markets---Equity-Capital-Markets-Analyst_R0448003-1",
-    "title": "Investment Banking and Capital Markets \u2013 Equity Capital Markets Analyst",
-    "location": "New York, 1 Columbus Circle",
-    "url": "https://db.wd3.myworkdayjobs.com/DBWebsite/job/New-York-1-Columbus-Circle/Investment-Banking-and-Capital-Markets---Equity-Capital-Markets-Analyst_R0448003-1",
-    "source": "workday",
-    "posted_date": "2026-10-02",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-02",
-    "is_new": false
-  },
-  {
-    "firm": "Deutsche Bank",
-    "id": "wd-db-DBWebsite-/job/New-York-1-Columbus-Circle/Investment-Banking-and-Capital-Markets---Equity-Capital-Markets-Associate_R0447624",
-    "title": "Investment Banking and Capital Markets \u2013 Equity Capital Markets Associate",
-    "location": "New York, 1 Columbus Circle",
-    "url": "https://db.wd3.myworkdayjobs.com/DBWebsite/job/New-York-1-Columbus-Circle/Investment-Banking-and-Capital-Markets---Equity-Capital-Markets-Associate_R0447624",
     "source": "workday",
     "posted_date": "2026-09-11",
     "metro": "NY + Jersey City",
@@ -5041,6 +5005,18 @@
   },
   {
     "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210796247",
+    "title": "Customer Success Associate I",
+    "location": "Brooklyn, NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210796247",
+    "source": "oracle",
+    "posted_date": "2026-10-05",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-05",
+    "is_new": true
+  },
+  {
+    "firm": "JPMorgan Chase",
     "id": "oracle-jpmc.fa.oraclecloud.com-210791709",
     "title": "Equities Electronic Trading \u2013 J.P. Morgan NYSE Floor Broker \u2013 Associate",
     "location": "New York, NY, United States",
@@ -5146,6 +5122,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-22",
     "is_new": false
+  },
+  {
+    "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210796788",
+    "title": "Finance & T/CIO Chief Data Office - Data Science Associate",
+    "location": "NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210796788",
+    "source": "oracle",
+    "posted_date": "2026-10-05",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-05",
+    "is_new": true
   },
   {
     "firm": "JPMorgan Chase",
@@ -5410,6 +5398,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-26",
     "is_new": false
+  },
+  {
+    "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210790113",
+    "title": "Model Risk Governance and Review Associate for Corporate Aligned - Model Risk Program Associate",
+    "location": "Jersey City, NJ, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210790113",
+    "source": "oracle",
+    "posted_date": "2026-10-05",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-05",
+    "is_new": true
   },
   {
     "firm": "JPMorgan Chase",
@@ -5710,6 +5710,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-19",
     "is_new": false
+  },
+  {
+    "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210785269",
+    "title": "U.S. Private Bank - Program Analyst",
+    "location": "New York, NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210785269",
+    "source": "oracle",
+    "posted_date": "2026-10-05",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-05",
+    "is_new": true
   },
   {
     "firm": "JPMorgan Chase",
@@ -6161,18 +6173,6 @@
     "title": "Business Analyst \u00b7 Direct hire",
     "location": "New York, New York",
     "url": "https://www.michaelpage.com/job-detail/business-analysterp-specialist/ref/jn-082026-7081663",
-    "source": "michaelpage",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-05",
-    "is_new": true
-  },
-  {
-    "firm": "Michael Page",
-    "id": "michaelpage-jn-092026-7104627",
-    "title": "Financial Regulatory Reporting Analyst \u00b7 Contract",
-    "location": "New York, New York",
-    "url": "https://www.michaelpage.com/job-detail/financial-regulatory-reporting-analyst/ref/jn-092026-7104627",
     "source": "michaelpage",
     "posted_date": null,
     "metro": "NY + Jersey City",
@@ -7401,18 +7401,6 @@
     "posted_date": "2026-10-01",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-01",
-    "is_new": false
-  },
-  {
-    "firm": "RBC Capital Markets",
-    "id": "phenom-jobs.rbc.com-RBCAA0088R0000183168EXTERNALENCA",
-    "title": "Associate, Financial Institutions Group Corporate Banking",
-    "location": "New York, New York, United States of America",
-    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Associate--Financial-Institutions-Group-Corporate-Banking_R-0000183168",
-    "source": "phenom",
-    "posted_date": "2026-10-02",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-02",
     "is_new": false
   },
   {
