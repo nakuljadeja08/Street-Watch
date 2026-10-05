@@ -861,7 +861,7 @@ def fetch_radancy(firm, host, source, keywords=None):
     return out
 
 
-def fetch_phenom(firm, host, country="us", lang="en_us"):
+def fetch_phenom(firm, host, country="us", lang="en_us", agency=False):
     """Phenom People careers boards (e.g. RBC, PNC, Truist, Regions). Job search
     is a POST to https://<host>/widgets with ddoKey="refineSearch"; the response
     nests the page under refineSearch.data.jobs with refineSearch.totalHits for
@@ -898,13 +898,15 @@ def fetch_phenom(firm, host, country="us", lang="en_us"):
                 loc = (j.get("cityStateCountry") or j.get("cityState")
                        or ", ".join(x for x in [j.get("city"), j.get("state"),
                                                 j.get("country")] if x)).strip()
-                url = (j.get("applyUrl") or "").strip()
+                # Agency boards' applyUrl is an opaque apply portal, not the JD.
+                url = "" if agency else (j.get("applyUrl") or "").strip()
                 if url.endswith("/apply"):
                     url = url[:-6]
                 if not url:
                     url = f"https://{host}/{country}/{lang_short}/job/{seq}"
+                title = (j.get("title") or "").strip()
                 out.append(dict(firm=firm, id=f"phenom-{host}-{seq}",
-                                title=(j.get("title") or "").strip(),
+                                title=_tagged(title, j.get("type")) if agency else title,
                                 location=loc, url=url, source="phenom",
                                 posted_date=_posted(j.get("postedDate")
                                                     or j.get("dateCreated"))))
@@ -1120,6 +1122,162 @@ def fetch_rago(firm="Rago | Wright"):
     return out
 
 
+# ---------------------------------------------------------------- staffing agencies
+# Banks and big employers fill many contract/temp seats (ops, KYC, risk, FP&A)
+# through staffing agencies, and those roles are posted only on the AGENCY's
+# board — usually without naming the client (added 2026-10-05). Each agency is
+# searched per keyword per metro; title_ok() then keeps finance-field roles only.
+AGENCY_KEYWORDS = ("analyst", "associate")
+ROBERT_HALF_CITIES = ("new-york-ny", "chicago-il", "san-francisco-ca")
+RANDSTAD_CITIES = ("new-york/new-york", "illinois/chicago", "california/san-francisco")
+MICHAEL_PAGE_CITIES = ("new-york", "chicago", "san-francisco")
+ASTON_CARTER_HOST = "careers.astoncarter.com"   # Allegis's finance brand, on Phenom
+AGENCY_FIRMS = {"Robert Half", "Randstad", "Michael Page", "Aston Carter"}
+# Agency sites serve full pages to browser user agents, so send a plain one.
+_BROWSER_UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                             "(KHTML, like Gecko) Chrome/128.0 Safari/537.36"}
+
+
+def _agency_tag(kind):
+    """Normalise an agency's employment type to Contract / Contract-to-hire /
+    Direct hire, shown on the title so agency rows read differently on the board."""
+    k = (kind or "").lower()
+    if re.search(r"to[\s-]*(?:perm|hire|regular)", k):
+        return "Contract-to-hire"
+    if re.search(r"contract|temp", k):
+        return "Contract"
+    if re.search(r"perm|full|direct|regular", k):
+        return "Direct hire"
+    return None
+
+
+def _tagged(title, kind):
+    tag = _agency_tag(kind)
+    return f"{title} · {tag}" if tag else title
+
+
+def fetch_robert_half(firm="Robert Half"):
+    """roberthalf.com/us/en/jobs/<city>/<keyword>?pagenumber=N embeds 25 results
+    per page as a \\x22-escaped JSON string; `found` is the total."""
+    out, seen = [], set()
+    for city in ROBERT_HALF_CITIES:
+        for kw in AGENCY_KEYWORDS:
+            page, found = 1, None
+            while page <= 20:
+                try:
+                    r = requests.get(f"https://www.roberthalf.com/us/en/jobs/{city}/{kw}",
+                                     params={"pagenumber": page}, headers=_BROWSER_UA, timeout=TIMEOUT)
+                    r.raise_for_status()
+                except Exception as e:
+                    print(f"  ! robert half {city}/{kw}: {e}", file=sys.stderr); break
+                t = (r.text.replace("\\x22", '"').replace("\\u002D", "-").replace("\\/", "/"))
+                if found is None:
+                    m = re.search(r'"found":"?(\d+)', t)
+                    found = int(m.group(1)) if m else 0
+                recs = re.findall(r'"unique_job_number":"([^"]+)","jobtitle":"([^"]*)"(.*?)"boiler_plate"', t, re.S)
+                for jid, title, rest in recs:
+                    if jid in seen:
+                        continue
+                    seen.add(jid)
+                    g = lambda k: (re.search(rf'"{k}":"([^"]*)"', rest) or [None, ""])[1]
+                    loc = ", ".join(x for x in (g("city"), g("stateprovince")) if x)
+                    if g("remote") == "Yes":
+                        loc = f"{loc} (Remote)" if loc else "Remote"
+                    out.append(dict(firm=firm, id=f"roberthalf-{jid}", title=_tagged(title.strip(), g("emptype")),
+                                    location=loc, url=g("job_detail_url"), source="roberthalf",
+                                    posted_date=_posted(g("date_posted"))))
+                if not recs or page * 25 >= found:
+                    break
+                page += 1; time.sleep(0.3)
+    return out
+
+
+def fetch_randstad(firm="Randstad"):
+    """randstadusa.com/jobs/<state>/<city>/q-<keyword>/page-N/ embeds 30 results
+    per page as plain JSON objects; `totalSize` is the total."""
+    out, seen = [], set()
+    for city in RANDSTAD_CITIES:
+        for kw in AGENCY_KEYWORDS:
+            page, total = 1, None
+            while page <= 20:
+                path = f"https://www.randstadusa.com/jobs/{city}/q-{kw}/" + (f"page-{page}/" if page > 1 else "")
+                try:
+                    r = requests.get(path, headers=_BROWSER_UA, timeout=TIMEOUT)
+                    # Search pages come back "410 Gone" yet carry the full result
+                    # list, so only a 5xx or other 4xx counts as a failure.
+                    if r.status_code != 410:
+                        r.raise_for_status()
+                except Exception as e:
+                    print(f"  ! randstad {city}/{kw}: {e}", file=sys.stderr); break
+                if total is None:
+                    m = re.search(r'"totalSize":(\d+)', r.text)
+                    total = int(m.group(1)) if m else 0
+                recs = re.findall(r'\{"application_id":[^{}]*?"job_title":"[^{}]*?"reference_number":"[^"]*"\}', r.text)
+                for raw in recs:
+                    try:
+                        j = json.loads(raw)
+                    except Exception:
+                        continue
+                    jid = j.get("reference_number") or j.get("job_id")
+                    if not jid or jid in seen:
+                        continue
+                    seen.add(jid)
+                    out.append(dict(firm=firm, id=f"randstad-{jid}",
+                                    title=_tagged((j.get("job_title") or "").strip(), j.get("employment_type")),
+                                    location=", ".join(x for x in (j.get("city"), j.get("region")) if x),
+                                    url=j.get("url") or "", source="randstad",
+                                    posted_date=_posted(j.get("launch_date"))))
+                if not recs or page * 30 >= total:
+                    break
+                page += 1; time.sleep(0.3)
+    return out
+
+
+_MP_TILE = re.compile(r'<div about="(/job-detail/[^"]+/ref/([^"]+))" class="job-tile[^"]*">(.*?)</li>', re.S)
+
+
+def fetch_michael_page(firm="Michael Page"):
+    """michaelpage.com/jobs/<keyword>/<city>?page=N is server-rendered job tiles
+    (title, location, Permanent/Temporary). No post date on the tile."""
+    import html as _html
+    out, seen = [], set()
+    for city in MICHAEL_PAGE_CITIES:
+        for kw in AGENCY_KEYWORDS:
+            for page in range(0, 15):
+                try:
+                    r = requests.get(f"https://www.michaelpage.com/jobs/{kw}/{city}",
+                                     params={"page": page} if page else None,
+                                     headers=_BROWSER_UA, timeout=TIMEOUT)
+                    if r.status_code == 404:   # no results / paged past the end
+                        break
+                    r.raise_for_status()
+                except Exception as e:
+                    print(f"  ! michael page {city}/{kw}: {e}", file=sys.stderr); break
+                new = 0
+                for href, ref, body in _MP_TILE.findall(r.text):
+                    if ref in seen:
+                        continue
+                    seen.add(ref); new += 1
+                    title = re.search(r"<h3>\s*<a[^>]*>(.*?)</a>", body, re.S)
+                    loc = re.search(r'job-location">.*?</i>\s*(.*?)\s*</div>', body, re.S)
+                    kind = re.search(r'job-contract-type">.*?</i>\s*(.*?)\s*</div>', body, re.S)
+                    clean = lambda m: _html.unescape(_TAG_RE.sub("", m.group(1))).strip() if m else ""
+                    out.append(dict(firm=firm, id=f"michaelpage-{ref}",
+                                    title=_tagged(clean(title), clean(kind)), location=clean(loc),
+                                    url=f"https://www.michaelpage.com{href}", source="michaelpage",
+                                    posted_date=None))
+                if not new:
+                    break
+                time.sleep(0.3)
+    return out
+
+
+def fetch_aston_carter(firm="Aston Carter"):
+    """Aston Carter's Phenom board (~1.3k US jobs) is small enough to page whole;
+    links go to the job description, and the Phenom `type` becomes the tag."""
+    return fetch_phenom(firm, ASTON_CARTER_HOST, agency=True)
+
+
 def fetch_successfactors(firm, host, locations=("New York", "San Francisco", "Chicago")):
     """SAP SuccessFactors Career Site Builder (e.g. jobs.pradagroup.com). The
     /search/ page is server-rendered; one query per metro via `locationsearch`,
@@ -1207,12 +1365,43 @@ _SPECIALIST_RE = re.compile(r"specialist", re.I)
 _MANAGER_RE = re.compile(r"(?<!assistant )(?<!associate )manager", re.I)  # Assistant/Associate Manager stay
 
 
+# Agency boards list every field (IT help desk, payroll, clinical…), so agency
+# roles must also be in a finance field. Accounting/AP/payroll seats are left out.
+_AGENCY_FIELD_RE = re.compile(
+    r"financ|fp&a|\binvestment|\bcredit\b|\brisk\b|compliance|\bkyc\b|\baml\b|anti[\s-]money"
+    r"|regulatory|\boperations\b|treasury|\bfunds?\b|portfolio|\btrade\b|trading|settlement"
+    r"|reconciliation|valuation|\bbank|\bloan|lending|wealth|capital markets|equity|m&a|\bdeal"
+    r"|underwrit|business analyst|\bresearch\b|strategy|\bpricing\b|\baudit|asset management", re.I)
+_AGENCY_EXCLUDE_RE = re.compile(
+    r"payroll|help ?desk|service desk|desktop|\bit\b|accounts (?:payable|receivable)|billing"
+    r"|collections?\b|\bhr\b|human resources|recruit|clinical|medical|warehouse|supply chain"
+    r"|procurement|inventory|\btax\b|counsel|salesforce|\berp\b|workday|functional consultant"
+    r"|\blead\b|(?<!assistant )(?<!associate )manager"
+    r"|regulatory affairs|biomarker|laborator|\blab\b|\bcmc\b", re.I)
+# Agency searches are radius-based (White Plains, Newburgh, North Chicago, South
+# San Francisco…), so an agency row's city must itself be a metro city.
+_AGENCY_CITIES = {
+    "new york": "NY + Jersey City", "new york city": "NY + Jersey City", "nyc": "NY + Jersey City",
+    "manhattan": "NY + Jersey City", "jersey city": "NY + Jersey City",
+    "chicago": "Chicago",
+    "san francisco": "SF / Bay Area", "palo alto": "SF / Bay Area", "menlo park": "SF / Bay Area",
+    "mountain view": "SF / Bay Area", "san mateo": "SF / Bay Area", "redwood city": "SF / Bay Area",
+}
+
+
+def agency_metro(loc):
+    return _AGENCY_CITIES.get(loc.split(",")[0].replace("(Remote)", "").strip().lower())
+
+
 def title_ok(firm, title):
     t = title.lower()
     if any(x in t for x in EXCLUDE) or _PART_TIME_RE.search(title) or _SENIOR_RE.search(title):
         return False
     if _ACCOUNT_EXEC_RE.search(title):
         return False
+    if firm in AGENCY_FIRMS:
+        return (bool(_AGENCY_FIELD_RE.search(title)) and not _AGENCY_EXCLUDE_RE.search(title)
+                and any(k in t for k in TITLES))
     if _SPECIALIST_RE.search(title) and segment_of(firm) == "fintech":
         return False
     if _MANAGER_RE.search(title) and segment_of(firm) in ("fintech", "fashion"):
@@ -1303,10 +1492,14 @@ def collect():
     rows = fetch_rago(); print(f"  {'Rago | Wright':<24}{len(rows):>4}"); raw += rows
     print("LVMH (lvmh.com)…")
     rows = fetch_lvmh("LVMH"); print(f"  {'LVMH':<24}{len(rows):>4}"); raw += rows
+    print("Staffing agencies…")
+    for f, fetch in (("Robert Half", fetch_robert_half), ("Randstad", fetch_randstad),
+                     ("Michael Page", fetch_michael_page), ("Aston Carter", fetch_aston_carter)):
+        rows = fetch(f); print(f"  {f:<24}{len(rows):>4}"); raw += rows
 
     kept, seen = [], set()
     for r in raw:
-        m = metro_of(r["location"])
+        m = agency_metro(r["location"]) if r["firm"] in AGENCY_FIRMS else metro_of(r["location"])
         if (m and title_ok(r["firm"], r["title"]) and age_ok(r.get("posted_date"))
                 and r["id"] not in seen):
             seen.add(r["id"]); r["metro"] = m; kept.append(r)
@@ -1424,7 +1617,8 @@ def registered_firms():
     regs = (GREENHOUSE, ASHBY, JIBE, PINPOINT, ORACLE, HRMDIRECT, PAGEUP, ICIMS,
             WORKDAY, WORKDAY_SITE, RADANCY, PHENOM, EIGHTFOLD, EIGHTFOLD_PCSX, SUCCESSFACTORS,
             BAMBOOHR, PAYLOCITY)
-    return {f for reg in regs for f in reg} | {"Goldman Sachs", "Citadel Securities", "LVMH", "Rago | Wright"}
+    return ({f for reg in regs for f in reg} | AGENCY_FIRMS
+            | {"Goldman Sachs", "Citadel Securities", "LVMH", "Rago | Wright"})
 
 
 def update_trends(trends, board, listed, ok_firms, today, registered):
