@@ -1,6 +1,6 @@
 # Street Watch — Firm Status
 
-Updated 2026-10-01. **99 firms live** across three dashboard segments. Of the
+Updated 2026-10-05. **103 sources live**: 99 firms across three dashboard segments plus 4 staffing agencies. Of the
 121 original finance targets (`Target_Financial_Firms.xlsx`), **73 are live, 45
 remain and 3 were removed** at your request.
 
@@ -9,6 +9,7 @@ remain and 3 were removed** at your request.
 | Finance | 74 | Analyst / Associate (+ trader / quant at trading firms) |
 | Fintech | 10 | Product, GTM, Investor Relations |
 | Fashion & Luxury | 15 | Product, GTM, Investor Relations (store roles excluded); auction houses also Analyst / Associate / Cataloguer / Coordinator |
+| Staffing agencies (Finance) | 4 | Finance-field Analyst / Associate, tagged Contract / Contract-to-hire / Direct hire |
 
 ---
 
@@ -44,6 +45,10 @@ Bonhams (auction house) · Christie's (auction house) · Doyle (auction house) �
 (all maisons: Louis Vuitton, Dior, Tiffany, Sephora, Moët Hennessy…) · Moncler
 (+ Stone Island) · On Holding · Phillips (auction house) · Prada (+ Miu Miu) · Rago | Wright (auction house) · Richemont (Cartier, Van
 Cleef & Arpels, IWC…) · Sotheby's (auction house) · Tapestry (Coach, Kate Spade)
+
+### Staffing agencies (4, added 2026-10-05)
+Aston Carter (Allegis finance brand) · Michael Page · Randstad · Robert Half —
+firm type "Staffing Agency" on the dashboard. Client firms are usually not named.
 
 ---
 
