@@ -1,18 +1,5 @@
 [
   {
-    "firm": "Comcast",
-    "id": "wd-comcast-Comcast_Careers-/job/IL---Chicago-350-N-Orleans-St-1300N/Data-Engineer-3---Reston--VA---Freewheel_R444945",
-    "title": "Data Engineer 3 - Reston, VA - Freewheel",
-    "location": "IL - Chicago, 350 N. Orleans St 1300N; VA - Reston, 11951 Freedom Dr Ste 900",
-    "url": "https://comcast.wd115.myworkdayjobs.com/Comcast_Careers/job/IL---Chicago-350-N-Orleans-St-1300N/Data-Engineer-3---Reston--VA---Freewheel_R444945",
-    "source": "workday",
-    "posted_date": "2026-09-22",
-    "metro": "Chicago",
-    "sector": "Tech",
-    "first_seen": "2026-10-01",
-    "is_new": false
-  },
-  {
     "firm": "Google",
     "id": "google-114385783674020550",
     "title": "Agentic Data Cloud Databases Engineer, Google Cloud",
@@ -339,16 +326,16 @@
   },
   {
     "firm": "Comcast",
-    "id": "wd-comcast-Comcast_Careers-/job/PA---West-Chester-1354-Boot-Rd/Data-Engineer_R442548",
-    "title": "Product Data Engineer (Databricks, PySpark, AWS)",
+    "id": "wd-comcast-Comcast_Careers-/job/PA---West-Chester-1354-Boot-Rd/Platform-Data-Engineer----DataBricks--PySpark--AWS-_R442523",
+    "title": "Platform Data Engineer - (DataBricks, PySpark, AWS)",
     "location": "PA - West Chester, 1354 Boot Rd",
-    "url": "https://comcast.wd115.myworkdayjobs.com/Comcast_Careers/job/PA---West-Chester-1354-Boot-Rd/Data-Engineer_R442548",
+    "url": "https://comcast.wd115.myworkdayjobs.com/Comcast_Careers/job/PA---West-Chester-1354-Boot-Rd/Platform-Data-Engineer----DataBricks--PySpark--AWS-_R442523",
     "source": "workday",
-    "posted_date": "2026-09-04",
+    "posted_date": "2026-10-05",
     "metro": "Other US",
     "sector": "Tech",
-    "first_seen": "2026-10-01",
-    "is_new": false
+    "first_seen": "2026-10-05",
+    "is_new": true
   },
   {
     "firm": "Fidelity",
@@ -430,32 +417,6 @@
   },
   {
     "firm": "Allstate",
-    "id": "wd-allstate-allstate_careers-/job/USA---IL-Remote/Data-Analytics-Engineer--Remote--US-_R35409-1",
-    "title": "Data Analytics Engineer (Remote, US)",
-    "location": "USA - IL (Remote)",
-    "url": "https://allstate.wd5.myworkdayjobs.com/allstate_careers/job/USA---IL-Remote/Data-Analytics-Engineer--Remote--US-_R35409-1",
-    "source": "workday",
-    "posted_date": "2026-10-02",
-    "metro": "Remote (US)",
-    "sector": "Finance",
-    "first_seen": "2026-10-03",
-    "is_new": false
-  },
-  {
-    "firm": "Allstate",
-    "id": "wd-allstate-allstate_careers-/job/USA---IL-Remote/Data-Engineer--Remote--US-_R35408-1",
-    "title": "Data Engineer (Remote, US)",
-    "location": "USA - IL (Remote)",
-    "url": "https://allstate.wd5.myworkdayjobs.com/allstate_careers/job/USA---IL-Remote/Data-Engineer--Remote--US-_R35408-1",
-    "source": "workday",
-    "posted_date": "2026-10-02",
-    "metro": "Remote (US)",
-    "sector": "Finance",
-    "first_seen": "2026-10-03",
-    "is_new": false
-  },
-  {
-    "firm": "Allstate",
     "id": "wd-allstate-allstate_careers-/job/US---Remote/Managing-Engineer--Data-Engineering_R35362-1",
     "title": "Managing Engineer, Data Engineering",
     "location": "US - Remote",
@@ -492,6 +453,19 @@
     "sector": "Tech",
     "first_seen": "2026-09-30",
     "is_new": false
+  },
+  {
+    "firm": "Samsara",
+    "id": "gh-samsara-8141959",
+    "title": "Data Engineer",
+    "location": "Remote - US",
+    "url": "https://www.samsara.com/company/careers/roles/8141959?gh_jid=8141959",
+    "source": "greenhouse",
+    "posted_date": "2026-10-05",
+    "metro": "Remote (US)",
+    "sector": "Tech",
+    "first_seen": "2026-10-05",
+    "is_new": true
   },
   {
     "firm": "Adobe",
@@ -660,6 +634,19 @@
     "metro": "SF Bay Area",
     "sector": "Tech",
     "first_seen": "2026-09-30",
+    "is_new": false
+  },
+  {
+    "firm": "Expedia",
+    "id": "wd-expedia-search-/job/Washington---Seattle-Campus/Global-Data-Sharing-Engineer_R-110073-1",
+    "title": "Global Data Sharing Engineer",
+    "location": "Washington - Seattle Campus; Austin Domain 11 - HomeAway",
+    "url": "https://expedia.wd108.myworkdayjobs.com/search/job/Washington---Seattle-Campus/Global-Data-Sharing-Engineer_R-110073-1",
+    "source": "workday",
+    "posted_date": "2026-10-05",
+    "metro": "Seattle",
+    "sector": "Tech",
+    "first_seen": "2026-10-01",
     "is_new": false
   },
   {
