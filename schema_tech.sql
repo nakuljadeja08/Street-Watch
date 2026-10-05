@@ -11,7 +11,7 @@ create table if not exists public.tech_jobs (
   title       text not null,
   location    text,
   metro       text,                 -- hub: 'NYC Area' | 'SF Bay Area' | … | 'Remote (US)' | 'Other US'
-  sector      text,                 -- 'Tech' | 'Fintech' | 'Finance'
+  sector      text,                 -- 'Tech' | 'Fintech' | 'Finance' | 'Agency'
   source      text,
   url         text,
   posted_date date,

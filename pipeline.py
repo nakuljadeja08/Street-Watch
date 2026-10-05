@@ -861,7 +861,7 @@ def fetch_radancy(firm, host, source, keywords=None):
     return out
 
 
-def fetch_phenom(firm, host, country="us", lang="en_us", agency=False):
+def fetch_phenom(firm, host, country="us", lang="en_us", agency=False, keywords=""):
     """Phenom People careers boards (e.g. RBC, PNC, Truist, Regions). Job search
     is a POST to https://<host>/widgets with ddoKey="refineSearch"; the response
     nests the page under refineSearch.data.jobs with refineSearch.totalHits for
@@ -882,7 +882,7 @@ def fetch_phenom(firm, host, country="us", lang="en_us", agency=False):
                     "pageName": "search-results", "size": SIZE, "clearAll": False,
                     "jdsource": "facets", "isSliderEnable": False,
                     "isMultiLingual": False, "pageId": "", "siteType": "external",
-                    "keywords": "", "global": True, "selected_fields": {},
+                    "keywords": keywords, "global": True, "selected_fields": {},
                     "locationData": {}, "sort": {}, "esreqid": ""}
             r = requests.post(base, headers={**UA, "Content-Type": "application/json"},
                               json=body, timeout=TIMEOUT)
@@ -1156,119 +1156,123 @@ def _tagged(title, kind):
     return f"{title} · {tag}" if tag else title
 
 
-def fetch_robert_half(firm="Robert Half"):
+def fetch_robert_half(firm="Robert Half", searches=None):
     """roberthalf.com/us/en/jobs/<city>/<keyword>?pagenumber=N embeds 25 results
-    per page as a \\x22-escaped JSON string; `found` is the total."""
+    per page as a \\x22-escaped JSON string; `found` is the total. `searches` is a
+    list of (city slug, keyword slug); city "all" searches the whole US (Tech Watch)."""
     out, seen = [], set()
-    for city in ROBERT_HALF_CITIES:
-        for kw in AGENCY_KEYWORDS:
-            page, found = 1, None
-            while page <= 20:
-                try:
-                    r = requests.get(f"https://www.roberthalf.com/us/en/jobs/{city}/{kw}",
-                                     params={"pagenumber": page}, headers=_BROWSER_UA, timeout=TIMEOUT)
-                    r.raise_for_status()
-                except Exception as e:
-                    print(f"  ! robert half {city}/{kw}: {e}", file=sys.stderr); break
-                t = (r.text.replace("\\x22", '"').replace("\\u002D", "-").replace("\\/", "/"))
-                if found is None:
-                    m = re.search(r'"found":"?(\d+)', t)
-                    found = int(m.group(1)) if m else 0
-                recs = re.findall(r'"unique_job_number":"([^"]+)","jobtitle":"([^"]*)"(.*?)"boiler_plate"', t, re.S)
-                for jid, title, rest in recs:
-                    if jid in seen:
-                        continue
-                    seen.add(jid)
-                    g = lambda k: (re.search(rf'"{k}":"([^"]*)"', rest) or [None, ""])[1]
-                    loc = ", ".join(x for x in (g("city"), g("stateprovince")) if x)
-                    if g("remote") == "Yes":
-                        loc = f"{loc} (Remote)" if loc else "Remote"
-                    out.append(dict(firm=firm, id=f"roberthalf-{jid}", title=_tagged(title.strip(), g("emptype")),
-                                    location=loc, url=g("job_detail_url"), source="roberthalf",
-                                    posted_date=_posted(g("date_posted"))))
-                if not recs or page * 25 >= found:
-                    break
-                page += 1; time.sleep(0.3)
+    for city, kw in searches or [(c, k) for c in ROBERT_HALF_CITIES for k in AGENCY_KEYWORDS]:
+        page, found = 1, None
+        while page <= 20:
+            try:
+                r = requests.get(f"https://www.roberthalf.com/us/en/jobs/{city}/{kw}",
+                                 params={"pagenumber": page}, headers=_BROWSER_UA, timeout=TIMEOUT)
+                r.raise_for_status()
+            except Exception as e:
+                print(f"  ! robert half {city}/{kw}: {e}", file=sys.stderr); break
+            t = (r.text.replace("\\x22", '"').replace("\\u002D", "-").replace("\\/", "/"))
+            if found is None:
+                m = re.search(r'"found":"?(\d+)', t)
+                found = int(m.group(1)) if m else 0
+            recs = re.findall(r'"unique_job_number":"([^"]+)","jobtitle":"([^"]*)"(.*?)"boiler_plate"', t, re.S)
+            for jid, title, rest in recs:
+                if jid in seen:
+                    continue
+                seen.add(jid)
+                g = lambda k: (re.search(rf'"{k}":"([^"]*)"', rest) or [None, ""])[1]
+                loc = ", ".join(x for x in (g("city"), g("stateprovince")) if x)
+                if g("remote") == "Yes":
+                    loc = f"{loc} (Remote)" if loc else "Remote"
+                out.append(dict(firm=firm, id=f"roberthalf-{jid}", title=_tagged(title.strip(), g("emptype")),
+                                location=loc, url=g("job_detail_url"), source="roberthalf",
+                                posted_date=_posted(g("date_posted"))))
+            if not recs or page * 25 >= found:
+                break
+            page += 1; time.sleep(0.3)
     return out
 
 
-def fetch_randstad(firm="Randstad"):
+def fetch_randstad(firm="Randstad", paths=None, relevant=None, max_pages=20):
     """randstadusa.com/jobs/<state>/<city>/q-<keyword>/page-N/ embeds 30 results
-    per page as plain JSON objects; `totalSize` is the total."""
+    per page as plain JSON objects; `totalSize` is the total. `paths` overrides
+    the search paths (Tech Watch uses the nationwide "q-data-engineer"). National
+    results are relevance-sorted and trail off into unrelated jobs, so paging
+    stops at the first page where no title passes `relevant`."""
     out, seen = [], set()
-    for city in RANDSTAD_CITIES:
-        for kw in AGENCY_KEYWORDS:
-            page, total = 1, None
-            while page <= 20:
-                path = f"https://www.randstadusa.com/jobs/{city}/q-{kw}/" + (f"page-{page}/" if page > 1 else "")
+    for sp in paths or [f"{c}/q-{k}" for c in RANDSTAD_CITIES for k in AGENCY_KEYWORDS]:
+        page, total = 1, None
+        while page <= max_pages:
+            path = f"https://www.randstadusa.com/jobs/{sp}/" + (f"page-{page}/" if page > 1 else "")
+            try:
+                r = requests.get(path, headers=_BROWSER_UA, timeout=TIMEOUT)
+                # Search pages come back "410 Gone" yet carry the full result
+                # list, so only a 5xx or other 4xx counts as a failure.
+                if r.status_code != 410:
+                    r.raise_for_status()
+            except Exception as e:
+                print(f"  ! randstad {sp}: {e}", file=sys.stderr); break
+            if total is None:
+                m = re.search(r'"totalSize":(\d+)', r.text)
+                total = int(m.group(1)) if m else 0
+            recs = re.findall(r'\{"application_id":[^{}]*?"job_title":"[^{}]*?"reference_number":"[^"]*"\}', r.text)
+            titles = []
+            for raw in recs:
                 try:
-                    r = requests.get(path, headers=_BROWSER_UA, timeout=TIMEOUT)
-                    # Search pages come back "410 Gone" yet carry the full result
-                    # list, so only a 5xx or other 4xx counts as a failure.
-                    if r.status_code != 410:
-                        r.raise_for_status()
-                except Exception as e:
-                    print(f"  ! randstad {city}/{kw}: {e}", file=sys.stderr); break
-                if total is None:
-                    m = re.search(r'"totalSize":(\d+)', r.text)
-                    total = int(m.group(1)) if m else 0
-                recs = re.findall(r'\{"application_id":[^{}]*?"job_title":"[^{}]*?"reference_number":"[^"]*"\}', r.text)
-                for raw in recs:
-                    try:
-                        j = json.loads(raw)
-                    except Exception:
-                        continue
-                    jid = j.get("reference_number") or j.get("job_id")
-                    if not jid or jid in seen:
-                        continue
-                    seen.add(jid)
-                    out.append(dict(firm=firm, id=f"randstad-{jid}",
-                                    title=_tagged((j.get("job_title") or "").strip(), j.get("employment_type")),
-                                    location=", ".join(x for x in (j.get("city"), j.get("region")) if x),
-                                    url=j.get("url") or "", source="randstad",
-                                    posted_date=_posted(j.get("launch_date"))))
-                if not recs or page * 30 >= total:
-                    break
-                page += 1; time.sleep(0.3)
+                    j = json.loads(raw)
+                except Exception:
+                    continue
+                titles.append(j.get("job_title") or "")
+                jid = j.get("reference_number") or j.get("job_id")
+                if not jid or jid in seen:
+                    continue
+                seen.add(jid)
+                out.append(dict(firm=firm, id=f"randstad-{jid}",
+                                title=_tagged((j.get("job_title") or "").strip(), j.get("employment_type")),
+                                location=", ".join(x for x in (j.get("city"), j.get("region")) if x),
+                                url=j.get("url") or "", source="randstad",
+                                posted_date=_posted(j.get("launch_date"))))
+            if not recs or page * 30 >= total or (relevant and not any(map(relevant, titles))):
+                break
+            page += 1; time.sleep(0.3)
     return out
 
 
 _MP_TILE = re.compile(r'<div about="(/job-detail/[^"]+/ref/([^"]+))" class="job-tile[^"]*">(.*?)</li>', re.S)
 
 
-def fetch_michael_page(firm="Michael Page"):
+def fetch_michael_page(firm="Michael Page", paths=None):
     """michaelpage.com/jobs/<keyword>/<city>?page=N is server-rendered job tiles
-    (title, location, Permanent/Temporary). No post date on the tile."""
+    (title, location, Permanent/Temporary). No post date on the tile. `paths`
+    overrides the searches; a bare keyword ("data-engineer") searches the US."""
     import html as _html
     out, seen = [], set()
-    for city in MICHAEL_PAGE_CITIES:
-        for kw in AGENCY_KEYWORDS:
-            for page in range(0, 15):
-                try:
-                    r = requests.get(f"https://www.michaelpage.com/jobs/{kw}/{city}",
-                                     params={"page": page} if page else None,
-                                     headers=_BROWSER_UA, timeout=TIMEOUT)
-                    if r.status_code == 404:   # no results / paged past the end
-                        break
-                    r.raise_for_status()
-                except Exception as e:
-                    print(f"  ! michael page {city}/{kw}: {e}", file=sys.stderr); break
-                new = 0
-                for href, ref, body in _MP_TILE.findall(r.text):
-                    if ref in seen:
-                        continue
-                    seen.add(ref); new += 1
-                    title = re.search(r"<h3>\s*<a[^>]*>(.*?)</a>", body, re.S)
-                    loc = re.search(r'job-location">.*?</i>\s*(.*?)\s*</div>', body, re.S)
-                    kind = re.search(r'job-contract-type">.*?</i>\s*(.*?)\s*</div>', body, re.S)
-                    clean = lambda m: _html.unescape(_TAG_RE.sub("", m.group(1))).strip() if m else ""
-                    out.append(dict(firm=firm, id=f"michaelpage-{ref}",
-                                    title=_tagged(clean(title), clean(kind)), location=clean(loc),
-                                    url=f"https://www.michaelpage.com{href}", source="michaelpage",
-                                    posted_date=None))
-                if not new:
+    for sp in paths or [f"{k}/{c}" for c in MICHAEL_PAGE_CITIES for k in AGENCY_KEYWORDS]:
+        for page in range(0, 15):
+            try:
+                r = requests.get(f"https://www.michaelpage.com/jobs/{sp}",
+                                 params={"page": page} if page else None,
+                                 headers=_BROWSER_UA, timeout=TIMEOUT)
+                if r.status_code == 404:   # no results / paged past the end
                     break
-                time.sleep(0.3)
+                r.raise_for_status()
+            except Exception as e:
+                print(f"  ! michael page {sp}: {e}", file=sys.stderr); break
+            new = 0
+            for href, ref, body in _MP_TILE.findall(r.text):
+                if ref in seen:
+                    continue
+                seen.add(ref); new += 1
+                title = re.search(r"<h3>\s*<a[^>]*>(.*?)</a>", body, re.S)
+                loc = re.search(r'job-location">.*?</i>\s*(.*?)\s*</div>', body, re.S)
+                kind = re.search(r'job-contract-type">.*?</i>\s*(.*?)\s*</div>', body, re.S)
+                clean = lambda m: _html.unescape(_TAG_RE.sub("", m.group(1))).strip() if m else ""
+                out.append(dict(firm=firm, id=f"michaelpage-{ref}",
+                                title=_tagged(clean(title), clean(kind)), location=clean(loc),
+                                url=f"https://www.michaelpage.com{href}", source="michaelpage",
+                                posted_date=None))
+            if not new:
+                break
+            time.sleep(0.3)
     return out
 
 
