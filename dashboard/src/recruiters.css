@@ -1,0 +1,84 @@
+/* Recruiter directory + outreach. Built on the shared tokens (--panel, --ink,
+   --soft, --line, --green, --rose…) that both Street Watch and Tech Watch
+   define, so it takes on whichever board it's rendered in. */
+.rc { display: flex; flex-direction: column; gap: 12px; }
+.rc-bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.rc-bar input[type="search"] {
+  flex: 1 1 240px; min-width: 0; padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px;
+  background: var(--panel); color: var(--ink); font: inherit;
+}
+.rc-bar select {
+  padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel);
+  color: var(--ink); font: inherit; max-width: 100%;
+}
+.rc-check { display: inline-flex; gap: 6px; align-items: center; font-size: 14px; color: var(--ink); }
+.rc-meta { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; font-size: 13px; color: var(--soft); }
+.rc-hint { font-size: 12px; color: var(--soft); }
+.rc-due {
+  border: 0; border-radius: 999px; padding: 3px 10px; font: inherit; font-size: 12px; cursor: pointer;
+  background: var(--lipS); color: var(--lip); font-weight: 600;
+}
+.rc-err { background: var(--lipS); color: var(--lip); padding: 8px 12px; border-radius: 8px; font-size: 13px; }
+.rc-empty { padding: 32px 16px; text-align: center; color: var(--soft); }
+.rc-empty code, .rc code { font-size: 12px; }
+
+.rc-firms { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 12px; }
+@media (max-width: 420px) { .rc-firms { grid-template-columns: 1fr; } }
+.rc-firm {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px;
+  display: flex; flex-direction: column; gap: 8px; min-width: 0;
+}
+.rc-firm-h { display: flex; justify-content: space-between; gap: 10px; align-items: flex-start; }
+.rc-firm-h h3 { margin: 0; font-size: 16px; line-height: 1.3; color: var(--ink); }
+.rc-firm-meta { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; font-size: 12px; color: var(--soft); margin-top: 3px; }
+.rc-firm-meta a { color: var(--soft); }
+.rc-type { background: var(--grayS); color: var(--soft); border-radius: 999px; padding: 1px 8px; font-weight: 600; }
+.rc-type.cont { background: var(--greenS); color: var(--green); }
+.rc-about { margin: 0; font-size: 13px; line-height: 1.5; color: var(--soft); }
+.rc-link {
+  border: 0; background: none; padding: 0; font: inherit; font-size: 12px; color: var(--rose);
+  cursor: pointer; text-decoration: underline; text-underline-offset: 2px; white-space: nowrap;
+}
+
+.rc-people { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+.rc-person, .rc-match-row {
+  width: 100%; display: flex; justify-content: space-between; gap: 10px; align-items: center; text-align: left;
+  border: 0; border-radius: 8px; padding: 7px 8px; background: transparent; color: var(--ink); font: inherit; cursor: pointer;
+}
+.rc-person:hover, .rc-match-row:hover { background: var(--panel2); }
+.rc-person-main { display: flex; flex-direction: column; min-width: 0; }
+.rc-person-main b { font-size: 14px; font-weight: 600; }
+.rc-person-main span, .rc-match-row small { font-size: 12px; color: var(--soft); overflow: hidden; text-overflow: ellipsis; }
+.rc-match-row small { display: block; }
+.rc-person-tags { display: flex; flex-wrap: wrap; gap: 4px; justify-content: flex-end; flex-shrink: 0; max-width: 55%; }
+.rc-tag, .rc-code, .rc-st {
+  font-size: 11px; border-radius: 999px; padding: 1px 7px; line-height: 1.6; white-space: nowrap;
+}
+.rc-tag { background: var(--blueS); color: var(--blue); }
+.rc-code { background: var(--panel2); color: var(--soft); font-family: ui-monospace, "JetBrains Mono", monospace; }
+.rc-st { background: var(--grayS); color: var(--soft); font-weight: 600; }
+.rc-st.st-emailed { background: var(--blueS); color: var(--blue); }
+.rc-st.st-replied, .rc-st.st-call { background: var(--greenS); color: var(--green); }
+.rc-st.st-follow_up { background: var(--goldS); color: var(--gold); }
+.rc-st.due { background: var(--lipS); color: var(--lip); }
+
+.rc-match ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+
+.rc-modal { max-width: 640px; }
+.rc-o-head { display: flex; flex-direction: column; gap: 4px; font-size: 14px; color: var(--ink); }
+.rc-o-status { display: flex; flex-wrap: wrap; gap: 6px; }
+.rc-o-status button {
+  border: 1px solid var(--line); background: var(--panel); color: var(--ink); border-radius: 999px;
+  padding: 5px 11px; font: inherit; font-size: 13px; cursor: pointer;
+}
+.rc-o-status button.on { background: var(--green); border-color: var(--green); color: var(--onGreen); }
+.rc-o-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; font-size: 13px; color: var(--ink); }
+.rc-o-row input[type="date"] {
+  border: 1px solid var(--line); border-radius: 6px; padding: 4px 6px; background: var(--panel); color: var(--ink); font: inherit;
+}
+.rc-o-draft { display: flex; flex-direction: column; gap: 8px; border-top: 1px solid var(--line); padding-top: 10px; }
+.rc-o-draft-h { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.rc-subject {
+  border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; background: var(--panel); color: var(--ink); font: inherit;
+}
+.rc-o-draft .addActions a { text-decoration: none; }
