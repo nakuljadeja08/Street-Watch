@@ -13,6 +13,18 @@ senior seats. The auction houses (Christie's, Sotheby's, Phillips,
 Bonhams, Doyle, Freeman's | Hindman, Rago | Wright; Bonhams Skinner
 comes through the Bonhams board) use the same rule but also keep Analyst, Associate, Cataloguer and
 Coordinator titles.
+Four staffing agencies (Robert Half, Randstad, Michael Page, Aston Carter;
+`AGENCY_FIRMS`) are searched for analyst/associate roles in NY, Chicago and SF.
+Banks place many contract ops, KYC, risk and FP&A seats through agencies, and
+those roles appear only on the agency's board, usually without naming the
+client. Agency rows must be in a finance field (`_AGENCY_FIELD_RE`; accounting,
+payroll, IT and pharma titles are cut) and in a metro city itself (the agency
+searches are radius-based), and each title is tagged Contract,
+Contract-to-hire or Direct hire. Not added from the same review: Hays US
+(construction/tech), Atrium (site refuses scripted requests), Motion
+Recruitment/Jobspring, Harvey Nash, Blue Signal (tech), Aerotek (industrial),
+Adecco, Goodwin (hospitality), Alexander Chapman (UK) and BW Global USA (no
+job board; generic "training" site).
 
 ```
 firms' ATS APIs  ──►  pipeline.py  ──►  Supabase `jobs` table  ──►  dashboard/ (React app on Vercel)
