@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import { supabase } from "./supabaseClient.js";
 import "./recruiters.css";
 
@@ -374,13 +375,17 @@ export function RecruitersButton({ rec, job, category, aiFetch, aiReady, onSetup
   );
 }
 
+// Portaled to <body>: the 👥 button lives inside a job card, and .card:hover
+// sets a transform, which would make the card the containing block for the
+// fixed overlay. The backdrop then jumped between full-screen and card-sized
+// (a light/dark flicker) whenever the hover state changed.
 function RcModal({ title, onClose, children }) {
   useEffect(() => {
     const onKey = (e) => e.key === "Escape" && onClose();
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
-  return (
+  return createPortal(
     <div className="modal-bg" onMouseDown={(e) => e.target === e.currentTarget && onClose()}>
       <div className="modal rc-modal" role="dialog" aria-modal="true" aria-label={title}>
         <div className="modal-h">
@@ -391,7 +396,8 @@ function RcModal({ title, onClose, children }) {
         </div>
         {children}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
 
