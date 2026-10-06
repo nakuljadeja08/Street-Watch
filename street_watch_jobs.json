@@ -757,6 +757,18 @@
   },
   {
     "firm": "Morgan Stanley",
+    "id": "wd-ms-External-/job/Deerfield-Illinois-United-States-of-America/Business-Development-Associate_JR041286",
+    "title": "Registered Client Relationship Analyst",
+    "location": "Deerfield, Illinois, United States of America",
+    "url": "https://ms.wd5.myworkdayjobs.com/External/job/Deerfield-Illinois-United-States-of-America/Business-Development-Associate_JR041286",
+    "source": "workday",
+    "posted_date": "2026-10-06",
+    "metro": "Chicago",
+    "first_seen": "2026-09-15",
+    "is_new": false
+  },
+  {
+    "firm": "Morgan Stanley",
     "id": "wd-ms-External-/job/Deerfield-Illinois-United-States-of-America/Client-Relationship-Analyst--R-_JR044948-1",
     "title": "Registered Client Relationship Analyst",
     "location": "Deerfield, Illinois, United States of America",
@@ -946,6 +958,42 @@
     "metro": "Chicago",
     "first_seen": "2026-10-06",
     "is_new": true
+  },
+  {
+    "firm": "U.S. Bancorp",
+    "id": "wd-usbank-US_Bank_Careers-/job/Naperville-IL/Freight-Business-Analyst_2026-0030212",
+    "title": "Freight Business Analyst",
+    "location": "Naperville, IL",
+    "url": "https://usbank.wd1.myworkdayjobs.com/US_Bank_Careers/job/Naperville-IL/Freight-Business-Analyst_2026-0030212",
+    "source": "workday",
+    "posted_date": "2026-09-29",
+    "metro": "Chicago",
+    "first_seen": "2026-09-30",
+    "is_new": false
+  },
+  {
+    "firm": "U.S. Bancorp",
+    "id": "wd-usbank-US_Bank_Careers-/job/Springfield-IL/WM-Affluent-Associate_2026-0001148",
+    "title": "Wealth Management Affluent Associate",
+    "location": "Springfield, IL",
+    "url": "https://usbank.wd1.myworkdayjobs.com/US_Bank_Careers/job/Springfield-IL/WM-Affluent-Associate_2026-0001148",
+    "source": "workday",
+    "posted_date": "2026-09-14",
+    "metro": "Chicago",
+    "first_seen": "2026-09-17",
+    "is_new": false
+  },
+  {
+    "firm": "U.S. Bancorp",
+    "id": "wd-usbank-US_Bank_Careers-/job/Fairview-Heights-IL/WM-Affluent-Associate_2026-0019587",
+    "title": "Wealth Management Affluent Associate",
+    "location": "Fairview Heights, IL",
+    "url": "https://usbank.wd1.myworkdayjobs.com/US_Bank_Careers/job/Fairview-Heights-IL/WM-Affluent-Associate_2026-0019587",
+    "source": "workday",
+    "posted_date": "2026-09-14",
+    "metro": "Chicago",
+    "first_seen": "2026-09-17",
+    "is_new": false
   },
   {
     "firm": "Wells Fargo",
@@ -1320,18 +1368,6 @@
     "is_new": false
   },
   {
-    "firm": "Aston Carter",
-    "id": "phenom-careers.astoncarter.com-ASCAUSJP006304045ENUS",
-    "title": "Executive Operations Associate \u00b7 Contract",
-    "location": "New York, New York, USA",
-    "url": "https://careers.astoncarter.com/us/en/job/ASCAUSJP006304045ENUS",
-    "source": "phenom",
-    "posted_date": "2026-09-23",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
     "firm": "BMO",
     "id": "wd-bmo-External-/job/New-York-NY-USA/Analyst--Corporate-Banking--Project-and-Energy-Transition-Finance_R260025926",
     "title": "Analyst, Corporate Banking, Project and Energy Transition Finance",
@@ -1657,42 +1693,6 @@
   },
   {
     "firm": "Barclays",
-    "id": "barclays-98199081984",
-    "title": "Equity Research Biotech, Financial Associate",
-    "location": "New York, United States",
-    "url": "https://search.jobs.barclays/job/new-york/equity-research-biotech-financial-associate/13015/98199081984",
-    "source": "barclays",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Barclays",
-    "id": "barclays-101448524592",
-    "title": "Fundamental Credit Research Analyst",
-    "location": "New York, United States",
-    "url": "https://search.jobs.barclays/job/new-york/fundamental-credit-research-analyst/13015/101448524592",
-    "source": "barclays",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-02",
-    "is_new": false
-  },
-  {
-    "firm": "Barclays",
-    "id": "barclays-101448524064",
-    "title": "High Yield Credit Research Analyst",
-    "location": "New York, United States",
-    "url": "https://search.jobs.barclays/job/new-york/high-yield-credit-research-analyst/13015/101448524064",
-    "source": "barclays",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-02",
-    "is_new": false
-  },
-  {
-    "firm": "Barclays",
     "id": "barclays-101270804048",
     "title": "Research Analyst",
     "location": "New York, United States",
@@ -1862,9 +1862,9 @@
   {
     "firm": "BlackRock",
     "id": "blackrock-98752046896",
-    "title": "Associate, Private Credit/PEP Quality Control Financial Reporting, PFS",
+    "title": "Associate, Private Credit Fund Controller/ Financial Reporting, PFS",
     "location": "New York, NY",
-    "url": "https://careers.blackrock.com/job/new-york/associate-private-credit-pep-quality-control-financial-reporting-pfs/45831/98752046896",
+    "url": "https://careers.blackrock.com/job/new-york/associate-private-credit-fund-controller-financial-reporting-pfs/45831/98752046896",
     "source": "blackrock",
     "posted_date": "2026-09-29",
     "metro": "NY + Jersey City",
@@ -1982,9 +1982,9 @@
   {
     "firm": "BlackRock",
     "id": "blackrock-101457189024",
-    "title": "Technical Product Manager, Aladdin Next - Analyst",
+    "title": "Technical Product Manager, Aladdin Product Management - Analyst",
     "location": "New York, NY",
-    "url": "https://careers.blackrock.com/job/new-york/technical-product-manager-aladdin-next-analyst/45831/101457189024",
+    "url": "https://careers.blackrock.com/job/new-york/technical-product-manager-aladdin-product-management-analyst/45831/101457189024",
     "source": "blackrock",
     "posted_date": "2026-10-02",
     "metro": "NY + Jersey City",
@@ -3013,18 +3013,6 @@
   },
   {
     "firm": "Citi",
-    "id": "citi-101584058704",
-    "title": "Cash & Trade Processing Lead Analyst",
-    "location": "Getzville, New York, United States",
-    "url": "https://jobs.citi.com/job/getzville/cash-and-trade-processing-lead-analyst/287/101584058704",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-06",
-    "is_new": true
-  },
-  {
-    "firm": "Citi",
     "id": "citi-101406626784",
     "title": "Cash and Trade Processing Analyst 2",
     "location": "Getzville, New York, United States",
@@ -3517,10 +3505,10 @@
   },
   {
     "firm": "Est\u00e9e Lauder",
-    "id": "eightfold-careers.elcompanies.com-1168275465769",
+    "id": "eightfold-careers.elcompanies.com-1168275465567",
     "title": "Assistant Manager, Performance Marketing",
     "location": "New York, NY, US",
-    "url": "https://careers.elcompanies.com/careers/job/1168275465769",
+    "url": "https://careers.elcompanies.com/careers/job/1168275465567",
     "source": "eightfold",
     "posted_date": "2026-09-29",
     "metro": "NY + Jersey City",
@@ -3529,10 +3517,10 @@
   },
   {
     "firm": "Est\u00e9e Lauder",
-    "id": "eightfold-careers.elcompanies.com-1168275465567",
+    "id": "eightfold-careers.elcompanies.com-1168275465769",
     "title": "Assistant Manager, Performance Marketing",
     "location": "New York, NY, US",
-    "url": "https://careers.elcompanies.com/careers/job/1168275465567",
+    "url": "https://careers.elcompanies.com/careers/job/1168275465769",
     "source": "eightfold",
     "posted_date": "2026-09-29",
     "metro": "NY + Jersey City",
@@ -3558,7 +3546,7 @@
     "location": "New York, NY, US",
     "url": "https://careers.elcompanies.com/careers/job/1168275520728",
     "source": "eightfold",
-    "posted_date": "2026-09-30",
+    "posted_date": "2026-10-06",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-01",
     "is_new": false
@@ -4441,10 +4429,10 @@
   },
   {
     "firm": "ING",
-    "id": "ing-43567202624",
-    "title": "Associate, Debt Capital Market - High Yield",
+    "id": "ing-43567202560",
+    "title": "Analyst, Debt Capital Markets - Investment Grade",
     "location": "New York, United States",
-    "url": "https://careers.ing.com/en/job/new-york/associate-debt-capital-market-high-yield/3121/43567202624",
+    "url": "https://careers.ing.com/en/job/new-york/analyst-debt-capital-markets-investment-grade/3121/43567202560",
     "source": "ing",
     "posted_date": null,
     "metro": "NY + Jersey City",
@@ -4453,10 +4441,10 @@
   },
   {
     "firm": "ING",
-    "id": "ing-43567202560",
-    "title": "Associate, Debt Capital Markets - Investment Grade",
+    "id": "ing-43567202624",
+    "title": "Associate, Debt Capital Market - High Yield",
     "location": "New York, United States",
-    "url": "https://careers.ing.com/en/job/new-york/associate-debt-capital-markets-investment-grade/3121/43567202560",
+    "url": "https://careers.ing.com/en/job/new-york/associate-debt-capital-market-high-yield/3121/43567202624",
     "source": "ing",
     "posted_date": null,
     "metro": "NY + Jersey City",
@@ -4822,6 +4810,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-19",
     "is_new": false
+  },
+  {
+    "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210797666",
+    "title": "Center for Carbon Transition, Analyst",
+    "location": "New York, NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210797666",
+    "source": "oracle",
+    "posted_date": "2026-10-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-06",
+    "is_new": true
   },
   {
     "firm": "JPMorgan Chase",
@@ -5650,6 +5650,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-19",
     "is_new": false
+  },
+  {
+    "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210797771",
+    "title": "US Equity Research - Large Cap Software - Associate",
+    "location": "NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210797771",
+    "source": "oracle",
+    "posted_date": "2026-10-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-06",
+    "is_new": true
   },
   {
     "firm": "JPMorgan Chase",
@@ -8017,18 +8029,6 @@
   },
   {
     "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0119256EXTERNALENUS",
-    "title": "Equity Research Associate - REITs",
-    "location": "New York, New York, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY/Equity-Research-Associate---REITs_R0119256",
-    "source": "phenom",
-    "posted_date": "2026-09-15",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-18",
-    "is_new": false
-  },
-  {
-    "firm": "Truist Securities",
     "id": "phenom-careers.truist.com-TBJTBFUSR0118282EXTERNALENUS",
     "title": "Investment Banking Analyst - Energy (Power, Utilities & Infrastructure)",
     "location": "New York, New York, USA",
@@ -8073,6 +8073,18 @@
     "posted_date": "2026-09-24",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-25",
+    "is_new": false
+  },
+  {
+    "firm": "U.S. Bancorp",
+    "id": "wd-usbank-US_Bank_Careers-/job/New-York-NY/Payment-Sales-Consultant---Tech-and-Transportation_2026-0021403",
+    "title": "Payment Sales Consultant - Tech and Transportation",
+    "location": "New York, NY",
+    "url": "https://usbank.wd1.myworkdayjobs.com/US_Bank_Careers/job/New-York-NY/Payment-Sales-Consultant---Tech-and-Transportation_2026-0021403",
+    "source": "workday",
+    "posted_date": "2026-09-10",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-17",
     "is_new": false
   },
   {
@@ -9025,6 +9037,18 @@
   },
   {
     "firm": "Stripe",
+    "id": "gh-stripe-8257500",
+    "title": "Partner Marketing Leader, Alliances & Channel",
+    "location": "Seattle, San Francisco, or US-Remote",
+    "url": "https://stripe.com/jobs/search?gh_jid=8257500",
+    "source": "greenhouse",
+    "posted_date": "2026-10-06",
+    "metro": "SF / Bay Area",
+    "first_seen": "2026-10-06",
+    "is_new": true
+  },
+  {
+    "firm": "Stripe",
     "id": "gh-stripe-8212667",
     "title": "Sales Strategy and Operations, Mergers and Acquisitions",
     "location": "South San Francisco, CA",
@@ -9045,6 +9069,30 @@
     "posted_date": "2026-09-15",
     "metro": "SF / Bay Area",
     "first_seen": "2026-10-01",
+    "is_new": false
+  },
+  {
+    "firm": "U.S. Bancorp",
+    "id": "wd-usbank-US_Bank_Careers-/job/San-Francisco-CA/Centralized-Support-Associate_2026-0030172",
+    "title": "Centralized Support Associate",
+    "location": "San Francisco, CA",
+    "url": "https://usbank.wd1.myworkdayjobs.com/US_Bank_Careers/job/San-Francisco-CA/Centralized-Support-Associate_2026-0030172",
+    "source": "workday",
+    "posted_date": "2026-09-29",
+    "metro": "SF / Bay Area",
+    "first_seen": "2026-09-29",
+    "is_new": false
+  },
+  {
+    "firm": "U.S. Bancorp",
+    "id": "wd-usbank-US_Bank_Careers-/job/San-Francisco-CA/Client-Relationship-Consultant-3--Banker----North-Beach---San-Francisco--CA-Bilingual-Cantonese---English_2026-0016414",
+    "title": "Client Relationship Consultant 3 (Banker) - North Beach - San Francisco, CA Bilingual Cantonese & English",
+    "location": "San Francisco, CA",
+    "url": "https://usbank.wd1.myworkdayjobs.com/US_Bank_Careers/job/San-Francisco-CA/Client-Relationship-Consultant-3--Banker----North-Beach---San-Francisco--CA-Bilingual-Cantonese---English_2026-0016414",
+    "source": "workday",
+    "posted_date": "2026-09-25",
+    "metro": "SF / Bay Area",
+    "first_seen": "2026-09-17",
     "is_new": false
   },
   {
