@@ -104,6 +104,19 @@
     "is_new": false
   },
   {
+    "firm": "Comcast",
+    "id": "wd-comcast-Comcast_Careers-/job/IL---Chicago-350-N-Orleans-St-1300N/Data-Engineer-3---Reston--VA---Freewheel_R444945",
+    "title": "Data Engineer 3 - Reston, VA - Freewheel",
+    "location": "IL - Chicago, 350 N. Orleans St 1300N; VA - Reston, 11951 Freedom Dr Ste 900",
+    "url": "https://comcast.wd115.myworkdayjobs.com/Comcast_Careers/job/IL---Chicago-350-N-Orleans-St-1300N/Data-Engineer-3---Reston--VA---Freewheel_R444945",
+    "source": "workday",
+    "posted_date": "2026-09-22",
+    "metro": "Chicago",
+    "sector": "Tech",
+    "first_seen": "2026-10-01",
+    "is_new": false
+  },
+  {
     "firm": "Google",
     "id": "google-114385783674020550",
     "title": "Agentic Data Cloud Databases Engineer, Google Cloud",
@@ -206,6 +219,19 @@
     "sector": "Finance",
     "first_seen": "2026-09-27",
     "is_new": false
+  },
+  {
+    "firm": "Franklin Templeton",
+    "id": "phenom-careers.franklintempleton.com-FTGFTMUS869238EXTERNALENUS",
+    "title": "Data Engineer",
+    "location": "Baltimore, Maryland, United States of America",
+    "url": "https://franklintempleton.wd5.myworkdayjobs.com/Primary-External-1/job/Baltimore-Maryland-United-States-of-America/Data-Engineer_869238",
+    "source": "phenom",
+    "posted_date": "2026-10-06",
+    "metro": "DC / Virginia",
+    "sector": "Finance",
+    "first_seen": "2026-10-06",
+    "is_new": true
   },
   {
     "firm": "Randstad",
@@ -546,6 +572,19 @@
     "is_new": false
   },
   {
+    "firm": "Comcast",
+    "id": "wd-comcast-Comcast_Careers-/job/PA---West-Chester-1354-Boot-Rd/Data-Engineer_R442548",
+    "title": "Product Data Engineer (Databricks, PySpark, AWS)",
+    "location": "PA - West Chester, 1354 Boot Rd",
+    "url": "https://comcast.wd115.myworkdayjobs.com/Comcast_Careers/job/PA---West-Chester-1354-Boot-Rd/Data-Engineer_R442548",
+    "source": "workday",
+    "posted_date": "2026-09-05",
+    "metro": "Other US",
+    "sector": "Tech",
+    "first_seen": "2026-10-01",
+    "is_new": false
+  },
+  {
     "firm": "Dell",
     "id": "oracle-enterpriseplatform.dell.com-300054",
     "title": "Consultant, Data Engineering",
@@ -700,6 +739,19 @@
     "sector": "Agency",
     "first_seen": "2026-10-05",
     "is_new": false
+  },
+  {
+    "firm": "Randstad",
+    "id": "randstad-1363886",
+    "title": "IT-Data Engineer \u00b7 Contract",
+    "location": "Minneapolis, Minnesota",
+    "url": "https://www.randstadusa.com/jobs/4/1363886/it-data-engineer_minneapolis/",
+    "source": "randstad",
+    "posted_date": "2026-10-06",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-06",
+    "is_new": true
   },
   {
     "firm": "Robert Half",
