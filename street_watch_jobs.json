@@ -146,11 +146,11 @@
   {
     "firm": "BMO",
     "id": "wd-bmo-External-/job/Chicago-IL-USA/Associate--Global-Markets-Corporate-Banking_R260006475",
-    "title": "Associate, Global Markets Corporate Banking",
+    "title": "Associate, Private Credit Financing Asset Approval",
     "location": "Chicago, IL, USA",
     "url": "https://bmo.wd3.myworkdayjobs.com/External/job/Chicago-IL-USA/Associate--Global-Markets-Corporate-Banking_R260006475",
     "source": "workday",
-    "posted_date": "2026-09-30",
+    "posted_date": "2026-10-06",
     "metro": "Chicago",
     "first_seen": "2026-09-16",
     "is_new": false
@@ -190,6 +190,18 @@
     "metro": "Chicago",
     "first_seen": "2026-09-16",
     "is_new": false
+  },
+  {
+    "firm": "Bank of America",
+    "id": "wd-ghr-Lateral-US-/job/Chicago/Client-Service-Associate_26036613",
+    "title": "Client Service Associate",
+    "location": "Chicago",
+    "url": "https://ghr.wd1.myworkdayjobs.com/Lateral-US/job/Chicago/Client-Service-Associate_26036613",
+    "source": "workday",
+    "posted_date": "2026-10-06",
+    "metro": "Chicago",
+    "first_seen": "2026-10-06",
+    "is_new": true
   },
   {
     "firm": "Bank of America",
@@ -361,6 +373,18 @@
   },
   {
     "firm": "DRW",
+    "id": "gh-drweng-8258225",
+    "title": "Quantitative Researcher - Delta One",
+    "location": "Chicago",
+    "url": "https://job-boards.greenhouse.io/drweng/jobs/8258225",
+    "source": "greenhouse",
+    "posted_date": "2026-10-06",
+    "metro": "Chicago",
+    "first_seen": "2026-10-06",
+    "is_new": true
+  },
+  {
+    "firm": "DRW",
     "id": "gh-drweng-8221691",
     "title": "Risk Product Analyst",
     "location": "Chicago",
@@ -501,7 +525,7 @@
     "posted_date": "2026-10-05",
     "metro": "Chicago",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "JPMorgan Chase",
@@ -529,18 +553,6 @@
   },
   {
     "firm": "JPMorgan Chase",
-    "id": "oracle-jpmc.fa.oraclecloud.com-210775277",
-    "title": "Client Onboarding Implementation Associate",
-    "location": "Chicago, IL, United States",
-    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210775277",
-    "source": "oracle",
-    "posted_date": "2026-09-09",
-    "metro": "Chicago",
-    "first_seen": "2026-09-19",
-    "is_new": false
-  },
-  {
-    "firm": "JPMorgan Chase",
     "id": "oracle-jpmc.fa.oraclecloud.com-210791363",
     "title": "Consumer, Retail & Business Services Payments Sales Associate",
     "location": "Chicago, IL, United States",
@@ -549,18 +561,6 @@
     "posted_date": "2026-09-16",
     "metro": "Chicago",
     "first_seen": "2026-09-19",
-    "is_new": false
-  },
-  {
-    "firm": "JPMorgan Chase",
-    "id": "oracle-jpmc.fa.oraclecloud.com-210796009",
-    "title": "Events Management Associate",
-    "location": "Chicago, IL, United States",
-    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210796009",
-    "source": "oracle",
-    "posted_date": "2026-10-02",
-    "metro": "Chicago",
-    "first_seen": "2026-10-02",
     "is_new": false
   },
   {
@@ -684,18 +684,6 @@
     "is_new": false
   },
   {
-    "firm": "JPMorgan Chase",
-    "id": "oracle-jpmc.fa.oraclecloud.com-210793853",
-    "title": "U.S. Private Bank \u2013 Program Analyst",
-    "location": "Winnetka, IL, United States",
-    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210793853",
-    "source": "oracle",
-    "posted_date": "2026-09-23",
-    "metro": "Chicago",
-    "first_seen": "2026-09-23",
-    "is_new": false
-  },
-  {
     "firm": "Macquarie Group",
     "id": "pageup-recruitment.macquarie.com-24017",
     "title": "Associate, Futures Brokerage",
@@ -729,7 +717,7 @@
     "posted_date": null,
     "metro": "Chicago",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -885,7 +873,7 @@
     "posted_date": "2026-09-28",
     "metro": "Chicago",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Robert Half",
@@ -897,7 +885,7 @@
     "posted_date": "2026-09-24",
     "metro": "Chicago",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Robert Half",
@@ -909,7 +897,7 @@
     "posted_date": "2026-09-23",
     "metro": "Chicago",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Robert Half",
@@ -921,7 +909,7 @@
     "posted_date": "2026-09-24",
     "metro": "Chicago",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Stripe",
@@ -949,39 +937,15 @@
   },
   {
     "firm": "U.S. Bancorp",
-    "id": "wd-usbank-US_Bank_Careers-/job/Naperville-IL/Freight-Business-Analyst_2026-0030212",
-    "title": "Freight Business Analyst",
-    "location": "Naperville, IL",
-    "url": "https://usbank.wd1.myworkdayjobs.com/US_Bank_Careers/job/Naperville-IL/Freight-Business-Analyst_2026-0030212",
+    "id": "wd-usbank-US_Bank_Careers-/job/Remote-IL/BCS-Business-Card-Consultant---Chicago_2026-0030672",
+    "title": "BCS Business Card Consultant - Chicago",
+    "location": "Remote, IL",
+    "url": "https://usbank.wd1.myworkdayjobs.com/US_Bank_Careers/job/Remote-IL/BCS-Business-Card-Consultant---Chicago_2026-0030672",
     "source": "workday",
-    "posted_date": "2026-09-29",
+    "posted_date": "2026-10-05",
     "metro": "Chicago",
-    "first_seen": "2026-09-30",
-    "is_new": false
-  },
-  {
-    "firm": "U.S. Bancorp",
-    "id": "wd-usbank-US_Bank_Careers-/job/Springfield-IL/WM-Affluent-Associate_2026-0001148",
-    "title": "Wealth Management Affluent Associate",
-    "location": "Springfield, IL",
-    "url": "https://usbank.wd1.myworkdayjobs.com/US_Bank_Careers/job/Springfield-IL/WM-Affluent-Associate_2026-0001148",
-    "source": "workday",
-    "posted_date": "2026-09-14",
-    "metro": "Chicago",
-    "first_seen": "2026-09-17",
-    "is_new": false
-  },
-  {
-    "firm": "U.S. Bancorp",
-    "id": "wd-usbank-US_Bank_Careers-/job/Fairview-Heights-IL/WM-Affluent-Associate_2026-0019587",
-    "title": "Wealth Management Affluent Associate",
-    "location": "Fairview Heights, IL",
-    "url": "https://usbank.wd1.myworkdayjobs.com/US_Bank_Careers/job/Fairview-Heights-IL/WM-Affluent-Associate_2026-0019587",
-    "source": "workday",
-    "posted_date": "2026-09-14",
-    "metro": "Chicago",
-    "first_seen": "2026-09-17",
-    "is_new": false
+    "first_seen": "2026-10-06",
+    "is_new": true
   },
   {
     "firm": "Wells Fargo",
@@ -1077,18 +1041,6 @@
     "posted_date": "2026-09-30",
     "metro": "Chicago",
     "first_seen": "2026-09-30",
-    "is_new": false
-  },
-  {
-    "firm": "ZS Associates",
-    "id": "jibe-jobs.zs.com-63336",
-    "title": "Growth Analytics Associate Consultant",
-    "location": "Evanston, Illinois",
-    "url": "https://jobs.zs.com/jobs/63336",
-    "source": "jibe",
-    "posted_date": "2026-09-18",
-    "metro": "Chicago",
-    "first_seen": "2026-09-17",
     "is_new": false
   },
   {
@@ -1365,7 +1317,19 @@
     "posted_date": "2026-09-22",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
+  },
+  {
+    "firm": "Aston Carter",
+    "id": "phenom-careers.astoncarter.com-ASCAUSJP006304045ENUS",
+    "title": "Executive Operations Associate \u00b7 Contract",
+    "location": "New York, New York, USA",
+    "url": "https://careers.astoncarter.com/us/en/job/ASCAUSJP006304045ENUS",
+    "source": "phenom",
+    "posted_date": "2026-09-23",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-05",
+    "is_new": false
   },
   {
     "firm": "BMO",
@@ -1389,7 +1353,7 @@
     "posted_date": "2026-10-04",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "BMO",
@@ -1425,7 +1389,7 @@
     "posted_date": "2026-10-05",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "BMO",
@@ -1645,6 +1609,18 @@
   },
   {
     "firm": "Bank of America",
+    "id": "wd-ghr-Lateral-US-/job/New-York/Talent-Consultant-II---Global-Corporate---Investment-Banking--GCIB-_26027485",
+    "title": "Talent Consultant II - Global Corporate & Investment Banking (GCIB)",
+    "location": "New York",
+    "url": "https://ghr.wd1.myworkdayjobs.com/Lateral-US/job/New-York/Talent-Consultant-II---Global-Corporate---Investment-Banking--GCIB-_26027485",
+    "source": "workday",
+    "posted_date": "2026-10-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-06",
+    "is_new": true
+  },
+  {
+    "firm": "Bank of America",
     "id": "wd-ghr-Lateral-US-/job/NEW-YORK/Wealth-Management-Client-Associate_26035523-2",
     "title": "Wealth Management Client Associate",
     "location": "NEW YORK",
@@ -1685,18 +1661,6 @@
     "title": "Equity Research Biotech, Financial Associate",
     "location": "New York, United States",
     "url": "https://search.jobs.barclays/job/new-york/equity-research-biotech-financial-associate/13015/98199081984",
-    "source": "barclays",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Barclays",
-    "id": "barclays-99982725456",
-    "title": "Equity Research Multi-Industry Analyst",
-    "location": "New York, United States",
-    "url": "https://search.jobs.barclays/job/new-york/equity-research-multi-industry-analyst/13015/99982725456",
     "source": "barclays",
     "posted_date": null,
     "metro": "NY + Jersey City",
@@ -1857,18 +1821,6 @@
     "posted_date": "2026-10-05",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
-  },
-  {
-    "firm": "BlackRock",
-    "id": "blackrock-99189702976",
-    "title": "Associate, Institutional - Pensions",
-    "location": "New York, NY",
-    "url": "https://careers.blackrock.com/job/new-york/associate-institutional-pensions/45831/99189702976",
-    "source": "blackrock",
-    "posted_date": "2026-09-30",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-30",
     "is_new": false
   },
   {
@@ -2197,18 +2149,6 @@
   },
   {
     "firm": "Blackstone",
-    "id": "wd-blackstone-Blackstone_Careers-/job/New-York/Blackstone-Multi-Asset-Investing--BXMA---Product-Management--Business-Analyst--Associate_41323-2",
-    "title": "Blackstone Multi-Asset Investing (BXMA): Product Management- Business Analyst, Associate",
-    "location": "New York",
-    "url": "https://blackstone.wd1.myworkdayjobs.com/Blackstone_Careers/job/New-York/Blackstone-Multi-Asset-Investing--BXMA---Product-Management--Business-Analyst--Associate_41323-2",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": false
-  },
-  {
-    "firm": "Blackstone",
     "id": "wd-blackstone-Blackstone_Careers-/job/New-York/Blackstone-Private-Wealth--Associate_44370",
     "title": "Blackstone Private Wealth, Strategic Initiatives, Associate",
     "location": "New York",
@@ -2246,14 +2186,14 @@
   {
     "firm": "Blackstone",
     "id": "wd-blackstone-Blackstone_Careers-/job/New-York/Finance---Investment-Operations---PE-Retail---Associate_45789",
-    "title": "Finance - Investment Operations - PE Retail - Associate",
+    "title": "Finance - Investment Operations - Perpetuals - Associate",
     "location": "New York",
     "url": "https://blackstone.wd1.myworkdayjobs.com/Blackstone_Careers/job/New-York/Finance---Investment-Operations---PE-Retail---Associate_45789",
     "source": "workday",
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -2373,7 +2313,7 @@
     "posted_date": "2026-10-05",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Bonhams",
@@ -2593,18 +2533,6 @@
   },
   {
     "firm": "CIBC",
-    "id": "wd-cibc-search-/job/New-York-NY/XMLNAME-2027-Analyst-I--Equity-Solutions-Group_2618393-1",
-    "title": "2027 Analyst I, Equity Solutions Group",
-    "location": "New York, NY",
-    "url": "https://cibc.wd3.myworkdayjobs.com/search/job/New-York-NY/XMLNAME-2027-Analyst-I--Equity-Solutions-Group_2618393-1",
-    "source": "workday",
-    "posted_date": "2026-09-08",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-17",
-    "is_new": false
-  },
-  {
-    "firm": "CIBC",
     "id": "wd-cibc-search-/job/New-York-NY/XMLNAME-2027-Analyst-I--Global-Investment-Banking---Energy--Infrastructure----Transition_2618583-1",
     "title": "2027 Analyst I, Global Investment Banking - Energy, Infrastructure, & Transition",
     "location": "New York, NY",
@@ -2673,7 +2601,7 @@
     "posted_date": "2026-10-05",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "CIBC",
@@ -2698,6 +2626,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-17",
     "is_new": false
+  },
+  {
+    "firm": "CIBC",
+    "id": "wd-cibc-search-/job/New-York-NY/Associate--Product-Control_2620246",
+    "title": "Associate, Product Control",
+    "location": "New York, NY",
+    "url": "https://cibc.wd3.myworkdayjobs.com/search/job/New-York-NY/Associate--Product-Control_2620246",
+    "source": "workday",
+    "posted_date": "2026-10-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-06",
+    "is_new": true
   },
   {
     "firm": "CIBC",
@@ -2841,7 +2781,7 @@
     "posted_date": "2026-10-05",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Citadel Securities",
@@ -3070,6 +3010,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-23",
     "is_new": false
+  },
+  {
+    "firm": "Citi",
+    "id": "citi-101584058704",
+    "title": "Cash & Trade Processing Lead Analyst",
+    "location": "Getzville, New York, United States",
+    "url": "https://jobs.citi.com/job/getzville/cash-and-trade-processing-lead-analyst/287/101584058704",
+    "source": "citi",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-06",
+    "is_new": true
   },
   {
     "firm": "Citi",
@@ -3333,7 +3285,7 @@
     "posted_date": "2026-10-05",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "DRW",
@@ -3441,7 +3393,7 @@
     "posted_date": "2026-10-05",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Deutsche Bank",
@@ -3453,7 +3405,7 @@
     "posted_date": "2026-10-05",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Deutsche Bank",
@@ -3501,7 +3453,7 @@
     "posted_date": "2026-10-05",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Deutsche Bank",
@@ -3534,7 +3486,7 @@
     "location": "New York, 1 Columbus Circle",
     "url": "https://db.wd3.myworkdayjobs.com/DBWebsite/job/New-York-1-Columbus-Circle/US-Research-Associate--REITs---Associate_R0374644",
     "source": "workday",
-    "posted_date": "2026-09-11",
+    "posted_date": "2026-10-06",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
     "is_new": false
@@ -3565,10 +3517,10 @@
   },
   {
     "firm": "Est\u00e9e Lauder",
-    "id": "eightfold-careers.elcompanies.com-1168275465567",
+    "id": "eightfold-careers.elcompanies.com-1168275465769",
     "title": "Assistant Manager, Performance Marketing",
     "location": "New York, NY, US",
-    "url": "https://careers.elcompanies.com/careers/job/1168275465567",
+    "url": "https://careers.elcompanies.com/careers/job/1168275465769",
     "source": "eightfold",
     "posted_date": "2026-09-29",
     "metro": "NY + Jersey City",
@@ -3577,10 +3529,10 @@
   },
   {
     "firm": "Est\u00e9e Lauder",
-    "id": "eightfold-careers.elcompanies.com-1168275465769",
+    "id": "eightfold-careers.elcompanies.com-1168275465567",
     "title": "Assistant Manager, Performance Marketing",
     "location": "New York, NY, US",
-    "url": "https://careers.elcompanies.com/careers/job/1168275465769",
+    "url": "https://careers.elcompanies.com/careers/job/1168275465567",
     "source": "eightfold",
     "posted_date": "2026-09-29",
     "metro": "NY + Jersey City",
@@ -3609,6 +3561,18 @@
     "posted_date": "2026-09-30",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-01",
+    "is_new": false
+  },
+  {
+    "firm": "Franklin Templeton",
+    "id": "phenom-careers.franklintempleton.com-FTGFTMUS869872EXTERNALENUS",
+    "title": "BSP Debt Asset Management Associate, Commercial Real Estate",
+    "location": "New York, New York, United States of America",
+    "url": "https://franklintempleton.wd5.myworkdayjobs.com/Primary-External-1/job/New-York-New-York-United-States-of-America/BSP-Asset-Management-Associate--Commercial-Real-Estate_869872",
+    "source": "phenom",
+    "posted_date": "2026-09-29",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-29",
     "is_new": false
   },
   {
@@ -3670,18 +3634,6 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-23",
     "is_new": false
-  },
-  {
-    "firm": "Goldman Sachs",
-    "id": "gs-182350_GS_MID_CAREER",
-    "title": "Asset & Wealth Management, Growth Marketing & Lead Generation, Associate - New York",
-    "location": "New York, NY, United States",
-    "url": "https://higher.gs.com/roles/182350",
-    "source": "goldman",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-05",
-    "is_new": true
   },
   {
     "firm": "Goldman Sachs",
@@ -3769,34 +3721,10 @@
   },
   {
     "firm": "Goldman Sachs",
-    "id": "gs-178979_GS_EARLY_CAREER",
-    "title": "Asset & Wealth Management, Private Wealth Management, Goldman Sachs Trust Company, Estate Associate - New York",
-    "location": "New York, NY, United States",
-    "url": "https://higher.gs.com/roles/178979",
-    "source": "goldman",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-23",
-    "is_new": false
-  },
-  {
-    "firm": "Goldman Sachs",
     "id": "gs-165403_GS_MID_CAREER",
     "title": "Asset & Wealth Management, Private Wealth Management, Investments Marketing, Associate \u2013 New York",
     "location": "NY, United States",
     "url": "https://higher.gs.com/roles/165403",
-    "source": "goldman",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-23",
-    "is_new": false
-  },
-  {
-    "firm": "Goldman Sachs",
-    "id": "gs-178304_GS_MID_CAREER",
-    "title": "Asset & Wealth Management, Private Wealth Management, Marketing and Client Engagement Team, Events Marketing, Associate - New York",
-    "location": "New York, NY, United States",
-    "url": "https://higher.gs.com/roles/178304",
     "source": "goldman",
     "posted_date": null,
     "metro": "NY + Jersey City",
@@ -3869,18 +3797,6 @@
     "title": "Asset & Wealth Management, XIG, Public Strategies Client Portfolio Manager, Associate, New York",
     "location": "New York, NY, United States",
     "url": "https://higher.gs.com/roles/179861",
-    "source": "goldman",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-23",
-    "is_new": false
-  },
-  {
-    "firm": "Goldman Sachs",
-    "id": "gs-181696_GS_MID_CAREER",
-    "title": "Compliance, GBM Public Compliance -Equities, Custody Solutions, Associate",
-    "location": "New York, NY, United States",
-    "url": "https://higher.gs.com/roles/181696",
     "source": "goldman",
     "posted_date": null,
     "metro": "NY + Jersey City",
@@ -4113,18 +4029,6 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-28",
-    "is_new": false
-  },
-  {
-    "firm": "Goldman Sachs",
-    "id": "gs-175120_GS_MID_CAREER",
-    "title": "Global Banking & Markets - Physical Commodities Operations - New York - Associate",
-    "location": "New York, NY, United States",
-    "url": "https://higher.gs.com/roles/175120",
-    "source": "goldman",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-23",
     "is_new": false
   },
   {
@@ -4801,6 +4705,18 @@
   },
   {
     "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210757614",
+    "title": "Asset Management - Private Equity Group - Associate Product Owner",
+    "location": "New York, NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210757614",
+    "source": "oracle",
+    "posted_date": "2026-10-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-19",
+    "is_new": false
+  },
+  {
+    "firm": "JPMorgan Chase",
     "id": "oracle-jpmc.fa.oraclecloud.com-210790159",
     "title": "Asset and Wealth Management - Real Assets Private Markets Investments Associate",
     "location": "New York, NY, United States",
@@ -4893,18 +4809,6 @@
     "posted_date": "2026-09-29",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-30",
-    "is_new": false
-  },
-  {
-    "firm": "JPMorgan Chase",
-    "id": "oracle-jpmc.fa.oraclecloud.com-210791434",
-    "title": "CIO Global Market Research Analyst/Associate",
-    "location": "New York, NY, United States",
-    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210791434",
-    "source": "oracle",
-    "posted_date": "2026-09-22",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-23",
     "is_new": false
   },
   {
@@ -5073,7 +4977,7 @@
     "posted_date": "2026-10-05",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "JPMorgan Chase",
@@ -5185,18 +5089,6 @@
   },
   {
     "firm": "JPMorgan Chase",
-    "id": "oracle-jpmc.fa.oraclecloud.com-210796788",
-    "title": "Finance & T/CIO Chief Data Office - Data Science Associate",
-    "location": "NY, United States",
-    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210796788",
-    "source": "oracle",
-    "posted_date": "2026-10-05",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-05",
-    "is_new": true
-  },
-  {
-    "firm": "JPMorgan Chase",
     "id": "oracle-jpmc.fa.oraclecloud.com-210794282",
     "title": "Global Credit Financing - Associate",
     "location": "New York, NY, United States",
@@ -5242,6 +5134,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-19",
     "is_new": false
+  },
+  {
+    "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210797711",
+    "title": "IPB - Associate Banker - LATAM Mexico",
+    "location": "New York, NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210797711",
+    "source": "oracle",
+    "posted_date": "2026-10-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-06",
+    "is_new": true
   },
   {
     "firm": "JPMorgan Chase",
@@ -5457,7 +5361,7 @@
     "posted_date": "2026-10-05",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "JPMorgan Chase",
@@ -5517,18 +5421,6 @@
     "posted_date": "2026-10-05",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
-  },
-  {
-    "firm": "JPMorgan Chase",
-    "id": "oracle-jpmc.fa.oraclecloud.com-210785621",
-    "title": "Product Controller - Payments External Reporting - Associate",
-    "location": "Brooklyn, NY, United States",
-    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210785621",
-    "source": "oracle",
-    "posted_date": "2026-09-05",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-19",
     "is_new": false
   },
   {
@@ -5589,7 +5481,7 @@
     "posted_date": "2026-10-05",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "JPMorgan Chase",
@@ -5725,18 +5617,6 @@
   },
   {
     "firm": "JPMorgan Chase",
-    "id": "oracle-jpmc.fa.oraclecloud.com-210768006",
-    "title": "Trade Support - Associate II",
-    "location": "New York, NY, United States",
-    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210768006",
-    "source": "oracle",
-    "posted_date": "2026-10-05",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-05",
-    "is_new": true
-  },
-  {
-    "firm": "JPMorgan Chase",
     "id": "oracle-jpmc.fa.oraclecloud.com-210790926",
     "title": "Trade Support Associate II",
     "location": "New York, NY, United States",
@@ -5757,7 +5637,7 @@
     "posted_date": "2026-10-05",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "JPMorgan Chase",
@@ -6126,7 +6006,7 @@
     "location": "New York Office",
     "url": "https://recruitment.macquarie.com/en_US/careers/JobDetail?jobId=23966",
     "source": "pageup",
-    "posted_date": "2026-10-01",
+    "posted_date": "2026-10-06",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-17",
     "is_new": false
@@ -6177,7 +6057,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Michael Page",
@@ -6189,7 +6069,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Michael Page",
@@ -6201,7 +6081,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Michael Page",
@@ -6213,19 +6093,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
-  },
-  {
-    "firm": "Michael Page",
-    "id": "michaelpage-jn-092026-7107546",
-    "title": "RegTech Business Analyst (HYBRID, NYC) \u00b7 Contract",
-    "location": "New York, New York",
-    "url": "https://www.michaelpage.com/job-detail/regtech-business-analyst-hybrid-nyc/ref/jn-092026-7107546",
-    "source": "michaelpage",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Michael Page",
@@ -6237,7 +6105,7 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Mizuho",
@@ -6262,6 +6130,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-30",
     "is_new": false
+  },
+  {
+    "firm": "Mizuho",
+    "id": "wd-mizuho-mizuhoamericas-/job/New-York-NY-1271-AOA6th-Ave/Associate--GTB--Global-Transaction-Banking--Advisory_R7432",
+    "title": "Associate, GTB (Global Transaction Banking) Advisory",
+    "location": "New York, NY (1271 AOA/6th Ave)",
+    "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/New-York-NY-1271-AOA6th-Ave/Associate--GTB--Global-Transaction-Banking--Advisory_R7432",
+    "source": "workday",
+    "posted_date": "2026-10-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-06",
+    "is_new": true
   },
   {
     "firm": "Mizuho",
@@ -6430,6 +6310,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
     "is_new": false
+  },
+  {
+    "firm": "Moelis & Company",
+    "id": "wd-moelis-Experienced-Hires-/job/New-York/Associate--Investment-Banking---M-A--New-York-City_REQ102345",
+    "title": "Associate, Investment Banking \u2013 M&A, New York City",
+    "location": "New York",
+    "url": "https://moelis.wd1.myworkdayjobs.com/Experienced-Hires/job/New-York/Associate--Investment-Banking---M-A--New-York-City_REQ102345",
+    "source": "workday",
+    "posted_date": "2026-10-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-06",
+    "is_new": true
   },
   {
     "firm": "Moelis & Company",
@@ -6822,7 +6714,7 @@
     "location": "New York, New York, United States of America",
     "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Investment-Consultant---Relationship-Manager_JR042510-1",
     "source": "workday",
-    "posted_date": "2026-09-18",
+    "posted_date": "2026-10-05",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-17",
     "is_new": false
@@ -7025,18 +6917,6 @@
     "title": "Client Service Associate (Mandarin Speaking; Midtown East, NY)",
     "location": "New York",
     "url": "https://opco.hrmdirect.com/employment/job-opening.php?req=3750067",
-    "source": "hrmdirect",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-17",
-    "is_new": false
-  },
-  {
-    "firm": "Oppenheimer & Co.",
-    "id": "hrm-3799437",
-    "title": "Compliance Analyst",
-    "location": "New York",
-    "url": "https://opco.hrmdirect.com/employment/job-opening.php?req=3799437",
     "source": "hrmdirect",
     "posted_date": null,
     "metro": "NY + Jersey City",
@@ -7393,6 +7273,18 @@
   },
   {
     "firm": "RBC Capital Markets",
+    "id": "phenom-jobs.rbc.com-RBCAA0088R0000189705EXTERNALENCA",
+    "title": "Analyst, Global Investment Banking, Consumer & Retail",
+    "location": "New York, New York, United States of America",
+    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Analyst--Global-Investment-Banking--Consumer---Retail_R-0000189705",
+    "source": "phenom",
+    "posted_date": "2026-10-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-06",
+    "is_new": true
+  },
+  {
+    "firm": "RBC Capital Markets",
     "id": "phenom-jobs.rbc.com-RBCAA0088R0000186969EXTERNALENCA",
     "title": "Analyst, Trade Support",
     "location": "New York, New York, United States of America",
@@ -7453,6 +7345,30 @@
   },
   {
     "firm": "RBC Capital Markets",
+    "id": "phenom-jobs.rbc.com-RBCAA0088R0000189701EXTERNALENCA",
+    "title": "Associate, Global Investment Banking, Consumer & Retail",
+    "location": "New York, New York, United States of America",
+    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Associate--Global-Investment-Banking--Consumer---Retail_R-0000189701-1",
+    "source": "phenom",
+    "posted_date": "2026-10-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-06",
+    "is_new": true
+  },
+  {
+    "firm": "RBC Capital Markets",
+    "id": "phenom-jobs.rbc.com-RBCAA0088R0000188215EXTERNALENCA",
+    "title": "Associate, Product Control",
+    "location": "Jersey City, New Jersey, United States of America",
+    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/Jersey-City-New-Jersey-United-States-of-America/Associate--Product-Control_R-0000188215-1",
+    "source": "phenom",
+    "posted_date": "2026-10-05",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-06",
+    "is_new": true
+  },
+  {
+    "firm": "RBC Capital Markets",
     "id": "phenom-jobs.rbc.com-RBCAA0088R0000188521EXTERNALENCA",
     "title": "Audit Analyst, Capital Markets",
     "location": "Jersey City, New Jersey, United States of America",
@@ -7497,7 +7413,7 @@
     "posted_date": "2026-09-14",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Randstad",
@@ -7509,7 +7425,7 @@
     "posted_date": "2026-09-29",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Randstad",
@@ -7521,6 +7437,18 @@
     "posted_date": "2026-09-10",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
+    "is_new": false
+  },
+  {
+    "firm": "Randstad",
+    "id": "randstad-1363895",
+    "title": "Technical Business Analyst \u00b7 Contract",
+    "location": "Jersey City, New Jersey",
+    "url": "https://www.randstadusa.com/jobs/4/1363895/technical-business-analyst_jersey-city/",
+    "source": "randstad",
+    "posted_date": "2026-10-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-06",
     "is_new": true
   },
   {
@@ -7545,7 +7473,7 @@
     "posted_date": "2026-10-02",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Robert Half",
@@ -7557,7 +7485,7 @@
     "posted_date": "2026-10-02",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Robert Half",
@@ -7569,7 +7497,7 @@
     "posted_date": "2026-10-05",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Robert Half",
@@ -7581,7 +7509,7 @@
     "posted_date": "2026-09-29",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Sixth Street",
@@ -7617,7 +7545,7 @@
     "posted_date": "2026-10-05",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Sotheby's",
@@ -7849,6 +7777,18 @@
   },
   {
     "firm": "TD Bank",
+    "id": "wd-td-TD_Bank_Careers-/job/New-York-New-York/Analyst---Corporate-Banking---Industrials--TD-Securities_R_1514917",
+    "title": "Analyst - Corporate Banking - Industrials, TD Securities",
+    "location": "New York, New York",
+    "url": "https://td.wd3.myworkdayjobs.com/TD_Bank_Careers/job/New-York-New-York/Analyst---Corporate-Banking---Industrials--TD-Securities_R_1514917",
+    "source": "workday",
+    "posted_date": "2026-10-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-06",
+    "is_new": true
+  },
+  {
+    "firm": "TD Bank",
     "id": "wd-td-TD_Bank_Careers-/job/Bohemia-New-York/Associate-Banker-I---Bohemia_R_1512950",
     "title": "Associate Banker I - Bohemia",
     "location": "Bohemia, New York",
@@ -7986,7 +7926,7 @@
     "location": "New York, New York",
     "url": "https://td.wd3.myworkdayjobs.com/TD_Bank_Careers/job/New-York-New-York/Equity-Research-Associate---Travel---Leisure_R_1510409",
     "source": "workday",
-    "posted_date": "2026-09-10",
+    "posted_date": "2026-10-06",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-17",
     "is_new": false
@@ -8041,6 +7981,18 @@
   },
   {
     "firm": "Truist Securities",
+    "id": "phenom-careers.truist.com-TBJTBFUSR0119838EXTERNALENUS",
+    "title": "ECM Corporate Services Associate  III",
+    "location": "New York, New York, USA",
+    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY/ECM-Corporate-Services-Associate--III_R0119838",
+    "source": "phenom",
+    "posted_date": "2026-09-29",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-29",
+    "is_new": false
+  },
+  {
+    "firm": "Truist Securities",
     "id": "phenom-careers.truist.com-TBJTBFUSR0118998EXTERNALENUS",
     "title": "Equity Research Analyst - Building Products (Industrials)",
     "location": "New York, New York, USA",
@@ -8061,7 +8013,19 @@
     "posted_date": "2026-10-04",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
+  },
+  {
+    "firm": "Truist Securities",
+    "id": "phenom-careers.truist.com-TBJTBFUSR0119256EXTERNALENUS",
+    "title": "Equity Research Associate - REITs",
+    "location": "New York, New York, USA",
+    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY/Equity-Research-Associate---REITs_R0119256",
+    "source": "phenom",
+    "posted_date": "2026-09-15",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-18",
+    "is_new": false
   },
   {
     "firm": "Truist Securities",
@@ -8112,18 +8076,6 @@
     "is_new": false
   },
   {
-    "firm": "U.S. Bancorp",
-    "id": "wd-usbank-US_Bank_Careers-/job/New-York-NY/Payment-Sales-Consultant---Tech-and-Transportation_2026-0021403",
-    "title": "Payment Sales Consultant - Tech and Transportation",
-    "location": "New York, NY",
-    "url": "https://usbank.wd1.myworkdayjobs.com/US_Bank_Careers/job/New-York-NY/Payment-Sales-Consultant---Tech-and-Transportation_2026-0021403",
-    "source": "workday",
-    "posted_date": "2026-09-10",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-17",
-    "is_new": false
-  },
-  {
     "firm": "Wells Fargo",
     "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/Associate--Commercial-Mortgage-Pursuit-Specialist_R-546836",
     "title": "Associate, Commercial Mortgage Pursuit Specialist",
@@ -8157,6 +8109,18 @@
     "posted_date": "2026-10-05",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
+    "is_new": false
+  },
+  {
+    "firm": "Wells Fargo",
+    "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/CIB-Markets-Program-Analyst---Credit-High-Grade-Sales_R-579528",
+    "title": "CIB Markets Program Analyst - Credit High Grade Sales",
+    "location": "NEW YORK, NY",
+    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/NEW-YORK-NY/CIB-Markets-Program-Analyst---Credit-High-Grade-Sales_R-579528",
+    "source": "workday",
+    "posted_date": "2026-10-05",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-06",
     "is_new": true
   },
   {
@@ -8410,6 +8374,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-29",
     "is_new": false
+  },
+  {
+    "firm": "iCapital",
+    "id": "gh-icapitalnetwork-8802717002",
+    "title": "Artificial Intelligence / Machine Learning Engineer - Associate",
+    "location": "New York, New York, United States",
+    "url": "https://job-boards.greenhouse.io/icapitalnetwork/jobs/8802717002",
+    "source": "greenhouse",
+    "posted_date": "2026-10-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-06",
+    "is_new": true
   },
   {
     "firm": "iCapital",
@@ -8677,18 +8653,6 @@
   },
   {
     "firm": "Goldman Sachs",
-    "id": "gs-152282_GS_MID_CAREER",
-    "title": "Asset & Wealth Management, Private Wealth Management, Private Family Office, Financial Planner, Analyst - San Francisco",
-    "location": "San Francisco, CA, United States",
-    "url": "https://higher.gs.com/roles/152282",
-    "source": "goldman",
-    "posted_date": null,
-    "metro": "SF / Bay Area",
-    "first_seen": "2026-09-23",
-    "is_new": false
-  },
-  {
-    "firm": "Goldman Sachs",
     "id": "gs-156083_GS_EARLY_CAREER",
     "title": "Asset & Wealth Management, Private Wealth Management, Wealth Management Professional, Associate - San Francisco (Analyst)",
     "location": "San Francisco, CA, United States",
@@ -8782,6 +8746,18 @@
     "metro": "SF / Bay Area",
     "first_seen": "2026-09-22",
     "is_new": false
+  },
+  {
+    "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210771139",
+    "title": "Solution Analyst III \u2013 ServiceNow",
+    "location": "San Francisco, CA, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210771139",
+    "source": "oracle",
+    "posted_date": "2026-10-06",
+    "metro": "SF / Bay Area",
+    "first_seen": "2026-10-06",
+    "is_new": true
   },
   {
     "firm": "JPMorgan Chase",
@@ -8973,7 +8949,7 @@
     "posted_date": "2026-09-29",
     "metro": "SF / Bay Area",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Robert Half",
@@ -8985,7 +8961,7 @@
     "posted_date": "2026-09-23",
     "metro": "SF / Bay Area",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Robert Half",
@@ -8997,7 +8973,7 @@
     "posted_date": "2026-09-21",
     "metro": "SF / Bay Area",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Robert Half",
@@ -9009,7 +8985,7 @@
     "posted_date": "2026-09-15",
     "metro": "SF / Bay Area",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Robert Half",
@@ -9021,7 +8997,7 @@
     "posted_date": "2026-09-21",
     "metro": "SF / Bay Area",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Robert Half",
@@ -9033,7 +9009,7 @@
     "posted_date": "2026-09-19",
     "metro": "SF / Bay Area",
     "first_seen": "2026-10-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Stripe",
@@ -9069,30 +9045,6 @@
     "posted_date": "2026-09-15",
     "metro": "SF / Bay Area",
     "first_seen": "2026-10-01",
-    "is_new": false
-  },
-  {
-    "firm": "U.S. Bancorp",
-    "id": "wd-usbank-US_Bank_Careers-/job/San-Francisco-CA/Centralized-Support-Associate_2026-0030172",
-    "title": "Centralized Support Associate",
-    "location": "San Francisco, CA",
-    "url": "https://usbank.wd1.myworkdayjobs.com/US_Bank_Careers/job/San-Francisco-CA/Centralized-Support-Associate_2026-0030172",
-    "source": "workday",
-    "posted_date": "2026-09-29",
-    "metro": "SF / Bay Area",
-    "first_seen": "2026-09-29",
-    "is_new": false
-  },
-  {
-    "firm": "U.S. Bancorp",
-    "id": "wd-usbank-US_Bank_Careers-/job/San-Francisco-CA/Client-Relationship-Consultant-3--Banker----North-Beach---San-Francisco--CA-Bilingual-Cantonese---English_2026-0016414",
-    "title": "Client Relationship Consultant 3 (Banker) - North Beach - San Francisco, CA Bilingual Cantonese & English",
-    "location": "San Francisco, CA",
-    "url": "https://usbank.wd1.myworkdayjobs.com/US_Bank_Careers/job/San-Francisco-CA/Client-Relationship-Consultant-3--Banker----North-Beach---San-Francisco--CA-Bilingual-Cantonese---English_2026-0016414",
-    "source": "workday",
-    "posted_date": "2026-09-25",
-    "metro": "SF / Bay Area",
-    "first_seen": "2026-09-17",
     "is_new": false
   },
   {
