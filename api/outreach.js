@@ -12,6 +12,16 @@ const TARGET = {
   tech: "data engineering roles at new grad to mid level (about 0 to 4 years), at tech or finance companies, anywhere in the US or remote",
 };
 
+// Fixed sign-off per watch (null = use the name on the resume).
+const SIGN_OFF = { street: "Best,\nSerena Tian", tech: null };
+
+// Swap whatever closing the model wrote for the fixed one.
+function withSignOff(body, signOff) {
+  if (!signOff) return body;
+  const trimmed = body.replace(/\n+\s*(best|best regards|regards|thanks|thank you|sincerely)[,.!]?\s*(\n[^\n]*)?\s*$/i, "");
+  return `${trimmed.trimEnd()}\n\n${signOff}`;
+}
+
 const SYSTEM = `You write a short first email from a job seeker to an external recruiter (an agency or search firm recruiter, not the hiring company).
 
 ${COMMON_RULES}
@@ -77,6 +87,7 @@ export async function POST(request) {
           `Person's industry codes: ${(c.ind_codes || []).join(", ") || "—"}\nPerson's function codes: ${(c.pos_codes || []).join(", ") || "—"}\n` +
           `Firm industries: ${(f.industries || "").slice(0, 600)}\nFirm functions: ${(f.positions || "").slice(0, 600)}\n` +
           `About the firm: ${(f.about || "").slice(0, 1200)}\n</recruiter>`,
+        SIGN_OFF[watch] ? `<sign_off>\nEnd the email with exactly:\n${SIGN_OFF[watch]}\n</sign_off>` : null,
         job ? `<example_role>\n${job.firm}: ${job.title}${job.location ? ` (${job.location})` : ""}\n</example_role>` : null,
         "Write the email.",
       ]
@@ -85,7 +96,7 @@ export async function POST(request) {
     });
 
     const subject = stripDashes(String(out.subject || "").trim());
-    const body = stripDashes(String(out.body || "").trim());
+    const body = withSignOff(stripDashes(String(out.body || "").trim()), SIGN_OFF[watch]);
     const { error: e2 } = await db()
       .from("recruiter_outreach")
       .upsert(
