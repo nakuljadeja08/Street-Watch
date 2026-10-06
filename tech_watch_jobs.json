@@ -52,19 +52,6 @@
     "is_new": false
   },
   {
-    "firm": "Robert Half",
-    "id": "roberthalf-00900-0013487688-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Atlanta, GA",
-    "url": "https://www.roberthalf.com/us/en/job/atlanta-ga/data-engineer/00900-0013487688-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-09-16",
-    "metro": "Atlanta",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
     "firm": "TEKsystems",
     "id": "phenom-careers.teksystems.com-TESYUSJP006314596ENUS",
     "title": "GCP Data Engineer \u00b7 Contract",
@@ -245,6 +232,19 @@
     "sector": "Agency",
     "first_seen": "2026-10-05",
     "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-00210-9504407313-usen",
+    "title": "Data Engineer \u00b7 Contract",
+    "location": "Glendale, AZ",
+    "url": "https://www.roberthalf.com/us/en/job/glendale-az/data-engineer/00210-9504407313-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-06",
+    "metro": "Los Angeles",
+    "sector": "Agency",
+    "first_seen": "2026-10-06",
+    "is_new": true
   },
   {
     "firm": "Robert Half",
@@ -518,19 +518,6 @@
     "sector": "Agency",
     "first_seen": "2026-10-05",
     "is_new": false
-  },
-  {
-    "firm": "Salesforce",
-    "id": "wd-salesforce-External_Career_Site-/job/California---San-Francisco/Data-Engineer--SMTS---LMTS----MDM_JR347388",
-    "title": "Data Engineer (SMTS / LMTS) - MDM",
-    "location": "California - San Francisco; New York - New York; Washington - Seattle; Indiana - Indianapolis",
-    "url": "https://salesforce.wd12.myworkdayjobs.com/External_Career_Site/job/California---San-Francisco/Data-Engineer--SMTS---LMTS----MDM_JR347388",
-    "source": "workday",
-    "posted_date": "2026-10-05",
-    "metro": "NYC Area",
-    "sector": "Tech",
-    "first_seen": "2026-10-06",
-    "is_new": true
   },
   {
     "firm": "Susquehanna International Group",
@@ -1079,6 +1066,19 @@
     "is_new": true
   },
   {
+    "firm": "Visa",
+    "id": "wd-visa-Visa-/job/IN---Bengaluru-India/Data-Engineer--1---2-years-of-experience-in-Java---Python---Go--Kafka--Flink--Hadoop-_REF088312W",
+    "title": "Data Engineer (1 - 2 years of experience in Java / Python / Go, Kafka, Flink, Hadoop)",
+    "location": "IN - Bengaluru, India",
+    "url": "https://visa.wd5.myworkdayjobs.com/Visa/job/IN---Bengaluru-India/Data-Engineer--1---2-years-of-experience-in-Java---Python---Go--Kafka--Flink--Hadoop-_REF088312W",
+    "source": "workday",
+    "posted_date": "2026-10-06",
+    "metro": "Other US",
+    "sector": "Fintech",
+    "first_seen": "2026-10-06",
+    "is_new": true
+  },
+  {
     "firm": "Allstate",
     "id": "wd-allstate-allstate_careers-/job/US---Remote/Managing-Engineer--Data-Engineering_R35362-1",
     "title": "Managing Engineer, Data Engineering",
@@ -1171,12 +1171,12 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-03340-0013512779-usen",
+    "id": "roberthalf-02600-0013503091-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Nashville, TN (Remote)",
-    "url": "https://www.roberthalf.com/us/en/job/nashville-tn/data-engineer/03340-0013512779-usen",
+    "location": "Portland, ME (Remote)",
+    "url": "https://www.roberthalf.com/us/en/job/portland-me/data-engineer/02600-0013503091-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-01",
+    "posted_date": "2026-09-09",
     "metro": "Remote (US)",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -1184,12 +1184,12 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-02600-0013503091-usen",
+    "id": "roberthalf-03340-0013512779-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Portland, ME (Remote)",
-    "url": "https://www.roberthalf.com/us/en/job/portland-me/data-engineer/02600-0013503091-usen",
+    "location": "Nashville, TN (Remote)",
+    "url": "https://www.roberthalf.com/us/en/job/nashville-tn/data-engineer/03340-0013512779-usen",
     "source": "roberthalf",
-    "posted_date": "2026-09-09",
+    "posted_date": "2026-10-01",
     "metro": "Remote (US)",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -1597,6 +1597,19 @@
     "sector": "Agency",
     "first_seen": "2026-10-05",
     "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-04130-0013486331-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Houston, TX",
+    "url": "https://www.roberthalf.com/us/en/job/houston-tx/data-engineer/04130-0013486331-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-05",
+    "metro": "Texas",
+    "sector": "Agency",
+    "first_seen": "2026-10-06",
+    "is_new": true
   },
   {
     "firm": "eBay",
