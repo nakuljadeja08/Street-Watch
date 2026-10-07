@@ -618,14 +618,26 @@ HUBS = [(name, re.compile(pat, re.I)) for name, pat in HUBS]
 _SPLIT_RE = re.compile(r"\s*(?:;|\||•|·|•|�|\bor\b|\s/\s|\n)\s*")
 
 
+# Country codes that double as state codes: "IN - Bengaluru, India" is India,
+# not Indiana, and "Toronto, ON, CA" is Canada, not California.
+_COUNTRY_CODE_CLASH = {
+    "IN": re.compile(r"\b(india|bangalore|bengaluru|hyderabad|pune|mumbai|chennai|gurgaon|"
+                     r"gurugram|noida|delhi|kolkata|ahmedabad|kochi|coimbatore|jaipur)\b", re.I),
+    "CA": re.compile(r"\b(canada|ontario|toronto|montr[eé]al|qu[eé]bec|vancouver|"
+                     r"british columbia|alberta|calgary|ottawa|nova scotia)\b", re.I),
+}
+
+
 def _part_us(part):
     """True if one location string is in the US (or remote-US), False if it's
     clearly abroad, None if it can't tell."""
     if _NON_US_RE.search(part):
         # "Remote - US or Canada" was already split; "New York, NY, United States"
         # never hits this, and a US state code overrides a stray match like
-        # "London, KY".
-        return bool(_STATE_CODE_RE.search(part) or _US_RE.search(part))
+        # "London, KY" (unless it's that country's own code, e.g. "IN" for India).
+        codes = {c for c in _STATE_CODE_RE.findall(part)
+                 if not (c in _COUNTRY_CODE_CLASH and _COUNTRY_CODE_CLASH[c].search(part))}
+        return bool(codes or _US_RE.search(part))
     if _US_RE.search(part) or _STATE_CODE_RE.search(part) or _STATE_NAME_RE.search(part):
         return True
     if any(rx.search(part) for _, rx in HUBS):
