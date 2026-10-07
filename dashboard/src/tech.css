@@ -7,7 +7,7 @@ body.tw-body {
   --tw-ink: #0f1115; --tw-soft: #5b6270; --tw-faint: #8a919e; --tw-line: #e4e7ec;
   --tw-acc: #2b59ff; --tw-accS: #e9eeff;
   --tw-new: #0a8f5c; --tw-newS: #e3f5ec; --tw-bad: #c2410c; --tw-badS: #fdeee6;
-  --tw-tech: #3148c8; --tw-techS: #e8ecfd; --tw-fin: #8a5a00; --tw-finS: #fbf1dc; --tw-ftc: #0f766e; --tw-ftcS: #e3f3f1; --tw-agy: #7a3aa8; --tw-agyS: #f3eafb;
+  --tw-tech: #3148c8; --tw-techS: #e8ecfd; --tw-fin: #8a5a00; --tw-finS: #fbf1dc; --tw-ftc: #0f766e; --tw-ftcS: #e3f3f1; --tw-agy: #7a3aa8; --tw-agyS: #f3eafb; --tw-eng: #b1480f; --tw-engS: #fcebe0;
   /* terminal chrome: dark in both themes */
   --tw-term: #0d1117; --tw-term2: #161b22; --tw-termInk: #c9d1d9; --tw-termDim: #6e7681;
   --tw-cyan: #79c0ff; --tw-amber: #e3b341; --tw-green: #7ee787;
@@ -29,7 +29,7 @@ body.tw-body {
     --tw-ink: #eceef2; --tw-soft: #9aa1ad; --tw-faint: #6b7280; --tw-line: #23262e;
     --tw-acc: #7c9bff; --tw-accS: #1b2340;
     --tw-new: #4fd49a; --tw-newS: #12291f; --tw-bad: #ff8a65; --tw-badS: #33201a;
-    --tw-tech: #95a7ff; --tw-techS: #1c2240; --tw-fin: #e3b45a; --tw-finS: #2c2412; --tw-ftc: #5fd3c4; --tw-ftcS: #112a28; --tw-agy: #c9a2f0; --tw-agyS: #2a1d38;
+    --tw-tech: #95a7ff; --tw-techS: #1c2240; --tw-fin: #e3b45a; --tw-finS: #2c2412; --tw-ftc: #5fd3c4; --tw-ftcS: #112a28; --tw-agy: #c9a2f0; --tw-agyS: #2a1d38; --tw-eng: #f0a878; --tw-engS: #341a0e;
     --tPosted: #7c9bff; --tRemoved: #ff8a65;
   }
 }
@@ -38,7 +38,7 @@ body.tw-body {
   --tw-ink: #eceef2; --tw-soft: #9aa1ad; --tw-faint: #6b7280; --tw-line: #23262e;
   --tw-acc: #7c9bff; --tw-accS: #1b2340;
   --tw-new: #4fd49a; --tw-newS: #12291f; --tw-bad: #ff8a65; --tw-badS: #33201a;
-  --tw-tech: #95a7ff; --tw-techS: #1c2240; --tw-fin: #e3b45a; --tw-finS: #2c2412; --tw-ftc: #5fd3c4; --tw-ftcS: #112a28; --tw-agy: #c9a2f0; --tw-agyS: #2a1d38;
+  --tw-tech: #95a7ff; --tw-techS: #1c2240; --tw-fin: #e3b45a; --tw-finS: #2c2412; --tw-ftc: #5fd3c4; --tw-ftcS: #112a28; --tw-agy: #c9a2f0; --tw-agyS: #2a1d38; --tw-eng: #f0a878; --tw-engS: #341a0e;
   --tPosted: #7c9bff; --tRemoved: #ff8a65;
 }
 
@@ -149,6 +149,7 @@ body.tw-body .addBtn, body.tw-body .clearBtn { border-radius: 7px; }
 .tw-badge.sec-fintech { background: var(--tw-ftcS); color: var(--tw-ftc); }
 .tw-badge.sec-finance { background: var(--tw-finS); color: var(--tw-fin); }
 .tw-badge.sec-agency { background: var(--tw-agyS); color: var(--tw-agy); }
+.tw-badge.sec-energy { background: var(--tw-engS); color: var(--tw-eng); }
 .tw-badge.st-applied, .tw-badge.st-interview, .tw-badge.st-offer { background: var(--tw-accS); color: var(--tw-acc); }
 .tw-badge.st-rejected { background: var(--tw-badS); color: var(--tw-bad); }
 .tw-age { font-size: 12px; color: var(--tw-faint); width: 30px; text-align: right; font-variant-numeric: tabular-nums; }
