@@ -169,19 +169,6 @@
     "is_new": false
   },
   {
-    "firm": "Robert Half",
-    "id": "roberthalf-01300-0013433936-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Chicago, IL",
-    "url": "https://www.roberthalf.com/us/en/job/chicago-il/data-engineer/01300-0013433936-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-09-09",
-    "metro": "Chicago",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
     "firm": "U.S. Bancorp",
     "id": "wd-usbank-US_Bank_Careers-/job/Hopkins-MN/Infrastructure-Data-Analytics-Engineer_2026-0020380-1",
     "title": "Infrastructure Data Analytics Engineer",
@@ -637,6 +624,19 @@
     "is_new": false
   },
   {
+    "firm": "Fidelity",
+    "id": "wd-fmr-FidelityCareers-/job/Salt-Lake-City-UT/Data-Engineer--Analytics---Performance-Insights_2135554",
+    "title": "Data Engineer, Analytics & Performance Insights",
+    "location": "Salt Lake City, UT",
+    "url": "https://fmr.wd1.myworkdayjobs.com/FidelityCareers/job/Salt-Lake-City-UT/Data-Engineer--Analytics---Performance-Insights_2135554",
+    "source": "workday",
+    "posted_date": "2026-10-07",
+    "metro": "Other US",
+    "sector": "Finance",
+    "first_seen": "2026-10-02",
+    "is_new": false
+  },
+  {
     "firm": "Gopuff",
     "id": "lever-gopuff-bfa7bc15-793e-486c-a3f5-b27d84c53025",
     "title": "Analytics Engineer",
@@ -674,6 +674,19 @@
     "sector": "Tech",
     "first_seen": "2026-09-27",
     "is_new": false
+  },
+  {
+    "firm": "Mastercard",
+    "id": "wd-mastercard-CorporateCareers-/job/OFallon-Missouri/Data-Engineer-II_R-289305",
+    "title": "Data Engineer II",
+    "location": "O'Fallon, Missouri",
+    "url": "https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/OFallon-Missouri/Data-Engineer-II_R-289305",
+    "source": "workday",
+    "posted_date": "2026-10-06",
+    "metro": "Other US",
+    "sector": "Fintech",
+    "first_seen": "2026-10-07",
+    "is_new": true
   },
   {
     "firm": "Motion Recruitment",
@@ -846,12 +859,12 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-01120-0013490448-usen",
+    "id": "roberthalf-02220-0013514903-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Jacksonville, FL",
-    "url": "https://www.roberthalf.com/us/en/job/jacksonville-fl/data-engineer/01120-0013490448-usen",
+    "location": "Battle Creek, MI",
+    "url": "https://www.roberthalf.com/us/en/job/battle-creek-mi/data-engineer/02220-0013514903-usen",
     "source": "roberthalf",
-    "posted_date": "2026-09-09",
+    "posted_date": "2026-09-28",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -859,12 +872,12 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-02220-0013514903-usen",
+    "id": "roberthalf-01120-0013490448-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Battle Creek, MI",
-    "url": "https://www.roberthalf.com/us/en/job/battle-creek-mi/data-engineer/02220-0013514903-usen",
+    "location": "Jacksonville, FL",
+    "url": "https://www.roberthalf.com/us/en/job/jacksonville-fl/data-engineer/01120-0013490448-usen",
     "source": "roberthalf",
-    "posted_date": "2026-09-28",
+    "posted_date": "2026-09-09",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -1118,24 +1131,11 @@
     "is_new": false
   },
   {
-    "firm": "Hamilton Lane",
-    "id": "wd-hamiltonlane-search-/job/Conshohocken-PA-USA/ETL-Data-Engineer--Python---Snowflake-_R003039",
-    "title": "ETL Data Engineer (Python & Snowflake)",
-    "location": "Conshohocken, PA, USA; Remote Pennsylvania",
-    "url": "https://hamiltonlane.wd108.myworkdayjobs.com/search/job/Conshohocken-PA-USA/ETL-Data-Engineer--Python---Snowflake-_R003039",
-    "source": "workday",
-    "posted_date": "2026-09-06",
-    "metro": "Remote (US)",
-    "sector": "Finance",
-    "first_seen": "2026-09-27",
-    "is_new": false
-  },
-  {
     "firm": "Robert Half",
-    "id": "roberthalf-04130-0013508488-usen",
+    "id": "roberthalf-02940-0013508410-usen",
     "title": "Data Engineer \u00b7 Contract",
-    "location": "Cincinnati, OH (Remote)",
-    "url": "https://www.roberthalf.com/us/en/job/cincinnati-oh/data-engineer/04130-0013508488-usen",
+    "location": "Remote, OH (Remote)",
+    "url": "https://www.roberthalf.com/us/en/job/remote-oh/data-engineer/02940-0013508410-usen",
     "source": "roberthalf",
     "posted_date": "2026-10-07",
     "metro": "Remote (US)",
@@ -1145,10 +1145,10 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-02940-0013508410-usen",
+    "id": "roberthalf-04130-0013508488-usen",
     "title": "Data Engineer \u00b7 Contract",
-    "location": "Remote, OH (Remote)",
-    "url": "https://www.roberthalf.com/us/en/job/remote-oh/data-engineer/02940-0013508410-usen",
+    "location": "Cincinnati, OH (Remote)",
+    "url": "https://www.roberthalf.com/us/en/job/cincinnati-oh/data-engineer/04130-0013508488-usen",
     "source": "roberthalf",
     "posted_date": "2026-10-07",
     "metro": "Remote (US)",
@@ -1272,6 +1272,19 @@
     "sector": "Tech",
     "first_seen": "2026-09-30",
     "is_new": false
+  },
+  {
+    "firm": "Meta",
+    "id": "meta-1087303317514493",
+    "title": "Infrastructure Data Governance Engineer - Capacity Engineering",
+    "location": "Menlo Park, CA",
+    "url": "https://www.metacareers.com/profile/job_details/1087303317514493",
+    "source": "meta",
+    "posted_date": null,
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-07",
+    "is_new": true
   },
   {
     "firm": "NVIDIA",
