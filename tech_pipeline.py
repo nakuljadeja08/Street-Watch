@@ -490,6 +490,16 @@ def fetch_agencies():
     ]
 
 
+# Full-time / direct hire only (2026-10-06): agency titles carry a "· Contract" /
+# "· Contract-to-hire" tag (P._tagged); employers sometimes say it in the title.
+_CONTRACT_RE = re.compile(r"\bcontract(?:or)?\b|contract-to-hire|\bc2h\b|\bcth\b|"
+                          r"\btemp(?:orary)?\b|\b1099\b|\bfreelance\b", re.I)
+
+
+def is_contract(title):
+    return bool(_CONTRACT_RE.search(title or ""))
+
+
 _MULTI_LOC_RE = re.compile(r"^\d+\s+locations?$", re.I)
 
 
@@ -709,7 +719,8 @@ def collect():
 
     kept, seen = [], set()
     for r in raw:
-        if r["id"] in seen or not title_ok(r["title"], r["firm"]) or not P.age_ok(r.get("posted_date"), MAX_AGE_DAYS):
+        if r["id"] in seen or not title_ok(r["title"], r["firm"]) or is_contract(r["title"]) \
+                or not P.age_ok(r.get("posted_date"), MAX_AGE_DAYS):
             continue
         hub = us_hub(r["location"])
         if hub:
