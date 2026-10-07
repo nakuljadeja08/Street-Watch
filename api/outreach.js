@@ -36,6 +36,21 @@ ${COMMON_RULES}
 - 90 to 150 words in the body. Plain text, short paragraphs. No bullet points.
 - subject: 4 to 9 words, specific (role type + one credential), no clickbait, no exclamation marks.`;
 
+// In-house contacts (firm type "In-house …") work at the target firm itself, so
+// the note is a networking ask about their team, not "are you running searches".
+const SYSTEM_IN_HOUSE = `You write a short first email from a job seeker to someone who works at a firm the candidate wants to join (not an agency recruiter).
+
+${COMMON_RULES}
+
+## This email
+- Purpose: a respectful networking note. Ask for a short conversation about the person's team and how the candidate could fit, or for a pointer to the right person. Never ask them to "pass along" or guarantee a referral.
+- Greeting "Hi <first name>,". Then one or two sentences on who the candidate is, using the two or three strongest true facts from the resume.
+- One sentence on why this person specifically: what their team does at the firm (from their details), stated plainly. Never flatter, never invent facts about them.
+- If a specific role is given, name it once and say the candidate applied or plans to apply.
+- Close with one light ask (15 minutes, or a pointer to the right person) and "Happy to share my resume." Then "Best," and the candidate's name from the resume.
+- 80 to 140 words in the body. Plain text, short paragraphs. No bullet points.
+- subject: 4 to 9 words, specific, no clickbait, no exclamation marks.`;
+
 const SCHEMA = {
   type: "object",
   properties: { subject: { type: "string" }, body: { type: "string" } },
@@ -76,7 +91,7 @@ export async function POST(request) {
 
     const f = c.recruiter_firms || {};
     const out = await askJson({
-      system: SYSTEM,
+      system: /^in-house/i.test(f.type || "") ? SYSTEM_IN_HOUSE : SYSTEM,
       effort: "low",
       maxTokens: 3000,
       schema: SCHEMA,

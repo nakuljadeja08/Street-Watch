@@ -50,6 +50,8 @@ GREENHOUSE = {   # firm -> board token  (boards-api.greenhouse.io/v1/boards/<tok
     "On Holding": "onrunning",
     # Auction houses (added 2026-10-01): luxury segment, see AUCTION_HOUSES.
     "Sotheby's": "sothebys",
+    # Venture (added 2026-10-07): Ms Tian's dream firm, see VC_FIRMS.
+    "a16z": "a16z",
 }
 ASHBY = {        # firm -> job board name (api.ashbyhq.com/posting-api/job-board/<name>)
     "Insight Partners": "insight-partners",          # slug is hyphenated (was "insightpartners" = empty)
@@ -1344,6 +1346,11 @@ PRODUCT_GTM_FIRMS = {
 # cataloguer and sale/department coordinator seats.
 AUCTION_HOUSES = {"Christie's", "Sotheby's", "Phillips", "Bonhams", "Doyle", "Freeman's | Hindman",
                   "Rago | Wright"}
+# Venture firms (a16z, added 2026-10-07) keep analyst/associate titles AND
+# Product/GTM ones (growth, partnerships, marketing). a16z prefixes every title
+# with its internal level ("Partner 16, …"), which is not a seniority signal.
+VC_FIRMS = {"a16z"}
+VC_MAX_AGE_DAYS = 90   # dream firm: roles stay open longer and she wants them all (user, 2026-10-07)
 AUCTION_TITLES = TITLES + ["cataloguer", "cataloger", "coordinator"]
 _PRODUCT_GTM_RE = re.compile(
     r"\bproduct\b|go[\s-]to[\s-]market|\bgtm\b|business development|\bpartnerships?\b"
@@ -1410,6 +1417,9 @@ def title_ok(firm, title):
         return False
     if _MANAGER_RE.search(title) and segment_of(firm) in ("fintech", "fashion"):
         return False
+    if firm in VC_FIRMS:
+        return any(k in t for k in TITLES) or (
+            bool(_PRODUCT_GTM_RE.search(title)) and not _PRODUCT_GTM_EXCLUDE_RE.search(title))
     if firm in PRODUCT_GTM_FIRMS:
         if _PRODUCT_GTM_EXCLUDE_RE.search(title):
             return False
@@ -1504,7 +1514,8 @@ def collect():
     kept, seen = [], set()
     for r in raw:
         m = agency_metro(r["location"]) if r["firm"] in AGENCY_FIRMS else metro_of(r["location"])
-        if (m and title_ok(r["firm"], r["title"]) and age_ok(r.get("posted_date"))
+        if (m and title_ok(r["firm"], r["title"])
+                and age_ok(r.get("posted_date"), VC_MAX_AGE_DAYS if r["firm"] in VC_FIRMS else None)
                 and r["id"] not in seen):
             seen.add(r["id"]); r["metro"] = m; kept.append(r)
     # `raw` (every posting each feed returned, before our filters) lets the
@@ -1581,17 +1592,23 @@ def push_supabase(rows, table="jobs", apps_table="applications", max_age_days=No
     # rows with a posted_date older than the cutoff are removed — undated rows
     # (Workday/Citi/Citadel/Radancy) have null posted_date, which never matches
     # `lt`, so they're left untouched. Filtered delete, never a blanket wipe.
-    cutoff = (datetime.now(timezone.utc).date() - timedelta(days=max_age_days or MAX_AGE_DAYS)).isoformat()
-    try:
-        d = requests.delete(f"{url}/rest/v1/{table}",
-                            headers={**headers, "Prefer": "return=minimal"},
-                            params={"posted_date": f"lt.{cutoff}", **keep}, timeout=TIMEOUT)
-        if d.status_code < 300:
-            print(f"  purged listings posted before {cutoff}")
-        else:
-            print(f"  ! supabase purge {d.status_code}: {d.text[:150]}", file=sys.stderr)
-    except Exception as e:
-        print(f"  ! supabase purge failed: {e}", file=sys.stderr)
+    # VC_FIRMS get their own longer window (VC_MAX_AGE_DAYS).
+    today = datetime.now(timezone.utc).date()
+    vc = "(" + ",".join(json.dumps(f) for f in sorted(VC_FIRMS)) + ")"
+    for firm_q, days in ((f"not.in.{vc}", max_age_days or MAX_AGE_DAYS),
+                         (f"in.{vc}", VC_MAX_AGE_DAYS)):
+        cutoff = (today - timedelta(days=days)).isoformat()
+        try:
+            d = requests.delete(f"{url}/rest/v1/{table}",
+                                headers={**headers, "Prefer": "return=minimal"},
+                                params={"posted_date": f"lt.{cutoff}", "firm": firm_q, **keep},
+                                timeout=TIMEOUT)
+            if d.status_code < 300:
+                print(f"  purged listings posted before {cutoff} (firm {firm_q[:7]})")
+            else:
+                print(f"  ! supabase purge {d.status_code}: {d.text[:150]}", file=sys.stderr)
+        except Exception as e:
+            print(f"  ! supabase purge failed: {e}", file=sys.stderr)
 
 
 # ---------------------------------------------------------------- hiring trends
