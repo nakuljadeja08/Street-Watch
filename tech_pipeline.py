@@ -179,6 +179,23 @@ WORKDAY["Finance"].update({
     "FactSet": ("factset", "wd108", "FactSetCareers"),
     "Broadridge": ("broadridge", "wd5", "Careers"),
 })
+# Oil & gas (sector "Energy", added 2026-10-07 — Nakul has prior energy-sector
+# experience). All nine are on Workday; boards confirmed live that day. Exxon and
+# Phillips 66 run SAP SuccessFactors and the midstream/services independents
+# (Valero, Kinder Morgan, Targa, Halliburton, SLB, …) use ATSes we don't fetch,
+# so they're left out rather than wired as dead boards. The US location filter
+# keeps only US roles from Enbridge's (Canada-HQ) board.
+WORKDAY["Energy"] = {
+    "Chevron": ("chevron", "wd5", "jobs"),
+    "ConocoPhillips": ("conocophillips", "wd1", "external"),
+    "Marathon Petroleum": ("mpc", "wd1", "MPCCareers"),
+    "Occidental": ("oxy", "wd5", "corporate"),
+    "Devon Energy": ("devonenergy", "wd5", "Careers"),
+    "Williams": ("williams", "wd5", "External"),
+    "ONEOK": ("oneok", "wd1", "ONEOK"),
+    "Baker Hughes": ("bakerhughes", "wd5", "BakerHughes"),
+    "Enbridge": ("enbridge", "wd3", "enbridge_careers"),
+}
 
 # Custom-fetcher firms (TASKS.md, added 2026-09-28). Same ATS products Street
 # Watch already scrapes, so they reuse its fetchers.
@@ -752,7 +769,7 @@ def _matches_search(j, f):
 BG, PANEL, INK, SOFT, FAINT, LINE = "#eef0f4", "#ffffff", "#0f1115", "#5b6270", "#8a919e", "#e4e7ec"
 ACC, NEW, TERM, TERM_INK, TERM_DIM, AMBER, CYAN = "#2b59ff", "#0a8f5c", "#0d1117", "#c9d1d9", "#6e7681", "#e3b341", "#79c0ff"
 SECT = {"Tech": ("#e8ecfd", "#3148c8"), "Fintech": ("#e6f4f1", "#0f766e"), "Finance": ("#fbf1dc", "#8a5a00"),
-        "Agency": ("#f3eafb", "#7a3aa8")}
+        "Agency": ("#f3eafb", "#7a3aa8"), "Energy": ("#fcebe0", "#b1480f")}
 SANS = "'Geist', 'IBM Plex Sans', -apple-system, Segoe UI, Arial, sans-serif"
 MONO = "'JetBrains Mono', 'Geist Mono', ui-monospace, 'Courier New', monospace"
 FONTS = ("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&"
