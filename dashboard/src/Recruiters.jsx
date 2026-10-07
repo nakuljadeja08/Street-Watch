@@ -23,7 +23,13 @@ const today = () => new Date().toISOString().slice(0, 10);
 const plusDays = (n) => new Date(Date.now() + n * 86400000).toISOString().slice(0, 10);
 const scoreKey = (watch) => (watch === "tech" ? "tech_score" : "street_score");
 const typeShort = (t = "") =>
-  t.toLowerCase().startsWith("contingency") ? "Contingency" : /aesc|major/i.test(t) ? "Retained · major" : "Retained";
+  t.toLowerCase().startsWith("in-house")
+    ? "In-house"
+    : t.toLowerCase().startsWith("contingency")
+      ? "Contingency"
+      : /aesc|major/i.test(t)
+        ? "Retained · major"
+        : "Retained";
 
 // ---------------------------------------------------------------- data
 async function fetchAll(table, select = "*") {
@@ -125,10 +131,16 @@ const overlap = (a = [], b = []) => a.filter((x) => b.includes(x)).length;
 // one person per firm; people marked "Not a fit" are skipped.
 export function matchRecruiters(rec, job, category, n = 3) {
   if (rec.state !== "ready" || !job) return [];
+  // People who work at the hiring firm itself (in-house contacts) come first.
+  const own = rec.contacts
+    .filter((c) => rec.firms[c.firm_id]?.name === job.firm && rec.outreach[c.id]?.status !== "not_interested")
+    .sort((a, b) => (b[rec.scoreKey] ?? -1) - (a[rec.scoreKey] ?? -1));
+  if (own.length) return own.slice(0, n);
   const { ind, pos } = jobCodes(job, rec.watch, category);
   if (!ind.length) return [];
   const scored = [];
   for (const c of rec.contacts) {
+    if (typeShort(rec.firms[c.firm_id]?.type) === "In-house") continue;
     const i = overlap(c.ind_codes, ind);
     const p = overlap(c.pos_codes, pos);
     if (!i || !p || rec.outreach[c.id]?.status === "not_interested") continue;
@@ -208,6 +220,7 @@ export function RecruitersView({ rec, aiFetch, aiReady, onSetupAi }) {
           <option value="all">All firm types</option>
           <option value="contingency">Contingency (works with candidates)</option>
           <option value="retained">Retained (hired by companies)</option>
+          <option value="in-house">In-house (people at a target firm)</option>
         </select>
         <select value={status} onChange={(e) => setStatus(e.target.value)} aria-label="Outreach status">
           <option value="all">Any status</option>
