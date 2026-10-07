@@ -128,3 +128,26 @@ Contract / Contract-to-hire / Direct hire.
 
 Not added: Hays US (search pages 404), Atrium, Adecco, Goodwin, Alexander
 Chapman (UK), BW Global USA (no job board; generic "training" site).
+
+### 2026-10-07: oil & gas (sector "Energy")
+Added at Nakul's request — he has prior energy-sector experience, so these are
+worth applying to. Same "data engineer" Workday search and the usual title / US
+filters. All nine boards were confirmed live that day (`WORKDAY["Energy"]` in
+`tech_pipeline.py`); none had a US junior DE role on day one, wired for coverage.
+
+| Firm | Workday board (tenant/dc/site) | Board total |
+|---|---|---:|
+| Chevron | chevron / wd5 / jobs | 61 |
+| Baker Hughes | bakerhughes / wd5 / BakerHughes | 231 |
+| Williams | williams / wd5 / External | 74 |
+| Devon Energy | devonenergy / wd5 / Careers | 43 |
+| Marathon Petroleum | mpc / wd1 / MPCCareers | 40 |
+| Enbridge | enbridge / wd3 / enbridge_careers | 30 |
+| ConocoPhillips | conocophillips / wd1 / external | 25 |
+| ONEOK | oneok / wd1 / ONEOK | 24 |
+| Occidental (Oxy) | oxy / wd5 / corporate | 17 |
+
+Not added: ExxonMobil and Phillips 66 (SAP SuccessFactors — no fetcher); Valero,
+Halliburton, SLB, Kinder Morgan, Targa, Coterra, Cheniere, EOG, Enterprise
+Products, Dominion, NextEra (not on Workday / ATS we don't fetch). Enbridge is
+Canada-HQ but has large US operations; the US location filter keeps only US roles.
