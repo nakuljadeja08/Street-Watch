@@ -360,6 +360,18 @@
     "is_new": false
   },
   {
+    "firm": "Citi",
+    "id": "citi-100494900464",
+    "title": "Licensed Client Service Associate",
+    "location": "Chicago, Illinois, United States",
+    "url": "https://jobs.citi.com/job/chicago/licensed-client-service-associate/287/100494900464",
+    "source": "citi",
+    "posted_date": null,
+    "metro": "Chicago",
+    "first_seen": "2026-09-16",
+    "is_new": false
+  },
+  {
     "firm": "DRW",
     "id": "gh-drweng-8201188",
     "title": "Administrative Assistant - FICCO Trading Group",
@@ -742,6 +754,18 @@
     "metro": "Chicago",
     "first_seen": "2026-09-19",
     "is_new": false
+  },
+  {
+    "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210798889",
+    "title": "Treasury Sales Associate - Real Estate Banking",
+    "location": "Chicago, IL, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210798889",
+    "source": "oracle",
+    "posted_date": "2026-10-08",
+    "metro": "Chicago",
+    "first_seen": "2026-10-08",
+    "is_new": true
   },
   {
     "firm": "JPMorgan Chase",
@@ -2892,162 +2916,6 @@
     "is_new": false
   },
   {
-    "firm": "Citadel Securities",
-    "id": "cs-client-execution-trading",
-    "title": "Client Execution Trading",
-    "location": "New York",
-    "url": "https://www.citadelsecurities.com/careers/details/client-execution-trading/",
-    "source": "citadel",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citadel Securities",
-    "id": "cs-crypto-quant-researcher",
-    "title": "Crypto Quant Researcher",
-    "location": "Hong Kong, London, Miami, New York, Singapore",
-    "url": "https://www.citadelsecurities.com/careers/details/crypto-quant-researcher/",
-    "source": "citadel",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citadel Securities",
-    "id": "cs-machine-learning-researcher-phd-graduate-us",
-    "title": "Machine Learning Researcher \u2013 PhD Graduate (US)",
-    "location": "Miami, New York",
-    "url": "https://www.citadelsecurities.com/careers/details/machine-learning-researcher-phd-graduate-us/",
-    "source": "citadel",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citadel Securities",
-    "id": "cs-quantitative-research-engineer-phd-graduate-us",
-    "title": "Quantitative Research Engineer \u2013 PhD Graduate (US)",
-    "location": "Miami, New York",
-    "url": "https://www.citadelsecurities.com/careers/details/quantitative-research-engineer-phd-graduate-us/",
-    "source": "citadel",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citadel Securities",
-    "id": "cs-quantitative-researcher-quantitative-research-analyst",
-    "title": "Quantitative Researcher / Quantitative Research Analyst",
-    "location": "Hong Kong, London, Miami, New York, Singapore, Zurich",
-    "url": "https://www.citadelsecurities.com/careers/details/quantitative-researcher-quantitative-research-analyst/",
-    "source": "citadel",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citadel Securities",
-    "id": "cs-quantitative-researcher-phd-graduate-us",
-    "title": "Quantitative Researcher \u2013 PhD Graduate (US)",
-    "location": "Miami, New York",
-    "url": "https://www.citadelsecurities.com/careers/details/quantitative-researcher-phd-graduate-us/",
-    "source": "citadel",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citadel Securities",
-    "id": "cs-quantitative-trader",
-    "title": "Quantitative Trader",
-    "location": "Hong Kong, London, Miami, New York, Singapore",
-    "url": "https://www.citadelsecurities.com/careers/details/quantitative-trader/",
-    "source": "citadel",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citadel Securities",
-    "id": "cs-quantitative-trader-university-graduate-us-new-york",
-    "title": "Quantitative Trader \u2013 University Graduate (US \u2013 New York)",
-    "location": "New York",
-    "url": "https://www.citadelsecurities.com/careers/details/quantitative-trader-university-graduate-us-new-york/",
-    "source": "citadel",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citadel Securities",
-    "id": "cs-software-engineer-university-graduate-us",
-    "title": "Software Engineer \u2013 University Graduate (US)",
-    "location": "Miami, New York",
-    "url": "https://www.citadelsecurities.com/careers/details/software-engineer-university-graduate-us/",
-    "source": "citadel",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citadel Securities",
-    "id": "cs-systematic-options-trader",
-    "title": "Systematic Options Trader",
-    "location": "Miami, New York",
-    "url": "https://www.citadelsecurities.com/careers/details/systematic-options-trader/",
-    "source": "citadel",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citadel Securities",
-    "id": "cs-systematic-trader",
-    "title": "Systematic Trader",
-    "location": "Dublin, Gurugram, Hong Kong, London, New York, Singapore",
-    "url": "https://www.citadelsecurities.com/careers/details/systematic-trader/",
-    "source": "citadel",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Citadel Securities",
-    "id": "cs-trade-support-analyst",
-    "title": "Trade Support Analyst",
-    "location": "New York",
-    "url": "https://www.citadelsecurities.com/careers/details/trade-support-analyst/",
-    "source": "citadel",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-01",
-    "is_new": false
-  },
-  {
-    "firm": "Citadel Securities",
-    "id": "cs-ui-engineer-global-trading-applications",
-    "title": "UI Engineer- Global Trading Applications",
-    "location": "New York",
-    "url": "https://www.citadelsecurities.com/careers/details/ui-engineer-global-trading-applications/",
-    "source": "citadel",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
     "firm": "Citi",
     "id": "citi-101307444192",
     "title": "Application Development Technology Lead Analyst",
@@ -3600,6 +3468,18 @@
     "is_new": false
   },
   {
+    "firm": "Doyle",
+    "id": "bamboo-doyle-90",
+    "title": "Appraisal Coordinator",
+    "location": "New York, New York",
+    "url": "https://doyle.bamboohr.com/careers/90",
+    "source": "bamboohr",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-08",
+    "is_new": true
+  },
+  {
     "firm": "Est\u00e9e Lauder",
     "id": "eightfold-careers.elcompanies.com-1168275035330",
     "title": "Assistant Manager, Marketing, Jo Malone London NA",
@@ -3657,18 +3537,6 @@
     "posted_date": "2026-10-06",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-01",
-    "is_new": false
-  },
-  {
-    "firm": "Franklin Templeton",
-    "id": "phenom-careers.franklintempleton.com-FTGFTMUS869872EXTERNALENUS",
-    "title": "BSP Debt Asset Management Associate, Commercial Real Estate",
-    "location": "New York, New York, United States of America",
-    "url": "https://franklintempleton.wd5.myworkdayjobs.com/Primary-External-1/job/New-York-New-York-United-States-of-America/BSP-Asset-Management-Associate--Commercial-Real-Estate_869872",
-    "source": "phenom",
-    "posted_date": "2026-09-29",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-29",
     "is_new": false
   },
   {
@@ -4777,6 +4645,18 @@
   },
   {
     "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210798460",
+    "title": "Asset Management \u2013 Alternatives Client Account Manager \u2013 Client Service \u2013 Associate",
+    "location": "New York, NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210798460",
+    "source": "oracle",
+    "posted_date": "2026-10-08",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-08",
+    "is_new": true
+  },
+  {
+    "firm": "JPMorgan Chase",
     "id": "oracle-jpmc.fa.oraclecloud.com-210790159",
     "title": "Asset and Wealth Management - Real Assets Private Markets Investments Associate",
     "location": "New York, NY, United States",
@@ -4941,6 +4821,18 @@
     "posted_date": "2026-10-06",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-07",
+    "is_new": false
+  },
+  {
+    "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210760876",
+    "title": "Corporate Finance \u2013 SEC Reporting Analyst",
+    "location": "Brooklyn, NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210760876",
+    "source": "oracle",
+    "posted_date": "2026-10-08",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-19",
     "is_new": false
   },
   {
@@ -5749,6 +5641,18 @@
   },
   {
     "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210799016",
+    "title": "Securitized Products Group - ABS Banking - Analyst",
+    "location": "New York, NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210799016",
+    "source": "oracle",
+    "posted_date": "2026-10-08",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-08",
+    "is_new": true
+  },
+  {
+    "firm": "JPMorgan Chase",
     "id": "oracle-jpmc.fa.oraclecloud.com-210796500",
     "title": "Securitized Products Group - CMBS Capital Markets \u2013 Analyst",
     "location": "New York, NY, United States",
@@ -6218,7 +6122,7 @@
   {
     "firm": "Macquarie Group",
     "id": "pageup-recruitment.macquarie.com-24422",
-    "title": "Analyst, Infrastructure Private Equity \u2013 Transportation \u2013 2027",
+    "title": "Analyst, Infrastructure Private Equity, Transportation",
     "location": "New York Office",
     "url": "https://recruitment.macquarie.com/en_US/careers/JobDetail?jobId=24422",
     "source": "pageup",
@@ -7213,18 +7117,6 @@
   },
   {
     "firm": "Oppenheimer & Co.",
-    "id": "hrm-3750067",
-    "title": "Client Service Associate (Mandarin Speaking; Midtown East, NY)",
-    "location": "New York",
-    "url": "https://opco.hrmdirect.com/employment/job-opening.php?req=3750067",
-    "source": "hrmdirect",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-17",
-    "is_new": false
-  },
-  {
-    "firm": "Oppenheimer & Co.",
     "id": "hrm-3647144",
     "title": "Investment Banking Associate - Financial Institutions",
     "location": "New York",
@@ -7561,6 +7453,18 @@
   },
   {
     "firm": "RBC Capital Markets",
+    "id": "phenom-jobs.rbc.com-RBCAA0088R0000189705EXTERNALENCA",
+    "title": "Analyst, Global Investment Banking, Consumer & Retail",
+    "location": "New York, New York, United States of America",
+    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Analyst--Global-Investment-Banking--Consumer---Retail_R-0000189705",
+    "source": "phenom",
+    "posted_date": "2026-10-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-06",
+    "is_new": false
+  },
+  {
+    "firm": "RBC Capital Markets",
     "id": "phenom-jobs.rbc.com-RBCAA0088R0000186969EXTERNALENCA",
     "title": "Analyst, Trade Support",
     "location": "New York, New York, United States of America",
@@ -7579,6 +7483,18 @@
     "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Analyst--US-Municipal-Finance--Higher-Education_R-0000187720",
     "source": "phenom",
     "posted_date": "2026-09-14",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-18",
+    "is_new": false
+  },
+  {
+    "firm": "RBC Capital Markets",
+    "id": "phenom-jobs.rbc.com-RBCAA0088R0000186845EXTERNALENCA",
+    "title": "Analyst/Associate, Market Risk Governance & Reporting",
+    "location": "New York, New York, United States of America",
+    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Analyst-Associate--Market-Risk-Governance---Reporting_R-0000186845",
+    "source": "phenom",
+    "posted_date": "2026-10-08",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-18",
     "is_new": false
@@ -7615,6 +7531,18 @@
     "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Associate--Global-Investment-Banking--Consumer---Retail_R-0000189701-1",
     "source": "phenom",
     "posted_date": "2026-10-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-06",
+    "is_new": false
+  },
+  {
+    "firm": "RBC Capital Markets",
+    "id": "phenom-jobs.rbc.com-RBCAA0088R0000188215EXTERNALENCA",
+    "title": "Associate, Product Control",
+    "location": "Jersey City, New Jersey, United States of America",
+    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/Jersey-City-New-Jersey-United-States-of-America/Associate--Product-Control_R-0000188215-1",
+    "source": "phenom",
+    "posted_date": "2026-10-05",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-06",
     "is_new": false
@@ -8065,6 +7993,18 @@
   },
   {
     "firm": "TD Bank",
+    "id": "wd-td-TD_Bank_Careers-/job/New-York-New-York/Associate-Banker-II--One-Vanderbilt--Full-time---Preferred-Language-Spanish_R_1505693",
+    "title": "Associate Banker II (One Vanderbilt) Full time - Preferred Language Spanish",
+    "location": "New York, New York",
+    "url": "https://td.wd3.myworkdayjobs.com/TD_Bank_Careers/job/New-York-New-York/Associate-Banker-II--One-Vanderbilt--Full-time---Preferred-Language-Spanish_R_1505693",
+    "source": "workday",
+    "posted_date": "2026-10-08",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-19",
+    "is_new": false
+  },
+  {
+    "firm": "TD Bank",
     "id": "wd-td-TD_Bank_Careers-/job/Westhampton-Beach-New-York/Associate-Banker-ll---Westhampton-Beach_R_1506225",
     "title": "Associate Banker ll - Westhampton Beach",
     "location": "Westhampton Beach, New York",
@@ -8218,6 +8158,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-17",
     "is_new": false
+  },
+  {
+    "firm": "TD Bank",
+    "id": "wd-td-TD_Bank_Careers-/job/New-York-New-York/Operations-Analyst---Options-Clearing_R_1515661",
+    "title": "Operations Analyst - Options Clearing",
+    "location": "New York, New York",
+    "url": "https://td.wd3.myworkdayjobs.com/TD_Bank_Careers/job/New-York-New-York/Operations-Analyst---Options-Clearing_R_1515661",
+    "source": "workday",
+    "posted_date": "2026-10-08",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-08",
+    "is_new": true
   },
   {
     "firm": "Tapestry",
