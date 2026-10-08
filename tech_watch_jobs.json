@@ -13,19 +13,6 @@
     "is_new": false
   },
   {
-    "firm": "Motion Recruitment",
-    "id": "motion-888545",
-    "title": "Threat Detection & Security Analytics Engineer - Georgia \u00b7 Contract",
-    "location": "Alpharetta, Georgia",
-    "url": "https://motionrecruitment.com/tech-jobs/alpharetta/contract/threat-detection-and-security-analytics-engineer-georgia/888545",
-    "source": "motion",
-    "posted_date": null,
-    "metro": "Atlanta",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
     "firm": "Robert Half",
     "id": "roberthalf-00900-9504405226-usen",
     "title": "Data Engineer \u00b7 Direct hire",
@@ -36,45 +23,6 @@
     "metro": "Atlanta",
     "sector": "Agency",
     "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "TEKsystems",
-    "id": "phenom-careers.teksystems.com-TESYUSJP006334012ENUS",
-    "title": "Data Engineer - W2 Only (No C2C) \u00b7 Contract",
-    "location": "Atlanta, Georgia, USA",
-    "url": "https://careers.teksystems.com/us/en/job/TESYUSJP006334012ENUS",
-    "source": "phenom",
-    "posted_date": "2026-10-07",
-    "metro": "Atlanta",
-    "sector": "Agency",
-    "first_seen": "2026-10-07",
-    "is_new": true
-  },
-  {
-    "firm": "TEKsystems",
-    "id": "phenom-careers.teksystems.com-TESYUSJP006314596ENUS",
-    "title": "GCP Data Engineer \u00b7 Contract",
-    "location": "Atlanta, Georgia, USA",
-    "url": "https://careers.teksystems.com/us/en/job/TESYUSJP006314596ENUS",
-    "source": "phenom",
-    "posted_date": "2026-09-28",
-    "metro": "Atlanta",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Randstad",
-    "id": "randstad-1347385",
-    "title": "Jr Data Engineer \u00b7 Contract",
-    "location": "Charlotte, North Carolina",
-    "url": "https://www.randstadusa.com/jobs/4/1347385/jr-data-engineer_charlotte/",
-    "source": "randstad",
-    "posted_date": "2026-09-23",
-    "metro": "Charlotte",
-    "sector": "Agency",
-    "first_seen": "2026-10-06",
     "is_new": false
   },
   {
@@ -123,7 +71,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Cloud-Data-Platform-Engineer_R158514-1",
     "source": "workday",
-    "posted_date": "2026-09-06",
+    "posted_date": "2026-09-07",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -136,7 +84,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Analytics-Engineer_R150313",
     "source": "workday",
-    "posted_date": "2026-09-06",
+    "posted_date": "2026-09-07",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -149,7 +97,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Program-Engineer_R150311",
     "source": "workday",
-    "posted_date": "2026-09-06",
+    "posted_date": "2026-09-07",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -169,6 +117,19 @@
     "is_new": false
   },
   {
+    "firm": "Robert Half",
+    "id": "roberthalf-01300-0013433936-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Chicago, IL",
+    "url": "https://www.roberthalf.com/us/en/job/chicago-il/data-engineer/01300-0013433936-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-09-09",
+    "metro": "Chicago",
+    "sector": "Agency",
+    "first_seen": "2026-10-05",
+    "is_new": false
+  },
+  {
     "firm": "U.S. Bancorp",
     "id": "wd-usbank-US_Bank_Careers-/job/Hopkins-MN/Infrastructure-Data-Analytics-Engineer_2026-0020380-1",
     "title": "Infrastructure Data Analytics Engineer",
@@ -179,45 +140,6 @@
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
-    "is_new": false
-  },
-  {
-    "firm": "Franklin Templeton",
-    "id": "phenom-careers.franklintempleton.com-FTGFTMUS869238EXTERNALENUS",
-    "title": "Data Engineer",
-    "location": "Baltimore, Maryland, United States of America",
-    "url": "https://franklintempleton.wd5.myworkdayjobs.com/Primary-External-1/job/Baltimore-Maryland-United-States-of-America/Data-Engineer_869238",
-    "source": "phenom",
-    "posted_date": "2026-10-06",
-    "metro": "DC / Virginia",
-    "sector": "Finance",
-    "first_seen": "2026-10-06",
-    "is_new": false
-  },
-  {
-    "firm": "Randstad",
-    "id": "randstad-1345955",
-    "title": "Data Engineer \u00b7 Contract",
-    "location": "Washington, District of Columbia",
-    "url": "https://www.randstadusa.com/jobs/4/1345955/data-engineer_washington/",
-    "source": "randstad",
-    "posted_date": "2026-10-05",
-    "metro": "DC / Virginia",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-00210-9504407313-usen",
-    "title": "Data Engineer \u00b7 Contract",
-    "location": "Glendale, AZ",
-    "url": "https://www.roberthalf.com/us/en/job/glendale-az/data-engineer/00210-9504407313-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-06",
-    "metro": "Los Angeles",
-    "sector": "Agency",
-    "first_seen": "2026-10-06",
     "is_new": false
   },
   {
@@ -312,19 +234,6 @@
     "is_new": false
   },
   {
-    "firm": "Hudson River Trading",
-    "id": "gh-wehrtyou-8260012",
-    "title": "Research Data Engineer",
-    "location": "London, United Kingdom; New York, NY, United States; Singapore",
-    "url": "https://www.hudsonrivertrading.com/careers/job/?gh_jid=8260012",
-    "source": "greenhouse",
-    "posted_date": "2026-10-07",
-    "metro": "NYC Area",
-    "sector": "Finance",
-    "first_seen": "2026-10-07",
-    "is_new": true
-  },
-  {
     "firm": "Jump Trading",
     "id": "gh-jumptrading-8171060",
     "title": "Data Engineer",
@@ -374,7 +283,7 @@
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-10-07",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Meta",
@@ -474,7 +383,7 @@
     "location": "MetroPark",
     "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/MetroPark/Cloud-Data-Engineer_R7127",
     "source": "workday",
-    "posted_date": "2026-09-06",
+    "posted_date": "2026-09-07",
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -507,6 +416,19 @@
     "is_new": false
   },
   {
+    "firm": "Palantir",
+    "id": "lever-palantir-1b690123-1766-4e75-a0ef-0f58afa864b4",
+    "title": "Data Engineer - Talent Acquisition Operations",
+    "location": "New York, NY",
+    "url": "https://jobs.lever.co/palantir/1b690123-1766-4e75-a0ef-0f58afa864b4",
+    "source": "lever",
+    "posted_date": "2026-10-07",
+    "metro": "NYC Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-08",
+    "is_new": true
+  },
+  {
     "firm": "Point72",
     "id": "gh-point72-8701705002",
     "title": "Data Engineer, Knowledge Graph",
@@ -517,19 +439,6 @@
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-09-27",
-    "is_new": false
-  },
-  {
-    "firm": "Randstad",
-    "id": "randstad-1346714",
-    "title": "Data Engineer \u00b7 Contract",
-    "location": "Jersey City, New Jersey",
-    "url": "https://www.randstadusa.com/jobs/4/1346714/data-engineer_jersey-city/",
-    "source": "randstad",
-    "posted_date": "2026-09-16",
-    "metro": "NYC Area",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
     "is_new": false
   },
   {
@@ -565,7 +474,7 @@
     "location": "Plantation, FL",
     "url": "https://chewy.wd5.myworkdayjobs.com/External/job/Plantation-FL/Data-Engineer-II--Financial-Intelligence_R30670",
     "source": "workday",
-    "posted_date": "2026-09-06",
+    "posted_date": "2026-09-07",
     "metro": "Other US",
     "sector": "Tech",
     "first_seen": "2026-09-30",
@@ -591,7 +500,7 @@
     "location": "PA - West Chester, 1354 Boot Rd",
     "url": "https://comcast.wd115.myworkdayjobs.com/Comcast_Careers/job/PA---West-Chester-1354-Boot-Rd/Data-Engineer_R442548",
     "source": "workday",
-    "posted_date": "2026-09-06",
+    "posted_date": "2026-09-07",
     "metro": "Other US",
     "sector": "Tech",
     "first_seen": "2026-10-01",
@@ -676,19 +585,6 @@
     "is_new": false
   },
   {
-    "firm": "Mastercard",
-    "id": "wd-mastercard-CorporateCareers-/job/OFallon-Missouri/Data-Engineer-II_R-289305",
-    "title": "Data Engineer II",
-    "location": "O'Fallon, Missouri",
-    "url": "https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/OFallon-Missouri/Data-Engineer-II_R-289305",
-    "source": "workday",
-    "posted_date": "2026-10-06",
-    "metro": "Other US",
-    "sector": "Fintech",
-    "first_seen": "2026-10-07",
-    "is_new": true
-  },
-  {
     "firm": "Motion Recruitment",
     "id": "motion-891565",
     "title": "Data Engineer (Snowflake / dbt / Fivetran) \u00b7 Direct hire",
@@ -722,110 +618,6 @@
     "url": "https://www.randstadusa.com/jobs/4/1346828/data-engineer-azure-databricks_charleston/",
     "source": "randstad",
     "posted_date": "2026-09-18",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Randstad",
-    "id": "randstad-1346185",
-    "title": "Data Engineer - Finance Systems & Analytics \u00b7 Contract",
-    "location": "Cincinnati, Ohio",
-    "url": "https://www.randstadusa.com/jobs/4/1346185/data-engineer-finance-systems-analytics_cincinnati/",
-    "source": "randstad",
-    "posted_date": "2026-09-10",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Randstad",
-    "id": "randstad-1364055",
-    "title": "Data Engineer \u00b7 Contract",
-    "location": "Windsor, Connecticut",
-    "url": "https://www.randstadusa.com/jobs/4/1364055/data-engineer_windsor/",
-    "source": "randstad",
-    "posted_date": "2026-10-07",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-07",
-    "is_new": true
-  },
-  {
-    "firm": "Randstad",
-    "id": "randstad-1347613",
-    "title": "Databricks Data Engineer (GCP) \u00b7 Contract",
-    "location": "Phoenix, Arizona",
-    "url": "https://www.randstadusa.com/jobs/4/1347613/databricks-data-engineer-gcp_phoenix/",
-    "source": "randstad",
-    "posted_date": "2026-09-24",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-02310-0013504879-usen",
-    "title": "Data Engineer \u00b7 Contract",
-    "location": "St. Paul, MN",
-    "url": "https://www.roberthalf.com/us/en/job/st-paul-mn/data-engineer/02310-0013504879-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-05",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-03930-9504399268-usen",
-    "title": "Data Engineer \u00b7 Contract",
-    "location": "Nashville, TN",
-    "url": "https://www.roberthalf.com/us/en/job/nashville-tn/data-engineer/03930-9504399268-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-09-22",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-02310-0013517267-usen",
-    "title": "Data Engineer \u00b7 Contract",
-    "location": "Woodbury, MN",
-    "url": "https://www.roberthalf.com/us/en/job/woodbury-mn/data-engineer/02310-0013517267-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-05",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-02310-0013511415-usen",
-    "title": "Data Engineer \u00b7 Contract-to-hire",
-    "location": "St. Paul, MN",
-    "url": "https://www.roberthalf.com/us/en/job/st-paul-mn/data-engineer/02310-0013511415-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-01",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-04620-0013486722-usen",
-    "title": "Data Engineer \u00b7 Contract-to-hire",
-    "location": "Appleton, WI",
-    "url": "https://www.roberthalf.com/us/en/job/appleton-wi/data-engineer/04620-0013486722-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-02",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -898,12 +690,12 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-01500-0013509340-usen",
-    "title": "Data Engineer/Modeler \u00b7 Contract",
-    "location": "West Des Moines, IA",
-    "url": "https://www.roberthalf.com/us/en/job/west-des-moines-ia/data-engineermodeler/01500-0013509340-usen",
+    "id": "roberthalf-03500-0013380490-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Oklahoma City, OK",
+    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
     "source": "roberthalf",
-    "posted_date": "2026-09-18",
+    "posted_date": "2026-10-01",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -1001,43 +793,17 @@
     "is_new": false
   },
   {
-    "firm": "TEKsystems",
-    "id": "phenom-careers.teksystems.com-TESYUSJP006332539ENUS",
-    "title": "Adobe Analytics Engineer \u00b7 Contract",
-    "location": "Minneapolis, Minnesota, USA",
-    "url": "https://careers.teksystems.com/us/en/job/TESYUSJP006332539ENUS",
-    "source": "phenom",
-    "posted_date": "2026-10-06",
+    "firm": "Synchrony",
+    "id": "wd-synchronyfinancial-careers-/job/Hyderabad-IN/Data-Engineer--L09-_2602772-1",
+    "title": "Data Engineer (L09)",
+    "location": "Hyderabad IN; Northern Region Engagement Hub IN; Southern Region Engagement Hub IN; Western Region Engagement Hub IN; Central Region Engagement Hub IN; Eastern Region Engagement Hub IN",
+    "url": "https://synchronyfinancial.wd5.myworkdayjobs.com/careers/job/Hyderabad-IN/Data-Engineer--L09-_2602772-1",
+    "source": "workday",
+    "posted_date": "2026-10-08",
     "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-07",
+    "sector": "Fintech",
+    "first_seen": "2026-10-08",
     "is_new": true
-  },
-  {
-    "firm": "TEKsystems",
-    "id": "phenom-careers.teksystems.com-TESYUSJP006313316ENUS",
-    "title": "Aws Data Engineer \u00b7 Contract",
-    "location": "Fort Mill, South Carolina, USA",
-    "url": "https://careers.teksystems.com/us/en/job/TESYUSJP006313316ENUS",
-    "source": "phenom",
-    "posted_date": "2026-09-28",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "TEKsystems",
-    "id": "phenom-careers.teksystems.com-TESYUSJP006276292ENUS",
-    "title": "Cribl Data Pipeline Engineer \u00b7 Contract",
-    "location": "Henrico, Virginia, USA",
-    "url": "https://careers.teksystems.com/us/en/job/TESYUSJP006276292ENUS",
-    "source": "phenom",
-    "posted_date": "2026-09-10",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
   },
   {
     "firm": "TEKsystems",
@@ -1066,45 +832,6 @@
     "is_new": false
   },
   {
-    "firm": "TEKsystems",
-    "id": "phenom-careers.teksystems.com-TESYUSJP006285334ENUS",
-    "title": "Junior  Data Engineer ONSITE In COLORADO SPRINGS \u00b7 Contract",
-    "location": "Colorado Springs, Colorado, USA",
-    "url": "https://careers.teksystems.com/us/en/job/TESYUSJP006285334ENUS",
-    "source": "phenom",
-    "posted_date": "2026-09-14",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "TEKsystems",
-    "id": "phenom-careers.teksystems.com-TESYUSJP006333955ENUS",
-    "title": "Junior Data Engineer \u00b7 Contract",
-    "location": "Kansas City, Kansas, USA",
-    "url": "https://careers.teksystems.com/us/en/job/TESYUSJP006333955ENUS",
-    "source": "phenom",
-    "posted_date": "2026-10-07",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-07",
-    "is_new": true
-  },
-  {
-    "firm": "TEKsystems",
-    "id": "phenom-careers.teksystems.com-TESYUSJP006332363ENUS",
-    "title": "Junior Data Engineer \u00b7 Contract",
-    "location": "Kansas City, Kansas, USA",
-    "url": "https://careers.teksystems.com/us/en/job/TESYUSJP006332363ENUS",
-    "source": "phenom",
-    "posted_date": "2026-10-06",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-07",
-    "is_new": true
-  },
-  {
     "firm": "Allstate",
     "id": "wd-allstate-allstate_careers-/job/US---Remote/Managing-Engineer--Data-Engineering_R35362-1",
     "title": "Managing Engineer, Data Engineering",
@@ -1128,45 +855,6 @@
     "metro": "Remote (US)",
     "sector": "Tech",
     "first_seen": "2026-10-01",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-02940-0013508410-usen",
-    "title": "Data Engineer \u00b7 Contract",
-    "location": "Remote, OH (Remote)",
-    "url": "https://www.roberthalf.com/us/en/job/remote-oh/data-engineer/02940-0013508410-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-07",
-    "metro": "Remote (US)",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-04130-0013508488-usen",
-    "title": "Data Engineer \u00b7 Contract",
-    "location": "Cincinnati, OH (Remote)",
-    "url": "https://www.roberthalf.com/us/en/job/cincinnati-oh/data-engineer/04130-0013508488-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-07",
-    "metro": "Remote (US)",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-03500-0013516146-usen",
-    "title": "Data Engineer \u00b7 Contract",
-    "location": "Norman, OK (Remote)",
-    "url": "https://www.roberthalf.com/us/en/job/norman-ok/data-engineer/03500-0013516146-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-02",
-    "metro": "Remote (US)",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
     "is_new": false
   },
   {
@@ -1284,7 +972,7 @@
     "metro": "SF Bay Area",
     "sector": "Tech",
     "first_seen": "2026-10-07",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "NVIDIA",
@@ -1352,17 +1040,17 @@
     "is_new": false
   },
   {
-    "firm": "Zoox",
-    "id": "lever-zoox-dafe2927-74bf-4bef-8df0-cb0874595819",
-    "title": "Contract Student Worker - Autonomy Safety Data Engineer",
-    "location": "Foster City, CA; Boston, MA; Seattle, WA",
-    "url": "https://jobs.lever.co/zoox/dafe2927-74bf-4bef-8df0-cb0874595819",
-    "source": "lever",
-    "posted_date": "2026-09-03",
+    "firm": "a16z",
+    "id": "gh-a16z-7982023003",
+    "title": "Partner 16, Data Engineer - Global Partnerships",
+    "location": "Menlo Park, California, United States; San Francisco, California, United States",
+    "url": "https://a16z.com/about/jobs/?gh_jid=7982023003",
+    "source": "greenhouse",
+    "posted_date": "2026-09-16",
     "metro": "SF Bay Area",
-    "sector": "Tech",
-    "first_seen": "2026-09-30",
-    "is_new": false
+    "sector": "Finance",
+    "first_seen": "2026-10-08",
+    "is_new": true
   },
   {
     "firm": "OpenAI",
@@ -1375,7 +1063,7 @@
     "metro": "Seattle",
     "sector": "Tech",
     "first_seen": "2026-10-07",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "SpaceX",
@@ -1418,32 +1106,6 @@
   },
   {
     "firm": "Charles Schwab",
-    "id": "charles-99231496432",
-    "title": "Data Engineer",
-    "location": "Austin, TX; Southlake, TX",
-    "url": "https://www.schwabjobs.com/job/austin/data-engineer/33727/99231496432",
-    "source": "charles",
-    "posted_date": null,
-    "metro": "Texas",
-    "sector": "Finance",
-    "first_seen": "2026-09-29",
-    "is_new": false
-  },
-  {
-    "firm": "Charles Schwab",
-    "id": "charles-93425305520",
-    "title": "Data Engineer",
-    "location": "Austin, TX; Southlake, TX",
-    "url": "https://www.schwabjobs.com/job/austin/data-engineer/33727/93425305520",
-    "source": "charles",
-    "posted_date": null,
-    "metro": "Texas",
-    "sector": "Finance",
-    "first_seen": "2026-09-29",
-    "is_new": false
-  },
-  {
-    "firm": "Charles Schwab",
     "id": "charles-100738780800",
     "title": "Data Engineer",
     "location": "Austin, TX; Southlake, TX",
@@ -1466,7 +1128,7 @@
     "metro": "Texas",
     "sector": "Finance",
     "first_seen": "2026-10-07",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Citi",
@@ -1483,19 +1145,6 @@
   },
   {
     "firm": "Motion Recruitment",
-    "id": "motion-884700",
-    "title": "Associate Data Engineer - CTH \u00b7 Contract",
-    "location": "Fort Worth, Texas",
-    "url": "https://motionrecruitment.com/tech-jobs/fort-worth/contract/associate-data-engineer-cth/884700",
-    "source": "motion",
-    "posted_date": null,
-    "metro": "Texas",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Motion Recruitment",
     "id": "motion-891575",
     "title": "Data Engineer (Databricks) \u00b7 Direct hire",
     "location": "Dallas, Texas (Remote)",
@@ -1506,32 +1155,6 @@
     "sector": "Agency",
     "first_seen": "2026-10-05",
     "is_new": false
-  },
-  {
-    "firm": "Motion Recruitment",
-    "id": "motion-891815",
-    "title": "Data Engineer (Snowflake, Python, AI/ML Data Pipelines) \u00b7 Contract",
-    "location": "Dallas, Texas",
-    "url": "https://motionrecruitment.com/tech-jobs/dallas/contract/data-engineer-snowflake-python-ai-ml-data-pipelines/891815",
-    "source": "motion",
-    "posted_date": null,
-    "metro": "Texas",
-    "sector": "Agency",
-    "first_seen": "2026-10-07",
-    "is_new": true
-  },
-  {
-    "firm": "Motion Recruitment",
-    "id": "motion-891811",
-    "title": "Data Engineer (Snowflake, Python, AI/ML Data Pipelines) \u00b7 Contract",
-    "location": "Dallas, Texas (Remote)",
-    "url": "https://motionrecruitment.com/tech-jobs/dallas/contract/data-engineer-snowflake-python-ai-ml-data-pipelines/891811",
-    "source": "motion",
-    "posted_date": null,
-    "metro": "Texas",
-    "sector": "Agency",
-    "first_seen": "2026-10-07",
-    "is_new": true
   },
   {
     "firm": "Robert Half",
@@ -1557,32 +1180,6 @@
     "metro": "Texas",
     "sector": "Agency",
     "first_seen": "2026-10-06",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-03230-0013512251-usen",
-    "title": "Data Engineer \u00b7 Contract-to-hire",
-    "location": "Plano, TX",
-    "url": "https://www.roberthalf.com/us/en/job/plano-tx/data-engineer/03230-0013512251-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-09-28",
-    "metro": "Texas",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-04010-0013503501-usen",
-    "title": "Data Engineer \u00b7 Contract-to-hire",
-    "location": "Dallas, TX",
-    "url": "https://www.roberthalf.com/us/en/job/dallas-tx/data-engineer/04010-0013503501-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-02",
-    "metro": "Texas",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
     "is_new": false
   },
   {
@@ -1622,19 +1219,6 @@
     "metro": "Texas",
     "sector": "Finance",
     "first_seen": "2026-10-07",
-    "is_new": true
-  },
-  {
-    "firm": "eBay",
-    "id": "wd-ebay-apply-/job/Austin/AI-Analytics-Engineer---Traffic_R0076601",
-    "title": "AI Analytics Engineer - Traffic",
-    "location": "Austin",
-    "url": "https://ebay.wd5.myworkdayjobs.com/apply/job/Austin/AI-Analytics-Engineer---Traffic_R0076601",
-    "source": "workday",
-    "posted_date": "2026-09-17",
-    "metro": "Texas",
-    "sector": "Tech",
-    "first_seen": "2026-09-30",
     "is_new": false
   }
 ]
