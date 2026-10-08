@@ -143,6 +143,19 @@
     "is_new": false
   },
   {
+    "firm": "Franklin Templeton",
+    "id": "phenom-careers.franklintempleton.com-FTGFTMUS869238EXTERNALENUS",
+    "title": "Data Engineer",
+    "location": "Baltimore, Maryland, United States of America",
+    "url": "https://franklintempleton.wd5.myworkdayjobs.com/Primary-External-1/job/Baltimore-Maryland-United-States-of-America/Data-Engineer_869238",
+    "source": "phenom",
+    "posted_date": "2026-10-06",
+    "metro": "DC / Virginia",
+    "sector": "Finance",
+    "first_seen": "2026-10-06",
+    "is_new": false
+  },
+  {
     "firm": "Robert Half",
     "id": "roberthalf-00320-0013503591-usen",
     "title": "Data Engineer \u00b7 Direct hire",
@@ -354,7 +367,7 @@
     "firm": "Meta",
     "id": "meta-3713685685437806",
     "title": "Data Engineer, Product Analytics",
-    "location": "Remote, US; Bellevue, WA; Menlo Park, CA; New York, NY; San Francisco, CA; Chicago, IL; Fremont, CA",
+    "location": "Sunnyvale, CA; Remote, US; Bellevue, WA; Menlo Park, CA; New York, NY; San Francisco, CA; Chicago, IL; Fremont, CA",
     "url": "https://www.metacareers.com/profile/job_details/3713685685437806",
     "source": "meta",
     "posted_date": null,
@@ -872,6 +885,19 @@
   },
   {
     "firm": "Robert Half",
+    "id": "roberthalf-03720-0013461058-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Conshohocken, PA (Remote)",
+    "url": "https://www.roberthalf.com/us/en/job/conshohocken-pa/data-engineer/03720-0013461058-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-08",
+    "metro": "Remote (US)",
+    "sector": "Agency",
+    "first_seen": "2026-10-08",
+    "is_new": true
+  },
+  {
+    "firm": "Robert Half",
     "id": "roberthalf-02600-0013503091-usen",
     "title": "Data Engineer \u00b7 Direct hire",
     "location": "Portland, ME (Remote)",
@@ -1119,6 +1145,19 @@
   },
   {
     "firm": "Charles Schwab",
+    "id": "charles-99231496432",
+    "title": "Data Engineer",
+    "location": "Austin, TX; Southlake, TX",
+    "url": "https://www.schwabjobs.com/job/austin/data-engineer/33727/99231496432",
+    "source": "charles",
+    "posted_date": null,
+    "metro": "Texas",
+    "sector": "Finance",
+    "first_seen": "2026-09-29",
+    "is_new": false
+  },
+  {
+    "firm": "Charles Schwab",
     "id": "charles-101625328992",
     "title": "Data Engineer",
     "location": "Southlake, TX; Austin, TX",
@@ -1128,6 +1167,19 @@
     "metro": "Texas",
     "sector": "Finance",
     "first_seen": "2026-10-07",
+    "is_new": false
+  },
+  {
+    "firm": "Charles Schwab",
+    "id": "charles-95593502240",
+    "title": "Data Engineer",
+    "location": "Austin, TX",
+    "url": "https://www.schwabjobs.com/job/austin/data-engineer/33727/95593502240",
+    "source": "charles",
+    "posted_date": null,
+    "metro": "Texas",
+    "sector": "Finance",
+    "first_seen": "2026-10-02",
     "is_new": false
   },
   {
@@ -1193,19 +1245,6 @@
     "metro": "Texas",
     "sector": "Agency",
     "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-04130-0013486331-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Houston, TX",
-    "url": "https://www.roberthalf.com/us/en/job/houston-tx/data-engineer/04130-0013486331-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-05",
-    "metro": "Texas",
-    "sector": "Agency",
-    "first_seen": "2026-10-06",
     "is_new": false
   },
   {
