@@ -1189,18 +1189,6 @@
   },
   {
     "firm": "Apollo Global Management",
-    "id": "wd-athene-Apollo_Careers-/job/New-York-New-York/Associate--GP-Fund-Accounting_R255008-3",
-    "title": "Associate, GP Fund Accounting",
-    "location": "New York, New York",
-    "url": "https://athene.wd5.myworkdayjobs.com/Apollo_Careers/job/New-York-New-York/Associate--GP-Fund-Accounting_R255008-3",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-15",
-    "is_new": false
-  },
-  {
-    "firm": "Apollo Global Management",
     "id": "wd-athene-Apollo_Careers-/job/New-York-New-York/Associate--Compensation-Forecasting---Budgeting_R255005",
     "title": "Associate, Strategic Finance - Compensation Forecasting & Budgeting",
     "location": "New York, New York",
@@ -1774,6 +1762,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-16",
     "is_new": false
+  },
+  {
+    "firm": "Barclays",
+    "id": "barclays-101746739872",
+    "title": "Fixed Income Cash Management Sales Associate",
+    "location": "New York, United States",
+    "url": "https://search.jobs.barclays/job/new-york/fixed-income-cash-management-sales-associate/13015/101746739872",
+    "source": "barclays",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-09",
+    "is_new": true
   },
   {
     "firm": "Barclays",
@@ -3313,6 +3313,18 @@
   },
   {
     "firm": "Citizens Financial Group",
+    "id": "citizens-101748801136",
+    "title": "Business Insights Analyst",
+    "location": "Westwood, Massachusetts; Plano, Texas; Irving, Texas; Johnston, Rhode Island; New York, New York",
+    "url": "https://jobs.citizensbank.com/job/westwood/business-insights-analyst/288/101748801136",
+    "source": "citizens",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-09",
+    "is_new": true
+  },
+  {
+    "firm": "Citizens Financial Group",
     "id": "citizens-98603993136",
     "title": "Development Consultant",
     "location": "Johnston, Rhode Island; New York, New York; Westwood, Massachusetts",
@@ -3841,6 +3853,18 @@
   },
   {
     "firm": "Goldman Sachs",
+    "id": "gs-181508_GS_MID_CAREER",
+    "title": "Asset & Wealth Management, Private Wealth Management, Investment Strategy Group, Associate - New York",
+    "location": "New York, NY, United States",
+    "url": "https://higher.gs.com/roles/181508",
+    "source": "goldman",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-09",
+    "is_new": true
+  },
+  {
+    "firm": "Goldman Sachs",
     "id": "gs-165403_GS_MID_CAREER",
     "title": "Asset & Wealth Management, Private Wealth Management, Investments Marketing, Associate \u2013 New York",
     "location": "NY, United States",
@@ -4257,18 +4281,6 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-24",
-    "is_new": false
-  },
-  {
-    "firm": "Goldman Sachs",
-    "id": "gs-183379_GS_MID_CAREER",
-    "title": "Human Capital Management, Talent Management, Associate, New York City",
-    "location": "New York, NY, United States",
-    "url": "https://higher.gs.com/roles/183379",
-    "source": "goldman",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-23",
     "is_new": false
   },
   {
@@ -6385,18 +6397,6 @@
   },
   {
     "firm": "Mizuho",
-    "id": "wd-mizuho-mizuhoamericas-/job/New-York-NY-1271-AOA6th-Ave/Securities-Regulatory-Reporting-Associate_R7366-1",
-    "title": "Securities Regulatory Reporting Associate",
-    "location": "New York, NY (1271 AOA/6th Ave)",
-    "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/New-York-NY-1271-AOA6th-Ave/Securities-Regulatory-Reporting-Associate_R7366-1",
-    "source": "workday",
-    "posted_date": "2026-09-25",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-26",
-    "is_new": false
-  },
-  {
-    "firm": "Mizuho",
     "id": "wd-mizuho-mizuhoamericas-/job/New-York-NY-1271-AOA6th-Ave/Tax-Associate_R7408",
     "title": "Tax Associate",
     "location": "New York, NY (1271 AOA/6th Ave)",
@@ -7525,6 +7525,18 @@
   },
   {
     "firm": "RBC Capital Markets",
+    "id": "phenom-jobs.rbc.com-RBCAA0088R0000183168EXTERNALENCA",
+    "title": "Associate, Financial Institutions Group Corporate Banking",
+    "location": "New York, New York, United States of America",
+    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Associate--Financial-Institutions-Group-Corporate-Banking_R-0000183168",
+    "source": "phenom",
+    "posted_date": "2026-10-02",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-02",
+    "is_new": false
+  },
+  {
+    "firm": "RBC Capital Markets",
     "id": "phenom-jobs.rbc.com-RBCAA0088R0000189701EXTERNALENCA",
     "title": "Associate, Global Investment Banking, Consumer & Retail",
     "location": "New York, New York, United States of America",
@@ -7549,14 +7561,14 @@
   },
   {
     "firm": "RBC Capital Markets",
-    "id": "phenom-jobs.rbc.com-RBCAA0088R0000189296EXTERNALENCA",
-    "title": "Investment Associate, US Municipal Finance, Community Investments, Renewables",
-    "location": "New York, New York, United States of America",
-    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Investment-Associate--US-Municipal-Finance--Community-Investments_R-0000189296-1",
+    "id": "phenom-jobs.rbc.com-RBCAA0088R0000188521EXTERNALENCA",
+    "title": "Audit Analyst, Capital Markets",
+    "location": "Jersey City, New Jersey, United States of America",
+    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/Jersey-City-New-Jersey-United-States-of-America/Audit-Analyst--Capital-Markets_R-0000188521-1",
     "source": "phenom",
-    "posted_date": "2026-09-29",
+    "posted_date": "2026-09-30",
     "metro": "NY + Jersey City",
-    "first_seen": "2026-09-30",
+    "first_seen": "2026-10-01",
     "is_new": false
   },
   {
@@ -7651,18 +7663,6 @@
     "url": "https://www.roberthalf.com/us/en/job/new-york-ny/financial-analyst-entry-level/02942-0013512645-usen",
     "source": "roberthalf",
     "posted_date": "2026-10-02",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-02940-0013518990-usen",
-    "title": "Financial Analyst - Entry Level \u00b7 Contract-to-hire",
-    "location": "New York, NY",
-    "url": "https://www.roberthalf.com/us/en/job/new-york-ny/financial-analyst-entry-level/02940-0013518990-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-07",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
     "is_new": false
@@ -8241,18 +8241,6 @@
     "posted_date": "2026-10-04",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0119256EXTERNALENUS",
-    "title": "Equity Research Associate - REITs",
-    "location": "New York, New York, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY/Equity-Research-Associate---REITs_R0119256",
-    "source": "phenom",
-    "posted_date": "2026-09-15",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-18",
     "is_new": false
   },
   {
