@@ -1,5 +1,18 @@
 [
   {
+    "firm": "Global Payments",
+    "id": "wd-tsys-TSYS-/job/ALPHARETTA-GEORGIA/AI---Data-Platform-Engineer_R0074577",
+    "title": "AI & Data Platform Engineer",
+    "location": "ALPHARETTA, GEORGIA",
+    "url": "https://tsys.wd1.myworkdayjobs.com/TSYS/job/ALPHARETTA-GEORGIA/AI---Data-Platform-Engineer_R0074577",
+    "source": "workday",
+    "posted_date": "2026-10-09",
+    "metro": "Atlanta",
+    "sector": "Fintech",
+    "first_seen": "2026-10-05",
+    "is_new": false
+  },
+  {
     "firm": "Robert Half",
     "id": "roberthalf-00900-9504405226-usen",
     "title": "Data Engineer \u00b7 Direct hire",
@@ -128,6 +141,19 @@
     "sector": "Tech",
     "first_seen": "2026-09-27",
     "is_new": false
+  },
+  {
+    "firm": "Anthropic",
+    "id": "gh-anthropic-5448481008",
+    "title": "Data Engineer, Product",
+    "location": "San Francisco, CA | New York City, NY | Seattle, WA",
+    "url": "https://job-boards.greenhouse.io/anthropic/jobs/5448481008",
+    "source": "greenhouse",
+    "posted_date": "2026-10-09",
+    "metro": "NYC Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-09",
+    "is_new": true
   },
   {
     "firm": "Anthropic",
@@ -367,7 +393,7 @@
     "firm": "Meta",
     "id": "meta-1774677140239590",
     "title": "Data Engineer, Teen & Family Experience (TFE)",
-    "location": "Menlo Park, CA; New York, NY",
+    "location": "Menlo Park, CA; New York, NY; San Francisco, CA",
     "url": "https://www.metacareers.com/profile/job_details/1774677140239590",
     "source": "meta",
     "posted_date": null,
@@ -384,19 +410,6 @@
     "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/MetroPark/Cloud-Data-Engineer_R7127",
     "source": "workday",
     "posted_date": "2026-09-08",
-    "metro": "NYC Area",
-    "sector": "Finance",
-    "first_seen": "2026-09-27",
-    "is_new": false
-  },
-  {
-    "firm": "Mizuho",
-    "id": "wd-mizuho-mizuhoamericas-/job/MetroPark/Data-Engineer_R7257-1",
-    "title": "Data Engineer",
-    "location": "MetroPark",
-    "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/MetroPark/Data-Engineer_R7257-1",
-    "source": "workday",
-    "posted_date": "2026-09-25",
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-09-27",
