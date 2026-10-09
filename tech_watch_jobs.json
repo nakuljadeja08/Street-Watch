@@ -1,18 +1,5 @@
 [
   {
-    "firm": "Global Payments",
-    "id": "wd-tsys-TSYS-/job/ALPHARETTA-GEORGIA/AI---Data-Platform-Engineer_R0074577",
-    "title": "AI & Data Platform Engineer",
-    "location": "ALPHARETTA, GEORGIA",
-    "url": "https://tsys.wd1.myworkdayjobs.com/TSYS/job/ALPHARETTA-GEORGIA/AI---Data-Platform-Engineer_R0074577",
-    "source": "workday",
-    "posted_date": "2026-10-05",
-    "metro": "Atlanta",
-    "sector": "Fintech",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
     "firm": "Robert Half",
     "id": "roberthalf-00900-9504405226-usen",
     "title": "Data Engineer \u00b7 Direct hire",
@@ -71,7 +58,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Cloud-Data-Platform-Engineer_R158514-1",
     "source": "workday",
-    "posted_date": "2026-09-07",
+    "posted_date": "2026-09-08",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -84,7 +71,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Analytics-Engineer_R150313",
     "source": "workday",
-    "posted_date": "2026-09-07",
+    "posted_date": "2026-09-08",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -97,36 +84,10 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Program-Engineer_R150311",
     "source": "workday",
-    "posted_date": "2026-09-07",
+    "posted_date": "2026-09-08",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-01340-0013490212-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Chicago, IL",
-    "url": "https://www.roberthalf.com/us/en/job/chicago-il/data-engineer/01340-0013490212-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-09-28",
-    "metro": "Chicago",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-01300-0013433936-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Chicago, IL",
-    "url": "https://www.roberthalf.com/us/en/job/chicago-il/data-engineer/01300-0013433936-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-09-09",
-    "metro": "Chicago",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
     "is_new": false
   },
   {
@@ -157,16 +118,16 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-00320-0013503591-usen",
+    "id": "roberthalf-04510-0013480350-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Los Angeles, CA",
-    "url": "https://www.roberthalf.com/us/en/job/los-angeles-ca/data-engineer/00320-0013503591-usen",
+    "location": "Arlington, VA",
+    "url": "https://www.roberthalf.com/us/en/job/arlington-va/data-engineer/04510-0013480350-usen",
     "source": "roberthalf",
-    "posted_date": "2026-09-09",
-    "metro": "Los Angeles",
+    "posted_date": "2026-10-08",
+    "metro": "DC / Virginia",
     "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
+    "first_seen": "2026-10-09",
+    "is_new": true
   },
   {
     "firm": "Anthropic",
@@ -244,6 +205,19 @@
     "metro": "NYC Area",
     "sector": "Tech",
     "first_seen": "2026-09-27",
+    "is_new": false
+  },
+  {
+    "firm": "Hudson River Trading",
+    "id": "gh-wehrtyou-8260012",
+    "title": "Research Data Engineer",
+    "location": "London, United Kingdom; New York, NY, United States; Singapore",
+    "url": "https://www.hudsonrivertrading.com/careers/job/?gh_jid=8260012",
+    "source": "greenhouse",
+    "posted_date": "2026-10-07",
+    "metro": "NYC Area",
+    "sector": "Finance",
+    "first_seen": "2026-10-07",
     "is_new": false
   },
   {
@@ -339,6 +313,19 @@
   },
   {
     "firm": "Meta",
+    "id": "meta-3713685685437806",
+    "title": "Data Engineer, Product Analytics",
+    "location": "Remote, US; Bellevue, WA; Menlo Park, CA; New York, NY; San Francisco, CA; Chicago, IL; Fremont, CA",
+    "url": "https://www.metacareers.com/profile/job_details/3713685685437806",
+    "source": "meta",
+    "posted_date": null,
+    "metro": "NYC Area",
+    "sector": "Tech",
+    "first_seen": "2026-09-30",
+    "is_new": false
+  },
+  {
+    "firm": "Meta",
     "id": "meta-1283364266159062",
     "title": "Data Engineer, Product Analytics",
     "location": "Sunnyvale, CA; Bellevue, WA; Menlo Park, CA; Seattle, WA; Burlingame, CA; New York, NY",
@@ -356,19 +343,6 @@
     "title": "Data Engineer, Product Analytics",
     "location": "Bellevue, WA; Redmond, WA; Menlo Park, CA; Seattle, WA; Burlingame, CA; New York, NY; San Francisco, CA",
     "url": "https://www.metacareers.com/profile/job_details/438521235471941",
-    "source": "meta",
-    "posted_date": null,
-    "metro": "NYC Area",
-    "sector": "Tech",
-    "first_seen": "2026-09-30",
-    "is_new": false
-  },
-  {
-    "firm": "Meta",
-    "id": "meta-3713685685437806",
-    "title": "Data Engineer, Product Analytics",
-    "location": "Sunnyvale, CA; Remote, US; Bellevue, WA; Menlo Park, CA; New York, NY; San Francisco, CA; Chicago, IL; Fremont, CA",
-    "url": "https://www.metacareers.com/profile/job_details/3713685685437806",
     "source": "meta",
     "posted_date": null,
     "metro": "NYC Area",
@@ -396,7 +370,7 @@
     "location": "MetroPark",
     "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/MetroPark/Cloud-Data-Engineer_R7127",
     "source": "workday",
-    "posted_date": "2026-09-07",
+    "posted_date": "2026-09-08",
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -439,7 +413,7 @@
     "metro": "NYC Area",
     "sector": "Tech",
     "first_seen": "2026-10-08",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Point72",
@@ -487,7 +461,7 @@
     "location": "Plantation, FL",
     "url": "https://chewy.wd5.myworkdayjobs.com/External/job/Plantation-FL/Data-Engineer-II--Financial-Intelligence_R30670",
     "source": "workday",
-    "posted_date": "2026-09-07",
+    "posted_date": "2026-09-08",
     "metro": "Other US",
     "sector": "Tech",
     "first_seen": "2026-09-30",
@@ -513,7 +487,7 @@
     "location": "PA - West Chester, 1354 Boot Rd",
     "url": "https://comcast.wd115.myworkdayjobs.com/Comcast_Careers/job/PA---West-Chester-1354-Boot-Rd/Data-Engineer_R442548",
     "source": "workday",
-    "posted_date": "2026-09-07",
+    "posted_date": "2026-09-08",
     "metro": "Other US",
     "sector": "Tech",
     "first_seen": "2026-10-01",
@@ -543,19 +517,6 @@
     "metro": "Other US",
     "sector": "Tech",
     "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Fidelity",
-    "id": "wd-fmr-FidelityCareers-/job/Salt-Lake-City-UT/Data-Engineer--Analytics---Performance-Insights_2135554",
-    "title": "Data Engineer, Analytics & Performance Insights",
-    "location": "Salt Lake City, UT",
-    "url": "https://fmr.wd1.myworkdayjobs.com/FidelityCareers/job/Salt-Lake-City-UT/Data-Engineer--Analytics---Performance-Insights_2135554",
-    "source": "workday",
-    "posted_date": "2026-10-07",
-    "metro": "Other US",
-    "sector": "Finance",
-    "first_seen": "2026-10-02",
     "is_new": false
   },
   {
@@ -638,51 +599,12 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-04820-0013472516-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Salt Lake City, UT",
-    "url": "https://www.roberthalf.com/us/en/job/salt-lake-city-ut/data-engineer/04820-0013472516-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-01",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-01120-0013490145-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Jacksonville, FL",
-    "url": "https://www.roberthalf.com/us/en/job/jacksonville-fl/data-engineer/01120-0013490145-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-09-09",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
     "id": "roberthalf-02220-0013514903-usen",
     "title": "Data Engineer \u00b7 Direct hire",
     "location": "Battle Creek, MI",
     "url": "https://www.roberthalf.com/us/en/job/battle-creek-mi/data-engineer/02220-0013514903-usen",
     "source": "roberthalf",
     "posted_date": "2026-09-28",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-01120-0013490448-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Jacksonville, FL",
-    "url": "https://www.roberthalf.com/us/en/job/jacksonville-fl/data-engineer/01120-0013490448-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-09-09",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -716,38 +638,12 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-01070-0013389216-usen",
-    "title": "ETL/Business Intelligence Engineer - Power BI/MS Dynamics \u00b7 Direct hire",
-    "location": "St Petersburg, FL",
-    "url": "https://www.roberthalf.com/us/en/job/st-petersburg-fl/etlbusiness-intelligence-engineer-power-bims-dynamics/01070-0013389216-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-09-09",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
     "id": "roberthalf-04600-0013495125-usen",
     "title": "Epic Data Engineer \u00b7 Direct hire",
     "location": "Milwaukee, WI",
     "url": "https://www.roberthalf.com/us/en/job/milwaukee-wi/epic-data-engineer/04600-0013495125-usen",
     "source": "roberthalf",
     "posted_date": "2026-09-28",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-01070-0013389845-usen",
-    "title": "Power BI Data Engineer \u00b7 Direct hire",
-    "location": "Niceville, FL",
-    "url": "https://www.roberthalf.com/us/en/job/niceville-fl/power-bi-data-engineer/01070-0013389845-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-09-09",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -816,19 +712,6 @@
     "metro": "Other US",
     "sector": "Fintech",
     "first_seen": "2026-10-08",
-    "is_new": true
-  },
-  {
-    "firm": "TEKsystems",
-    "id": "phenom-careers.teksystems.com-TESYUSJP006296811ENUS",
-    "title": "Data Engineer II \u00b7 Direct hire",
-    "location": "Hanover, Maryland, USA",
-    "url": "https://careers.teksystems.com/us/en/job/TESYUSJP006296811ENUS",
-    "source": "phenom",
-    "posted_date": "2026-09-18",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
     "is_new": false
   },
   {
@@ -845,6 +728,19 @@
     "is_new": false
   },
   {
+    "firm": "TEKsystems",
+    "id": "phenom-careers.teksystems.com-TESYUSJP006338501ENUS",
+    "title": "Data Engineer II \u00b7 Direct hire",
+    "location": "Hanover, Maryland, USA",
+    "url": "https://careers.teksystems.com/us/en/job/TESYUSJP006338501ENUS",
+    "source": "phenom",
+    "posted_date": "2026-10-09",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-09",
+    "is_new": true
+  },
+  {
     "firm": "Allstate",
     "id": "wd-allstate-allstate_careers-/job/US---Remote/Managing-Engineer--Data-Engineering_R35362-1",
     "title": "Managing Engineer, Data Engineering",
@@ -854,32 +750,6 @@
     "posted_date": "2026-10-05",
     "metro": "Remote (US)",
     "sector": "Finance",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Comcast",
-    "id": "wd-comcast-Comcast_Careers-/job/PA---Virtual---C/Data-Engineer-2_R444603",
-    "title": "Data Engineer 2",
-    "location": "PA - Virtual - C; FL - Virtual - B - EST; IL - Virtual - B; MA - Virtual - C",
-    "url": "https://comcast.wd115.myworkdayjobs.com/Comcast_Careers/job/PA---Virtual---C/Data-Engineer-2_R444603",
-    "source": "workday",
-    "posted_date": "2026-10-06",
-    "metro": "Remote (US)",
-    "sector": "Tech",
-    "first_seen": "2026-10-01",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-03340-0013499300-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Nashville, TN (Remote)",
-    "url": "https://www.roberthalf.com/us/en/job/nashville-tn/data-engineer/03340-0013499300-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-01",
-    "metro": "Remote (US)",
-    "sector": "Agency",
     "first_seen": "2026-10-05",
     "is_new": false
   },
@@ -894,19 +764,6 @@
     "metro": "Remote (US)",
     "sector": "Agency",
     "first_seen": "2026-10-08",
-    "is_new": true
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-02600-0013503091-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Portland, ME (Remote)",
-    "url": "https://www.roberthalf.com/us/en/job/portland-me/data-engineer/02600-0013503091-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-09-09",
-    "metro": "Remote (US)",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
     "is_new": false
   },
   {
@@ -1076,7 +933,20 @@
     "metro": "SF Bay Area",
     "sector": "Finance",
     "first_seen": "2026-10-08",
-    "is_new": true
+    "is_new": false
+  },
+  {
+    "firm": "Expedia",
+    "id": "wd-expedia-search-/job/Washington---Seattle-Campus/Global-Data-Sharing-Engineer_R-110073-1",
+    "title": "Global Data Sharing Engineer",
+    "location": "Washington - Seattle Campus; Austin Domain 11 - HomeAway",
+    "url": "https://expedia.wd108.myworkdayjobs.com/search/job/Washington---Seattle-Campus/Global-Data-Sharing-Engineer_R-110073-1",
+    "source": "workday",
+    "posted_date": "2026-10-05",
+    "metro": "Seattle",
+    "sector": "Tech",
+    "first_seen": "2026-10-01",
+    "is_new": false
   },
   {
     "firm": "OpenAI",
@@ -1145,15 +1015,15 @@
   },
   {
     "firm": "Charles Schwab",
-    "id": "charles-99231496432",
+    "id": "charles-95593502240",
     "title": "Data Engineer",
-    "location": "Austin, TX; Southlake, TX",
-    "url": "https://www.schwabjobs.com/job/austin/data-engineer/33727/99231496432",
+    "location": "Austin, TX",
+    "url": "https://www.schwabjobs.com/job/austin/data-engineer/33727/95593502240",
     "source": "charles",
     "posted_date": null,
     "metro": "Texas",
     "sector": "Finance",
-    "first_seen": "2026-09-29",
+    "first_seen": "2026-10-02",
     "is_new": false
   },
   {
@@ -1167,19 +1037,6 @@
     "metro": "Texas",
     "sector": "Finance",
     "first_seen": "2026-10-07",
-    "is_new": false
-  },
-  {
-    "firm": "Charles Schwab",
-    "id": "charles-95593502240",
-    "title": "Data Engineer",
-    "location": "Austin, TX",
-    "url": "https://www.schwabjobs.com/job/austin/data-engineer/33727/95593502240",
-    "source": "charles",
-    "posted_date": null,
-    "metro": "Texas",
-    "sector": "Finance",
-    "first_seen": "2026-10-02",
     "is_new": false
   },
   {
@@ -1232,19 +1089,6 @@
     "metro": "Texas",
     "sector": "Agency",
     "first_seen": "2026-10-06",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-04030-0013400240-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Dallas, TX",
-    "url": "https://www.roberthalf.com/us/en/job/dallas-tx/data-engineer/04030-0013400240-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-09-09",
-    "metro": "Texas",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
     "is_new": false
   },
   {
