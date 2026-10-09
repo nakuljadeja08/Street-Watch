@@ -39,19 +39,6 @@
     "is_new": false
   },
   {
-    "firm": "Google",
-    "id": "google-114385783674020550",
-    "title": "Agentic Data Cloud Databases Engineer, Google Cloud",
-    "location": "Addison, TX, USA; Austin, TX, USA; Chicago, IL, USA",
-    "url": "https://www.google.com/about/careers/applications/jobs/results/114385783674020550",
-    "source": "google",
-    "posted_date": "2026-09-10",
-    "metro": "Chicago",
-    "sector": "Tech",
-    "first_seen": "2026-09-30",
-    "is_new": false
-  },
-  {
     "firm": "Northern Trust",
     "id": "wd-ntrs-northerntrust-/job/Chicago-IL/Cloud-Data-Platform-Engineer_R158514-1",
     "title": "Cloud Data Platform Engineer",
@@ -154,6 +141,32 @@
     "sector": "Tech",
     "first_seen": "2026-09-27",
     "is_new": false
+  },
+  {
+    "firm": "Autodesk",
+    "id": "wd-autodesk-Ext-/job/Denver-CO-USA/Analytics-Engineer--Forecasting---Revenue-Intelligence_26WD101381-1",
+    "title": "Analytics Engineer, Forecasting & Revenue Intelligence",
+    "location": "Denver, CO, USA; New Jersey, USA - Remote; New Hampshire, USA - Remote; Michigan, USA - Remote; Massachusetts, USA - Remote; Louisiana, USA - Remote; Kentucky, USA - Remote; Indiana, USA - Remote; Illinois, USA - Remote; Florida, USA - Remote; District of Columbia, USA - Remote; Connecticut, USA - Remote; Minnesota, USA - Remote; Maine, USA - Remote; Maryland, USA - Remote; Idaho, USA - Remote; Iowa, USA - Remote; Georgia, USA - Remote; Delaware, USA - Remote; Alabama, USA - Remote; West Virginia, USA - Remote; Wisconsin, USA - Remote; Vermont, USA - Remote; Virginia, USA - Remote; Texas, USA - Remote; Tennessee, USA - Remote; Rhode Island, USA - Remote; Pennsylvania, USA - Remote; Wyoming, USA - Remote; South Carolina, USA - Remote; Ohio, USA - Remote; North Carolina, USA - Remote; Mississippi, USA - Remote; Missouri, USA - Remote; New York, USA - Remote",
+    "url": "https://autodesk.wd1.myworkdayjobs.com/Ext/job/Denver-CO-USA/Analytics-Engineer--Forecasting---Revenue-Intelligence_26WD101381-1",
+    "source": "workday",
+    "posted_date": "2026-10-09",
+    "metro": "NYC Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-09",
+    "is_new": true
+  },
+  {
+    "firm": "Autodesk",
+    "id": "wd-autodesk-Ext-/job/Denver-CO-USA/Analytics-Engineer--Forecasting---Revenue-Intelligence_26WD101382-1",
+    "title": "Analytics Engineer, Forecasting & Revenue Intelligence",
+    "location": "Denver, CO, USA; New Jersey, USA - Remote; New Hampshire, USA - Remote; Michigan, USA - Remote; Massachusetts, USA - Remote; Louisiana, USA - Remote; Kansas, USA - Remote; Indiana, USA - Remote; Illinois, USA - Remote; Florida, USA - Remote; District of Columbia, USA - Remote; Connecticut, USA - Remote; Minnesota, USA - Remote; Maine, USA - Remote; Maryland, USA - Remote; Idaho, USA - Remote; Iowa, USA - Remote; Georgia, USA - Remote; Delaware, USA - Remote; Arkansas, USA - Remote; Alabama, USA - Remote; West Virginia, USA - Remote; Wisconsin, USA - Remote; Vermont, USA - Remote; Virginia, USA - Remote; Texas, USA - Remote; Tennessee, USA - Remote; Rhode Island, USA - Remote; Pennsylvania, USA - Remote; Wyoming, USA - Remote; South Carolina, USA - Remote; Oklahoma, USA - Remote; Ohio, USA - Remote; North Carolina, USA - Remote; Mississippi, USA - Remote; Missouri, USA - Remote; New York, USA - Remote",
+    "url": "https://autodesk.wd1.myworkdayjobs.com/Ext/job/Denver-CO-USA/Analytics-Engineer--Forecasting---Revenue-Intelligence_26WD101382-1",
+    "source": "workday",
+    "posted_date": "2026-10-09",
+    "metro": "NYC Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-09",
+    "is_new": true
   },
   {
     "firm": "Carlyle",
@@ -455,19 +468,6 @@
     "is_new": false
   },
   {
-    "firm": "Chewy",
-    "id": "wd-chewy-External-/job/Plantation-FL/Data-Engineer-II--Financial-Intelligence_R30670",
-    "title": "Data Engineer II, Financial Intelligence",
-    "location": "Plantation, FL",
-    "url": "https://chewy.wd5.myworkdayjobs.com/External/job/Plantation-FL/Data-Engineer-II--Financial-Intelligence_R30670",
-    "source": "workday",
-    "posted_date": "2026-09-08",
-    "metro": "Other US",
-    "sector": "Tech",
-    "first_seen": "2026-09-30",
-    "is_new": false
-  },
-  {
     "firm": "Comcast",
     "id": "wd-comcast-Comcast_Careers-/job/PA---West-Chester-1354-Boot-Rd/Platform-Data-Engineer----DataBricks--PySpark--AWS-_R442523",
     "title": "Platform Data Engineer - (DataBricks, PySpark, AWS)",
@@ -630,7 +630,7 @@
     "location": "Oklahoma City, OK",
     "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-01",
+    "posted_date": "2026-10-09",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -946,6 +946,19 @@
     "metro": "Seattle",
     "sector": "Tech",
     "first_seen": "2026-10-01",
+    "is_new": false
+  },
+  {
+    "firm": "Google",
+    "id": "google-114385783674020550",
+    "title": "Agentic Data Cloud Databases Engineer, Google Cloud",
+    "location": "Addison, TX, USA; Austin, TX, USA; Chicago, IL, USA; Kirkland, WA, USA",
+    "url": "https://www.google.com/about/careers/applications/jobs/results/114385783674020550",
+    "source": "google",
+    "posted_date": "2026-09-10",
+    "metro": "Seattle",
+    "sector": "Tech",
+    "first_seen": "2026-09-30",
     "is_new": false
   },
   {
