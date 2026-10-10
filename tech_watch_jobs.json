@@ -58,7 +58,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Cloud-Data-Platform-Engineer_R158514-1",
     "source": "workday",
-    "posted_date": "2026-09-08",
+    "posted_date": "2026-09-09",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -71,7 +71,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Analytics-Engineer_R150313",
     "source": "workday",
-    "posted_date": "2026-09-08",
+    "posted_date": "2026-09-09",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -84,7 +84,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Program-Engineer_R150311",
     "source": "workday",
-    "posted_date": "2026-09-08",
+    "posted_date": "2026-09-09",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -127,7 +127,7 @@
     "metro": "DC / Virginia",
     "sector": "Agency",
     "first_seen": "2026-10-09",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Anthropic",
@@ -153,7 +153,7 @@
     "metro": "NYC Area",
     "sector": "Tech",
     "first_seen": "2026-10-09",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Anthropic",
@@ -179,7 +179,7 @@
     "metro": "NYC Area",
     "sector": "Tech",
     "first_seen": "2026-10-09",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Autodesk",
@@ -192,7 +192,7 @@
     "metro": "NYC Area",
     "sector": "Tech",
     "first_seen": "2026-10-09",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Carlyle",
@@ -202,19 +202,6 @@
     "url": "https://carlyle.wd1.myworkdayjobs.com/Carlyle/job/New-York-NY/Data-Engineer_R-00280",
     "source": "workday",
     "posted_date": "2026-09-10",
-    "metro": "NYC Area",
-    "sector": "Finance",
-    "first_seen": "2026-09-27",
-    "is_new": false
-  },
-  {
-    "firm": "Citadel Securities",
-    "id": "cs-c-market-data-engineer",
-    "title": "C++ Market Data Engineer",
-    "location": "Miami, New York",
-    "url": "https://www.citadelsecurities.com/careers/details/c-market-data-engineer/",
-    "source": "citadel",
-    "posted_date": null,
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -232,6 +219,19 @@
     "sector": "Tech",
     "first_seen": "2026-09-30",
     "is_new": false
+  },
+  {
+    "firm": "Disney",
+    "id": "wd-disney-disneycareer-/job/Seattle-WA-USA/Data-Engineer-II_10153088-1",
+    "title": "Data Engineer II",
+    "location": "Seattle, WA, USA; New York, NY, USA; Santa Monica, CA, USA",
+    "url": "https://disney.wd5.myworkdayjobs.com/disneycareer/job/Seattle-WA-USA/Data-Engineer-II_10153088-1",
+    "source": "workday",
+    "posted_date": "2026-10-09",
+    "metro": "NYC Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-10",
+    "is_new": true
   },
   {
     "firm": "Figma",
@@ -339,19 +339,6 @@
   },
   {
     "firm": "Meta",
-    "id": "meta-1077670041520566",
-    "title": "Data Engineer, Meta Superintelligence Labs (Privacy)",
-    "location": "Bellevue, WA; Menlo Park, CA; New York, NY",
-    "url": "https://www.metacareers.com/profile/job_details/1077670041520566",
-    "source": "meta",
-    "posted_date": null,
-    "metro": "NYC Area",
-    "sector": "Tech",
-    "first_seen": "2026-09-30",
-    "is_new": false
-  },
-  {
-    "firm": "Meta",
     "id": "meta-3713685685437806",
     "title": "Data Engineer, Product Analytics",
     "location": "Remote, US; Bellevue, WA; Menlo Park, CA; New York, NY; San Francisco, CA; Chicago, IL; Fremont, CA",
@@ -409,7 +396,7 @@
     "location": "MetroPark",
     "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/MetroPark/Cloud-Data-Engineer_R7127",
     "source": "workday",
-    "posted_date": "2026-09-08",
+    "posted_date": "2026-09-09",
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -481,6 +468,19 @@
     "is_new": false
   },
   {
+    "firm": "Charles Schwab",
+    "id": "charles-100685603200",
+    "title": "ETL Engineer",
+    "location": "Southlake, TX",
+    "url": "https://www.schwabjobs.com/job/southlake/etl-engineer/33727/100685603200",
+    "source": "charles",
+    "posted_date": null,
+    "metro": "Other US",
+    "sector": "Finance",
+    "first_seen": "2026-09-29",
+    "is_new": false
+  },
+  {
     "firm": "Comcast",
     "id": "wd-comcast-Comcast_Careers-/job/PA---West-Chester-1354-Boot-Rd/Platform-Data-Engineer----DataBricks--PySpark--AWS-_R442523",
     "title": "Platform Data Engineer - (DataBricks, PySpark, AWS)",
@@ -500,7 +500,7 @@
     "location": "PA - West Chester, 1354 Boot Rd",
     "url": "https://comcast.wd115.myworkdayjobs.com/Comcast_Careers/job/PA---West-Chester-1354-Boot-Rd/Data-Engineer_R442548",
     "source": "workday",
-    "posted_date": "2026-09-08",
+    "posted_date": "2026-09-09",
     "metro": "Other US",
     "sector": "Tech",
     "first_seen": "2026-10-01",
@@ -751,7 +751,7 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-09",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Allstate",
@@ -910,19 +910,6 @@
     "is_new": false
   },
   {
-    "firm": "Robert Half",
-    "id": "roberthalf-00320-0013491649-usen",
-    "title": "Data and Knowledge Engineer \u00b7 Direct hire",
-    "location": "Menlo Park, CA",
-    "url": "https://www.roberthalf.com/us/en/job/menlo-park-ca/data-and-knowledge-engineer/00320-0013491649-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-09-24",
-    "metro": "SF Bay Area",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
     "firm": "Socure",
     "id": "ashby-socure-5ee37ea6-a36a-472c-90a9-73067f6d6dac",
     "title": "Data Scientist II - Big Data R&D, Identity Graph & Deceased Monitoring",
@@ -1015,19 +1002,6 @@
   },
   {
     "firm": "Charles Schwab",
-    "id": "charles-98187448432",
-    "title": "AI/ML Ops and Data Engineer",
-    "location": "Southlake, TX; Austin, TX; Phoenix, AZ",
-    "url": "https://www.schwabjobs.com/job/southlake/ai-ml-ops-and-data-engineer/33727/98187448432",
-    "source": "charles",
-    "posted_date": null,
-    "metro": "Texas",
-    "sector": "Finance",
-    "first_seen": "2026-09-29",
-    "is_new": false
-  },
-  {
-    "firm": "Charles Schwab",
     "id": "charles-100738780800",
     "title": "Data Engineer",
     "location": "Austin, TX; Southlake, TX",
@@ -1037,19 +1011,6 @@
     "metro": "Texas",
     "sector": "Finance",
     "first_seen": "2026-09-29",
-    "is_new": false
-  },
-  {
-    "firm": "Charles Schwab",
-    "id": "charles-95593502240",
-    "title": "Data Engineer",
-    "location": "Austin, TX",
-    "url": "https://www.schwabjobs.com/job/austin/data-engineer/33727/95593502240",
-    "source": "charles",
-    "posted_date": null,
-    "metro": "Texas",
-    "sector": "Finance",
-    "first_seen": "2026-10-02",
     "is_new": false
   },
   {
