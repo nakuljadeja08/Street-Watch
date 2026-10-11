@@ -3349,10 +3349,10 @@
   },
   {
     "firm": "Est\u00e9e Lauder",
-    "id": "eightfold-careers.elcompanies.com-1168275465567",
+    "id": "eightfold-careers.elcompanies.com-1168275465769",
     "title": "Assistant Manager, Performance Marketing",
     "location": "New York, NY, US",
-    "url": "https://careers.elcompanies.com/careers/job/1168275465567",
+    "url": "https://careers.elcompanies.com/careers/job/1168275465769",
     "source": "eightfold",
     "posted_date": "2026-10-08",
     "metro": "NY + Jersey City",
@@ -3361,10 +3361,10 @@
   },
   {
     "firm": "Est\u00e9e Lauder",
-    "id": "eightfold-careers.elcompanies.com-1168275465769",
+    "id": "eightfold-careers.elcompanies.com-1168275465567",
     "title": "Assistant Manager, Performance Marketing",
     "location": "New York, NY, US",
-    "url": "https://careers.elcompanies.com/careers/job/1168275465769",
+    "url": "https://careers.elcompanies.com/careers/job/1168275465567",
     "source": "eightfold",
     "posted_date": "2026-10-08",
     "metro": "NY + Jersey City",
@@ -5929,18 +5929,6 @@
   },
   {
     "firm": "Michael Page",
-    "id": "michaelpage-jn-082026-7079999",
-    "title": "Business Analyst - Finance Data & General Ledger \u00b7 Contract",
-    "location": "New York, New York",
-    "url": "https://www.michaelpage.com/job-detail/business-analyst-finance-data-general-ledger/ref/jn-082026-7079999",
-    "source": "michaelpage",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Michael Page",
     "id": "michaelpage-jn-082026-7086741",
     "title": "Business Analyst \u00b7 Contract",
     "location": "New York, New York",
@@ -7093,30 +7081,6 @@
   },
   {
     "firm": "RBC Capital Markets",
-    "id": "phenom-jobs.rbc.com-RBCAA0088R0000189705EXTERNALENCA",
-    "title": "Analyst, Global Investment Banking, Consumer & Retail",
-    "location": "New York, New York, United States of America",
-    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Analyst--Global-Investment-Banking--Consumer---Retail_R-0000189705",
-    "source": "phenom",
-    "posted_date": "2026-10-06",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-06",
-    "is_new": false
-  },
-  {
-    "firm": "RBC Capital Markets",
-    "id": "phenom-jobs.rbc.com-RBCAA0088R0000187720EXTERNALENCA",
-    "title": "Analyst, US Municipal Finance, Higher Education",
-    "location": "New York, New York, United States of America",
-    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Analyst--US-Municipal-Finance--Higher-Education_R-0000187720",
-    "source": "phenom",
-    "posted_date": "2026-09-14",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-18",
-    "is_new": false
-  },
-  {
-    "firm": "RBC Capital Markets",
     "id": "phenom-jobs.rbc.com-RBCAA0088R0000187752EXTERNALENCA",
     "title": "Associate, Equity Derivatives Structurer",
     "location": "New York, New York, United States of America",
@@ -7125,6 +7089,18 @@
     "posted_date": "2026-09-23",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-23",
+    "is_new": false
+  },
+  {
+    "firm": "RBC Capital Markets",
+    "id": "phenom-jobs.rbc.com-RBCAA0088R0000183168EXTERNALENCA",
+    "title": "Associate, Financial Institutions Group Corporate Banking",
+    "location": "New York, New York, United States of America",
+    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Associate--Financial-Institutions-Group-Corporate-Banking_R-0000183168",
+    "source": "phenom",
+    "posted_date": "2026-10-02",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-02",
     "is_new": false
   },
   {
@@ -7161,18 +7137,6 @@
     "posted_date": "2026-09-30",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-01",
-    "is_new": false
-  },
-  {
-    "firm": "RBC Capital Markets",
-    "id": "phenom-jobs.rbc.com-RBCAA0088R0000189296EXTERNALENCA",
-    "title": "Investment Associate, US Municipal Finance, Community Investments, Renewables",
-    "location": "New York, New York, United States of America",
-    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Investment-Associate--US-Municipal-Finance--Community-Investments_R-0000189296-1",
-    "source": "phenom",
-    "posted_date": "2026-09-29",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-30",
     "is_new": false
   },
   {
@@ -7837,14 +7801,14 @@
   },
   {
     "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0119256EXTERNALENUS",
-    "title": "Equity Research Associate - REITs",
+    "id": "phenom-careers.truist.com-TBJTBFUSR0118083EXTERNALENUS",
+    "title": "Equity Research Associate - (Services)",
     "location": "New York, New York, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY/Equity-Research-Associate---REITs_R0119256",
+    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY/Equity-Research-Associate---IT-Services_R0118083",
     "source": "phenom",
-    "posted_date": "2026-09-15",
+    "posted_date": "2026-10-04",
     "metro": "NY + Jersey City",
-    "first_seen": "2026-09-18",
+    "first_seen": "2026-10-05",
     "is_new": false
   },
   {
@@ -7869,18 +7833,6 @@
     "posted_date": "2026-09-18",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-19",
-    "is_new": false
-  },
-  {
-    "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0119679EXTERNALENUS",
-    "title": "Treasury Sales Consultant - Middle Market",
-    "location": "New York, New York, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY/Treasury-Sales-Consultant---Middle-Market_R0119679",
-    "source": "phenom",
-    "posted_date": "2026-09-24",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-25",
     "is_new": false
   },
   {
