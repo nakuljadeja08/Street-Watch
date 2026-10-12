@@ -51,7 +51,6 @@ jobs:
           NEWSLETTER_TO:        ${{ secrets.NEWSLETTER_TO }}
           DASHBOARD_URL:        ${{ secrets.DASHBOARD_URL }}
           NEWSLETTER_SEND_EMPTY: "1"   # still send the morning greeting on zero-new days
-          NEWSLETTER_FORCE: "1"        # TEMP: deliberate manual re-send (already sent earlier today)
         run: python pipeline.py
 
       # This run's outputs are the newest data, so they always win. Rather than
