@@ -1601,6 +1601,48 @@ def job_text(r):
     return ""
 
 
+# New Zealand roles must be TEMPORARY (user, 2026-10-11): fixed or max term,
+# contract or contract-to-hire, parental-leave cover, secondment, casual.
+# Permanent roles, and postings that don't say, are left out. A title or an
+# explicit "Worker type:/Job type:" label decides first; otherwise the
+# description's wording does. Robert Half's NZ rows carry their own type tag.
+_TEMP_TITLE_RE = re.compile(r"fixed[\s-]?term|\bftc\b|max(?:imum)?[\s-]?term|\bcontract\b|contract[\s-]to[\s-]hire"
+                            r"|temporar|\btemp\b|\bcasual\b|secondment|(?:parental|maternity)(?: leave)? cover"
+                            r"|\d+[\s-]?months?\b", re.I)
+_TYPE_LABEL_RE = re.compile(r"(?:worker|job|work|employment|contract) type\s*:?\s*(permanent|fixed|maximum|max|"
+                            r"temporary|temp|contract|casual|secondment)", re.I)
+_TEMP_TEXT_RE = re.compile(r"fixed[\s-]?term|\bftc\b|maximum[\s-]term|(?:parental|maternity)(?: leave)? cover"
+                           r"|secondment|temporary (?:role|position|contract|assignment|opportunity)"
+                           r"|\d+[\s-]?months? (?:contract|role|position|opportunity|assignment)"
+                           r"|contract (?:role|position|opportunity|assignment)|casual (?:role|position|employ)", re.I)
+_PERM_TEXT_RE = re.compile(r"permanent[,\s]+(?:full|part)[\s-]?time|permanent (?:role|position|opportunity|job)"
+                           r"|direct hire", re.I)
+
+
+def nz_temp_ok(r):
+    title = r["title"]
+    if r["id"].endswith("-nzen"):            # Robert Half NZ: " · Contract" / " · Direct hire"
+        ok = bool(re.search(r"· contract", title, re.I))
+        why = "agency tag"
+    elif _TEMP_TITLE_RE.search(title):
+        ok, why = True, "title"
+    else:
+        text = job_text(r)
+        lab = _TYPE_LABEL_RE.search(text)
+        if lab:
+            ok, why = lab.group(1).lower() != "permanent", f"label {lab.group(1)}"
+        elif _TEMP_TEXT_RE.search(text):
+            ok, why = True, f"text '{_TEMP_TEXT_RE.search(text).group(0)}'"
+        elif _PERM_TEXT_RE.search(text):
+            ok, why = False, "text permanent"
+        else:
+            ok, why = False, "type not stated" if text else "description unreadable"
+    print(f"  NZ temp check: {r['firm']} | {title[:60]} -> {why} -> {'keep' if ok else 'drop'}")
+    if ok and not r["id"].endswith("-nzen") and not _TEMP_TITLE_RE.search(title):
+        r["title"] = f"{title} · Temporary"   # so the board shows why it's there
+    return ok
+
+
 def nz_senior_ok(r):
     yrs = min_years(job_text(r))
     ok = yrs is not None and yrs <= NZ_SENIOR_MAX_YEARS
@@ -1872,10 +1914,15 @@ def filter_rows(raw):
                 or not age_ok(r.get("posted_date"), VC_MAX_AGE_DAYS if r["firm"] in VC_FIRMS else None)):
             continue
         nz = m == NZ_METRO
-        ok = title_ok(r["firm"], r["title"], nz=nz)
-        if (not ok and nz and _SR_RE.search(r["title"])
-                and title_ok(r["firm"], r["title"], nz=True, allow_senior=True)):
+        # NZ titles are judged without their temp wording ("12 Month FTC",
+        # "Contract"), which the Product/GTM rule would otherwise reject.
+        t = _TEMP_TITLE_RE.sub(" ", r["title"]).strip(" -|·,()") if nz else r["title"]
+        ok = title_ok(r["firm"], t, nz=nz)
+        if (not ok and nz and _SR_RE.search(t)
+                and title_ok(r["firm"], t, nz=True, allow_senior=True)):
             ok = nz_senior_ok(r)
+        if ok and nz:
+            ok = nz_temp_ok(r)
         if ok:
             seen.add(r["id"]); r["metro"] = m; kept.append(r)
     return kept
