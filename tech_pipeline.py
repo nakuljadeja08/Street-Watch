@@ -223,7 +223,7 @@ for _reg in (GREENHOUSE, ASHBY, LEVER, WORKDAY, ORACLE, RADANCY, EIGHTFOLD, CUST
         for _f in _firms:
             SECTOR[_f] = _sec
 _OWN = set(SECTOR)
-for _f in P.registered_firms():
+for _f in P.registered_firms() - P.NZ_FIRMS:   # NZ boards aren't scanned for US data roles
     if _STREET_CAT.get(_f) not in _STREET_SKIP:
         SECTOR.setdefault(_f, "Fintech" if _STREET_CAT.get(_f) == "Fintech" else "Finance")
 
