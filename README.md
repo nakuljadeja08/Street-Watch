@@ -26,6 +26,23 @@ Recruitment/Jobspring, Harvey Nash, Blue Signal (tech), Aerotek (industrial),
 Adecco, Goodwin (hospitality), Alexander Chapman (UK) and BW Global USA (no
 job board; generic "training" site).
 
+**New Zealand** (added 2026-10-11; Ms Tian can work there) is a fourth metro,
+"New Zealand", covering the whole country. Global firms already on the board
+(Goldman, Macquarie, Citi, HSBC and others) file their Auckland and Wellington roles
+there automatically. Two NZ-only title rules: "Graduate" roles count (NZ firms hire
+entry level through graduate programmes), and a "Senior" Analyst/Associate/Consultant
+is kept only when its posting asks for 3 years' experience or less (read from the
+job description by `nz_senior_ok`; no number stated means it's left out). NZ firms found for it, all kept to NZ roles only (`NZ_FIRMS`
+in `pipeline.py`): ANZ, BNZ, Heartland Bank (Banks; an NZ bank "Consultant" is a
+branch role, so only Analyst/Associate count), Jarden (IB), Craigs Investment
+Partners and NZ Super Fund (Asset Management), BCG, Deloitte NZ and KPMG NZ
+(Consulting; the Big 4 only through their deals, strategy and economics teams),
+Xero, Airwallex and Sharesies (Fintech, Product/GTM rule), and Robert Half's NZ
+site. Not wired: Westpac NZ, Kiwibank, Forsyth Barr, Milford, Fisher Funds and
+Murray & Co (no public board, or Seek only; Seek's robots.txt forbids its search
+API), ASB (its Snaphire board's robots.txt disallows all bots), and PwC NZ,
+McKinsey, Michael Page NZ and Robert Walters NZ (block scripted requests).
+
 ```
 firms' ATS APIs  ──►  pipeline.py  ──►  Supabase `jobs` table  ──►  dashboard/ (React app on Vercel)
         (Greenhouse / Ashby / Workday …)   (GitHub Actions cron, daily)
