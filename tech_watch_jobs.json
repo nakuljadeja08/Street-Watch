@@ -1,5 +1,18 @@
 [
   {
+    "firm": "Global Payments",
+    "id": "wd-tsys-TSYS-/job/CINCINNATI-OHIO/Data-Engineer_R0076225",
+    "title": "Data Engineer",
+    "location": "CINCINNATI, OHIO; ATLANTA, GEORGIA",
+    "url": "https://tsys.wd1.myworkdayjobs.com/TSYS/job/CINCINNATI-OHIO/Data-Engineer_R0076225",
+    "source": "workday",
+    "posted_date": "2026-10-12",
+    "metro": "Atlanta",
+    "sector": "Fintech",
+    "first_seen": "2026-10-12",
+    "is_new": true
+  },
+  {
     "firm": "Robert Half",
     "id": "roberthalf-00900-9504405226-usen",
     "title": "Data Engineer \u00b7 Direct hire",
@@ -131,6 +144,19 @@
   },
   {
     "firm": "Anthropic",
+    "id": "gh-anthropic-5450099008",
+    "title": "Data Engineer, Billing & Payments",
+    "location": "San Francisco, CA | New York City, NY",
+    "url": "https://job-boards.greenhouse.io/anthropic/jobs/5450099008",
+    "source": "greenhouse",
+    "posted_date": "2026-10-12",
+    "metro": "NYC Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-12",
+    "is_new": true
+  },
+  {
+    "firm": "Anthropic",
     "id": "gh-anthropic-5418610008",
     "title": "Data Engineer, GTM",
     "location": "San Francisco, CA | New York City, NY",
@@ -208,6 +234,19 @@
     "is_new": false
   },
   {
+    "firm": "Citadel Securities",
+    "id": "cs-c-market-data-engineer",
+    "title": "C++ Market Data Engineer",
+    "location": "Miami, New York",
+    "url": "https://www.citadelsecurities.com/careers/details/c-market-data-engineer/",
+    "source": "citadel",
+    "posted_date": null,
+    "metro": "NYC Area",
+    "sector": "Finance",
+    "first_seen": "2026-09-27",
+    "is_new": false
+  },
+  {
     "firm": "Cohere",
     "id": "ashby-cohere-9baccd88-c051-474f-bfe8-6867fca54cee",
     "title": "Data Engineer, Data Foundations",
@@ -231,19 +270,6 @@
     "metro": "NYC Area",
     "sector": "Tech",
     "first_seen": "2026-09-27",
-    "is_new": false
-  },
-  {
-    "firm": "Hudson River Trading",
-    "id": "gh-wehrtyou-8260012",
-    "title": "Research Data Engineer",
-    "location": "London, United Kingdom; New York, NY, United States; Singapore",
-    "url": "https://www.hudsonrivertrading.com/careers/job/?gh_jid=8260012",
-    "source": "greenhouse",
-    "posted_date": "2026-10-07",
-    "metro": "NYC Area",
-    "sector": "Finance",
-    "first_seen": "2026-10-07",
     "is_new": false
   },
   {
@@ -296,19 +322,6 @@
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-10-07",
-    "is_new": false
-  },
-  {
-    "firm": "Meta",
-    "id": "meta-1793454285057119",
-    "title": "Data Engineer, Meta Superintelligence Labs",
-    "location": "Bellevue, WA; Menlo Park, CA; New York, NY",
-    "url": "https://www.metacareers.com/profile/job_details/1793454285057119",
-    "source": "meta",
-    "posted_date": null,
-    "metro": "NYC Area",
-    "sector": "Tech",
-    "first_seen": "2026-09-30",
     "is_new": false
   },
   {
@@ -468,19 +481,6 @@
     "is_new": false
   },
   {
-    "firm": "Comcast",
-    "id": "wd-comcast-Comcast_Careers-/job/PA---West-Chester-1354-Boot-Rd/Data-Engineer_R442548",
-    "title": "Product Data Engineer (Databricks, PySpark, AWS)",
-    "location": "PA - West Chester, 1354 Boot Rd",
-    "url": "https://comcast.wd115.myworkdayjobs.com/Comcast_Careers/job/PA---West-Chester-1354-Boot-Rd/Data-Engineer_R442548",
-    "source": "workday",
-    "posted_date": "2026-09-11",
-    "metro": "Other US",
-    "sector": "Tech",
-    "first_seen": "2026-10-01",
-    "is_new": false
-  },
-  {
     "firm": "Dell",
     "id": "oracle-enterpriseplatform.dell.com-300054",
     "title": "Consultant, Data Engineering",
@@ -500,6 +500,19 @@
     "location": "TX, United States",
     "url": "https://enterpriseplatform.dell.com/hcmUI/CandidateExperience/en/sites/careers/job/300056",
     "source": "oracle",
+    "posted_date": "2026-10-05",
+    "metro": "Other US",
+    "sector": "Tech",
+    "first_seen": "2026-10-05",
+    "is_new": false
+  },
+  {
+    "firm": "Elastic",
+    "id": "gh-elastic-8244449",
+    "title": "Analytics Engineer, HR Analytics",
+    "location": "United States",
+    "url": "https://jobs.elastic.co/jobs?gh_jid=8244449&gh_jid=8244449",
+    "source": "greenhouse",
     "posted_date": "2026-10-05",
     "metro": "Other US",
     "sector": "Tech",
@@ -807,6 +820,19 @@
   },
   {
     "firm": "Meta",
+    "id": "meta-1793454285057119",
+    "title": "Data Engineer, Meta Superintelligence Labs",
+    "location": "Menlo Park, CA",
+    "url": "https://www.metacareers.com/profile/job_details/1793454285057119",
+    "source": "meta",
+    "posted_date": null,
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-09-30",
+    "is_new": false
+  },
+  {
+    "firm": "Meta",
     "id": "meta-1087303317514493",
     "title": "Infrastructure Data Governance Engineer - Capacity Engineering",
     "location": "Menlo Park, CA",
@@ -947,6 +973,19 @@
     "sector": "Finance",
     "first_seen": "2026-09-30",
     "is_new": false
+  },
+  {
+    "firm": "Google",
+    "id": "google-82161757522404038",
+    "title": "Analytics Engineer",
+    "location": "Austin, TX, USA",
+    "url": "https://www.google.com/about/careers/applications/jobs/results/82161757522404038",
+    "source": "google",
+    "posted_date": "2026-10-12",
+    "metro": "Texas",
+    "sector": "Tech",
+    "first_seen": "2026-10-12",
+    "is_new": true
   },
   {
     "firm": "Motion Recruitment",
