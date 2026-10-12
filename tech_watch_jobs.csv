@@ -33,6 +33,8 @@ NYC Area,Tech,Palantir,Data Engineer - Talent Acquisition Operations,"New York, 
 NYC Area,Agency,Robert Half,Data Engineer · Direct hire,"Princeton, NJ",roberthalf,2026-09-23,2026-10-05,False,https://www.roberthalf.com/us/en/job/princeton-nj/data-engineer/02720-0013509699-usen
 NYC Area,Finance,Susquehanna International Group,"Data Engineer, Alternative Data | Delta One Trading | Experienced Hire","New York, New York",jibe,2026-09-18,2026-09-27,False,https://careers.sig.com/jobs/11542
 Other US,Finance,Charles Schwab,ETL Engineer,"Southlake, TX",charles,,2026-09-29,False,https://www.schwabjobs.com/job/southlake/etl-engineer/33727/100685603200
+Other US,Tech,Dell,"Consultant, Data Engineering","TX, United States",oracle,2026-10-05,2026-10-05,False,https://enterpriseplatform.dell.com/hcmUI/CandidateExperience/en/sites/careers/job/300054
+Other US,Tech,Dell,"Consultant, Data Engineering","TX, United States",oracle,2026-10-05,2026-10-05,False,https://enterpriseplatform.dell.com/hcmUI/CandidateExperience/en/sites/careers/job/300056
 Other US,Tech,Gopuff,Analytics Engineer,"Philadelphia, PA; Miami, FL",lever,2026-09-10,2026-09-30,False,https://jobs.lever.co/gopuff/bfa7bc15-793e-486c-a3f5-b27d84c53025
 Other US,Finance,JPMorgan Chase,Data Engineering Associate,"OH, United States",oracle,2026-09-25,2026-09-27,False,https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210793562
 Other US,Agency,Motion Recruitment,Data Engineer (Snowflake / dbt / Fivetran) · Direct hire,"Addison, Texas",motion,,2026-10-05,False,https://motionrecruitment.com/tech-jobs/addison/direct-hire/data-engineer-snowflake-dbt-fivetran/891565
@@ -42,7 +44,6 @@ Other US,Agency,Robert Half,Data Engineer · Direct hire,"Battle Creek, MI",robe
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Brookfield, WI",roberthalf,2026-09-28,2026-10-05,False,https://www.roberthalf.com/us/en/job/brookfield-wi/data-engineer/04600-0013514110-usen
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Oklahoma City, OK",roberthalf,2026-10-09,2026-10-05,False,https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen
 Other US,Agency,Robert Half,Epic Data Engineer · Direct hire,"Milwaukee, WI",roberthalf,2026-09-28,2026-10-05,False,https://www.roberthalf.com/us/en/job/milwaukee-wi/epic-data-engineer/04600-0013495125-usen
-Other US,Agency,Robert Half,Power BI/NetSuite Data Analytics Engineer · Direct hire,"Tampa, FL",roberthalf,2026-10-05,2026-10-05,False,https://www.roberthalf.com/us/en/job/tampa-fl/power-binetsuite-data-analytics-engineer/01070-0013519705-usen
 Other US,Agency,Robert Half,Snowflake Data Engineer · Direct hire,"Radnor, PA",roberthalf,2026-09-23,2026-10-05,False,https://www.roberthalf.com/us/en/job/radnor-pa/snowflake-data-engineer/03720-0013512453-usen
 Other US,Finance,Susquehanna International Group,"Data Engineer, Alternative Data | Delta One Trading | Experienced Hire","Bala Cynwyd (Philadelphia Area), Pennsylvania",jibe,2026-08-25,2026-09-27,False,https://careers.sig.com/jobs/11370
 Other US,Finance,Susquehanna International Group,Quantitative/Data Developer | Fixed Income | Experienced Hire,"Bala Cynwyd (Philadelphia Area), Pennsylvania",jibe,2026-09-28,2026-09-29,False,https://careers.sig.com/jobs/10778
@@ -70,6 +71,7 @@ Texas,Agency,Blue Signal,GTM & AI Analytics Engineer,"Houston, Texas, United Sta
 Texas,Finance,Charles Schwab,Data Engineer,"Austin, TX; Southlake, TX",charles,,2026-09-29,False,https://www.schwabjobs.com/job/austin/data-engineer/33727/100738780800
 Texas,Finance,Citi,"Data Platform Engineer, Cybersecurity Operations","Irving, Texas, United States",citi,,2026-09-30,False,https://jobs.citi.com/job/irving/data-platform-engineer-cybersecurity-operations/287/101350240064
 Texas,Agency,Motion Recruitment,Data Engineer (Databricks) · Direct hire,"Dallas, Texas (Remote)",motion,,2026-10-05,False,https://motionrecruitment.com/tech-jobs/dallas/direct-hire/data-engineer-databricks/891575
+Texas,Agency,Robert Half,AWS Data Engineer · Direct hire,"Dallas, TX",roberthalf,2026-09-12,2026-10-05,False,https://www.roberthalf.com/us/en/job/dallas-tx/aws-data-engineer/04030-0013505373-usen
 Texas,Agency,Robert Half,Data Engineer - Python/Snowflake · Direct hire,"Houston, TX",roberthalf,2026-10-05,2026-10-06,False,https://www.roberthalf.com/us/en/job/houston-tx/data-engineer-pythonsnowflake/04130-0013225544-usen
 Texas,Agency,Robert Half,Data Engineer · Direct hire,"Houston, TX",roberthalf,2026-10-05,2026-10-06,False,https://www.roberthalf.com/us/en/job/houston-tx/data-engineer/04130-0013486331-usen
 Texas,Finance,TPG,"Analytics Engineer, Associate","Fort Worth, Texas, United States",greenhouse,2026-10-06,2026-10-07,False,https://job-boards.greenhouse.io/tpgcareers/jobs/8008733003
