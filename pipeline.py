@@ -9,7 +9,7 @@ Pulls REAL current postings from firms' own hiring systems:
   • Workday     (public POST JSON, paginated)
 
 Filters to Analyst/Associate-level roles (wider titles for market-makers) in
-NY+JC / SF / Chicago, de-dupes, flags what's NEW since the last run, writes
+NY+JC / SF / Chicago / New Zealand, de-dupes, flags what's NEW since the last run, writes
 street_watch_jobs.json + .csv, and — if SUPABASE_URL + SUPABASE_SERVICE_KEY
 are set — upserts every row into a Supabase `jobs` table.
 
@@ -183,6 +183,8 @@ _PART_TIME_RE = re.compile(r'part[\s-]?time|\bpt\b|\bhours\b', re.I)
 # VP-grade (VP, AVP, SVP, SAVP, EVP — incl. "VP/Associate" combos) and "Sr"/
 # "Sr." titles. EXCLUDE's " vp " substring missed "-VP", "VP/…" and AVP/SVP.
 _SENIOR_RE = re.compile(r'\b(?:a|s|sa|e)?vp\b|\bsr\b|\bsenior\b', re.I)
+_VP_RE = re.compile(r'\b(?:a|s|sa|e)?vp\b', re.I)
+_SR_RE = re.compile(r'\bsr\b|\bsenior\b', re.I)
 
 STATE_FILE = ".street_watch_state.json"
 NEWSLETTER_SENT_KEY = "__newsletter_sent__"   # state-file key: UTC date of the last delivered newsletter
@@ -863,14 +865,17 @@ def fetch_radancy(firm, host, source, keywords=None):
     return out
 
 
-def fetch_phenom(firm, host, country="us", lang="en_us", agency=False, keywords=""):
+def fetch_phenom(firm, host, country="us", lang="en_us", agency=False, keywords="",
+                 selected=None):
     """Phenom People careers boards (e.g. RBC, PNC, Truist, Regions). Job search
     is a POST to https://<host>/widgets with ddoKey="refineSearch"; the response
     nests the page under refineSearch.data.jobs with refineSearch.totalHits for
     pagination. Phenom's keyword field doesn't reliably narrow by location, so we
     page the whole board and let the metro/title filters cut it down. Each job has
     cityStateCountry, an ISO postedDate, and an applyUrl (a Workday deep link for
-    these tenants); we drop a trailing '/apply' so the link lands on the JD."""
+    these tenants); we drop a trailing '/apply' so the link lands on the JD.
+    `selected` is a facet filter, e.g. {"country": ["New Zealand"]}, for global
+    boards too big to page whole (BCG ~900)."""
     base = f"https://{host}/widgets"
     lang_short = lang.split("_")[0]
     out, offset, total, SIZE = [], 0, None, 100
@@ -884,7 +889,7 @@ def fetch_phenom(firm, host, country="us", lang="en_us", agency=False, keywords=
                     "pageName": "search-results", "size": SIZE, "clearAll": False,
                     "jdsource": "facets", "isSliderEnable": False,
                     "isMultiLingual": False, "pageId": "", "siteType": "external",
-                    "keywords": keywords, "global": True, "selected_fields": {},
+                    "keywords": keywords, "global": True, "selected_fields": selected or {},
                     "locationData": {}, "sort": {}, "esreqid": ""}
             r = requests.post(base, headers={**UA, "Content-Type": "application/json"},
                               json=body, timeout=TIMEOUT)
@@ -962,18 +967,21 @@ def fetch_eightfold(firm, host, domain, location, query=None):
     return out
 
 
-def fetch_eightfold_pcsx(firm, host, domain, location):
+def fetch_eightfold_pcsx(firm, host, domain, location, microsite=None):
     """Eightfold "pcsx" search (Kering, Estée Lauder). A bare request gets 403;
     GETting /careers first sets the session cookie the API wants. 10 per page;
-    postedTs is a Unix timestamp."""
+    postedTs is a Unix timestamp. `microsite` picks one brand on a shared tenant
+    (BNZ sits on NAB's board; without it the search comes back empty)."""
+    ms = {"microsite": microsite} if microsite else {}
     s = requests.Session(); s.headers.update(UA)
     out, start, total = [], 0, None
     try:
-        s.get(f"https://{host}/careers", params={"location": location}, timeout=TIMEOUT)
+        s.get(f"https://{host}/careers", params={"location": location, **ms}, timeout=TIMEOUT)
         while start < 2000:  # hard ceiling
             r = s.get(f"https://{host}/api/pcsx/search", timeout=TIMEOUT,
                       headers={"Accept": "application/json", "Referer": f"https://{host}/careers"},
-                      params={"domain": domain, "query": "", "location": location, "start": start})
+                      params={"domain": domain, "query": "", "location": location,
+                              "start": start, **ms})
             r.raise_for_status()
             d = (r.json() or {}).get("data") or {}
             if total is None:
@@ -1158,21 +1166,23 @@ def _tagged(title, kind):
     return f"{title} · {tag}" if tag else title
 
 
-def fetch_robert_half(firm="Robert Half", searches=None):
-    """roberthalf.com/us/en/jobs/<city>/<keyword>?pagenumber=N embeds 25 results
+def fetch_robert_half(firm="Robert Half", searches=None, country="us"):
+    """roberthalf.com/<country>/en/jobs/<city>/<keyword>?pagenumber=N embeds 25 results
     per page as a \\x22-escaped JSON string; `found` is the total. `searches` is a
-    list of (city slug, keyword slug); city "all" searches the whole US (Tech Watch)."""
+    list of (city slug, keyword slug); city "all" searches the whole country (Tech
+    Watch; the New Zealand site, country "nz")."""
     out, seen = [], set()
     for city, kw in searches or [(c, k) for c in ROBERT_HALF_CITIES for k in AGENCY_KEYWORDS]:
         page, found = 1, None
         while page <= 20:
             try:
-                r = requests.get(f"https://www.roberthalf.com/us/en/jobs/{city}/{kw}",
+                r = requests.get(f"https://www.roberthalf.com/{country}/en/jobs/{city}/{kw}",
                                  params={"pagenumber": page}, headers=_BROWSER_UA, timeout=TIMEOUT)
                 r.raise_for_status()
             except Exception as e:
                 print(f"  ! robert half {city}/{kw}: {e}", file=sys.stderr); break
-            t = (r.text.replace("\\x22", '"').replace("\\u002D", "-").replace("\\/", "/"))
+            t = (r.text.replace("\\x22", '"').replace("\\x26", "&").replace("\\u002D", "-")
+                 .replace("\\/", "/"))
             if found is None:
                 m = re.search(r'"found":"?(\d+)', t)
                 found = int(m.group(1)) if m else 0
@@ -1317,6 +1327,288 @@ def fetch_successfactors(firm, host, locations=("New York", "San Francisco", "Ch
     return out
 
 
+# ---------------------------------------------------------------- New Zealand
+# Ms Tian can also work in New Zealand (added 2026-10-11). Global firms already
+# on the board (Goldman, Macquarie, Citi, HSBC…) list their Auckland/Wellington
+# roles in the same feeds, so metro_of's "New Zealand" bucket picks those up.
+# The firms below were found for NZ specifically and are kept to their NZ roles
+# only (NZ_FIRMS): several also post US or Australian roles. They live in their
+# own registries so Tech Watch, which reuses the Street Watch ones, skips them.
+# Not wired (see README): Westpac NZ, Kiwibank, Forsyth Barr, Milford, Fisher
+# Funds, Murray & Co (no public board, or Seek only; Seek's robots.txt forbids
+# its search API); ASB (Snaphire board, robots.txt disallows all bots); PwC NZ,
+# McKinsey, Michael Page NZ, Robert Walters NZ (bot-blocked from scripts).
+NZ_ASHBY = {"Xero": "xero", "Airwallex": "airwallex"}
+NZ_BAMBOOHR = {"Sharesies": "sharesies"}
+NZ_WORKDAY = {"Heartland Bank": ("heartland", "wd3", "External")}
+NZ_ORACLE = {"NZ Super Fund": ("fa-esmc-saasfaprod1.fa.ocs.oraclecloud.com", "CX_1", "CX_1")}
+NZ_SUCCESSFACTORS = {"ANZ": "careers.anz.com"}            # locationsearch "NZ"
+NZ_EIGHTFOLD_PCSX = {"BNZ": ("nab.eightfold.ai", "nab.com.au", "New Zealand", "bnz")}
+NZ_PHENOM = {"BCG": ("careers.bcg.com", "global", "en_global")}   # country facet below
+NZ_LEVER = {"KPMG NZ": "kpmgnz"}
+NZ_SMARTRECRUITERS = {"Deloitte NZ": "DeloitteNZ"}
+NZ_ELMO = {"Jarden": "jardengroup"}                       # <sub>.elmotalent.com.au
+NZ_QJUMPERS = {"Craigs Investment Partners": "craigsip"}  # <sub>.qjumpersjobs.co
+ROBERT_HALF_NZ_SEARCHES = [("all", k) for k in AGENCY_KEYWORDS]
+NZ_GLOBAL = {"Xero", "Airwallex", "BCG"}   # offices worldwide: keep rows that name NZ
+NZ_FIRMS = ({*NZ_ASHBY, *NZ_BAMBOOHR, *NZ_WORKDAY, *NZ_ORACLE, *NZ_SUCCESSFACTORS,
+             *NZ_EIGHTFOLD_PCSX, *NZ_PHENOM, *NZ_LEVER, *NZ_SMARTRECRUITERS, *NZ_ELMO,
+             *NZ_QJUMPERS})
+# Big 4 boards are mostly audit, tax and tech implementation. Only their deals,
+# strategy and economics teams match her finance roles, so rows are kept by the
+# team the firm files them under.
+_BIG4_TEAM_RE = re.compile(r"deal|corporate finance|transaction|valuation|restructur|m&a"
+                           r"|strategy|economic|financial services", re.I)
+
+
+def fetch_lever(firm, slug, team_re=None):
+    """Lever's public postings API. createdAt is epoch ms; `team_re` keeps only
+    rows whose team/department matches (Big 4 boards)."""
+    try:
+        r = requests.get(f"https://api.lever.co/v0/postings/{slug}", params={"mode": "json"},
+                         headers=UA, timeout=TIMEOUT)
+        r.raise_for_status()
+        data = r.json()
+    except Exception as e:
+        print(f"  ! lever {firm}: {e}", file=sys.stderr); return []
+    out = []
+    for j in data:
+        cat = j.get("categories") or {}
+        if team_re and not team_re.search(f"{cat.get('team') or ''} {cat.get('department') or ''}"):
+            continue
+        ts = j.get("createdAt")
+        out.append(dict(firm=firm, id=f"lever-{slug}-{j.get('id')}",
+                        title=(j.get("text") or "").strip(),
+                        location=", ".join(x for x in [cat.get("location"), j.get("country")] if x),
+                        url=j.get("hostedUrl", ""), source="lever",
+                        posted_date=(datetime.fromtimestamp(ts / 1000, timezone.utc).strftime("%Y-%m-%d")
+                                     if isinstance(ts, (int, float)) else None)))
+    return out
+
+
+def fetch_smartrecruiters(firm, company, team_re=None):
+    """SmartRecruiters' public postings API, 100 per page. `team_re` filters on
+    the department label, as in fetch_lever."""
+    out, offset, total = [], 0, None
+    try:
+        while offset < 2000:
+            r = requests.get(f"https://api.smartrecruiters.com/v1/companies/{company}/postings",
+                             params={"limit": 100, "offset": offset}, headers=UA, timeout=TIMEOUT)
+            r.raise_for_status()
+            d = r.json()
+            total = d.get("totalFound") or 0
+            for j in d.get("content") or []:
+                dept = (j.get("department") or {}).get("label") or ""
+                if team_re and not team_re.search(dept):
+                    continue
+                loc = j.get("location") or {}
+                out.append(dict(firm=firm, id=f"sr-{company}-{j.get('id')}",
+                                title=(j.get("name") or "").strip(),
+                                location=", ".join(x for x in [loc.get("city"), loc.get("country", "").upper()] if x),
+                                url=f"https://jobs.smartrecruiters.com/{company}/{j.get('id')}",
+                                source="smartrecruiters", posted_date=_posted(j.get("releasedDate"))))
+            offset += 100
+            if offset >= total:
+                break
+            time.sleep(0.25)
+    except Exception as e:
+        print(f"  ! smartrecruiters {firm}: {e}", file=sys.stderr)
+    return out
+
+
+_ELMO_CARD = re.compile(r'<a class="e-clickable[^"]*"[^>]*href="(/careers/default/job/view/(\d+))"[^>]*>'
+                        r'\s*(.*?)\s*</a>(.*?)glyphicon-map-marker.*?col-xs-10">\s*(.*?)\s*</div>', re.S)
+
+
+def fetch_elmo(firm, sub):
+    """ELMO Talent careers board (Jarden), one server-rendered page. The date on
+    each card is the closing date, so rows go in undated."""
+    import html as _html
+    try:
+        r = requests.get(f"https://{sub}.elmotalent.com.au/careers/default/jobs", headers=UA, timeout=TIMEOUT)
+        r.raise_for_status()
+    except Exception as e:
+        print(f"  ! elmo {firm}: {e}", file=sys.stderr); return []
+    return [dict(firm=firm, id=f"elmo-{sub}-{jid}", title=_html.unescape(title).strip(),
+                 location=_html.unescape(loc).strip(),
+                 url=f"https://{sub}.elmotalent.com.au{href}", source="elmo", posted_date=None)
+            for href, jid, title, _, loc in _ELMO_CARD.findall(r.text)]
+
+
+_QJ_CARD = re.compile(r'<a href="(/jobs/details/[^"]*?-(\d+))"[^>]*>.*?<h4>\s*(.*?)\s*</h4>'
+                      r'.*?location-icon">\s*(.*?)\s*</strong>', re.S)
+
+
+def fetch_qjumpers(firm, sub):
+    """QJumpers (NZ ATS) careers page: every open role on one server-rendered
+    page, no post date."""
+    import html as _html
+    try:
+        r = requests.get(f"https://{sub}.qjumpersjobs.co/", headers=UA, timeout=TIMEOUT)
+        r.raise_for_status()
+    except Exception as e:
+        print(f"  ! qjumpers {firm}: {e}", file=sys.stderr); return []
+    return [dict(firm=firm, id=f"qj-{sub}-{jid}", title=_html.unescape(title).strip(),
+                 location=_html.unescape(loc).strip(),
+                 url=f"https://{sub}.qjumpersjobs.co{href}", source="qjumpers", posted_date=None)
+            for href, jid, title, loc in _QJ_CARD.findall(r.text)]
+
+
+def collect_nz():
+    """Every New Zealand source; collect() files the rows under "New Zealand"."""
+    raw = []
+    print("New Zealand…")
+    for f, nm in NZ_ASHBY.items():
+        rows = fetch_ashby(f, nm); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    for f, sub in NZ_BAMBOOHR.items():
+        rows = fetch_bamboohr(f, sub); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    for f, (t, dc, s) in NZ_WORKDAY.items():
+        rows = fetch_workday(f, t, dc, s); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    for f, (host, num, name) in NZ_ORACLE.items():
+        rows = fetch_oracle(f, host, num, name); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    for f, host in NZ_SUCCESSFACTORS.items():
+        rows = fetch_successfactors(f, host, locations=("NZ",)); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    for f, (host, domain, loc, ms) in NZ_EIGHTFOLD_PCSX.items():
+        rows = fetch_eightfold_pcsx(f, host, domain, loc, microsite=ms); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    for f, (host, country, lang) in NZ_PHENOM.items():
+        rows = fetch_phenom(f, host, country, lang, selected={"country": ["New Zealand"]})
+        print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    for f, slug in NZ_LEVER.items():
+        rows = fetch_lever(f, slug, _BIG4_TEAM_RE); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    for f, co in NZ_SMARTRECRUITERS.items():
+        rows = fetch_smartrecruiters(f, co, _BIG4_TEAM_RE); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    for f, sub in NZ_ELMO.items():
+        rows = fetch_elmo(f, sub); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    for f, sub in NZ_QJUMPERS.items():
+        rows = fetch_qjumpers(f, sub); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    rows = fetch_robert_half("Robert Half", ROBERT_HALF_NZ_SEARCHES, country="nz")
+    print(f"  {'Robert Half (NZ)':<24}{len(rows):>4}"); raw += rows
+    return raw
+
+
+# NZ "Senior Analyst/Associate/Consultant" titles are kept only when the posting
+# asks for 3 years' experience or less (user, 2026-10-11): NZ deals teams give
+# "Senior Associate" about two years in. Postings that state no number are left
+# out, as are ones whose description can't be read.
+NZ_SENIOR_MAX_YEARS = 3
+_NUM = r"(\d{1,2}|one|two|three|four|five|six|seven|eight|nine|ten)"
+_WORDNUM = {w: i for i, w in enumerate(
+    "zero one two three four five six seven eight nine ten".split())}
+_YEARS_RE = re.compile(_NUM + r"\s*\+?\s*(?:plus\s*)?(?:(?:-|\u2013|to)\s*" + _NUM
+                       + r"\s*\+?\s*)?(?:years?|yrs?)\b", re.I)
+
+
+def min_years(text):
+    """Smallest experience ask in a description ("2-4 years", "3+ yrs", "at
+    least two years of experience"); only numbers with "experience" close by
+    count, so "50 years in New Zealand" is ignored. None when nothing is stated."""
+    found = []
+    for mt in _YEARS_RE.finditer(text or ""):
+        near = text[max(0, mt.start() - 80):mt.end() + 80].lower()
+        if "experience" not in near:
+            continue
+        n = mt.group(1).lower()
+        n = int(n) if n.isdigit() else _WORDNUM[n]
+        if n <= 15:
+            found.append(n)
+    return min(found) if found else None
+
+
+def _html_text(h):
+    import html as _html
+    h = re.sub(r"<(script|style|noscript|svg|head)[\s\S]*?</\1>", " ", h or "", flags=re.I)
+    for _ in range(2):   # some feeds escape their HTML once more
+        h = _html.unescape(_TAG_RE.sub(" ", h))
+    return re.sub(r"\s+", " ", h).strip()
+
+
+def job_text(r):
+    """A posting's description, from the ATS's detail endpoint where there is
+    one (as api/_jd.js does), else the page's JSON-LD or text. "" on failure."""
+    jid, url = r.get("id", ""), r.get("url", "")
+    try:
+        m = re.match(r"gh-(.+)-(\d+)$", jid)
+        if m:
+            j = requests.get(f"https://boards-api.greenhouse.io/v1/boards/{m[1]}/jobs/{m[2]}",
+                             headers=UA, timeout=TIMEOUT).json()
+            return _html_text(j.get("content"))
+        m = re.match(r"ashby-(.+)-([0-9a-f-]{36})$", jid)
+        if m:
+            jobs = requests.get(f"https://api.ashbyhq.com/posting-api/job-board/{m[1]}",
+                                headers=UA, timeout=TIMEOUT).json().get("jobs") or []
+            job = next((x for x in jobs if x.get("id") == m[2]), {})
+            return job.get("descriptionPlain") or _html_text(job.get("descriptionHtml"))
+        m = re.match(r"lever-(.+)-([0-9a-f-]{36})$", jid)
+        if m:
+            d = requests.get(f"https://api.lever.co/v0/postings/{m[1]}/{m[2]}",
+                             headers=UA, timeout=TIMEOUT).json()
+            return " ".join([d.get("descriptionPlain") or ""] + [
+                f"{l.get('text', '')} {_html_text(l.get('content'))}" for l in d.get("lists") or []])
+        m = re.match(r"sr-(.+)-(\d+)$", jid)
+        if m:
+            d = requests.get(f"https://api.smartrecruiters.com/v1/companies/{m[1]}/postings/{m[2]}",
+                             headers=UA, timeout=TIMEOUT).json()
+            secs = ((d.get("jobAd") or {}).get("sections") or {}).values()
+            return _html_text(" ".join(x.get("text") or "" for x in secs))
+        m = re.match(r"bamboo-(.+)-(\d+)$", jid)
+        if m:
+            d = requests.get(f"https://{m[1]}.bamboohr.com/careers/{m[2]}/detail",
+                             headers=UA, timeout=TIMEOUT).json()
+            return _html_text(((d.get("result") or {}).get("jobOpening") or {}).get("description"))
+        m = re.match(r"eightfold-(.+)-(\d+)$", jid)
+        if m:   # pcsx tenants (BNZ, Kering…): needs the careers-page cookie first
+            sess = requests.Session(); sess.headers.update(UA)
+            ms = next(({"microsite": v[3]} for v in NZ_EIGHTFOLD_PCSX.values() if v[0] == m[1]), {})
+            sess.get(f"https://{m[1]}/careers", params=ms, timeout=TIMEOUT)
+            domain = next((v[1] for reg in (NZ_EIGHTFOLD_PCSX, EIGHTFOLD_PCSX, EIGHTFOLD)
+                           for v in reg.values() if v[0] == m[1]), "")
+            d = sess.get(f"https://{m[1]}/api/pcsx/position_details", timeout=TIMEOUT,
+                         params={"position_id": m[2], "domain": domain, "hl": "en", **ms}).json()
+            return _html_text((d.get("data") or {}).get("jobDescription"))
+        host = re.match(r"https?://([^/]+)(/.*)?$", url or "")
+        if host and re.search(r"myworkday(jobs|site)\.com$", host[1]):
+            parts = [x for x in (host[2] or "").split("/") if x]
+            i = parts.index("job")
+            if host[1].endswith("myworkdaysite.com"):
+                tenant, site = parts[i - 2], parts[i - 1]
+            else:
+                tenant, site = host[1].split(".")[0], parts[i - 1]
+            d = requests.get(f"https://{host[1]}/wday/cxs/{tenant}/{site}/job/{'/'.join(parts[i + 1:])}",
+                             headers={**UA, "Accept": "application/json"}, timeout=TIMEOUT).json()
+            return _html_text((d.get("jobPostingInfo") or {}).get("jobDescription"))
+        if host and host[1].endswith("oraclecloud.com"):
+            m = re.search(r"/sites/([^/]+)/job/(\d+)", url)
+            d = requests.get(f"https://{host[1]}/hcmRestApi/resources/latest/recruitingCEJobRequisitionDetails",
+                             params={"onlyData": "true", "expand": "all",
+                                     "finder": f'ById;Id="{m[2]}",siteNumber={m[1]}'},
+                             headers={**UA, "Accept": "application/json"}, timeout=TIMEOUT).json()
+            it = (d.get("items") or [{}])[0]
+            return _html_text(" ".join(it.get(k) or "" for k in (
+                "ExternalDescriptionStr", "ExternalResponsibilitiesStr", "ExternalQualificationsStr")))
+        if url:
+            page = requests.get(url, headers=_BROWSER_UA, timeout=TIMEOUT).text
+            for block in re.findall(r'<script[^>]*application/ld\+json[^>]*>(.*?)</script>', page, re.S):
+                try:
+                    data = json.loads(block.strip())
+                except Exception:
+                    continue
+                for d in data if isinstance(data, list) else [data]:
+                    if isinstance(d, dict) and d.get("description"):
+                        return _html_text(d["description"])
+            return _html_text(page)
+    except Exception as e:
+        print(f"  ! job text {jid}: {e}", file=sys.stderr)
+    return ""
+
+
+def nz_senior_ok(r):
+    yrs = min_years(job_text(r))
+    ok = yrs is not None and yrs <= NZ_SENIOR_MAX_YEARS
+    print(f"  NZ senior check: {r['firm']} | {r['title'][:60]} -> "
+          f"{'no years stated' if yrs is None else f'{yrs}+ yrs'} -> {'keep' if ok else 'drop'}")
+    return ok
+
+
 # ---------------------------------------------------------------- filter/dedupe
 def metro_of(loc):
     l = loc.lower()
@@ -1327,6 +1619,43 @@ def metro_of(loc):
         return "NY + Jersey City"
     if _IL_STATE_RE.search(loc):
         return "Chicago"
+    if is_nz(loc):
+        return NZ_METRO
+    return None
+
+
+# New Zealand is one bucket for the whole country (added 2026-10-11): the
+# market is small and most of its finance roles sit in Auckland and Wellington.
+NZ_METRO = "New Zealand"
+_NZ_NAMED_RE = re.compile(r"new zealand|aotearoa|\bnz\b", re.I)
+_NZ_CITY_RE = re.compile(r"auckland|wellington|christchurch|tauranga|dunedin|queenstown"
+                         r"|palmerston north|new plymouth|whangarei|invercargill|rotorua", re.I)
+# Wellington, FL / Queenstown, MD / Christchurch, Dorset / Wellington Street,
+# Toronto: a bare city name only counts when nothing else in the string places
+# it outside New Zealand ("City, ST" US state codes included).
+_NOT_NZ_RE = re.compile(r"united states|\busa?\b|florida|kansas|colorado|ohio|texas|utah|maryland"
+                        r"|united kingdom|\buk\b|england|dorset|australia|\bau\b|\bnsw\b"
+                        r"|sydney|melbourne|brisbane|perth|canada|ontario|toronto"
+                        r"|wellington (?:street|st\b|road|rd\b|ave)", re.I)
+_US_STATE_RE = re.compile(r",\s*(?!NZ\b)[A-Z]{2}\b")
+_AU_RE = re.compile(r"australia|\bau\b|\bnsw\b|\bvic\b|\bqld\b|sydney|melbourne|brisbane"
+                    r"|perth|adelaide|canberra", re.I)
+
+
+def is_nz(loc):
+    return bool(_NZ_NAMED_RE.search(loc) or (_NZ_CITY_RE.search(loc) and not _NOT_NZ_RE.search(loc)
+                                               and not _US_STATE_RE.search(loc)))
+
+
+def nz_metro(firm, loc):
+    """Metro for an NZ_FIRMS row: New Zealand or nothing. NZ-headquartered firms
+    label offices by suburb ("Newmarket - 277"), so anything not in Australia
+    counts; the global ones (NZ_GLOBAL) must name New Zealand or an NZ city."""
+    if is_nz(loc):
+        return NZ_METRO
+    if (firm not in NZ_GLOBAL and loc and not _AU_RE.search(loc) and not _NOT_NZ_RE.search(loc)
+            and not _US_STATE_RE.search(loc) and not metro_of(loc)):
+        return NZ_METRO
     return None
 
 
@@ -1338,6 +1667,7 @@ PRODUCT_GTM_FIRMS = {
     "LVMH", "Richemont", "Kering", "Estée Lauder", "Tapestry", "Moncler", "Prada",
     "On Holding",
     "Stripe", "Brex", "Chime", "Ramp", "Plaid", "Rogo", "Bastion", "Galaxy Digital",
+    "Xero", "Airwallex", "Sharesies",                    # New Zealand fintech
     "Christie's", "Sotheby's", "Phillips", "Bonhams", "Doyle",
     "Freeman's | Hindman", "Rago | Wright",
 }
@@ -1404,15 +1734,21 @@ def agency_metro(loc):
     return _AGENCY_CITIES.get(loc.split(",")[0].replace("(Remote)", "").strip().lower())
 
 
-def title_ok(firm, title):
+def title_ok(firm, title, nz=False, allow_senior=False):
+    """`nz`: a New Zealand row, where "Graduate" titles count too (NZ firms hire
+    entry level through graduate programmes; user, 2026-10-11). `allow_senior`
+    lets "Senior"/"Sr" through (VP grades never) so collect() can check the
+    posting's experience ask instead (nz_senior_ok)."""
     t = title.lower()
-    if any(x in t for x in EXCLUDE) or _PART_TIME_RE.search(title) or _SENIOR_RE.search(title):
+    senior = _VP_RE if allow_senior else _SENIOR_RE
+    if any(x in t for x in EXCLUDE) or _PART_TIME_RE.search(title) or senior.search(title):
         return False
     if _ACCOUNT_EXEC_RE.search(title):
         return False
+    titles = TITLES + ["graduate"] if nz else TITLES
     if firm in AGENCY_FIRMS:
         return (bool(_AGENCY_FIELD_RE.search(title)) and not _AGENCY_EXCLUDE_RE.search(title)
-                and any(k in t for k in TITLES))
+                and any(k in t for k in titles))
     if _SPECIALIST_RE.search(title) and segment_of(firm) == "fintech":
         return False
     if _MANAGER_RE.search(title) and segment_of(firm) in ("fintech", "fashion"):
@@ -1425,6 +1761,10 @@ def title_ok(firm, title):
             return False
         return bool(_PRODUCT_GTM_RE.search(title)) or (firm in AUCTION_HOUSES and any(k in t for k in AUCTION_TITLES))
     kws = TITLES_TRADING if firm in TRADING_FIRMS else TITLES
+    if firm in NZ_FIRMS and _FIRM_CAT.get(firm) == "Banks":
+        kws = ["analyst", "associate"]   # an NZ bank "Consultant" is a branch role
+    if nz:
+        kws = kws + ["graduate"]
     return any(k in t for k in kws)
 
 
@@ -1511,16 +1851,34 @@ def collect():
                      ("Michael Page", fetch_michael_page), ("Aston Carter", fetch_aston_carter)):
         rows = fetch(f); print(f"  {f:<24}{len(rows):>4}"); raw += rows
 
-    kept, seen = [], set()
-    for r in raw:
-        m = agency_metro(r["location"]) if r["firm"] in AGENCY_FIRMS else metro_of(r["location"])
-        if (m and title_ok(r["firm"], r["title"])
-                and age_ok(r.get("posted_date"), VC_MAX_AGE_DAYS if r["firm"] in VC_FIRMS else None)
-                and r["id"] not in seen):
-            seen.add(r["id"]); r["metro"] = m; kept.append(r)
+    raw += collect_nz()
     # `raw` (every posting each feed returned, before our filters) lets the
     # trends tracker tell a role the firm took down from one we filtered out.
-    return kept, raw
+    return filter_rows(raw), raw
+
+
+def filter_rows(raw):
+    """Metro + title + age filters and de-dupe; returns the board's rows."""
+    kept, seen = [], set()
+    for r in raw:
+        if r["firm"] in NZ_FIRMS:
+            m = nz_metro(r["firm"], r["location"])
+        elif r["firm"] in AGENCY_FIRMS:
+            # Robert Half's NZ site (ids end "-nzen"): the whole country is the metro
+            m = NZ_METRO if r["id"].endswith("-nzen") else agency_metro(r["location"])
+        else:
+            m = metro_of(r["location"])
+        if (not m or r["id"] in seen
+                or not age_ok(r.get("posted_date"), VC_MAX_AGE_DAYS if r["firm"] in VC_FIRMS else None)):
+            continue
+        nz = m == NZ_METRO
+        ok = title_ok(r["firm"], r["title"], nz=nz)
+        if (not ok and nz and _SR_RE.search(r["title"])
+                and title_ok(r["firm"], r["title"], nz=True, allow_senior=True)):
+            ok = nz_senior_ok(r)
+        if ok:
+            seen.add(r["id"]); r["metro"] = m; kept.append(r)
+    return kept
 
 
 # ---------------------------------------------------------------- supabase
@@ -1638,7 +1996,7 @@ def registered_firms():
     regs = (GREENHOUSE, ASHBY, JIBE, PINPOINT, ORACLE, HRMDIRECT, PAGEUP, ICIMS,
             WORKDAY, WORKDAY_SITE, RADANCY, PHENOM, EIGHTFOLD, EIGHTFOLD_PCSX, SUCCESSFACTORS,
             BAMBOOHR, PAYLOCITY)
-    return ({f for reg in regs for f in reg} | AGENCY_FIRMS
+    return ({f for reg in regs for f in reg} | AGENCY_FIRMS | NZ_FIRMS
             | {"Goldman Sachs", "Citadel Securities", "LVMH", "Rago | Wright"})
 
 

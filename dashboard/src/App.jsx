@@ -63,12 +63,13 @@ function describeSearch(f) {
     .join(" · ");
 }
 
-const METROS = ["all", "NY + Jersey City", "SF / Bay Area", "Chicago"];
+const METROS = ["all", "NY + Jersey City", "SF / Bay Area", "Chicago", "New Zealand"];
 const METRO_LABEL = {
   all: "All",
   "NY + Jersey City": "NY + JC",
   "SF / Bay Area": "SF / Bay",
   Chicago: "Chicago",
+  "New Zealand": "NZ",
 };
 const RECENCY = [
   { d: "all", label: "Any time" },
