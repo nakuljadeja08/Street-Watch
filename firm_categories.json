@@ -10,7 +10,7 @@
   ],
   "Middle Market IB": [
     "BTIG", "Baird", "Cantor Fitzgerald", "Citizens Financial Group", "Houlihan Lokey",
-    "KeyBank", "Macquarie Group", "Oppenheimer & Co.", "Piper Sandler", "RBC Capital Markets",
+    "Jarden", "KeyBank", "Macquarie Group", "Oppenheimer & Co.", "Piper Sandler", "RBC Capital Markets",
     "Regions Securities", "Solomon Partners", "Stifel", "Truist Securities", "William Blair"
   ],
   "PE & Alts": [
@@ -20,11 +20,11 @@
     "Warburg Pincus"
   ],
   "Asset Management": [
-    "AllianceBernstein", "BlackRock", "Franklin Templeton", "Invesco", "Neuberger Berman",
-    "PGIM", "Wellington Management"
+    "AllianceBernstein", "BlackRock", "Craigs Investment Partners", "Franklin Templeton", "Invesco",
+    "Neuberger Berman", "NZ Super Fund", "PGIM", "Wellington Management"
   ],
   "Banks": [
-    "BMO", "CIBC", "Capital One", "HSBC", "ING", "Mizuho",
+    "ANZ", "BMO", "BNZ", "CIBC", "Capital One", "HSBC", "Heartland Bank", "ING", "Mizuho",
     "State Street", "TD Bank", "U.S. Bancorp"
   ],
   "Trading": [
@@ -32,11 +32,12 @@
     "Susquehanna International Group", "Virtu Financial"
   ],
   "Consulting": [
-    "Altman Solon", "CIL Management Consultants", "Mars & Co", "ZS Associates"
+    "Altman Solon", "BCG", "CIL Management Consultants", "Deloitte NZ", "KPMG NZ", "Mars & Co",
+    "ZS Associates"
   ],
   "Fintech": [
-    "Bastion", "Brex", "CAIS", "Chime", "Galaxy Digital", "iCapital", "Plaid", "Ramp",
-    "Rogo", "Stripe"
+    "Airwallex", "Bastion", "Brex", "CAIS", "Chime", "Galaxy Digital", "iCapital", "Plaid", "Ramp",
+    "Rogo", "Sharesies", "Stripe", "Xero"
   ],
   "Fashion & Luxury": [
     "Bonhams", "Christie's", "Doyle", "Estée Lauder", "Freeman's | Hindman", "Kering", "LVMH", "Moncler", "On Holding", "Phillips", "Prada", "Rago | Wright", "Richemont", "Sotheby's", "Tapestry"
