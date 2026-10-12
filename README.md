@@ -29,7 +29,11 @@ job board; generic "training" site).
 **New Zealand** (added 2026-10-11; Ms Tian can work there) is a fourth metro,
 "New Zealand", covering the whole country. Global firms already on the board
 (Goldman, Macquarie, Citi, HSBC and others) file their Auckland and Wellington roles
-there automatically. Two NZ-only title rules: "Graduate" roles count (NZ firms hire
+there automatically. NZ roles must be **temporary** (`nz_temp_ok`): fixed or max
+term, contract or contract-to-hire, parental-leave cover, secondment or casual, read
+from the title, a "Worker type:" label or the description; permanent roles and
+postings that don't say are left out, and kept rows get a " · Temporary" tag. Two
+more NZ-only title rules: "Graduate" roles count (NZ firms hire
 entry level through graduate programmes), and a "Senior" Analyst/Associate/Consultant
 is kept only when its posting asks for 3 years' experience or less (read from the
 job description by `nz_senior_ok`; no number stated means it's left out). NZ firms found for it, all kept to NZ roles only (`NZ_FIRMS`
