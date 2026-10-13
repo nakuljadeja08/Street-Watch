@@ -10,7 +10,7 @@
     "metro": "Atlanta",
     "sector": "Fintech",
     "first_seen": "2026-10-12",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Robert Half",
@@ -49,7 +49,7 @@
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-10-12",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Comcast",
@@ -71,7 +71,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Cloud-Data-Platform-Engineer_R158514-1",
     "source": "workday",
-    "posted_date": "2026-09-11",
+    "posted_date": "2026-09-12",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -84,7 +84,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Analytics-Engineer_R150313",
     "source": "workday",
-    "posted_date": "2026-09-11",
+    "posted_date": "2026-09-12",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -97,7 +97,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Program-Engineer_R150311",
     "source": "workday",
-    "posted_date": "2026-09-11",
+    "posted_date": "2026-09-12",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -153,7 +153,7 @@
     "metro": "NYC Area",
     "sector": "Tech",
     "first_seen": "2026-10-12",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Anthropic",
@@ -208,26 +208,13 @@
     "is_new": false
   },
   {
-    "firm": "Autodesk",
-    "id": "wd-autodesk-Ext-/job/Denver-CO-USA/Analytics-Engineer--Forecasting---Revenue-Intelligence_26WD101382-1",
-    "title": "Analytics Engineer, Forecasting & Revenue Intelligence",
-    "location": "Denver, CO, USA; New Jersey, USA - Remote; New Hampshire, USA - Remote; Michigan, USA - Remote; Massachusetts, USA - Remote; Louisiana, USA - Remote; Kansas, USA - Remote; Indiana, USA - Remote; Illinois, USA - Remote; Florida, USA - Remote; District of Columbia, USA - Remote; Connecticut, USA - Remote; Minnesota, USA - Remote; Maine, USA - Remote; Maryland, USA - Remote; Idaho, USA - Remote; Iowa, USA - Remote; Georgia, USA - Remote; Delaware, USA - Remote; Arkansas, USA - Remote; Alabama, USA - Remote; West Virginia, USA - Remote; Wisconsin, USA - Remote; Vermont, USA - Remote; Virginia, USA - Remote; Texas, USA - Remote; Tennessee, USA - Remote; Rhode Island, USA - Remote; Pennsylvania, USA - Remote; Wyoming, USA - Remote; South Carolina, USA - Remote; Oklahoma, USA - Remote; Ohio, USA - Remote; North Carolina, USA - Remote; Mississippi, USA - Remote; Missouri, USA - Remote; New York, USA - Remote",
-    "url": "https://autodesk.wd1.myworkdayjobs.com/Ext/job/Denver-CO-USA/Analytics-Engineer--Forecasting---Revenue-Intelligence_26WD101382-1",
-    "source": "workday",
-    "posted_date": "2026-10-09",
-    "metro": "NYC Area",
-    "sector": "Tech",
-    "first_seen": "2026-10-09",
-    "is_new": false
-  },
-  {
     "firm": "Carlyle",
     "id": "wd-carlyle-Carlyle-/job/New-York-NY/Data-Engineer_R-00280",
     "title": "Data Engineer",
     "location": "New York, NY",
     "url": "https://carlyle.wd1.myworkdayjobs.com/Carlyle/job/New-York-NY/Data-Engineer_R-00280",
     "source": "workday",
-    "posted_date": "2026-09-11",
+    "posted_date": "2026-09-12",
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -339,10 +326,10 @@
   },
   {
     "firm": "Meta",
-    "id": "meta-3713685685437806",
+    "id": "meta-1283364266159062",
     "title": "Data Engineer, Product Analytics",
-    "location": "Remote, US; Bellevue, WA; Menlo Park, CA; New York, NY; San Francisco, CA; Chicago, IL; Fremont, CA",
-    "url": "https://www.metacareers.com/profile/job_details/3713685685437806",
+    "location": "Sunnyvale, CA; Bellevue, WA; Menlo Park, CA; Burlingame, CA; New York, NY",
+    "url": "https://www.metacareers.com/profile/job_details/1283364266159062",
     "source": "meta",
     "posted_date": null,
     "metro": "NYC Area",
@@ -352,10 +339,10 @@
   },
   {
     "firm": "Meta",
-    "id": "meta-1283364266159062",
+    "id": "meta-3713685685437806",
     "title": "Data Engineer, Product Analytics",
-    "location": "Sunnyvale, CA; Bellevue, WA; Menlo Park, CA; Burlingame, CA; New York, NY",
-    "url": "https://www.metacareers.com/profile/job_details/1283364266159062",
+    "location": "Remote, US; Bellevue, WA; Menlo Park, CA; New York, NY; San Francisco, CA; Chicago, IL; Fremont, CA",
+    "url": "https://www.metacareers.com/profile/job_details/3713685685437806",
     "source": "meta",
     "posted_date": null,
     "metro": "NYC Area",
@@ -377,26 +364,13 @@
     "is_new": false
   },
   {
-    "firm": "Meta",
-    "id": "meta-1774677140239590",
-    "title": "Data Engineer, Teen & Family Experience (TFE)",
-    "location": "Menlo Park, CA; New York, NY; San Francisco, CA",
-    "url": "https://www.metacareers.com/profile/job_details/1774677140239590",
-    "source": "meta",
-    "posted_date": null,
-    "metro": "NYC Area",
-    "sector": "Tech",
-    "first_seen": "2026-09-30",
-    "is_new": false
-  },
-  {
     "firm": "Mizuho",
     "id": "wd-mizuho-mizuhoamericas-/job/MetroPark/Cloud-Data-Engineer_R7127",
     "title": "Cloud Data Engineer",
     "location": "MetroPark",
     "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/MetroPark/Cloud-Data-Engineer_R7127",
     "source": "workday",
-    "posted_date": "2026-09-11",
+    "posted_date": "2026-09-12",
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -455,17 +429,17 @@
     "is_new": false
   },
   {
-    "firm": "Charles Schwab",
-    "id": "charles-100685603200",
-    "title": "ETL Engineer",
-    "location": "Southlake, TX",
-    "url": "https://www.schwabjobs.com/job/southlake/etl-engineer/33727/100685603200",
-    "source": "charles",
-    "posted_date": null,
-    "metro": "Other US",
-    "sector": "Finance",
-    "first_seen": "2026-09-29",
-    "is_new": false
+    "firm": "Target",
+    "id": "wd-target-targetcareers-/job/7000-Target-Pkwy-NNCD-0375-Brooklyn-ParkMN-55445/Data-Engineer---Finance-Technology-Solutions_R0000444866",
+    "title": "Data Engineer - Finance AI Solutions",
+    "location": "7000 Target Pkwy N,NCD-0375 Brooklyn Park,MN 55445",
+    "url": "https://target.wd5.myworkdayjobs.com/targetcareers/job/7000-Target-Pkwy-NNCD-0375-Brooklyn-ParkMN-55445/Data-Engineer---Finance-Technology-Solutions_R0000444866",
+    "source": "workday",
+    "posted_date": "2026-10-13",
+    "metro": "NYC Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-13",
+    "is_new": true
   },
   {
     "firm": "Comcast",
@@ -474,32 +448,6 @@
     "location": "PA - West Chester, 1354 Boot Rd",
     "url": "https://comcast.wd115.myworkdayjobs.com/Comcast_Careers/job/PA---West-Chester-1354-Boot-Rd/Platform-Data-Engineer----DataBricks--PySpark--AWS-_R442523",
     "source": "workday",
-    "posted_date": "2026-10-05",
-    "metro": "Other US",
-    "sector": "Tech",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Dell",
-    "id": "oracle-enterpriseplatform.dell.com-300054",
-    "title": "Consultant, Data Engineering",
-    "location": "TX, United States",
-    "url": "https://enterpriseplatform.dell.com/hcmUI/CandidateExperience/en/sites/careers/job/300054",
-    "source": "oracle",
-    "posted_date": "2026-10-05",
-    "metro": "Other US",
-    "sector": "Tech",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Dell",
-    "id": "oracle-enterpriseplatform.dell.com-300056",
-    "title": "Consultant, Data Engineering",
-    "location": "TX, United States",
-    "url": "https://enterpriseplatform.dell.com/hcmUI/CandidateExperience/en/sites/careers/job/300056",
-    "source": "oracle",
     "posted_date": "2026-10-05",
     "metro": "Other US",
     "sector": "Tech",
@@ -625,6 +573,19 @@
   },
   {
     "firm": "Robert Half",
+    "id": "roberthalf-01500-0013497785-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Oskaloosa, IA",
+    "url": "https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-13",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-13",
+    "is_new": true
+  },
+  {
+    "firm": "Robert Half",
     "id": "roberthalf-04600-0013495125-usen",
     "title": "Epic Data Engineer \u00b7 Direct hire",
     "location": "Milwaukee, WI",
@@ -713,6 +674,19 @@
     "sector": "Agency",
     "first_seen": "2026-10-09",
     "is_new": false
+  },
+  {
+    "firm": "Truist Securities",
+    "id": "phenom-careers.truist.com-TBJTBFUSR0120705EXTERNALENUS",
+    "title": "Data Transmission Infrastructure Engineer",
+    "location": "Raleigh, North Carolina, USA",
+    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Raleigh-NC/Data-Transmission-Infrastructure-Engineer_R0120705",
+    "source": "phenom",
+    "posted_date": "2026-10-13",
+    "metro": "Other US",
+    "sector": "Finance",
+    "first_seen": "2026-10-13",
+    "is_new": true
   },
   {
     "firm": "Allstate",
@@ -985,7 +959,7 @@
     "metro": "Texas",
     "sector": "Tech",
     "first_seen": "2026-10-12",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Motion Recruitment",
