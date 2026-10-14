@@ -156,6 +156,58 @@
     "is_new": false
   },
   {
+    "firm": "Anthropic",
+    "id": "gh-anthropic-5450099008",
+    "title": "Data Engineer, Billing & Payments",
+    "location": "San Francisco, CA | New York City, NY",
+    "url": "https://job-boards.greenhouse.io/anthropic/jobs/5450099008",
+    "source": "greenhouse",
+    "posted_date": "2026-10-12",
+    "metro": "NYC Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-12",
+    "is_new": false
+  },
+  {
+    "firm": "Anthropic",
+    "id": "gh-anthropic-5418610008",
+    "title": "Data Engineer, GTM",
+    "location": "San Francisco, CA | New York City, NY",
+    "url": "https://job-boards.greenhouse.io/anthropic/jobs/5418610008",
+    "source": "greenhouse",
+    "posted_date": "2026-09-08",
+    "metro": "NYC Area",
+    "sector": "Tech",
+    "first_seen": "2026-09-27",
+    "is_new": false
+  },
+  {
+    "firm": "Anthropic",
+    "id": "gh-anthropic-5448481008",
+    "title": "Data Engineer, Product",
+    "location": "San Francisco, CA | New York City, NY | Seattle, WA",
+    "url": "https://job-boards.greenhouse.io/anthropic/jobs/5448481008",
+    "source": "greenhouse",
+    "posted_date": "2026-10-09",
+    "metro": "NYC Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-09",
+    "is_new": false
+  },
+  {
+    "firm": "Anthropic",
+    "id": "gh-anthropic-5424111008",
+    "title": "Recruiting Analytics Data Engineer",
+    "location": "San Francisco, CA | New York City, NY | Seattle, WA",
+    "url": "https://job-boards.greenhouse.io/anthropic/jobs/5424111008",
+    "source": "greenhouse",
+    "posted_date": "2026-09-14",
+    "metro": "NYC Area",
+    "sector": "Tech",
+    "first_seen": "2026-09-27",
+    "is_new": false
+  },
+  {
     "firm": "Autodesk",
     "id": "wd-autodesk-Ext-/job/Denver-CO-USA/Analytics-Engineer--Forecasting---Revenue-Intelligence_26WD101381-1",
     "title": "Analytics Engineer, Forecasting & Revenue Intelligence",
