@@ -78,6 +78,19 @@
     "is_new": true
   },
   {
+    "firm": "Comcast",
+    "id": "wd-comcast-Comcast_Careers-/job/IL---Chicago-350-N-Orleans-St-1300N/Data-Engineer-3---Reston--VA---Freewheel_R444945",
+    "title": "Data Engineer 3 - Reston, VA - Freewheel",
+    "location": "IL - Chicago, 350 N. Orleans St 1300N; VA - Reston, 11951 Freedom Dr Ste 900",
+    "url": "https://comcast.wd115.myworkdayjobs.com/Comcast_Careers/job/IL---Chicago-350-N-Orleans-St-1300N/Data-Engineer-3---Reston--VA---Freewheel_R444945",
+    "source": "workday",
+    "posted_date": "2026-10-14",
+    "metro": "Chicago",
+    "sector": "Tech",
+    "first_seen": "2026-10-01",
+    "is_new": false
+  },
+  {
     "firm": "Northern Trust",
     "id": "wd-ntrs-northerntrust-/job/Chicago-IL/Cloud-Data-Platform-Engineer_R158514-1",
     "title": "Cloud Data Platform Engineer",
@@ -156,6 +169,19 @@
     "is_new": false
   },
   {
+    "firm": "Robert Half",
+    "id": "roberthalf-00320-0013503591-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Los Angeles, CA",
+    "url": "https://www.roberthalf.com/us/en/job/los-angeles-ca/data-engineer/00320-0013503591-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-14",
+    "metro": "Los Angeles",
+    "sector": "Agency",
+    "first_seen": "2026-10-05",
+    "is_new": false
+  },
+  {
     "firm": "Anthropic",
     "id": "gh-anthropic-5450099008",
     "title": "Data Engineer, Billing & Payments",
@@ -227,7 +253,7 @@
     "location": "New York, NY",
     "url": "https://carlyle.wd1.myworkdayjobs.com/Carlyle/job/New-York-NY/Data-Engineer_R-00280",
     "source": "workday",
-    "posted_date": "2026-09-13",
+    "posted_date": "2026-10-14",
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -546,17 +572,17 @@
     "is_new": false
   },
   {
-    "firm": "Randstad",
-    "id": "randstad-1346828",
-    "title": "Data Engineer - Azure Databricks \u00b7 Direct hire",
-    "location": "Charleston, West Virginia",
-    "url": "https://www.randstadusa.com/jobs/4/1346828/data-engineer-azure-databricks_charleston/",
-    "source": "randstad",
-    "posted_date": "2026-09-18",
+    "firm": "Regions Securities",
+    "id": "phenom-careers.regions.com-RFCOUSR106825ENUSEXTERNAL",
+    "title": "Cloud Data Engineer - AI Platform",
+    "location": "Hoover, Alabama, United States of America",
+    "url": "https://regions.wd5.myworkdayjobs.com/Regions_Careers/job/Hoover-AL---Riverchase-Operations-Center-Birmingham-AL/Cloud-Data-Engineer---AI-Platform_R106825",
+    "source": "phenom",
+    "posted_date": "2026-10-14",
     "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
+    "sector": "Finance",
+    "first_seen": "2026-10-14",
+    "is_new": true
   },
   {
     "firm": "Robert Half",
@@ -765,6 +791,19 @@
     "sector": "Tech",
     "first_seen": "2026-10-05",
     "is_new": false
+  },
+  {
+    "firm": "Supabase",
+    "id": "ashby-supabase-73ddf93b-fe0c-455d-ba27-cdde0d3fb94f",
+    "title": "FinOps Data Engineer",
+    "location": "Remote, Global",
+    "url": "https://jobs.ashbyhq.com/supabase/73ddf93b-fe0c-455d-ba27-cdde0d3fb94f",
+    "source": "ashby",
+    "posted_date": "2026-10-14",
+    "metro": "Remote (US)",
+    "sector": "Tech",
+    "first_seen": "2026-10-14",
+    "is_new": true
   },
   {
     "firm": "Adobe",
