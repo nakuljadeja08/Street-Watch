@@ -1,6 +1,19 @@
 [
   {
     "firm": "Global Payments",
+    "id": "wd-tsys-TSYS-/job/ALPHARETTA-GEORGIA/AI---Data-Platform-Engineer_R0074577",
+    "title": "AI & Data Platform Engineer",
+    "location": "ALPHARETTA, GEORGIA",
+    "url": "https://tsys.wd1.myworkdayjobs.com/TSYS/job/ALPHARETTA-GEORGIA/AI---Data-Platform-Engineer_R0074577",
+    "source": "workday",
+    "posted_date": "2026-10-09",
+    "metro": "Atlanta",
+    "sector": "Fintech",
+    "first_seen": "2026-10-05",
+    "is_new": false
+  },
+  {
+    "firm": "Global Payments",
     "id": "wd-tsys-TSYS-/job/CINCINNATI-OHIO/Data-Engineer_R0076225",
     "title": "Data Engineer",
     "location": "CINCINNATI, OHIO; ATLANTA, GEORGIA",
@@ -52,13 +65,26 @@
     "is_new": false
   },
   {
+    "firm": "Charles Schwab",
+    "id": "charles-101923577296",
+    "title": "Data Engineer",
+    "location": "Southlake, TX; Austin, TX; Chicago, IL",
+    "url": "https://www.schwabjobs.com/job/southlake/data-engineer/33727/101923577296",
+    "source": "charles",
+    "posted_date": null,
+    "metro": "Chicago",
+    "sector": "Finance",
+    "first_seen": "2026-10-14",
+    "is_new": true
+  },
+  {
     "firm": "Northern Trust",
     "id": "wd-ntrs-northerntrust-/job/Chicago-IL/Cloud-Data-Platform-Engineer_R158514-1",
     "title": "Cloud Data Platform Engineer",
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Cloud-Data-Platform-Engineer_R158514-1",
     "source": "workday",
-    "posted_date": "2026-09-12",
+    "posted_date": "2026-09-13",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -71,7 +97,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Analytics-Engineer_R150313",
     "source": "workday",
-    "posted_date": "2026-09-12",
+    "posted_date": "2026-09-13",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -84,7 +110,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Program-Engineer_R150311",
     "source": "workday",
-    "posted_date": "2026-09-12",
+    "posted_date": "2026-09-13",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -130,58 +156,6 @@
     "is_new": false
   },
   {
-    "firm": "Anthropic",
-    "id": "gh-anthropic-5450099008",
-    "title": "Data Engineer, Billing & Payments",
-    "location": "San Francisco, CA | New York City, NY",
-    "url": "https://job-boards.greenhouse.io/anthropic/jobs/5450099008",
-    "source": "greenhouse",
-    "posted_date": "2026-10-12",
-    "metro": "NYC Area",
-    "sector": "Tech",
-    "first_seen": "2026-10-12",
-    "is_new": false
-  },
-  {
-    "firm": "Anthropic",
-    "id": "gh-anthropic-5418610008",
-    "title": "Data Engineer, GTM",
-    "location": "San Francisco, CA | New York City, NY",
-    "url": "https://job-boards.greenhouse.io/anthropic/jobs/5418610008",
-    "source": "greenhouse",
-    "posted_date": "2026-09-08",
-    "metro": "NYC Area",
-    "sector": "Tech",
-    "first_seen": "2026-09-27",
-    "is_new": false
-  },
-  {
-    "firm": "Anthropic",
-    "id": "gh-anthropic-5448481008",
-    "title": "Data Engineer, Product",
-    "location": "San Francisco, CA | New York City, NY | Seattle, WA",
-    "url": "https://job-boards.greenhouse.io/anthropic/jobs/5448481008",
-    "source": "greenhouse",
-    "posted_date": "2026-10-09",
-    "metro": "NYC Area",
-    "sector": "Tech",
-    "first_seen": "2026-10-09",
-    "is_new": false
-  },
-  {
-    "firm": "Anthropic",
-    "id": "gh-anthropic-5424111008",
-    "title": "Recruiting Analytics Data Engineer",
-    "location": "San Francisco, CA | New York City, NY | Seattle, WA",
-    "url": "https://job-boards.greenhouse.io/anthropic/jobs/5424111008",
-    "source": "greenhouse",
-    "posted_date": "2026-09-14",
-    "metro": "NYC Area",
-    "sector": "Tech",
-    "first_seen": "2026-09-27",
-    "is_new": false
-  },
-  {
     "firm": "Autodesk",
     "id": "wd-autodesk-Ext-/job/Denver-CO-USA/Analytics-Engineer--Forecasting---Revenue-Intelligence_26WD101381-1",
     "title": "Analytics Engineer, Forecasting & Revenue Intelligence",
@@ -201,7 +175,7 @@
     "location": "New York, NY",
     "url": "https://carlyle.wd1.myworkdayjobs.com/Carlyle/job/New-York-NY/Data-Engineer_R-00280",
     "source": "workday",
-    "posted_date": "2026-09-12",
+    "posted_date": "2026-09-13",
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -218,19 +192,6 @@
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-09-27",
-    "is_new": false
-  },
-  {
-    "firm": "Cohere",
-    "id": "ashby-cohere-9baccd88-c051-474f-bfe8-6867fca54cee",
-    "title": "Data Engineer, Data Foundations",
-    "location": "New York",
-    "url": "https://jobs.ashbyhq.com/cohere/9baccd88-c051-474f-bfe8-6867fca54cee",
-    "source": "ashby",
-    "posted_date": "2026-08-14",
-    "metro": "NYC Area",
-    "sector": "Tech",
-    "first_seen": "2026-09-30",
     "is_new": false
   },
   {
@@ -357,7 +318,7 @@
     "location": "MetroPark",
     "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/MetroPark/Cloud-Data-Engineer_R7127",
     "source": "workday",
-    "posted_date": "2026-09-12",
+    "posted_date": "2026-09-13",
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -426,7 +387,20 @@
     "metro": "NYC Area",
     "sector": "Tech",
     "first_seen": "2026-10-13",
-    "is_new": true
+    "is_new": false
+  },
+  {
+    "firm": "Charles Schwab",
+    "id": "charles-95734216864",
+    "title": "ETL Developer - Data Engineer",
+    "location": "Southlake, TX",
+    "url": "https://www.schwabjobs.com/job/southlake/etl-developer-data-engineer/33727/95734216864",
+    "source": "charles",
+    "posted_date": null,
+    "metro": "Other US",
+    "sector": "Finance",
+    "first_seen": "2026-09-29",
+    "is_new": false
   },
   {
     "firm": "Comcast",
@@ -508,19 +482,6 @@
   },
   {
     "firm": "Motion Recruitment",
-    "id": "motion-891565",
-    "title": "Data Engineer (Snowflake / dbt / Fivetran) \u00b7 Direct hire",
-    "location": "Addison, Texas",
-    "url": "https://motionrecruitment.com/tech-jobs/addison/direct-hire/data-engineer-snowflake-dbt-fivetran/891565",
-    "source": "motion",
-    "posted_date": null,
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Motion Recruitment",
     "id": "motion-888629",
     "title": "Data Science Data Engineering / BigQuery / PostgreSQL / Python / GCP - OC \u00b7 Direct hire",
     "location": "Lake Forest , CA",
@@ -573,12 +534,12 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-03500-0013380490-usen",
+    "id": "roberthalf-04600-0013495125-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Oklahoma City, OK",
-    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
+    "location": "Milwaukee, WI",
+    "url": "https://www.roberthalf.com/us/en/job/milwaukee-wi/data-engineer/04600-0013495125-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-09",
+    "posted_date": "2026-10-13",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -595,16 +556,16 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-13",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-04600-0013495125-usen",
+    "id": "roberthalf-03500-0013380490-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Milwaukee, WI",
-    "url": "https://www.roberthalf.com/us/en/job/milwaukee-wi/data-engineer/04600-0013495125-usen",
+    "location": "Oklahoma City, OK",
+    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-13",
+    "posted_date": "2026-10-14",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -699,7 +660,7 @@
     "metro": "Other US",
     "sector": "Finance",
     "first_seen": "2026-10-13",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Allstate",
@@ -832,19 +793,6 @@
     "is_new": false
   },
   {
-    "firm": "NVIDIA",
-    "id": "wd-nvidia-NVIDIAExternalCareerSite-/job/US-CA-Santa-Clara/Data-Application-Engineer--Enterprise-Data-Management_JR2024551",
-    "title": "Data Application Engineer, Enterprise Data Management",
-    "location": "US, CA, Santa Clara",
-    "url": "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Data-Application-Engineer--Enterprise-Data-Management_JR2024551",
-    "source": "workday",
-    "posted_date": "2026-09-21",
-    "metro": "SF Bay Area",
-    "sector": "Tech",
-    "first_seen": "2026-09-27",
-    "is_new": false
-  },
-  {
     "firm": "OpenAI",
     "id": "ashby-openai-bc0d4a9f-235f-4a4b-a854-c6cb0322ccaa",
     "title": "Analytics Engineer, GTM",
@@ -908,6 +856,19 @@
     "sector": "Tech",
     "first_seen": "2026-10-07",
     "is_new": false
+  },
+  {
+    "firm": "Snowflake",
+    "id": "ashby-snowflake-b6fed204-3317-43ba-b87b-f045e4cf8d68",
+    "title": "Software Engineer - Ingestion Execution Platform",
+    "location": "US-WA-Bellevue",
+    "url": "https://jobs.ashbyhq.com/snowflake/b6fed204-3317-43ba-b87b-f045e4cf8d68",
+    "source": "ashby",
+    "posted_date": "2026-10-14",
+    "metro": "Seattle",
+    "sector": "Tech",
+    "first_seen": "2026-10-14",
+    "is_new": true
   },
   {
     "firm": "SpaceX",
@@ -1011,19 +972,6 @@
     "metro": "Texas",
     "sector": "Tech",
     "first_seen": "2026-10-12",
-    "is_new": false
-  },
-  {
-    "firm": "Motion Recruitment",
-    "id": "motion-891575",
-    "title": "Data Engineer (Databricks) \u00b7 Direct hire",
-    "location": "Dallas, Texas (Remote)",
-    "url": "https://motionrecruitment.com/tech-jobs/dallas/direct-hire/data-engineer-databricks/891575",
-    "source": "motion",
-    "posted_date": null,
-    "metro": "Texas",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
     "is_new": false
   },
   {
