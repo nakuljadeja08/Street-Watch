@@ -162,7 +162,7 @@
     "location": "Hinsdale, IL, USA",
     "url": "https://bmo.wd3.myworkdayjobs.com/External/job/Hinsdale-IL-USA/Client-Service-Analyst_R260017186",
     "source": "workday",
-    "posted_date": "2026-10-07",
+    "posted_date": "2026-10-15",
     "metro": "Chicago",
     "first_seen": "2026-09-22",
     "is_new": false
@@ -1069,6 +1069,18 @@
   },
   {
     "firm": "AllianceBernstein",
+    "id": "wd-abglobal-alliancebernsteincareers-/job/New-York-New-York/Associate_R0019799-1",
+    "title": "Associate",
+    "location": "New York, New York",
+    "url": "https://abglobal.wd1.myworkdayjobs.com/alliancebernsteincareers/job/New-York-New-York/Associate_R0019799-1",
+    "source": "workday",
+    "posted_date": "2026-10-15",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-15",
+    "is_new": true
+  },
+  {
+    "firm": "AllianceBernstein",
     "id": "wd-abglobal-alliancebernsteincareers-/job/New-York-New-York/Investment-Stewardship-Associate_R0020064",
     "title": "Investment Stewardship Associate",
     "location": "New York, New York",
@@ -1113,18 +1125,6 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-02",
-    "is_new": false
-  },
-  {
-    "firm": "Apollo Global Management",
-    "id": "wd-athene-Apollo_Careers-/job/New-York-New-York/Associate--Financial-Reporting---SEC-and-Management-Reporting_R255135-3",
-    "title": "Associate, Financial Reporting - SEC and Management Reporting",
-    "location": "New York, New York",
-    "url": "https://athene.wd5.myworkdayjobs.com/Apollo_Careers/job/New-York-New-York/Associate--Financial-Reporting---SEC-and-Management-Reporting_R255135-3",
-    "source": "workday",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-18",
     "is_new": false
   },
   {
@@ -1329,18 +1329,6 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": false
-  },
-  {
-    "firm": "Aston Carter",
-    "id": "phenom-careers.astoncarter.com-ASCAUSJP006341291ENUS",
-    "title": "Biotech Operations Associate \u00b7 Contract",
-    "location": "New York, New York, USA",
-    "url": "https://careers.astoncarter.com/us/en/job/ASCAUSJP006341291ENUS",
-    "source": "phenom",
-    "posted_date": "2026-10-09",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-10",
     "is_new": false
   },
   {
@@ -2676,6 +2664,54 @@
     "is_new": false
   },
   {
+    "firm": "Cantor Fitzgerald",
+    "id": "oracle-hdow.fa.us6.oraclecloud.com-250035",
+    "title": "Analyst - Consumer & Retail Investment Banking (Class of 2027)",
+    "location": "NY, United States",
+    "url": "https://hdow.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/250035",
+    "source": "oracle",
+    "posted_date": "2026-09-23",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-24",
+    "is_new": false
+  },
+  {
+    "firm": "Cantor Fitzgerald",
+    "id": "oracle-hdow.fa.us6.oraclecloud.com-249978",
+    "title": "Capital Introduction Associate",
+    "location": "NY, United States",
+    "url": "https://hdow.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/249978",
+    "source": "oracle",
+    "posted_date": "2026-09-16",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-17",
+    "is_new": false
+  },
+  {
+    "firm": "Cantor Fitzgerald",
+    "id": "oracle-hdow.fa.us6.oraclecloud.com-249980",
+    "title": "Equity Research Associate \u2013 Semiconductors & Semiconductor Equipment",
+    "location": "NY, United States",
+    "url": "https://hdow.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/249980",
+    "source": "oracle",
+    "posted_date": "2026-09-16",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-17",
+    "is_new": false
+  },
+  {
+    "firm": "Cantor Fitzgerald",
+    "id": "oracle-hdow.fa.us6.oraclecloud.com-250094",
+    "title": "Real Estate Investment Banking Analyst (class of 2027)",
+    "location": "NY, United States",
+    "url": "https://hdow.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/250094",
+    "source": "oracle",
+    "posted_date": "2026-09-30",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-30",
+    "is_new": false
+  },
+  {
     "firm": "Capital One",
     "id": "wd-capitalone-Capital_One-/job/New-York-NY/Associate--Tech-Operations_R1001929-1",
     "title": "Associate, Tech Operations",
@@ -3109,14 +3145,14 @@
   },
   {
     "firm": "Citi",
-    "id": "citi-101921903328",
-    "title": "Research Associate - AI",
+    "id": "citi-100296026544",
+    "title": "Relationship Associate - Public Sector Banking",
     "location": "New York, New York, United States",
-    "url": "https://jobs.citi.com/job/new-york/research-associate-ai/287/101921903328",
+    "url": "https://jobs.citi.com/job/new-york/relationship-associate-public-sector-banking/287/100296026544",
     "source": "citi",
     "posted_date": null,
     "metro": "NY + Jersey City",
-    "first_seen": "2026-10-14",
+    "first_seen": "2026-09-16",
     "is_new": false
   },
   {
@@ -6013,6 +6049,18 @@
   },
   {
     "firm": "Michael Page",
+    "id": "michaelpage-jn-102026-7126921",
+    "title": "Equity Middle Office Analyst \u00b7 Contract",
+    "location": "New York, New York",
+    "url": "https://www.michaelpage.com/job-detail/equity-middle-office-analyst/ref/jn-102026-7126921",
+    "source": "michaelpage",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-15",
+    "is_new": true
+  },
+  {
+    "firm": "Michael Page",
     "id": "michaelpage-jn-102026-7120043",
     "title": "Financial Analyst - Contract to Hire \u00b7 Contract",
     "location": "New York, New York",
@@ -7057,6 +7105,18 @@
   },
   {
     "firm": "Piper Sandler",
+    "id": "wd-pipersandler-Piper_Sandler_Careers-/job/New-York-NY/Investment-Banking-Analyst---DCM_R-100746",
+    "title": "Investment Banking Analyst - DCM",
+    "location": "New York, NY",
+    "url": "https://pipersandler.wd501.myworkdayjobs.com/Piper_Sandler_Careers/job/New-York-NY/Investment-Banking-Analyst---DCM_R-100746",
+    "source": "workday",
+    "posted_date": "2026-10-15",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-15",
+    "is_new": true
+  },
+  {
+    "firm": "Piper Sandler",
     "id": "wd-pipersandler-Piper_Sandler_Careers-/job/New-York-NY/Secondary-Capital-Advisory---Experienced-Analyst-or-Associate_R-100714-1",
     "title": "Secondary Capital Advisory - Experienced Analyst or Associate",
     "location": "New York, NY",
@@ -7069,18 +7129,6 @@
   },
   {
     "firm": "RBC Capital Markets",
-    "id": "phenom-jobs.rbc.com-RBCAA0088R0000189705EXTERNALENCA",
-    "title": "Analyst, Global Investment Banking, Consumer & Retail",
-    "location": "New York, New York, United States of America",
-    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Analyst--Global-Investment-Banking--Consumer---Retail_R-0000189705",
-    "source": "phenom",
-    "posted_date": "2026-10-06",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-06",
-    "is_new": false
-  },
-  {
-    "firm": "RBC Capital Markets",
     "id": "phenom-jobs.rbc.com-RBCAA0088R0000187752EXTERNALENCA",
     "title": "Associate, Equity Derivatives Structurer",
     "location": "New York, New York, United States of America",
@@ -7089,18 +7137,6 @@
     "posted_date": "2026-09-23",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-23",
-    "is_new": false
-  },
-  {
-    "firm": "RBC Capital Markets",
-    "id": "phenom-jobs.rbc.com-RBCAA0088R0000183168EXTERNALENCA",
-    "title": "Associate, Financial Institutions Group Corporate Banking",
-    "location": "New York, New York, United States of America",
-    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Associate--Financial-Institutions-Group-Corporate-Banking_R-0000183168",
-    "source": "phenom",
-    "posted_date": "2026-10-02",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-02",
     "is_new": false
   },
   {
@@ -7149,18 +7185,6 @@
     "posted_date": "2026-09-29",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-30",
-    "is_new": false
-  },
-  {
-    "firm": "RBC Capital Markets",
-    "id": "phenom-jobs.rbc.com-RBCAA0088R0000183703EXTERNALENCA",
-    "title": "Trade Documentation Associate",
-    "location": "New York, New York, United States of America",
-    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Trade-Documentation-Associate_R-0000183703-1",
-    "source": "phenom",
-    "posted_date": "2026-10-13",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-22",
     "is_new": false
   },
   {
@@ -7725,18 +7749,6 @@
     "posted_date": "2026-10-04",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0119256EXTERNALENUS",
-    "title": "Equity Research Associate - REITs",
-    "location": "New York, New York, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY/Equity-Research-Associate---REITs_R0119256",
-    "source": "phenom",
-    "posted_date": "2026-09-15",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-18",
     "is_new": false
   },
   {
