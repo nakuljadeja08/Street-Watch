@@ -552,23 +552,10 @@
     "location": "O'Fallon, Missouri",
     "url": "https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/OFallon-Missouri/Data-Engineer-II_R-289305",
     "source": "workday",
-    "posted_date": "2026-10-06",
+    "posted_date": "2026-10-15",
     "metro": "Other US",
     "sector": "Fintech",
     "first_seen": "2026-10-07",
-    "is_new": false
-  },
-  {
-    "firm": "Mastercard",
-    "id": "wd-mastercard-CorporateCareers-/job/OFallon-Missouri/Data-Engineer-II_R-286580",
-    "title": "Data Engineer II",
-    "location": "O'Fallon, Missouri",
-    "url": "https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/OFallon-Missouri/Data-Engineer-II_R-286580",
-    "source": "workday",
-    "posted_date": "2026-09-28",
-    "metro": "Other US",
-    "sector": "Fintech",
-    "first_seen": "2026-09-29",
     "is_new": false
   },
   {
@@ -596,6 +583,19 @@
     "sector": "Finance",
     "first_seen": "2026-10-14",
     "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-00320-0013526498-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Commerce, CA",
+    "url": "https://www.roberthalf.com/us/en/job/commerce-ca/data-engineer/00320-0013526498-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-15",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-15",
+    "is_new": true
   },
   {
     "firm": "Robert Half",
@@ -656,7 +656,7 @@
     "location": "Oklahoma City, OK",
     "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-14",
+    "posted_date": "2026-10-15",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
