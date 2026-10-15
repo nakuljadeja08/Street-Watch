@@ -26,19 +26,6 @@
     "is_new": false
   },
   {
-    "firm": "Robert Half",
-    "id": "roberthalf-00900-9504405226-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Atlanta, GA",
-    "url": "https://www.roberthalf.com/us/en/job/atlanta-ga/data-engineer/00900-9504405226-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-02",
-    "metro": "Atlanta",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
     "firm": "CIBC",
     "id": "wd-cibc-search-/job/Chicago-IL/Senior-Software-Engineer---US-Risk-Technology_2613362",
     "title": "Databricks Data Engineer, Risk Technology",
@@ -75,7 +62,7 @@
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-10-14",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Comcast",
@@ -97,7 +84,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Cloud-Data-Platform-Engineer_R158514-1",
     "source": "workday",
-    "posted_date": "2026-09-13",
+    "posted_date": "2026-09-14",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -110,7 +97,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Analytics-Engineer_R150313",
     "source": "workday",
-    "posted_date": "2026-09-13",
+    "posted_date": "2026-09-14",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -123,11 +110,24 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Program-Engineer_R150311",
     "source": "workday",
-    "posted_date": "2026-09-13",
+    "posted_date": "2026-09-14",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
     "is_new": false
+  },
+  {
+    "firm": "U.S. Bancorp",
+    "id": "wd-usbank-US_Bank_Careers-/job/Minneapolis-MN/AI-Data-Innovation-Engineer_2026-0032039",
+    "title": "AI Data Innovation Engineer",
+    "location": "Minneapolis, MN; Chicago, IL; Charlotte, NC; Irving, TX",
+    "url": "https://usbank.wd1.myworkdayjobs.com/US_Bank_Careers/job/Minneapolis-MN/AI-Data-Innovation-Engineer_2026-0032039",
+    "source": "workday",
+    "posted_date": "2026-10-14",
+    "metro": "Chicago",
+    "sector": "Finance",
+    "first_seen": "2026-10-15",
+    "is_new": true
   },
   {
     "firm": "U.S. Bancorp",
@@ -396,7 +396,7 @@
     "location": "MetroPark",
     "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/MetroPark/Cloud-Data-Engineer_R7127",
     "source": "workday",
-    "posted_date": "2026-09-13",
+    "posted_date": "2026-09-14",
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -452,19 +452,6 @@
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-09-27",
-    "is_new": false
-  },
-  {
-    "firm": "Target",
-    "id": "wd-target-targetcareers-/job/7000-Target-Pkwy-NNCD-0375-Brooklyn-ParkMN-55445/Data-Engineer---Finance-Technology-Solutions_R0000444866",
-    "title": "Data Engineer - Finance AI Solutions",
-    "location": "7000 Target Pkwy N,NCD-0375 Brooklyn Park,MN 55445",
-    "url": "https://target.wd5.myworkdayjobs.com/targetcareers/job/7000-Target-Pkwy-NNCD-0375-Brooklyn-ParkMN-55445/Data-Engineer---Finance-Technology-Solutions_R0000444866",
-    "source": "workday",
-    "posted_date": "2026-10-13",
-    "metro": "NYC Area",
-    "sector": "Tech",
-    "first_seen": "2026-10-13",
     "is_new": false
   },
   {
@@ -559,6 +546,32 @@
     "is_new": false
   },
   {
+    "firm": "Mastercard",
+    "id": "wd-mastercard-CorporateCareers-/job/OFallon-Missouri/Data-Engineer-II_R-289305",
+    "title": "Data Engineer II",
+    "location": "O'Fallon, Missouri",
+    "url": "https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/OFallon-Missouri/Data-Engineer-II_R-289305",
+    "source": "workday",
+    "posted_date": "2026-10-06",
+    "metro": "Other US",
+    "sector": "Fintech",
+    "first_seen": "2026-10-07",
+    "is_new": false
+  },
+  {
+    "firm": "Mastercard",
+    "id": "wd-mastercard-CorporateCareers-/job/OFallon-Missouri/Data-Engineer-II_R-286580",
+    "title": "Data Engineer II",
+    "location": "O'Fallon, Missouri",
+    "url": "https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/OFallon-Missouri/Data-Engineer-II_R-286580",
+    "source": "workday",
+    "posted_date": "2026-09-28",
+    "metro": "Other US",
+    "sector": "Fintech",
+    "first_seen": "2026-09-29",
+    "is_new": false
+  },
+  {
     "firm": "Motion Recruitment",
     "id": "motion-888629",
     "title": "Data Science Data Engineering / BigQuery / PostgreSQL / Python / GCP - OC \u00b7 Direct hire",
@@ -582,7 +595,7 @@
     "metro": "Other US",
     "sector": "Finance",
     "first_seen": "2026-10-14",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Robert Half",
@@ -621,19 +634,6 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-01500-0013497785-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Oskaloosa, IA",
-    "url": "https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-13",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-13",
     "is_new": false
   },
   {
@@ -754,6 +754,19 @@
     "is_new": false
   },
   {
+    "firm": "Reddit",
+    "id": "gh-reddit-8282760",
+    "title": "Analytics Engineer",
+    "location": "Remote - United States",
+    "url": "https://job-boards.greenhouse.io/reddit/jobs/8282760",
+    "source": "greenhouse",
+    "posted_date": "2026-10-14",
+    "metro": "Remote (US)",
+    "sector": "Tech",
+    "first_seen": "2026-10-15",
+    "is_new": true
+  },
+  {
     "firm": "Robert Half",
     "id": "roberthalf-03720-0013461058-usen",
     "title": "Data Engineer \u00b7 Direct hire",
@@ -803,7 +816,7 @@
     "metro": "Remote (US)",
     "sector": "Tech",
     "first_seen": "2026-10-14",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Adobe",
@@ -848,7 +861,7 @@
     "firm": "Meta",
     "id": "meta-4647361298838627",
     "title": "Data Engineer, Analytics (Ranking, AI)",
-    "location": "Sunnyvale, CA; Menlo Park, CA",
+    "location": "Sunnyvale, CA; Bellevue, WA; Menlo Park, CA",
     "url": "https://www.metacareers.com/profile/job_details/4647361298838627",
     "source": "meta",
     "posted_date": null,
@@ -949,19 +962,6 @@
     "is_new": false
   },
   {
-    "firm": "Snowflake",
-    "id": "ashby-snowflake-b6fed204-3317-43ba-b87b-f045e4cf8d68",
-    "title": "Software Engineer - Ingestion Execution Platform",
-    "location": "US-WA-Bellevue",
-    "url": "https://jobs.ashbyhq.com/snowflake/b6fed204-3317-43ba-b87b-f045e4cf8d68",
-    "source": "ashby",
-    "posted_date": "2026-10-14",
-    "metro": "Seattle",
-    "sector": "Tech",
-    "first_seen": "2026-10-14",
-    "is_new": true
-  },
-  {
     "firm": "SpaceX",
     "id": "gh-spacex-8784022002",
     "title": "Data Engineer, Ground Network Engineering (Gateway)",
@@ -1015,6 +1015,19 @@
   },
   {
     "firm": "Charles Schwab",
+    "id": "charles-101625328992",
+    "title": "Data Engineer",
+    "location": "Southlake, TX; Austin, TX",
+    "url": "https://www.schwabjobs.com/job/southlake/data-engineer/33727/101625328992",
+    "source": "charles",
+    "posted_date": null,
+    "metro": "Texas",
+    "sector": "Finance",
+    "first_seen": "2026-10-07",
+    "is_new": false
+  },
+  {
+    "firm": "Charles Schwab",
     "id": "charles-98187448448",
     "title": "Machine Learning Ops Data Engineer",
     "location": "Southlake, TX; Austin, TX; Phoenix, AZ",
@@ -1064,6 +1077,19 @@
     "sector": "Tech",
     "first_seen": "2026-10-12",
     "is_new": false
+  },
+  {
+    "firm": "Marathon Petroleum",
+    "id": "wd-mpc-MPCCareers-/job/San-Antonio-TX/Data-Operations-Engineer_00023365",
+    "title": "Data Operations Engineer",
+    "location": "San Antonio TX; San Antonio, Texas",
+    "url": "https://mpc.wd1.myworkdayjobs.com/MPCCareers/job/San-Antonio-TX/Data-Operations-Engineer_00023365",
+    "source": "workday",
+    "posted_date": "2026-10-14",
+    "metro": "Texas",
+    "sector": "Energy",
+    "first_seen": "2026-10-15",
+    "is_new": true
   },
   {
     "firm": "Robert Half",
