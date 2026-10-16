@@ -533,6 +533,19 @@
     "is_new": false
   },
   {
+    "firm": "KKR",
+    "id": "gh-stage-6226589004",
+    "title": "Associate, Data Engineer",
+    "location": "Americas",
+    "url": "https://www.kkr.com/careers/career-opportunities/post?gh_jid=6226589004",
+    "source": "greenhouse",
+    "posted_date": "2026-10-16",
+    "metro": "Other US",
+    "sector": "Finance",
+    "first_seen": "2026-10-16",
+    "is_new": true
+  },
+  {
     "firm": "Mastercard",
     "id": "wd-mastercard-CorporateCareers-/job/OFallon-Missouri/Data-Engineer-II_R-289305",
     "title": "Data Engineer II",
@@ -634,6 +647,19 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-01500-0013497785-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Oskaloosa, IA",
+    "url": "https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-13",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-13",
     "is_new": false
   },
   {
