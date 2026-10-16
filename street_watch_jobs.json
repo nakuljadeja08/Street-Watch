@@ -336,18 +336,6 @@
     "is_new": false
   },
   {
-    "firm": "Citi",
-    "id": "citi-100494900464",
-    "title": "Licensed Client Service Associate",
-    "location": "Chicago, Illinois, United States",
-    "url": "https://jobs.citi.com/job/chicago/licensed-client-service-associate/287/100494900464",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "Chicago",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
     "firm": "DRW",
     "id": "gh-drweng-8204565",
     "title": "Corporate Actions Associate",
@@ -945,6 +933,18 @@
     "posted_date": "2026-10-15",
     "metro": "Chicago",
     "first_seen": "2026-09-17",
+    "is_new": false
+  },
+  {
+    "firm": "Wells Fargo",
+    "id": "wd-wf-WellsFargoJobs-/job/CARBONDALE-IL/Client-Associate_R-578871",
+    "title": "Client Associate",
+    "location": "CARBONDALE, IL",
+    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/CARBONDALE-IL/Client-Associate_R-578871",
+    "source": "workday",
+    "posted_date": "2026-10-08",
+    "metro": "Chicago",
+    "first_seen": "2026-10-02",
     "is_new": false
   },
   {
@@ -2857,6 +2857,18 @@
   },
   {
     "firm": "Citi",
+    "id": "citi-102007396192",
+    "title": "Assoc Ops Support Analyst",
+    "location": "New York, New York, United States",
+    "url": "https://jobs.citi.com/job/new-york/assoc-ops-support-analyst/287/102007396192",
+    "source": "citi",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-16",
+    "is_new": true
+  },
+  {
+    "firm": "Citi",
     "id": "citi-100996349440",
     "title": "Associate - Healthcare Commercial Banking",
     "location": "New York, New York, United States",
@@ -2889,18 +2901,6 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-14",
-    "is_new": false
-  },
-  {
-    "firm": "Citi",
-    "id": "citi-101584058704",
-    "title": "Cash & Trade Processing Lead Analyst",
-    "location": "Getzville, New York, United States",
-    "url": "https://jobs.citi.com/job/getzville/cash-and-trade-processing-lead-analyst/287/101584058704",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-06",
     "is_new": false
   },
   {
@@ -3013,6 +3013,18 @@
   },
   {
     "firm": "Citi",
+    "id": "citi-102007423536",
+    "title": "Investment Banking Analyst - Equity Capital Markets",
+    "location": "New York, New York, United States",
+    "url": "https://jobs.citi.com/job/new-york/investment-banking-analyst-equity-capital-markets/287/102007423536",
+    "source": "citi",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-16",
+    "is_new": true
+  },
+  {
+    "firm": "Citi",
     "id": "citi-101394323200",
     "title": "Investment Banking Associate - Communications",
     "location": "New York, New York, United States",
@@ -3093,30 +3105,6 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-14",
-    "is_new": false
-  },
-  {
-    "firm": "Citi",
-    "id": "citi-99364782608",
-    "title": "Wealth - LATAM, Full Time Analyst, New York - USA, 2027",
-    "location": "New York, New York, United States",
-    "url": "https://jobs.citi.com/job/new-york/wealth-latam-full-time-analyst-new-york-usa-2027/287/99364782608",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-08",
-    "is_new": false
-  },
-  {
-    "firm": "Citi",
-    "id": "citi-99364782624",
-    "title": "Wealth \u2013 Full-time Analyst, New York \u2013 USA, 2027",
-    "location": "New York, New York, United States",
-    "url": "https://jobs.citi.com/job/new-york/wealth-full-time-analyst-new-york-usa-2027/287/99364782624",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-08",
     "is_new": false
   },
   {
@@ -3213,18 +3201,6 @@
     "posted_date": "2026-10-01",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
-    "is_new": false
-  },
-  {
-    "firm": "Deutsche Bank",
-    "id": "wd-db-DBWebsite-/job/New-York-1-Columbus-Circle/Investment-Banking---Capital-Markets---Banker---Financial-Institutions-Group-Analyst_R0454216",
-    "title": "Investment Banking & Capital Markets \u2013 Banker \u2013 Financial Institutions Group (FIG) Analyst",
-    "location": "New York, 1 Columbus Circle",
-    "url": "https://db.wd3.myworkdayjobs.com/DBWebsite/job/New-York-1-Columbus-Circle/Investment-Banking---Capital-Markets---Banker---Financial-Institutions-Group-Analyst_R0454216",
-    "source": "workday",
-    "posted_date": "2026-10-08",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-05",
     "is_new": false
   },
   {
@@ -4254,7 +4230,7 @@
     "location": "New York, NY, USA",
     "url": "https://hl.wd1.myworkdayjobs.com/Lateral/job/New-York-NY-USA/Investment-Banking-Analyst---Business-Services_R3578",
     "source": "workday",
-    "posted_date": "2026-10-02",
+    "posted_date": "2026-10-16",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
     "is_new": false
@@ -4266,7 +4242,7 @@
     "location": "New York, NY, USA",
     "url": "https://hl.wd1.myworkdayjobs.com/Lateral/job/New-York-NY-USA/Investment-Banking-Associate---Business-Services_R3444",
     "source": "workday",
-    "posted_date": "2026-10-02",
+    "posted_date": "2026-10-16",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
     "is_new": false
@@ -4278,7 +4254,7 @@
     "location": "New York, NY, USA",
     "url": "https://hl.wd1.myworkdayjobs.com/Lateral/job/New-York-NY-USA/Investment-Banking-Senior-Analyst---FinTech_R3588-1",
     "source": "workday",
-    "posted_date": "2026-10-08",
+    "posted_date": "2026-10-16",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-16",
     "is_new": false
@@ -4290,7 +4266,7 @@
     "location": "New York, NY, USA",
     "url": "https://hl.wd1.myworkdayjobs.com/Lateral/job/New-York-NY-USA/Investment-Banking-Associate---Technology_R3597",
     "source": "workday",
-    "posted_date": "2026-10-08",
+    "posted_date": "2026-10-16",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-16",
     "is_new": false
@@ -4567,6 +4543,18 @@
     "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210798838",
     "source": "oracle",
     "posted_date": "2026-10-13",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-13",
+    "is_new": false
+  },
+  {
+    "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210794714",
+    "title": "Associate, Markets Planning and Analysis",
+    "location": "Brooklyn, NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210794714",
+    "source": "oracle",
+    "posted_date": "2026-10-16",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-13",
     "is_new": false
@@ -6529,6 +6517,18 @@
   },
   {
     "firm": "Morgan Stanley",
+    "id": "wd-ms-External-/job/1-New-York-Plaza/Wealth-Management-Finance---Reporting---Analytics--Associate_PT-JR045619",
+    "title": "Wealth Management Finance - Reporting & Analytics, Associate",
+    "location": "1 New York Plaza",
+    "url": "https://ms.wd5.myworkdayjobs.com/External/job/1-New-York-Plaza/Wealth-Management-Finance---Reporting---Analytics--Associate_PT-JR045619",
+    "source": "workday",
+    "posted_date": "2026-10-16",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-16",
+    "is_new": true
+  },
+  {
+    "firm": "Morgan Stanley",
     "id": "wd-ms-External-/job/Purchase-New-York-United-States-of-America/Wealth-Management-Strategic-Solutions-Product-Owner-Business-Analyst---Associate_JR038430",
     "title": "Wealth Management Strategic Solutions Product Owner/Business Analyst - Associate",
     "location": "Purchase, New York, United States of America",
@@ -6985,18 +6985,6 @@
   },
   {
     "firm": "RBC Capital Markets",
-    "id": "phenom-jobs.rbc.com-RBCAA0088R0000183168EXTERNALENCA",
-    "title": "Associate, Financial Institutions Group Corporate Banking",
-    "location": "New York, New York, United States of America",
-    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Associate--Financial-Institutions-Group-Corporate-Banking_R-0000183168",
-    "source": "phenom",
-    "posted_date": "2026-10-02",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-02",
-    "is_new": false
-  },
-  {
-    "firm": "RBC Capital Markets",
     "id": "phenom-jobs.rbc.com-RBCAA0088R0000189701EXTERNALENCA",
     "title": "Associate, Global Investment Banking, Consumer & Retail",
     "location": "New York, New York, United States of America",
@@ -7017,18 +7005,6 @@
     "posted_date": "2026-10-05",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-06",
-    "is_new": false
-  },
-  {
-    "firm": "RBC Capital Markets",
-    "id": "phenom-jobs.rbc.com-RBCAA0088R0000188521EXTERNALENCA",
-    "title": "Audit Analyst, Capital Markets",
-    "location": "Jersey City, New Jersey, United States of America",
-    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/Jersey-City-New-Jersey-United-States-of-America/Audit-Analyst--Capital-Markets_R-0000188521-1",
-    "source": "phenom",
-    "posted_date": "2026-09-30",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-01",
     "is_new": false
   },
   {
@@ -7501,6 +7477,18 @@
   },
   {
     "firm": "TD Bank",
+    "id": "wd-td-TD_Bank_Careers-/job/Bethpage-New-York/Financial-Advisor-Associate---Bethpage--NY_R_1479947",
+    "title": "Financial Advisor Associate - Bethpage, NY",
+    "location": "Bethpage, New York",
+    "url": "https://td.wd3.myworkdayjobs.com/TD_Bank_Careers/job/Bethpage-New-York/Financial-Advisor-Associate---Bethpage--NY_R_1479947",
+    "source": "workday",
+    "posted_date": "2026-10-16",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-17",
+    "is_new": false
+  },
+  {
+    "firm": "TD Bank",
     "id": "wd-td-TD_Bank_Careers-/job/New-York-New-York/Investment-Banking-Analyst--Debt-Private-Placements_R_1515753",
     "title": "Investment Banking Analyst, Debt Private Placements",
     "location": "New York, New York",
@@ -7633,6 +7621,30 @@
   },
   {
     "firm": "Wells Fargo",
+    "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/Associate--Commercial-Mortgage-Pursuit-Specialist_R-546836",
+    "title": "Associate, Commercial Mortgage Pursuit Specialist",
+    "location": "NEW YORK, NY",
+    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/NEW-YORK-NY/Associate--Commercial-Mortgage-Pursuit-Specialist_R-546836",
+    "source": "workday",
+    "posted_date": "2026-10-02",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-16",
+    "is_new": false
+  },
+  {
+    "firm": "Wells Fargo",
+    "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/Associate--Equity-Derivatives---QIS-Structuring_R-571470",
+    "title": "Associate, Equity Derivatives & QIS Structuring",
+    "location": "NEW YORK, NY",
+    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/NEW-YORK-NY/Associate--Equity-Derivatives---QIS-Structuring_R-571470",
+    "source": "workday",
+    "posted_date": "2026-10-02",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-15",
+    "is_new": false
+  },
+  {
+    "firm": "Wells Fargo",
     "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/Investment-Banking-Program-Associate---Corporate-Finance_R-530948-1",
     "title": "Associate, Investment Banking - Corporate Finance",
     "location": "NEW YORK, NY",
@@ -7701,6 +7713,90 @@
     "posted_date": "2026-10-16",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-15",
+    "is_new": false
+  },
+  {
+    "firm": "Wells Fargo",
+    "id": "wd-wf-WellsFargoJobs-/job/MELVILLE-NY/Home-Mortgage-Consultant--SAFE-_R-560461",
+    "title": "Home Mortgage Consultant (SAFE)",
+    "location": "MELVILLE, NY",
+    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/MELVILLE-NY/Home-Mortgage-Consultant--SAFE-_R-560461",
+    "source": "workday",
+    "posted_date": "2026-10-01",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-17",
+    "is_new": false
+  },
+  {
+    "firm": "Wells Fargo",
+    "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/Home-Mortgage-Consultant--SAFE-_R-560457",
+    "title": "Home Mortgage Consultant (SAFE)",
+    "location": "NEW YORK, NY",
+    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/NEW-YORK-NY/Home-Mortgage-Consultant--SAFE-_R-560457",
+    "source": "workday",
+    "posted_date": "2026-10-01",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-17",
+    "is_new": false
+  },
+  {
+    "firm": "Wells Fargo",
+    "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/Home-Mortgage-Consultant--SAFE-_R-560454-1",
+    "title": "Home Mortgage Consultant (SAFE)",
+    "location": "NEW YORK, NY",
+    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/NEW-YORK-NY/Home-Mortgage-Consultant--SAFE-_R-560454-1",
+    "source": "workday",
+    "posted_date": "2026-10-01",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-17",
+    "is_new": false
+  },
+  {
+    "firm": "Wells Fargo",
+    "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/Home-Mortgage-Consultant--SAFE-_R-556840",
+    "title": "Home Mortgage Consultant (SAFE)",
+    "location": "NEW YORK, NY",
+    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/NEW-YORK-NY/Home-Mortgage-Consultant--SAFE-_R-556840",
+    "source": "workday",
+    "posted_date": "2026-10-01",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-17",
+    "is_new": false
+  },
+  {
+    "firm": "Wells Fargo",
+    "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/Home-Mortgage-Consultant--SAFE-_R-555705",
+    "title": "Home Mortgage Consultant (SAFE)",
+    "location": "NEW YORK, NY",
+    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/NEW-YORK-NY/Home-Mortgage-Consultant--SAFE-_R-555705",
+    "source": "workday",
+    "posted_date": "2026-10-01",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-17",
+    "is_new": false
+  },
+  {
+    "firm": "Wells Fargo",
+    "id": "wd-wf-WellsFargoJobs-/job/PURCHASE-NY/Home-Mortgage-Consultant--SAFE-_R-554238",
+    "title": "Home Mortgage Consultant (SAFE)",
+    "location": "PURCHASE, NY",
+    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/PURCHASE-NY/Home-Mortgage-Consultant--SAFE-_R-554238",
+    "source": "workday",
+    "posted_date": "2026-09-28",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-28",
+    "is_new": false
+  },
+  {
+    "firm": "Wells Fargo",
+    "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/Strategy-Consultant_R-578551",
+    "title": "Strategy Consultant",
+    "location": "NEW YORK, NY",
+    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/NEW-YORK-NY/Strategy-Consultant_R-578551",
+    "source": "workday",
+    "posted_date": "2026-09-30",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-01",
     "is_new": false
   },
   {
@@ -8613,6 +8709,18 @@
     "posted_date": "2026-10-13",
     "metro": "SF / Bay Area",
     "first_seen": "2026-10-13",
+    "is_new": false
+  },
+  {
+    "firm": "Wells Fargo",
+    "id": "wd-wf-WellsFargoJobs-/job/SAN-MATEO-CA/CA-WA-Mortgage-Retail-Sales-Consultant--SAFE-_R-576067",
+    "title": "CA-WA Mortgage Retail Sales Consultant (SAFE)",
+    "location": "SAN MATEO, CA",
+    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/SAN-MATEO-CA/CA-WA-Mortgage-Retail-Sales-Consultant--SAFE-_R-576067",
+    "source": "workday",
+    "posted_date": "2026-09-16",
+    "metro": "SF / Bay Area",
+    "first_seen": "2026-09-17",
     "is_new": false
   },
   {
