@@ -13,6 +13,19 @@
     "is_new": false
   },
   {
+    "firm": "CIBC",
+    "id": "wd-cibc-search-/job/Chicago-IL/Senior-Software-Engineer---US-Risk-Technology_2613362",
+    "title": "Databricks Data Engineer, Risk Technology",
+    "location": "Chicago, IL",
+    "url": "https://cibc.wd3.myworkdayjobs.com/search/job/Chicago-IL/Senior-Software-Engineer---US-Risk-Technology_2613362",
+    "source": "workday",
+    "posted_date": "2026-10-16",
+    "metro": "Chicago",
+    "sector": "Finance",
+    "first_seen": "2026-09-27",
+    "is_new": false
+  },
+  {
     "firm": "CME Group",
     "id": "wd-cmegroup-cme_careers-/job/Chicago---20-S-Wacker/Cloud-Data-Platform-Engineering-Lead_33968-1",
     "title": "Data Platform Engineering II",
@@ -287,6 +300,19 @@
   },
   {
     "firm": "KKR",
+    "id": "gh-stage-6226589004",
+    "title": "Associate, Data Engineer",
+    "location": "New York, New York, United States",
+    "url": "https://www.kkr.com/careers/career-opportunities/post?gh_jid=6226589004",
+    "source": "greenhouse",
+    "posted_date": "2026-10-16",
+    "metro": "NYC Area",
+    "sector": "Finance",
+    "first_seen": "2026-10-16",
+    "is_new": true
+  },
+  {
+    "firm": "KKR",
     "id": "gh-stage-6188875004",
     "title": "Reference Data Engineer",
     "location": "New York, New York, United States",
@@ -341,7 +367,7 @@
     "firm": "Meta",
     "id": "meta-1283364266159062",
     "title": "Data Engineer, Product Analytics",
-    "location": "Sunnyvale, CA; Bellevue, WA; Menlo Park, CA; Burlingame, CA; Remote, US; New York, NY",
+    "location": "Sunnyvale, CA; Bellevue, WA; Menlo Park, CA; Burlingame, CA; New York, NY",
     "url": "https://www.metacareers.com/profile/job_details/1283364266159062",
     "source": "meta",
     "posted_date": null,
@@ -533,19 +559,6 @@
     "is_new": false
   },
   {
-    "firm": "KKR",
-    "id": "gh-stage-6226589004",
-    "title": "Associate, Data Engineer",
-    "location": "Americas",
-    "url": "https://www.kkr.com/careers/career-opportunities/post?gh_jid=6226589004",
-    "source": "greenhouse",
-    "posted_date": "2026-10-16",
-    "metro": "Other US",
-    "sector": "Finance",
-    "first_seen": "2026-10-16",
-    "is_new": true
-  },
-  {
     "firm": "Mastercard",
     "id": "wd-mastercard-CorporateCareers-/job/OFallon-Missouri/Data-Engineer-II_R-289305",
     "title": "Data Engineer II",
@@ -651,19 +664,6 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-01500-0013497785-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Oskaloosa, IA",
-    "url": "https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-13",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-13",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
     "id": "roberthalf-04600-0013495125-usen",
     "title": "Data Engineer \u00b7 Direct hire",
     "location": "Milwaukee, WI",
@@ -673,6 +673,19 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-01500-0013497785-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Oskaloosa, IA",
+    "url": "https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-13",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-13",
     "is_new": false
   },
   {
@@ -791,6 +804,19 @@
     "sector": "Tech",
     "first_seen": "2026-10-15",
     "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-03340-0013497578-usen",
+    "title": "Data Engineer II \u00b7 Direct hire",
+    "location": "Lakewood, OH (Remote)",
+    "url": "https://www.roberthalf.com/us/en/job/lakewood-oh/data-engineer-ii/03340-0013497578-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-16",
+    "metro": "Remote (US)",
+    "sector": "Agency",
+    "first_seen": "2026-10-16",
+    "is_new": true
   },
   {
     "firm": "Robert Half",
