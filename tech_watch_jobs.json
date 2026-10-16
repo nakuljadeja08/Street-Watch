@@ -1,19 +1,6 @@
 [
   {
     "firm": "Global Payments",
-    "id": "wd-tsys-TSYS-/job/ALPHARETTA-GEORGIA/AI---Data-Platform-Engineer_R0074577",
-    "title": "AI & Data Platform Engineer",
-    "location": "ALPHARETTA, GEORGIA",
-    "url": "https://tsys.wd1.myworkdayjobs.com/TSYS/job/ALPHARETTA-GEORGIA/AI---Data-Platform-Engineer_R0074577",
-    "source": "workday",
-    "posted_date": "2026-10-09",
-    "metro": "Atlanta",
-    "sector": "Fintech",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Global Payments",
     "id": "wd-tsys-TSYS-/job/CINCINNATI-OHIO/Data-Engineer_R0076225",
     "title": "Data Engineer",
     "location": "CINCINNATI, OHIO; ATLANTA, GEORGIA",
@@ -23,19 +10,6 @@
     "metro": "Atlanta",
     "sector": "Fintech",
     "first_seen": "2026-10-12",
-    "is_new": false
-  },
-  {
-    "firm": "CIBC",
-    "id": "wd-cibc-search-/job/Chicago-IL/Senior-Software-Engineer---US-Risk-Technology_2613362",
-    "title": "Databricks Data Engineer, Risk Technology",
-    "location": "Chicago, IL",
-    "url": "https://cibc.wd3.myworkdayjobs.com/search/job/Chicago-IL/Senior-Software-Engineer---US-Risk-Technology_2613362",
-    "source": "workday",
-    "posted_date": "2026-10-05",
-    "metro": "Chicago",
-    "sector": "Finance",
-    "first_seen": "2026-09-27",
     "is_new": false
   },
   {
@@ -84,7 +58,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Cloud-Data-Platform-Engineer_R158514-1",
     "source": "workday",
-    "posted_date": "2026-09-14",
+    "posted_date": "2026-09-15",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -97,7 +71,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Analytics-Engineer_R150313",
     "source": "workday",
-    "posted_date": "2026-09-14",
+    "posted_date": "2026-09-15",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -110,7 +84,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Program-Engineer_R150311",
     "source": "workday",
-    "posted_date": "2026-09-14",
+    "posted_date": "2026-09-15",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -127,7 +101,7 @@
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-10-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "U.S. Bancorp",
@@ -325,6 +299,19 @@
     "is_new": false
   },
   {
+    "firm": "KeyBank",
+    "id": "wd-keybank-External_Career_Site-/job/Brooklyn-OH/Data-Inventory-Engineer_R-41676",
+    "title": "Data Inventory Engineer",
+    "location": "Brooklyn, OH",
+    "url": "https://keybank.wd5.myworkdayjobs.com/External_Career_Site/job/Brooklyn-OH/Data-Inventory-Engineer_R-41676",
+    "source": "workday",
+    "posted_date": "2026-09-15",
+    "metro": "NYC Area",
+    "sector": "Finance",
+    "first_seen": "2026-10-16",
+    "is_new": true
+  },
+  {
     "firm": "Lazard",
     "id": "oracle-icbpjb.fa.ocs.oraclecloud.com-6714",
     "title": "Data Engineer",
@@ -396,7 +383,7 @@
     "location": "MetroPark",
     "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/MetroPark/Cloud-Data-Engineer_R7127",
     "source": "workday",
-    "posted_date": "2026-09-14",
+    "posted_date": "2026-09-15",
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -595,6 +582,19 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-15",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-02310-0013504307-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Avon, MN",
+    "url": "https://www.roberthalf.com/us/en/job/avon-mn/data-engineer/02310-0013504307-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-16",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-16",
     "is_new": true
   },
   {
@@ -625,15 +625,15 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-01500-0013497785-usen",
+    "id": "roberthalf-03500-0013380490-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Oskaloosa, IA",
-    "url": "https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen",
+    "location": "Oklahoma City, OK",
+    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-13",
+    "posted_date": "2026-10-15",
     "metro": "Other US",
     "sector": "Agency",
-    "first_seen": "2026-10-13",
+    "first_seen": "2026-10-05",
     "is_new": false
   },
   {
@@ -644,19 +644,6 @@
     "url": "https://www.roberthalf.com/us/en/job/milwaukee-wi/data-engineer/04600-0013495125-usen",
     "source": "roberthalf",
     "posted_date": "2026-10-13",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-03500-0013380490-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Oklahoma City, OK",
-    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-15",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -777,7 +764,7 @@
     "metro": "Remote (US)",
     "sector": "Tech",
     "first_seen": "2026-10-15",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Robert Half",
@@ -1102,19 +1089,6 @@
     "metro": "Texas",
     "sector": "Energy",
     "first_seen": "2026-10-15",
-    "is_new": true
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-04030-0013505373-usen",
-    "title": "AWS Data Engineer \u00b7 Direct hire",
-    "location": "Dallas, TX",
-    "url": "https://www.roberthalf.com/us/en/job/dallas-tx/aws-data-engineer/04030-0013505373-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-09-12",
-    "metro": "Texas",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
     "is_new": false
   },
   {
@@ -1142,6 +1116,19 @@
     "sector": "Agency",
     "first_seen": "2026-10-06",
     "is_new": false
+  },
+  {
+    "firm": "Salesforce",
+    "id": "wd-salesforce-External_Career_Site-/job/Texas---Austin/Digital-Success-Analytics-Engineer_JR362928-1",
+    "title": "Digital Success Analytics Engineer",
+    "location": "Texas - Austin",
+    "url": "https://salesforce.wd12.myworkdayjobs.com/External_Career_Site/job/Texas---Austin/Digital-Success-Analytics-Engineer_JR362928-1",
+    "source": "workday",
+    "posted_date": "2026-10-16",
+    "metro": "Texas",
+    "sector": "Tech",
+    "first_seen": "2026-10-16",
+    "is_new": true
   },
   {
     "firm": "TPG",
