@@ -217,6 +217,18 @@
   },
   {
     "firm": "Bank of America",
+    "id": "wd-ghr-Lateral-US-/job/Chicago/Client-Service-Associate_26036613",
+    "title": "Client Service Associate",
+    "location": "Chicago",
+    "url": "https://ghr.wd1.myworkdayjobs.com/Lateral-US/job/Chicago/Client-Service-Associate_26036613",
+    "source": "workday",
+    "posted_date": "2026-10-16",
+    "metro": "Chicago",
+    "first_seen": "2026-10-06",
+    "is_new": false
+  },
+  {
+    "firm": "Bank of America",
     "id": "wd-ghr-Lateral-US-/job/Chicago/Client-Servicing-Analyst_26036140-1",
     "title": "Client Servicing Analyst",
     "location": "Chicago",
@@ -249,18 +261,6 @@
     "posted_date": "2026-10-02",
     "metro": "Chicago",
     "first_seen": "2026-10-03",
-    "is_new": false
-  },
-  {
-    "firm": "Bank of America",
-    "id": "wd-ghr-Lateral-US-/job/Chicago/Wealth-Management-Client-Associate_26036302",
-    "title": "Wealth Management Client Associate",
-    "location": "Chicago",
-    "url": "https://ghr.wd1.myworkdayjobs.com/Lateral-US/job/Chicago/Wealth-Management-Client-Associate_26036302",
-    "source": "workday",
-    "posted_date": "2026-10-01",
-    "metro": "Chicago",
-    "first_seen": "2026-10-02",
     "is_new": false
   },
   {
@@ -429,18 +429,6 @@
     "posted_date": "2026-09-30",
     "metro": "Chicago",
     "first_seen": "2026-09-30",
-    "is_new": false
-  },
-  {
-    "firm": "Deutsche Bank",
-    "id": "wd-db-DBWebsite-/job/Chicago-222-South-Riverside-Plaza/US-LD-Clearing---Deliveries-Clerk---Associate_R0446676-1",
-    "title": "US LD Clearing & Deliveries Clerk - Associate",
-    "location": "Chicago, 222 South Riverside Plaza",
-    "url": "https://db.wd3.myworkdayjobs.com/DBWebsite/job/Chicago-222-South-Riverside-Plaza/US-LD-Clearing---Deliveries-Clerk---Associate_R0446676-1",
-    "source": "workday",
-    "posted_date": "2026-10-07",
-    "metro": "Chicago",
-    "first_seen": "2026-10-07",
     "is_new": false
   },
   {
@@ -1629,18 +1617,6 @@
     "posted_date": "2026-10-13",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-13",
-    "is_new": false
-  },
-  {
-    "firm": "Bank of America",
-    "id": "wd-ghr-Lateral-US-/job/New-York/Registered-Wealth-Management-Client-Associate_26035154",
-    "title": "Registered Wealth Management Client Associate",
-    "location": "New York",
-    "url": "https://ghr.wd1.myworkdayjobs.com/Lateral-US/job/New-York/Registered-Wealth-Management-Client-Associate_26035154",
-    "source": "workday",
-    "posted_date": "2026-09-23",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-24",
     "is_new": false
   },
   {
@@ -5137,6 +5113,18 @@
   },
   {
     "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210759787",
+    "title": "J.P. Morgan Wealth Management - Private Client Investment Associate- Brooklyn, NY",
+    "location": "Brooklyn, NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210759787",
+    "source": "oracle",
+    "posted_date": "2026-10-16",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-16",
+    "is_new": true
+  },
+  {
+    "firm": "JPMorgan Chase",
     "id": "oracle-jpmc.fa.oraclecloud.com-210799070",
     "title": "Lead Solutions Analyst - AI/ML and Data Platforms",
     "location": "Jersey City, NJ, United States",
@@ -5568,6 +5556,30 @@
     "is_new": false
   },
   {
+    "firm": "KKR",
+    "id": "gh-stage-6226589004",
+    "title": "Associate, Data Engineer",
+    "location": "New York, New York, United States",
+    "url": "https://www.kkr.com/careers/career-opportunities/post?gh_jid=6226589004",
+    "source": "greenhouse",
+    "posted_date": "2026-10-16",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-16",
+    "is_new": true
+  },
+  {
+    "firm": "Kering",
+    "id": "eightfold-careers.kering.com-563705892604477",
+    "title": "POMELLATO: Commercial Operations Specialist",
+    "location": "New York, NY, US",
+    "url": "https://careers.kering.com/careers/job/563705892604477",
+    "source": "eightfold",
+    "posted_date": "2026-10-16",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-16",
+    "is_new": true
+  },
+  {
     "firm": "KeyBank",
     "id": "wd-keybank-External_Career_Site-/job/Amherst-NY/Consumer-Credit-Risk-Analyst_R-42397",
     "title": "Consumer Credit Risk Analyst III",
@@ -5761,6 +5773,18 @@
   },
   {
     "firm": "Macquarie Group",
+    "id": "pageup-recruitment.macquarie.com-20709",
+    "title": "Growth and Private Equity Analyst",
+    "location": "New York Office",
+    "url": "https://recruitment.macquarie.com/en_US/careers/JobDetail?jobId=20709",
+    "source": "pageup",
+    "posted_date": "2026-10-12",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-17",
+    "is_new": false
+  },
+  {
+    "firm": "Macquarie Group",
     "id": "pageup-recruitment.macquarie.com-22843",
     "title": "Securitized Credit Research Analyst",
     "location": "New York Office, Philadelphia Office",
@@ -5926,6 +5950,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-24",
     "is_new": false
+  },
+  {
+    "firm": "Mizuho",
+    "id": "wd-mizuho-mizuhoamericas-/job/New-York-NY-1271-AOA6th-Ave/Investment---Corporate-Banking---Leveraged-Finance-Syndicate---Transaction-Management--Analyst_R7452",
+    "title": "Investment & Corporate Banking - Leveraged Finance Syndicate / Transaction Management, Analyst",
+    "location": "New York, NY (1271 AOA/6th Ave)",
+    "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/New-York-NY-1271-AOA6th-Ave/Investment---Corporate-Banking---Leveraged-Finance-Syndicate---Transaction-Management--Analyst_R7452",
+    "source": "workday",
+    "posted_date": "2026-10-16",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-16",
+    "is_new": true
   },
   {
     "firm": "Mizuho",
@@ -6973,18 +7009,6 @@
   },
   {
     "firm": "RBC Capital Markets",
-    "id": "phenom-jobs.rbc.com-RBCAA0088R0000189705EXTERNALENCA",
-    "title": "Analyst, Global Investment Banking, Consumer & Retail",
-    "location": "New York, New York, United States of America",
-    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Analyst--Global-Investment-Banking--Consumer---Retail_R-0000189705",
-    "source": "phenom",
-    "posted_date": "2026-10-06",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-06",
-    "is_new": false
-  },
-  {
-    "firm": "RBC Capital Markets",
     "id": "phenom-jobs.rbc.com-RBCAA0088R0000189701EXTERNALENCA",
     "title": "Associate, Global Investment Banking, Consumer & Retail",
     "location": "New York, New York, United States of America",
@@ -7017,18 +7041,6 @@
     "posted_date": "2026-09-29",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-30",
-    "is_new": false
-  },
-  {
-    "firm": "RBC Capital Markets",
-    "id": "phenom-jobs.rbc.com-RBCAA0088R0000183703EXTERNALENCA",
-    "title": "Trade Documentation Associate",
-    "location": "New York, New York, United States of America",
-    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Trade-Documentation-Associate_R-0000183703-1",
-    "source": "phenom",
-    "posted_date": "2026-10-13",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-22",
     "is_new": false
   },
   {
@@ -7569,18 +7581,6 @@
     "posted_date": "2026-09-18",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-19",
-    "is_new": false
-  },
-  {
-    "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0119679EXTERNALENUS",
-    "title": "Treasury Sales Consultant - Middle Market",
-    "location": "New York, New York, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY/Treasury-Sales-Consultant---Middle-Market_R0119679",
-    "source": "phenom",
-    "posted_date": "2026-09-24",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-25",
     "is_new": false
   },
   {
