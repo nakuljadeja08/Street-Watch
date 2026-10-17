@@ -1956,6 +1956,22 @@ def push_supabase(rows, table="jobs", apps_table="applications", max_age_days=No
         else:
             print(f"  upserted {len(chunk)} rows")
 
+    # Un-flag "new" on every row this run didn't refresh. The upsert only rewrites
+    # is_new for live listings, so a role that was new on an earlier day and then
+    # dropped out of the pull (delisted but kept for its tracker entry, or its
+    # firm's fetch came back empty) kept is_new=true forever and showed up under
+    # "New today" weeks later. No trigger touches updated_at, so the reconcile
+    # below still sees these rows as stale.
+    try:
+        p = requests.patch(f"{url}/rest/v1/{table}",
+                           headers={**headers, "Prefer": "return=minimal"},
+                           params={"is_new": "eq.true", "updated_at": f"lt.{run_ts}"},
+                           data=json.dumps({"is_new": False}), timeout=TIMEOUT)
+        if p.status_code >= 300:
+            print(f"  ! supabase clear is_new {p.status_code}: {p.text[:150]}", file=sys.stderr)
+    except Exception as e:
+        print(f"  ! supabase clear is_new failed: {e}", file=sys.stderr)
+
     # Reconcile: drop listings that have vanished from a firm's source since we
     # last saw them (delisted / filled). A row is stale if its firm appeared in
     # THIS run but the row itself wasn't refreshed (updated_at < run_ts). We only
