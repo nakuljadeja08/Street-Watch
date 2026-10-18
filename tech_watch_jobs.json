@@ -23,7 +23,7 @@
     "metro": "Charlotte",
     "sector": "Finance",
     "first_seen": "2026-10-17",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "CIBC",
@@ -71,7 +71,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Cloud-Data-Platform-Engineer_R158514-1",
     "source": "workday",
-    "posted_date": "2026-09-16",
+    "posted_date": "2026-09-17",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -84,7 +84,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Analytics-Engineer_R150313",
     "source": "workday",
-    "posted_date": "2026-09-16",
+    "posted_date": "2026-09-17",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -97,7 +97,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Program-Engineer_R150311",
     "source": "workday",
-    "posted_date": "2026-09-16",
+    "posted_date": "2026-09-17",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -140,7 +140,7 @@
     "metro": "DC / Virginia",
     "sector": "Agency",
     "first_seen": "2026-10-17",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Robert Half",
@@ -166,7 +166,7 @@
     "metro": "Los Angeles",
     "sector": "Agency",
     "first_seen": "2026-10-17",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Robert Half",
@@ -344,7 +344,7 @@
     "location": "Brooklyn, OH",
     "url": "https://keybank.wd5.myworkdayjobs.com/External_Career_Site/job/Brooklyn-OH/Data-Inventory-Engineer_R-41676",
     "source": "workday",
-    "posted_date": "2026-09-16",
+    "posted_date": "2026-09-17",
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-10-16",
@@ -393,7 +393,7 @@
     "firm": "Meta",
     "id": "meta-1283364266159062",
     "title": "Data Engineer, Product Analytics",
-    "location": "Sunnyvale, CA; Bellevue, WA; Redmond, WA; Menlo Park, CA; Burlingame, CA; New York, NY",
+    "location": "Sunnyvale, CA; Bellevue, WA; Menlo Park, CA; Burlingame, CA; New York, NY",
     "url": "https://www.metacareers.com/profile/job_details/1283364266159062",
     "source": "meta",
     "posted_date": null,
@@ -422,7 +422,7 @@
     "location": "MetroPark",
     "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/MetroPark/Cloud-Data-Engineer_R7127",
     "source": "workday",
-    "posted_date": "2026-09-16",
+    "posted_date": "2026-09-17",
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -664,19 +664,6 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-04600-0013495125-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Milwaukee, WI",
-    "url": "https://www.roberthalf.com/us/en/job/milwaukee-wi/data-engineer/04600-0013495125-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-13",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
     "id": "roberthalf-03500-0013380490-usen",
     "title": "Data Engineer \u00b7 Direct hire",
     "location": "Oklahoma City, OK",
@@ -699,6 +686,19 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-13",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-04600-0013495125-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Milwaukee, WI",
+    "url": "https://www.roberthalf.com/us/en/job/milwaukee-wi/data-engineer/04600-0013495125-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-13",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-05",
     "is_new": false
   },
   {
@@ -1024,7 +1024,7 @@
     "metro": "Seattle",
     "sector": "Tech",
     "first_seen": "2026-10-17",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Microsoft",
@@ -1037,7 +1037,7 @@
     "metro": "Seattle",
     "sector": "Tech",
     "first_seen": "2026-10-17",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "OpenAI",
@@ -1175,6 +1175,19 @@
     "title": "Data Engineer - Python/Snowflake \u00b7 Direct hire",
     "location": "Houston, TX",
     "url": "https://www.roberthalf.com/us/en/job/houston-tx/data-engineer-pythonsnowflake/04130-0013225544-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-05",
+    "metro": "Texas",
+    "sector": "Agency",
+    "first_seen": "2026-10-06",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-04130-0013486331-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Houston, TX",
+    "url": "https://www.roberthalf.com/us/en/job/houston-tx/data-engineer/04130-0013486331-usen",
     "source": "roberthalf",
     "posted_date": "2026-10-05",
     "metro": "Texas",
