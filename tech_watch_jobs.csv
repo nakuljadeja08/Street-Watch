@@ -1,5 +1,6 @@
 metro,sector,firm,title,location,source,posted_date,first_seen,is_new,url
 Atlanta,Fintech,Global Payments,Data Engineer,"CINCINNATI, OHIO; ATLANTA, GEORGIA",workday,2026-10-12,2026-10-12,False,https://tsys.wd1.myworkdayjobs.com/TSYS/job/CINCINNATI-OHIO/Data-Engineer_R0076225
+Boston,Finance,State Street,"Data Engineer - Cloud & Analytics, Officer - State Street Investment Management","Boston, Massachusetts; Quincy, Massachusetts",workday,2026-10-19,2026-10-19,True,https://statestreet.wd1.myworkdayjobs.com/Global/job/Boston-Massachusetts/Senior-Data-Engineer---Cloud---Analytics--Officer---State-Street-Investment-Management_R-789304-1
 Charlotte,Finance,Truist Securities,Security Engineer (Data Engineering/ Protection),"Charlotte, North Carolina, USA",phenom,2026-10-16,2026-10-17,False,https://truist.wd1.myworkdayjobs.com/Careers/job/Charlotte-NC/Security-Engineer--Data-Engineering--Protection-_R0120831
 Chicago,Finance,CIBC,"Databricks Data Engineer, Risk Technology","Chicago, IL",workday,2026-10-16,2026-09-27,False,https://cibc.wd3.myworkdayjobs.com/search/job/Chicago-IL/Senior-Software-Engineer---US-Risk-Technology_2613362
 Chicago,Finance,Charles Schwab,Data Engineer,"Southlake, TX; Austin, TX; Chicago, IL",charles,,2026-10-14,False,https://www.schwabjobs.com/job/southlake/data-engineer/33727/101923577296
@@ -18,6 +19,7 @@ NYC Area,Tech,Anthropic,"Data Engineer, GTM","San Francisco, CA | New York City,
 NYC Area,Tech,Anthropic,"Data Engineer, Product","San Francisco, CA | New York City, NY | Seattle, WA",greenhouse,2026-10-09,2026-10-09,False,https://job-boards.greenhouse.io/anthropic/jobs/5448481008
 NYC Area,Tech,Anthropic,Recruiting Analytics Data Engineer,"San Francisco, CA | New York City, NY | Seattle, WA",greenhouse,2026-09-14,2026-09-27,False,https://job-boards.greenhouse.io/anthropic/jobs/5424111008
 NYC Area,Finance,Carlyle,Data Engineer,"New York, NY",workday,2026-10-14,2026-09-27,False,https://carlyle.wd1.myworkdayjobs.com/Carlyle/job/New-York-NY/Data-Engineer_R-00280
+NYC Area,Finance,Citadel Securities,C++ Market Data Engineer,"Miami, New York",citadel,,2026-09-27,False,https://www.citadelsecurities.com/careers/details/c-market-data-engineer/
 NYC Area,Tech,Figma,Data Platform Engineer,"San Francisco, CA • New York, NY • United States",greenhouse,2026-09-21,2026-09-27,False,https://boards.greenhouse.io/figma/jobs/6201407004?gh_jid=6201407004
 NYC Area,Finance,Jump Trading,Data Engineer,New York or Chicago,greenhouse,2026-09-01,2026-09-27,False,https://www.jumptrading.com/hr/job?gh_jid=8171060
 NYC Area,Finance,Jump Trading,Derived Data Engineer,Chicago or New York,greenhouse,2026-09-01,2026-09-27,False,https://www.jumptrading.com/hr/job?gh_jid=8171513
@@ -54,7 +56,6 @@ Other US,Finance,Susquehanna International Group,"Data Engineer, Alternative Dat
 Other US,Finance,Susquehanna International Group,Quantitative/Data Developer | Fixed Income | Experienced Hire,"Bala Cynwyd (Philadelphia Area), Pennsylvania",jibe,2026-09-28,2026-09-29,False,https://careers.sig.com/jobs/10778
 Other US,Agency,TEKsystems,Data Engineer II · Direct hire,"Hanover, Maryland, USA",phenom,2026-09-30,2026-10-05,False,https://careers.teksystems.com/us/en/job/TESYUSJP006319471ENUS
 Other US,Agency,TEKsystems,Data Engineer II · Direct hire,"Hanover, Maryland, USA",phenom,2026-10-09,2026-10-09,False,https://careers.teksystems.com/us/en/job/TESYUSJP006338501ENUS
-Other US,Finance,Truist Securities,Data Transmission Infrastructure Engineer,"Raleigh, North Carolina, USA",phenom,2026-10-13,2026-10-13,False,https://truist.wd1.myworkdayjobs.com/Careers/job/Raleigh-NC/Data-Transmission-Infrastructure-Engineer_R0120705
 Remote (US),Finance,Allstate,"Managing Engineer, Data Engineering",US - Remote,workday,2026-10-05,2026-10-05,False,https://allstate.wd5.myworkdayjobs.com/allstate_careers/job/US---Remote/Managing-Engineer--Data-Engineering_R35362-1
 Remote (US),Tech,Reddit,Analytics Engineer,Remote - United States,greenhouse,2026-10-14,2026-10-15,False,https://job-boards.greenhouse.io/reddit/jobs/8282760
 Remote (US),Agency,Robert Half,Data Engineer II · Direct hire,"Lakewood, OH (Remote)",roberthalf,2026-10-16,2026-10-16,False,https://www.roberthalf.com/us/en/job/lakewood-oh/data-engineer-ii/03340-0013497578-usen
@@ -80,7 +81,7 @@ Texas,Agency,Blue Signal,GTM & AI Analytics Engineer,"Houston, Texas, United Sta
 Texas,Finance,Charles Schwab,AI/ML Ops and Data Engineer,"Southlake, TX; Austin, TX; Phoenix, AZ",charles,,2026-09-29,False,https://www.schwabjobs.com/job/southlake/ai-ml-ops-and-data-engineer/33727/98187448432
 Texas,Finance,Charles Schwab,Data Engineer,"Austin, TX; Southlake, TX",charles,,2026-09-29,False,https://www.schwabjobs.com/job/austin/data-engineer/33727/100738780800
 Texas,Finance,Charles Schwab,Machine Learning Ops Data Engineer,"Southlake, TX; Austin, TX; Phoenix, AZ",charles,,2026-09-29,False,https://www.schwabjobs.com/job/southlake/machine-learning-ops-data-engineer/33727/98187448448
-Texas,Finance,Citi,"Data Platform Engineer, Cybersecurity Operations","Irving, Texas, United States",citi,,2026-10-19,True,https://jobs.citi.com/job/irving/data-platform-engineer-cybersecurity-operations/287/102155113376
+Texas,Finance,Citi,"Data Platform Engineer, Cybersecurity Operations","Irving, Texas, United States",citi,,2026-10-19,True,https://jobs.citi.com/job/irving/data-platform-engineer-cybersecurity-operations/287/102161058576
 Texas,Tech,Google,Analytics Engineer,"Austin, TX, USA",google,2026-10-12,2026-10-12,False,https://www.google.com/about/careers/applications/jobs/results/82161757522404038
 Texas,Energy,Marathon Petroleum,Data Operations Engineer,"San Antonio TX; San Antonio, Texas",workday,2026-10-14,2026-10-15,False,https://mpc.wd1.myworkdayjobs.com/MPCCareers/job/San-Antonio-TX/Data-Operations-Engineer_00023365
 Texas,Agency,Robert Half,Data Engineer - Python/Snowflake · Direct hire,"Houston, TX",roberthalf,2026-10-05,2026-10-06,False,https://www.roberthalf.com/us/en/job/houston-tx/data-engineer-pythonsnowflake/04130-0013225544-usen

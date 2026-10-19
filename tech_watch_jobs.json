@@ -13,6 +13,19 @@
     "is_new": false
   },
   {
+    "firm": "State Street",
+    "id": "wd-statestreet-Global-/job/Boston-Massachusetts/Senior-Data-Engineer---Cloud---Analytics--Officer---State-Street-Investment-Management_R-789304-1",
+    "title": "Data Engineer - Cloud & Analytics, Officer - State Street Investment Management",
+    "location": "Boston, Massachusetts; Quincy, Massachusetts",
+    "url": "https://statestreet.wd1.myworkdayjobs.com/Global/job/Boston-Massachusetts/Senior-Data-Engineer---Cloud---Analytics--Officer---State-Street-Investment-Management_R-789304-1",
+    "source": "workday",
+    "posted_date": "2026-10-19",
+    "metro": "Boston",
+    "sector": "Finance",
+    "first_seen": "2026-10-19",
+    "is_new": true
+  },
+  {
     "firm": "Truist Securities",
     "id": "phenom-careers.truist.com-TBJTBFUSR0120831EXTERNALENUS",
     "title": "Security Engineer (Data Engineering/ Protection)",
@@ -241,6 +254,19 @@
     "url": "https://carlyle.wd1.myworkdayjobs.com/Carlyle/job/New-York-NY/Data-Engineer_R-00280",
     "source": "workday",
     "posted_date": "2026-10-14",
+    "metro": "NYC Area",
+    "sector": "Finance",
+    "first_seen": "2026-09-27",
+    "is_new": false
+  },
+  {
+    "firm": "Citadel Securities",
+    "id": "cs-c-market-data-engineer",
+    "title": "C++ Market Data Engineer",
+    "location": "Miami, New York",
+    "url": "https://www.citadelsecurities.com/careers/details/c-market-data-engineer/",
+    "source": "citadel",
+    "posted_date": null,
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -715,19 +741,6 @@
     "is_new": false
   },
   {
-    "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0120705EXTERNALENUS",
-    "title": "Data Transmission Infrastructure Engineer",
-    "location": "Raleigh, North Carolina, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Raleigh-NC/Data-Transmission-Infrastructure-Engineer_R0120705",
-    "source": "phenom",
-    "posted_date": "2026-10-13",
-    "metro": "Other US",
-    "sector": "Finance",
-    "first_seen": "2026-10-13",
-    "is_new": false
-  },
-  {
     "firm": "Allstate",
     "id": "wd-allstate-allstate_careers-/job/US---Remote/Managing-Engineer--Data-Engineering_R35362-1",
     "title": "Managing Engineer, Data Engineering",
@@ -1054,10 +1067,10 @@
   },
   {
     "firm": "Citi",
-    "id": "citi-102155113376",
+    "id": "citi-102161058576",
     "title": "Data Platform Engineer, Cybersecurity Operations",
     "location": "Irving, Texas, United States",
-    "url": "https://jobs.citi.com/job/irving/data-platform-engineer-cybersecurity-operations/287/102155113376",
+    "url": "https://jobs.citi.com/job/irving/data-platform-engineer-cybersecurity-operations/287/102161058576",
     "source": "citi",
     "posted_date": null,
     "metro": "Texas",
