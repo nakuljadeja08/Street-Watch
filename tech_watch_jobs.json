@@ -393,7 +393,7 @@
     "firm": "Meta",
     "id": "meta-438521235471941",
     "title": "Data Engineer, Product Analytics",
-    "location": "Bellevue, WA; Redmond, WA; Menlo Park, CA; Seattle, WA; Burlingame, CA; New York, NY; San Francisco, CA",
+    "location": "Redmond, WA; Menlo Park, CA; Burlingame, CA; New York, NY; San Francisco, CA",
     "url": "https://www.metacareers.com/profile/job_details/438521235471941",
     "source": "meta",
     "posted_date": null,
@@ -406,7 +406,7 @@
     "firm": "Meta",
     "id": "meta-1283364266159062",
     "title": "Data Engineer, Product Analytics",
-    "location": "Sunnyvale, CA; Bellevue, WA; Menlo Park, CA; Burlingame, CA; New York, NY",
+    "location": "Sunnyvale, CA; Bellevue, WA; Menlo Park, CA; Burlingame, CA; New York, NY; San Francisco, CA",
     "url": "https://www.metacareers.com/profile/job_details/1283364266159062",
     "source": "meta",
     "posted_date": null,
@@ -651,6 +651,19 @@
   },
   {
     "firm": "Robert Half",
+    "id": "roberthalf-04600-0013495125-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Milwaukee, WI",
+    "url": "https://www.roberthalf.com/us/en/job/milwaukee-wi/data-engineer/04600-0013495125-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-13",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-05",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
     "id": "roberthalf-03500-0013380490-usen",
     "title": "Data Engineer \u00b7 Direct hire",
     "location": "Oklahoma City, OK",
@@ -738,6 +751,19 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-09",
+    "is_new": false
+  },
+  {
+    "firm": "Truist Securities",
+    "id": "phenom-careers.truist.com-TBJTBFUSR0120705EXTERNALENUS",
+    "title": "Data Transmission Infrastructure Engineer",
+    "location": "Raleigh, North Carolina, USA",
+    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Raleigh-NC/Data-Transmission-Infrastructure-Engineer_R0120705",
+    "source": "phenom",
+    "posted_date": "2026-10-13",
+    "metro": "Other US",
+    "sector": "Finance",
+    "first_seen": "2026-10-13",
     "is_new": false
   },
   {
