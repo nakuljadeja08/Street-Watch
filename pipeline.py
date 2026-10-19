@@ -538,17 +538,24 @@ def fetch_workday_site(firm, dc, tenant, site):
 def fetch_workday(firm, tenant, dc, site, search_text="", relevant=None, facets=None):
     """`search_text` narrows the board server-side (Tech Watch passes "data
     engineer"). Workday's search is fuzzy and relevance-sorted, so it can match
-    most of a big tenant; with `relevant` (title -> bool) paging stops at the
-    first page that has no relevant title."""
+    most of a big tenant; with `relevant` (title -> bool) paging stops after
+    RELEVANT_MISS pages in a row with no relevant title. (It used to stop at the
+    first such page, but the ranking scatters matches: Visa's first 20 results
+    had none of its ~20 data engineer roles, Mastercard's ran to row 380.)"""
     base = f"https://{tenant}.{dc}.myworkdayjobs.com/wday/cxs/{tenant}/{site}/jobs"
     host = f"https://{tenant}.{dc}.myworkdayjobs.com"
-    LIMIT = 20
-    out, offset, total = [], 0, None
+    LIMIT, RELEVANT_MISS = 20, 4
+    out, offset, total, misses = [], 0, None, 0
     try:
         while True:
             body = {"appliedFacets": facets or {}, "limit": LIMIT, "offset": offset, "searchText": search_text}
-            r = requests.post(base, headers={**UA, "Content-Type": "application/json"},
-                              json=body, timeout=TIMEOUT); r.raise_for_status()
+            for attempt in range(3):     # Workday rate-limits bursts (Salesforce 429s)
+                r = requests.post(base, headers={**UA, "Content-Type": "application/json"},
+                                  json=body, timeout=TIMEOUT)
+                if r.status_code != 429:
+                    break
+                time.sleep(5 * (attempt + 1))
+            r.raise_for_status()
             data = r.json()
             posts = data.get("jobPostings", [])
             # Workday only reports the real `total` on the first page; later pages
@@ -570,8 +577,10 @@ def fetch_workday(firm, tenant, dc, site, search_text="", relevant=None, facets=
                                 # (None when the tenant omits it — row kept as before).
                                 posted_date=_workday_posted(p.get("postedOn"))))
             offset += LIMIT
-            if relevant and not any(relevant(p.get("title") or "") for p in posts):
-                break
+            if relevant:
+                misses = 0 if any(relevant(p.get("title") or "") for p in posts) else misses + 1
+                if misses >= RELEVANT_MISS:
+                    break
             # Stop when we've reached the first-page total, or the page came back
             # short (last page) — a belt-and-suspenders guard if `total` is wrong.
             if offset >= total or len(posts) < LIMIT:
@@ -2758,6 +2767,36 @@ def _smtp_send(host, port, user, password, recipients, msg):
 
 
 # ---------------------------------------------------------------- main
+def _repost_key(j):
+    return (j["firm"], re.sub(r"\s+", " ", j["title"]).strip().lower(),
+            re.sub(r"\s+", " ", j["location"]).strip().lower())
+
+
+def assign_first_seen(jobs, state, prev_jobs, today):
+    """Set first_seen / is_new from the id -> date state; returns the new count.
+    Boards sometimes re-key every listing overnight (Citi's Radancy site issued
+    fresh ids for all 28 of its roles on 2026-10-19), which made old roles look
+    new. So an unseen id inherits first_seen from a role on the previous board
+    with the same firm/title/location whose id has since disappeared. Each old
+    role is claimed once, so a second opening with the same title still counts."""
+    ids = {j["id"] for j in jobs}
+    gone = {}
+    for p in prev_jobs:
+        if p["id"] not in ids and p.get("first_seen"):
+            gone.setdefault(_repost_key(p), []).append(p["first_seen"])
+    new = 0
+    for j in jobs:
+        if j["id"] not in state:
+            olds = gone.get(_repost_key(j))
+            if olds:
+                state[j["id"]] = olds.pop()
+            else:
+                state[j["id"]] = today; new += 1
+        j["first_seen"] = state[j["id"]]
+        j["is_new"] = state[j["id"]] == today
+    return new
+
+
 def main():
     # Job titles carry en-dashes/smart quotes; the Windows console defaults to
     # cp1252, which can't encode them and would crash the final summary print
@@ -2769,14 +2808,10 @@ def main():
             pass
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     state = json.load(open(STATE_FILE)) if os.path.exists(STATE_FILE) else {}
+    prev = json.load(open("street_watch_jobs.json", encoding="utf-8")) if os.path.exists("street_watch_jobs.json") else []
     jobs, raw = collect()
 
-    new = 0
-    for j in jobs:
-        if j["id"] not in state:
-            state[j["id"]] = today; new += 1
-        j["first_seen"] = state[j["id"]]
-        j["is_new"] = state[j["id"]] == today
+    new = assign_first_seen(jobs, state, prev, today)
     json.dump(state, open(STATE_FILE, "w"))
 
     jobs.sort(key=lambda j: (j["metro"], j["firm"], j["title"]))
