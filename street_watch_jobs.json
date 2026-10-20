@@ -234,7 +234,7 @@
     "location": "IL-Chicago",
     "url": "https://baird.wd1.myworkdayjobs.com/Careers/job/IL-Chicago/Baird-Capital-Associate---Investment--Global-Private-Equity_R20261179-1",
     "source": "workday",
-    "posted_date": "2026-10-16",
+    "posted_date": "2026-10-20",
     "metro": "Chicago",
     "first_seen": "2026-10-16",
     "is_new": false
@@ -2317,6 +2317,18 @@
   },
   {
     "firm": "CIBC",
+    "id": "wd-cibc-search-/job/New-York-NY/Application-Support-Consultant_2614565",
+    "title": "Application Support Consultant, Front Office Trading Applications",
+    "location": "New York, NY",
+    "url": "https://cibc.wd3.myworkdayjobs.com/search/job/New-York-NY/Application-Support-Consultant_2614565",
+    "source": "workday",
+    "posted_date": "2026-10-20",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-17",
+    "is_new": false
+  },
+  {
+    "firm": "CIBC",
     "id": "wd-cibc-search-/job/New-York-NY/Associate---US-Trade-Control_2619561",
     "title": "Associate - US Trade Control",
     "location": "New York, NY",
@@ -3049,6 +3061,18 @@
   },
   {
     "firm": "Deutsche Bank",
+    "id": "wd-db-DBWebsite-/job/New-York-1-Columbus-Circle/Investment-Banking-and-Capital-Markets-Media-and-Telecom--M-T--Analyst_R0452935-1",
+    "title": "Investment Banking and Capital Markets-Media and Telecom (M&T) Analyst",
+    "location": "New York, 1 Columbus Circle",
+    "url": "https://db.wd3.myworkdayjobs.com/DBWebsite/job/New-York-1-Columbus-Circle/Investment-Banking-and-Capital-Markets-Media-and-Telecom--M-T--Analyst_R0452935-1",
+    "source": "workday",
+    "posted_date": "2026-10-20",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-20",
+    "is_new": true
+  },
+  {
+    "firm": "Deutsche Bank",
     "id": "wd-db-DBWebsite-/job/New-York-1-Columbus-Circle/US-Biotech-Pharma---Associate_R0413965",
     "title": "Research Associate, Semiconductors & Semiconductor Capital Equipment",
     "location": "New York, 1 Columbus Circle",
@@ -3250,6 +3274,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-08",
     "is_new": false
+  },
+  {
+    "firm": "Goldman Sachs",
+    "id": "gs-186519_GS_EARLY_CAREER",
+    "title": "Asset & Wealth Management, Alternatives Capital Formation \u2013 Hedge Funds \u2013 Analyst / Associate  - New York",
+    "location": "New York, NY, United States",
+    "url": "https://higher.gs.com/roles/186519",
+    "source": "goldman",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-20",
+    "is_new": true
   },
   {
     "firm": "Goldman Sachs",
@@ -3685,18 +3721,6 @@
   },
   {
     "firm": "Goldman Sachs",
-    "id": "gs-179010_GS_MID_CAREER",
-    "title": "GBM - Public, Securities, Prime Services Clearing Risk, Associate, New York",
-    "location": "New York, NY, United States",
-    "url": "https://higher.gs.com/roles/179010",
-    "source": "goldman",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-23",
-    "is_new": false
-  },
-  {
-    "firm": "Goldman Sachs",
     "id": "gs-186151_GS_MID_CAREER",
     "title": "GBM - STS Solutions Structurer - Associate, New York",
     "location": "New York, NY, United States",
@@ -3705,18 +3729,6 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-13",
-    "is_new": false
-  },
-  {
-    "firm": "Goldman Sachs",
-    "id": "gs-179085_GS_MID_CAREER",
-    "title": "GBM - Securities, Prime Services Futures and Clearing Risk, Associate, New York",
-    "location": "New York, NY, United States",
-    "url": "https://higher.gs.com/roles/179085",
-    "source": "goldman",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-23",
     "is_new": false
   },
   {
@@ -4189,6 +4201,30 @@
   },
   {
     "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210759876",
+    "title": "Alternatives Fund Structuring, Associate",
+    "location": "New York, NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210759876",
+    "source": "oracle",
+    "posted_date": "2026-10-20",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-20",
+    "is_new": true
+  },
+  {
+    "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210800893",
+    "title": "Americas Capital Markets Business Management, Associate",
+    "location": "NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210800893",
+    "source": "oracle",
+    "posted_date": "2026-10-20",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-20",
+    "is_new": true
+  },
+  {
+    "firm": "JPMorgan Chase",
     "id": "oracle-jpmc.fa.oraclecloud.com-210785428",
     "title": "Analytics Solutions, Associate",
     "location": "New York, NY, United States",
@@ -4246,6 +4282,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-07",
     "is_new": false
+  },
+  {
+    "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210782862",
+    "title": "Asset Management Portfolio Management Program Analyst (Equities)",
+    "location": "New York, NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210782862",
+    "source": "oracle",
+    "posted_date": "2026-10-20",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-20",
+    "is_new": true
   },
   {
     "firm": "JPMorgan Chase",
@@ -4413,6 +4461,18 @@
     "posted_date": "2026-10-13",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-13",
+    "is_new": false
+  },
+  {
+    "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210788103",
+    "title": "Capital Stress Testing Program Manager, Associate",
+    "location": "New York, NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210788103",
+    "source": "oracle",
+    "posted_date": "2026-10-20",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-19",
     "is_new": false
   },
   {
@@ -5617,18 +5677,6 @@
   },
   {
     "firm": "Mizuho",
-    "id": "wd-mizuho-mizuhoamericas-/job/New-York-NY-1271-AOA6th-Ave/Associate--Cash-Channel-Product-Management_R7403",
-    "title": "Associate, Cash Channel Product Management",
-    "location": "New York, NY (1271 AOA/6th Ave)",
-    "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/New-York-NY-1271-AOA6th-Ave/Associate--Cash-Channel-Product-Management_R7403",
-    "source": "workday",
-    "posted_date": "2026-09-29",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-30",
-    "is_new": false
-  },
-  {
-    "firm": "Mizuho",
     "id": "wd-mizuho-mizuhoamericas-/job/New-York-NY-1271-AOA6th-Ave/Associate--GTB--Global-Transaction-Banking--Advisory_R7432",
     "title": "Associate, GTB (Global Transaction Banking) Advisory",
     "location": "New York, NY (1271 AOA/6th Ave)",
@@ -5641,30 +5689,6 @@
   },
   {
     "firm": "Mizuho",
-    "id": "wd-mizuho-mizuhoamericas-/job/New-York-NY-1271-AOA6th-Ave/Associate--Transaction-Banking-Sales-Support_R7407",
-    "title": "Associate, Transaction Banking Sales Support",
-    "location": "New York, NY (1271 AOA/6th Ave)",
-    "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/New-York-NY-1271-AOA6th-Ave/Associate--Transaction-Banking-Sales-Support_R7407",
-    "source": "workday",
-    "posted_date": "2026-09-29",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-30",
-    "is_new": false
-  },
-  {
-    "firm": "Mizuho",
-    "id": "wd-mizuho-mizuhoamericas-/job/NYC-1285/Credit-Analyst_R7428-1",
-    "title": "Credit Analyst",
-    "location": "NYC (1285)",
-    "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/NYC-1285/Credit-Analyst_R7428-1",
-    "source": "workday",
-    "posted_date": "2026-09-29",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-29",
-    "is_new": false
-  },
-  {
-    "firm": "Mizuho",
     "id": "wd-mizuho-mizuhoamericas-/job/New-York-NY-1271-AOA6th-Ave/Investment---Corporate-Banking---ABS-Origination---Associate_R7458",
     "title": "Investment & Corporate Banking - ABS Origination \u2013 Associate",
     "location": "New York, NY (1271 AOA/6th Ave)",
@@ -5673,18 +5697,6 @@
     "posted_date": "2026-10-16",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-17",
-    "is_new": false
-  },
-  {
-    "firm": "Mizuho",
-    "id": "wd-mizuho-mizuhoamericas-/job/New-York-NY-1271-AOA6th-Ave/Investment---Corporate-Banking---Consumer---Retail--Associate_R7401",
-    "title": "Investment & Corporate Banking - Consumer & Retail, Associate",
-    "location": "New York, NY (1271 AOA/6th Ave)",
-    "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/New-York-NY-1271-AOA6th-Ave/Investment---Corporate-Banking---Consumer---Retail--Associate_R7401",
-    "source": "workday",
-    "posted_date": "2026-09-30",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-01",
     "is_new": false
   },
   {
@@ -5713,18 +5725,6 @@
   },
   {
     "firm": "Mizuho",
-    "id": "wd-mizuho-mizuhoamericas-/job/New-York-NY-1271-AOA6th-Ave/Investment---Corporate-Banking---Industrials---Diversified-Industries--Analyst_R7394",
-    "title": "Investment & Corporate Banking - Industrials & Diversified Industries, Analyst",
-    "location": "New York, NY (1271 AOA/6th Ave)",
-    "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/New-York-NY-1271-AOA6th-Ave/Investment---Corporate-Banking---Industrials---Diversified-Industries--Analyst_R7394",
-    "source": "workday",
-    "posted_date": "2026-09-23",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-24",
-    "is_new": false
-  },
-  {
-    "firm": "Mizuho",
     "id": "wd-mizuho-mizuhoamericas-/job/New-York-NY-1271-AOA6th-Ave/Investment---Corporate-Banking---Leveraged-Finance-Syndicate---Transaction-Management--Analyst_R7452",
     "title": "Investment & Corporate Banking - Leveraged Finance Syndicate / Transaction Management, Analyst",
     "location": "New York, NY (1271 AOA/6th Ave)",
@@ -5733,18 +5733,6 @@
     "posted_date": "2026-10-16",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-16",
-    "is_new": false
-  },
-  {
-    "firm": "Mizuho",
-    "id": "wd-mizuho-mizuhoamericas-/job/New-York-NY-1271-AOA6th-Ave/Investment---Corporate-Banking---Portfolio-Management---Project-Finance--Associate_R7254",
-    "title": "Investment & Corporate Banking - Portfolio Management - Project Finance, Associate",
-    "location": "New York, NY (1271 AOA/6th Ave)",
-    "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/New-York-NY-1271-AOA6th-Ave/Investment---Corporate-Banking---Portfolio-Management---Project-Finance--Associate_R7254",
-    "source": "workday",
-    "posted_date": "2026-10-01",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-01",
     "is_new": false
   },
   {
@@ -5761,18 +5749,6 @@
   },
   {
     "firm": "Mizuho",
-    "id": "wd-mizuho-mizuhoamericas-/job/New-York-NY-1271-AOA6th-Ave/Investment---Corporate-Banking---Infrastructure---Project-Finance---Natural-Resources--Power---Infrastructure---Analyst_R7395",
-    "title": "Investment & Corporate Banking | Infrastructure & Project Finance | Natural Resources, Power & Infrastructure \u2013 Analyst",
-    "location": "New York, NY (1271 AOA/6th Ave)",
-    "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/New-York-NY-1271-AOA6th-Ave/Investment---Corporate-Banking---Infrastructure---Project-Finance---Natural-Resources--Power---Infrastructure---Analyst_R7395",
-    "source": "workday",
-    "posted_date": "2026-09-23",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-24",
-    "is_new": false
-  },
-  {
-    "firm": "Mizuho",
     "id": "wd-mizuho-mizuhoamericas-/job/NYC-1285/Operations-Analyst---KYC-Static-Data_R7479",
     "title": "Operations Analyst \u2013 KYC Static Data",
     "location": "NYC (1285)",
@@ -5781,18 +5757,6 @@
     "posted_date": "2026-10-19",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-19",
-    "is_new": false
-  },
-  {
-    "firm": "Mizuho",
-    "id": "wd-mizuho-mizuhoamericas-/job/New-York-NY-1271-AOA6th-Ave/Tax-Associate_R7408",
-    "title": "Tax Associate",
-    "location": "New York, NY (1271 AOA/6th Ave)",
-    "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/New-York-NY-1271-AOA6th-Ave/Tax-Associate_R7408",
-    "source": "workday",
-    "posted_date": "2026-10-02",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-02",
     "is_new": false
   },
   {
@@ -6741,18 +6705,6 @@
     "posted_date": "2026-09-24",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-17",
-    "is_new": false
-  },
-  {
-    "firm": "Piper Sandler",
-    "id": "wd-pipersandler-Piper_Sandler_Careers-/job/New-York-NY/Campus-Recruiting---2027-Investment-Banking-Analyst---Restructuring_R-100722-1",
-    "title": "Campus Recruiting - 2027 Investment Banking Analyst - Restructuring",
-    "location": "New York, NY",
-    "url": "https://pipersandler.wd501.myworkdayjobs.com/Piper_Sandler_Careers/job/New-York-NY/Campus-Recruiting---2027-Investment-Banking-Analyst---Restructuring_R-100722-1",
-    "source": "workday",
-    "posted_date": "2026-09-28",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-29",
     "is_new": false
   },
   {
@@ -7861,18 +7813,6 @@
   },
   {
     "firm": "BlackRock",
-    "id": "blackrock-99227423872",
-    "title": "Aladdin Client Engagement, Front Office Relationship Manager, Associate",
-    "location": "San Francisco, CA",
-    "url": "https://careers.blackrock.com/job/san-francisco/aladdin-client-engagement-front-office-relationship-manager-associate/45831/99227423872",
-    "source": "blackrock",
-    "posted_date": "2026-10-06",
-    "metro": "SF / Bay Area",
-    "first_seen": "2026-10-15",
-    "is_new": false
-  },
-  {
-    "firm": "BlackRock",
     "id": "blackrock-101650226640",
     "title": "Associate, Technical Project Manager - SMA Solutions",
     "location": "San Francisco, CA",
@@ -8076,6 +8016,18 @@
     "is_new": false
   },
   {
+    "firm": "HSBC",
+    "id": "eightfold-portal.careers.hsbc.com-563774612512008",
+    "title": "Analyst, Technology, Media and Telecom",
+    "location": "San Francisco, California, United States",
+    "url": "https://portal.careers.hsbc.com/careers/job/563774612512008",
+    "source": "eightfold",
+    "posted_date": "2026-10-13",
+    "metro": "SF / Bay Area",
+    "first_seen": "2026-10-20",
+    "is_new": true
+  },
+  {
     "firm": "JPMorgan Chase",
     "id": "oracle-jpmc.fa.oraclecloud.com-210793194",
     "title": "Associate Banker, Technology Banking -Associate",
@@ -8145,18 +8097,6 @@
     "posted_date": "2026-10-13",
     "metro": "SF / Bay Area",
     "first_seen": "2026-10-14",
-    "is_new": false
-  },
-  {
-    "firm": "Mizuho",
-    "id": "wd-mizuho-mizuhoamericas-/job/San-Francisco/Investment---Corporate-Banking---Technology--Media---Telecommunications--TMT---Analyst--SF-_R7387",
-    "title": "Investment & Corporate Banking \u2013 Technology, Media & Telecommunications (TMT), Analyst (SF)",
-    "location": "San Francisco",
-    "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/San-Francisco/Investment---Corporate-Banking---Technology--Media---Telecommunications--TMT---Analyst--SF-_R7387",
-    "source": "workday",
-    "posted_date": "2026-09-23",
-    "metro": "SF / Bay Area",
-    "first_seen": "2026-09-24",
     "is_new": false
   },
   {
