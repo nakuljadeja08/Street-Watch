@@ -1,6 +1,19 @@
 [
   {
     "firm": "Global Payments",
+    "id": "wd-tsys-TSYS-/job/ALPHARETTA-GEORGIA/AI---Data-Platform-Engineer_R0074577",
+    "title": "AI & Data Platform Engineer",
+    "location": "ALPHARETTA, GEORGIA",
+    "url": "https://tsys.wd1.myworkdayjobs.com/TSYS/job/ALPHARETTA-GEORGIA/AI---Data-Platform-Engineer_R0074577",
+    "source": "workday",
+    "posted_date": "2026-10-09",
+    "metro": "Atlanta",
+    "sector": "Fintech",
+    "first_seen": "2026-10-05",
+    "is_new": false
+  },
+  {
+    "firm": "Global Payments",
     "id": "wd-tsys-TSYS-/job/CINCINNATI-OHIO/Data-Engineer_R0076225",
     "title": "Data Engineer",
     "location": "CINCINNATI, OHIO; ATLANTA, GEORGIA",
@@ -23,7 +36,7 @@
     "metro": "Boston",
     "sector": "Finance",
     "first_seen": "2026-10-19",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Truist Securities",
@@ -52,19 +65,6 @@
     "is_new": false
   },
   {
-    "firm": "Charles Schwab",
-    "id": "charles-101923577296",
-    "title": "Data Engineer",
-    "location": "Southlake, TX; Austin, TX; Chicago, IL",
-    "url": "https://www.schwabjobs.com/job/southlake/data-engineer/33727/101923577296",
-    "source": "charles",
-    "posted_date": null,
-    "metro": "Chicago",
-    "sector": "Finance",
-    "first_seen": "2026-10-14",
-    "is_new": false
-  },
-  {
     "firm": "Comcast",
     "id": "wd-comcast-Comcast_Careers-/job/IL---Chicago-350-N-Orleans-St-1300N/Data-Engineer-3---Reston--VA---Freewheel_R444945",
     "title": "Data Engineer 3 - Reston, VA - Freewheel",
@@ -78,13 +78,26 @@
     "is_new": false
   },
   {
+    "firm": "Google",
+    "id": "google-90752211805446854",
+    "title": "AI Data Engineer I, Professional Services, Google Cloud",
+    "location": "Austin, TX, USA; Atlanta, GA, USA; Boulder, CO, USA; Chicago, IL, USA",
+    "url": "https://www.google.com/about/careers/applications/jobs/results/90752211805446854",
+    "source": "google",
+    "posted_date": "2026-10-20",
+    "metro": "Chicago",
+    "sector": "Tech",
+    "first_seen": "2026-10-20",
+    "is_new": true
+  },
+  {
     "firm": "Northern Trust",
     "id": "wd-ntrs-northerntrust-/job/Chicago-IL/Cloud-Data-Platform-Engineer_R158514-1",
     "title": "Cloud Data Platform Engineer",
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Cloud-Data-Platform-Engineer_R158514-1",
     "source": "workday",
-    "posted_date": "2026-09-18",
+    "posted_date": "2026-09-19",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -97,7 +110,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Analytics-Engineer_R150313",
     "source": "workday",
-    "posted_date": "2026-09-18",
+    "posted_date": "2026-09-19",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -110,7 +123,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Program-Engineer_R150311",
     "source": "workday",
-    "posted_date": "2026-09-18",
+    "posted_date": "2026-09-19",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -127,19 +140,6 @@
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-10-15",
-    "is_new": false
-  },
-  {
-    "firm": "Franklin Templeton",
-    "id": "phenom-careers.franklintempleton.com-FTGFTMUS869238EXTERNALENUS",
-    "title": "Data Engineer",
-    "location": "Baltimore, Maryland, United States of America",
-    "url": "https://franklintempleton.wd5.myworkdayjobs.com/Primary-External-1/job/Baltimore-Maryland-United-States-of-America/Data-Engineer_869238",
-    "source": "phenom",
-    "posted_date": "2026-10-06",
-    "metro": "DC / Virginia",
-    "sector": "Finance",
-    "first_seen": "2026-10-06",
     "is_new": false
   },
   {
@@ -344,7 +344,7 @@
     "location": "Brooklyn, OH",
     "url": "https://keybank.wd5.myworkdayjobs.com/External_Career_Site/job/Brooklyn-OH/Data-Inventory-Engineer_R-41676",
     "source": "workday",
-    "posted_date": "2026-09-18",
+    "posted_date": "2026-09-19",
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-10-16",
@@ -422,7 +422,7 @@
     "location": "MetroPark",
     "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/MetroPark/Cloud-Data-Engineer_R7127",
     "source": "workday",
-    "posted_date": "2026-09-18",
+    "posted_date": "2026-09-19",
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -533,6 +533,32 @@
     "is_new": false
   },
   {
+    "firm": "HP",
+    "id": "wd-hp-ExternalCareerSite-/job/Vancouver-Washington-United-States-of-America/Big-Data-Laser-Analyst_3162874-1",
+    "title": "Big Data Laser Analyst",
+    "location": "Vancouver, Washington, United States of America",
+    "url": "https://hp.wd5.myworkdayjobs.com/ExternalCareerSite/job/Vancouver-Washington-United-States-of-America/Big-Data-Laser-Analyst_3162874-1",
+    "source": "workday",
+    "posted_date": "2026-09-19",
+    "metro": "Other US",
+    "sector": "Tech",
+    "first_seen": "2026-10-20",
+    "is_new": true
+  },
+  {
+    "firm": "HP",
+    "id": "wd-hp-ExternalCareerSite-/job/Vancouver-Washington-United-States-of-America/Print-Supplies-Big-Data-Analyst_3165759-2",
+    "title": "Print Supplies Big Data Analyst",
+    "location": "Vancouver, Washington, United States of America",
+    "url": "https://hp.wd5.myworkdayjobs.com/ExternalCareerSite/job/Vancouver-Washington-United-States-of-America/Print-Supplies-Big-Data-Analyst_3165759-2",
+    "source": "workday",
+    "posted_date": "2026-09-19",
+    "metro": "Other US",
+    "sector": "Tech",
+    "first_seen": "2026-10-20",
+    "is_new": true
+  },
+  {
     "firm": "JPMorgan Chase",
     "id": "oracle-jpmc.fa.oraclecloud.com-210793562",
     "title": "Data Engineering Associate",
@@ -556,6 +582,19 @@
     "metro": "Other US",
     "sector": "Fintech",
     "first_seen": "2026-10-07",
+    "is_new": false
+  },
+  {
+    "firm": "Mastercard",
+    "id": "wd-mastercard-CorporateCareers-/job/OFallon-Missouri/Data-Engineer-II_R-286580",
+    "title": "Data Engineer II",
+    "location": "O'Fallon, Missouri",
+    "url": "https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/OFallon-Missouri/Data-Engineer-II_R-286580",
+    "source": "workday",
+    "posted_date": "2026-09-28",
+    "metro": "Other US",
+    "sector": "Fintech",
+    "first_seen": "2026-09-29",
     "is_new": false
   },
   {
@@ -604,7 +643,7 @@
     "location": "Avon, MN",
     "url": "https://www.roberthalf.com/us/en/job/avon-mn/data-engineer/02310-0013504307-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-16",
+    "posted_date": "2026-10-20",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-16",
@@ -638,19 +677,6 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-01500-0013497785-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Oskaloosa, IA",
-    "url": "https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-13",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-13",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
     "id": "roberthalf-04600-0013495125-usen",
     "title": "Data Engineer \u00b7 Direct hire",
     "location": "Milwaukee, WI",
@@ -673,6 +699,19 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-01500-0013497785-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Oskaloosa, IA",
+    "url": "https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-13",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-13",
     "is_new": false
   },
   {
@@ -1001,6 +1040,19 @@
     "is_new": false
   },
   {
+    "firm": "Google",
+    "id": "google-83051369803457222",
+    "title": "Cloud AI Data Engineer II, Professional Services, Google Cloud",
+    "location": "Austin, TX, USA; Atlanta, GA, USA; Boulder, CO, USA; Chicago, IL, USA; Seattle, WA, USA",
+    "url": "https://www.google.com/about/careers/applications/jobs/results/83051369803457222",
+    "source": "google",
+    "posted_date": "2026-10-20",
+    "metro": "Seattle",
+    "sector": "Tech",
+    "first_seen": "2026-10-20",
+    "is_new": true
+  },
+  {
     "firm": "Microsoft",
     "id": "microsoft-1970393557022579",
     "title": "Data Engineer II",
@@ -1054,36 +1106,10 @@
   },
   {
     "firm": "Charles Schwab",
-    "id": "charles-98187448432",
-    "title": "AI/ML Ops and Data Engineer",
-    "location": "Southlake, TX; Austin, TX; Phoenix, AZ",
-    "url": "https://www.schwabjobs.com/job/southlake/ai-ml-ops-and-data-engineer/33727/98187448432",
-    "source": "charles",
-    "posted_date": null,
-    "metro": "Texas",
-    "sector": "Finance",
-    "first_seen": "2026-09-29",
-    "is_new": false
-  },
-  {
-    "firm": "Charles Schwab",
     "id": "charles-100738780800",
     "title": "Data Engineer",
     "location": "Austin, TX; Southlake, TX",
     "url": "https://www.schwabjobs.com/job/austin/data-engineer/33727/100738780800",
-    "source": "charles",
-    "posted_date": null,
-    "metro": "Texas",
-    "sector": "Finance",
-    "first_seen": "2026-09-29",
-    "is_new": false
-  },
-  {
-    "firm": "Charles Schwab",
-    "id": "charles-98187448448",
-    "title": "Machine Learning Ops Data Engineer",
-    "location": "Southlake, TX; Austin, TX; Phoenix, AZ",
-    "url": "https://www.schwabjobs.com/job/southlake/machine-learning-ops-data-engineer/33727/98187448448",
     "source": "charles",
     "posted_date": null,
     "metro": "Texas",
@@ -1102,7 +1128,7 @@
     "metro": "Texas",
     "sector": "Finance",
     "first_seen": "2026-10-19",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Google",
@@ -1154,6 +1180,19 @@
     "metro": "Texas",
     "sector": "Agency",
     "first_seen": "2026-10-06",
+    "is_new": false
+  },
+  {
+    "firm": "Salesforce",
+    "id": "wd-salesforce-External_Career_Site-/job/Texas---Austin/Digital-Success-Analytics-Engineer_JR362928-1",
+    "title": "Digital Success Analytics Engineer",
+    "location": "Texas - Austin",
+    "url": "https://salesforce.wd12.myworkdayjobs.com/External_Career_Site/job/Texas---Austin/Digital-Success-Analytics-Engineer_JR362928-1",
+    "source": "workday",
+    "posted_date": "2026-10-16",
+    "metro": "Texas",
+    "sector": "Tech",
+    "first_seen": "2026-10-16",
     "is_new": false
   },
   {
