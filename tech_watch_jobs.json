@@ -39,19 +39,6 @@
     "is_new": false
   },
   {
-    "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0120831EXTERNALENUS",
-    "title": "Security Engineer (Data Engineering/ Protection)",
-    "location": "Charlotte, North Carolina, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Charlotte-NC/Security-Engineer--Data-Engineering--Protection-_R0120831",
-    "source": "phenom",
-    "posted_date": "2026-10-16",
-    "metro": "Charlotte",
-    "sector": "Finance",
-    "first_seen": "2026-10-17",
-    "is_new": false
-  },
-  {
     "firm": "CIBC",
     "id": "wd-cibc-search-/job/Chicago-IL/Senior-Software-Engineer---US-Risk-Technology_2613362",
     "title": "Databricks Data Engineer, Risk Technology",
@@ -140,6 +127,19 @@
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-10-15",
+    "is_new": false
+  },
+  {
+    "firm": "Franklin Templeton",
+    "id": "phenom-careers.franklintempleton.com-FTGFTMUS869238EXTERNALENUS",
+    "title": "Data Engineer",
+    "location": "Baltimore, Maryland, United States of America",
+    "url": "https://franklintempleton.wd5.myworkdayjobs.com/Primary-External-1/job/Baltimore-Maryland-United-States-of-America/Data-Engineer_869238",
+    "source": "phenom",
+    "posted_date": "2026-10-06",
+    "metro": "DC / Virginia",
+    "sector": "Finance",
+    "first_seen": "2026-10-06",
     "is_new": false
   },
   {
@@ -690,19 +690,6 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-03500-0013380490-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Oklahoma City, OK",
-    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-15",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
     "id": "roberthalf-01500-0013497785-usen",
     "title": "Data Engineer \u00b7 Direct hire",
     "location": "Oskaloosa, IA",
@@ -712,6 +699,19 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-13",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-03500-0013380490-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Oklahoma City, OK",
+    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-15",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-05",
     "is_new": false
   },
   {
