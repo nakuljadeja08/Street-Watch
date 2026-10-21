@@ -1,19 +1,6 @@
 [
   {
     "firm": "Global Payments",
-    "id": "wd-tsys-TSYS-/job/ALPHARETTA-GEORGIA/AI---Data-Platform-Engineer_R0074577",
-    "title": "AI & Data Platform Engineer",
-    "location": "ALPHARETTA, GEORGIA",
-    "url": "https://tsys.wd1.myworkdayjobs.com/TSYS/job/ALPHARETTA-GEORGIA/AI---Data-Platform-Engineer_R0074577",
-    "source": "workday",
-    "posted_date": "2026-10-09",
-    "metro": "Atlanta",
-    "sector": "Fintech",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Global Payments",
     "id": "wd-tsys-TSYS-/job/CINCINNATI-OHIO/Data-Engineer_R0076225",
     "title": "Data Engineer",
     "location": "CINCINNATI, OHIO; ATLANTA, GEORGIA",
@@ -50,19 +37,6 @@
     "sector": "Finance",
     "first_seen": "2026-10-21",
     "is_new": true
-  },
-  {
-    "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0120831EXTERNALENUS",
-    "title": "Security Engineer (Data Engineering/ Protection)",
-    "location": "Charlotte, North Carolina, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Charlotte-NC/Security-Engineer--Data-Engineering--Protection-_R0120831",
-    "source": "phenom",
-    "posted_date": "2026-10-16",
-    "metro": "Charlotte",
-    "sector": "Finance",
-    "first_seen": "2026-10-17",
-    "is_new": false
   },
   {
     "firm": "CIBC",
@@ -286,19 +260,6 @@
     "is_new": false
   },
   {
-    "firm": "Citadel Securities",
-    "id": "cs-c-market-data-engineer",
-    "title": "C++ Market Data Engineer",
-    "location": "Miami, New York",
-    "url": "https://www.citadelsecurities.com/careers/details/c-market-data-engineer/",
-    "source": "citadel",
-    "posted_date": null,
-    "metro": "NYC Area",
-    "sector": "Finance",
-    "first_seen": "2026-09-27",
-    "is_new": false
-  },
-  {
     "firm": "Figma",
     "id": "gh-figma-6201407004",
     "title": "Data Platform Engineer",
@@ -466,6 +427,19 @@
     "sector": "Tech",
     "first_seen": "2026-09-27",
     "is_new": false
+  },
+  {
+    "firm": "Morgan Stanley",
+    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Data-Engineer---Financial-Crimes---Associate_PT-JR035703",
+    "title": "Data Engineer - Financial Crimes - Associate",
+    "location": "New York, New York, United States of America",
+    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Data-Engineer---Financial-Crimes---Associate_PT-JR035703",
+    "source": "workday",
+    "posted_date": "2026-09-20",
+    "metro": "NYC Area",
+    "sector": "Finance",
+    "first_seen": "2026-10-21",
+    "is_new": true
   },
   {
     "firm": "Palantir",
@@ -690,12 +664,12 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-03500-0013380490-usen",
+    "id": "roberthalf-04600-0013495125-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Oklahoma City, OK",
-    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
+    "location": "Milwaukee, WI",
+    "url": "https://www.roberthalf.com/us/en/job/milwaukee-wi/data-engineer/04600-0013495125-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-15",
+    "posted_date": "2026-10-20",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -703,12 +677,12 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-04600-0013495125-usen",
+    "id": "roberthalf-03500-0013380490-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Milwaukee, WI",
-    "url": "https://www.roberthalf.com/us/en/job/milwaukee-wi/data-engineer/04600-0013495125-usen",
+    "location": "Oklahoma City, OK",
+    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-20",
+    "posted_date": "2026-10-15",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -1132,6 +1106,19 @@
   },
   {
     "firm": "SpaceX",
+    "id": "gh-spacex-8694609002",
+    "title": "Data Engineer (Starlink Mobile)",
+    "location": "Redmond, WA",
+    "url": "https://boards.greenhouse.io/spacex/jobs/8694609002?gh_jid=8694609002",
+    "source": "greenhouse",
+    "posted_date": "2026-10-21",
+    "metro": "Seattle",
+    "sector": "Tech",
+    "first_seen": "2026-10-21",
+    "is_new": true
+  },
+  {
+    "firm": "SpaceX",
     "id": "gh-spacex-8784022002",
     "title": "Data Engineer, Ground Network Engineering (Gateway)",
     "location": "Redmond, WA",
@@ -1258,19 +1245,6 @@
     "metro": "Texas",
     "sector": "Agency",
     "first_seen": "2026-10-06",
-    "is_new": false
-  },
-  {
-    "firm": "Salesforce",
-    "id": "wd-salesforce-External_Career_Site-/job/Texas---Austin/Digital-Success-Analytics-Engineer_JR362928-1",
-    "title": "Digital Success Analytics Engineer",
-    "location": "Texas - Austin",
-    "url": "https://salesforce.wd12.myworkdayjobs.com/External_Career_Site/job/Texas---Austin/Digital-Success-Analytics-Engineer_JR362928-1",
-    "source": "workday",
-    "posted_date": "2026-10-16",
-    "metro": "Texas",
-    "sector": "Tech",
-    "first_seen": "2026-10-16",
     "is_new": false
   },
   {
