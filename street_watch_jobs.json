@@ -606,7 +606,7 @@
     "location": "Chicago Office",
     "url": "https://recruitment.macquarie.com/en_US/careers/JobDetail?jobId=24256",
     "source": "pageup",
-    "posted_date": "2026-10-13",
+    "posted_date": "2026-10-21",
     "metro": "Chicago",
     "first_seen": "2026-10-13",
     "is_new": false
@@ -2161,27 +2161,27 @@
   },
   {
     "firm": "Blue Owl Capital",
-    "id": "wd-blueowl-blueowl-/job/NY---375---17/GP-Stakes-Value-Creation--Capital-Strategies---Associate_R-102435",
+    "id": "wd-blueowl-blueowl-/job/New-York-City-NY/GP-Stakes-Value-Creation--Capital-Strategies---Associate_R-102435",
     "title": "GP Stakes Value Creation, Capital Strategies \u2013 Associate",
-    "location": "NY - 375 - 17",
-    "url": "https://blueowl.wd1.myworkdayjobs.com/blueowl/job/NY---375---17/GP-Stakes-Value-Creation--Capital-Strategies---Associate_R-102435",
+    "location": "New York City, NY",
+    "url": "https://blueowl.wd1.myworkdayjobs.com/blueowl/job/New-York-City-NY/GP-Stakes-Value-Creation--Capital-Strategies---Associate_R-102435",
     "source": "workday",
-    "posted_date": "2026-10-14",
+    "posted_date": "2026-10-21",
     "metro": "NY + Jersey City",
-    "first_seen": "2026-10-14",
-    "is_new": false
+    "first_seen": "2026-10-21",
+    "is_new": true
   },
   {
     "firm": "Blue Owl Capital",
-    "id": "wd-blueowl-blueowl-/job/NY---375---16/GP-Strategic-Capital--Value-Creation-Group---Analyst_R-102423",
-    "title": "GP Strategic Capital, Value Creation Group - Analyst",
-    "location": "NY - 375 - 16",
-    "url": "https://blueowl.wd1.myworkdayjobs.com/blueowl/job/NY---375---16/GP-Strategic-Capital--Value-Creation-Group---Analyst_R-102423",
+    "id": "wd-blueowl-blueowl-/job/New-York-City-NY/GP-Strategic-Capital--Value-Creation-Group---Analyst_R-102423",
+    "title": "GP Strategic Capital, Value Creation Group - Program Analyst",
+    "location": "New York City, NY",
+    "url": "https://blueowl.wd1.myworkdayjobs.com/blueowl/job/New-York-City-NY/GP-Strategic-Capital--Value-Creation-Group---Analyst_R-102423",
     "source": "workday",
-    "posted_date": "2026-10-05",
+    "posted_date": "2026-10-21",
     "metro": "NY + Jersey City",
-    "first_seen": "2026-10-05",
-    "is_new": false
+    "first_seen": "2026-10-21",
+    "is_new": true
   },
   {
     "firm": "Brookfield Asset Management",
@@ -3229,18 +3229,6 @@
   },
   {
     "firm": "Franklin Templeton",
-    "id": "phenom-careers.franklintempleton.com-FTGFTMUS869872EXTERNALENUS",
-    "title": "BSP Debt Asset Management Associate, Commercial Real Estate",
-    "location": "New York, New York, United States of America",
-    "url": "https://franklintempleton.wd5.myworkdayjobs.com/Primary-External-1/job/New-York-New-York-United-States-of-America/BSP-Asset-Management-Associate--Commercial-Real-Estate_869872",
-    "source": "phenom",
-    "posted_date": "2026-09-29",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-29",
-    "is_new": false
-  },
-  {
-    "firm": "Franklin Templeton",
     "id": "phenom-careers.franklintempleton.com-FTGFTMUS868836EXTERNALENUS",
     "title": "Events & Sponsorships Associate Manager",
     "location": "New York, New York, United States of America",
@@ -3897,6 +3885,18 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-10",
+    "is_new": false
+  },
+  {
+    "firm": "Goldman Sachs",
+    "id": "gs-181887_GS_MID_CAREER",
+    "title": "Global Banking & Markets, RIA Custody, Managed Accounts & Alternative Assets Platform, Associate - New York",
+    "location": "New York, NY, United States",
+    "url": "https://higher.gs.com/roles/181887",
+    "source": "goldman",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-23",
     "is_new": false
   },
   {
@@ -5373,6 +5373,18 @@
     "posted_date": "2026-10-20",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-08",
+    "is_new": false
+  },
+  {
+    "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210797771",
+    "title": "US Equity Research - Large Cap Software - Associate",
+    "location": "New York, NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210797771",
+    "source": "oracle",
+    "posted_date": "2026-10-21",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-06",
     "is_new": false
   },
   {
@@ -7009,18 +7021,6 @@
   },
   {
     "firm": "Randstad",
-    "id": "randstad-1364922",
-    "title": "Business Analyst \u00b7 Contract",
-    "location": "Jersey City, New Jersey",
-    "url": "https://www.randstadusa.com/jobs/4/1364922/business-analyst_jersey-city/",
-    "source": "randstad",
-    "posted_date": "2026-10-15",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-15",
-    "is_new": false
-  },
-  {
-    "firm": "Randstad",
     "id": "randstad-AB_5102620",
     "title": "Data Operations and Reporting Analyst \u00b7 Direct hire",
     "location": "New York, New York",
@@ -7489,6 +7489,18 @@
   },
   {
     "firm": "Truist Securities",
+    "id": "phenom-careers.truist.com-TBJTBFUSR0119679EXTERNALENUS",
+    "title": "Treasury Sales Consultant - Middle Market",
+    "location": "New York, New York, USA",
+    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY/Treasury-Sales-Consultant---Middle-Market_R0119679",
+    "source": "phenom",
+    "posted_date": "2026-09-24",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-25",
+    "is_new": false
+  },
+  {
+    "firm": "Truist Securities",
     "id": "phenom-careers.truist.com-TBJTBFUSR0120874EXTERNALENUS",
     "title": "Treasury Sales Consultant - Middle Market",
     "location": "New York, New York, USA",
@@ -7920,6 +7932,18 @@
     "is_new": false
   },
   {
+    "firm": "AllianceBernstein",
+    "id": "wd-abglobal-alliancebernsteincareers-/job/San-Francisco-California/Associate_R0020159-2",
+    "title": "Associate",
+    "location": "San Francisco, California",
+    "url": "https://abglobal.wd1.myworkdayjobs.com/alliancebernsteincareers/job/San-Francisco-California/Associate_R0020159-2",
+    "source": "workday",
+    "posted_date": "2026-10-21",
+    "metro": "SF / Bay Area",
+    "first_seen": "2026-10-21",
+    "is_new": true
+  },
+  {
     "firm": "BMO",
     "id": "wd-bmo-External-/job/San-Francisco-CA-USA/Investment-Banking-Analyst--Technology_R260022435",
     "title": "Investment Banking Analyst, Technology",
@@ -8049,6 +8073,18 @@
     "posted_date": "2026-10-02",
     "metro": "SF / Bay Area",
     "first_seen": "2026-10-03",
+    "is_new": false
+  },
+  {
+    "firm": "Citi",
+    "id": "citi-101029269120",
+    "title": "Banking, Investment Banking, Full Time Analyst, San Francisco Technology \u2013 USA, 2027",
+    "location": "San Francisco, California, United States",
+    "url": "https://jobs.citi.com/job/san-francisco/banking-investment-banking-full-time-analyst-san-francisco-technology-usa-2027/287/101029269120",
+    "source": "citi",
+    "posted_date": null,
+    "metro": "SF / Bay Area",
+    "first_seen": "2026-09-23",
     "is_new": false
   },
   {
@@ -8551,6 +8587,18 @@
     "url": "https://www.roberthalf.com/us/en/job/san-mateo-ca/fpa-analyst/00430-9504415059-usen",
     "source": "roberthalf",
     "posted_date": "2026-10-20",
+    "metro": "SF / Bay Area",
+    "first_seen": "2026-10-21",
+    "is_new": true
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-00370-0013528578-usen",
+    "title": "Financial Analyst \u00b7 Contract-to-hire",
+    "location": "Menlo Park, CA (Remote)",
+    "url": "https://www.roberthalf.com/us/en/job/menlo-park-ca/financial-analyst/00370-0013528578-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-21",
     "metro": "SF / Bay Area",
     "first_seen": "2026-10-21",
     "is_new": true
