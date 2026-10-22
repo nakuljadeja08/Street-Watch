@@ -13,6 +13,27 @@ remain and 3 were removed** at your request.
 
 ---
 
+## 🆕 Added 2026-10-22 (approved by Nakul for Ms Tian)
+67 roles in her metros on day one.
+- **Banks (3, from the remaining list):** Scotiabank (SuccessFactors, 20) ·
+  Santander (Radancy, 16) · MUFG (Workday, 13)
+- **Fintech, Product/GTM (15):** Block · Ripple · Paxos · Carta · Gusto · Column ·
+  Addepar · Robinhood · SoFi · Mercury · Kalshi · Polymarket · Coinbase · Affirm ·
+  Betterment (most had 0–2 roles on day one: their GTM seats are mostly Manager
+  titles, which stay excluded)
+- **Fashion & Luxury (4):** PVH (Calvin Klein, Tommy Hilfiger; 3) · Saks Global
+  (Saks, Neiman Marcus, Bergdorf Goodman; 4) · Rent the Runway (2) · Chanel (0).
+  "Sales Assistant" and "Merchandise Operations" titles are now excluded as
+  department-store floor roles.
+- **Venture (6), same rule as a16z:** Sequoia Capital · Lightspeed · 8VC ·
+  Y Combinator · Bessemer Venture Partners · Battery Ventures (small boards)
+- **Found, not added:** hedge funds / advisory (Hudson River Trading, Point72,
+  Clear Street, Schonfeld, Millennium, Lincoln International, Man Group,
+  Squarepoint, Capital Group, Bain Capital; ~20 roles); Nordstrom, Macy's,
+  Brilliant Earth, Reformation (store roles only)
+
+---
+
 ## ✅ Finished
 
 ### Finance (74)
@@ -65,7 +86,6 @@ firm type "Staffing Agency" on the dashboard. Client firms are usually not named
 - **Siebert Williams Shank:** site blocked our access
 
 ### Platform known, needs a fetcher or more capture work (4)
-- **Scotiabank:** SAP SuccessFactors (the new Prada fetcher may work here)
 - **ANZ:** SuccessFactors / Avature family
 - **Rothschild & Co:** ATS not exposed on landing page
 - **Evercore:** board not linked from marketing site
@@ -73,10 +93,10 @@ firm type "Staffing Agency" on the dashboard. Client firms are usually not named
 ### US banks: need a browser capture (3)
 BNY (Eightfold) · Fifth Third Securities · Huntington Bancshares
 
-### Global / European / APAC banks: not yet investigated (23)
-UBS · Société Générale · Crédit Agricole CIB · Natixis · Santander CIB ·
+### Global / European / APAC banks: not yet investigated (21)
+UBS · Société Générale · Crédit Agricole CIB · Natixis ·
 BBVA CIB · UniCredit · Intesa Sanpaolo · Standard Chartered · Rabobank · Lloyds ·
-Commerzbank · DZ BANK · MUFG · SMBC Group · Nomura · Daiwa · Westpac · DBS ·
+Commerzbank · DZ BANK · SMBC Group · Nomura · Daiwa · Westpac · DBS ·
 CICC · Bank of China · ICBC · National Bank Financial
 
 ### Boutiques / advisory: not yet investigated (7)

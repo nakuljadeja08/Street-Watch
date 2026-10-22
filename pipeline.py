@@ -52,11 +52,22 @@ GREENHOUSE = {   # firm -> board token  (boards-api.greenhouse.io/v1/boards/<tok
     "Sotheby's": "sothebys",
     # Venture (added 2026-10-07): Ms Tian's dream firm, see VC_FIRMS.
     "a16z": "a16z",
+    # Wave of 2026-10-22 (approved by the user). Fintech: Product/GTM roles
+    # (PRODUCT_GTM_FIRMS); fashion: Rent the Runway; VC: same rule as a16z.
+    "Block": "block", "Ripple": "ripple", "Carta": "carta", "Gusto": "gusto",
+    "Addepar": "addepar1", "Robinhood": "robinhood", "SoFi": "sofi", "Mercury": "mercury",
+    "Coinbase": "coinbase", "Affirm": "affirm", "Betterment": "betterment",
+    "Rent the Runway": "renttherunway",
+    "Bessemer Venture Partners": "bessemerventurepartners", "Battery Ventures": "batteryventures",
 }
 ASHBY = {        # firm -> job board name (api.ashbyhq.com/posting-api/job-board/<name>)
     "Insight Partners": "insight-partners",          # slug is hyphenated (was "insightpartners" = empty)
     "Ramp": "ramp", "Plaid": "plaid", "Rogo": "rogo",
     "Bastion": "bastion",                            # stablecoin infra (jobs.ashbyhq.com/bastion)
+    # 2026-10-22: fintech (Product/GTM) and venture firms (VC_FIRMS)
+    "Paxos": "paxos", "Column": "column", "Kalshi": "kalshi", "Polymarket": "polymarket",
+    "Sequoia Capital": "sequoia", "Lightspeed": "lightspeed", "8VC": "8vc",
+    "Y Combinator": "ycombinator",
 }
 JIBE = {         # firm -> careers host  (https://<host>/api/jobs — Jibe/iCIMS front)
     "ZS Associates": "jobs.zs.com",                 # 275 postings, paginated 10/page
@@ -112,6 +123,8 @@ WORKDAY = {      # firm -> (tenant, datacenter, site)
     "U.S. Bancorp":             ("usbank",     "wd1", "US_Bank_Careers"),
     "KeyBank":                  ("keybank",    "wd5", "External_Career_Site"),
     "Mizuho":                   ("mizuho",     "wd1", "mizuhoamericas"),   # added 2026-09-24
+    "MUFG":                     ("mufgub",     "wd3", "MUFG-Careers"),     # added 2026-10-22
+    "Chanel":                   ("cc",         "wd3", "ChanelCareers"),    # fashion, Product/GTM (2026-10-22)
     # Green-priority PE firms (added 2026-09-17) — tenant/site read off the live
     # careers redirect and confirmed against the wd/cxs endpoint.
     "Carlyle":                  ("carlyle",    "wd1", "Carlyle"),        # 79 reqs
@@ -750,6 +763,7 @@ RADANCY = {              # firm -> host
     # Citizens' careers site looked Phenom at first glance but is actually Radancy
     # (/search-jobs/ + SetSearchRequestGeoLocation) — same platform as Citi et al.
     "Citizens Financial Group": "jobs.citizensbank.com",
+    "Santander": "www.santandercareers.com",          # added 2026-10-22; ~100 US reqs
 }
 PHENOM = {               # firm -> (host, country, lang)  Phenom People careers
     # Phenom serves job search from POST https://<host>/widgets with
@@ -765,6 +779,10 @@ PHENOM = {               # firm -> (host, country, lang)  Phenom People careers
     # FT's old Workday board (wd5/Primary-External-1) is dead (total=0); its live
     # listings are on Phenom at careers.franklintempleton.com (201 reqs).
     "Franklin Templeton":      ("careers.franklintempleton.com", "us", "en_us"),
+    # Fashion, Product/GTM (added 2026-10-22). Saks Global = Saks, Neiman
+    # Marcus and Bergdorf Goodman (careers site branded Exemplar Luxury Group).
+    "PVH":                     ("careers.pvh.com", "us", "en_us"),
+    "Saks Global":             ("careers.exemplarluxurygroup.com", "us", "en_us"),
 }
 EIGHTFOLD = {            # firm -> (host, domain, location query)  Eightfold AI careers
     # HSBC moved off its Avature board (mycareer.hsbc.com now only holds
@@ -780,6 +798,7 @@ EIGHTFOLD_PCSX = {       # firm -> (host, domain, location)  Eightfold's newer "
 }
 SUCCESSFACTORS = {       # firm -> host  SAP SuccessFactors Career Site Builder
     "Prada": "jobs.pradagroup.com",
+    "Scotiabank": "jobs.scotiabank.com",             # added 2026-10-22; ~80 reqs in her metros
 }
 BAMBOOHR = {             # firm -> subdomain  (<sub>.bamboohr.com/careers/list)
     "Phillips": "phillipsauctioneers",               # auction house, ~10 global
@@ -1721,6 +1740,10 @@ PRODUCT_GTM_FIRMS = {
     "Xero", "Airwallex", "Sharesies",                    # New Zealand fintech
     "Christie's", "Sotheby's", "Phillips", "Bonhams", "Doyle",
     "Freeman's | Hindman", "Rago | Wright",
+    # 2026-10-22
+    "Block", "Ripple", "Carta", "Gusto", "Addepar", "Robinhood", "SoFi", "Mercury",
+    "Coinbase", "Affirm", "Betterment", "Paxos", "Column", "Kalshi", "Polymarket",
+    "PVH", "Saks Global", "Rent the Runway", "Chanel",
 }
 # Auction houses also keep analyst/associate titles (client success, finance
 # services), since they sit between finance and luxury, plus their entry-level
@@ -1730,7 +1753,8 @@ AUCTION_HOUSES = {"Christie's", "Sotheby's", "Phillips", "Bonhams", "Doyle", "Fr
 # Venture firms (a16z, added 2026-10-07) keep analyst/associate titles AND
 # Product/GTM ones (growth, partnerships, marketing). a16z prefixes every title
 # with its internal level ("Partner 16, …"), which is not a seniority signal.
-VC_FIRMS = {"a16z"}
+VC_FIRMS = {"a16z", "Sequoia Capital", "Lightspeed", "8VC", "Y Combinator",   # more added 2026-10-22
+            "Bessemer Venture Partners", "Battery Ventures"}
 VC_MAX_AGE_DAYS = 90   # dream firm: roles stay open longer and she wants them all (user, 2026-10-07)
 AUCTION_TITLES = TITLES + ["cataloguer", "cataloger", "coordinator"]
 _PRODUCT_GTM_RE = re.compile(
@@ -1742,6 +1766,7 @@ _PRODUCT_GTM_RE = re.compile(
 _PRODUCT_GTM_EXCLUDE_RE = re.compile(
     r"client advis|sales (?:associate|advisor|support|professional|lead|and service|& service)"
     r"|beauty advisor|\bstore\b|boutique|\bstock\b|key ?holder|cashier|visual merchandis"
+    r"|sales assistant|merchandise operations"           # department-store floor (Saks, Bergdorf)
     r"|\bartist\b|ambassador|engineer|designer|\bstaff\b|\blead\b|group product|counsel"
     r"|seasonal|day of auction|\btemporary\b|\btemp\b|fixed[\s-]term|freelance"
     # GTM-adjacent support functions that aren't Product/GTM work themselves

@@ -372,6 +372,66 @@
     "is_new": false
   },
   {
+    "firm": "DRW",
+    "id": "gh-drweng-8204565",
+    "title": "Corporate Actions Associate",
+    "location": "Chicago",
+    "url": "https://job-boards.greenhouse.io/drweng/jobs/8204565",
+    "source": "greenhouse",
+    "posted_date": "2026-09-22",
+    "metro": "Chicago",
+    "first_seen": "2026-09-22",
+    "is_new": false
+  },
+  {
+    "firm": "DRW",
+    "id": "gh-drweng-8256605",
+    "title": "Data Analyst - Business Intelligence",
+    "location": "Chicago",
+    "url": "https://job-boards.greenhouse.io/drweng/jobs/8256605",
+    "source": "greenhouse",
+    "posted_date": "2026-10-07",
+    "metro": "Chicago",
+    "first_seen": "2026-10-07",
+    "is_new": false
+  },
+  {
+    "firm": "DRW",
+    "id": "gh-drweng-8258225",
+    "title": "Quantitative Researcher - Delta One",
+    "location": "Chicago",
+    "url": "https://job-boards.greenhouse.io/drweng/jobs/8258225",
+    "source": "greenhouse",
+    "posted_date": "2026-10-06",
+    "metro": "Chicago",
+    "first_seen": "2026-10-06",
+    "is_new": false
+  },
+  {
+    "firm": "DRW",
+    "id": "gh-drweng-8221691",
+    "title": "Risk Product Analyst",
+    "location": "Chicago",
+    "url": "https://job-boards.greenhouse.io/drweng/jobs/8221691",
+    "source": "greenhouse",
+    "posted_date": "2026-09-29",
+    "metro": "Chicago",
+    "first_seen": "2026-09-30",
+    "is_new": false
+  },
+  {
+    "firm": "DRW",
+    "id": "gh-drweng-8302917",
+    "title": "Trader",
+    "location": "Chicago",
+    "url": "https://job-boards.greenhouse.io/drweng/jobs/8302917",
+    "source": "greenhouse",
+    "posted_date": "2026-10-21",
+    "metro": "Chicago",
+    "first_seen": "2026-10-21",
+    "is_new": false
+  },
+  {
     "firm": "Deutsche Bank",
     "id": "wd-db-DBWebsite-/job/Chicago-222-South-Riverside-Plaza/Relationship-Management-Analyst--US-Wealth_R0449150-2",
     "title": "Relationship Management Analyst, US Wealth",
@@ -2388,6 +2448,30 @@
     "is_new": false
   },
   {
+    "firm": "Carlyle",
+    "id": "wd-carlyle-Carlyle-/job/New-York-NY/XMLNAME-2-Year-Associate--AlpInvest-Secondaries---Portfolio-Finance_R-00094-1",
+    "title": "2-Year Associate, AlpInvest Secondaries & Portfolio Finance",
+    "location": "New York, NY",
+    "url": "https://carlyle.wd1.myworkdayjobs.com/Carlyle/job/New-York-NY/XMLNAME-2-Year-Associate--AlpInvest-Secondaries---Portfolio-Finance_R-00094-1",
+    "source": "workday",
+    "posted_date": "2026-10-22",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-17",
+    "is_new": false
+  },
+  {
+    "firm": "Carlyle",
+    "id": "wd-carlyle-Carlyle-/job/New-York-NY/XMLNAME-2-Year-Associate--Asset-Backed-Finance_R-00077-1",
+    "title": "2-Year Associate, Asset-Backed Finance",
+    "location": "New York, NY",
+    "url": "https://carlyle.wd1.myworkdayjobs.com/Carlyle/job/New-York-NY/XMLNAME-2-Year-Associate--Asset-Backed-Finance_R-00077-1",
+    "source": "workday",
+    "posted_date": "2026-10-22",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-17",
+    "is_new": false
+  },
+  {
     "firm": "Citadel Securities",
     "id": "cs-client-execution-trading",
     "title": "Client Execution Trading",
@@ -2853,6 +2937,30 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-07",
+    "is_new": false
+  },
+  {
+    "firm": "DRW",
+    "id": "gh-drweng-8256366",
+    "title": "Quantitative Researcher - Prediction Markets",
+    "location": "New York",
+    "url": "https://job-boards.greenhouse.io/drweng/jobs/8256366",
+    "source": "greenhouse",
+    "posted_date": "2026-10-05",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-05",
+    "is_new": false
+  },
+  {
+    "firm": "DRW",
+    "id": "gh-drweng-8238021",
+    "title": "Risk Product Analyst",
+    "location": "New York",
+    "url": "https://job-boards.greenhouse.io/drweng/jobs/8238021",
+    "source": "greenhouse",
+    "posted_date": "2026-09-29",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-30",
     "is_new": false
   },
   {
@@ -5137,6 +5245,18 @@
   },
   {
     "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210802125",
+    "title": "Special Advisory Services - Client Liaison - Associate",
+    "location": "NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210802125",
+    "source": "oracle",
+    "posted_date": "2026-10-22",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-22",
+    "is_new": true
+  },
+  {
+    "firm": "JPMorgan Chase",
     "id": "oracle-jpmc.fa.oraclecloud.com-210799062",
     "title": "Strategy & Process Improvement, Associate",
     "location": "New York, NY, United States",
@@ -5233,18 +5353,6 @@
   },
   {
     "firm": "JPMorgan Chase",
-    "id": "oracle-jpmc.fa.oraclecloud.com-210798422",
-    "title": "US Equity Research - Food Producers & Retailers - Associate",
-    "location": "NY, United States",
-    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210798422",
-    "source": "oracle",
-    "posted_date": "2026-10-20",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-08",
-    "is_new": false
-  },
-  {
-    "firm": "JPMorgan Chase",
     "id": "oracle-jpmc.fa.oraclecloud.com-210797771",
     "title": "US Equity Research - Large Cap Software - Associate",
     "location": "New York, NY, United States",
@@ -5257,48 +5365,12 @@
   },
   {
     "firm": "JPMorgan Chase",
-    "id": "oracle-jpmc.fa.oraclecloud.com-210793027",
-    "title": "US Equity Research - Life Science Tools & Diagnostics - Analyst",
-    "location": "NY, United States",
-    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210793027",
-    "source": "oracle",
-    "posted_date": "2026-10-20",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-22",
-    "is_new": false
-  },
-  {
-    "firm": "JPMorgan Chase",
     "id": "oracle-jpmc.fa.oraclecloud.com-210790087",
     "title": "US Equity Research - Metals & Mining - Associate",
     "location": "New York, NY, United States",
     "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210790087",
     "source": "oracle",
     "posted_date": "2026-10-19",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-19",
-    "is_new": false
-  },
-  {
-    "firm": "JPMorgan Chase",
-    "id": "oracle-jpmc.fa.oraclecloud.com-210790993",
-    "title": "US Equity Research - SMid Biotech - Associate",
-    "location": "NY, United States",
-    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210790993",
-    "source": "oracle",
-    "posted_date": "2026-10-20",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-19",
-    "is_new": false
-  },
-  {
-    "firm": "JPMorgan Chase",
-    "id": "oracle-jpmc.fa.oraclecloud.com-210790999",
-    "title": "US Equity Research - SMid Biotech - Associate",
-    "location": "NY, United States",
-    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210790999",
-    "source": "oracle",
-    "posted_date": "2026-10-20",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-19",
     "is_new": false
@@ -6097,6 +6169,18 @@
   },
   {
     "firm": "Morgan Stanley",
+    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Client-Service-Associate_JR045513-2",
+    "title": "Client Service Associate",
+    "location": "New York, New York, United States of America",
+    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Client-Service-Associate_JR045513-2",
+    "source": "workday",
+    "posted_date": "2026-10-22",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-22",
+    "is_new": true
+  },
+  {
+    "firm": "Morgan Stanley",
     "id": "wd-ms-External-/job/Purchase-New-York-United-States-of-America/Digital-Client-Experience-and-Platforms-Business-Analyst---Associate_PT-JR043844",
     "title": "Digital Client Experience and Platforms Business Analyst \u2013 Associate",
     "location": "Purchase, New York, United States of America",
@@ -6757,6 +6841,18 @@
   },
   {
     "firm": "RBC Capital Markets",
+    "id": "phenom-jobs.rbc.com-RBCAA0088R0000188215EXTERNALENCA",
+    "title": "Associate, Product Control",
+    "location": "Jersey City, New Jersey, United States of America",
+    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/Jersey-City-New-Jersey-United-States-of-America/Associate--Product-Control_R-0000188215-1",
+    "source": "phenom",
+    "posted_date": "2026-10-05",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-06",
+    "is_new": false
+  },
+  {
+    "firm": "RBC Capital Markets",
     "id": "phenom-jobs.rbc.com-RBCAA0088R0000188521EXTERNALENCA",
     "title": "Audit Analyst, Capital Markets",
     "location": "Jersey City, New Jersey, United States of America",
@@ -6837,18 +6933,6 @@
     "posted_date": "2026-09-29",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Randstad",
-    "id": "randstad-1363895",
-    "title": "Technical Business Analyst \u00b7 Contract",
-    "location": "Jersey City, New Jersey",
-    "url": "https://www.randstadusa.com/jobs/4/1363895/technical-business-analyst_jersey-city/",
-    "source": "randstad",
-    "posted_date": "2026-10-06",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-06",
     "is_new": false
   },
   {
@@ -7237,14 +7321,14 @@
   },
   {
     "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0119679EXTERNALENUS",
+    "id": "phenom-careers.truist.com-TBJTBFUSR0120874EXTERNALENUS",
     "title": "Treasury Sales Consultant - Middle Market",
     "location": "New York, New York, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY/Treasury-Sales-Consultant---Middle-Market_R0119679",
+    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY/Treasury-Sales-Consultant---Middle-Market_R0120874",
     "source": "phenom",
-    "posted_date": "2026-09-24",
+    "posted_date": "2026-10-19",
     "metro": "NY + Jersey City",
-    "first_seen": "2026-09-25",
+    "first_seen": "2026-10-19",
     "is_new": false
   },
   {
@@ -7255,6 +7339,18 @@
     "url": "https://usbank.wd1.myworkdayjobs.com/US_Bank_Careers/job/New-York-NY/BTIG--Corporate-Communications--Special-Events-Coordinator--Associate_2026-0033085",
     "source": "workday",
     "posted_date": "2026-10-21",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-22",
+    "is_new": true
+  },
+  {
+    "firm": "U.S. Bancorp",
+    "id": "wd-usbank-US_Bank_Careers-/job/New-York-NY/BTIG--Research--Equity-Research-Associate--Associate--Consumer-_2026-0033050",
+    "title": "BTIG: Research, Equity Research Associate, Associate (Consumer)",
+    "location": "New York, NY",
+    "url": "https://usbank.wd1.myworkdayjobs.com/US_Bank_Careers/job/New-York-NY/BTIG--Research--Equity-Research-Associate--Associate--Consumer-_2026-0033050",
+    "source": "workday",
+    "posted_date": "2026-10-22",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-22",
     "is_new": true
@@ -7569,6 +7665,18 @@
     "posted_date": "2026-10-20",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-17",
+    "is_new": false
+  },
+  {
+    "firm": "ZS Associates",
+    "id": "jibe-jobs.zs.com-67889",
+    "title": "Market Research Associate Consultant",
+    "location": "Philadelphia, Pennsylvania; New York, New York; Princeton, New Jersey",
+    "url": "https://jobs.zs.com/jobs/67889",
+    "source": "jibe",
+    "posted_date": "2026-10-22",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-29",
     "is_new": false
   },
   {
@@ -8001,18 +8109,6 @@
     "posted_date": "2026-10-12",
     "metro": "SF / Bay Area",
     "first_seen": "2026-10-12",
-    "is_new": false
-  },
-  {
-    "firm": "JPMorgan Chase",
-    "id": "oracle-jpmc.fa.oraclecloud.com-210802301",
-    "title": "PLP Firm Specialist, Associate",
-    "location": "San Francisco, CA, United States",
-    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210802301",
-    "source": "oracle",
-    "posted_date": "2026-10-21",
-    "metro": "SF / Bay Area",
-    "first_seen": "2026-10-21",
     "is_new": false
   },
   {
