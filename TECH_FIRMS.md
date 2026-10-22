@@ -151,3 +151,30 @@ Not added: ExxonMobil and Phillips 66 (SAP SuccessFactors — no fetcher); Valer
 Halliburton, SLB, Kinder Morgan, Targa, Coterra, Cheniere, EOG, Enterprise
 Products, Dominion, NextEra (not on Workday / ATS we don't fetch). Enbridge is
 Canada-HQ but has large US operations; the US location filter keeps only US roles.
+
+### 2026-10-22: wave 3 + wider title rule
+Approved by Nakul after a probe of ~150 more boards. Small Greenhouse/Ashby
+boards turned out to add few roles (about 8 across 90 boards), so the bigger
+change is the title rule.
+
+- **Title rule:** "Software Engineer, Data Platform / Pipelines / Spark…" titles
+  (a software title that names a data area) now count at every firm, not just
+  the data-infrastructure list (that list is gone). "BI Engineer/Developer",
+  "Analytics Developer" and "Database / Data Warehouse Engineer/Developer" count
+  too. On that day's pull this added about 40 roles (DoorDash, Pinterest, Roblox,
+  JPMorgan "Software Engineer II: Data Engineer", Meta "Software Engineer,
+  Databases"…). "Video streaming" titles are excluded. Senior titles are still
+  out (65 would have passed; not approved).
+- **Firms added (Tech):** FanDuel, Garner Health, Carvana, AppLovin, xAI, HubSpot,
+  Roku, Zscaler, Neo4j, Cribl, Together AI, Snorkel AI, The New York Times, Riot
+  Games, Epic Games, Box, AlphaSense, PitchBook, Compass, SingleStore, Gong,
+  ZoomInfo, Anaplan, Hims & Hers, Lyra Health (Lever), ServiceNow
+  (SmartRecruiters, new `SMARTRECRUITERS` registry). **Fintech:** Navan, Polymarket,
+  Kalshi. 8 matching roles on day one.
+- **Found but not added (user's call):** Booz Allen (52 DE roles, but mostly
+  government work needing a security clearance) and the non-tech employers
+  (Travelers 13, The Hartford, Home Depot, Lowe's, DTCC 1 each; Cigna, Elevance,
+  USAA, Ally, Humana, CVS, Freddie Mac 0). Boards: Travelers Workday
+  `travelers/wd5/External`, Booz Allen `bah/wd1/BAH_Jobs`, Hartford
+  `thehartford/wd5/Careers_External`, DTCC Oracle `ebxr.fa.us2…/CX_1`.
+- **Fix:** the Charlotte hub regex matched "Charlottetown, PEI" (Canada).
