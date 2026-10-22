@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { supabase, authHeaders } from "./supabaseClient.js";
 import Trends from "./Trends.jsx";
-import { DraftModal, OutsideDraftModal, PasteJdModal, fileToBase64 } from "./App.jsx";
+import { DraftModal, PasteJdModal, fileToBase64 } from "./App.jsx";
 import { useRecruiters, RecruitersView, RecruiterMatches } from "./Recruiters.jsx";
 import "./tech.css";
 
@@ -32,7 +32,8 @@ const ageOf = (j) => daysSince(j.posted_date) ?? daysSince(j.first_seen);
 const pickJob = (j) => ({ id: j.id, firm: j.firm, title: j.title, location: j.location, url: j.url });
 
 // Outside jobs: roles applied to off the board (tech_custom_jobs). They're
-// shaped like board rows so the list, detail and tracker treat them the same.
+// shaped like board rows so the list, detail, tracker and cover letters treat
+// them the same (a letter for one is saved under its c_ id).
 const CUSTOM_PREFIX = "c_";
 const customToJob = (c) => ({
   id: CUSTOM_PREFIX + c.id,
@@ -198,7 +199,6 @@ export default function TechApp({ header, signedIn }) {
   const [aiOpen, setAiOpen] = useState(false);
   const [scoring, setScoring] = useState(() => new Set());
   const [draftFor, setDraftFor] = useState(null);
-  const [outsideOpen, setOutsideOpen] = useState(false); // cover letter for a role not on the board
   const [pasteFor, setPasteFor] = useState(null);
   const aiReady = ai.state === "ready" && !!ai.resume;
   const rec = useRecruiters("tech");
@@ -292,6 +292,12 @@ export default function TechApp({ header, signedIn }) {
     if (error) {
       setCustoms((cs) => [...cs, prev]);
       flash(`Could not remove job: ${error.message}`);
+      return;
+    }
+    // its cover letter and pasted posting only existed for this row
+    if (ai.drafts.includes(job.id)) {
+      setAi((a) => ({ ...a, drafts: a.drafts.filter((d) => d !== job.id) }));
+      aiFetch(`draft?job_id=${encodeURIComponent(job.id)}`, undefined, "DELETE").catch((e) => flash(`Could not delete its cover letter: ${e.message}`));
     }
   }
 
@@ -420,7 +426,7 @@ export default function TechApp({ header, signedIn }) {
         cmdRef.current?.select();
         return;
       }
-      if (typing || e.metaKey || e.ctrlKey || e.altKey || draftFor || pasteFor || outsideOpen || addOpen || view !== "list") return;
+      if (typing || e.metaKey || e.ctrlKey || e.altKey || draftFor || pasteFor || addOpen || view !== "list") return;
       const i = rows.findIndex((j) => j.id === sel?.id);
       if (e.key === "j" || e.key === "ArrowDown") {
         e.preventDefault();
@@ -437,7 +443,7 @@ export default function TechApp({ header, signedIn }) {
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [rows, sel, draftFor, pasteFor, outsideOpen, addOpen, view, aiReady, tracked]);
+  }, [rows, sel, draftFor, pasteFor, addOpen, view, aiReady, tracked]);
 
   useEffect(() => {
     listRef.current?.querySelector(".tw-row.on")?.scrollIntoView({ block: "nearest" });
@@ -489,9 +495,6 @@ export default function TechApp({ header, signedIn }) {
             ))}
             <NavItem on={view === "trends"} onClick={() => setView(view === "trends" ? "list" : "trends")}>Hiring trends</NavItem>
             <NavItem on={view === "recruiters"} onClick={() => setView(view === "recruiters" ? "list" : "recruiters")}>Recruiters</NavItem>
-            <NavItem on={outsideOpen} n={ai.outside.length || null} onClick={() => (aiReady ? setOutsideOpen(true) : setAiOpen(true))}>
-              ✍ Outside job
-            </NavItem>
           </NavGroup>
 
           <NavGroup title="Where">
@@ -512,7 +515,7 @@ export default function TechApp({ header, signedIn }) {
               Added by me
             </NavItem>
             <NavItem on={addOpen} onClick={() => setAddOpen((o) => !o)}>
-              ＋ Track outside job
+              ＋ Outside job
             </NavItem>
           </NavGroup>
 
@@ -599,12 +602,16 @@ export default function TechApp({ header, signedIn }) {
           {error && <div className="tw-err" role="alert">{error}</div>}
           {addOpen && (
             <AddOutsidePanel
-              onAdd={async (fields) => {
+              aiReady={aiReady}
+              onSetupAi={() => setAiOpen(true)}
+              onAdd={async (fields, write) => {
                 const row = await addCustom(fields);
                 if (!row) return;
                 setAddOpen(false);
                 setView("list");
                 setSelId(CUSTOM_PREFIX + row.id);
+                // without a pasted posting the draft fetches it from the link, or asks for it
+                if (write) setDraftFor({ ...customToJob(row), jd: fields.jd.trim() || undefined });
               }}
               onClose={() => setAddOpen(false)}
             />
@@ -679,24 +686,10 @@ export default function TechApp({ header, signedIn }) {
           job={draftFor}
           notes={tracked[draftFor.id]?.notes || ""}
           hasDraft={ai.drafts.includes(draftFor.id)}
+          description={draftFor.jd}
           aiFetch={aiFetch}
           onSaved={(id) => setAi((a) => ({ ...a, drafts: a.drafts.includes(id) ? a.drafts : [...a.drafts, id] }))}
           onClose={() => setDraftFor(null)}
-        />
-      )}
-      {outsideOpen && (
-        <OutsideDraftModal
-          outside={ai.outside}
-          aiFetch={aiFetch}
-          onSaved={(job) =>
-            setAi((a) => ({
-              ...a,
-              drafts: a.drafts.includes(job.id) ? a.drafts : [...a.drafts, job.id],
-              outside: [{ ...job, created_at: new Date().toISOString() }, ...a.outside.filter((o) => o.id !== job.id)],
-            }))
-          }
-          onDeleted={(id) => setAi((a) => ({ ...a, outside: a.outside.filter((o) => o.id !== id), drafts: a.drafts.filter((d) => d !== id) }))}
-          onClose={() => setOutsideOpen(false)}
         />
       )}
       {pasteFor && (
@@ -863,29 +856,36 @@ function Detail({ job, app, fit, scoring, aiReady, hasDraft, onStatus, onNotes, 
   );
 }
 
-function AddOutsidePanel({ onAdd, onClose }) {
-  const [f, setF] = useState({ firm: "", title: "", url: "", location: "", status: "applied", notes: "" });
-  const [busy, setBusy] = useState(false);
+// One form for a role off the board: it goes on the tracker, and the same
+// row can get its cover letter straight away (no second form, no re-typing).
+function AddOutsidePanel({ aiReady, onSetupAi, onAdd, onClose }) {
+  const [f, setF] = useState({ firm: "", title: "", url: "", location: "", status: "applied", notes: "", jd: "" });
+  const [busy, setBusy] = useState("");
   const set = (k) => (e) => setF((x) => ({ ...x, [k]: e.target.value }));
   const canSave = f.firm.trim() && f.title.trim() && !busy;
+  const shortJd = f.jd.trim() && f.jd.trim().length < 200;
 
   async function submit(e) {
     e.preventDefault();
-    if (!canSave) return;
-    setBusy(true);
-    await onAdd(f);
-    setBusy(false);
+    const write = e.nativeEvent.submitter?.value === "write";
+    if (!canSave || (write && shortJd)) return;
+    setBusy(write ? "write" : "add");
+    await onAdd(f, write);
+    setBusy("");
   }
 
   return (
     <form className="tw-panel" aria-label="Track an outside job" onSubmit={submit}>
       <div className="tw-panel-h">
-        <h2>＋ Track an outside job</h2>
+        <h2>＋ Outside job</h2>
         <button type="button" className="tw-btn ghost small" onClick={onClose}>
           Close
         </button>
       </div>
-      <p className="tw-hint">Applied somewhere that isn't on the board? Add it here to track it with everything else.</p>
+      <p className="tw-hint">
+        A role that isn't on the board: it's tracked with everything else, and its cover letter is saved on the same row. Paste the
+        posting for the letter, or leave it blank and it's read from the link.
+      </p>
       <div className="tw-form">
         <label>
           <span>company *</span>
@@ -917,11 +917,26 @@ function AddOutsidePanel({ onAdd, onClose }) {
           <span>notes</span>
           <textarea rows={2} value={f.notes} onChange={set("notes")} placeholder="Referral, recruiter, salary, where you found it…" />
         </label>
+        <label className="wide">
+          <span>job description (for the cover letter)</span>
+          <textarea rows={5} value={f.jd} onChange={set("jd")} placeholder="Paste the full posting, or leave blank to read it from the link" />
+        </label>
       </div>
+      {shortJd && <div className="tw-hint">Paste the full posting (at least a paragraph or two).</div>}
       <div className="tw-panel-row">
-        <button className="tw-btn pri" type="submit" disabled={!canSave}>
-          {busy ? "Adding…" : "Add to tracker"}
+        {/* "add only" comes first so Enter never starts a (paid) draft */}
+        <button className={`tw-btn ${aiReady ? "ghost" : "pri"}`} type="submit" value="add" disabled={!canSave}>
+          {busy === "add" ? "Adding…" : "Add to tracker only"}
         </button>
+        {aiReady ? (
+          <button className="tw-btn pri" type="submit" value="write" disabled={!canSave || shortJd}>
+            {busy === "write" ? "Adding…" : "✍ Add + write cover letter"}
+          </button>
+        ) : (
+          <button className="tw-btn ghost" type="button" onClick={onSetupAi}>
+            Add your resume to write letters
+          </button>
+        )}
       </div>
     </form>
   );
