@@ -198,6 +198,25 @@ WORKDAY["Energy"] = {
     "Enbridge": ("enbridge", "wd3", "enbridge_careers"),
 }
 
+# Wave 3 (approved by the user 2026-10-22). Probed live that day: FanDuel,
+# Garner Health, Polymarket, Carvana, AppLovin and xAI had a matching role; the
+# rest are live data-heavy boards wired for coverage.
+GREENHOUSE["Tech"].update({
+    "FanDuel": "fanduel", "Garner Health": "garnerhealth", "Carvana": "carvana",
+    "AppLovin": "applovin", "xAI": "xai", "HubSpot": "hubspotjobs", "Roku": "roku",
+    "Zscaler": "zscaler", "Neo4j": "neo4j", "Cribl": "cribl", "Together AI": "togetherai",
+    "Snorkel AI": "snorkelai", "The New York Times": "thenewyorktimes",
+    "Riot Games": "riotgames", "Epic Games": "epicgames", "Box": "boxinc",
+    "AlphaSense": "alphasense", "PitchBook": "pitchbookdata", "Compass": "urbancompass",
+    "SingleStore": "singlestore", "Gong": "gongio", "ZoomInfo": "zoominfo",
+    "Anaplan": "anaplan",
+})
+GREENHOUSE["Fintech"].update({"Navan": "tripactions"})   # TripActions' old board token
+ASHBY["Tech"].update({"Hims & Hers": "hims-and-hers"})
+ASHBY["Fintech"].update({"Polymarket": "polymarket", "Kalshi": "kalshi"})
+LEVER["Tech"].update({"Lyra Health": "lyrahealth"})
+SMARTRECRUITERS = {"Tech": {"ServiceNow": "ServiceNow"}}   # firm -> company id
+
 # Custom-fetcher firms (TASKS.md, added 2026-09-28). Same ATS products Street
 # Watch already scrapes, so they reuse its fetchers.
 ORACLE = {"Tech": {"Dell": ("enterpriseplatform.dell.com", "CX_1001", "careers")}}
@@ -219,7 +238,7 @@ def _street(reg):
             if _STREET_CAT.get(f) not in _STREET_SKIP and f not in _OWN}
 
 SECTOR = {}
-for _reg in (GREENHOUSE, ASHBY, LEVER, WORKDAY, ORACLE, RADANCY, EIGHTFOLD, CUSTOM, AGENCIES):
+for _reg in (GREENHOUSE, ASHBY, LEVER, SMARTRECRUITERS, WORKDAY, ORACLE, RADANCY, EIGHTFOLD, CUSTOM, AGENCIES):
     for _sec, _firms in _reg.items():
         for _f in _firms:
             SECTOR[_f] = _sec
@@ -541,13 +560,17 @@ def fetch_workday(firm, tenant, dc, site):
 
 
 # ---------------------------------------------------------------- filters
-# In: data engineering titles. Out: senior grades, management, ML engineering,
-# software engineering (any title with "software"), interns, pre-sales/architect
-# roles, security and hardware "data center" jobs.
+# In: data engineering titles, plus BI and database engineer/developer titles
+# (user, 2026-10-22). Out: senior grades, management, ML engineering, general
+# software engineering (a "software" title counts only when it names a data
+# area, see title_ok), interns, pre-sales/architect roles, security and
+# hardware "data center" jobs.
 _DE_RE = re.compile(
     r"\bdata\s+(?:\w+\s+){0,2}?engineer"              # Data / Cloud Data / Data Platform Engineer
     r"|\bdata\s+engineering\b|\bdata\s+developer\b"
-    r"|\banalytics\s+engineer"
+    r"|\banalytics\s+(?:engineer|developer)"
+    r"|\b(?:business\s+intelligence|bi)\s+(?:engineer|developer)\b"
+    r"|\b(?:data\s*warehouse|database)\s+(?:engineer|developer)\b"
     r"|\b(?:etl|elt)\b"
     r"|\bbig\s+data\b", re.I)
 _DE_EXCLUDE_RE = re.compile(
@@ -567,24 +590,19 @@ def _looks_de(title):
     return bool(_DE_RE.search(title))
 
 
-# At data-infrastructure companies the data engineering work is titled
-# "Software Engineer - Data Platform / Distributed Data Systems / ...". For
-# these firms only, a software-engineer title that names a data area passes;
-# the seniority and role exclusions above still apply.
-DATA_INFRA = {
-    "Databricks", "Snowflake", "Confluent", "ClickHouse", "Fivetran", "Starburst",
-    "Airbyte", "Astronomer", "Monte Carlo", "MongoDB", "Elastic", "Cockroach Labs",
-    "Sigma Computing", "Hex", "Dataiku", "Collibra",
-}
+# Much data engineering work is titled "Software Engineer - Data Platform /
+# Distributed Data Systems / Spark ...". A software-engineer title that names a
+# data area passes at any firm (only at data-infrastructure companies until the
+# user widened it on 2026-10-22); the seniority and role exclusions still apply.
 _INFRA_SWE_RE = re.compile(r"\bsoftware\s+(?:engineer|developer)", re.I)
 _INFRA_DATA_RE = re.compile(
-    r"\bdata\b|\bdatabases?\b|\bdatasets?\b|lakehouse|warehous|\bpipelines?\b|streaming"
+    r"\bdata\b|\bdatabases?\b|\bdatasets?\b|lakehouse|warehous|\bpipelines?\b|(?<!video )streaming"
     r"|ingestion|\betl\b|\bspark\b|\bkafka\b|\bflink\b|lakeflow", re.I)
 _SOFTWARE_RE = re.compile(r"\bsoftware\b", re.I)
 
 
 def title_ok(title, firm=None):
-    if firm in DATA_INFRA and _INFRA_SWE_RE.search(title) and _INFRA_DATA_RE.search(title):
+    if _INFRA_SWE_RE.search(title) and _INFRA_DATA_RE.search(title):
         return not _DE_EXCLUDE_RE.search(_SOFTWARE_RE.sub("", title))
     return _looks_de(title) and not _DE_EXCLUDE_RE.search(title)
 
@@ -638,7 +656,7 @@ HUBS = [
                       r"richmond,?\s*(?:va|virginia)|tysons|alexandria|chantilly|bethesda|baltimore"),
     ("Los Angeles", r"los angeles|santa monica|culver city|irvine|pasadena|burbank|glendale|"
                     r"el segundo|playa vista|san diego"),
-    ("Charlotte", r"charlotte"),
+    ("Charlotte", r"\bcharlotte\b"),   # not Charlottetown, PEI
     ("Atlanta", r"atlanta|alpharetta"),
     ("Denver", r"denver|boulder"),
 ]
@@ -710,6 +728,7 @@ def collect():
     raw += _run("Greenhouse…", _flat(GREENHOUSE) + list(_street(P.GREENHOUSE).items()), P.fetch_greenhouse)
     raw += _run("Ashby…", _flat(ASHBY) + list(_street(P.ASHBY).items()), P.fetch_ashby)
     raw += _run("Lever…", _flat(LEVER), fetch_lever)
+    raw += _run("SmartRecruiters…", _flat(SMARTRECRUITERS), P.fetch_smartrecruiters)
     raw += _run("Workday…", _flat(WORKDAY) + list(_street(P.WORKDAY).items()), fetch_workday)
     raw += _run("Workday (myworkdaysite)…", list(_street(P.WORKDAY_SITE).items()),
                 lambda f, dc, t, s: P.fetch_workday_site(f, dc, t, s))

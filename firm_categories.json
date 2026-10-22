@@ -14,18 +14,19 @@
     "Regions Securities", "Solomon Partners", "Stifel", "Truist Securities", "William Blair"
   ],
   "PE & Alts": [
-    "a16z", "Apollo Global Management", "Ardian", "Ares Management", "Blackstone", "Blue Owl Capital",
+    "8VC", "a16z", "Apollo Global Management", "Ardian", "Ares Management", "Battery Ventures",
+    "Bessemer Venture Partners", "Blackstone", "Blue Owl Capital",
     "Brookfield Asset Management", "Carlyle", "EQT", "General Atlantic", "Hamilton Lane",
-    "Insight Partners", "KKR", "Oaktree Capital Management", "Sixth Street", "StepStone", "TPG",
-    "Warburg Pincus"
+    "Insight Partners", "KKR", "Lightspeed", "Oaktree Capital Management", "Sequoia Capital",
+    "Sixth Street", "StepStone", "TPG", "Warburg Pincus", "Y Combinator"
   ],
   "Asset Management": [
     "AllianceBernstein", "BlackRock", "Craigs Investment Partners", "Franklin Templeton", "Invesco",
     "Neuberger Berman", "NZ Super Fund", "PGIM", "Wellington Management"
   ],
   "Banks": [
-    "ANZ", "BMO", "BNZ", "CIBC", "Capital One", "HSBC", "Heartland Bank", "ING", "Mizuho",
-    "State Street", "TD Bank", "U.S. Bancorp"
+    "ANZ", "BMO", "BNZ", "CIBC", "Capital One", "HSBC", "Heartland Bank", "ING", "MUFG", "Mizuho",
+    "Santander", "Scotiabank", "State Street", "TD Bank", "U.S. Bancorp"
   ],
   "Trading": [
     "Citadel Securities", "DRW", "IMC Trading", "Jane Street", "Optiver",
@@ -36,11 +37,13 @@
     "ZS Associates"
   ],
   "Fintech": [
-    "Airwallex", "Bastion", "Brex", "CAIS", "Chime", "Galaxy Digital", "iCapital", "Plaid", "Ramp",
-    "Rogo", "Sharesies", "Stripe", "Xero"
+    "Addepar", "Affirm", "Airwallex", "Bastion", "Betterment", "Block", "Brex", "CAIS", "Carta",
+    "Chime", "Coinbase", "Column", "Galaxy Digital", "Gusto", "iCapital", "Kalshi", "Mercury",
+    "Paxos", "Plaid", "Polymarket", "Ramp", "Ripple", "Robinhood", "Rogo", "Sharesies", "SoFi",
+    "Stripe", "Xero"
   ],
   "Fashion & Luxury": [
-    "Bonhams", "Christie's", "Doyle", "Estée Lauder", "Freeman's | Hindman", "Kering", "LVMH", "Moncler", "On Holding", "Phillips", "Prada", "Rago | Wright", "Richemont", "Sotheby's", "Tapestry"
+    "Bonhams", "Chanel", "Christie's", "Doyle", "Estée Lauder", "Freeman's | Hindman", "Kering", "LVMH", "Moncler", "On Holding", "PVH", "Phillips", "Prada", "Rago | Wright", "Rent the Runway", "Richemont", "Saks Global", "Sotheby's", "Tapestry"
   ],
   "Staffing Agency": [
     "Aston Carter", "Michael Page", "Randstad", "Robert Half"
