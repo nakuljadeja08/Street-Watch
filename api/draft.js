@@ -1,7 +1,8 @@
 // GET    /api/draft?job_id=…  — the saved draft for a role (or { draft: null })
 // POST   /api/draft           — write a fresh cover letter + "why this firm"
 //   Body: { job: { id, firm, title, location, url }, notes?, guidance?, description? }
-// DELETE /api/draft?job_id=x_… — forget an outside draft and its pasted posting
+// DELETE /api/draft?job_id=x_…|c_… — forget an outside draft and its pasted posting
+//   (c_ is a tracked outside job: its letter goes when the row is removed)
 //
 // Outside jobs (not on either board) use ids starting "x_" and carry their
 // details on the draft row's `job` column (schema_outside_drafts.sql).
@@ -14,6 +15,7 @@ import { APPLICATION_GUIDE, stripDashes } from "./_voice.js";
 import { TECH_APPLICATION_GUIDE, techReturnSpec } from "./_voice_tech.js";
 
 const OUTSIDE_PREFIX = "x_";
+const TRACKED_PREFIX = "c_"; // outside jobs on the tracker (custom_jobs / tech_custom_jobs)
 
 const RETURN_SPEC = `## What to return
 - cover_letter: 220 to 320 words, following the narration pattern above (scene, one line pivot, firsthand proof, why this firm specifically, short humble close). Start with "Dear <Firm> Recruiting Team," (or the recruiter's name if the notes give one). End with "Thank you for considering my application." then "Sincerely," then the candidate's name from the resume. Plain text, short paragraphs separated by blank lines.
@@ -127,7 +129,7 @@ export async function DELETE(request) {
   const denied = await checkAuth(request);
   if (denied) return denied;
   const jobId = new URL(request.url).searchParams.get("job_id") || "";
-  if (!jobId.startsWith(OUTSIDE_PREFIX)) return json({ error: "Only outside drafts can be deleted." }, 400);
+  if (!jobId.startsWith(OUTSIDE_PREFIX) && !jobId.startsWith(TRACKED_PREFIX)) return json({ error: "Only outside drafts can be deleted." }, 400);
   const [d, j] = await Promise.all([
     db().from(tables(watchOf(request)).drafts).delete().eq("job_id", jobId),
     db().from("job_details").delete().eq("job_id", jobId),

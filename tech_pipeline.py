@@ -67,6 +67,7 @@ ASHBY = {
         "OpenAI": "openai", "Modal": "modal", "Benchling": "benchling", "Snowflake": "snowflake",
         "Notion": "notion", "Linear": "linear", "Vanta": "vanta", "Cursor": "cursor",
         "Perplexity": "perplexity", "Replit": "replit", "Supabase": "supabase",
+        "Hex": "hex",  # moved off Greenhouse (hextechnologies 404s) by 2026-10-19
     },
     "Fintech": {"Ramp": "ramp", "Plaid": "plaid", "Kraken": "kraken.com"},
 }
@@ -113,7 +114,7 @@ WORKDAY = {      # firm -> (tenant, datacenter, site), searched for SEARCH
 # wired for coverage.
 GREENHOUSE["Tech"].update({
     "SpaceX": "spacex", "Klaviyo": "klaviyo", "Oscar Health": "oscar",
-    "Hex": "hextechnologies", "Dataiku": "dataiku", "Collibra": "collibra",
+    "Dataiku": "dataiku", "Collibra": "collibra",
     "Mixpanel": "mixpanel", "Grafana Labs": "grafanalabs", "Glean": "gleanwork",
     "Verkada": "verkada", "Motive": "gomotive", "Rubrik": "rubrik", "Wiz": "wizinc",
     "Braze": "braze", "Faire": "faire", "Celonis": "celonis", "Airtable": "airtable",
@@ -929,14 +930,10 @@ def main():
             pass
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     state = json.load(open(STATE_FILE)) if os.path.exists(STATE_FILE) else {}
+    prev = json.load(open(JOBS_JSON, encoding="utf-8")) if os.path.exists(JOBS_JSON) else []
     jobs, raw = collect()
 
-    new = 0
-    for j in jobs:
-        if j["id"] not in state:
-            state[j["id"]] = today; new += 1
-        j["first_seen"] = state[j["id"]]
-        j["is_new"] = state[j["id"]] == today
+    new = P.assign_first_seen(jobs, state, prev, today)
     json.dump(state, open(STATE_FILE, "w"))
 
     jobs.sort(key=lambda j: (j["metro"], j["firm"], j["title"]))
