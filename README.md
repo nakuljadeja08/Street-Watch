@@ -47,6 +47,25 @@ Murray & Co (no public board, or Seek only; Seek's robots.txt forbids its search
 API), ASB (its Snaphire board's robots.txt disallows all bots), and PwC NZ,
 McKinsey, Michael Page NZ and Robert Walters NZ (block scripted requests).
 
+**Bay Area** (widened 2026-10-23, West Coast expansion): "SF / Bay Area" also
+covers San Jose, Santa Clara, Sunnyvale, Cupertino, Oakland, Emeryville, Foster
+City, Burlingame, San Carlos and Berkeley (`BAY_AREA_CITIES` in `pipeline.py`).
+Names that also exist elsewhere (Oakland NJ, Berkeley Heights NJ, Berkeley Square
+London, San José Costa Rica…) only count with a CA/California marker
+(`_BAY_AMBIG_RE`), and a standalone "SF" counts (Gap writes its HQ as "SF - 2
+Folsom"). The city-by-city searches (Radancy keywords, SuccessFactors, HRM
+Direct, the agency city map, Randstad's San Jose search) use the same list.
+Firms added for it: Evercore, Jefferies (Campus board only), Union Square
+Advisors, Vista Equity Partners, Bain Capital; Visa, PayPal, Intuit, Wealthfront,
+Upstart, LendingClub, Marqeta, Bill.com, Kraken, Anchorage Digital (fintech,
+Product/GTM rule); Gap Inc., Levi Strauss & Co., The RealReal, Stitch Fix
+(fashion, Product/GTM rule); Oliver Wyman, Analysis Group, Cornerstone Research,
+L.E.K. Consulting, Berkeley Research Group. Not wired: Centerview (application
+form only), Qatalyst, Silver Lake, Francisco Partners (email only), Hellman &
+Friedman, Thoma Bravo, Golden Gate Capital (no public roles). Sephora US already
+comes through the LVMH board. Regional banks (SVB / First Citizens) were left
+out at the user's request. See `FIRM_STATUS.md` for day-one counts.
+
 ```
 firms' ATS APIs  ──►  pipeline.py  ──►  Supabase `jobs` table  ──►  dashboard/ (React app on Vercel)
         (Greenhouse / Ashby / Workday …)   (GitHub Actions cron, daily)
@@ -388,6 +407,21 @@ instead of loose `"manhattan"`/`", ny"` substrings — fixes false matches on
   **L.E.K.** — Oracle Talentlink (`lek.tal.net`, session-based, same family as
   Jefferies). **Strategy&** — no standalone board; roles live inside PwC's global
   careers system and need isolating by brand. See `CONSULTING_FIRMS.md`.
+
+**Bay Area wave (added 2026-10-23):**
+- **Oleeo / tal.net** (Evercore, Jefferies, L.E.K.) — new generic `fetch_oleeo` +
+  `OLEEO` dict {host, [(appcentre, brand, board)]}. Each board has a plain Atom
+  feed; when it carries no "Location:" line the posting page is read, for titles
+  that pass `title_ok` only. Jefferies' Experienced board is behind a bot check.
+- **JazzHR** (Union Square Advisors) — new `fetch_jazzhr` + `JAZZHR` dict.
+- **Lever** (Wealthfront, Anchorage Digital) — US `LEVER` dict, reusing `fetch_lever`.
+- **iCIMS** entries can list several portals (Vista ×3, Analysis Group ×2,
+  Cornerstone ×3); the location label "Job Locations" is now read too.
+- **Phenom** `PHENOM_KEYWORDS` narrows a shared board: Oliver Wyman on Marsh
+  McLennan's `careers.marsh.com`, rows kept only if the title names the firm.
+- **PayPal** moved to Eightfold (`paypal.eightfold.ai`, pcsx search).
+- Levi's Workday is narrowed to CA/NY/NJ/IL by `WORKDAY_FACETS` (1,240 of its
+  ~1,400 roles are store roles).
 
 **Wired, will flow once you run it (Workday — 19 firms):** Blackstone, Apollo,
 Blue Owl, Ares, Morgan Stanley, Houlihan Lokey, Wells Fargo, Moelis, Brookfield,

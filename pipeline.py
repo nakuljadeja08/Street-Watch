@@ -59,6 +59,9 @@ GREENHOUSE = {   # firm -> board token  (boards-api.greenhouse.io/v1/boards/<tok
     "Coinbase": "coinbase", "Affirm": "affirm", "Betterment": "betterment",
     "Rent the Runway": "renttherunway",
     "Bessemer Venture Partners": "bessemerventurepartners", "Battery Ventures": "batteryventures",
+    # Bay Area wave (2026-10-23): fintech and fashion, Product/GTM rule.
+    # Names match Tech Watch's own entries so it doesn't scan them twice.
+    "Upstart": "upstart", "Bill.com": "billcom", "Stitch Fix": "stitchfix",
 }
 ASHBY = {        # firm -> job board name (api.ashbyhq.com/posting-api/job-board/<name>)
     "Insight Partners": "insight-partners",          # slug is hyphenated (was "insightpartners" = empty)
@@ -68,6 +71,25 @@ ASHBY = {        # firm -> job board name (api.ashbyhq.com/posting-api/job-board
     "Paxos": "paxos", "Column": "column", "Kalshi": "kalshi", "Polymarket": "polymarket",
     "Sequoia Capital": "sequoia", "Lightspeed": "lightspeed", "8VC": "8vc",
     "Y Combinator": "ycombinator",
+    # 2026-10-23 (Bay Area fintech, Product/GTM)
+    "Kraken": "kraken.com", "Marqeta": "marqeta-inc",
+}
+LEVER = {        # firm -> slug  (api.lever.co/v0/postings/<slug>)
+    "Wealthfront": "wealthfront", "Anchorage Digital": "anchorage",   # 2026-10-23, Product/GTM
+}
+JAZZHR = {       # firm -> subdomain  (<sub>.applytojob.com/apply, server-rendered list)
+    "Union Square Advisors": "unionsquareadvisors",   # SF tech M&A boutique (its Lever board is gone)
+}
+OLEEO = {        # firm -> (host, [(appcentre, brand, vacancy board), …])  Oleeo / tal.net
+    # Each board has an Atom feed (title, link, publish date). L.E.K.'s feed
+    # also names the location; Evercore's and Jefferies' don't, so their
+    # detail pages are read, for titles that pass the filter only.
+    "Evercore": ("evercore.tal.net", [("appcentre-1", 5, 2),     # Students and Graduates
+                                      ("appcentre-1", 5, 3)]),   # Experienced Hires
+    # Jefferies' Experienced board is behind a bot check ("Quick Check Needed");
+    # only the Campus board's feed is open.
+    "Jefferies": ("jefferies.tal.net", [("appcentre-ext", 4, 2)]),
+    "L.E.K. Consulting": ("lek.tal.net", [("appcentre-2", 2, 3)]),   # Current Openings - Americas
 }
 JIBE = {         # firm -> careers host  (https://<host>/api/jobs — Jibe/iCIMS front)
     "ZS Associates": "jobs.zs.com",                 # 275 postings, paginated 10/page
@@ -87,8 +109,15 @@ ORACLE = {       # firm -> (host, siteNumber, siteName)  Oracle Fusion Recruitin
     # <=30-day window (by offset ~4800 postings are already >40 days old).
     "JPMorgan Chase": ("jpmc.fa.oraclecloud.com", "CX_1001", "CX_1001"),
 }
-ICIMS = {        # firm -> host  (careers-<x>.icims.com; server-rendered JobCardItems)
+ICIMS = {        # firm -> host, or a list of hosts  (careers-<x>.icims.com; server-rendered JobCardItems)
     "Stifel": "careers-stifel.icims.com",            # also carries KBW (Stifel co.)
+    # Bay Area wave (2026-10-23): these firms split roles across portals.
+    "Vista Equity Partners": ["careers-vistaequitypartners.icims.com",    # firm roles
+                              "careers2-vistaequitypartners.icims.com",   # Vista Value Creation
+                              "careers3-vistaequitypartners.icims.com"],  # PE Associate program
+    "Analysis Group": ["careers-analysisgroup.icims.com",                 # Analyst / Associate track
+                       "professionalcareers-analysisgroup.icims.com"],
+    "Cornerstone Research": ["ug-chire.icims.com", "grad-chire.icims.com", "exp-chire.icims.com"],
 }
 HRMDIRECT = {    # firm -> host  (ClearCompany/HRM Direct; opco.hrmdirect.com/employment)
     "Oppenheimer & Co.": "opco.hrmdirect.com",       # filter by &city=; NY 26 / Chi / SF
@@ -140,11 +169,20 @@ WORKDAY = {      # firm -> (tenant, datacenter, site)
     "Richemont":                ("richemont",  "wd3", "Richemont"),     # Cartier, VC&A, IWC…
     "Tapestry":                 ("tapestry",   "wd108", "Tapestry_Careers"),  # Coach, Kate Spade
     "Christie's":               ("christies",  "wd3", "Christies_Careers"),   # auction house, ~30 global
+    # Bay Area wave (2026-10-23). Visa/LendingClub: fintech; Gap/Levi's:
+    # fashion (both Product/GTM); BRG: consulting; Bain Capital: PE.
+    "Visa":                     ("visa",       "wd5", "Visa"),           # ~830 global; Foster City HQ
+    "LendingClub":              ("lendingclub","wd1", "External"),
+    "Gap Inc.":                 ("gapinc",     "wd1", "GAPINC"),         # corporate site; HQ "SF - 2 Folsom"
+    "Levi Strauss & Co.":       ("levistraussandco", "wd5", "External"), # narrowed by WORKDAY_FACETS
+    "Berkeley Research Group":  ("thinkbrg",   "wd5", "BRG_External_Career_Site"),
+    "Bain Capital":             ("baincapital","wd1", "External_Public"),
     # Best-effort tenant/site slugs from public careers URLs — a wrong site just
     # logs an error for that firm and skips it; correct it from the run output.
-    # Still to map (custom / not-yet-found ATS): Evercore, Centerview, Rothschild,
-    #   Nomura, UBS, BNP, SocGen, PIMCO, HPS. (JPMorgan -> Oracle CE above;
-    #   RBC -> Phenom; Jefferies -> Talentlink behind Cloudflare, needs cloudscraper.)
+    # Still to map (custom / not-yet-found ATS): Rothschild, Nomura, UBS, BNP,
+    #   SocGen, PIMCO, HPS. (JPMorgan -> Oracle CE above; RBC -> Phenom;
+    #   Evercore, Jefferies -> OLEEO; Centerview has no board, only a
+    #   reCAPTCHA-gated application form.)
 }
 
 # Workday `appliedFacets` for tenants too big to page whole. Workday stops at
@@ -157,6 +195,11 @@ WORKDAY_FACETS = {
         "9b56fe16bdf74b2cbad8b644cdf6015a",    # New Jersey
         "ec3d210e4240442e99a28fa70419aec5",    # California
         "d8bb292ed9fe44a2899a990ad569538c"]},  # Illinois
+    # Levi's board is ~1,400 roles, 1,240 of them in stores worldwide; the same
+    # four states (Workday's region ids are shared across tenants) leave ~280.
+    "Levi Strauss & Co.": {"Location_Region_State_Province": [
+        "9819bf0148e54f89adb255aa7bead635", "9b56fe16bdf74b2cbad8b644cdf6015a",
+        "ec3d210e4240442e99a28fa70419aec5", "d8bb292ed9fe44a2899a990ad569538c"]},
 }
 
 # ---------------------------------------------------------------- filters
@@ -166,13 +209,32 @@ METROS = {
     # ("US-KS-Manhattan") and missed "NY, United States", so the standalone-token
     # regex replaces both.
     "NY + Jersey City": ["new york", "jersey city", "nyc"],
+    # Silicon Valley / East Bay added 2026-10-23. Names shared with places
+    # elsewhere (Oakland NJ, Berkeley Heights NJ, San José Costa Rica…) are in
+    # _BAY_AMBIG_RE below instead and need a California marker.
     "SF / Bay Area":    ["san francisco", "bay area", "palo alto", "menlo park",
-                         "mountain view", "san mateo", "redwood city"],
+                         "mountain view", "san mateo", "redwood city",
+                         "cupertino", "emeryville", "foster city"],
     "Chicago":          ["chicago", "illinois"],
 }
 # Standalone "IL" state code, same idea as _NY_STATE_RE: a bare ", il" substring
 # matched "Paris, Ile-de-France" and filed Paris roles under Chicago.
 _IL_STATE_RE = re.compile(r'\bil\b', re.I)
+# Bay Area cities whose names also exist outside California: they count only
+# when the string also says CA/California ("Oakland, NJ", "US-NJ-Oakland",
+# "Berkeley Heights, NJ", "Berkeley Square, London", "CR - San Jose, Costa
+# Rica" all stay out). "SF" alone is Gap's HQ label ("SF - 2 Folsom").
+_BAY_AMBIG_RE = re.compile(r"\b(?:san jos[eé]|santa clara|sunnyvale|oakland|berkeley|burlingame"
+                           r"|san carlos)\b(?!\s+(?:heights|square|springs|lake|county|park|township))", re.I)
+_CA_STATE_RE = re.compile(r"\bca\b|california", re.I)
+_SF_ABBR_RE = re.compile(r"\bsf\b", re.I)
+BAY_AREA_CITIES = ("San Francisco", "Palo Alto", "Menlo Park", "Mountain View", "San Mateo",
+                   "Redwood City", "San Jose", "Santa Clara", "Sunnyvale", "Cupertino", "Oakland",
+                   "Emeryville", "Foster City", "Burlingame", "San Carlos", "Berkeley")
+
+
+def bay_area_city(loc):
+    return bool(_SF_ABBR_RE.search(loc) or (_BAY_AMBIG_RE.search(loc) and _CA_STATE_RE.search(loc)))
 # Standalone "NY" state code — matches "New York, NY", "NY, United States" and
 # ATS forms like "US-NY-New York", but never "Albany"/"Germany"/"Sunnyvale"
 # (the \b boundaries require NY to stand alone between non-word chars).
@@ -392,8 +454,10 @@ def fetch_hrmdirect(firm, host):
     item_re = re.compile(r'jobListTitle[^>]*>\s*<a\s+href="([^"]*req=(\d+)[^"]*)"[^>]*>'
                          r'(.*?)</a>', re.S)
     out, seen = [], set()
-    # cities map onto the METROS keys the downstream filter understands
-    for city in ("New York", "Jersey City", "Chicago", "San Francisco"):
+    # cities map onto the METROS keys the downstream filter understands; Bay
+    # Area rows are tagged ", CA" so the shared names (Oakland, Berkeley…) count
+    for city in ("New York", "Jersey City", "Chicago") + BAY_AREA_CITIES:
+        label = f"{city}, CA" if city in BAY_AREA_CITIES else city
         try:
             r = requests.get(base, headers=UA,
                              params={"search": "true", "city": city}, timeout=TIMEOUT)
@@ -404,7 +468,7 @@ def fetch_hrmdirect(firm, host):
                 seen.add(req)
                 title = _html.unescape(re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", title))).strip()
                 out.append(dict(firm=firm, id=f"hrm-{req}", title=title,
-                                location=city,
+                                location=label,
                                 url=f"https://{host}/employment/job-opening.php?req={req}",
                                 source="hrmdirect", posted_date=None))
         except Exception as e:
@@ -465,17 +529,21 @@ def fetch_pageup(firm, host, locale="en_US"):
 
 
 _ICIMS_ITEM = re.compile(r'iCIMS_JobCardItem(.*?)(?=iCIMS_JobCardItem|</ul>)', re.S)
-_ICIMS_LOC = re.compile(r'Location</span>\s*<span[^>]*>\s*(.*?)\s*</span>', re.S)
+_ICIMS_LOC = re.compile(r'Locations?</span>\s*<span[^>]*>\s*(.*?)\s*</span>', re.S)   # "Job Locations" on some portals
 _ICIMS_ANCHOR = re.compile(r'href="([^"]*/jobs/(\d+)/[^"]*)"[^>]*class="iCIMS_Anchor"', re.S)
 _ICIMS_TITLE = re.compile(r'<h3[^>]*>\s*(.*?)\s*</h3>', re.S)
 
 
-def fetch_icims(firm, host):
+def fetch_icims(firm, hosts):
     """iCIMS career portals (e.g. Stifel, which also carries KBW). The in-iframe
     search page is server-rendered HTML: each `iCIMS_JobCardItem` holds a Location
     label + value, and an anchor (`iCIMS_Anchor`) whose <h3> is the title. Paged by
-    `pr` (0-indexed, 50/page). No post date in the list, so posted_date is null."""
+    `pr` (0-indexed, 50/page). No post date in the list, so posted_date is null.
+    `hosts` is one portal or a list of them (Vista, Analysis Group…)."""
+    if not isinstance(hosts, str):
+        return [r for h in hosts for r in fetch_icims(firm, h)]
     import html as _html
+    host = hosts
     base = f"https://{host}/jobs/search"
     out, page, seen = [], 0, set()
     try:
@@ -764,6 +832,7 @@ RADANCY = {              # firm -> host
     # (/search-jobs/ + SetSearchRequestGeoLocation) — same platform as Citi et al.
     "Citizens Financial Group": "jobs.citizensbank.com",
     "Santander": "www.santandercareers.com",          # added 2026-10-22; ~100 US reqs
+    "Intuit": "jobs.intuit.com",                      # 2026-10-23; Mountain View HQ, Product/GTM
 }
 PHENOM = {               # firm -> (host, country, lang)  Phenom People careers
     # Phenom serves job search from POST https://<host>/widgets with
@@ -783,7 +852,14 @@ PHENOM = {               # firm -> (host, country, lang)  Phenom People careers
     # Marcus and Bergdorf Goodman (careers site branded Exemplar Luxury Group).
     "PVH":                     ("careers.pvh.com", "us", "en_us"),
     "Saks Global":             ("careers.exemplarluxurygroup.com", "us", "en_us"),
+    "The RealReal":            ("careers.therealreal.com", "us", "en_us"),   # 2026-10-23, Product/GTM
+    # Oliver Wyman shares Marsh McLennan's global board (~1,900 roles across
+    # Marsh, Mercer, Guy Carpenter); PHENOM_KEYWORDS narrows it to the firm.
+    "Oliver Wyman":            ("careers.marsh.com", "global", "en_global"),
 }
+# Phenom keyword search for shared boards; rows are then kept only when the
+# title names the firm (every Oliver Wyman title starts "Oliver Wyman –").
+PHENOM_KEYWORDS = {"Oliver Wyman": "Oliver Wyman"}
 EIGHTFOLD = {            # firm -> (host, domain, location query)  Eightfold AI careers
     # HSBC moved off its Avature board (mycareer.hsbc.com now only holds
     # pipeline/talent-pool cards) to Eightfold (2026-09-24). A "United States"
@@ -795,6 +871,7 @@ EIGHTFOLD_PCSX = {       # firm -> (host, domain, location)  Eightfold's newer "
     # /api/pcsx/search works once the careers page has set a session cookie.
     "Kering":       ("careers.kering.com",      "kering.com",      "United States"),  # ~200 US
     "Estée Lauder": ("careers.elcompanies.com", "elcompanies.com", "United States"),  # ~700 US
+    "PayPal":       ("paypal.eightfold.ai",     "paypal.com",      "United States"),  # 2026-10-23; ~190 US
 }
 SUCCESSFACTORS = {       # firm -> host  SAP SuccessFactors Career Site Builder
     "Prada": "jobs.pradagroup.com",
@@ -810,7 +887,8 @@ PAYLOCITY = {            # firm -> company GUID  (recruiting.paylocity.com/recru
 }
 # Heritage Auctions (Dallas) isn't wired: ha.com sits behind a DataDome bot
 # check and no public ATS board was found (2026-10-01).
-RADANCY_METRO_KW = ["new york", "jersey city", "chicago", "san francisco", "bay area"]
+RADANCY_METRO_KW = (["new york", "jersey city", "chicago", "bay area"]
+                    + [c.lower() for c in BAY_AREA_CITIES])   # Bay Area cities added 2026-10-23
 # Radancy ships two card themes: a classic one (BlackRock/Barclays/ING) where the
 # location + date <span>s sit INSIDE the /job/ anchor, and Citi's sr-job-item theme
 # where they sit AFTER it. Splitting on the anchor and reading each card's window
@@ -1120,6 +1198,66 @@ def fetch_paylocity(firm, guid):
     return out
 
 
+_JAZZ_ITEM = re.compile(r'<h3[^>]*list-group-item-heading[^>]*>\s*<a href="([^"]*/apply/([A-Za-z0-9]+)/[^"]*)">'
+                        r'\s*(.*?)\s*</a>.*?fa-map-marker[^>]*></i>\s*([^<]*)', re.S)
+
+
+def fetch_jazzhr(firm, sub):
+    """JazzHR's public list (<sub>.applytojob.com/apply): title, link and
+    location per role, one server-rendered page, no post date."""
+    import html as _html
+    try:
+        r = requests.get(f"https://{sub}.applytojob.com/apply/", headers=_BROWSER_UA, timeout=TIMEOUT)
+        r.raise_for_status()
+    except Exception as e:
+        print(f"  ! jazzhr {firm}: {e}", file=sys.stderr); return []
+    return [dict(firm=firm, id=f"jazz-{sub}-{jid}", title=_html.unescape(title).strip(),
+                 location=_html.unescape(loc).strip(), url=href, source="jazzhr", posted_date=None)
+            for href, jid, title, loc in _JAZZ_ITEM.findall(r.text)]
+
+
+_OLEEO_ENTRY = re.compile(r"<entry\b.*?<id>(.*?)</id>.*?<title>(.*?)</title>.*?<published>(.*?)</published>"
+                          r"(.*?)</entry>", re.S)
+_OLEEO_OPP = re.compile(r"/opp/(\d+)")
+_OLEEO_FEED_LOC = re.compile(r"Location:\s*([^<]+)")
+_OLEEO_PAGE_LOC = re.compile(r">\s*Location\s*(?:&nbsp;|\s|<[^>]+>)*([^<&]+)")
+
+
+def fetch_oleeo(firm, host, boards, relevant=None):
+    """Oleeo (tal.net) job boards: Evercore, Jefferies, L.E.K. Each board's
+    Atom feed lists title, link and publish date; when the feed has no
+    "Location:" line, the posting page's Location field is read, but only for
+    titles `relevant` keeps (Evercore's boards are mostly London/VP roles)."""
+    import html as _html
+    out, seen = [], set()
+    for app, brand, board in boards:
+        feed = f"https://{host}/vx/mobile-0/{app}/brand-{brand}/candidate/jobboard/vacancy/{board}/feed"
+        try:
+            r = requests.get(feed, headers=_BROWSER_UA, timeout=TIMEOUT); r.raise_for_status()
+            r.encoding = "utf-8"
+        except Exception as e:
+            print(f"  ! oleeo {firm} board {board}: {e}", file=sys.stderr); continue
+        for link, title, published, body in _OLEEO_ENTRY.findall(r.text):
+            m = _OLEEO_OPP.search(link)
+            if not m or m.group(1) in seen:
+                continue
+            seen.add(m.group(1))
+            title = _html.unescape(title).strip()
+            lm = _OLEEO_FEED_LOC.search(body)
+            loc = _html.unescape(lm.group(1)).strip() if lm else ""
+            if not loc and (relevant is None or relevant(title)):
+                try:
+                    page = requests.get(link, headers=_BROWSER_UA, timeout=TIMEOUT).text
+                    pm = _OLEEO_PAGE_LOC.search(page)
+                    loc = _html.unescape(pm.group(1)).strip() if pm else ""
+                    time.sleep(0.25)
+                except Exception as e:
+                    print(f"  ! oleeo {firm} {m.group(1)}: {e}", file=sys.stderr)
+            out.append(dict(firm=firm, id=f"oleeo-{host.split('.')[0]}-{m.group(1)}", title=title,
+                            location=loc, url=link, source="oleeo", posted_date=_posted(published)))
+    return out
+
+
 RAGO_URL = "https://www.ragoarts.com/contact/opportunities"
 
 
@@ -1167,7 +1305,10 @@ def fetch_rago(firm="Rago | Wright"):
 # searched per keyword per metro; title_ok() then keeps finance-field roles only.
 AGENCY_KEYWORDS = ("analyst", "associate")
 ROBERT_HALF_CITIES = ("new-york-ny", "chicago-il", "san-francisco-ca")
-RANDSTAD_CITIES = ("new-york/new-york", "illinois/chicago", "california/san-francisco")
+RANDSTAD_CITIES = ("new-york/new-york", "illinois/chicago", "california/san-francisco",
+                   "california/san-jose")   # South Bay: the SF search stops short of it
+# Robert Half's SF search already reaches the South and East Bay, and Michael
+# Page has no San Jose page (both checked 2026-10-23).
 MICHAEL_PAGE_CITIES = ("new-york", "chicago", "san-francisco")
 ASTON_CARTER_HOST = "careers.astoncarter.com"   # Allegis's finance brand, on Phenom
 AGENCY_FIRMS = {"Robert Half", "Randstad", "Michael Page", "Aston Carter"}
@@ -1322,7 +1463,7 @@ def fetch_aston_carter(firm="Aston Carter"):
     return fetch_phenom(firm, ASTON_CARTER_HOST, agency=True)
 
 
-def fetch_successfactors(firm, host, locations=("New York", "San Francisco", "Chicago")):
+def fetch_successfactors(firm, host, locations=("New York", "Chicago") + BAY_AREA_CITIES):
     """SAP SuccessFactors Career Site Builder (e.g. jobs.pradagroup.com). The
     /search/ page is server-rendered; one query per metro via `locationsearch`,
     paged by `startrow` (25/page). No post date in the list."""
@@ -1685,6 +1826,8 @@ def metro_of(loc):
     for m, needles in METROS.items():
         if any(n in l for n in needles):
             return m
+    if bay_area_city(loc):
+        return "SF / Bay Area"
     if _NY_STATE_RE.search(loc):
         return "NY + Jersey City"
     if _IL_STATE_RE.search(loc):
@@ -1744,6 +1887,10 @@ PRODUCT_GTM_FIRMS = {
     "Block", "Ripple", "Carta", "Gusto", "Addepar", "Robinhood", "SoFi", "Mercury",
     "Coinbase", "Affirm", "Betterment", "Paxos", "Column", "Kalshi", "Polymarket",
     "PVH", "Saks Global", "Rent the Runway", "Chanel",
+    # 2026-10-23 (Bay Area)
+    "Visa", "PayPal", "Intuit", "Wealthfront", "Upstart", "LendingClub", "Marqeta", "Bill.com",
+    "Kraken", "Anchorage Digital",
+    "Gap Inc.", "Levi Strauss & Co.", "The RealReal", "Stitch Fix",
 }
 # Auction houses also keep analyst/associate titles (client success, finance
 # services), since they sit between finance and luxury, plus their entry-level
@@ -1801,13 +1948,15 @@ _AGENCY_CITIES = {
     "new york": "NY + Jersey City", "new york city": "NY + Jersey City", "nyc": "NY + Jersey City",
     "manhattan": "NY + Jersey City", "jersey city": "NY + Jersey City",
     "chicago": "Chicago",
-    "san francisco": "SF / Bay Area", "palo alto": "SF / Bay Area", "menlo park": "SF / Bay Area",
-    "mountain view": "SF / Bay Area", "san mateo": "SF / Bay Area", "redwood city": "SF / Bay Area",
+    **{c.lower(): "SF / Bay Area" for c in BAY_AREA_CITIES},
 }
 
 
 def agency_metro(loc):
-    return _AGENCY_CITIES.get(loc.split(",")[0].replace("(Remote)", "").strip().lower())
+    m = _AGENCY_CITIES.get(loc.split(",")[0].replace("(Remote)", "").strip().lower())
+    if m == "SF / Bay Area" and _BAY_AMBIG_RE.search(loc) and not _CA_STATE_RE.search(loc):
+        return None   # Oakland, NJ / Berkeley, MO…
+    return m
 
 
 def title_ok(firm, title, nz=False, allow_senior=False):
@@ -1902,7 +2051,11 @@ def collect():
         rows = fetch_radancy(f, host, f.lower().split()[0]); print(f"  {f:<24}{len(rows):>4}"); raw += rows
     print("Phenom People…")
     for f, (host, country, lang) in PHENOM.items():
-        rows = fetch_phenom(f, host, country, lang); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+        kw = PHENOM_KEYWORDS.get(f, "")
+        rows = fetch_phenom(f, host, country, lang, keywords=kw)
+        if kw:
+            rows = [r for r in rows if kw.lower() in r["title"].lower()]
+        print(f"  {f:<24}{len(rows):>4}"); raw += rows
     print("Eightfold…")
     for f, (host, domain, loc) in EIGHTFOLD.items():
         rows = fetch_eightfold(f, host, domain, loc); print(f"  {f:<24}{len(rows):>4}"); raw += rows
@@ -1918,6 +2071,16 @@ def collect():
     print("Paylocity…")
     for f, guid in PAYLOCITY.items():
         rows = fetch_paylocity(f, guid); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    print("Lever…")
+    for f, slug in LEVER.items():
+        rows = fetch_lever(f, slug); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    print("JazzHR…")
+    for f, sub in JAZZHR.items():
+        rows = fetch_jazzhr(f, sub); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    print("Oleeo (tal.net)…")
+    for f, (host, boards) in OLEEO.items():
+        rows = fetch_oleeo(f, host, boards, relevant=lambda t, f=f: title_ok(f, t))
+        print(f"  {f:<24}{len(rows):>4}"); raw += rows
     print("Rago | Wright (ragoarts.com)…")
     rows = fetch_rago(); print(f"  {'Rago | Wright':<24}{len(rows):>4}"); raw += rows
     print("LVMH (lvmh.com)…")
@@ -2092,7 +2255,7 @@ def registered_firms():
     """Every firm the pipeline currently scrapes."""
     regs = (GREENHOUSE, ASHBY, JIBE, PINPOINT, ORACLE, HRMDIRECT, PAGEUP, ICIMS,
             WORKDAY, WORKDAY_SITE, RADANCY, PHENOM, EIGHTFOLD, EIGHTFOLD_PCSX, SUCCESSFACTORS,
-            BAMBOOHR, PAYLOCITY)
+            BAMBOOHR, PAYLOCITY, LEVER, JAZZHR, OLEEO)
     return ({f for reg in regs for f in reg} | AGENCY_FIRMS | NZ_FIRMS
             | {"Goldman Sachs", "Citadel Securities", "LVMH", "Rago | Wright"})
 

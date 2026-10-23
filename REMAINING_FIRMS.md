@@ -62,11 +62,16 @@ cut it. These tenants front Workday, so `applyUrl` is a myworkdayjobs deep link.
 - **JPMorgan Chase** — ✅ wired 2026-09-18: Oracle Fusion CE at
   `jpmc.fa.oraclecloud.com` (siteNumber `CX_1001`, siteName `CX_1001`), same
   product as Lazard/Cantor. ~7,400 reqs globally; ~281 kept after filters.
-- **Jefferies** — Oracle Talentlink (`jefferies.tal.net`) behind a **Cloudflare
-  managed challenge** ("Quick Check Needed"). Same bucket as Citadel — needs a
-  cloudscraper session, and vacancies then load via a JS widget. Deferred.
+- **Jefferies** — ✅ partly wired 2026-10-23: Oleeo (`jefferies.tal.net`). The
+  Campus board's Atom feed is open and is now pulled (`OLEEO` in `pipeline.py`);
+  the Experienced board still sits behind the "Quick Check Needed" bot check, so
+  lateral roles stay out.
 - **Scotiabank** — SAP SuccessFactors
-- **Evercore** — board not linked from marketing site (gated/separate)
+- **Evercore** — ✅ wired 2026-10-23: Oleeo (`evercore.tal.net`, linked from
+  evercore.com/careers/professionals); Students and Graduates + Experienced
+  Hires feeds.
+- **Centerview Partners** — checked 2026-10-23: no job board. "Apply Now" opens a
+  reCAPTCHA-gated application form on centerviewpartners.com.
 
 ## ⚪ No fingerprint on careers page — need browser capture
 - BNY

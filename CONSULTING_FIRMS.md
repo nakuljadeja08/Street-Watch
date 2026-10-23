@@ -39,6 +39,9 @@ metros are dropped.
 - Americas board: `lek.tal.net/vx/…/candidate/jobboard/vacancy/3/adv/`.
 - Same platform family as **Jefferies** (`jefferies.tal.net`), already flagged as a
   hard/session-based target in `REMAINING_FIRMS.md`. Solve once, reuse for both.
+- ✅ Wired 2026-10-23: each Oleeo board has a plain Atom feed
+  (`…/candidate/jobboard/vacancy/3/feed`) whose entries carry title, link, date
+  and "Location:", so no session is needed (`fetch_oleeo`, `OLEEO` in `pipeline.py`).
 
 ### Strategy& — PwC global careers
 - No standalone Strategy& board; openings live inside PwC's careers system and
