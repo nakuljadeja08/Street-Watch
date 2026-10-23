@@ -14,7 +14,7 @@ Bonhams, Doyle, Freeman's | Hindman, Rago | Wright; Bonhams Skinner
 comes through the Bonhams board) use the same rule but also keep Analyst, Associate, Cataloguer and
 Coordinator titles.
 Four staffing agencies (Robert Half, Randstad, Michael Page, Aston Carter;
-`AGENCY_FIRMS`) are searched for analyst/associate roles in NY, Chicago and SF.
+`AGENCY_FIRMS`) are searched for analyst/associate roles in NY, Chicago, SF and LA.
 Banks place many contract ops, KYC, risk and FP&A seats through agencies, and
 those roles appear only on the agency's board, usually without naming the
 client. Agency rows must be in a finance field (`_AGENCY_FIELD_RE`; accounting,
@@ -46,6 +46,22 @@ site. Not wired: Westpac NZ, Kiwibank, Forsyth Barr, Milford, Fisher Funds and
 Murray & Co (no public board, or Seek only; Seek's robots.txt forbids its search
 API), ASB (its Snaphire board's robots.txt disallows all bots), and PwC NZ,
 McKinsey, Michael Page NZ and Robert Walters NZ (block scripted requests).
+
+**Los Angeles** (added 2026-10-23) is a fifth metro, "Los Angeles": the city plus
+Santa Monica, Beverly Hills, Century City, Culver City, Pasadena, Glendale,
+Burbank, El Segundo, West Hollywood, Marina del Rey and Long Beach, and **Orange
+County** too (Newport Beach, Irvine, Costa Mesa), so PIMCO counts. Names that also
+exist elsewhere (Glendale AZ, Pasadena TX, Burbank IL, Long Beach NY, Irvine in
+Scotland) only count next to a California marker ("Glendale, CA", "US-CA-Irvine";
+`_LA_GUARDED_RE`). The agency searches, Radancy keywords, SuccessFactors and HRM
+Direct city queries include LA. Firms added for it: Capital Group and PIMCO
+(Workday; PIMCO's careers page is behind Akamai but its Workday board answers the
+public API), TCW Group (iCIMS), Hotchkis & Wiley (BambooHR), Lincoln
+International and B. Riley Securities (Greenhouse), and on the Fashion & Luxury
+Product/GTM rule Skims (Pinpoint), FIGS, ANINE BING, GOAT and Reformation
+(Greenhouse), plus David Zwirner (Greenhouse; a gallery, so it also keeps the
+auction-house titles). "Supervisor" titles are now cut as store shift leads.
+See `FIRM_STATUS.md` for the LA firms found but not wired.
 
 ```
 firms' ATS APIs  ──►  pipeline.py  ──►  Supabase `jobs` table  ──►  dashboard/ (React app on Vercel)

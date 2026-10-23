@@ -18,8 +18,8 @@ Fingerprinted each ATS via a live browser session:
   Stifel company; no separate board)
 - **Cantor Fitzgerald** → Oracle Fusion (existing `fetch_oracle`; 85 reqs)
 
-**Yellow — no public board / can't wire as-is:** PIMCO (Akamai bot gate, ATS not
-found) · HPS Investment Partners (renders no listings) · Qatalyst (email-only,
+**Yellow — no public board / can't wire as-is:** ~~PIMCO~~ (wired 2026-10-23: the
+careers page is behind Akamai, but its Workday board `pimco/pimco-careers` is public) · HPS Investment Partners (renders no listings) · Qatalyst (email-only,
 `uscareers@qatalyst.com`) · Wedbush (marketing page + reCAPTCHA form, no board) ·
 Academy Securities (email-only) · Siebert Williams Shank (site blocked our access)
 · Rothschild & Co (ATS not exposed on landing — needs deeper capture) · ANZ
