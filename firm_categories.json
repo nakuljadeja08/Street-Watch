@@ -6,19 +6,19 @@
   ],
   "Elite Boutique": [
     "Ducera Partners", "Guggenheim Securities", "Lazard", "LionTree", "Moelis & Company",
-    "PJT Partners", "Perella Weinberg Partners"
+    "PJT Partners", "Perella Weinberg Partners",
+    "Evercore"
   ],
   "Middle Market IB": [
-    "B. Riley Securities", "BTIG", "Baird", "Cantor Fitzgerald", "Citizens Financial Group", "Houlihan Lokey",
-    "Jarden", "KeyBank", "Lincoln International", "Macquarie Group", "Oppenheimer & Co.", "Piper Sandler", "RBC Capital Markets",
-    "Regions Securities", "Solomon Partners", "Stifel", "Truist Securities", "William Blair"
+    "B. Riley Securities", "Baird", "BTIG", "Cantor Fitzgerald", "Citizens Financial Group", "Houlihan Lokey", "Jarden", "Jefferies", "KeyBank", "Lincoln International", "Macquarie Group", "Oppenheimer & Co.", "Piper Sandler", "RBC Capital Markets", "Regions Securities", "Solomon Partners", "Stifel", "Truist Securities", "Union Square Advisors", "William Blair"
   ],
   "PE & Alts": [
     "8VC", "a16z", "Apollo Global Management", "Ardian", "Ares Management", "Battery Ventures",
     "Bessemer Venture Partners", "Blackstone", "Blue Owl Capital",
     "Brookfield Asset Management", "Carlyle", "EQT", "General Atlantic", "Hamilton Lane",
     "Insight Partners", "KKR", "Lightspeed", "Oaktree Capital Management", "Sequoia Capital",
-    "Sixth Street", "StepStone", "TPG", "Warburg Pincus", "Y Combinator"
+    "Sixth Street", "StepStone", "TPG", "Warburg Pincus", "Y Combinator",
+    "Bain Capital", "Vista Equity Partners"
   ],
   "Asset Management": [
     "AllianceBernstein", "BlackRock", "Capital Group", "Craigs Investment Partners", "Franklin Templeton", "Hotchkis & Wiley", "Invesco", "LPL Financial", "Neuberger Berman", "NZ Super Fund", "PGIM", "PIMCO", "TCW Group", "Wellington Management"
@@ -33,16 +33,18 @@
   ],
   "Consulting": [
     "Altman Solon", "BCG", "CIL Management Consultants", "Deloitte NZ", "KPMG NZ", "Mars & Co",
-    "ZS Associates"
+    "ZS Associates",
+    "Analysis Group", "Berkeley Research Group", "Cornerstone Research", "L.E.K. Consulting", "Oliver Wyman"
   ],
   "Fintech": [
     "Addepar", "Affirm", "Airwallex", "Bastion", "Betterment", "Block", "Brex", "CAIS", "Carta",
     "Chime", "Coinbase", "Column", "Galaxy Digital", "Gusto", "iCapital", "Kalshi", "Mercury",
     "Paxos", "Plaid", "Polymarket", "Ramp", "Ripple", "Robinhood", "Rogo", "Sharesies", "SoFi",
-    "Stripe", "Xero"
+    "Stripe", "Xero",
+    "Anchorage Digital", "Bill.com", "Intuit", "Kraken", "LendingClub", "Marqeta", "PayPal", "Upstart", "Visa", "Wealthfront"
   ],
   "Fashion & Luxury": [
-    "ANINE BING", "Bonhams", "Chanel", "Christie's", "David Zwirner", "Doyle", "Estée Lauder", "Fashionphile", "FIGS", "Freeman's | Hindman", "GOAT", "Kering", "LVMH", "Moncler", "On Holding", "Phillips", "Prada", "PVH", "Rago | Wright", "Reformation", "Rent the Runway", "Richemont", "Saks Global", "Skims", "Sotheby's", "Tapestry"
+    "ANINE BING", "Bonhams", "Chanel", "Christie's", "David Zwirner", "Doyle", "Estée Lauder", "Fashionphile", "FIGS", "Freeman's | Hindman", "Gap Inc.", "GOAT", "Kering", "Levi Strauss & Co.", "LVMH", "Moncler", "On Holding", "Phillips", "Prada", "PVH", "Rago | Wright", "Reformation", "Rent the Runway", "Richemont", "Saks Global", "Skims", "Sotheby's", "Stitch Fix", "Tapestry", "The RealReal"
   ],
   "Staffing Agency": [
     "Aston Carter", "Michael Page", "Randstad", "Robert Half"
