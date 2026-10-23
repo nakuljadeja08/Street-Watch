@@ -1287,6 +1287,7 @@ def fetch_jobvite(firm, slug):
                 print(f"  ! jobvite {firm} {jid}: {e}", file=sys.stderr)
         out.append(dict(firm=firm, id=f"jobvite-{slug}-{jid}", title=title, location=loc,
                         url=f"https://jobs.jobvite.com{href}", source="jobvite", posted_date=posted))
+    return out
 
 
 _JAZZ_ITEM = re.compile(r'<h3[^>]*list-group-item-heading[^>]*>\s*<a href="([^"]*/apply/([A-Za-z0-9]+)/[^"]*)">'
