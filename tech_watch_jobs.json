@@ -39,6 +39,19 @@
     "is_new": false
   },
   {
+    "firm": "Truist Securities",
+    "id": "phenom-careers.truist.com-TBJTBFUSR0120558EXTERNALENUS",
+    "title": "Software Engineer for Card Fraud Strategy Data Delivery",
+    "location": "Atlanta, Georgia, USA",
+    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Atlanta-GA/Software-Engineer_R0120558",
+    "source": "phenom",
+    "posted_date": "2026-10-08",
+    "metro": "Atlanta",
+    "sector": "Finance",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
     "firm": "State Street",
     "id": "wd-statestreet-Global-/job/Boston-Massachusetts/Senior-Data-Engineer---Cloud---Analytics--Officer---State-Street-Investment-Management_R-789304-1",
     "title": "Data Engineer - Cloud & Analytics, Officer - State Street Investment Management",
@@ -78,6 +91,19 @@
     "is_new": false
   },
   {
+    "firm": "Truist Securities",
+    "id": "phenom-careers.truist.com-TBJTBFUSR0120978EXTERNALENUS",
+    "title": "Data Engineer",
+    "location": "Charlotte, North Carolina, USA",
+    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Charlotte-NC/Data-Engineer_R0120978-1",
+    "source": "phenom",
+    "posted_date": "2026-10-20",
+    "metro": "Charlotte",
+    "sector": "Finance",
+    "first_seen": "2026-10-21",
+    "is_new": false
+  },
+  {
     "firm": "CIBC",
     "id": "wd-cibc-search-/job/Chicago-IL/Senior-Software-Engineer---US-Risk-Technology_2613362",
     "title": "Databricks Data Engineer, Risk Technology",
@@ -88,6 +114,19 @@
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
+    "is_new": false
+  },
+  {
+    "firm": "Charles Schwab",
+    "id": "charles-101923577296",
+    "title": "Data Engineer",
+    "location": "Southlake, TX; Austin, TX; Chicago, IL",
+    "url": "https://www.schwabjobs.com/job/southlake/data-engineer/33727/101923577296",
+    "source": "charles",
+    "posted_date": null,
+    "metro": "Chicago",
+    "sector": "Finance",
+    "first_seen": "2026-10-14",
     "is_new": false
   },
   {
@@ -153,6 +192,19 @@
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-10-15",
+    "is_new": false
+  },
+  {
+    "firm": "Franklin Templeton",
+    "id": "phenom-careers.franklintempleton.com-FTGFTMUS869238EXTERNALENUS",
+    "title": "Data Engineer",
+    "location": "Baltimore, Maryland, United States of America",
+    "url": "https://franklintempleton.wd5.myworkdayjobs.com/Primary-External-1/job/Baltimore-Maryland-United-States-of-America/Data-Engineer_869238",
+    "source": "phenom",
+    "posted_date": "2026-10-06",
+    "metro": "DC / Virginia",
+    "sector": "Finance",
+    "first_seen": "2026-10-06",
     "is_new": false
   },
   {
@@ -755,12 +807,12 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-04600-0013495125-usen",
+    "id": "roberthalf-03500-0013380490-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Milwaukee, WI",
-    "url": "https://www.roberthalf.com/us/en/job/milwaukee-wi/data-engineer/04600-0013495125-usen",
+    "location": "Oklahoma City, OK",
+    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-20",
+    "posted_date": "2026-10-22",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -768,12 +820,12 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-03500-0013380490-usen",
+    "id": "roberthalf-04600-0013495125-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Oklahoma City, OK",
-    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
+    "location": "Milwaukee, WI",
+    "url": "https://www.roberthalf.com/us/en/job/milwaukee-wi/data-engineer/04600-0013495125-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-22",
+    "posted_date": "2026-10-20",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -933,19 +985,6 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-09",
-    "is_new": false
-  },
-  {
-    "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0120705EXTERNALENUS",
-    "title": "Data Transmission Infrastructure Engineer",
-    "location": "Raleigh, North Carolina, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Raleigh-NC/Data-Transmission-Infrastructure-Engineer_R0120705",
-    "source": "phenom",
-    "posted_date": "2026-10-23",
-    "metro": "Other US",
-    "sector": "Finance",
-    "first_seen": "2026-10-13",
     "is_new": false
   },
   {
@@ -1205,6 +1244,19 @@
     "posted_date": "2026-08-28",
     "metro": "SF Bay Area",
     "sector": "Tech",
+    "first_seen": "2026-09-27",
+    "is_new": false
+  },
+  {
+    "firm": "Block",
+    "id": "gh-block-5381381008",
+    "title": "Software Engineer, Data Platform",
+    "location": "Bay Area, CA, United States of America",
+    "url": "http://block.xyz/careers/jobs/5381381008?gh_jid=5381381008",
+    "source": "greenhouse",
+    "posted_date": "2026-08-28",
+    "metro": "SF Bay Area",
+    "sector": "Fintech",
     "first_seen": "2026-09-27",
     "is_new": false
   },
