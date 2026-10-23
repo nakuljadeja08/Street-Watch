@@ -13,6 +13,47 @@ remain and 3 were removed** at your request.
 
 ---
 
+## 🆕 Added 2026-10-23: Los Angeles metro (approved by Nakul for Ms Tian)
+New metro **"Los Angeles"**: LA, Santa Monica, Beverly Hills, Century City, Culver
+City, Pasadena, Glendale, Burbank, El Segundo, West Hollywood, Marina del Rey, Long
+Beach, plus **Orange County** (Newport Beach, Irvine, Costa Mesa) so PIMCO counts.
+Firms already on the board gave **59 LA roles** on day one (Wells Fargo 11, JPMorgan
+9, Morgan Stanley 8, Apollo 3, Ares 3, Houlihan Lokey 3, Robert Half 3, Stifel,
+BofA, U.S. Bancorp, Goldman, RBC 2 each; Moelis, Brookfield, PGIM, Invesco,
+AllianceBernstein, Citi, Saks Global, Randstad, Aston Carter 1 each). The new firms
+below add 15 more (74 LA roles in all) and 18 across her metros.
+- **Asset Management (4):** PIMCO (Workday, 5) · TCW Group (iCIMS, 2) · Capital
+  Group (Workday, 2: LA 1, Chicago 1) · Hotchkis & Wiley (BambooHR, 1)
+- **Middle Market IB (2):** Lincoln International (Greenhouse, 5: LA 3, NY 2) ·
+  B. Riley Securities (Greenhouse, 0; two senior sales seats today)
+- **Fashion & Luxury, Product/GTM (5):** Reformation (2; was skipped before for
+  store roles, its Culver City HQ now has GTM seats) · FIGS (1) · Skims (Pinpoint,
+  0) · ANINE BING (0) · GOAT (0). "Supervisor" titles are now excluded as store
+  shift leads.
+- **Gallery, auction-house rule (1):** David Zwirner (Greenhouse, 0)
+- **Found, not added:**
+  - No public job board: Payden & Rygel, Clearlake, Leonard Green, Platinum Equity,
+    Gores Group, Canyon Partners (careers pages only), Wedbush (still none)
+  - ATS we have no fetcher for: DoubleLine (Paycom), Crescent Capital (Dayforce),
+    Causeway Capital (Taleo Business Edition), Revolve (ADP Workforce Now), Guess
+    (BrassRing), Kayne Anderson (Workable; today's roles are all Boca Raton and
+    Houston anyway)
+  - Self-hosted pages: First Pacific Advisors (one LA Client Service Associate
+    today), Gagosian (Beverly Hills roles are Director/Sales Assistant titles the
+    rule drops), Hauser & Wirth (one London role)
+  - Western Asset: its board (`franklintempleton/Jobs-WAM` Workday) has 0
+    postings; its roles run through Franklin Templeton, already on the board
+  - Dave and Tala (fintech): every posting is remote ("United States" or a country
+    code), so none would ever land in a metro. Whatnot: Ashby's public posting API
+    is switched off for it, and its board has no LA Product/GTM roles that pass
+    (1 NY role)
+  - Regional banks (City National, East West, Cathay…) left out at your request
+- Known gap: Workday rows listed as "2 Locations" / "3 Locations" can't be placed
+  in a metro (same as every Workday firm), so Capital Group and PIMCO may have a
+  few more LA roles than shown.
+
+---
+
 ## 🆕 Added 2026-10-22 (approved by Nakul for Ms Tian)
 67 roles in her metros on day one.
 - **Banks (3, from the remaining list):** Scotiabank (SuccessFactors, 20) ·
@@ -78,7 +119,7 @@ firm type "Staffing Agency" on the dashboard. Client firms are usually not named
 ### Blocked: bot protection or no public job board (10)
 - **Hermès:** careers site shows an "Access is temporarily restricted" bot wall
 - **Heritage Auctions:** ha.com shows a DataDome bot check; no public ATS board found (Dallas-based, outside our metros anyway)
-- **BNP Paribas, PIMCO:** Akamai bot gate
+- **BNP Paribas:** Akamai bot gate (PIMCO, also listed here before, was wired on 2026-10-23 through its public Workday board)
 - **Jefferies:** Cloudflare challenge (Oracle Talentlink)
 - **HPS Investment Partners:** page renders no listings
 - **Qatalyst Partners, Academy Securities:** email-only applications

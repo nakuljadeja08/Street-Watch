@@ -9,7 +9,7 @@ Pulls REAL current postings from firms' own hiring systems:
   • Workday     (public POST JSON, paginated)
 
 Filters to Analyst/Associate-level roles (wider titles for market-makers) in
-NY+JC / SF / Chicago / New Zealand, de-dupes, flags what's NEW since the last run, writes
+NY+JC / SF / Chicago / Los Angeles / New Zealand, de-dupes, flags what's NEW since the last run, writes
 street_watch_jobs.json + .csv, and — if SUPABASE_URL + SUPABASE_SERVICE_KEY
 are set — upserts every row into a Supabase `jobs` table.
 
@@ -59,6 +59,12 @@ GREENHOUSE = {   # firm -> board token  (boards-api.greenhouse.io/v1/boards/<tok
     "Coinbase": "coinbase", "Affirm": "affirm", "Betterment": "betterment",
     "Rent the Runway": "renttherunway",
     "Bessemer Venture Partners": "bessemerventurepartners", "Battery Ventures": "batteryventures",
+    # Los Angeles wave (2026-10-23). IB: Lincoln, B. Riley. Fashion (Product/GTM
+    # rule): FIGS ("figs15"), ANINE BING, GOAT, Reformation. David Zwirner is a
+    # gallery and takes the auction-house title rule.
+    "Lincoln International": "lincolninternational", "B. Riley Securities": "brileysecurities",
+    "FIGS": "figs15", "ANINE BING": "aninebing", "GOAT": "goatgroup", "Reformation": "reformation",
+    "David Zwirner": "davidzwirnergallery",
 }
 ASHBY = {        # firm -> job board name (api.ashbyhq.com/posting-api/job-board/<name>)
     "Insight Partners": "insight-partners",          # slug is hyphenated (was "insightpartners" = empty)
@@ -76,6 +82,7 @@ JIBE = {         # firm -> careers host  (https://<host>/api/jobs — Jibe/iCIMS
 }
 PINPOINT = {     # firm -> careers host  (https://<host>/postings.json — Pinpoint ATS)
     "CIL Management Consultants": "careers.cil.com", # small board; Analyst NY/Chicago
+    "Skims": "skims.pinpointhq.com",                 # LA fashion (2026-10-23); careers page is a CareerPuck front
 }
 ORACLE = {       # firm -> (host, siteNumber, siteName)  Oracle Fusion Recruiting (CE)
     # Public REST at /hcmRestApi/resources/latest/recruitingCEJobRequisitions.
@@ -89,6 +96,7 @@ ORACLE = {       # firm -> (host, siteNumber, siteName)  Oracle Fusion Recruitin
 }
 ICIMS = {        # firm -> host  (careers-<x>.icims.com; server-rendered JobCardItems)
     "Stifel": "careers-stifel.icims.com",            # also carries KBW (Stifel co.)
+    "TCW Group": "careers-tcw.icims.com",            # LA bond manager (2026-10-23)
 }
 HRMDIRECT = {    # firm -> host  (ClearCompany/HRM Direct; opco.hrmdirect.com/employment)
     "Oppenheimer & Co.": "opco.hrmdirect.com",       # filter by &city=; NY 26 / Chi / SF
@@ -125,6 +133,10 @@ WORKDAY = {      # firm -> (tenant, datacenter, site)
     "Mizuho":                   ("mizuho",     "wd1", "mizuhoamericas"),   # added 2026-09-24
     "MUFG":                     ("mufgub",     "wd3", "MUFG-Careers"),     # added 2026-10-22
     "Chanel":                   ("cc",         "wd3", "ChanelCareers"),    # fashion, Product/GTM (2026-10-22)
+    # Los Angeles asset managers (2026-10-23). PIMCO's careers page is behind
+    # Akamai, but its Workday board answers the public CXS API like any other.
+    "Capital Group":            ("capgroup",   "wd1", "capitalgroupcareers"),
+    "PIMCO":                    ("pimco",      "wd1", "pimco-careers"),    # Newport Beach HQ
     # Green-priority PE firms (added 2026-09-17) — tenant/site read off the live
     # careers redirect and confirmed against the wd/cxs endpoint.
     "Carlyle":                  ("carlyle",    "wd1", "Carlyle"),        # 79 reqs
@@ -143,7 +155,7 @@ WORKDAY = {      # firm -> (tenant, datacenter, site)
     # Best-effort tenant/site slugs from public careers URLs — a wrong site just
     # logs an error for that firm and skips it; correct it from the run output.
     # Still to map (custom / not-yet-found ATS): Evercore, Centerview, Rothschild,
-    #   Nomura, UBS, BNP, SocGen, PIMCO, HPS. (JPMorgan -> Oracle CE above;
+    #   Nomura, UBS, BNP, SocGen, HPS. (JPMorgan -> Oracle CE above;
     #   RBC -> Phenom; Jefferies -> Talentlink behind Cloudflare, needs cloudscraper.)
 }
 
@@ -169,7 +181,19 @@ METROS = {
     "SF / Bay Area":    ["san francisco", "bay area", "palo alto", "menlo park",
                          "mountain view", "san mateo", "redwood city"],
     "Chicago":          ["chicago", "illinois"],
+    # Los Angeles (added 2026-10-23) includes Orange County (Newport Beach,
+    # Irvine, Costa Mesa) so PIMCO and the other OC firms count. Only names
+    # that exist nowhere else are plain substrings; Glendale (AZ), Pasadena
+    # (TX), Burbank (IL), Long Beach (NY) and Irvine (Scotland) must sit next
+    # to a California marker, see _LA_GUARDED_RE.
+    "Los Angeles":      ["los angeles", "santa monica", "beverly hills", "century city",
+                         "culver city", "el segundo", "west hollywood", "marina del rey",
+                         "newport beach", "costa mesa"],
 }
+# "Glendale, CA", "Pasadena, California", "US-CA-Irvine", "CA - Burbank".
+_LA_GUARDED = r"(?:glendale|pasadena|burbank|long beach|irvine)"
+_LA_GUARDED_RE = re.compile(rf"\b{_LA_GUARDED}\b[\s,\-]*(?:ca|calif\.?|california)\b"
+                            rf"|\b(?:ca|california)\b[\s,\-]*{_LA_GUARDED}\b", re.I)
 # Standalone "IL" state code, same idea as _NY_STATE_RE: a bare ", il" substring
 # matched "Paris, Ile-de-France" and filed Paris roles under Chicago.
 _IL_STATE_RE = re.compile(r'\bil\b', re.I)
@@ -393,7 +417,7 @@ def fetch_hrmdirect(firm, host):
                          r'(.*?)</a>', re.S)
     out, seen = [], set()
     # cities map onto the METROS keys the downstream filter understands
-    for city in ("New York", "Jersey City", "Chicago", "San Francisco"):
+    for city in ("New York", "Jersey City", "Chicago", "San Francisco", "Los Angeles"):
         try:
             r = requests.get(base, headers=UA,
                              params={"search": "true", "city": city}, timeout=TIMEOUT)
@@ -465,7 +489,8 @@ def fetch_pageup(firm, host, locale="en_US"):
 
 
 _ICIMS_ITEM = re.compile(r'iCIMS_JobCardItem(.*?)(?=iCIMS_JobCardItem|</ul>)', re.S)
-_ICIMS_LOC = re.compile(r'Location</span>\s*<span[^>]*>\s*(.*?)\s*</span>', re.S)
+# "Location" (Stifel) or "Job Locations" (TCW) label
+_ICIMS_LOC = re.compile(r'Locations?</span>\s*<span[^>]*>\s*(.*?)\s*</span>', re.S)
 _ICIMS_ANCHOR = re.compile(r'href="([^"]*/jobs/(\d+)/[^"]*)"[^>]*class="iCIMS_Anchor"', re.S)
 _ICIMS_TITLE = re.compile(r'<h3[^>]*>\s*(.*?)\s*</h3>', re.S)
 
@@ -804,13 +829,15 @@ BAMBOOHR = {             # firm -> subdomain  (<sub>.bamboohr.com/careers/list)
     "Phillips": "phillipsauctioneers",               # auction house, ~10 global
     "Bonhams": "bonhams",                            # auction house, ~10 global
     "Doyle": "doyle",                                # NY auction house, small board
+    "Hotchkis & Wiley": "hwcm",                      # LA value manager (2026-10-23)
 }
 PAYLOCITY = {            # firm -> company GUID  (recruiting.paylocity.com/recruiting/jobs/All/<guid>)
     "Freeman's | Hindman": "7f667f0a-f178-4020-a9dc-7979f0175f37",  # merged 2023; Chicago, Philly, NY…
 }
 # Heritage Auctions (Dallas) isn't wired: ha.com sits behind a DataDome bot
 # check and no public ATS board was found (2026-10-01).
-RADANCY_METRO_KW = ["new york", "jersey city", "chicago", "san francisco", "bay area"]
+RADANCY_METRO_KW = ["new york", "jersey city", "chicago", "san francisco", "bay area",
+                    "los angeles", "irvine", "newport beach"]
 # Radancy ships two card themes: a classic one (BlackRock/Barclays/ING) where the
 # location + date <span>s sit INSIDE the /job/ anchor, and Citi's sr-job-item theme
 # where they sit AFTER it. Splitting on the anchor and reading each card's window
@@ -1166,9 +1193,10 @@ def fetch_rago(firm="Rago | Wright"):
 # board — usually without naming the client (added 2026-10-05). Each agency is
 # searched per keyword per metro; title_ok() then keeps finance-field roles only.
 AGENCY_KEYWORDS = ("analyst", "associate")
-ROBERT_HALF_CITIES = ("new-york-ny", "chicago-il", "san-francisco-ca")
-RANDSTAD_CITIES = ("new-york/new-york", "illinois/chicago", "california/san-francisco")
-MICHAEL_PAGE_CITIES = ("new-york", "chicago", "san-francisco")
+ROBERT_HALF_CITIES = ("new-york-ny", "chicago-il", "san-francisco-ca", "los-angeles-ca")
+RANDSTAD_CITIES = ("new-york/new-york", "illinois/chicago", "california/san-francisco",
+                   "california/los-angeles")
+MICHAEL_PAGE_CITIES = ("new-york", "chicago", "san-francisco", "los-angeles")
 ASTON_CARTER_HOST = "careers.astoncarter.com"   # Allegis's finance brand, on Phenom
 AGENCY_FIRMS = {"Robert Half", "Randstad", "Michael Page", "Aston Carter"}
 # Agency sites serve full pages to browser user agents, so send a plain one.
@@ -1322,7 +1350,8 @@ def fetch_aston_carter(firm="Aston Carter"):
     return fetch_phenom(firm, ASTON_CARTER_HOST, agency=True)
 
 
-def fetch_successfactors(firm, host, locations=("New York", "San Francisco", "Chicago")):
+def fetch_successfactors(firm, host, locations=("New York", "San Francisco", "Chicago",
+                                                "Los Angeles")):
     """SAP SuccessFactors Career Site Builder (e.g. jobs.pradagroup.com). The
     /search/ page is server-rendered; one query per metro via `locationsearch`,
     paged by `startrow` (25/page). No post date in the list."""
@@ -1689,6 +1718,8 @@ def metro_of(loc):
         return "NY + Jersey City"
     if _IL_STATE_RE.search(loc):
         return "Chicago"
+    if _LA_GUARDED_RE.search(loc):
+        return "Los Angeles"
     if is_nz(loc):
         return NZ_METRO
     return None
@@ -1744,12 +1775,15 @@ PRODUCT_GTM_FIRMS = {
     "Block", "Ripple", "Carta", "Gusto", "Addepar", "Robinhood", "SoFi", "Mercury",
     "Coinbase", "Affirm", "Betterment", "Paxos", "Column", "Kalshi", "Polymarket",
     "PVH", "Saks Global", "Rent the Runway", "Chanel",
+    # 2026-10-23 (Los Angeles)
+    "Skims", "FIGS", "ANINE BING", "GOAT", "Reformation", "David Zwirner",
 }
 # Auction houses also keep analyst/associate titles (client success, finance
 # services), since they sit between finance and luxury, plus their entry-level
 # cataloguer and sale/department coordinator seats.
 AUCTION_HOUSES = {"Christie's", "Sotheby's", "Phillips", "Bonhams", "Doyle", "Freeman's | Hindman",
-                  "Rago | Wright"}
+                  "Rago | Wright",
+                  "David Zwirner"}   # galleries take the same rule (2026-10-23)
 # Venture firms (a16z, added 2026-10-07) keep analyst/associate titles AND
 # Product/GTM ones (growth, partnerships, marketing). a16z prefixes every title
 # with its internal level ("Partner 16, …"), which is not a seniority signal.
@@ -1767,6 +1801,7 @@ _PRODUCT_GTM_EXCLUDE_RE = re.compile(
     r"client advis|sales (?:associate|advisor|support|professional|lead|and service|& service)"
     r"|beauty advisor|\bstore\b|boutique|\bstock\b|key ?holder|cashier|visual merchandis"
     r"|sales assistant|merchandise operations"           # department-store floor (Saks, Bergdorf)
+    r"|\bsupervisor\b"                                   # store shift leads (Reformation, Skims)
     r"|\bartist\b|ambassador|engineer|designer|\bstaff\b|\blead\b|group product|counsel"
     r"|seasonal|day of auction|\btemporary\b|\btemp\b|fixed[\s-]term|freelance"
     # GTM-adjacent support functions that aren't Product/GTM work themselves
@@ -1803,10 +1838,13 @@ _AGENCY_CITIES = {
     "chicago": "Chicago",
     "san francisco": "SF / Bay Area", "palo alto": "SF / Bay Area", "menlo park": "SF / Bay Area",
     "mountain view": "SF / Bay Area", "san mateo": "SF / Bay Area", "redwood city": "SF / Bay Area",
+    **{c: "Los Angeles" for c in METROS["Los Angeles"]},
 }
 
 
 def agency_metro(loc):
+    if _LA_GUARDED_RE.match(loc.replace("(Remote)", "").strip()):   # "Pasadena, CA" but not "Long Beach, NY"
+        return "Los Angeles"
     return _AGENCY_CITIES.get(loc.split(",")[0].replace("(Remote)", "").strip().lower())
 
 

@@ -9,8 +9,8 @@
     "PJT Partners", "Perella Weinberg Partners"
   ],
   "Middle Market IB": [
-    "BTIG", "Baird", "Cantor Fitzgerald", "Citizens Financial Group", "Houlihan Lokey",
-    "Jarden", "KeyBank", "Macquarie Group", "Oppenheimer & Co.", "Piper Sandler", "RBC Capital Markets",
+    "B. Riley Securities", "BTIG", "Baird", "Cantor Fitzgerald", "Citizens Financial Group", "Houlihan Lokey",
+    "Jarden", "KeyBank", "Lincoln International", "Macquarie Group", "Oppenheimer & Co.", "Piper Sandler", "RBC Capital Markets",
     "Regions Securities", "Solomon Partners", "Stifel", "Truist Securities", "William Blair"
   ],
   "PE & Alts": [
@@ -21,8 +21,9 @@
     "Sixth Street", "StepStone", "TPG", "Warburg Pincus", "Y Combinator"
   ],
   "Asset Management": [
-    "AllianceBernstein", "BlackRock", "Craigs Investment Partners", "Franklin Templeton", "Invesco",
-    "Neuberger Berman", "NZ Super Fund", "PGIM", "Wellington Management"
+    "AllianceBernstein", "BlackRock", "Capital Group", "Craigs Investment Partners", "Franklin Templeton",
+    "Hotchkis & Wiley", "Invesco", "Neuberger Berman", "NZ Super Fund", "PGIM", "PIMCO", "TCW Group",
+    "Wellington Management"
   ],
   "Banks": [
     "ANZ", "BMO", "BNZ", "CIBC", "Capital One", "HSBC", "Heartland Bank", "ING", "MUFG", "Mizuho",
@@ -43,7 +44,7 @@
     "Stripe", "Xero"
   ],
   "Fashion & Luxury": [
-    "Bonhams", "Chanel", "Christie's", "Doyle", "Estée Lauder", "Freeman's | Hindman", "Kering", "LVMH", "Moncler", "On Holding", "PVH", "Phillips", "Prada", "Rago | Wright", "Rent the Runway", "Richemont", "Saks Global", "Sotheby's", "Tapestry"
+    "ANINE BING", "Bonhams", "Chanel", "Christie's", "David Zwirner", "Doyle", "Estée Lauder", "FIGS", "Freeman's | Hindman", "GOAT", "Kering", "LVMH", "Moncler", "On Holding", "PVH", "Phillips", "Prada", "Rago | Wright", "Reformation", "Rent the Runway", "Richemont", "Saks Global", "Skims", "Sotheby's", "Tapestry"
   ],
   "Staffing Agency": [
     "Aston Carter", "Michael Page", "Randstad", "Robert Half"
