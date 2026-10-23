@@ -9,7 +9,7 @@ Pulls REAL current postings from firms' own hiring systems:
   • Workday     (public POST JSON, paginated)
 
 Filters to Analyst/Associate-level roles (wider titles for market-makers) in
-NY+JC / SF / Chicago / Los Angeles / New Zealand, de-dupes, flags what's NEW since the last run, writes
+NY+JC / SF / Chicago / Los Angeles / San Diego / New Zealand, de-dupes, flags what's NEW since the last run, writes
 street_watch_jobs.json + .csv, and — if SUPABASE_URL + SUPABASE_SERVICE_KEY
 are set — upserts every row into a Supabase `jobs` table.
 
@@ -137,6 +137,7 @@ WORKDAY = {      # firm -> (tenant, datacenter, site)
     # Akamai, but its Workday board answers the public CXS API like any other.
     "Capital Group":            ("capgroup",   "wd1", "capitalgroupcareers"),
     "PIMCO":                    ("pimco",      "wd1", "pimco-careers"),    # Newport Beach HQ
+    "LPL Financial":            ("lplfinancial","wd1", "External"),        # San Diego HQ (2026-10-23)
     # Green-priority PE firms (added 2026-09-17) — tenant/site read off the live
     # careers redirect and confirmed against the wd/cxs endpoint.
     "Carlyle":                  ("carlyle",    "wd1", "Carlyle"),        # 79 reqs
@@ -170,6 +171,12 @@ WORKDAY_FACETS = {
         "ec3d210e4240442e99a28fa70419aec5",    # California
         "d8bb292ed9fe44a2899a990ad569538c"]},  # Illinois
 }
+# Workday lists a multi-office role as "2 Locations", which metro_of can't place.
+# For these firms the job's detail page is read for its real offices (LPL posts
+# most corporate roles as San Diego + Fort Mill + Tempe/Austin). Only rows that
+# pass title_ok are looked up, so it costs a handful of requests.
+WORKDAY_EXPAND_LOCATIONS = {"LPL Financial"}
+_WD_MULTI_LOC_RE = re.compile(r"^\d+ Locations$")
 
 # ---------------------------------------------------------------- filters
 METROS = {
@@ -189,11 +196,19 @@ METROS = {
     "Los Angeles":      ["los angeles", "santa monica", "beverly hills", "century city",
                          "culver city", "el segundo", "west hollywood", "marina del rey",
                          "newport beach", "costa mesa"],
+    # San Diego (added 2026-10-23). Carlsbad and Del Mar are matched by
+    # _SD_AMBIG_RE below, not here: "carlsbad" alone hits Carlsbad, NM and
+    # Karlovy Vary (Carlsbad, CZ), and "del mar" hits Viña del Mar, Chile.
+    # "sorrento valley" is the full name, since a bare "sorrento" is Italy.
+    "San Diego":        ["san diego", "la jolla", "sorrento valley"],
 }
 # "Glendale, CA", "Pasadena, California", "US-CA-Irvine", "CA - Burbank".
 _LA_GUARDED = r"(?:glendale|pasadena|burbank|long beach|irvine)"
 _LA_GUARDED_RE = re.compile(rf"\b{_LA_GUARDED}\b[\s,\-]*(?:ca|calif\.?|california)\b"
                             rf"|\b(?:ca|california)\b[\s,\-]*{_LA_GUARDED}\b", re.I)
+# Carlsbad / Del Mar count as San Diego only when nothing places them elsewhere.
+_SD_AMBIG_RE = re.compile(r'\b(?:carlsbad|del mar)\b', re.I)
+_NOT_SD_RE = re.compile(r'new mexico|\bnm\b|vi[ñn]a del mar|chile|czech|karlovy', re.I)
 # Standalone "IL" state code, same idea as _NY_STATE_RE: a bare ", il" substring
 # matched "Paris, Ile-de-France" and filed Paris roles under Chicago.
 _IL_STATE_RE = re.compile(r'\bil\b', re.I)
@@ -417,7 +432,7 @@ def fetch_hrmdirect(firm, host):
                          r'(.*?)</a>', re.S)
     out, seen = [], set()
     # cities map onto the METROS keys the downstream filter understands
-    for city in ("New York", "Jersey City", "Chicago", "San Francisco", "Los Angeles"):
+    for city in ("New York", "Jersey City", "Chicago", "San Francisco", "Los Angeles", "San Diego"):
         try:
             r = requests.get(base, headers=UA,
                              params={"search": "true", "city": city}, timeout=TIMEOUT)
@@ -573,13 +588,15 @@ def fetch_workday_site(firm, dc, tenant, site):
     return out
 
 
-def fetch_workday(firm, tenant, dc, site, search_text="", relevant=None, facets=None):
+def fetch_workday(firm, tenant, dc, site, search_text="", relevant=None, facets=None,
+                  expand_locations=False):
     """`search_text` narrows the board server-side (Tech Watch passes "data
     engineer"). Workday's search is fuzzy and relevance-sorted, so it can match
     most of a big tenant; with `relevant` (title -> bool) paging stops after
     RELEVANT_MISS pages in a row with no relevant title. (It used to stop at the
     first such page, but the ranking scatters matches: Visa's first 20 results
-    had none of its ~20 data engineer roles, Mastercard's ran to row 380.)"""
+    had none of its ~20 data engineer roles, Mastercard's ran to row 380.)
+    `expand_locations`: see WORKDAY_EXPAND_LOCATIONS."""
     base = f"https://{tenant}.{dc}.myworkdayjobs.com/wday/cxs/{tenant}/{site}/jobs"
     host = f"https://{tenant}.{dc}.myworkdayjobs.com"
     LIMIT, RELEVANT_MISS = 20, 4
@@ -626,6 +643,19 @@ def fetch_workday(firm, tenant, dc, site, search_text="", relevant=None, facets=
             time.sleep(0.25)
     except Exception as e:
         print(f"  ! workday {firm}: {e}", file=sys.stderr)
+    if expand_locations:
+        for row in out:
+            if not _WD_MULTI_LOC_RE.match(row["location"]) or not title_ok(firm, row["title"]):
+                continue
+            try:
+                r = requests.get(f"{host}/wday/cxs/{tenant}/{site}{row['url'].split(site, 1)[1]}",
+                                 headers=UA, timeout=TIMEOUT)
+                r.raise_for_status()
+                info = r.json().get("jobPostingInfo") or {}
+                locs = [info.get("location")] + (info.get("additionalLocations") or [])
+                row["location"] = "; ".join(x for x in locs if x) or row["location"]
+            except Exception as e:
+                print(f"  ! workday {firm} locations: {e}", file=sys.stderr)
     return out
 
 
@@ -825,6 +855,9 @@ SUCCESSFACTORS = {       # firm -> host  SAP SuccessFactors Career Site Builder
     "Prada": "jobs.pradagroup.com",
     "Scotiabank": "jobs.scotiabank.com",             # added 2026-10-22; ~80 reqs in her metros
 }
+JOBVITE = {              # firm -> company slug  (jobs.jobvite.com/<slug>/jobs/viewall)
+    "Fashionphile": "fashionphilecareers",           # added 2026-10-23; Carlsbad HQ, ~30 reqs
+}
 BAMBOOHR = {             # firm -> subdomain  (<sub>.bamboohr.com/careers/list)
     "Phillips": "phillipsauctioneers",               # auction house, ~10 global
     "Bonhams": "bonhams",                            # auction house, ~10 global
@@ -837,7 +870,8 @@ PAYLOCITY = {            # firm -> company GUID  (recruiting.paylocity.com/recru
 # Heritage Auctions (Dallas) isn't wired: ha.com sits behind a DataDome bot
 # check and no public ATS board was found (2026-10-01).
 RADANCY_METRO_KW = ["new york", "jersey city", "chicago", "san francisco", "bay area",
-                    "los angeles", "irvine", "newport beach"]
+                    "los angeles", "irvine", "newport beach",
+                    "san diego"]
 # Radancy ships two card themes: a classic one (BlackRock/Barclays/ING) where the
 # location + date <span>s sit INSIDE the /job/ anchor, and Citi's sr-job-item theme
 # where they sit AFTER it. Splitting on the anchor and reading each card's window
@@ -1147,6 +1181,38 @@ def fetch_paylocity(firm, guid):
     return out
 
 
+_JV_ROW = re.compile(r'<a href="(/[^"/]+/job/(\w+))"[^>]*>\s*<div class="jv-job-list-name">(.*?)</div>'
+                     r'\s*<div class="ml-auto jv-job-list-location">(.*?)</div>\s*</a>', re.S)
+_JV_PLACE = re.compile(r'"addressLocality":\s*"([^"]*)",\s*"addressRegion":\s*"([^"]*)"')
+
+
+def fetch_jobvite(firm, slug):
+    """Jobvite careers site: /jobs/viewall is one server-rendered list. A
+    multi-office role shows only "N Locations", so its job page is read for the
+    JSON-LD addresses (that page also carries datePosted; the list has none)."""
+    import html as _html
+    clean = lambda s: _html.unescape(re.sub(r"\s+", " ", _TAG_RE.sub("", s))).strip()
+    try:
+        r = requests.get(f"https://jobs.jobvite.com/{slug}/jobs/viewall", headers=UA, timeout=TIMEOUT)
+        r.raise_for_status()
+    except Exception as e:
+        print(f"  ! jobvite {firm}: {e}", file=sys.stderr); return []
+    out = []
+    for href, jid, title, loc in _JV_ROW.findall(r.text):
+        title, loc, posted = clean(title), clean(loc), None
+        if re.match(r"^\d+ Locations$", loc) and title_ok(firm, title):
+            try:
+                d = requests.get(f"https://jobs.jobvite.com{href}", headers=UA, timeout=TIMEOUT).text
+                loc = "; ".join(", ".join(p) for p in _JV_PLACE.findall(d)) or loc
+                m = re.search(r'"datePosted":\s*"([^"]+)"', d)
+                posted = _posted(m.group(1)) if m else None
+            except Exception as e:
+                print(f"  ! jobvite {firm} {jid}: {e}", file=sys.stderr)
+        out.append(dict(firm=firm, id=f"jobvite-{slug}-{jid}", title=title, location=loc,
+                        url=f"https://jobs.jobvite.com{href}", source="jobvite", posted_date=posted))
+    return out
+
+
 RAGO_URL = "https://www.ragoarts.com/contact/opportunities"
 
 
@@ -1193,10 +1259,11 @@ def fetch_rago(firm="Rago | Wright"):
 # board — usually without naming the client (added 2026-10-05). Each agency is
 # searched per keyword per metro; title_ok() then keeps finance-field roles only.
 AGENCY_KEYWORDS = ("analyst", "associate")
-ROBERT_HALF_CITIES = ("new-york-ny", "chicago-il", "san-francisco-ca", "los-angeles-ca")
+ROBERT_HALF_CITIES = ("new-york-ny", "chicago-il", "san-francisco-ca", "los-angeles-ca",
+                      "san-diego-ca")
 RANDSTAD_CITIES = ("new-york/new-york", "illinois/chicago", "california/san-francisco",
-                   "california/los-angeles")
-MICHAEL_PAGE_CITIES = ("new-york", "chicago", "san-francisco", "los-angeles")
+                   "california/los-angeles", "california/san-diego")
+MICHAEL_PAGE_CITIES = ("new-york", "chicago", "san-francisco", "los-angeles", "san-diego")
 ASTON_CARTER_HOST = "careers.astoncarter.com"   # Allegis's finance brand, on Phenom
 AGENCY_FIRMS = {"Robert Half", "Randstad", "Michael Page", "Aston Carter"}
 # Agency sites serve full pages to browser user agents, so send a plain one.
@@ -1351,7 +1418,7 @@ def fetch_aston_carter(firm="Aston Carter"):
 
 
 def fetch_successfactors(firm, host, locations=("New York", "San Francisco", "Chicago",
-                                                "Los Angeles")):
+                                                "Los Angeles", "San Diego")):
     """SAP SuccessFactors Career Site Builder (e.g. jobs.pradagroup.com). The
     /search/ page is server-rendered; one query per metro via `locationsearch`,
     paged by `startrow` (25/page). No post date in the list."""
@@ -1720,6 +1787,8 @@ def metro_of(loc):
         return "Chicago"
     if _LA_GUARDED_RE.search(loc):
         return "Los Angeles"
+    if _SD_AMBIG_RE.search(loc) and not _NOT_SD_RE.search(loc):
+        return "San Diego"
     if is_nz(loc):
         return NZ_METRO
     return None
@@ -1777,6 +1846,7 @@ PRODUCT_GTM_FIRMS = {
     "PVH", "Saks Global", "Rent the Runway", "Chanel",
     # 2026-10-23 (Los Angeles)
     "Skims", "FIGS", "ANINE BING", "GOAT", "Reformation", "David Zwirner",
+    "Fashionphile",                                      # 2026-10-23, Carlsbad luxury resale
 }
 # Auction houses also keep analyst/associate titles (client success, finance
 # services), since they sit between finance and luxury, plus their entry-level
@@ -1815,6 +1885,13 @@ _PRODUCT_GTM_EXCLUDE_RE = re.compile(
 _ACCOUNT_EXEC_RE = re.compile(r"account exec", re.I)
 _SPECIALIST_RE = re.compile(r"specialist", re.I)
 _MANAGER_RE = re.compile(r"(?<!assistant )(?<!associate )manager", re.I)  # Assistant/Associate Manager stay
+# Broker-dealers whose boards are mostly advisor seats (added 2026-10-23): their
+# "Business Development Associate" recruits advisors, and Associate Advisor /
+# Financial Representative / branch Client Service Associate roles are sales or
+# advisor-support seats, not analyst work.
+ADVISOR_NETWORK_FIRMS = {"LPL Financial"}
+_ADVISOR_SEAT_RE = re.compile(r"business development|advis|financial (?:representative|consultant)"
+                              r"|client service associate|wealth associate|banking service", re.I)
 
 
 # Agency boards list every field (IT help desk, payroll, clinical…), so agency
@@ -1839,6 +1916,8 @@ _AGENCY_CITIES = {
     "san francisco": "SF / Bay Area", "palo alto": "SF / Bay Area", "menlo park": "SF / Bay Area",
     "mountain view": "SF / Bay Area", "san mateo": "SF / Bay Area", "redwood city": "SF / Bay Area",
     **{c: "Los Angeles" for c in METROS["Los Angeles"]},
+    "san diego": "San Diego", "la jolla": "San Diego", "carlsbad": "San Diego",
+    "del mar": "San Diego", "sorrento valley": "San Diego",
 }
 
 
@@ -1858,6 +1937,8 @@ def title_ok(firm, title, nz=False, allow_senior=False):
     if any(x in t for x in EXCLUDE) or _PART_TIME_RE.search(title) or senior.search(title):
         return False
     if _ACCOUNT_EXEC_RE.search(title):
+        return False
+    if firm in ADVISOR_NETWORK_FIRMS and _ADVISOR_SEAT_RE.search(title):
         return False
     titles = TITLES + ["graduate"] if nz else TITLES
     if firm in AGENCY_FIRMS:
@@ -1927,7 +2008,9 @@ def collect():
         rows = fetch_icims(f, host); print(f"  {f:<24}{len(rows):>4}"); raw += rows
     print("Workday…")
     for f, (t, dc, s) in WORKDAY.items():
-        rows = fetch_workday(f, t, dc, s, facets=WORKDAY_FACETS.get(f)); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+        rows = fetch_workday(f, t, dc, s, facets=WORKDAY_FACETS.get(f),
+                             expand_locations=f in WORKDAY_EXPAND_LOCATIONS)
+        print(f"  {f:<24}{len(rows):>4}"); raw += rows
     print("Workday (myworkdaysite)…")
     for f, (dc, t, s) in WORKDAY_SITE.items():
         rows = fetch_workday_site(f, dc, t, s); print(f"  {f:<24}{len(rows):>4}"); raw += rows
@@ -1950,6 +2033,9 @@ def collect():
     print("SuccessFactors…")
     for f, host in SUCCESSFACTORS.items():
         rows = fetch_successfactors(f, host); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+    print("Jobvite…")
+    for f, slug in JOBVITE.items():
+        rows = fetch_jobvite(f, slug); print(f"  {f:<24}{len(rows):>4}"); raw += rows
     print("BambooHR…")
     for f, sub in BAMBOOHR.items():
         rows = fetch_bamboohr(f, sub); print(f"  {f:<24}{len(rows):>4}"); raw += rows
@@ -2130,7 +2216,7 @@ def registered_firms():
     """Every firm the pipeline currently scrapes."""
     regs = (GREENHOUSE, ASHBY, JIBE, PINPOINT, ORACLE, HRMDIRECT, PAGEUP, ICIMS,
             WORKDAY, WORKDAY_SITE, RADANCY, PHENOM, EIGHTFOLD, EIGHTFOLD_PCSX, SUCCESSFACTORS,
-            BAMBOOHR, PAYLOCITY)
+            JOBVITE, BAMBOOHR, PAYLOCITY)
     return ({f for reg in regs for f in reg} | AGENCY_FIRMS | NZ_FIRMS
             | {"Goldman Sachs", "Citadel Securities", "LVMH", "Rago | Wright"})
 

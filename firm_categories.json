@@ -21,9 +21,7 @@
     "Sixth Street", "StepStone", "TPG", "Warburg Pincus", "Y Combinator"
   ],
   "Asset Management": [
-    "AllianceBernstein", "BlackRock", "Capital Group", "Craigs Investment Partners", "Franklin Templeton",
-    "Hotchkis & Wiley", "Invesco", "Neuberger Berman", "NZ Super Fund", "PGIM", "PIMCO", "TCW Group",
-    "Wellington Management"
+    "AllianceBernstein", "BlackRock", "Capital Group", "Craigs Investment Partners", "Franklin Templeton", "Hotchkis & Wiley", "Invesco", "LPL Financial", "Neuberger Berman", "NZ Super Fund", "PGIM", "PIMCO", "TCW Group", "Wellington Management"
   ],
   "Banks": [
     "ANZ", "BMO", "BNZ", "CIBC", "Capital One", "HSBC", "Heartland Bank", "ING", "MUFG", "Mizuho",
@@ -44,7 +42,7 @@
     "Stripe", "Xero"
   ],
   "Fashion & Luxury": [
-    "ANINE BING", "Bonhams", "Chanel", "Christie's", "David Zwirner", "Doyle", "Estée Lauder", "FIGS", "Freeman's | Hindman", "GOAT", "Kering", "LVMH", "Moncler", "On Holding", "PVH", "Phillips", "Prada", "Rago | Wright", "Reformation", "Rent the Runway", "Richemont", "Saks Global", "Skims", "Sotheby's", "Tapestry"
+    "ANINE BING", "Bonhams", "Chanel", "Christie's", "David Zwirner", "Doyle", "Estée Lauder", "Fashionphile", "FIGS", "Freeman's | Hindman", "GOAT", "Kering", "LVMH", "Moncler", "On Holding", "Phillips", "Prada", "PVH", "Rago | Wright", "Reformation", "Rent the Runway", "Richemont", "Saks Global", "Skims", "Sotheby's", "Tapestry"
   ],
   "Staffing Agency": [
     "Aston Carter", "Michael Page", "Randstad", "Robert Half"
