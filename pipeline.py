@@ -288,7 +288,8 @@ TRADING_FIRMS  = {"Jane Street", "DRW", "IMC Trading", "Virtu Financial",
                   "Optiver", "Citadel Securities", "Susquehanna International Group"}
 EXCLUDE = ["intern", "internship", "summer", "vice president", " vp ", " vp,",
            "director", "managing director", " md,", "principal", "head of",
-           "co-op", "co op"]
+           "co-op", "co op",
+           "principle"]   # misspelt "Principal" (Intuit's "Principle Financial Analyst")
 # Part-time roles (e.g. JPMorgan's "Part Time (30 Hours) Associate Banker"
 # branch postings). "PT" only as a standalone token so it never hits "Opt…".
 # "Hours" catches the hour-scheduled branch roles that don't say part time
@@ -1345,6 +1346,12 @@ def fetch_oleeo(firm, host, boards, relevant=None):
                     time.sleep(0.25)
                 except Exception as e:
                     print(f"  ! oleeo {firm} {m.group(1)}: {e}", file=sys.stderr)
+            # Evercore's Location field can name the wrong office ("Experienced
+            # Analyst - Industrials Advisory - Chicago, IL" says New York), so a
+            # metro city at the end of the title wins.
+            tail = title.rsplit(" - ", 1)[-1] if " - " in title else ""
+            if tail and metro_of(tail):
+                loc = tail
             out.append(dict(firm=firm, id=f"oleeo-{host.split('.')[0]}-{m.group(1)}", title=title,
                             location=loc, url=link, source="oleeo", posted_date=_posted(published)))
     return out
@@ -2018,6 +2025,8 @@ _PRODUCT_GTM_EXCLUDE_RE = re.compile(
     r"|beauty advisor|\bstore\b|boutique|\bstock\b|key ?holder|cashier|visual merchandis"
     r"|sales assistant|merchandise operations"           # department-store floor (Saks, Bergdorf)
     r"|\bsupervisor\b"                                   # store shift leads (Reformation, Skims)
+    r"|retail sales"                                     # store sales floor (Fashionphile)
+    r"|executive assistant"                              # admin seat on a GTM team (Intuit)
     r"|\bartist\b|ambassador|engineer|designer|\bstaff\b|\blead\b|group product|counsel"
     r"|seasonal|day of auction|\btemporary\b|\btemp\b|fixed[\s-]term|freelance"
     # GTM-adjacent support functions that aren't Product/GTM work themselves
