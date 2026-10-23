@@ -39,19 +39,6 @@
     "is_new": false
   },
   {
-    "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0120558EXTERNALENUS",
-    "title": "Software Engineer for Card Fraud Strategy Data Delivery",
-    "location": "Atlanta, Georgia, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Atlanta-GA/Software-Engineer_R0120558",
-    "source": "phenom",
-    "posted_date": "2026-10-08",
-    "metro": "Atlanta",
-    "sector": "Finance",
-    "first_seen": "2026-10-22",
-    "is_new": false
-  },
-  {
     "firm": "State Street",
     "id": "wd-statestreet-Global-/job/Boston-Massachusetts/Senior-Data-Engineer---Cloud---Analytics--Officer---State-Street-Investment-Management_R-789304-1",
     "title": "Data Engineer - Cloud & Analytics, Officer - State Street Investment Management",
@@ -88,19 +75,6 @@
     "metro": "Charlotte",
     "sector": "Finance",
     "first_seen": "2026-10-22",
-    "is_new": false
-  },
-  {
-    "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0120978EXTERNALENUS",
-    "title": "Data Engineer",
-    "location": "Charlotte, North Carolina, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Charlotte-NC/Data-Engineer_R0120978-1",
-    "source": "phenom",
-    "posted_date": "2026-10-20",
-    "metro": "Charlotte",
-    "sector": "Finance",
-    "first_seen": "2026-10-21",
     "is_new": false
   },
   {
@@ -179,19 +153,6 @@
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-10-15",
-    "is_new": false
-  },
-  {
-    "firm": "Franklin Templeton",
-    "id": "phenom-careers.franklintempleton.com-FTGFTMUS869238EXTERNALENUS",
-    "title": "Data Engineer",
-    "location": "Baltimore, Maryland, United States of America",
-    "url": "https://franklintempleton.wd5.myworkdayjobs.com/Primary-External-1/job/Baltimore-Maryland-United-States-of-America/Data-Engineer_869238",
-    "source": "phenom",
-    "posted_date": "2026-10-06",
-    "metro": "DC / Virginia",
-    "sector": "Finance",
-    "first_seen": "2026-10-06",
     "is_new": false
   },
   {
@@ -637,19 +598,6 @@
     "is_new": false
   },
   {
-    "firm": "FIS",
-    "id": "wd-fis-SearchJobs-/job/US-FL-JAX-347/Software-Engineering--FIS-University-Program_JR0309486",
-    "title": "Software Engineering Early Talent Pipeline",
-    "location": "US FL JAX 347; US GA ATL 201 STE 900; US WI MKE 4900",
-    "url": "https://fis.wd5.myworkdayjobs.com/SearchJobs/job/US-FL-JAX-347/Software-Engineering--FIS-University-Program_JR0309486",
-    "source": "workday",
-    "posted_date": "2026-09-29",
-    "metro": "Other US",
-    "sector": "Fintech",
-    "first_seen": "2026-10-22",
-    "is_new": false
-  },
-  {
     "firm": "Gopuff",
     "id": "lever-gopuff-bfa7bc15-793e-486c-a3f5-b27d84c53025",
     "title": "Analytics Engineer",
@@ -820,19 +768,6 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-01500-0013497785-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Oskaloosa, IA",
-    "url": "https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-13",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-13",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
     "id": "roberthalf-03500-0013380490-usen",
     "title": "Data Engineer \u00b7 Direct hire",
     "location": "Oklahoma City, OK",
@@ -842,6 +777,19 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-01500-0013497785-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Oskaloosa, IA",
+    "url": "https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-13",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-13",
     "is_new": false
   },
   {
@@ -985,6 +933,19 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-09",
+    "is_new": false
+  },
+  {
+    "firm": "Truist Securities",
+    "id": "phenom-careers.truist.com-TBJTBFUSR0120705EXTERNALENUS",
+    "title": "Data Transmission Infrastructure Engineer",
+    "location": "Raleigh, North Carolina, USA",
+    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Raleigh-NC/Data-Transmission-Infrastructure-Engineer_R0120705",
+    "source": "phenom",
+    "posted_date": "2026-10-23",
+    "metro": "Other US",
+    "sector": "Finance",
+    "first_seen": "2026-10-13",
     "is_new": false
   },
   {
@@ -1463,19 +1424,6 @@
     "url": "https://careers.roblox.com/jobs/8159857?gh_jid=8159857",
     "source": "greenhouse",
     "posted_date": "2026-10-08",
-    "metro": "SF Bay Area",
-    "sector": "Tech",
-    "first_seen": "2026-10-22",
-    "is_new": false
-  },
-  {
-    "firm": "Salesforce",
-    "id": "wd-salesforce-External_Career_Site-/job/California---San-Francisco/Software-Engineering-LMTS---Data--Remote-_JR363374",
-    "title": "Software Engineering LMTS - Data (Remote)",
-    "location": "California - San Francisco",
-    "url": "https://salesforce.wd12.myworkdayjobs.com/External_Career_Site/job/California---San-Francisco/Software-Engineering-LMTS---Data--Remote-_JR363374",
-    "source": "workday",
-    "posted_date": "2026-10-12",
     "metro": "SF Bay Area",
     "sector": "Tech",
     "first_seen": "2026-10-22",
