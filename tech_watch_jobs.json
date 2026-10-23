@@ -117,6 +117,19 @@
     "is_new": false
   },
   {
+    "firm": "Charles Schwab",
+    "id": "charles-101923577296",
+    "title": "Data Engineer",
+    "location": "Southlake, TX; Austin, TX; Chicago, IL",
+    "url": "https://www.schwabjobs.com/job/southlake/data-engineer/33727/101923577296",
+    "source": "charles",
+    "posted_date": null,
+    "metro": "Chicago",
+    "sector": "Finance",
+    "first_seen": "2026-10-14",
+    "is_new": false
+  },
+  {
     "firm": "Comcast",
     "id": "wd-comcast-Comcast_Careers-/job/IL---Chicago-350-N-Orleans-St-1300N/Data-Engineer-3---Reston--VA---Freewheel_R444945",
     "title": "Data Engineer 3 - Reston, VA - Freewheel",
@@ -637,19 +650,6 @@
     "is_new": false
   },
   {
-    "firm": "FIS",
-    "id": "wd-fis-SearchJobs-/job/US-FL-JAX-347/Software-Engineering--FIS-University-Program_JR0309486",
-    "title": "Software Engineering Early Talent Pipeline",
-    "location": "US FL JAX 347; US GA ATL 201 STE 900; US WI MKE 4900",
-    "url": "https://fis.wd5.myworkdayjobs.com/SearchJobs/job/US-FL-JAX-347/Software-Engineering--FIS-University-Program_JR0309486",
-    "source": "workday",
-    "posted_date": "2026-09-29",
-    "metro": "Other US",
-    "sector": "Fintech",
-    "first_seen": "2026-10-22",
-    "is_new": false
-  },
-  {
     "firm": "Gopuff",
     "id": "lever-gopuff-bfa7bc15-793e-486c-a3f5-b27d84c53025",
     "title": "Analytics Engineer",
@@ -807,6 +807,19 @@
   },
   {
     "firm": "Robert Half",
+    "id": "roberthalf-03500-0013380490-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Oklahoma City, OK",
+    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-22",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-05",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
     "id": "roberthalf-04600-0013495125-usen",
     "title": "Data Engineer \u00b7 Direct hire",
     "location": "Milwaukee, WI",
@@ -829,19 +842,6 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-13",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-03500-0013380490-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Oklahoma City, OK",
-    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-22",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
     "is_new": false
   },
   {
@@ -1248,6 +1248,19 @@
     "is_new": false
   },
   {
+    "firm": "Block",
+    "id": "gh-block-5381381008",
+    "title": "Software Engineer, Data Platform",
+    "location": "Bay Area, CA, United States of America",
+    "url": "http://block.xyz/careers/jobs/5381381008?gh_jid=5381381008",
+    "source": "greenhouse",
+    "posted_date": "2026-08-28",
+    "metro": "SF Bay Area",
+    "sector": "Fintech",
+    "first_seen": "2026-09-27",
+    "is_new": false
+  },
+  {
     "firm": "Cursor",
     "id": "ashby-cursor-0320a8db-cb1b-407b-bd62-b23734b83330",
     "title": "Software Engineer, Pretraining Data",
@@ -1463,19 +1476,6 @@
     "url": "https://careers.roblox.com/jobs/8159857?gh_jid=8159857",
     "source": "greenhouse",
     "posted_date": "2026-10-08",
-    "metro": "SF Bay Area",
-    "sector": "Tech",
-    "first_seen": "2026-10-22",
-    "is_new": false
-  },
-  {
-    "firm": "Salesforce",
-    "id": "wd-salesforce-External_Career_Site-/job/California---San-Francisco/Software-Engineering-LMTS---Data--Remote-_JR363374",
-    "title": "Software Engineering LMTS - Data (Remote)",
-    "location": "California - San Francisco",
-    "url": "https://salesforce.wd12.myworkdayjobs.com/External_Career_Site/job/California---San-Francisco/Software-Engineering-LMTS---Data--Remote-_JR363374",
-    "source": "workday",
-    "posted_date": "2026-10-12",
     "metro": "SF Bay Area",
     "sector": "Tech",
     "first_seen": "2026-10-22",
