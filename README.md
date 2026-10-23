@@ -14,7 +14,7 @@ Bonhams, Doyle, Freeman's | Hindman, Rago | Wright; Bonhams Skinner
 comes through the Bonhams board) use the same rule but also keep Analyst, Associate, Cataloguer and
 Coordinator titles.
 Four staffing agencies (Robert Half, Randstad, Michael Page, Aston Carter;
-`AGENCY_FIRMS`) are searched for analyst/associate roles in NY, Chicago and SF.
+`AGENCY_FIRMS`) are searched for analyst/associate roles in NY, Chicago, SF, LA and San Diego.
 Banks place many contract ops, KYC, risk and FP&A seats through agencies, and
 those roles appear only on the agency's board, usually without naming the
 client. Agency rows must be in a finance field (`_AGENCY_FIELD_RE`; accounting,
@@ -46,6 +46,52 @@ site. Not wired: Westpac NZ, Kiwibank, Forsyth Barr, Milford, Fisher Funds and
 Murray & Co (no public board, or Seek only; Seek's robots.txt forbids its search
 API), ASB (its Snaphire board's robots.txt disallows all bots), and PwC NZ,
 McKinsey, Michael Page NZ and Robert Walters NZ (block scripted requests).
+
+**Los Angeles** (added 2026-10-23) is a fifth metro, "Los Angeles": the city plus
+Santa Monica, Beverly Hills, Century City, Culver City, Pasadena, Glendale,
+Burbank, El Segundo, West Hollywood, Marina del Rey and Long Beach, and **Orange
+County** too (Newport Beach, Irvine, Costa Mesa), so PIMCO counts. Names that also
+exist elsewhere (Glendale AZ, Pasadena TX, Burbank IL, Long Beach NY, Irvine in
+Scotland) only count next to a California marker ("Glendale, CA", "US-CA-Irvine";
+`_LA_GUARDED_RE`). The agency searches, Radancy keywords, SuccessFactors and HRM
+Direct city queries include LA. Firms added for it: Capital Group and PIMCO
+(Workday; PIMCO's careers page is behind Akamai but its Workday board answers the
+public API), TCW Group (iCIMS), Hotchkis & Wiley (BambooHR), Lincoln
+International and B. Riley Securities (Greenhouse), and on the Fashion & Luxury
+Product/GTM rule Skims (Pinpoint), FIGS, ANINE BING, GOAT and Reformation
+(Greenhouse), plus David Zwirner (Greenhouse; a gallery, so it also keeps the
+auction-house titles). "Supervisor" titles are now cut as store shift leads.
+See `FIRM_STATUS.md` for the LA firms found but not wired.
+
+**San Diego** (added 2026-10-23) is a metro of its own, "San Diego": San Diego, La
+Jolla, Sorrento Valley, Carlsbad and Del Mar. Carlsbad and Del Mar only count when
+nothing places them elsewhere (`_SD_AMBIG_RE` / `_NOT_SD_RE`: Carlsbad, NM, Karlovy
+Vary and Viña del Mar are not San Diego). Its finance market is small, so the board
+there is small. Firms added for it: LPL Financial (Asset Management; Workday, with
+its "N Locations" rows resolved from the job detail, since most of its corporate
+roles list San Diego alongside Fort Mill and Tempe; its advisor, advisor-recruiting
+"Business Development" and branch client-service seats are left out by
+`ADVISOR_NETWORK_FIRMS`) and Fashionphile (Fashion & Luxury, Carlsbad; Jobvite,
+Product/GTM rule). Regional banks (Axos and others) are left out by request.
+
+**Bay Area** (widened 2026-10-23, West Coast expansion): "SF / Bay Area" also
+covers San Jose, Santa Clara, Sunnyvale, Cupertino, Oakland, Emeryville, Foster
+City, Burlingame, San Carlos and Berkeley (`BAY_AREA_CITIES` in `pipeline.py`).
+Names that also exist elsewhere (Oakland NJ, Berkeley Heights NJ, Berkeley Square
+London, San José Costa Rica…) only count with a CA/California marker
+(`_BAY_AMBIG_RE`), and a standalone "SF" counts (Gap writes its HQ as "SF - 2
+Folsom"). The city-by-city searches (Radancy keywords, SuccessFactors, HRM
+Direct, the agency city map, Randstad's San Jose search) use the same list.
+Firms added for it: Evercore, Jefferies (Campus board only), Union Square
+Advisors, Vista Equity Partners, Bain Capital; Visa, PayPal, Intuit, Wealthfront,
+Upstart, LendingClub, Marqeta, Bill.com, Kraken, Anchorage Digital (fintech,
+Product/GTM rule); Gap Inc., Levi Strauss & Co., The RealReal, Stitch Fix
+(fashion, Product/GTM rule); Oliver Wyman, Analysis Group, Cornerstone Research,
+L.E.K. Consulting, Berkeley Research Group. Not wired: Centerview (application
+form only), Qatalyst, Silver Lake, Francisco Partners (email only), Hellman &
+Friedman, Thoma Bravo, Golden Gate Capital (no public roles). Sephora US already
+comes through the LVMH board. Regional banks (SVB / First Citizens) were left
+out at the user's request. See `FIRM_STATUS.md` for day-one counts.
 
 ```
 firms' ATS APIs  ──►  pipeline.py  ──►  Supabase `jobs` table  ──►  dashboard/ (React app on Vercel)
@@ -388,6 +434,21 @@ instead of loose `"manhattan"`/`", ny"` substrings — fixes false matches on
   **L.E.K.** — Oracle Talentlink (`lek.tal.net`, session-based, same family as
   Jefferies). **Strategy&** — no standalone board; roles live inside PwC's global
   careers system and need isolating by brand. See `CONSULTING_FIRMS.md`.
+
+**Bay Area wave (added 2026-10-23):**
+- **Oleeo / tal.net** (Evercore, Jefferies, L.E.K.) — new generic `fetch_oleeo` +
+  `OLEEO` dict {host, [(appcentre, brand, board)]}. Each board has a plain Atom
+  feed; when it carries no "Location:" line the posting page is read, for titles
+  that pass `title_ok` only. Jefferies' Experienced board is behind a bot check.
+- **JazzHR** (Union Square Advisors) — new `fetch_jazzhr` + `JAZZHR` dict.
+- **Lever** (Wealthfront, Anchorage Digital) — US `LEVER` dict, reusing `fetch_lever`.
+- **iCIMS** entries can list several portals (Vista ×3, Analysis Group ×2,
+  Cornerstone ×3); the location label "Job Locations" is now read too.
+- **Phenom** `PHENOM_KEYWORDS` narrows a shared board: Oliver Wyman on Marsh
+  McLennan's `careers.marsh.com`, rows kept only if the title names the firm.
+- **PayPal** moved to Eightfold (`paypal.eightfold.ai`, pcsx search).
+- Levi's Workday is narrowed to CA/NY/NJ/IL by `WORKDAY_FACETS` (1,240 of its
+  ~1,400 roles are store roles).
 
 **Wired, will flow once you run it (Workday — 19 firms):** Blackstone, Apollo,
 Blue Owl, Ares, Morgan Stanley, Houlihan Lokey, Wells Fargo, Moelis, Brookfield,

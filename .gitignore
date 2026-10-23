@@ -37,3 +37,9 @@ desktop.ini
 # Note: .street_watch_state.json, street_watch_jobs.json and .csv ARE tracked —
 # the daily GitHub Actions workflow commits them back (the newness ledger +
 # latest outputs). Do not ignore them.
+
+# Private notes for Ms Tian / applications — keep local, never commit
+update_email_*.md
+interview_prep_*.md
+cover_letter_*.md
+*.pdf

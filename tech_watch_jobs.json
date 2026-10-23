@@ -1,5 +1,57 @@
 [
   {
+    "firm": "Equifax",
+    "id": "wd-equifax-External-/job/USA---Georgia---Alpharetta---30005/Software-Engineer--Java-and-Big-Data-_J00179186",
+    "title": "Software Engineer (Java and Big Data)",
+    "location": "USA - Georgia - Alpharetta - 30005",
+    "url": "https://equifax.wd5.myworkdayjobs.com/External/job/USA---Georgia---Alpharetta---30005/Software-Engineer--Java-and-Big-Data-_J00179186",
+    "source": "workday",
+    "posted_date": "2026-10-02",
+    "metro": "Atlanta",
+    "sector": "Finance",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
+    "firm": "Equifax",
+    "id": "wd-equifax-External-/job/USA---Georgia---Alpharetta---30005/Software-Engineer--Java-Big-Data-_J00179185",
+    "title": "Software Engineer (Java/Big Data)",
+    "location": "USA - Georgia - Alpharetta - 30005",
+    "url": "https://equifax.wd5.myworkdayjobs.com/External/job/USA---Georgia---Alpharetta---30005/Software-Engineer--Java-Big-Data-_J00179185",
+    "source": "workday",
+    "posted_date": "2026-10-02",
+    "metro": "Atlanta",
+    "sector": "Finance",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
+    "firm": "FanDuel",
+    "id": "gh-fanduel-8267158",
+    "title": "Data Engineer",
+    "location": "Atlanta, Georgia, United States",
+    "url": "https://www.fanduel.careers/open-positions?gh_jid=8267158",
+    "source": "greenhouse",
+    "posted_date": "2026-10-20",
+    "metro": "Atlanta",
+    "sector": "Tech",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
+    "firm": "Truist Securities",
+    "id": "phenom-careers.truist.com-TBJTBFUSR0120558EXTERNALENUS",
+    "title": "Software Engineer for Card Fraud Strategy Data Delivery",
+    "location": "Atlanta, Georgia, USA",
+    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Atlanta-GA/Software-Engineer_R0120558",
+    "source": "phenom",
+    "posted_date": "2026-10-08",
+    "metro": "Atlanta",
+    "sector": "Finance",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
     "firm": "State Street",
     "id": "wd-statestreet-Global-/job/Boston-Massachusetts/Senior-Data-Engineer---Cloud---Analytics--Officer---State-Street-Investment-Management_R-789304-1",
     "title": "Data Engineer - Cloud & Analytics, Officer - State Street Investment Management",
@@ -10,6 +62,32 @@
     "metro": "Boston",
     "sector": "Finance",
     "first_seen": "2026-10-19",
+    "is_new": false
+  },
+  {
+    "firm": "State Street",
+    "id": "wd-statestreet-Global-/job/Quincy-Massachusetts/Technology-Financial-Operations-Data-Analytics---BI-Engineer_R-796407",
+    "title": "Technology Financial Operations Data Analytics & BI Engineer",
+    "location": "Quincy, Massachusetts",
+    "url": "https://statestreet.wd1.myworkdayjobs.com/Global/job/Quincy-Massachusetts/Technology-Financial-Operations-Data-Analytics---BI-Engineer_R-796407",
+    "source": "workday",
+    "posted_date": "2026-10-05",
+    "metro": "Boston",
+    "sector": "Finance",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
+    "firm": "LPL Financial",
+    "id": "wd-lplfinancial-External-/job/Fort-MillCharlotte/Data-Engineer-II_R-052484-2",
+    "title": "Backend Software Engineer II \u2013 AWS & Data Platforms",
+    "location": "Fort Mill/Charlotte",
+    "url": "https://lplfinancial.wd1.myworkdayjobs.com/External/job/Fort-MillCharlotte/Data-Engineer-II_R-052484-2",
+    "source": "workday",
+    "posted_date": "2026-10-16",
+    "metro": "Charlotte",
+    "sector": "Finance",
+    "first_seen": "2026-10-22",
     "is_new": false
   },
   {
@@ -26,19 +104,6 @@
     "is_new": false
   },
   {
-    "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0120831EXTERNALENUS",
-    "title": "Security Engineer (Data Engineering/ Protection)",
-    "location": "Charlotte, North Carolina, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Charlotte-NC/Security-Engineer--Data-Engineering--Protection-_R0120831",
-    "source": "phenom",
-    "posted_date": "2026-10-16",
-    "metro": "Charlotte",
-    "sector": "Finance",
-    "first_seen": "2026-10-17",
-    "is_new": false
-  },
-  {
     "firm": "CIBC",
     "id": "wd-cibc-search-/job/Chicago-IL/Senior-Software-Engineer---US-Risk-Technology_2613362",
     "title": "Databricks Data Engineer, Risk Technology",
@@ -49,6 +114,19 @@
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
+    "is_new": false
+  },
+  {
+    "firm": "Charles Schwab",
+    "id": "charles-101923577296",
+    "title": "Data Engineer",
+    "location": "Southlake, TX; Austin, TX; Chicago, IL",
+    "url": "https://www.schwabjobs.com/job/southlake/data-engineer/33727/101923577296",
+    "source": "charles",
+    "posted_date": null,
+    "metro": "Chicago",
+    "sector": "Finance",
+    "first_seen": "2026-10-14",
     "is_new": false
   },
   {
@@ -65,26 +143,13 @@
     "is_new": false
   },
   {
-    "firm": "Google",
-    "id": "google-90752211805446854",
-    "title": "AI Data Engineer I, Professional Services, Google Cloud",
-    "location": "Austin, TX, USA; Atlanta, GA, USA; Boulder, CO, USA; Chicago, IL, USA",
-    "url": "https://www.google.com/about/careers/applications/jobs/results/90752211805446854",
-    "source": "google",
-    "posted_date": "2026-10-20",
-    "metro": "Chicago",
-    "sector": "Tech",
-    "first_seen": "2026-10-20",
-    "is_new": false
-  },
-  {
     "firm": "Northern Trust",
     "id": "wd-ntrs-northerntrust-/job/Chicago-IL/Cloud-Data-Platform-Engineer_R158514-1",
     "title": "Cloud Data Platform Engineer",
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Cloud-Data-Platform-Engineer_R158514-1",
     "source": "workday",
-    "posted_date": "2026-09-21",
+    "posted_date": "2026-09-22",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -97,7 +162,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Analytics-Engineer_R150313",
     "source": "workday",
-    "posted_date": "2026-09-21",
+    "posted_date": "2026-09-22",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -110,7 +175,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Program-Engineer_R150311",
     "source": "workday",
-    "posted_date": "2026-09-21",
+    "posted_date": "2026-09-22",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -127,6 +192,19 @@
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-10-15",
+    "is_new": false
+  },
+  {
+    "firm": "Franklin Templeton",
+    "id": "phenom-careers.franklintempleton.com-FTGFTMUS869238EXTERNALENUS",
+    "title": "Data Engineer",
+    "location": "Baltimore, Maryland, United States of America",
+    "url": "https://franklintempleton.wd5.myworkdayjobs.com/Primary-External-1/job/Baltimore-Maryland-United-States-of-America/Data-Engineer_869238",
+    "source": "phenom",
+    "posted_date": "2026-10-06",
+    "metro": "DC / Virginia",
+    "sector": "Finance",
+    "first_seen": "2026-10-06",
     "is_new": false
   },
   {
@@ -260,6 +338,45 @@
     "is_new": false
   },
   {
+    "firm": "DoorDash",
+    "id": "gh-doordashusa-8191886",
+    "title": "Software Engineer, Data Platform",
+    "location": "San Francisco, CA; Sunnyvale, CA; Seattle, WA; New York City, NY",
+    "url": "https://job-boards.greenhouse.io/doordashusa/jobs/8191886",
+    "source": "greenhouse",
+    "posted_date": "2026-10-13",
+    "metro": "NYC Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
+    "firm": "DoorDash",
+    "id": "gh-doordashusa-8192190",
+    "title": "Software Engineer, Spark Platform",
+    "location": "San Francisco, CA; Sunnyvale, CA; Seattle, WA; New York City, NY",
+    "url": "https://job-boards.greenhouse.io/doordashusa/jobs/8192190",
+    "source": "greenhouse",
+    "posted_date": "2026-10-13",
+    "metro": "NYC Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
+    "firm": "FanDuel",
+    "id": "gh-fanduel-8180103",
+    "title": "Data Engineer",
+    "location": "New York City",
+    "url": "https://www.fanduel.careers/open-positions?gh_jid=8180103",
+    "source": "greenhouse",
+    "posted_date": "2026-09-04",
+    "metro": "NYC Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
     "firm": "Figma",
     "id": "gh-figma-6201407004",
     "title": "Data Platform Engineer",
@@ -270,6 +387,32 @@
     "metro": "NYC Area",
     "sector": "Tech",
     "first_seen": "2026-09-27",
+    "is_new": false
+  },
+  {
+    "firm": "Garner Health",
+    "id": "gh-garnerhealth-6225499004",
+    "title": "Data Engineer II",
+    "location": "New York City, New York",
+    "url": "https://job-boards.greenhouse.io/garnerhealth/jobs/6225499004",
+    "source": "greenhouse",
+    "posted_date": "2026-10-15",
+    "metro": "NYC Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
+    "firm": "Gusto",
+    "id": "gh-gusto-8104213",
+    "title": "Software Engineer,  Financial Data & Payments",
+    "location": "New York, NY - Hybrid; San Francisco, CA - Hybrid",
+    "url": "https://job-boards.greenhouse.io/gusto/jobs/8104213",
+    "source": "greenhouse",
+    "posted_date": "2026-08-31",
+    "metro": "NYC Area",
+    "sector": "Fintech",
+    "first_seen": "2026-10-22",
     "is_new": false
   },
   {
@@ -325,19 +468,6 @@
     "is_new": false
   },
   {
-    "firm": "KeyBank",
-    "id": "wd-keybank-External_Career_Site-/job/Brooklyn-OH/Data-Inventory-Engineer_R-41676",
-    "title": "Data Inventory Engineer",
-    "location": "Brooklyn, OH",
-    "url": "https://keybank.wd5.myworkdayjobs.com/External_Career_Site/job/Brooklyn-OH/Data-Inventory-Engineer_R-41676",
-    "source": "workday",
-    "posted_date": "2026-09-21",
-    "metro": "NYC Area",
-    "sector": "Finance",
-    "first_seen": "2026-10-16",
-    "is_new": false
-  },
-  {
     "firm": "Lazard",
     "id": "oracle-icbpjb.fa.ocs.oraclecloud.com-6714",
     "title": "Data Engineer",
@@ -365,10 +495,10 @@
   },
   {
     "firm": "Meta",
-    "id": "meta-3713685685437806",
+    "id": "meta-1283364266159062",
     "title": "Data Engineer, Product Analytics",
-    "location": "Remote, US; Bellevue, WA; Menlo Park, CA; Seattle, WA; New York, NY; San Francisco, CA; Fremont, CA",
-    "url": "https://www.metacareers.com/profile/job_details/3713685685437806",
+    "location": "Sunnyvale, CA; Bellevue, WA; Menlo Park, CA; Burlingame, CA; New York, NY; San Francisco, CA",
+    "url": "https://www.metacareers.com/profile/job_details/1283364266159062",
     "source": "meta",
     "posted_date": null,
     "metro": "NYC Area",
@@ -378,10 +508,10 @@
   },
   {
     "firm": "Meta",
-    "id": "meta-1283364266159062",
+    "id": "meta-3713685685437806",
     "title": "Data Engineer, Product Analytics",
-    "location": "Sunnyvale, CA; Bellevue, WA; Menlo Park, CA; Burlingame, CA; New York, NY; San Francisco, CA",
-    "url": "https://www.metacareers.com/profile/job_details/1283364266159062",
+    "location": "Remote, US; Bellevue, WA; Menlo Park, CA; Seattle, WA; New York, NY; San Francisco, CA; Fremont, CA",
+    "url": "https://www.metacareers.com/profile/job_details/3713685685437806",
     "source": "meta",
     "posted_date": null,
     "metro": "NYC Area",
@@ -409,7 +539,7 @@
     "location": "MetroPark",
     "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/MetroPark/Cloud-Data-Engineer_R7127",
     "source": "workday",
-    "posted_date": "2026-09-21",
+    "posted_date": "2026-09-22",
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -429,6 +559,19 @@
     "is_new": false
   },
   {
+    "firm": "Morgan Stanley",
+    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Data-Engineer---Financial-Crimes---Associate_PT-JR035703",
+    "title": "Data Engineer - Financial Crimes - Associate",
+    "location": "New York, New York, United States of America",
+    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Data-Engineer---Financial-Crimes---Associate_PT-JR035703",
+    "source": "workday",
+    "posted_date": "2026-09-22",
+    "metro": "NYC Area",
+    "sector": "Finance",
+    "first_seen": "2026-10-21",
+    "is_new": false
+  },
+  {
     "firm": "Palantir",
     "id": "lever-palantir-1b690123-1766-4e75-a0ef-0f58afa864b4",
     "title": "Data Engineer - Talent Acquisition Operations",
@@ -442,16 +585,16 @@
     "is_new": false
   },
   {
-    "firm": "Robert Half",
-    "id": "roberthalf-02720-0013509699-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Princeton, NJ",
-    "url": "https://www.roberthalf.com/us/en/job/princeton-nj/data-engineer/02720-0013509699-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-09-23",
+    "firm": "Rogo",
+    "id": "ashby-rogo-fd7cecdb-5ae4-494f-a2e1-fd310398efaf",
+    "title": "Software Engineer: Financial Data",
+    "location": "New York City",
+    "url": "https://jobs.ashbyhq.com/rogo/fd7cecdb-5ae4-494f-a2e1-fd310398efaf",
+    "source": "ashby",
+    "posted_date": "2026-09-21",
     "metro": "NYC Area",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
+    "sector": "Fintech",
+    "first_seen": "2026-10-22",
     "is_new": false
   },
   {
@@ -465,6 +608,19 @@
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-09-27",
+    "is_new": false
+  },
+  {
+    "firm": "Carvana",
+    "id": "gh-carvana-8188615",
+    "title": "Data Product Engineer",
+    "location": "Tempe, AZ",
+    "url": "https://www.carvana.com/careers/apply?gh_jid=8188615",
+    "source": "greenhouse",
+    "posted_date": "2026-09-09",
+    "metro": "Other US",
+    "sector": "Tech",
+    "first_seen": "2026-10-22",
     "is_new": false
   },
   {
@@ -559,17 +715,17 @@
     "is_new": false
   },
   {
-    "firm": "NerdWallet",
-    "id": "ashby-nerdwallet-e86c3cde-7569-4631-8c51-617b7df9bad7",
-    "title": "Data Engineer II",
-    "location": "NerdWallet US",
-    "url": "https://jobs.ashbyhq.com/nerdwallet/e86c3cde-7569-4631-8c51-617b7df9bad7",
-    "source": "ashby",
-    "posted_date": "2026-10-21",
+    "firm": "Nasdaq",
+    "id": "wd-nasdaq-Global_External_Site-/job/USA---Philadelphia---Pennsylvania/Data-Software-Engineer_R0026752",
+    "title": "Data Software Engineer",
+    "location": "USA - Philadelphia - Pennsylvania",
+    "url": "https://nasdaq.wd1.myworkdayjobs.com/Global_External_Site/job/USA---Philadelphia---Pennsylvania/Data-Software-Engineer_R0026752",
+    "source": "workday",
+    "posted_date": "2026-09-22",
     "metro": "Other US",
-    "sector": "Fintech",
-    "first_seen": "2026-10-22",
-    "is_new": true
+    "sector": "Finance",
+    "first_seen": "2026-09-27",
+    "is_new": false
   },
   {
     "firm": "Robert Half",
@@ -651,12 +807,12 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-04600-0013495125-usen",
+    "id": "roberthalf-03500-0013380490-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Milwaukee, WI",
-    "url": "https://www.roberthalf.com/us/en/job/milwaukee-wi/data-engineer/04600-0013495125-usen",
+    "location": "Oklahoma City, OK",
+    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-20",
+    "posted_date": "2026-10-22",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -664,12 +820,12 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-03500-0013380490-usen",
+    "id": "roberthalf-04600-0013495125-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Oklahoma City, OK",
-    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
+    "location": "Milwaukee, WI",
+    "url": "https://www.roberthalf.com/us/en/job/milwaukee-wi/data-engineer/04600-0013495125-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-15",
+    "posted_date": "2026-10-20",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -686,6 +842,32 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-13",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-02710-0013530439-usen",
+    "title": "Database Engineer (VB6 / MS Access) \u00b7 Direct hire",
+    "location": "West Nyack, NY",
+    "url": "https://www.roberthalf.com/us/en/job/west-nyack-ny/database-engineer-vb6-ms-access/02710-0013530439-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-22",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-03340-0013407327-usen",
+    "title": "Database Engineer \u00b7 Direct hire",
+    "location": "Westlake, OH",
+    "url": "https://www.roberthalf.com/us/en/job/westlake-oh/database-engineer/03340-0013407327-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-01",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-22",
     "is_new": false
   },
   {
@@ -728,16 +910,16 @@
     "is_new": false
   },
   {
-    "firm": "Robert Half",
-    "id": "roberthalf-03720-0013512453-usen",
-    "title": "Snowflake Data Engineer \u00b7 Direct hire",
-    "location": "Radnor, PA",
-    "url": "https://www.roberthalf.com/us/en/job/radnor-pa/snowflake-data-engineer/03720-0013512453-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-09-23",
+    "firm": "SpaceX",
+    "id": "gh-spacex-8880868002",
+    "title": "Software Engineer (AI Data Engineering)",
+    "location": "Hawthorne, CA",
+    "url": "https://boards.greenhouse.io/spacex/jobs/8880868002?gh_jid=8880868002",
+    "source": "greenhouse",
+    "posted_date": "2026-10-08",
     "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
+    "sector": "Tech",
+    "first_seen": "2026-10-22",
     "is_new": false
   },
   {
@@ -767,6 +949,19 @@
     "is_new": false
   },
   {
+    "firm": "Susquehanna International Group",
+    "id": "jibe-careers.sig.com-11535",
+    "title": "Software Developer - Data Normalization & Adaptation (DNA) Team",
+    "location": "Bala Cynwyd (Philadelphia Area), Pennsylvania",
+    "url": "https://careers.sig.com/jobs/11535",
+    "source": "jibe",
+    "posted_date": "2026-09-16",
+    "metro": "Other US",
+    "sector": "Finance",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
     "firm": "TEKsystems",
     "id": "phenom-careers.teksystems.com-TESYUSJP006319471ENUS",
     "title": "Data Engineer II \u00b7 Direct hire",
@@ -793,29 +988,29 @@
     "is_new": false
   },
   {
-    "firm": "Allstate",
-    "id": "wd-allstate-allstate_careers-/job/USA---IL-Remote/Data-Analytics-Engineer--Remote--US-_R35409-1",
-    "title": "Data Analytics Engineer (Remote, US)",
-    "location": "USA - IL (Remote)",
-    "url": "https://allstate.wd5.myworkdayjobs.com/allstate_careers/job/USA---IL-Remote/Data-Analytics-Engineer--Remote--US-_R35409-1",
-    "source": "workday",
-    "posted_date": "2026-10-21",
+    "firm": "Abnormal Security",
+    "id": "gh-abnormalsecurity-8001641003",
+    "title": "Software Engineer 1 - Data Platforms",
+    "location": "Remote - USA",
+    "url": "https://abnormal.ai/careers/jobs/8001641003?gh_jid=8001641003",
+    "source": "greenhouse",
+    "posted_date": "2026-09-22",
     "metro": "Remote (US)",
-    "sector": "Finance",
-    "first_seen": "2026-10-03",
+    "sector": "Tech",
+    "first_seen": "2026-10-22",
     "is_new": false
   },
   {
-    "firm": "Allstate",
-    "id": "wd-allstate-allstate_careers-/job/USA---IL-Remote/Data-Engineer--Remote--US-_R35408-1",
-    "title": "Data Engineer (Remote, US)",
-    "location": "USA - IL (Remote)",
-    "url": "https://allstate.wd5.myworkdayjobs.com/allstate_careers/job/USA---IL-Remote/Data-Engineer--Remote--US-_R35408-1",
-    "source": "workday",
-    "posted_date": "2026-10-21",
+    "firm": "Affirm",
+    "id": "gh-affirm-8003020003",
+    "title": "Software Engineer II, Backend (Streaming)",
+    "location": "Remote US",
+    "url": "https://job-boards.greenhouse.io/affirm/jobs/8003020003",
+    "source": "greenhouse",
+    "posted_date": "2026-09-30",
     "metro": "Remote (US)",
-    "sector": "Finance",
-    "first_seen": "2026-10-03",
+    "sector": "Fintech",
+    "first_seen": "2026-10-22",
     "is_new": false
   },
   {
@@ -832,6 +1027,32 @@
     "is_new": false
   },
   {
+    "firm": "Coinbase",
+    "id": "gh-coinbase-8304038",
+    "title": "Software Engineer - Crypto Data Foundations",
+    "location": "Remote - USA",
+    "url": "https://www.coinbase.com/careers/positions/8304038?gh_jid=8304038",
+    "source": "greenhouse",
+    "posted_date": "2026-10-20",
+    "metro": "Remote (US)",
+    "sector": "Fintech",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
+    "firm": "Polymarket",
+    "id": "ashby-polymarket-8ba7acca-aa38-48cc-a994-78577eba6d96",
+    "title": "Analytics Engineer, Customer Experience",
+    "location": "Remote",
+    "url": "https://jobs.ashbyhq.com/polymarket/8ba7acca-aa38-48cc-a994-78577eba6d96",
+    "source": "ashby",
+    "posted_date": "2026-10-01",
+    "metro": "Remote (US)",
+    "sector": "Fintech",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
     "firm": "Reddit",
     "id": "gh-reddit-8282760",
     "title": "Analytics Engineer",
@@ -842,6 +1063,19 @@
     "metro": "Remote (US)",
     "sector": "Tech",
     "first_seen": "2026-10-15",
+    "is_new": false
+  },
+  {
+    "firm": "Reddit",
+    "id": "gh-reddit-8214910",
+    "title": "Software Engineer, Ingestion Platform",
+    "location": "Remote - United States",
+    "url": "https://job-boards.greenhouse.io/reddit/jobs/8214910",
+    "source": "greenhouse",
+    "posted_date": "2026-09-18",
+    "metro": "Remote (US)",
+    "sector": "Tech",
+    "first_seen": "2026-10-22",
     "is_new": false
   },
   {
@@ -871,6 +1105,32 @@
     "is_new": false
   },
   {
+    "firm": "Robert Half",
+    "id": "roberthalf-03340-0013512779-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Nashville, TN (Remote)",
+    "url": "https://www.roberthalf.com/us/en/job/nashville-tn/data-engineer/03340-0013512779-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-01",
+    "metro": "Remote (US)",
+    "sector": "Agency",
+    "first_seen": "2026-10-05",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-04820-0013462704-usen",
+    "title": "Database Developer \u00b7 Direct hire",
+    "location": "Lehi, UT (Remote)",
+    "url": "https://www.roberthalf.com/us/en/job/lehi-ut/database-developer/04820-0013462704-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-20",
+    "metro": "Remote (US)",
+    "sector": "Agency",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
     "firm": "Samsara",
     "id": "gh-samsara-8141959",
     "title": "Data Engineer",
@@ -894,6 +1154,19 @@
     "metro": "Remote (US)",
     "sector": "Tech",
     "first_seen": "2026-10-14",
+    "is_new": false
+  },
+  {
+    "firm": "Vercel",
+    "id": "gh-vercel-6188400004",
+    "title": "Software Engineer - Data Platform",
+    "location": "Remote - United States",
+    "url": "https://job-boards.greenhouse.io/vercel/jobs/6188400004",
+    "source": "greenhouse",
+    "posted_date": "2026-09-16",
+    "metro": "Remote (US)",
+    "sector": "Tech",
+    "first_seen": "2026-09-27",
     "is_new": false
   },
   {
@@ -923,6 +1196,45 @@
     "is_new": false
   },
   {
+    "firm": "Anyscale",
+    "id": "ashby-anyscale-01aef589-e268-4b22-b513-d1f9f076210f",
+    "title": "Software Engineer (Ray Data)",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/anyscale/01aef589-e268-4b22-b513-d1f9f076210f",
+    "source": "ashby",
+    "posted_date": "2026-08-28",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
+    "firm": "AppLovin",
+    "id": "gh-applovin-4716524006",
+    "title": "ML Data Infrastructure Engineer",
+    "location": "Palo Alto, CA",
+    "url": "https://boards.greenhouse.io/applovin/jobs/4716524006?gh_jid=4716524006",
+    "source": "greenhouse",
+    "posted_date": "2026-09-24",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
+    "firm": "Asana",
+    "id": "gh-asana-7962412",
+    "title": "Software Engineer, Data Loading Infrastructure",
+    "location": "San Francisco",
+    "url": "https://www.asana.com/jobs/apply/7962412?gh_jid=7962412",
+    "source": "greenhouse",
+    "posted_date": "2026-09-30",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
     "firm": "Benchling",
     "id": "ashby-benchling-c1ad7288-ad78-4a0f-8f19-1fcc3f6cf85b",
     "title": "Data Engineer",
@@ -933,6 +1245,71 @@
     "metro": "SF Bay Area",
     "sector": "Tech",
     "first_seen": "2026-09-27",
+    "is_new": false
+  },
+  {
+    "firm": "Block",
+    "id": "gh-block-5381381008",
+    "title": "Software Engineer, Data Platform",
+    "location": "Bay Area, CA, United States of America",
+    "url": "http://block.xyz/careers/jobs/5381381008?gh_jid=5381381008",
+    "source": "greenhouse",
+    "posted_date": "2026-08-28",
+    "metro": "SF Bay Area",
+    "sector": "Fintech",
+    "first_seen": "2026-09-27",
+    "is_new": false
+  },
+  {
+    "firm": "Cursor",
+    "id": "ashby-cursor-0320a8db-cb1b-407b-bd62-b23734b83330",
+    "title": "Software Engineer, Pretraining Data",
+    "location": "Palo Alto, CA",
+    "url": "https://jobs.ashbyhq.com/cursor/0320a8db-cb1b-407b-bd62-b23734b83330",
+    "source": "ashby",
+    "posted_date": "2026-08-24",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
+    "firm": "Cursor",
+    "id": "ashby-cursor-aef8f0e7-37cd-4d6e-96c9-3af72f588bae",
+    "title": "Software Engineer, RL Data",
+    "location": "Palo Alto, CA",
+    "url": "https://jobs.ashbyhq.com/cursor/aef8f0e7-37cd-4d6e-96c9-3af72f588bae",
+    "source": "ashby",
+    "posted_date": "2026-10-12",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
+    "firm": "DoorDash",
+    "id": "gh-doordashusa-8192116",
+    "title": "Software Engineer, Data Engineering",
+    "location": "San Francisco, CA; Sunnyvale, CA; Seattle, WA",
+    "url": "https://job-boards.greenhouse.io/doordashusa/jobs/8192116",
+    "source": "greenhouse",
+    "posted_date": "2026-10-13",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
+    "firm": "DoorDash",
+    "id": "gh-doordashusa-8192187",
+    "title": "Software Engineer, Data and AI Platform",
+    "location": "San Francisco, CA; Sunnyvale, CA",
+    "url": "https://job-boards.greenhouse.io/doordashusa/jobs/8192187",
+    "source": "greenhouse",
+    "posted_date": "2026-10-13",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-22",
     "is_new": false
   },
   {
@@ -959,6 +1336,19 @@
     "metro": "SF Bay Area",
     "sector": "Tech",
     "first_seen": "2026-10-21",
+    "is_new": false
+  },
+  {
+    "firm": "Google",
+    "id": "google-79299054445437638",
+    "title": "Software Engineer, Agentic Infrastructure for Data Engineering",
+    "location": "Sunnyvale, CA, USA",
+    "url": "https://www.google.com/about/careers/applications/jobs/results/79299054445437638",
+    "source": "google",
+    "posted_date": "2026-10-13",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-22",
     "is_new": false
   },
   {
@@ -1001,6 +1391,32 @@
     "is_new": false
   },
   {
+    "firm": "Meta",
+    "id": "meta-2342974003201767",
+    "title": "Software Engineer, Databases",
+    "location": "Bellevue, WA; Menlo Park, CA",
+    "url": "https://www.metacareers.com/profile/job_details/2342974003201767",
+    "source": "meta",
+    "posted_date": null,
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
+    "firm": "Notion",
+    "id": "ashby-notion-ead663e3-3eb2-4e0e-97e5-86820062dd68",
+    "title": "Software Engineer, User Database Infrastructure",
+    "location": "San Francisco, California",
+    "url": "https://jobs.ashbyhq.com/notion/ead663e3-3eb2-4e0e-97e5-86820062dd68",
+    "source": "ashby",
+    "posted_date": "2026-09-16",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
     "firm": "OpenAI",
     "id": "ashby-openai-bc0d4a9f-235f-4a4b-a854-c6cb0322ccaa",
     "title": "Analytics Engineer, GTM",
@@ -1027,6 +1443,71 @@
     "is_new": false
   },
   {
+    "firm": "Pinterest",
+    "id": "gh-pinterest-8213988",
+    "title": "Software Engineer II, Data Analytics & Engineering",
+    "location": "San Francisco, CA, US; Remote, US",
+    "url": "https://www.pinterestcareers.com/jobs/?gh_jid=8213988",
+    "source": "greenhouse",
+    "posted_date": "2026-09-18",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-09-27",
+    "is_new": false
+  },
+  {
+    "firm": "Roblox",
+    "id": "gh-roblox-8168881",
+    "title": "Software Engineer, Data Access",
+    "location": "San Mateo, CA, United States",
+    "url": "https://careers.roblox.com/jobs/8168881?gh_jid=8168881",
+    "source": "greenhouse",
+    "posted_date": "2026-09-23",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-09-27",
+    "is_new": false
+  },
+  {
+    "firm": "Roblox",
+    "id": "gh-roblox-8159857",
+    "title": "Software Engineer, Data Model",
+    "location": "San Mateo, CA, United States",
+    "url": "https://careers.roblox.com/jobs/8159857?gh_jid=8159857",
+    "source": "greenhouse",
+    "posted_date": "2026-10-08",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
+    "firm": "Sentry",
+    "id": "ashby-sentry-5ee81d6f-e837-43bb-af06-8f26c992a766",
+    "title": "Software Engineer, Streaming Platform",
+    "location": "San Francisco, California",
+    "url": "https://jobs.ashbyhq.com/sentry/5ee81d6f-e837-43bb-af06-8f26c992a766",
+    "source": "ashby",
+    "posted_date": "2026-10-09",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
+    "firm": "ServiceNow",
+    "id": "sr-ServiceNow-744000155582891",
+    "title": "Data Platform Software Engineer",
+    "location": "Santa Clara, US",
+    "url": "https://jobs.smartrecruiters.com/ServiceNow/744000155582891",
+    "source": "smartrecruiters",
+    "posted_date": "2026-10-14",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
     "firm": "Socure",
     "id": "ashby-socure-5ee37ea6-a36a-472c-90a9-73067f6d6dac",
     "title": "Data Scientist II - Big Data R&D, Identity Graph & Deceased Monitoring",
@@ -1040,6 +1521,32 @@
     "is_new": false
   },
   {
+    "firm": "Zoox",
+    "id": "lever-zoox-c2abc555-0105-4eda-b9c9-5c9ee28703e7",
+    "title": "Software Engineer - C++ On-Vehicle Data",
+    "location": "Foster City, CA",
+    "url": "https://jobs.lever.co/zoox/c2abc555-0105-4eda-b9c9-5c9ee28703e7",
+    "source": "lever",
+    "posted_date": "2026-08-25",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
+    "firm": "Zoox",
+    "id": "lever-zoox-978e36ef-e8e9-4874-ade6-f33a80e46309",
+    "title": "Software Engineer - Pipeline Infrastructure & Integration",
+    "location": "Foster City, CA",
+    "url": "https://jobs.lever.co/zoox/978e36ef-e8e9-4874-ade6-f33a80e46309",
+    "source": "lever",
+    "posted_date": "2026-09-08",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
     "firm": "a16z",
     "id": "gh-a16z-7982023003",
     "title": "Partner 16, Data Engineer - Global Partnerships",
@@ -1050,6 +1557,32 @@
     "metro": "SF Bay Area",
     "sector": "Finance",
     "first_seen": "2026-10-08",
+    "is_new": false
+  },
+  {
+    "firm": "xAI",
+    "id": "gh-xai-5265194007",
+    "title": "Data Visualization Engineer",
+    "location": "Palo Alto, CA",
+    "url": "https://job-boards.greenhouse.io/xai/jobs/5265194007",
+    "source": "greenhouse",
+    "posted_date": "2026-10-13",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
+    "firm": "Google",
+    "id": "google-90752211805446854",
+    "title": "AI Data Engineer I, Professional Services, Google Cloud",
+    "location": "Austin, TX, USA; Atlanta, GA, USA; Boulder, CO, USA; Chicago, IL, USA; Seattle, WA, USA",
+    "url": "https://www.google.com/about/careers/applications/jobs/results/90752211805446854",
+    "source": "google",
+    "posted_date": "2026-10-20",
+    "metro": "Seattle",
+    "sector": "Tech",
+    "first_seen": "2026-10-20",
     "is_new": false
   },
   {
@@ -1067,6 +1600,19 @@
   },
   {
     "firm": "Google",
+    "id": "google-140416677438202566",
+    "title": "Business Intelligence Developer, Cloud Finance",
+    "location": "Kirkland, WA, USA",
+    "url": "https://www.google.com/about/careers/applications/jobs/results/140416677438202566",
+    "source": "google",
+    "posted_date": "2026-09-24",
+    "metro": "Seattle",
+    "sector": "Tech",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
+    "firm": "Google",
     "id": "google-83051369803457222",
     "title": "Cloud AI Data Engineer II, Professional Services, Google Cloud",
     "location": "Austin, TX, USA; Atlanta, GA, USA; Boulder, CO, USA; Chicago, IL, USA; Seattle, WA, USA",
@@ -1080,16 +1626,16 @@
   },
   {
     "firm": "Microsoft",
-    "id": "microsoft-1970393557022579",
-    "title": "Data Engineer II",
+    "id": "microsoft-1970393557040468",
+    "title": "Software Engineer II - Finance Data & Experiences",
     "location": "Redmond, WA, US",
-    "url": "https://apply.careers.microsoft.com/careers/job/1970393557022579",
+    "url": "https://apply.careers.microsoft.com/careers/job/1970393557040468",
     "source": "microsoft",
-    "posted_date": "2026-10-17",
+    "posted_date": "2026-10-23",
     "metro": "Seattle",
     "sector": "Tech",
-    "first_seen": "2026-10-17",
-    "is_new": false
+    "first_seen": "2026-10-23",
+    "is_new": true
   },
   {
     "firm": "OpenAI",
@@ -1103,6 +1649,19 @@
     "sector": "Tech",
     "first_seen": "2026-10-07",
     "is_new": false
+  },
+  {
+    "firm": "Qualtrics",
+    "id": "gh-qualtrics-8279068",
+    "title": "Software Engineer II -  Data Platform - Seattle",
+    "location": "Seattle, Washington,  United States",
+    "url": "https://www.qualtrics.com/careers/us/en/job/8279068?gh_jid=8279068",
+    "source": "greenhouse",
+    "posted_date": "2026-10-22",
+    "metro": "Seattle",
+    "sector": "Tech",
+    "first_seen": "2026-10-23",
+    "is_new": true
   },
   {
     "firm": "SpaceX",
@@ -1128,6 +1687,32 @@
     "metro": "Seattle",
     "sector": "Tech",
     "first_seen": "2026-09-30",
+    "is_new": false
+  },
+  {
+    "firm": "SpaceX",
+    "id": "gh-spacex-8746439002",
+    "title": "Full Stack Software Engineer, Data Platform (Starlink)",
+    "location": "Redmond, WA",
+    "url": "https://boards.greenhouse.io/spacex/jobs/8746439002?gh_jid=8746439002",
+    "source": "greenhouse",
+    "posted_date": "2026-08-25",
+    "metro": "Seattle",
+    "sector": "Tech",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
+    "firm": "Stripe",
+    "id": "gh-stripe-8197891",
+    "title": "Software Engineer, Online Database Infrastructure",
+    "location": "Seattle, WA",
+    "url": "https://stripe.com/jobs/search?gh_jid=8197891",
+    "source": "greenhouse",
+    "posted_date": "2026-09-11",
+    "metro": "Seattle",
+    "sector": "Fintech",
+    "first_seen": "2026-10-22",
     "is_new": false
   },
   {
@@ -1171,6 +1756,19 @@
   },
   {
     "firm": "Charles Schwab",
+    "id": "charles-101625328992",
+    "title": "Data Engineer",
+    "location": "Southlake, TX; Austin, TX",
+    "url": "https://www.schwabjobs.com/job/southlake/data-engineer/33727/101625328992",
+    "source": "charles",
+    "posted_date": null,
+    "metro": "Texas",
+    "sector": "Finance",
+    "first_seen": "2026-10-07",
+    "is_new": false
+  },
+  {
+    "firm": "Charles Schwab",
     "id": "charles-98187448448",
     "title": "Machine Learning Ops Data Engineer",
     "location": "Southlake, TX; Austin, TX; Phoenix, AZ",
@@ -1206,6 +1804,19 @@
     "metro": "Texas",
     "sector": "Tech",
     "first_seen": "2026-10-12",
+    "is_new": false
+  },
+  {
+    "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210800894",
+    "title": "Software Engineer II - Data Engineer/Applied AI (LLMs)",
+    "location": "Plano, TX, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210800894",
+    "source": "oracle",
+    "posted_date": "2026-10-21",
+    "metro": "Texas",
+    "sector": "Finance",
+    "first_seen": "2026-10-22",
     "is_new": false
   },
   {
