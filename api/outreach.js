@@ -8,7 +8,7 @@ import { COMMON_RULES, stripDashes } from "./_voice.js";
 const TARGET = {
   street:
     "entry level Analyst or Associate roles in finance (investment banking, private equity, asset management, " +
-    "markets, banks, fintech), in New York, Chicago or the San Francisco Bay Area, or temporary or contract roles in New Zealand " +
+    "markets, banks, fintech), in New York, Chicago, the San Francisco Bay Area or San Diego, or temporary or contract roles in New Zealand " +
     "(Auckland or Wellington), where she also has work rights",
   tech: "data engineering roles at new grad to mid level (about 0 to 4 years), at tech or finance companies, anywhere in the US or remote",
 };

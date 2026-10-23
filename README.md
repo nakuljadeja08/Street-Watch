@@ -14,7 +14,7 @@ Bonhams, Doyle, Freeman's | Hindman, Rago | Wright; Bonhams Skinner
 comes through the Bonhams board) use the same rule but also keep Analyst, Associate, Cataloguer and
 Coordinator titles.
 Four staffing agencies (Robert Half, Randstad, Michael Page, Aston Carter;
-`AGENCY_FIRMS`) are searched for analyst/associate roles in NY, Chicago and SF.
+`AGENCY_FIRMS`) are searched for analyst/associate roles in NY, Chicago, SF and San Diego.
 Banks place many contract ops, KYC, risk and FP&A seats through agencies, and
 those roles appear only on the agency's board, usually without naming the
 client. Agency rows must be in a finance field (`_AGENCY_FIELD_RE`; accounting,
@@ -46,6 +46,17 @@ site. Not wired: Westpac NZ, Kiwibank, Forsyth Barr, Milford, Fisher Funds and
 Murray & Co (no public board, or Seek only; Seek's robots.txt forbids its search
 API), ASB (its Snaphire board's robots.txt disallows all bots), and PwC NZ,
 McKinsey, Michael Page NZ and Robert Walters NZ (block scripted requests).
+
+**San Diego** (added 2026-10-23) is a metro of its own, "San Diego": San Diego, La
+Jolla, Sorrento Valley, Carlsbad and Del Mar. Carlsbad and Del Mar only count when
+nothing places them elsewhere (`_SD_AMBIG_RE` / `_NOT_SD_RE`: Carlsbad, NM, Karlovy
+Vary and Viña del Mar are not San Diego). Its finance market is small, so the board
+there is small. Firms added for it: LPL Financial (Asset Management; Workday, with
+its "N Locations" rows resolved from the job detail, since most of its corporate
+roles list San Diego alongside Fort Mill and Tempe; its advisor, advisor-recruiting
+"Business Development" and branch client-service seats are left out by
+`ADVISOR_NETWORK_FIRMS`) and Fashionphile (Fashion & Luxury, Carlsbad; Jobvite,
+Product/GTM rule). Regional banks (Axos and others) are left out by request.
 
 ```
 firms' ATS APIs  ──►  pipeline.py  ──►  Supabase `jobs` table  ──►  dashboard/ (React app on Vercel)

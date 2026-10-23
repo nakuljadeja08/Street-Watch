@@ -13,6 +13,28 @@ remain and 3 were removed** at your request.
 
 ---
 
+## 🆕 Added 2026-10-23: San Diego metro (approved by Nakul for Ms Tian)
+New metro "San Diego" (San Diego, La Jolla, Sorrento Valley, Carlsbad, Del Mar).
+6 roles there on day one, a small board as expected (the local economy is mostly
+defense and biotech).
+- **From firms already on the board (5):** AllianceBernstein (1) · Bank of
+  America (1) · Morgan Stanley (1, Carlsbad) · StepStone (1, La Jolla) · Wells
+  Fargo (1). San Diego is also searched on the agency boards (Robert Half,
+  Randstad, Michael Page), Radancy, SuccessFactors and HRM Direct (0 today).
+- **Asset Management (1):** LPL Financial (Workday, 1: Product Ops Associate).
+  Most LPL corporate roles are posted as "2 Locations" (San Diego + Fort Mill /
+  Tempe), so those rows are resolved from the job detail. Advisor, advisor-recruiting
+  "Business Development" and branch client-service seats are left out.
+- **Fashion & Luxury, Product/GTM (1):** Fashionphile (Jobvite, new fetcher; 0 on
+  day one: its Carlsbad product seats are Manager titles and its other roles are
+  store, sales or procurement).
+- **Found, not added:** Brandes Investment Partners (La Jolla; no ATS, 2 openings
+  on its own site, neither entry level: ITOpS Manager and Regional Director) ·
+  Axos and other regional banks (category excluded by request) · Intuit (being
+  wired by the Bay Area session)
+
+---
+
 ## 🆕 Added 2026-10-22 (approved by Nakul for Ms Tian)
 67 roles in her metros on day one.
 - **Banks (3, from the remaining list):** Scotiabank (SuccessFactors, 20) ·
