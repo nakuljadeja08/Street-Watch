@@ -336,6 +336,18 @@
     "is_new": false
   },
   {
+    "firm": "CIBC",
+    "id": "wd-cibc-search-/job/Chicago-IL/US-Sanctions-Analyst_2621129-1",
+    "title": "US Sanctions Analyst",
+    "location": "Chicago, IL",
+    "url": "https://cibc.wd3.myworkdayjobs.com/search/job/Chicago-IL/US-Sanctions-Analyst_2621129-1",
+    "source": "workday",
+    "posted_date": "2026-10-23",
+    "metro": "Chicago",
+    "first_seen": "2026-10-23",
+    "is_new": true
+  },
+  {
     "firm": "CIL Management Consultants",
     "id": "pinpoint-44f86c46-76af-442f-86cd-a06b0d221df3",
     "title": "Analyst",
@@ -777,6 +789,18 @@
     "posted_date": "2026-10-19",
     "metro": "Chicago",
     "first_seen": "2026-10-20",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-01300-0013476925-usen",
+    "title": "Financial Reporting Analyst \u00b7 Direct hire",
+    "location": "Chicago, IL",
+    "url": "https://www.roberthalf.com/us/en/job/chicago-il/financial-reporting-analyst/01300-0013476925-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-23",
+    "metro": "Chicago",
+    "first_seen": "2026-10-05",
     "is_new": false
   },
   {
@@ -3253,6 +3277,18 @@
   },
   {
     "firm": "Franklin Templeton",
+    "id": "phenom-careers.franklintempleton.com-FTGFTMUS869872EXTERNALENUS",
+    "title": "BSP Debt Asset Management Associate, Commercial Real Estate",
+    "location": "New York, New York, United States of America",
+    "url": "https://franklintempleton.wd5.myworkdayjobs.com/Primary-External-1/job/New-York-New-York-United-States-of-America/BSP-Asset-Management-Associate--Commercial-Real-Estate_869872",
+    "source": "phenom",
+    "posted_date": "2026-09-29",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-29",
+    "is_new": false
+  },
+  {
+    "firm": "Franklin Templeton",
     "id": "phenom-careers.franklintempleton.com-FTGFTMUS870166EXTERNALENUS",
     "title": "Equity Research Analyst (Software and AI) - Clearbridge",
     "location": "New York, New York, United States of America",
@@ -4033,6 +4069,18 @@
   },
   {
     "firm": "Goldman Sachs",
+    "id": "gs-180700_GS_MID_CAREER",
+    "title": "Platform Engineer, Global Banking & Markets, Electronic Trading (Associate)",
+    "location": "New York, NY, United States",
+    "url": "https://higher.gs.com/roles/180700",
+    "source": "goldman",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-23",
+    "is_new": false
+  },
+  {
+    "firm": "Goldman Sachs",
     "id": "gs-186256_GS_MID_CAREER",
     "title": "Product Management, Asset & Wealth Management, Private Wealth Management (Associate)",
     "location": "New York, NY, United States",
@@ -4081,14 +4129,14 @@
   },
   {
     "firm": "Goldman Sachs",
-    "id": "gs-177645_GS_MID_CAREER",
-    "title": "Software Engineer, Global Banking & Markets, Front Office Technology (Associate)",
+    "id": "gs-177422_GS_MID_CAREER",
+    "title": "Software Engineer, Global Banking & Markets, AI/ML Technology (Associate)",
     "location": "New York, NY, United States",
-    "url": "https://higher.gs.com/roles/177645",
+    "url": "https://higher.gs.com/roles/177422",
     "source": "goldman",
     "posted_date": null,
     "metro": "NY + Jersey City",
-    "first_seen": "2026-09-23",
+    "first_seen": "2026-10-22",
     "is_new": false
   },
   {
@@ -6972,6 +7020,18 @@
     "is_new": false
   },
   {
+    "firm": "PVH",
+    "id": "phenom-careers.pvh.com-PCAPCAUSR60141EXTERNALENUS",
+    "title": "Merchandiser, Wholesale - PVH",
+    "location": "New York, New York, United States of America",
+    "url": "https://pvh.wd1.myworkdayjobs.com/PVH_Careers/job/New-York-NY-Calvin-Klein-Office/Merchandiser--Nike---TH-Underwear----PVH_R60141",
+    "source": "phenom",
+    "posted_date": "2026-10-13",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
     "firm": "Paxos",
     "id": "ashby-paxos-efa810ec-2996-4d00-991d-51b3272b7ab2",
     "title": "Product Operations Associate",
@@ -7257,18 +7317,6 @@
     "posted_date": "2026-10-14",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-14",
-    "is_new": false
-  },
-  {
-    "firm": "Saks Global",
-    "id": "phenom-careers.exemplarluxurygroup.com-SFAVUSR109563EXTERNALENUS",
-    "title": "Assistant Planner, Contemporary Handbags",
-    "location": "New York, New York, United States of America",
-    "url": "https://saks.wd1.myworkdayjobs.com/careers_at_saks/job/SF_0689_Saks-Direct/Assistant-Planner--Contemporary-Handbags_R-109563",
-    "source": "phenom",
-    "posted_date": "2026-10-08",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-22",
     "is_new": false
   },
   {
@@ -7750,6 +7798,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-08",
     "is_new": false
+  },
+  {
+    "firm": "Stifel",
+    "id": "icims-careers-stifel.icims.com-10116",
+    "title": "IB Analyst - Clean Energy & Power (New York)",
+    "location": "US-NY-New York",
+    "url": "https://careers-stifel.icims.com/jobs/10116/ib-analyst---clean-energy-%26-power-%28new-york%29/job",
+    "source": "icims",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-23",
+    "is_new": true
   },
   {
     "firm": "Stifel",
