@@ -91,19 +91,6 @@
     "is_new": false
   },
   {
-    "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0120978EXTERNALENUS",
-    "title": "Data Engineer",
-    "location": "Charlotte, North Carolina, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Charlotte-NC/Data-Engineer_R0120978-1",
-    "source": "phenom",
-    "posted_date": "2026-10-20",
-    "metro": "Charlotte",
-    "sector": "Finance",
-    "first_seen": "2026-10-21",
-    "is_new": false
-  },
-  {
     "firm": "CIBC",
     "id": "wd-cibc-search-/job/Chicago-IL/Senior-Software-Engineer---US-Risk-Technology_2613362",
     "title": "Databricks Data Engineer, Risk Technology",
@@ -702,6 +689,32 @@
     "is_new": false
   },
   {
+    "firm": "Mastercard",
+    "id": "wd-mastercard-CorporateCareers-/job/OFallon-Missouri/Data-Engineer-II_R-289305",
+    "title": "Data Engineer II",
+    "location": "O'Fallon, Missouri",
+    "url": "https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/OFallon-Missouri/Data-Engineer-II_R-289305",
+    "source": "workday",
+    "posted_date": "2026-10-15",
+    "metro": "Other US",
+    "sector": "Fintech",
+    "first_seen": "2026-10-07",
+    "is_new": false
+  },
+  {
+    "firm": "Mastercard",
+    "id": "wd-mastercard-CorporateCareers-/job/OFallon-Missouri/Data-Engineer-II_R-286580",
+    "title": "Data Engineer II",
+    "location": "O'Fallon, Missouri",
+    "url": "https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/OFallon-Missouri/Data-Engineer-II_R-286580",
+    "source": "workday",
+    "posted_date": "2026-09-28",
+    "metro": "Other US",
+    "sector": "Fintech",
+    "first_seen": "2026-09-29",
+    "is_new": false
+  },
+  {
     "firm": "Motion Recruitment",
     "id": "motion-888629",
     "title": "Data Platform Engineer / BigQuery / PostgreSQL / Python / GCP - OC Onsite \u00b7 Direct hire",
@@ -807,12 +820,12 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-03500-0013380490-usen",
+    "id": "roberthalf-04600-0013495125-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Oklahoma City, OK",
-    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
+    "location": "Milwaukee, WI",
+    "url": "https://www.roberthalf.com/us/en/job/milwaukee-wi/data-engineer/04600-0013495125-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-22",
+    "posted_date": "2026-10-20",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -820,12 +833,12 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-04600-0013495125-usen",
+    "id": "roberthalf-03500-0013380490-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Milwaukee, WI",
-    "url": "https://www.roberthalf.com/us/en/job/milwaukee-wi/data-engineer/04600-0013495125-usen",
+    "location": "Oklahoma City, OK",
+    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-20",
+    "posted_date": "2026-10-22",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -1142,6 +1155,19 @@
     "sector": "Tech",
     "first_seen": "2026-10-05",
     "is_new": false
+  },
+  {
+    "firm": "Supabase",
+    "id": "ashby-supabase-950e8ffc-79a5-4626-b1dd-115fcbcddad0",
+    "title": "Data API Engineer",
+    "location": "Remote, Global",
+    "url": "https://jobs.ashbyhq.com/supabase/950e8ffc-79a5-4626-b1dd-115fcbcddad0",
+    "source": "ashby",
+    "posted_date": "2026-10-24",
+    "metro": "Remote (US)",
+    "sector": "Tech",
+    "first_seen": "2026-10-24",
+    "is_new": true
   },
   {
     "firm": "Supabase",
