@@ -792,18 +792,6 @@
     "is_new": false
   },
   {
-    "firm": "RBC Capital Markets",
-    "id": "phenom-jobs.rbc.com-RBCAA0088R0000190811EXTERNALENCA",
-    "title": "Client Associate/Registered Client Associate",
-    "location": "Rockford, Illinois, United States of America",
-    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/Rockford-Illinois-United-States-of-America/Client-Associate-Registered-Client-Associate_R-0000190811",
-    "source": "phenom",
-    "posted_date": "2026-10-23",
-    "metro": "Chicago",
-    "first_seen": "2026-10-24",
-    "is_new": true
-  },
-  {
     "firm": "Robert Half",
     "id": "roberthalf-01300-0013472766-usen",
     "title": "Financial Analyst \u00b7 Direct hire",
@@ -3769,18 +3757,6 @@
   },
   {
     "firm": "Citi",
-    "id": "citi-99038685136",
-    "title": "Client - Global Strategy & Macro Group, Full Time Analyst, New York City - US, 2027",
-    "location": "New York, New York, United States",
-    "url": "https://jobs.citi.com/job/new-york/client-global-strategy-and-macro-group-full-time-analyst-new-york-city-us-2027/287/99038685136",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-23",
-    "is_new": false
-  },
-  {
-    "firm": "Citi",
     "id": "citi-102165051680",
     "title": "Corporate Banking Associate - Public Sector Banking",
     "location": "New York, New York, United States",
@@ -4297,6 +4273,18 @@
   },
   {
     "firm": "Evercore",
+    "id": "oleeo-evercore-3387",
+    "title": "Associate - Market Data and Operations - Data Services Group",
+    "location": "New York",
+    "url": "https://evercore.tal.net/vx/mobile-0/appcentre-ext/brand-4/candidate/so/pm/1/pl/3/opp/3387-Associate-Market-Data-and-Operations-Data-Services-Group/en-GB",
+    "source": "oleeo",
+    "posted_date": "2026-09-30",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-24",
+    "is_new": true
+  },
+  {
+    "firm": "Evercore",
     "id": "oleeo-evercore-3471",
     "title": "Associate - Real Estate Strategy & Operations - New York",
     "location": "New York",
@@ -4315,6 +4303,30 @@
     "url": "https://evercore.tal.net/vx/mobile-0/appcentre-ext/brand-4/candidate/so/pm/1/pl/3/opp/3385-Data-Analyst-Private-Capital-Advisory-New-York/en-GB",
     "source": "oleeo",
     "posted_date": "2026-09-29",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-24",
+    "is_new": true
+  },
+  {
+    "firm": "Evercore",
+    "id": "oleeo-evercore-3392",
+    "title": "Experienced Analyst / Associate - Advisory Future State, AI Workflow Builder",
+    "location": "New York",
+    "url": "https://evercore.tal.net/vx/mobile-0/appcentre-ext/brand-4/candidate/so/pm/1/pl/3/opp/3392-Experienced-Analyst-Associate-Advisory-Future-State-AI-Workflow-Builder/en-GB",
+    "source": "oleeo",
+    "posted_date": "2026-09-30",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-24",
+    "is_new": true
+  },
+  {
+    "firm": "Evercore",
+    "id": "oleeo-evercore-3390",
+    "title": "Experienced Analyst / Associate - Advisory Future State, Change Management",
+    "location": "New York",
+    "url": "https://evercore.tal.net/vx/mobile-0/appcentre-ext/brand-4/candidate/so/pm/1/pl/3/opp/3390-Experienced-Analyst-Associate-Advisory-Future-State-Change-Management/en-GB",
+    "source": "oleeo",
+    "posted_date": "2026-09-30",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-24",
     "is_new": true
@@ -8137,12 +8149,36 @@
   },
   {
     "firm": "PVH",
+    "id": "phenom-careers.pvh.com-PCAPCAUSR62949EXTERNALENUS",
+    "title": "Assistant Merchandiser, CTB Outlet and Off-price - Calvin Klein",
+    "location": "New York, New York, United States of America",
+    "url": "https://pvh.wd1.myworkdayjobs.com/PVH_Careers/job/New-York-NY-Calvin-Klein-Office/Assistant-Merchandiser--CTB-Outlet-and-Off-price---Calvin-Klein_R62949",
+    "source": "phenom",
+    "posted_date": "2026-10-19",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-23",
+    "is_new": false
+  },
+  {
+    "firm": "PVH",
     "id": "phenom-careers.pvh.com-PCAPCAUSR62783EXTERNALENUS",
     "title": "Assistant Merchandiser, Womens CTB - Calvin Klein",
     "location": "New York, New York, United States of America",
     "url": "https://pvh.wd1.myworkdayjobs.com/PVH_Careers/job/New-York-NY-Calvin-Klein-Office/Assistant-Merchandiser--Womens-CTB---Calvin-Klein_R62783",
     "source": "phenom",
     "posted_date": "2026-10-08",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
+    "firm": "PVH",
+    "id": "phenom-careers.pvh.com-PCAPCAUSR60141EXTERNALENUS",
+    "title": "Merchandiser, Wholesale - PVH",
+    "location": "New York, New York, United States of America",
+    "url": "https://pvh.wd1.myworkdayjobs.com/PVH_Careers/job/New-York-NY-Calvin-Klein-Office/Merchandiser--Nike---TH-Underwear----PVH_R60141",
+    "source": "phenom",
+    "posted_date": "2026-10-13",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-22",
     "is_new": false
@@ -8221,18 +8257,6 @@
   },
   {
     "firm": "RBC Capital Markets",
-    "id": "phenom-jobs.rbc.com-RBCAA0088R0000189705EXTERNALENCA",
-    "title": "Analyst, Global Investment Banking, Consumer & Retail",
-    "location": "New York, New York, United States of America",
-    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Analyst--Global-Investment-Banking--Consumer---Retail_R-0000189705",
-    "source": "phenom",
-    "posted_date": "2026-10-06",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-06",
-    "is_new": false
-  },
-  {
-    "firm": "RBC Capital Markets",
     "id": "phenom-jobs.rbc.com-RBCAA0088R0000183168EXTERNALENCA",
     "title": "Associate, Financial Institutions Group Corporate Banking",
     "location": "New York, New York, United States of America",
@@ -8277,18 +8301,6 @@
     "posted_date": "2026-09-30",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-01",
-    "is_new": false
-  },
-  {
-    "firm": "RBC Capital Markets",
-    "id": "phenom-jobs.rbc.com-RBCAA0088R0000191033EXTERNALENCA",
-    "title": "Client Associate",
-    "location": "Albany, New York, United States of America",
-    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/Albany-New-York-United-States-of-America/Client-Associate_R-0000191033",
-    "source": "phenom",
-    "posted_date": "2026-10-23",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-23",
     "is_new": false
   },
   {
@@ -9321,18 +9333,6 @@
     "posted_date": "2026-09-24",
     "metro": "NY + Jersey City",
     "first_seen": "2026-09-25",
-    "is_new": false
-  },
-  {
-    "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0120874EXTERNALENUS",
-    "title": "Treasury Sales Consultant - Middle Market",
-    "location": "New York, New York, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY/Treasury-Sales-Consultant---Middle-Market_R0120874",
-    "source": "phenom",
-    "posted_date": "2026-10-19",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-19",
     "is_new": false
   },
   {
@@ -10429,18 +10429,6 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-00412-9504413680-usen",
-    "title": "Accounting Analyst Investment Management $115K $130K + B \u00b7 Direct hire",
-    "location": "San Jose, CA",
-    "url": "https://www.roberthalf.com/us/en/job/san-jose-ca/accounting-analyst-investment-management-115k-130k-b/00412-9504413680-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-18",
-    "metro": "SF / Bay Area",
-    "first_seen": "2026-10-24",
-    "is_new": true
-  },
-  {
-    "firm": "Robert Half",
     "id": "roberthalf-00412-9504413679-usen",
     "title": "Accounting Analyst Investment Management $115K $130K + B \u00b7 Direct hire",
     "location": "San Mateo, CA",
@@ -10450,6 +10438,18 @@
     "metro": "SF / Bay Area",
     "first_seen": "2026-10-18",
     "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-00412-9504413680-usen",
+    "title": "Accounting Analyst Investment Management $115K $130K + B \u00b7 Direct hire",
+    "location": "San Jose, CA",
+    "url": "https://www.roberthalf.com/us/en/job/san-jose-ca/accounting-analyst-investment-management-115k-130k-b/00412-9504413680-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-18",
+    "metro": "SF / Bay Area",
+    "first_seen": "2026-10-24",
+    "is_new": true
   },
   {
     "firm": "Robert Half",
