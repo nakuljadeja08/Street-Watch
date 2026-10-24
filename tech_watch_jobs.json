@@ -149,7 +149,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Cloud-Data-Platform-Engineer_R158514-1",
     "source": "workday",
-    "posted_date": "2026-09-22",
+    "posted_date": "2026-09-23",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -162,7 +162,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Analytics-Engineer_R150313",
     "source": "workday",
-    "posted_date": "2026-09-22",
+    "posted_date": "2026-09-23",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -175,7 +175,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Program-Engineer_R150311",
     "source": "workday",
-    "posted_date": "2026-09-22",
+    "posted_date": "2026-09-23",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -201,7 +201,7 @@
     "location": "Baltimore, Maryland, United States of America",
     "url": "https://franklintempleton.wd5.myworkdayjobs.com/Primary-External-1/job/Baltimore-Maryland-United-States-of-America/Data-Engineer_869238",
     "source": "phenom",
-    "posted_date": "2026-10-06",
+    "posted_date": "2026-10-23",
     "metro": "DC / Virginia",
     "sector": "Finance",
     "first_seen": "2026-10-06",
@@ -336,6 +336,19 @@
     "sector": "Finance",
     "first_seen": "2026-09-27",
     "is_new": false
+  },
+  {
+    "firm": "Comcast",
+    "id": "wd-comcast-Comcast_Careers-/job/PA---Philadelphia-1800-Arch-St/Data-Engineer---AI-Enabled-Capacity-Analytics_R444699",
+    "title": "Data Engineer - AI-Enabled Capacity Analytics",
+    "location": "PA - Philadelphia, 1800 Arch St; NJ - Mount Laurel, 1800 Bishops Gate",
+    "url": "https://comcast.wd115.myworkdayjobs.com/Comcast_Careers/job/PA---Philadelphia-1800-Arch-St/Data-Engineer---AI-Enabled-Capacity-Analytics_R444699",
+    "source": "workday",
+    "posted_date": "2026-10-23",
+    "metro": "NYC Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-24",
+    "is_new": true
   },
   {
     "firm": "DoorDash",
@@ -539,7 +552,7 @@
     "location": "MetroPark",
     "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/MetroPark/Cloud-Data-Engineer_R7127",
     "source": "workday",
-    "posted_date": "2026-09-22",
+    "posted_date": "2026-09-23",
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -565,7 +578,7 @@
     "location": "New York, New York, United States of America",
     "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Data-Engineer---Financial-Crimes---Associate_PT-JR035703",
     "source": "workday",
-    "posted_date": "2026-09-22",
+    "posted_date": "2026-09-23",
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-10-21",
@@ -663,6 +676,19 @@
     "is_new": false
   },
   {
+    "firm": "HP",
+    "id": "wd-hp-ExternalCareerSite-/job/Spring-Texas-United-States-of-America/Quality-Data-Engineer_3164674",
+    "title": "Quality Data Engineer",
+    "location": "Spring, Texas, United States of America",
+    "url": "https://hp.wd5.myworkdayjobs.com/ExternalCareerSite/job/Spring-Texas-United-States-of-America/Quality-Data-Engineer_3164674",
+    "source": "workday",
+    "posted_date": "2026-10-23",
+    "metro": "Other US",
+    "sector": "Tech",
+    "first_seen": "2026-10-01",
+    "is_new": false
+  },
+  {
     "firm": "JPMorgan Chase",
     "id": "oracle-jpmc.fa.oraclecloud.com-210793562",
     "title": "Data Engineering Associate",
@@ -721,7 +747,7 @@
     "location": "USA - Philadelphia - Pennsylvania",
     "url": "https://nasdaq.wd1.myworkdayjobs.com/Global_External_Site/job/USA---Philadelphia---Pennsylvania/Data-Software-Engineer_R0026752",
     "source": "workday",
-    "posted_date": "2026-09-22",
+    "posted_date": "2026-09-23",
     "metro": "Other US",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -768,12 +794,12 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-02220-0013514903-usen",
+    "id": "roberthalf-01120-0013490448-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Battle Creek, MI",
-    "url": "https://www.roberthalf.com/us/en/job/battle-creek-mi/data-engineer/02220-0013514903-usen",
+    "location": "Jacksonville, FL",
+    "url": "https://www.roberthalf.com/us/en/job/jacksonville-fl/data-engineer/01120-0013490448-usen",
     "source": "roberthalf",
-    "posted_date": "2026-09-28",
+    "posted_date": "2026-10-21",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -781,12 +807,12 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-01120-0013490448-usen",
+    "id": "roberthalf-02220-0013514903-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Jacksonville, FL",
-    "url": "https://www.roberthalf.com/us/en/job/jacksonville-fl/data-engineer/01120-0013490448-usen",
+    "location": "Battle Creek, MI",
+    "url": "https://www.roberthalf.com/us/en/job/battle-creek-mi/data-engineer/02220-0013514903-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-21",
+    "posted_date": "2026-09-28",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -988,6 +1014,19 @@
     "is_new": false
   },
   {
+    "firm": "Vanguard",
+    "id": "wd-vanguard-vanguard_external-/job/Malvern-PA/Data-Engineer_183239-1",
+    "title": "Data Engineer",
+    "location": "Malvern, PA",
+    "url": "https://vanguard.wd5.myworkdayjobs.com/vanguard_external/job/Malvern-PA/Data-Engineer_183239-1",
+    "source": "workday",
+    "posted_date": "2026-10-23",
+    "metro": "Other US",
+    "sector": "Finance",
+    "first_seen": "2026-10-24",
+    "is_new": true
+  },
+  {
     "firm": "Abnormal Security",
     "id": "gh-abnormalsecurity-8001641003",
     "title": "Software Engineer 1 - Data Platforms",
@@ -1076,19 +1115,6 @@
     "metro": "Remote (US)",
     "sector": "Tech",
     "first_seen": "2026-10-22",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-03340-0013497578-usen",
-    "title": "Data Engineer II \u00b7 Direct hire",
-    "location": "Lakewood, OH (Remote)",
-    "url": "https://www.roberthalf.com/us/en/job/lakewood-oh/data-engineer-ii/03340-0013497578-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-16",
-    "metro": "Remote (US)",
-    "sector": "Agency",
-    "first_seen": "2026-10-16",
     "is_new": false
   },
   {
@@ -1261,17 +1287,17 @@
     "is_new": false
   },
   {
-    "firm": "Cursor",
-    "id": "ashby-cursor-0320a8db-cb1b-407b-bd62-b23734b83330",
-    "title": "Software Engineer, Pretraining Data",
-    "location": "Palo Alto, CA",
-    "url": "https://jobs.ashbyhq.com/cursor/0320a8db-cb1b-407b-bd62-b23734b83330",
-    "source": "ashby",
-    "posted_date": "2026-08-24",
+    "firm": "Charles Schwab",
+    "id": "charles-100639412896",
+    "title": "Quantitative Software Engineer - Research Data and Models (PL)",
+    "location": "San Francisco, CA; Chicago, IL",
+    "url": "https://www.schwabjobs.com/job/san-francisco/quantitative-software-engineer-research-data-and-models-pl/33727/100639412896",
+    "source": "charles",
+    "posted_date": null,
     "metro": "SF Bay Area",
-    "sector": "Tech",
-    "first_seen": "2026-10-22",
-    "is_new": false
+    "sector": "Finance",
+    "first_seen": "2026-10-24",
+    "is_new": true
   },
   {
     "firm": "Cursor",
@@ -1635,7 +1661,7 @@
     "metro": "Seattle",
     "sector": "Tech",
     "first_seen": "2026-10-23",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "OpenAI",
@@ -1661,7 +1687,7 @@
     "metro": "Seattle",
     "sector": "Tech",
     "first_seen": "2026-10-23",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "SpaceX",
@@ -1781,6 +1807,19 @@
     "is_new": false
   },
   {
+    "firm": "Charles Schwab",
+    "id": "charles-98102690752",
+    "title": "Platform Support Data Engineer",
+    "location": "Austin, TX; Southlake, TX",
+    "url": "https://www.schwabjobs.com/job/austin/platform-support-data-engineer/33727/98102690752",
+    "source": "charles",
+    "posted_date": null,
+    "metro": "Texas",
+    "sector": "Finance",
+    "first_seen": "2026-09-29",
+    "is_new": false
+  },
+  {
     "firm": "Citi",
     "id": "citi-102161058576",
     "title": "Data Platform Engineer, Cybersecurity Operations",
@@ -1792,6 +1831,19 @@
     "sector": "Finance",
     "first_seen": "2026-10-19",
     "is_new": false
+  },
+  {
+    "firm": "Dell",
+    "id": "oracle-enterpriseplatform.dell.com-297513",
+    "title": "Postgres Database Engineer",
+    "location": "Austin, TX, United States",
+    "url": "https://enterpriseplatform.dell.com/hcmUI/CandidateExperience/en/sites/careers/job/297513",
+    "source": "oracle",
+    "posted_date": "2026-10-23",
+    "metro": "Texas",
+    "sector": "Tech",
+    "first_seen": "2026-10-24",
+    "is_new": true
   },
   {
     "firm": "Google",
@@ -1817,19 +1869,6 @@
     "metro": "Texas",
     "sector": "Finance",
     "first_seen": "2026-10-22",
-    "is_new": false
-  },
-  {
-    "firm": "Marathon Petroleum",
-    "id": "wd-mpc-MPCCareers-/job/San-Antonio-TX/Data-Operations-Engineer_00023365",
-    "title": "Data Operations Engineer",
-    "location": "San Antonio TX; San Antonio, Texas",
-    "url": "https://mpc.wd1.myworkdayjobs.com/MPCCareers/job/San-Antonio-TX/Data-Operations-Engineer_00023365",
-    "source": "workday",
-    "posted_date": "2026-10-14",
-    "metro": "Texas",
-    "sector": "Energy",
-    "first_seen": "2026-10-15",
     "is_new": false
   },
   {
