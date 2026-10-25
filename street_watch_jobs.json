@@ -1260,18 +1260,6 @@
     "is_new": false
   },
   {
-    "firm": "Franklin Templeton",
-    "id": "phenom-careers.franklintempleton.com-FTGFTMUS868507EXTERNALENUS",
-    "title": "Quantitative Insurance Solutions Analyst",
-    "location": "Pasadena, California, United States of America",
-    "url": "https://franklintempleton.wd5.myworkdayjobs.com/Primary-External-1/job/Pasadena-California-United-States-of-America/Quantitative-Insurance-Solutions-Analyst_868507",
-    "source": "phenom",
-    "posted_date": "2026-10-16",
-    "metro": "Los Angeles",
-    "first_seen": "2026-10-24",
-    "is_new": false
-  },
-  {
     "firm": "Goldman Sachs",
     "id": "gs-187330_GS_EARLY_CAREER",
     "title": "Asset & Wealth Management, GS Ayco, Financial Planner, Analyst - Newport Beach",
@@ -1680,6 +1668,18 @@
     "is_new": false
   },
   {
+    "firm": "RBC Capital Markets",
+    "id": "phenom-jobs.rbc.com-RBCAA0088R0000187755EXTERNALENCA",
+    "title": "Branch Service Manager/Registered Client Associate",
+    "location": "Los Angeles, California, United States of America",
+    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/Los-Angeles-California-United-States-of-America/Branch-Service-Manager-Registered-Client-Associate_R-0000187755",
+    "source": "phenom",
+    "posted_date": "2026-10-15",
+    "metro": "Los Angeles",
+    "first_seen": "2026-10-24",
+    "is_new": false
+  },
+  {
     "firm": "Randstad",
     "id": "randstad-AB_5102366",
     "title": "Digital Deal Management Analyst \u00b7 Contract",
@@ -1825,18 +1825,6 @@
   },
   {
     "firm": "Wells Fargo",
-    "id": "wd-wf-WellsFargoJobs-/job/LOS-ANGELES-CA/Associate-Manager---Manager-Leadership-Program_R-577152",
-    "title": "Associate Manager - Manager Leadership Program",
-    "location": "LOS ANGELES, CA",
-    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/LOS-ANGELES-CA/Associate-Manager---Manager-Leadership-Program_R-577152",
-    "source": "workday",
-    "posted_date": "2026-10-02",
-    "metro": "Los Angeles",
-    "first_seen": "2026-10-24",
-    "is_new": false
-  },
-  {
-    "firm": "Wells Fargo",
     "id": "wd-wf-WellsFargoJobs-/job/LOS-ANGELES-CA/Associate-Personal-Banker-Brentwood_R-582929",
     "title": "Associate Personal Banker Brentwood",
     "location": "LOS ANGELES, CA",
@@ -1939,18 +1927,6 @@
     "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/BEVERLY-HILLS-CA/CA-WA-Mortgage-Retails-Sales-Consultant--SAFE-_R-580612",
     "source": "workday",
     "posted_date": "2026-10-13",
-    "metro": "Los Angeles",
-    "first_seen": "2026-10-24",
-    "is_new": false
-  },
-  {
-    "firm": "Wells Fargo",
-    "id": "wd-wf-WellsFargoJobs-/job/PASADENA-CA/Community-Mortgage-Bank-Sales-Consultant--SAFE-_R-579159",
-    "title": "Community Mortgage Bank Sales Consultant (SAFE)",
-    "location": "PASADENA, CA",
-    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/PASADENA-CA/Community-Mortgage-Bank-Sales-Consultant--SAFE-_R-579159",
-    "source": "workday",
-    "posted_date": "2026-09-30",
     "metro": "Los Angeles",
     "first_seen": "2026-10-24",
     "is_new": false
@@ -4161,18 +4137,6 @@
     "posted_date": "2026-09-29",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-24",
-    "is_new": false
-  },
-  {
-    "firm": "Franklin Templeton",
-    "id": "phenom-careers.franklintempleton.com-FTGFTMUS869872EXTERNALENUS",
-    "title": "BSP Debt Asset Management Associate, Commercial Real Estate",
-    "location": "New York, New York, United States of America",
-    "url": "https://franklintempleton.wd5.myworkdayjobs.com/Primary-External-1/job/New-York-New-York-United-States-of-America/BSP-Asset-Management-Associate--Commercial-Real-Estate_869872",
-    "source": "phenom",
-    "posted_date": "2026-09-29",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-29",
     "is_new": false
   },
   {
@@ -9193,18 +9157,6 @@
   },
   {
     "firm": "Wells Fargo",
-    "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/Associate--Commercial-Mortgage-Pursuit-Specialist_R-546836",
-    "title": "Associate, Commercial Mortgage Pursuit Specialist",
-    "location": "NEW YORK, NY",
-    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/NEW-YORK-NY/Associate--Commercial-Mortgage-Pursuit-Specialist_R-546836",
-    "source": "workday",
-    "posted_date": "2026-10-02",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-16",
-    "is_new": false
-  },
-  {
-    "firm": "Wells Fargo",
     "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/Associate--Equity-Derivatives---QIS-Structuring_R-571470",
     "title": "Associate, Equity Derivatives & QIS Structuring",
     "location": "NEW YORK, NY",
@@ -9253,78 +9205,6 @@
   },
   {
     "firm": "Wells Fargo",
-    "id": "wd-wf-WellsFargoJobs-/job/MELVILLE-NY/Home-Mortgage-Consultant--SAFE-_R-560461",
-    "title": "Home Mortgage Consultant (SAFE)",
-    "location": "MELVILLE, NY",
-    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/MELVILLE-NY/Home-Mortgage-Consultant--SAFE-_R-560461",
-    "source": "workday",
-    "posted_date": "2026-10-01",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-17",
-    "is_new": false
-  },
-  {
-    "firm": "Wells Fargo",
-    "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/Home-Mortgage-Consultant--SAFE-_R-560457",
-    "title": "Home Mortgage Consultant (SAFE)",
-    "location": "NEW YORK, NY",
-    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/NEW-YORK-NY/Home-Mortgage-Consultant--SAFE-_R-560457",
-    "source": "workday",
-    "posted_date": "2026-10-01",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-17",
-    "is_new": false
-  },
-  {
-    "firm": "Wells Fargo",
-    "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/Home-Mortgage-Consultant--SAFE-_R-560454-1",
-    "title": "Home Mortgage Consultant (SAFE)",
-    "location": "NEW YORK, NY",
-    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/NEW-YORK-NY/Home-Mortgage-Consultant--SAFE-_R-560454-1",
-    "source": "workday",
-    "posted_date": "2026-10-01",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-17",
-    "is_new": false
-  },
-  {
-    "firm": "Wells Fargo",
-    "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/Home-Mortgage-Consultant--SAFE-_R-556840",
-    "title": "Home Mortgage Consultant (SAFE)",
-    "location": "NEW YORK, NY",
-    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/NEW-YORK-NY/Home-Mortgage-Consultant--SAFE-_R-556840",
-    "source": "workday",
-    "posted_date": "2026-10-01",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-17",
-    "is_new": false
-  },
-  {
-    "firm": "Wells Fargo",
-    "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/Home-Mortgage-Consultant--SAFE-_R-555705",
-    "title": "Home Mortgage Consultant (SAFE)",
-    "location": "NEW YORK, NY",
-    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/NEW-YORK-NY/Home-Mortgage-Consultant--SAFE-_R-555705",
-    "source": "workday",
-    "posted_date": "2026-10-01",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-17",
-    "is_new": false
-  },
-  {
-    "firm": "Wells Fargo",
-    "id": "wd-wf-WellsFargoJobs-/job/PURCHASE-NY/Home-Mortgage-Consultant--SAFE-_R-554238",
-    "title": "Home Mortgage Consultant (SAFE)",
-    "location": "PURCHASE, NY",
-    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/PURCHASE-NY/Home-Mortgage-Consultant--SAFE-_R-554238",
-    "source": "workday",
-    "posted_date": "2026-09-28",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-09-28",
-    "is_new": false
-  },
-  {
-    "firm": "Wells Fargo",
     "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/Investment-Banking-Program-Analyst---Corporate-Finance_R-580571",
     "title": "Investment Banking Program Analyst - Corporate Finance",
     "location": "NEW YORK, NY",
@@ -9333,18 +9213,6 @@
     "posted_date": "2026-10-22",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-23",
-    "is_new": false
-  },
-  {
-    "firm": "Wells Fargo",
-    "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/Strategy-Consultant_R-578551",
-    "title": "Strategy Consultant",
-    "location": "NEW YORK, NY",
-    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/NEW-YORK-NY/Strategy-Consultant_R-578551",
-    "source": "workday",
-    "posted_date": "2026-09-30",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-01",
     "is_new": false
   },
   {
@@ -10153,10 +10021,10 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-00412-9504413678-usen",
+    "id": "roberthalf-00412-9504413679-usen",
     "title": "Accounting Analyst Investment Management $115K $130K + B \u00b7 Direct hire",
-    "location": "San Francisco, CA",
-    "url": "https://www.roberthalf.com/us/en/job/san-francisco-ca/accounting-analyst-investment-management-115k-130k-b/00412-9504413678-usen",
+    "location": "San Mateo, CA",
+    "url": "https://www.roberthalf.com/us/en/job/san-mateo-ca/accounting-analyst-investment-management-115k-130k-b/00412-9504413679-usen",
     "source": "roberthalf",
     "posted_date": "2026-10-18",
     "metro": "SF / Bay Area",
@@ -10177,10 +10045,10 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-00412-9504413679-usen",
+    "id": "roberthalf-00412-9504413678-usen",
     "title": "Accounting Analyst Investment Management $115K $130K + B \u00b7 Direct hire",
-    "location": "San Mateo, CA",
-    "url": "https://www.roberthalf.com/us/en/job/san-mateo-ca/accounting-analyst-investment-management-115k-130k-b/00412-9504413679-usen",
+    "location": "San Francisco, CA",
+    "url": "https://www.roberthalf.com/us/en/job/san-francisco-ca/accounting-analyst-investment-management-115k-130k-b/00412-9504413678-usen",
     "source": "roberthalf",
     "posted_date": "2026-10-18",
     "metro": "SF / Bay Area",
@@ -10401,18 +10269,6 @@
     "posted_date": "2026-10-13",
     "metro": "SF / Bay Area",
     "first_seen": "2026-10-13",
-    "is_new": false
-  },
-  {
-    "firm": "Wells Fargo",
-    "id": "wd-wf-WellsFargoJobs-/job/SAN-JOSE-CA/Community-Mortgage-Bank-Sales-Consultant--SAFE-_R-578293",
-    "title": "Community Mortgage Bank Sales Consultant (SAFE)",
-    "location": "SAN JOSE, CA",
-    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/SAN-JOSE-CA/Community-Mortgage-Bank-Sales-Consultant--SAFE-_R-578293",
-    "source": "workday",
-    "posted_date": "2026-09-25",
-    "metro": "SF / Bay Area",
-    "first_seen": "2026-10-24",
     "is_new": false
   },
   {
