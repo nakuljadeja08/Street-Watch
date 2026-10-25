@@ -794,12 +794,12 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-01120-0013490448-usen",
+    "id": "roberthalf-02220-0013514903-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Jacksonville, FL",
-    "url": "https://www.roberthalf.com/us/en/job/jacksonville-fl/data-engineer/01120-0013490448-usen",
+    "location": "Battle Creek, MI",
+    "url": "https://www.roberthalf.com/us/en/job/battle-creek-mi/data-engineer/02220-0013514903-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-21",
+    "posted_date": "2026-09-28",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -807,12 +807,12 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-02220-0013514903-usen",
+    "id": "roberthalf-01120-0013490448-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Battle Creek, MI",
-    "url": "https://www.roberthalf.com/us/en/job/battle-creek-mi/data-engineer/02220-0013514903-usen",
+    "location": "Jacksonville, FL",
+    "url": "https://www.roberthalf.com/us/en/job/jacksonville-fl/data-engineer/01120-0013490448-usen",
     "source": "roberthalf",
-    "posted_date": "2026-09-28",
+    "posted_date": "2026-10-21",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -829,19 +829,6 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-01500-0013497785-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Oskaloosa, IA",
-    "url": "https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-13",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-13",
     "is_new": false
   },
   {
@@ -868,6 +855,19 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-01500-0013497785-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Oskaloosa, IA",
+    "url": "https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-13",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-13",
     "is_new": false
   },
   {
