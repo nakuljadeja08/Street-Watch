@@ -237,3 +237,23 @@ body.tw-body .addBtn, body.tw-body .clearBtn { border-radius: 7px; }
 }
 .tw-form input:focus, .tw-form select:focus, .tw-form textarea:focus { outline: 2px solid var(--tw-acc); outline-offset: 0; border-color: transparent; }
 @media (max-width: 640px) { .tw-form { grid-template-columns: 1fr; } }
+
+/* ---- follow-up badge, research links, funnel (tracker/workflow) ---- */
+.tw-badge.followup { background: var(--tw-badS); color: var(--tw-bad); }
+.tw-hint.followup { color: var(--tw-bad); }
+.tw-research { display: flex; flex-wrap: wrap; gap: 6px; }
+.tw-research .tw-btn.small { padding: 3px 9px; }
+
+.tw-funnel { padding: 20px 24px; max-width: 720px; }
+.tw-funnel-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; font-size: 12.5px; color: var(--tw-soft); }
+.tw-funnel-row { display: grid; grid-template-columns: 96px 1fr 150px; align-items: center; gap: 12px; margin-bottom: 12px; }
+.tw-funnel-label { font-size: 13px; color: var(--tw-ink); }
+.tw-funnel-track { background: var(--tw-side); border: 1px solid var(--tw-line); border-radius: 6px; overflow: hidden; }
+.tw-funnel-fill { display: flex; align-items: center; justify-content: flex-end; min-width: 26px; padding: 6px 9px; background: var(--tw-acc); border-radius: 5px; transition: width .4s ease; }
+.tw-funnel-fill b { color: #fff; font-size: 13px; font-variant-numeric: tabular-nums; }
+.tw-funnel-conv { font-size: 11.5px; color: var(--tw-faint); font-variant-numeric: tabular-nums; }
+.tw-funnel-foot { margin-top: 18px; font-size: 12px; color: var(--tw-soft); }
+@media (max-width: 560px) {
+  .tw-funnel-row { grid-template-columns: 76px 1fr; }
+  .tw-funnel-conv { grid-column: 2; }
+}

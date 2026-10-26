@@ -490,3 +490,32 @@ code { font-family: "IBM Plex Mono", monospace; font-size: 12px; }
   .trend-table th, .trend-table td { padding: 7px 8px; }
   .trend-chart { padding: 10px 8px 4px; }
 }
+
+/* ---- follow-up badge, research links, funnel (tracker/workflow) ---- */
+.pill.follow { color: var(--lip); background: var(--lipS); }
+
+.research { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 10px; font-size: 11.5px; }
+.research-lbl { color: var(--soft); font-family: "IBM Plex Mono", monospace; font-size: 10.5px; text-transform: uppercase; letter-spacing: .04em; }
+.research a { color: var(--soft); text-decoration: none; border-bottom: 1px dotted var(--line); }
+.research a:hover { color: var(--rose); border-bottom-color: var(--rose); }
+
+.funnel { max-width: 760px; }
+.funnel-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+.funnel-head .clearBtn.ghost { margin-top: 0; }
+.funnel-bars { display: flex; flex-direction: column; gap: 14px; }
+.funnel-row { display: grid; grid-template-columns: 110px 1fr 150px; align-items: center; gap: 12px; }
+.funnel-label { display: flex; align-items: center; gap: 7px; font-size: 13px; }
+.funnel-label .dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+.funnel-track { background: var(--panel2); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.funnel-fill { min-width: 28px; padding: 7px 10px; border-radius: 7px; display: flex; align-items: center; justify-content: flex-end; transition: width .4s ease; }
+.funnel-fill.s-interested { background: var(--blue); }
+.funnel-fill.s-applied { background: var(--green); }
+.funnel-fill.s-interview { background: var(--rose); }
+.funnel-fill.s-offer { background: var(--gold); }
+.funnel-n { font-family: "Fraunces", serif; font-size: 16px; font-weight: 600; color: #fff; }
+.funnel-conv { font-size: 11.5px; color: var(--soft); font-family: "IBM Plex Mono", monospace; }
+.funnel-foot { margin-top: 18px; }
+@media (max-width: 560px) {
+  .funnel-row { grid-template-columns: 84px 1fr; }
+  .funnel-conv { grid-column: 2; text-align: right; }
+}

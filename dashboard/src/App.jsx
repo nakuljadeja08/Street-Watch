@@ -3,6 +3,7 @@ import { supabase, STATUSES, authHeaders } from "./supabaseClient.js";
 import FIRM_CATEGORIES from "../../firm_categories.json";
 import Trends from "./Trends.jsx";
 import { useRecruiters, RecruitersView, RecruitersButton } from "./Recruiters.jsx";
+import { needsFollowUp, daysSinceApplied, researchLinks, jobsToCsv, downloadCsv, FOLLOW_UP_DAYS } from "./tracker.js";
 
 // firm -> type ("PE & Alts", "Bulge Bracket", …); shared with pipeline.py
 const CATEGORIES = Object.keys(FIRM_CATEGORIES).filter((k) => !k.startsWith("_"));
@@ -164,7 +165,7 @@ function initialParams() {
       statusFilter: p.get("status") || "all",
       q: p.get("q") || "",
       sort: SORTS.some((s) => s.v === p.get("sort")) ? p.get("sort") : "default",
-      view: ["board", "trends", "recruiters"].includes(p.get("view")) ? p.get("view") : "list",
+      view: ["board", "funnel", "trends", "recruiters"].includes(p.get("view")) ? p.get("view") : "list",
     };
   } catch {
     return { metro: "all", segment: "all", category: "all", level: "any", recency: "all", statusFilter: "all", q: "", sort: "default", view: "list" };
@@ -494,6 +495,24 @@ export default function App({ signedIn = false, header = null }) {
     setSort("default");
   }
 
+  // download every tracked role (board + custom) as a CSV backup
+  function exportTracked() {
+    const rows = allJobs
+      .filter((j) => statusOf(j.id) !== "none")
+      .map((j) => {
+        const a = appMap[j.id] || {};
+        return {
+          firm: j.firm, title: j.title, status: a.status, applied_at: a.applied_at,
+          location: j.location, metro: j.metro, source: j.source, url: j.url, notes: a.notes,
+        };
+      });
+    if (!rows.length) {
+      flash("Nothing tracked yet to export.");
+      return;
+    }
+    downloadCsv(`street-watch-tracker-${today()}.csv`, jobsToCsv(rows));
+  }
+
   async function saveNotes(job, raw) {
     const value = raw.trim() || null;
 
@@ -658,6 +677,7 @@ export default function App({ signedIn = false, header = null }) {
       const st = statusOf(j.id);
       if (statusFilter === "tracked" && st === "none") return false;
       if (statusFilter === "untracked" && st !== "none") return false;
+      if (statusFilter === "followup" && !needsFollowUp(appMap[j.id])) return false;
       if (["interested", "applied", "interview", "offer", "rejected"].includes(statusFilter) && st !== statusFilter)
         return false;
       return true;
@@ -743,7 +763,7 @@ export default function App({ signedIn = false, header = null }) {
   );
 
   const stats = useMemo(() => {
-    const c = { total: jobs.length, new: 0, applied: 0, interview: 0, offer: 0, tracked: 0 };
+    const c = { total: jobs.length, new: 0, applied: 0, interview: 0, offer: 0, tracked: 0, followup: 0 };
     for (const j of jobs) if (j.is_new) c.new++;
     for (const id in appMap) {
       c.tracked++;
@@ -751,6 +771,7 @@ export default function App({ signedIn = false, header = null }) {
       if (s === "applied") c.applied++;
       if (s === "interview") c.interview++;
       if (s === "offer") c.offer++;
+      if (needsFollowUp(appMap[id])) c.followup++;
     }
     return c;
   }, [jobs, appMap]);
@@ -761,6 +782,7 @@ export default function App({ signedIn = false, header = null }) {
     const age = postedLabel(j.posted_date);
     const fit = ai.fits[j.id];
     const busy = scoring.has(j.id);
+    const followDays = needsFollowUp(app) ? daysSinceApplied(app) : null;
     return (
       <div className={`card ${st !== "none" ? "tracked" : ""}`} key={j.id}>
         <div className="of">
@@ -775,6 +797,11 @@ export default function App({ signedIn = false, header = null }) {
             {j.custom && <span className="mine">YOURS</span>}
             {st !== "none" && (
               <span className={`pill ${STATUS_META[st].cls}`}>{STATUS_META[st].label}</span>
+            )}
+            {followDays !== null && (
+              <span className="pill follow" title={`Applied ${followDays} days ago with no update`}>
+                ⏰ {followDays}d
+              </span>
             )}
           </span>
         </div>
@@ -829,6 +856,7 @@ export default function App({ signedIn = false, header = null }) {
             />
           )}
         </div>
+        <ResearchLinks firm={j.firm} title={j.title} />
         {st !== "none" && (
           <NoteEditor value={app?.notes} onSave={(v) => saveNotes(j, v)} />
         )}
@@ -867,6 +895,7 @@ export default function App({ signedIn = false, header = null }) {
             <Stat n={stats.new} label="new today" hot={stats.new > 0} />
             <Stat n={stats.tracked} label="tracked" />
             <Stat n={stats.applied} label="applied" accent />
+            <Stat n={stats.followup} label="follow up" hot={stats.followup > 0} />
             <Stat n={stats.interview} label="interview" accent />
             <Stat n={stats.offer} label="offer" accent />
           </div>
@@ -895,6 +924,7 @@ export default function App({ signedIn = false, header = null }) {
             options={[
               { v: "list", label: "List" },
               { v: "board", label: "Board" },
+              { v: "funnel", label: "Funnel" },
               { v: "trends", label: "Trends" },
               { v: "recruiters", label: "Recruiters" },
             ]}
@@ -905,7 +935,7 @@ export default function App({ signedIn = false, header = null }) {
           <>
           <Seg options={SEGMENTS} value={segment} onChange={setSegment} />
           <Seg options={METROS.map((m) => ({ v: m, label: METRO_LABEL[m] }))} value={metro} onChange={setMetro} />
-          {view !== "trends" && <Seg options={levelsFor(segment)} value={level} onChange={setLevel} />}
+          {view !== "trends" && view !== "funnel" && <Seg options={levelsFor(segment)} value={level} onChange={setLevel} />}
           <select
             className="statusSel"
             value={category}
@@ -919,7 +949,7 @@ export default function App({ signedIn = false, header = null }) {
               </option>
             ))}
           </select>
-          {view !== "trends" && (
+          {view !== "trends" && view !== "funnel" && (
             <>
               <Seg options={RECENCY.map((r) => ({ v: r.d, label: r.label }))} value={recency} onChange={setRecency} />
               <select
@@ -941,6 +971,7 @@ export default function App({ signedIn = false, header = null }) {
               <option value="all">All statuses</option>
               <option value="untracked">Not tracked</option>
               <option value="tracked">Tracked (any)</option>
+              <option value="followup">Needs follow-up</option>
               <option value="interested">Interested</option>
               <option value="applied">Applied</option>
               <option value="interview">Interview</option>
@@ -960,7 +991,7 @@ export default function App({ signedIn = false, header = null }) {
               Clear ✕
             </button>
           )}
-          {searchable && !naming && view !== "trends" && (
+          {searchable && !naming && view !== "trends" && view !== "funnel" && (
             <button className="saveBtn" onClick={() => setNaming(true)} title="Save these filters and get alerts for new matches">
               ☆ Save search
             </button>
@@ -998,6 +1029,8 @@ export default function App({ signedIn = false, header = null }) {
           <Trends metro={metro} segment={segment} segmentOf={segmentOf} category={category} q={q} categoryOf={categoryOf} />
         ) : view === "recruiters" ? (
           <RecruitersView rec={rec} aiFetch={aiFetch} aiReady={aiReady} onSetupAi={() => setAiOpen(true)} />
+        ) : view === "funnel" ? (
+          <FunnelView board={board} boardTotal={boardTotal} loading={loading} filtersActive={filtersActive} onExport={exportTracked} />
         ) : (
         <>
         <div className="meta">
@@ -1025,6 +1058,11 @@ export default function App({ signedIn = false, header = null }) {
             >
               {addOpen ? "✕ Close" : "＋ Add your own"}
             </button>
+            {boardTotal > 0 && (
+              <button className="clearBtn ghost" onClick={exportTracked} title="Download all tracked roles as CSV">
+                ⬇ Export CSV
+              </button>
+            )}
             <span className="board-actions-hint">
               Applied somewhere that isn't on the list? Add it here to track it and write its cover letter.
             </span>
@@ -1410,6 +1448,80 @@ function Stat({ n, label, hot, accent }) {
     <div className={`stat ${hot ? "hot" : ""} ${accent ? "acc" : ""}`}>
       <span className="num">{n}</span>
       <span className="lbl">{label}</span>
+    </div>
+  );
+}
+
+// Compact "look this firm up" links — opens the usual research spots in a new tab.
+function ResearchLinks({ firm, title }) {
+  return (
+    <div className="research" aria-label="Research links">
+      <span className="research-lbl">Research</span>
+      {researchLinks(firm, title).map((l) => (
+        <a key={l.label} href={l.url} target="_blank" rel="noopener noreferrer">
+          {l.label}
+        </a>
+      ))}
+    </div>
+  );
+}
+
+// Pipeline funnel over the currently-tracked roles (honors the filter bar).
+function FunnelView({ board, boardTotal, loading, filtersActive, onExport }) {
+  if (loading) return <div className="meta">Loading…</div>;
+  if (boardTotal === 0) {
+    return (
+      <div className="empty">
+        {filtersActive
+          ? "No tracked roles match these filters."
+          : "Nothing tracked yet — set a status on a role to build your funnel."}
+      </div>
+    );
+  }
+  const STAGES = ["interested", "applied", "interview", "offer"];
+  const counts = Object.fromEntries(
+    ["interested", "applied", "interview", "offer", "rejected"].map((s) => [s, board[s].length])
+  );
+  const max = Math.max(1, ...STAGES.map((s) => counts[s]));
+  const pct = (n, d) => (d ? Math.round((n / d) * 100) : 0);
+  return (
+    <div className="funnel">
+      <div className="funnel-head">
+        <span className="meta">
+          {boardTotal} tracked role{boardTotal === 1 ? "" : "s"} · {counts.rejected} rejected
+        </span>
+        <button className="clearBtn ghost" onClick={onExport} title="Download all tracked roles as CSV">
+          ⬇ Export CSV
+        </button>
+      </div>
+      <div className="funnel-bars">
+        {STAGES.map((s, i) => {
+          const prev = i > 0 ? counts[STAGES[i - 1]] : null;
+          return (
+            <div className="funnel-row" key={s}>
+              <div className="funnel-label">
+                <span className={`dot ${STATUS_META[s].cls}`} />
+                {STATUS_META[s].label}
+              </div>
+              <div className="funnel-track">
+                <div
+                  className={`funnel-fill ${STATUS_META[s].cls}`}
+                  style={{ width: `${Math.max(5, pct(counts[s], max))}%` }}
+                >
+                  <span className="funnel-n">{counts[s]}</span>
+                </div>
+              </div>
+              <div className="funnel-conv">
+                {prev !== null ? `${pct(counts[s], prev)}% of ${STATUS_META[STAGES[i - 1]].label.toLowerCase()}` : " "}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      <div className="funnel-foot meta">
+        applied → interview {pct(counts.interview, counts.applied)}% · interview → offer{" "}
+        {pct(counts.offer, counts.interview)}% · applied → offer {pct(counts.offer, counts.applied)}%
+      </div>
     </div>
   );
 }
