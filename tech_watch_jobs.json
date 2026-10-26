@@ -92,15 +92,15 @@
   },
   {
     "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0120978EXTERNALENUS",
-    "title": "Data Engineer",
+    "id": "phenom-careers.truist.com-TBJTBFUSR0120831EXTERNALENUS",
+    "title": "Security Engineer (Data Engineering/ Protection)",
     "location": "Charlotte, North Carolina, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Charlotte-NC/Data-Engineer_R0120978-1",
+    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Charlotte-NC/Security-Engineer--Data-Engineering--Protection-_R0120831",
     "source": "phenom",
-    "posted_date": "2026-10-20",
+    "posted_date": "2026-10-26",
     "metro": "Charlotte",
     "sector": "Finance",
-    "first_seen": "2026-10-21",
+    "first_seen": "2026-10-17",
     "is_new": false
   },
   {
@@ -218,6 +218,19 @@
     "metro": "DC / Virginia",
     "sector": "Agency",
     "first_seen": "2026-10-17",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-04510-0013480350-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Arlington, VA",
+    "url": "https://www.roberthalf.com/us/en/job/arlington-va/data-engineer/04510-0013480350-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-08",
+    "metro": "DC / Virginia",
+    "sector": "Agency",
+    "first_seen": "2026-10-09",
     "is_new": false
   },
   {
@@ -663,19 +676,6 @@
     "is_new": false
   },
   {
-    "firm": "HP",
-    "id": "wd-hp-ExternalCareerSite-/job/Spring-Texas-United-States-of-America/Quality-Data-Engineer_3164674",
-    "title": "Quality Data Engineer",
-    "location": "Spring, Texas, United States of America",
-    "url": "https://hp.wd5.myworkdayjobs.com/ExternalCareerSite/job/Spring-Texas-United-States-of-America/Quality-Data-Engineer_3164674",
-    "source": "workday",
-    "posted_date": "2026-10-23",
-    "metro": "Other US",
-    "sector": "Tech",
-    "first_seen": "2026-10-01",
-    "is_new": false
-  },
-  {
     "firm": "JPMorgan Chase",
     "id": "oracle-jpmc.fa.oraclecloud.com-210793562",
     "title": "Data Engineering Associate",
@@ -686,6 +686,32 @@
     "metro": "Other US",
     "sector": "Finance",
     "first_seen": "2026-09-27",
+    "is_new": false
+  },
+  {
+    "firm": "Mastercard",
+    "id": "wd-mastercard-CorporateCareers-/job/OFallon-Missouri/Data-Engineer-II_R-289305",
+    "title": "Data Engineer II",
+    "location": "O'Fallon, Missouri",
+    "url": "https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/OFallon-Missouri/Data-Engineer-II_R-289305",
+    "source": "workday",
+    "posted_date": "2026-10-15",
+    "metro": "Other US",
+    "sector": "Fintech",
+    "first_seen": "2026-10-07",
+    "is_new": false
+  },
+  {
+    "firm": "Mastercard",
+    "id": "wd-mastercard-CorporateCareers-/job/OFallon-Missouri/Data-Engineer-II_R-286580",
+    "title": "Data Engineer II",
+    "location": "O'Fallon, Missouri",
+    "url": "https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/OFallon-Missouri/Data-Engineer-II_R-286580",
+    "source": "workday",
+    "posted_date": "2026-09-28",
+    "metro": "Other US",
+    "sector": "Fintech",
+    "first_seen": "2026-09-29",
     "is_new": false
   },
   {
@@ -794,12 +820,12 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-03500-0013380490-usen",
+    "id": "roberthalf-04600-0013495125-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Oklahoma City, OK",
-    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
+    "location": "Milwaukee, WI",
+    "url": "https://www.roberthalf.com/us/en/job/milwaukee-wi/data-engineer/04600-0013495125-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-22",
+    "posted_date": "2026-10-20",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -807,12 +833,12 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-04600-0013495125-usen",
+    "id": "roberthalf-03500-0013380490-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Milwaukee, WI",
-    "url": "https://www.roberthalf.com/us/en/job/milwaukee-wi/data-engineer/04600-0013495125-usen",
+    "location": "Oklahoma City, OK",
+    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-20",
+    "posted_date": "2026-10-22",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -972,19 +998,6 @@
     "metro": "Other US",
     "sector": "Finance",
     "first_seen": "2026-10-24",
-    "is_new": false
-  },
-  {
-    "firm": "Abnormal Security",
-    "id": "gh-abnormalsecurity-8001641003",
-    "title": "Software Engineer 1 - Data Platforms",
-    "location": "Remote - USA",
-    "url": "https://abnormal.ai/careers/jobs/8001641003?gh_jid=8001641003",
-    "source": "greenhouse",
-    "posted_date": "2026-09-22",
-    "metro": "Remote (US)",
-    "sector": "Tech",
-    "first_seen": "2026-10-22",
     "is_new": false
   },
   {
@@ -1596,19 +1609,6 @@
     "metro": "Seattle",
     "sector": "Tech",
     "first_seen": "2026-10-07",
-    "is_new": false
-  },
-  {
-    "firm": "Qualtrics",
-    "id": "gh-qualtrics-8279068",
-    "title": "Software Engineer II -  Data Platform - Seattle",
-    "location": "Seattle, Washington,  United States",
-    "url": "https://www.qualtrics.com/careers/us/en/job/8279068?gh_jid=8279068",
-    "source": "greenhouse",
-    "posted_date": "2026-10-22",
-    "metro": "Seattle",
-    "sector": "Tech",
-    "first_seen": "2026-10-23",
     "is_new": false
   },
   {
