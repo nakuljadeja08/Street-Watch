@@ -5,6 +5,11 @@ import { supabase } from "./supabaseClient.js";
 // table the pipeline writes after each daily pull (schema_trends.sql). One row
 // per (day, firm, metro); this view sums whatever the filter bar leaves in.
 
+// "West Coast" is a UI-only rollup of these three metros (mirrors App.jsx)
+const WEST_COAST = new Set(["SF / Bay Area", "Los Angeles", "San Diego"]);
+const metroMatches = (filter, m) =>
+  filter === "all" || (filter === "West Coast" ? WEST_COAST.has(m) : m === filter);
+
 const RANGES = [
   { v: 7, label: "7d" },
   { v: 30, label: "30d" },
@@ -53,7 +58,7 @@ export default function Trends({ metro, category, q, categoryOf, segment = "all"
     () =>
       (rows || []).filter(
         (r) =>
-          (metro === "all" || r.metro === metro) &&
+          metroMatches(metro, r.metro) &&
           (segment === "all" || !segmentOf || segmentOf(r.firm) === segment) &&
           (category === "all" || categoryOf(r.firm) === category) &&
           (!needle || r.firm.toLowerCase().includes(needle))

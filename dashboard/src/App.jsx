@@ -43,7 +43,11 @@ const LEVEL_RE = {
 
 // the part of the filter state a saved search captures
 function matchesSearch(j, f) {
-  if (f.metro && f.metro !== "all" && j.metro !== f.metro) return false;
+  if (f.metro && f.metro !== "all") {
+    // "West Coast" is a UI-only rollup of the three West Coast metros;
+    // every other option matches its metro exactly.
+    if (f.metro === "West Coast" ? !WEST_COAST.has(j.metro) : j.metro !== f.metro) return false;
+  }
   if (f.segment && f.segment !== "all" && segmentOf(j.firm) !== f.segment) return false;
   if (f.category && f.category !== "all" && categoryOf(j.firm) !== f.category) return false;
   if (f.level && f.level !== "any" && !LEVEL_RE[f.level]?.test(j.title || "")) return false;
@@ -63,11 +67,17 @@ function describeSearch(f) {
     .join(" · ");
 }
 
-const METROS = ["all", "NY + Jersey City", "SF / Bay Area", "Chicago", "Los Angeles", "San Diego", "New Zealand"];
+// the real metro values stored on each job (used by the "add a role" form)
+const METRO_VALUES = ["NY + Jersey City", "SF / Bay Area", "Chicago", "Los Angeles", "San Diego", "New Zealand"];
+// the three West Coast metros, rolled up under one "West Coast" filter option
+const WEST_COAST = new Set(["SF / Bay Area", "Los Angeles", "San Diego"]);
+// filter options: the West Coast metros collapse into a single "West Coast" chip
+const METROS = ["all", "NY + Jersey City", "West Coast", "Chicago", "New Zealand"];
 const METRO_LABEL = {
   all: "All",
   "NY + Jersey City": "NY + JC",
   "SF / Bay Area": "SF / Bay",
+  "West Coast": "West Coast",
   Chicago: "Chicago",
   "Los Angeles": "LA",
   "San Diego": "San Diego",
@@ -1252,7 +1262,7 @@ function AddCustomForm({ aiReady, onAdd, onCancel }) {
           <span>Metro</span>
           <select className="statusSel" value={metro} onChange={(e) => setMetro(e.target.value)}>
             <option value="">— None / Other</option>
-            {METROS.filter((m) => m !== "all").map((m) => (
+            {METRO_VALUES.map((m) => (
               <option key={m} value={m}>
                 {m}
               </option>
