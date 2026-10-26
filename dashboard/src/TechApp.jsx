@@ -3,6 +3,7 @@ import { supabase, authHeaders } from "./supabaseClient.js";
 import Trends from "./Trends.jsx";
 import { DraftModal, PasteJdModal, fileToBase64 } from "./App.jsx";
 import { useRecruiters, RecruitersView, RecruiterMatches } from "./Recruiters.jsx";
+import { needsFollowUp, daysSinceApplied, researchLinks, jobsToCsv, downloadCsv } from "./tracker.js";
 import "./tech.css";
 
 // Tech Watch: data engineering roles (tech_pipeline.py -> Supabase tech_*).
@@ -53,7 +54,7 @@ const customToJob = (c) => ({
 
 // "sector:fintech hub:nyc new spark" -> filter spec. Unknown words search.
 export function parseCmd(cmd) {
-  const f = { words: [], sector: null, hub: null, status: null, sort: "new", isNew: false, outside: false, days: null };
+  const f = { words: [], sector: null, hub: null, status: null, sort: "new", isNew: false, outside: false, followup: false, days: null };
   for (const tok of cmd.trim().split(/\s+/).filter(Boolean)) {
     const [k, ...rest] = tok.split(":");
     const v = rest.join(":").toLowerCase();
@@ -65,6 +66,7 @@ export function parseCmd(cmd) {
     else if (rest.length && key === "age") f.days = Number(v) || null;
     else if (!rest.length && key === "new") f.isNew = true;
     else if (!rest.length && key === "outside") f.outside = true;
+    else if (!rest.length && key === "followup") f.followup = true;
     else if (!rest.length && key === "remote") f.hub = "Remote (US)";
     else f.words.push(tok.toLowerCase());
   }
@@ -72,11 +74,13 @@ export function parseCmd(cmd) {
   return f;
 }
 
-function matches(j, f, status) {
+function matches(j, f, app) {
+  const status = app?.status || null;
   if (f.sector && j.sector !== f.sector) return false;
   if (f.hub && j.metro !== f.hub) return false;
   if (f.isNew && !j.is_new) return false;
   if (f.outside && !j.custom) return false;
+  if (f.followup && !needsFollowUp(app)) return false;
   if (f.days != null) {
     const a = ageOf(j);
     if (a == null || a > f.days) return false;
@@ -124,7 +128,7 @@ export default function TechApp({ header, signedIn }) {
   const [cmdFocus, setCmdFocus] = useState(false);
   const [view, setView] = useState(() => {
     const v = new URLSearchParams(window.location.search).get("view");
-    return v === "trends" || v === "recruiters" ? v : "list";
+    return v === "trends" || v === "recruiters" || v === "funnel" ? v : "list";
   });
   const [selId, setSelId] = useState(null);
   const [theme, setTheme] = useState(() => {
@@ -353,6 +357,24 @@ export default function TechApp({ header, signedIn }) {
     }
   }
 
+  // download every tracked role (board + outside) as a CSV backup
+  function exportTracked() {
+    const out = allJobs
+      .filter((j) => statusOf(j.id))
+      .map((j) => {
+        const a = tracked[j.id] || {};
+        return {
+          firm: j.firm, title: j.title, status: a.status, applied_at: a.applied_at,
+          location: j.location, metro: j.metro, source: j.source, url: j.url, notes: a.notes,
+        };
+      });
+    if (!out.length) {
+      flash("Nothing tracked yet to export.");
+      return;
+    }
+    downloadCsv(`tech-watch-tracker-${today()}.csv`, jobsToCsv(out));
+  }
+
   // ------------------------------------------------------------ saved searches
   const spec = useMemo(() => parseCmd(cmd), [cmd]);
   async function saveSearch() {
@@ -386,7 +408,7 @@ export default function TechApp({ header, signedIn }) {
   }, [apps, customs]);
   const statusOf = (id) => tracked[id]?.status || null;
   const rows = useMemo(() => {
-    const out = allJobs.filter((j) => matches(j, spec, statusOf(j.id)));
+    const out = allJobs.filter((j) => matches(j, spec, tracked[j.id]));
     const fit = (j) => ai.fits[j.id]?.score ?? -1;
     if (spec.sort === "fit") out.sort((a, b) => fit(b) - fit(a) || (ageOf(a) ?? 99) - (ageOf(b) ?? 99));
     else if (spec.sort === "firm") out.sort((a, b) => a.firm.localeCompare(b.firm) || a.title.localeCompare(b.title));
@@ -395,13 +417,14 @@ export default function TechApp({ header, signedIn }) {
   }, [allJobs, spec, tracked, ai.fits]);
 
   const counts = useMemo(() => {
-    const c = { all: allJobs.length, new: 0, outside: customs.length, sector: {}, hub: {}, status: {} };
+    const c = { all: allJobs.length, new: 0, outside: customs.length, followup: 0, sector: {}, hub: {}, status: {} };
     for (const j of allJobs) {
       if (j.is_new) c.new++;
       c.sector[j.sector] = (c.sector[j.sector] || 0) + 1;
       c.hub[j.metro] = (c.hub[j.metro] || 0) + 1;
-      const st = statusOf(j.id);
-      if (st) c.status[st] = (c.status[st] || 0) + 1;
+      const app = tracked[j.id];
+      if (app?.status) c.status[app.status] = (c.status[app.status] || 0) + 1;
+      if (needsFollowUp(app)) c.followup++;
     }
     return c;
   }, [allJobs, tracked]);
@@ -465,6 +488,7 @@ export default function TechApp({ header, signedIn }) {
     spec.status && `status:${spec.status}`,
     spec.isNew && "new",
     spec.outside && "outside",
+    spec.followup && "followup",
     spec.days != null && `age:${spec.days}`,
     spec.q && `grep "${spec.q}"`,
     spec.sort !== "new" && `sort:${spec.sort}`,
@@ -493,6 +517,7 @@ export default function TechApp({ header, signedIn }) {
                 {s}
               </NavItem>
             ))}
+            <NavItem on={view === "funnel"} onClick={() => setView(view === "funnel" ? "list" : "funnel")}>Funnel</NavItem>
             <NavItem on={view === "trends"} onClick={() => setView(view === "trends" ? "list" : "trends")}>Hiring trends</NavItem>
             <NavItem on={view === "recruiters"} onClick={() => setView(view === "recruiters" ? "list" : "recruiters")}>Recruiters</NavItem>
           </NavGroup>
@@ -511,12 +536,16 @@ export default function TechApp({ header, signedIn }) {
                 {STATUS_LABEL[s]}
               </NavItem>
             ))}
+            <NavItem on={spec.followup} n={counts.followup} onClick={() => toggleToken("followup")}>
+              Follow up
+            </NavItem>
             <NavItem on={spec.outside} n={counts.outside} onClick={() => toggleToken("outside")}>
               Added by me
             </NavItem>
             <NavItem on={addOpen} onClick={() => setAddOpen((o) => !o)}>
               ＋ Outside job
             </NavItem>
+            <NavItem onClick={exportTracked}>⬇ Export CSV</NavItem>
           </NavGroup>
 
           <NavGroup title="Saved">
@@ -632,6 +661,10 @@ export default function TechApp({ header, signedIn }) {
                 categoryOf={(f) => sectorOfFirm[f] || "Other"}
               />
             </div>
+          ) : view === "funnel" ? (
+            <div className="tw-trends">
+              <TechFunnel status={counts.status} loading={loading} onExport={exportTracked} />
+            </div>
           ) : (
             <div className="tw-body">
               <div className="tw-list" ref={listRef} role="listbox" aria-label="Roles">
@@ -643,6 +676,7 @@ export default function TechApp({ header, signedIn }) {
                     job={j}
                     on={sel?.id === j.id}
                     status={statusOf(j.id)}
+                    follow={needsFollowUp(tracked[j.id])}
                     fit={ai.fits[j.id]}
                     onClick={() => setSelId(j.id)}
                   />
@@ -725,7 +759,7 @@ function NavItem({ on, n, onClick, children }) {
   );
 }
 
-function Row({ job, on, status, fit, onClick }) {
+function Row({ job, on, status, follow, fit, onClick }) {
   const age = ageOf(job);
   return (
     <button className={`tw-row ${on ? "on" : ""}`} role="option" aria-selected={on} onClick={onClick}>
@@ -740,6 +774,7 @@ function Row({ job, on, status, fit, onClick }) {
       </span>
       <span className="tw-row-tags">
         {fit && <span className={`tw-fit ${fit.score >= 80 ? "hi" : fit.score >= 60 ? "mid" : "lo"}`}>{fit.score}</span>}
+        {follow && <span className="tw-badge followup" title="Applied a while ago with no update">follow up</span>}
         {status && <span className={`tw-badge st-${status}`}>{status}</span>}
         {job.is_new && <span className="tw-badge new">new</span>}
         <span className={`tw-badge sec-${(job.sector || "").toLowerCase()}`}>{(job.sector || "").toLowerCase()}</span>
@@ -804,7 +839,12 @@ function Detail({ job, app, fit, scoring, aiReady, hasDraft, onStatus, onNotes, 
             placeholder="Notes: referral, recruiter, what they asked…"
           />
         )}
-        {app?.applied_at && <div className="tw-hint">applied {app.applied_at}</div>}
+        {app?.applied_at && (
+          <div className={`tw-hint ${needsFollowUp(app) ? "followup" : ""}`}>
+            applied {app.applied_at}
+            {needsFollowUp(app) ? ` · ⏰ follow up (${daysSinceApplied(app)}d, no update)` : ""}
+          </div>
+        )}
         {onRemove && (
           <button className="tw-btn ghost small" onClick={onRemove}>
             Remove from tracker
@@ -842,6 +882,17 @@ function Detail({ job, app, fit, scoring, aiReady, hasDraft, onStatus, onNotes, 
         </div>
       )}
 
+      <div className="tw-section">
+        <h3>Research</h3>
+        <div className="tw-research">
+          {researchLinks(job.firm, job.title).map((l) => (
+            <a key={l.label} className="tw-btn ghost small" href={l.url} target="_blank" rel="noopener noreferrer">
+              {l.label} ↗
+            </a>
+          ))}
+        </div>
+      </div>
+
       <div className="tw-actions">
         <button className="tw-btn ghost" onClick={aiReady ? onDraft : onSetupAi}>
           ✍ {hasDraft ? "Open cover letter" : "Write cover letter"}
@@ -853,6 +904,47 @@ function Detail({ job, app, fit, scoring, aiReady, hasDraft, onStatus, onNotes, 
         )}
       </div>
     </aside>
+  );
+}
+
+// Pipeline funnel over tracked roles: interested → applied → interview → offer.
+function TechFunnel({ status, loading, onExport }) {
+  if (loading) return <div className="tw-empty">$ computing funnel…</div>;
+  const c = Object.fromEntries(
+    ["interested", "applied", "interview", "offer", "rejected"].map((s) => [s, status[s] || 0])
+  );
+  const total = c.interested + c.applied + c.interview + c.offer + c.rejected;
+  if (!total) return <div className="tw-empty">0 tracked roles. Set a status on a role to build your funnel.</div>;
+  const order = ["interested", "applied", "interview", "offer"];
+  const max = Math.max(1, ...order.map((s) => c[s]));
+  const pct = (n, d) => (d ? Math.round((n / d) * 100) : 0);
+  return (
+    <div className="tw-funnel">
+      <div className="tw-funnel-head">
+        <span className="tw-mono">{total} tracked · {c.rejected} rejected</span>
+        <button className="tw-btn ghost small" onClick={onExport}>⬇ Export CSV</button>
+      </div>
+      {order.map((s, i) => {
+        const prev = i > 0 ? c[order[i - 1]] : null;
+        return (
+          <div className="tw-funnel-row" key={s}>
+            <span className="tw-funnel-label">{STATUS_LABEL[s]}</span>
+            <span className="tw-funnel-track">
+              <i className="tw-funnel-fill" style={{ width: `${Math.max(5, pct(c[s], max))}%` }}>
+                <b>{c[s]}</b>
+              </i>
+            </span>
+            <span className="tw-funnel-conv">
+              {prev !== null ? `${pct(c[s], prev)}% of ${STATUS_LABEL[order[i - 1]].toLowerCase()}` : ""}
+            </span>
+          </div>
+        );
+      })}
+      <div className="tw-funnel-foot tw-mono">
+        applied→interview {pct(c.interview, c.applied)}% · interview→offer {pct(c.offer, c.interview)}% · applied→offer{" "}
+        {pct(c.offer, c.applied)}%
+      </div>
+    </div>
   );
 }
 
