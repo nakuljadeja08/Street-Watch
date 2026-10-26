@@ -39,19 +39,6 @@
     "is_new": false
   },
   {
-    "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0120558EXTERNALENUS",
-    "title": "Software Engineer for Card Fraud Strategy Data Delivery",
-    "location": "Atlanta, Georgia, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Atlanta-GA/Software-Engineer_R0120558",
-    "source": "phenom",
-    "posted_date": "2026-10-08",
-    "metro": "Atlanta",
-    "sector": "Finance",
-    "first_seen": "2026-10-22",
-    "is_new": false
-  },
-  {
     "firm": "State Street",
     "id": "wd-statestreet-Global-/job/Boston-Massachusetts/Senior-Data-Engineer---Cloud---Analytics--Officer---State-Street-Investment-Management_R-789304-1",
     "title": "Data Engineer - Cloud & Analytics, Officer - State Street Investment Management",
@@ -88,6 +75,19 @@
     "metro": "Charlotte",
     "sector": "Finance",
     "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
+    "firm": "Truist Securities",
+    "id": "phenom-careers.truist.com-TBJTBFUSR0120978EXTERNALENUS",
+    "title": "Data Engineer",
+    "location": "Charlotte, North Carolina, USA",
+    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Charlotte-NC/Data-Engineer_R0120978-1",
+    "source": "phenom",
+    "posted_date": "2026-10-20",
+    "metro": "Charlotte",
+    "sector": "Finance",
+    "first_seen": "2026-10-21",
     "is_new": false
   },
   {
