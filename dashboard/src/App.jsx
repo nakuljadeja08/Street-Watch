@@ -1852,7 +1852,7 @@ export function DraftModal({ job, notes, hasDraft, aiFetch, onSaved, onClose, de
         <div className="draft-wait">
           {state === "loading"
             ? "Loading…"
-            : `Researching ${job.firm}, reading the posting and your resume, and writing a first draft… (~30–60s)`}
+            : `Researching ${job.firm}, reading the posting and your resume, and writing a first draft… (up to a minute or two for a firm we haven't researched before)`}
         </div>
       )}
       {state === "error" && <div className="aiNote bad">{err}</div>}
