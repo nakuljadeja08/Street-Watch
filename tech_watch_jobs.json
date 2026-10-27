@@ -78,29 +78,16 @@
     "is_new": false
   },
   {
-    "firm": "LPL Financial",
-    "id": "wd-lplfinancial-External-/job/Fort-MillCharlotte/Data-Engineer-II_R-052484-2",
-    "title": "Backend Software Engineer II \u2013 AWS & Data Platforms",
-    "location": "Fort Mill/Charlotte",
-    "url": "https://lplfinancial.wd1.myworkdayjobs.com/External/job/Fort-MillCharlotte/Data-Engineer-II_R-052484-2",
-    "source": "workday",
-    "posted_date": "2026-10-16",
-    "metro": "Charlotte",
-    "sector": "Finance",
-    "first_seen": "2026-10-22",
-    "is_new": false
-  },
-  {
     "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0120831EXTERNALENUS",
-    "title": "Security Engineer (Data Engineering/ Protection)",
+    "id": "phenom-careers.truist.com-TBJTBFUSR0120978EXTERNALENUS",
+    "title": "Data Engineer",
     "location": "Charlotte, North Carolina, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Charlotte-NC/Security-Engineer--Data-Engineering--Protection-_R0120831",
+    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Charlotte-NC/Data-Engineer_R0120978-1",
     "source": "phenom",
-    "posted_date": "2026-10-26",
+    "posted_date": "2026-10-20",
     "metro": "Charlotte",
     "sector": "Finance",
-    "first_seen": "2026-10-17",
+    "first_seen": "2026-10-21",
     "is_new": false
   },
   {
@@ -218,6 +205,19 @@
     "metro": "DC / Virginia",
     "sector": "Agency",
     "first_seen": "2026-10-17",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-04510-0013480350-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Arlington, VA",
+    "url": "https://www.roberthalf.com/us/en/job/arlington-va/data-engineer/04510-0013480350-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-08",
+    "metro": "DC / Virginia",
+    "sector": "Agency",
+    "first_seen": "2026-10-09",
     "is_new": false
   },
   {
@@ -650,6 +650,19 @@
     "is_new": false
   },
   {
+    "firm": "Gopuff",
+    "id": "lever-gopuff-bfa7bc15-793e-486c-a3f5-b27d84c53025",
+    "title": "Analytics Engineer",
+    "location": "Philadelphia, PA; Miami, FL",
+    "url": "https://jobs.lever.co/gopuff/bfa7bc15-793e-486c-a3f5-b27d84c53025",
+    "source": "lever",
+    "posted_date": "2026-09-10",
+    "metro": "Other US",
+    "sector": "Tech",
+    "first_seen": "2026-09-30",
+    "is_new": false
+  },
+  {
     "firm": "JPMorgan Chase",
     "id": "oracle-jpmc.fa.oraclecloud.com-210793562",
     "title": "Data Engineering Associate",
@@ -755,19 +768,6 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-02220-0013514903-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Battle Creek, MI",
-    "url": "https://www.roberthalf.com/us/en/job/battle-creek-mi/data-engineer/02220-0013514903-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-09-28",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
     "id": "roberthalf-01120-0013490448-usen",
     "title": "Data Engineer \u00b7 Direct hire",
     "location": "Jacksonville, FL",
@@ -781,10 +781,10 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-04600-0013514110-usen",
+    "id": "roberthalf-02220-0013514903-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Brookfield, WI",
-    "url": "https://www.roberthalf.com/us/en/job/brookfield-wi/data-engineer/04600-0013514110-usen",
+    "location": "Battle Creek, MI",
+    "url": "https://www.roberthalf.com/us/en/job/battle-creek-mi/data-engineer/02220-0013514903-usen",
     "source": "roberthalf",
     "posted_date": "2026-09-28",
     "metro": "Other US",
@@ -794,12 +794,12 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-04600-0013495125-usen",
+    "id": "roberthalf-04600-0013514110-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Milwaukee, WI",
-    "url": "https://www.roberthalf.com/us/en/job/milwaukee-wi/data-engineer/04600-0013495125-usen",
+    "location": "Brookfield, WI",
+    "url": "https://www.roberthalf.com/us/en/job/brookfield-wi/data-engineer/04600-0013514110-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-20",
+    "posted_date": "2026-09-28",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -1739,6 +1739,19 @@
     "metro": "Texas",
     "sector": "Finance",
     "first_seen": "2026-09-29",
+    "is_new": false
+  },
+  {
+    "firm": "Dell",
+    "id": "oracle-enterpriseplatform.dell.com-297513",
+    "title": "Postgres Database Engineer",
+    "location": "Austin, TX, United States",
+    "url": "https://enterpriseplatform.dell.com/hcmUI/CandidateExperience/en/sites/careers/job/297513",
+    "source": "oracle",
+    "posted_date": "2026-10-23",
+    "metro": "Texas",
+    "sector": "Tech",
+    "first_seen": "2026-10-24",
     "is_new": false
   },
   {
