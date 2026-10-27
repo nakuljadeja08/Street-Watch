@@ -91,6 +91,19 @@
     "is_new": false
   },
   {
+    "firm": "Truist Securities",
+    "id": "phenom-careers.truist.com-TBJTBFUSR0120831EXTERNALENUS",
+    "title": "Security Engineer (Data Engineering/ Protection)",
+    "location": "Charlotte, North Carolina, USA",
+    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Charlotte-NC/Security-Engineer--Data-Engineering--Protection-_R0120831",
+    "source": "phenom",
+    "posted_date": "2026-10-26",
+    "metro": "Charlotte",
+    "sector": "Finance",
+    "first_seen": "2026-10-17",
+    "is_new": false
+  },
+  {
     "firm": "CIBC",
     "id": "wd-cibc-search-/job/Chicago-IL/Senior-Software-Engineer---US-Risk-Technology_2613362",
     "title": "Databricks Data Engineer, Risk Technology",
@@ -598,6 +611,19 @@
     "is_new": false
   },
   {
+    "firm": "Santander",
+    "id": "santander-100952109664",
+    "title": "BI developer (Qlik/Power BI)",
+    "location": "New York, NY",
+    "url": "https://www.santandercareers.com/job/new-york/bi-developer-qlik-power-bi/1771/100952109664",
+    "source": "santander",
+    "posted_date": "2026-10-27",
+    "metro": "NYC Area",
+    "sector": "Finance",
+    "first_seen": "2026-10-27",
+    "is_new": true
+  },
+  {
     "firm": "Susquehanna International Group",
     "id": "jibe-careers.sig.com-11542",
     "title": "Data Engineer, Alternative Data | Delta One Trading | Experienced Hire",
@@ -677,28 +703,28 @@
   },
   {
     "firm": "Mastercard",
-    "id": "wd-mastercard-CorporateCareers-/job/OFallon-Missouri/Data-Engineer-II_R-289305",
-    "title": "Data Engineer II",
-    "location": "O'Fallon, Missouri",
-    "url": "https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/OFallon-Missouri/Data-Engineer-II_R-289305",
-    "source": "workday",
-    "posted_date": "2026-10-15",
-    "metro": "Other US",
-    "sector": "Fintech",
-    "first_seen": "2026-10-07",
-    "is_new": false
-  },
-  {
-    "firm": "Mastercard",
     "id": "wd-mastercard-CorporateCareers-/job/OFallon-Missouri/Data-Engineer-II_R-286580",
     "title": "Data Engineer II",
     "location": "O'Fallon, Missouri",
     "url": "https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/OFallon-Missouri/Data-Engineer-II_R-286580",
     "source": "workday",
-    "posted_date": "2026-09-28",
+    "posted_date": "2026-10-27",
     "metro": "Other US",
     "sector": "Fintech",
     "first_seen": "2026-09-29",
+    "is_new": false
+  },
+  {
+    "firm": "Mastercard",
+    "id": "wd-mastercard-CorporateCareers-/job/OFallon-Missouri/Data-Engineer-II_R-289305",
+    "title": "Data Engineer II",
+    "location": "O'Fallon, Missouri",
+    "url": "https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/OFallon-Missouri/Data-Engineer-II_R-289305",
+    "source": "workday",
+    "posted_date": "2026-10-27",
+    "metro": "Other US",
+    "sector": "Fintech",
+    "first_seen": "2026-10-07",
     "is_new": false
   },
   {
@@ -768,19 +794,6 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-01120-0013490448-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Jacksonville, FL",
-    "url": "https://www.roberthalf.com/us/en/job/jacksonville-fl/data-engineer/01120-0013490448-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-21",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
     "id": "roberthalf-02220-0013514903-usen",
     "title": "Data Engineer \u00b7 Direct hire",
     "location": "Battle Creek, MI",
@@ -794,12 +807,38 @@
   },
   {
     "firm": "Robert Half",
+    "id": "roberthalf-01120-0013490448-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Jacksonville, FL",
+    "url": "https://www.roberthalf.com/us/en/job/jacksonville-fl/data-engineer/01120-0013490448-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-21",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-05",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
     "id": "roberthalf-04600-0013514110-usen",
     "title": "Data Engineer \u00b7 Direct hire",
     "location": "Brookfield, WI",
     "url": "https://www.roberthalf.com/us/en/job/brookfield-wi/data-engineer/04600-0013514110-usen",
     "source": "roberthalf",
     "posted_date": "2026-09-28",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-05",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-04600-0013495125-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Milwaukee, WI",
+    "url": "https://www.roberthalf.com/us/en/job/milwaukee-wi/data-engineer/04600-0013495125-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-20",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -855,32 +894,6 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-22",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-01070-0013389216-usen",
-    "title": "ETL/Business Intelligence Engineer - Power BI/MS Dynamics \u00b7 Direct hire",
-    "location": "St Petersburg, FL",
-    "url": "https://www.roberthalf.com/us/en/job/st-petersburg-fl/etlbusiness-intelligence-engineer-power-bims-dynamics/01070-0013389216-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-21",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-01070-0013389845-usen",
-    "title": "Power BI Data Engineer \u00b7 Direct hire",
-    "location": "Niceville, FL",
-    "url": "https://www.roberthalf.com/us/en/job/niceville-fl/power-bi-data-engineer/01070-0013389845-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-21",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
     "is_new": false
   },
   {
@@ -1713,6 +1726,19 @@
     "metro": "Texas",
     "sector": "Finance",
     "first_seen": "2026-09-29",
+    "is_new": false
+  },
+  {
+    "firm": "Charles Schwab",
+    "id": "charles-101625328992",
+    "title": "Data Engineer",
+    "location": "Southlake, TX; Austin, TX",
+    "url": "https://www.schwabjobs.com/job/southlake/data-engineer/33727/101625328992",
+    "source": "charles",
+    "posted_date": null,
+    "metro": "Texas",
+    "sector": "Finance",
+    "first_seen": "2026-10-07",
     "is_new": false
   },
   {
