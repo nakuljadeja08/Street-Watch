@@ -52,6 +52,19 @@
     "is_new": false
   },
   {
+    "firm": "Motion Recruitment",
+    "id": "motion-893559",
+    "title": "Quantitative Analytics Engineer - Pyton/SQL/Finance - Boston, MA \u00b7 Direct hire",
+    "location": "Boston, MA",
+    "url": "https://motionrecruitment.com/tech-jobs/boston/direct-hire/quantitative-analytics-engineer-pyton-sql-finance-boston-ma/893559",
+    "source": "motion",
+    "posted_date": null,
+    "metro": "Boston",
+    "sector": "Agency",
+    "first_seen": "2026-10-28",
+    "is_new": true
+  },
+  {
     "firm": "State Street",
     "id": "wd-statestreet-Global-/job/Boston-Massachusetts/Senior-Data-Engineer---Cloud---Analytics--Officer---State-Street-Investment-Management_R-789304-1",
     "title": "Data Engineer - Cloud & Analytics, Officer - State Street Investment Management",
@@ -650,16 +663,29 @@
     "is_new": false
   },
   {
-    "firm": "JPMorgan Chase",
-    "id": "oracle-jpmc.fa.oraclecloud.com-210793562",
-    "title": "Data Engineering Associate",
-    "location": "OH, United States",
-    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210793562",
-    "source": "oracle",
-    "posted_date": "2026-09-25",
+    "firm": "Fidelity",
+    "id": "wd-fmr-FidelityCareers-/job/Covington-KY/Data-Engineer--Snowflake--MySQL--Python-_2132954-1",
+    "title": "Data Engineer (Snowflake, MySQL, Python)",
+    "location": "Covington, KY",
+    "url": "https://fmr.wd1.myworkdayjobs.com/FidelityCareers/job/Covington-KY/Data-Engineer--Snowflake--MySQL--Python-_2132954-1",
+    "source": "workday",
+    "posted_date": "2026-10-28",
     "metro": "Other US",
     "sector": "Finance",
-    "first_seen": "2026-09-27",
+    "first_seen": "2026-10-28",
+    "is_new": true
+  },
+  {
+    "firm": "Gopuff",
+    "id": "lever-gopuff-bfa7bc15-793e-486c-a3f5-b27d84c53025",
+    "title": "Analytics Engineer",
+    "location": "Philadelphia, PA; Miami, FL",
+    "url": "https://jobs.lever.co/gopuff/bfa7bc15-793e-486c-a3f5-b27d84c53025",
+    "source": "lever",
+    "posted_date": "2026-09-10",
+    "metro": "Other US",
+    "sector": "Tech",
+    "first_seen": "2026-09-30",
     "is_new": false
   },
   {
@@ -807,15 +833,15 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-04600-0013495125-usen",
+    "id": "roberthalf-01500-0013497785-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Milwaukee, WI",
-    "url": "https://www.roberthalf.com/us/en/job/milwaukee-wi/data-engineer/04600-0013495125-usen",
+    "location": "Oskaloosa, IA",
+    "url": "https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-20",
+    "posted_date": "2026-10-13",
     "metro": "Other US",
     "sector": "Agency",
-    "first_seen": "2026-10-05",
+    "first_seen": "2026-10-13",
     "is_new": false
   },
   {
@@ -826,6 +852,19 @@
     "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
     "source": "roberthalf",
     "posted_date": "2026-10-22",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-05",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-04600-0013495125-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Milwaukee, WI",
+    "url": "https://www.roberthalf.com/us/en/job/milwaukee-wi/data-engineer/04600-0013495125-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-20",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -1701,6 +1740,19 @@
     "sector": "Tech",
     "first_seen": "2026-10-12",
     "is_new": false
+  },
+  {
+    "firm": "Macquarie Group",
+    "id": "pageup-recruitment.macquarie.com-24612",
+    "title": "Data Platform Engineer",
+    "location": "Houston Office",
+    "url": "https://recruitment.macquarie.com/en_US/careers/JobDetail?jobId=24612",
+    "source": "pageup",
+    "posted_date": "2026-10-28",
+    "metro": "Texas",
+    "sector": "Finance",
+    "first_seen": "2026-10-28",
+    "is_new": true
   },
   {
     "firm": "Robert Half",

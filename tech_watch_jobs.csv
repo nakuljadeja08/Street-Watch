@@ -3,6 +3,7 @@ Atlanta,Finance,Equifax,Software Engineer (Java and Big Data),USA - Georgia - Al
 Atlanta,Finance,Equifax,Software Engineer (Java/Big Data),USA - Georgia - Alpharetta - 30005,workday,2026-10-02,2026-10-22,False,https://equifax.wd5.myworkdayjobs.com/External/job/USA---Georgia---Alpharetta---30005/Software-Engineer--Java-Big-Data-_J00179185
 Atlanta,Tech,FanDuel,Data Engineer,"Atlanta, Georgia, United States",greenhouse,2026-10-20,2026-10-22,False,https://www.fanduel.careers/open-positions?gh_jid=8267158
 Atlanta,Finance,Truist Securities,Software Engineer for Card Fraud Strategy Data Delivery,"Atlanta, Georgia, USA",phenom,2026-10-08,2026-10-22,False,https://truist.wd1.myworkdayjobs.com/Careers/job/Atlanta-GA/Software-Engineer_R0120558
+Boston,Agency,Motion Recruitment,"Quantitative Analytics Engineer - Pyton/SQL/Finance - Boston, MA · Direct hire","Boston, MA",motion,,2026-10-28,True,https://motionrecruitment.com/tech-jobs/boston/direct-hire/quantitative-analytics-engineer-pyton-sql-finance-boston-ma/893559
 Boston,Finance,State Street,"Data Engineer - Cloud & Analytics, Officer - State Street Investment Management","Boston, Massachusetts; Quincy, Massachusetts",workday,2026-10-19,2026-10-19,False,https://statestreet.wd1.myworkdayjobs.com/Global/job/Boston-Massachusetts/Senior-Data-Engineer---Cloud---Analytics--Officer---State-Street-Investment-Management_R-789304-1
 Boston,Finance,State Street,Technology Financial Operations Data Analytics & BI Engineer,"Quincy, Massachusetts",workday,2026-10-05,2026-10-22,False,https://statestreet.wd1.myworkdayjobs.com/Global/job/Quincy-Massachusetts/Technology-Financial-Operations-Data-Analytics---BI-Engineer_R-796407
 Charlotte,Finance,Truist Securities,Data Engineer,"Charlotte, North Carolina, USA",phenom,2026-10-20,2026-10-21,False,https://truist.wd1.myworkdayjobs.com/Careers/job/Charlotte-NC/Data-Engineer_R0120978-1
@@ -49,7 +50,8 @@ NYC Area,Finance,Susquehanna International Group,"Data Engineer, Alternative Dat
 Other US,Tech,Carvana,Data Product Engineer,"Tempe, AZ",greenhouse,2026-09-09,2026-10-22,False,https://www.carvana.com/careers/apply?gh_jid=8188615
 Other US,Finance,Charles Schwab,ETL Developer - Data Engineer,"Southlake, TX",charles,,2026-09-29,False,https://www.schwabjobs.com/job/southlake/etl-developer-data-engineer/33727/95734216864
 Other US,Tech,Elastic,"Analytics Engineer, HR Analytics",United States,greenhouse,2026-10-05,2026-10-05,False,https://jobs.elastic.co/jobs?gh_jid=8244449&gh_jid=8244449
-Other US,Finance,JPMorgan Chase,Data Engineering Associate,"OH, United States",oracle,2026-09-25,2026-09-27,False,https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210793562
+Other US,Finance,Fidelity,"Data Engineer (Snowflake, MySQL, Python)","Covington, KY",workday,2026-10-28,2026-10-28,True,https://fmr.wd1.myworkdayjobs.com/FidelityCareers/job/Covington-KY/Data-Engineer--Snowflake--MySQL--Python-_2132954-1
+Other US,Tech,Gopuff,Analytics Engineer,"Philadelphia, PA; Miami, FL",lever,2026-09-10,2026-09-30,False,https://jobs.lever.co/gopuff/bfa7bc15-793e-486c-a3f5-b27d84c53025
 Other US,Finance,JPMorgan Chase,"Data Engineering, AI Adoption and Productivity","Columbus, OH, United States",oracle,2026-10-27,2026-10-28,True,https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210790093
 Other US,Fintech,Mastercard,Data Engineer II,"O'Fallon, Missouri",workday,2026-10-27,2026-09-29,False,https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/OFallon-Missouri/Data-Engineer-II_R-286580
 Other US,Fintech,Mastercard,Data Engineer II,"O'Fallon, Missouri",workday,2026-10-27,2026-10-07,False,https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/OFallon-Missouri/Data-Engineer-II_R-289305
@@ -61,8 +63,9 @@ Other US,Agency,Robert Half,Data Engineer · Direct hire,"Avon, MN",roberthalf,2
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Battle Creek, MI",roberthalf,2026-09-28,2026-10-05,False,https://www.roberthalf.com/us/en/job/battle-creek-mi/data-engineer/02220-0013514903-usen
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Jacksonville, FL",roberthalf,2026-10-21,2026-10-05,False,https://www.roberthalf.com/us/en/job/jacksonville-fl/data-engineer/01120-0013490448-usen
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Brookfield, WI",roberthalf,2026-09-28,2026-10-05,False,https://www.roberthalf.com/us/en/job/brookfield-wi/data-engineer/04600-0013514110-usen
-Other US,Agency,Robert Half,Data Engineer · Direct hire,"Milwaukee, WI",roberthalf,2026-10-20,2026-10-05,False,https://www.roberthalf.com/us/en/job/milwaukee-wi/data-engineer/04600-0013495125-usen
+Other US,Agency,Robert Half,Data Engineer · Direct hire,"Oskaloosa, IA",roberthalf,2026-10-13,2026-10-13,False,https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Oklahoma City, OK",roberthalf,2026-10-22,2026-10-05,False,https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen
+Other US,Agency,Robert Half,Data Engineer · Direct hire,"Milwaukee, WI",roberthalf,2026-10-20,2026-10-05,False,https://www.roberthalf.com/us/en/job/milwaukee-wi/data-engineer/04600-0013495125-usen
 Other US,Agency,Robert Half,Database Engineer (VB6 / MS Access) · Direct hire,"West Nyack, NY",roberthalf,2026-10-22,2026-10-22,False,https://www.roberthalf.com/us/en/job/west-nyack-ny/database-engineer-vb6-ms-access/02710-0013530439-usen
 Other US,Agency,Robert Half,Database Engineer · Direct hire,"Westlake, OH",roberthalf,2026-10-01,2026-10-22,False,https://www.roberthalf.com/us/en/job/westlake-oh/database-engineer/03340-0013407327-usen
 Other US,Tech,SpaceX,Software Engineer (AI Data Engineering),"Hawthorne, CA",greenhouse,2026-10-08,2026-10-22,False,https://boards.greenhouse.io/spacex/jobs/8880868002?gh_jid=8880868002
@@ -130,6 +133,7 @@ Texas,Finance,Charles Schwab,Machine Learning Ops Data Engineer,"Southlake, TX; 
 Texas,Finance,Charles Schwab,Platform Support Data Engineer,"Austin, TX; Southlake, TX",charles,,2026-09-29,False,https://www.schwabjobs.com/job/austin/platform-support-data-engineer/33727/98102690752
 Texas,Tech,Dell,Postgres Database Engineer,"Austin, TX, United States",oracle,2026-10-23,2026-10-24,False,https://enterpriseplatform.dell.com/hcmUI/CandidateExperience/en/sites/careers/job/297513
 Texas,Tech,Google,Analytics Engineer,"Austin, TX, USA",google,2026-10-12,2026-10-12,False,https://www.google.com/about/careers/applications/jobs/results/82161757522404038
+Texas,Finance,Macquarie Group,Data Platform Engineer,Houston Office,pageup,2026-10-28,2026-10-28,True,https://recruitment.macquarie.com/en_US/careers/JobDetail?jobId=24612
 Texas,Agency,Robert Half,Data Engineer - Python/Snowflake · Direct hire,"Houston, TX",roberthalf,2026-10-05,2026-10-06,False,https://www.roberthalf.com/us/en/job/houston-tx/data-engineer-pythonsnowflake/04130-0013225544-usen
 Texas,Agency,Robert Half,Data Engineer · Direct hire,"Houston, TX",roberthalf,2026-10-05,2026-10-06,False,https://www.roberthalf.com/us/en/job/houston-tx/data-engineer/04130-0013486331-usen
 Texas,Finance,TPG,"Analytics Engineer, Associate","Fort Worth, Texas, United States",greenhouse,2026-10-06,2026-10-07,False,https://job-boards.greenhouse.io/tpgcareers/jobs/8008733003
