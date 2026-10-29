@@ -46,7 +46,6 @@ NYC Area,Finance,Mizuho,Cloud Data Engineer,MetroPark,workday,2026-09-28,2026-09
 NYC Area,Tech,Modal,Analytics Engineer,New York,ashby,2026-09-23,2026-09-27,False,https://jobs.ashbyhq.com/modal/a518f2cd-e0c7-4105-9004-d7971f7b1daf
 NYC Area,Tech,Palantir,Data Engineer - Talent Acquisition Operations,"New York, NY",lever,2026-10-07,2026-10-08,False,https://jobs.lever.co/palantir/1b690123-1766-4e75-a0ef-0f58afa864b4
 NYC Area,Fintech,Rogo,Software Engineer: Financial Data,New York City,ashby,2026-09-21,2026-10-22,False,https://jobs.ashbyhq.com/rogo/fd7cecdb-5ae4-494f-a2e1-fd310398efaf
-NYC Area,Tech,Salesforce,Data Engineer (SMTS / LMTS) - MDM,California - San Francisco; New York - New York; Washington - Seattle; Indiana - Indianapolis,workday,2026-10-27,2026-10-06,False,https://salesforce.wd12.myworkdayjobs.com/External_Career_Site/job/California---San-Francisco/Data-Engineer--SMTS---LMTS----MDM_JR347388
 NYC Area,Finance,Santander,BI developer (Qlik/Power BI),"New York, NY",santander,2026-10-27,2026-10-27,False,https://www.santandercareers.com/job/new-york/bi-developer-qlik-power-bi/1771/100952109664
 NYC Area,Finance,Susquehanna International Group,"Data Engineer, Alternative Data | Delta One Trading | Experienced Hire","New York, New York",jibe,2026-09-18,2026-09-27,False,https://careers.sig.com/jobs/11542
 Other US,Tech,Carvana,Data Product Engineer,"Tempe, AZ",greenhouse,2026-09-09,2026-10-22,False,https://www.carvana.com/careers/apply?gh_jid=8188615
@@ -65,10 +64,8 @@ Other US,Agency,Robert Half,Data Engineer · Direct hire,"Battle Creek, MI",robe
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Brookfield, WI",roberthalf,2026-09-28,2026-10-05,False,https://www.roberthalf.com/us/en/job/brookfield-wi/data-engineer/04600-0013514110-usen
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Milwaukee, WI",roberthalf,2026-10-20,2026-10-05,False,https://www.roberthalf.com/us/en/job/milwaukee-wi/data-engineer/04600-0013495125-usen
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Oskaloosa, IA",roberthalf,2026-10-13,2026-10-13,False,https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen
-Other US,Agency,Robert Half,Data Engineer · Direct hire,"Oklahoma City, OK",roberthalf,2026-10-28,2026-10-05,False,https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen
 Other US,Agency,Robert Half,Database Engineer (VB6 / MS Access) · Direct hire,"West Nyack, NY",roberthalf,2026-10-22,2026-10-22,False,https://www.roberthalf.com/us/en/job/west-nyack-ny/database-engineer-vb6-ms-access/02710-0013530439-usen
 Other US,Agency,Robert Half,Database Engineer · Direct hire,"Westlake, OH",roberthalf,2026-10-01,2026-10-22,False,https://www.roberthalf.com/us/en/job/westlake-oh/database-engineer/03340-0013407327-usen
-Other US,Tech,SpaceX,Software Engineer (AI Data Engineering),"Hawthorne, CA",greenhouse,2026-10-08,2026-10-22,False,https://boards.greenhouse.io/spacex/jobs/8880868002?gh_jid=8880868002
 Other US,Finance,Susquehanna International Group,Quantitative/Data Developer | Fixed Income | Experienced Hire,"Bala Cynwyd (Philadelphia Area), Pennsylvania",jibe,2026-09-28,2026-09-29,False,https://careers.sig.com/jobs/10778
 Other US,Finance,Susquehanna International Group,Software Developer - Data Normalization & Adaptation (DNA) Team,"Bala Cynwyd (Philadelphia Area), Pennsylvania",jibe,2026-09-16,2026-10-22,False,https://careers.sig.com/jobs/11535
 Other US,Agency,TEKsystems,Data Engineer II · Direct hire,"Hanover, Maryland, USA",phenom,2026-09-30,2026-10-05,False,https://careers.teksystems.com/us/en/job/TESYUSJP006319471ENUS
@@ -123,8 +120,6 @@ Seattle,Tech,Google,"Business Intelligence Developer, Cloud Finance","Kirkland, 
 Seattle,Tech,Google,"Cloud AI Data Engineer II, Professional Services, Google Cloud","Austin, TX, USA; Atlanta, GA, USA; Boulder, CO, USA; Chicago, IL, USA; Seattle, WA, USA",google,2026-10-20,2026-10-20,False,https://www.google.com/about/careers/applications/jobs/results/83051369803457222
 Seattle,Tech,Microsoft,Software Engineer II - Finance Data & Experiences,"Redmond, WA, US",microsoft,2026-10-23,2026-10-23,False,https://apply.careers.microsoft.com/careers/job/1970393557040468
 Seattle,Tech,OpenAI,"Data Engineer, Core Experimentation",Seattle,ashby,2026-10-06,2026-10-07,False,https://jobs.ashbyhq.com/openai/2796d32a-9f7c-4008-a2c5-50dd53b0f2fe
-Seattle,Tech,SpaceX,Data Engineer (Starlink Mobile),"Redmond, WA",greenhouse,2026-10-21,2026-10-21,False,https://boards.greenhouse.io/spacex/jobs/8694609002?gh_jid=8694609002
-Seattle,Tech,SpaceX,"Data Engineer, Ground Network Engineering (Gateway)","Redmond, WA",greenhouse,2026-09-11,2026-09-30,False,https://boards.greenhouse.io/spacex/jobs/8784022002?gh_jid=8784022002
 Seattle,Fintech,Stripe,"Software Engineer, Online Database Infrastructure","Seattle, WA",greenhouse,2026-09-11,2026-10-22,False,https://stripe.com/jobs/search?gh_jid=8197891
 Texas,Agency,Blue Signal,GTM & AI Analytics Engineer,"Houston, Texas, United States",loxo,,2026-10-05,False,https://blue-signal-search.app.loxo.co/job/MzY5MzEtaHFubGFtaXducndra3ZsNw==
 Texas,Finance,Charles Schwab,AI/ML Ops and Data Engineer,"Southlake, TX; Austin, TX; Phoenix, AZ",charles,,2026-09-29,False,https://www.schwabjobs.com/job/southlake/ai-ml-ops-and-data-engineer/33727/98187448432
