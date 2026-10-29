@@ -39,19 +39,6 @@
     "is_new": false
   },
   {
-    "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0120558EXTERNALENUS",
-    "title": "Software Engineer for Card Fraud Strategy Data Delivery",
-    "location": "Atlanta, Georgia, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Atlanta-GA/Software-Engineer_R0120558",
-    "source": "phenom",
-    "posted_date": "2026-10-08",
-    "metro": "Atlanta",
-    "sector": "Finance",
-    "first_seen": "2026-10-22",
-    "is_new": false
-  },
-  {
     "firm": "Motion Recruitment",
     "id": "motion-893559",
     "title": "Quantitative Analytics Engineer - Pyton/SQL/Finance - Boston, MA \u00b7 Direct hire",
@@ -611,19 +598,6 @@
     "is_new": false
   },
   {
-    "firm": "Santander",
-    "id": "santander-100952109664",
-    "title": "BI developer (Qlik/Power BI)",
-    "location": "New York, NY",
-    "url": "https://www.santandercareers.com/job/new-york/bi-developer-qlik-power-bi/1771/100952109664",
-    "source": "santander",
-    "posted_date": "2026-10-27",
-    "metro": "NYC Area",
-    "sector": "Finance",
-    "first_seen": "2026-10-27",
-    "is_new": false
-  },
-  {
     "firm": "Susquehanna International Group",
     "id": "jibe-careers.sig.com-11542",
     "title": "Data Engineer, Alternative Data | Delta One Trading | Experienced Hire",
@@ -781,6 +755,19 @@
   },
   {
     "firm": "Robert Half",
+    "id": "roberthalf-01300-0013534672-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Naperville, IL",
+    "url": "https://www.roberthalf.com/us/en/job/naperville-il/data-engineer/01300-0013534672-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-29",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-29",
+    "is_new": true
+  },
+  {
+    "firm": "Robert Half",
     "id": "roberthalf-01120-0013490448-usen",
     "title": "Data Engineer \u00b7 Direct hire",
     "location": "Jacksonville, FL",
@@ -833,15 +820,15 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-01500-0013497785-usen",
+    "id": "roberthalf-03500-0013380490-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Oskaloosa, IA",
-    "url": "https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen",
+    "location": "Oklahoma City, OK",
+    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-13",
+    "posted_date": "2026-10-28",
     "metro": "Other US",
     "sector": "Agency",
-    "first_seen": "2026-10-13",
+    "first_seen": "2026-10-05",
     "is_new": false
   },
   {
@@ -867,6 +854,19 @@
     "posted_date": "2026-10-01",
     "metro": "Other US",
     "sector": "Agency",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
+    "firm": "SpaceX",
+    "id": "gh-spacex-8880868002",
+    "title": "Software Engineer (AI Data Engineering)",
+    "location": "Hawthorne, CA",
+    "url": "https://boards.greenhouse.io/spacex/jobs/8880868002?gh_jid=8880868002",
+    "source": "greenhouse",
+    "posted_date": "2026-10-08",
+    "metro": "Other US",
+    "sector": "Tech",
     "first_seen": "2026-10-22",
     "is_new": false
   },
@@ -956,19 +956,6 @@
     "url": "https://www.coinbase.com/careers/positions/8304038?gh_jid=8304038",
     "source": "greenhouse",
     "posted_date": "2026-10-20",
-    "metro": "Remote (US)",
-    "sector": "Fintech",
-    "first_seen": "2026-10-22",
-    "is_new": false
-  },
-  {
-    "firm": "Polymarket",
-    "id": "ashby-polymarket-8ba7acca-aa38-48cc-a994-78577eba6d96",
-    "title": "Analytics Engineer, Customer Experience",
-    "location": "Remote",
-    "url": "https://jobs.ashbyhq.com/polymarket/8ba7acca-aa38-48cc-a994-78577eba6d96",
-    "source": "ashby",
-    "posted_date": "2026-10-01",
     "metro": "Remote (US)",
     "sector": "Fintech",
     "first_seen": "2026-10-22",
@@ -1570,6 +1557,32 @@
     "metro": "Seattle",
     "sector": "Tech",
     "first_seen": "2026-10-07",
+    "is_new": false
+  },
+  {
+    "firm": "SpaceX",
+    "id": "gh-spacex-8694609002",
+    "title": "Data Engineer (Starlink Mobile)",
+    "location": "Redmond, WA",
+    "url": "https://boards.greenhouse.io/spacex/jobs/8694609002?gh_jid=8694609002",
+    "source": "greenhouse",
+    "posted_date": "2026-10-21",
+    "metro": "Seattle",
+    "sector": "Tech",
+    "first_seen": "2026-10-21",
+    "is_new": false
+  },
+  {
+    "firm": "SpaceX",
+    "id": "gh-spacex-8784022002",
+    "title": "Data Engineer, Ground Network Engineering (Gateway)",
+    "location": "Redmond, WA",
+    "url": "https://boards.greenhouse.io/spacex/jobs/8784022002?gh_jid=8784022002",
+    "source": "greenhouse",
+    "posted_date": "2026-09-11",
+    "metro": "Seattle",
+    "sector": "Tech",
+    "first_seen": "2026-09-30",
     "is_new": false
   },
   {
