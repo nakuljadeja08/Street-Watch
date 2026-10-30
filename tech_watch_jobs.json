@@ -104,19 +104,6 @@
     "is_new": false
   },
   {
-    "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0120831EXTERNALENUS",
-    "title": "Security Engineer (Data Engineering/ Protection)",
-    "location": "Charlotte, North Carolina, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Charlotte-NC/Security-Engineer--Data-Engineering--Protection-_R0120831",
-    "source": "phenom",
-    "posted_date": "2026-10-26",
-    "metro": "Charlotte",
-    "sector": "Finance",
-    "first_seen": "2026-10-17",
-    "is_new": false
-  },
-  {
     "firm": "Charles Schwab",
     "id": "charles-101923577296",
     "title": "Data Engineer",
@@ -559,6 +546,32 @@
     "is_new": false
   },
   {
+    "firm": "Morgan Stanley",
+    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Data-Engineer---Financial-Crimes---Associate_PT-JR035703",
+    "title": "Data Engineer - Financial Crimes - Associate",
+    "location": "New York, New York, United States of America",
+    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Data-Engineer---Financial-Crimes---Associate_PT-JR035703",
+    "source": "workday",
+    "posted_date": "2026-09-29",
+    "metro": "NYC Area",
+    "sector": "Finance",
+    "first_seen": "2026-10-21",
+    "is_new": false
+  },
+  {
+    "firm": "Palantir",
+    "id": "lever-palantir-1b690123-1766-4e75-a0ef-0f58afa864b4",
+    "title": "Data Engineer - Talent Acquisition Operations",
+    "location": "New York, NY",
+    "url": "https://jobs.lever.co/palantir/1b690123-1766-4e75-a0ef-0f58afa864b4",
+    "source": "lever",
+    "posted_date": "2026-10-07",
+    "metro": "NYC Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-08",
+    "is_new": false
+  },
+  {
     "firm": "Rogo",
     "id": "ashby-rogo-fd7cecdb-5ae4-494f-a2e1-fd310398efaf",
     "title": "Software Engineer: Financial Data",
@@ -804,6 +817,19 @@
     "sector": "Agency",
     "first_seen": "2026-10-05",
     "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-03340-0013535323-usen",
+    "title": "Data Platform Engineer \u00b7 Direct hire",
+    "location": "Cleveland, OH",
+    "url": "https://www.roberthalf.com/us/en/job/cleveland-oh/data-platform-engineer/03340-0013535323-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-30",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-30",
+    "is_new": true
   },
   {
     "firm": "Robert Half",
@@ -1158,19 +1184,6 @@
   },
   {
     "firm": "Google",
-    "id": "google-92258849825661638",
-    "title": "Data Engineer, Merchant Shopping",
-    "location": "Mountain View, CA, USA",
-    "url": "https://www.google.com/about/careers/applications/jobs/results/92258849825661638",
-    "source": "google",
-    "posted_date": "2026-09-30",
-    "metro": "SF Bay Area",
-    "sector": "Tech",
-    "first_seen": "2026-09-30",
-    "is_new": false
-  },
-  {
-    "firm": "Google",
     "id": "google-103320076387525318",
     "title": "Data Engineer, Technical Solutions, Geo",
     "location": "Mountain View, CA, USA",
@@ -1401,19 +1414,6 @@
     "metro": "SF Bay Area",
     "sector": "Tech",
     "first_seen": "2026-10-22",
-    "is_new": false
-  },
-  {
-    "firm": "Chewy",
-    "id": "wd-chewy-External-/job/Plantation-FL/Business-Intelligence-Engineer-II_R31241-1",
-    "title": "Business Intelligence Engineer II",
-    "location": "Plantation, FL; Richardson, TX; Bellevue, WA",
-    "url": "https://chewy.wd5.myworkdayjobs.com/External/job/Plantation-FL/Business-Intelligence-Engineer-II_R31241-1",
-    "source": "workday",
-    "posted_date": "2026-10-28",
-    "metro": "Seattle",
-    "sector": "Tech",
-    "first_seen": "2026-10-29",
     "is_new": false
   },
   {
