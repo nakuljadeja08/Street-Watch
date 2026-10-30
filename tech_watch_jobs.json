@@ -39,6 +39,19 @@
     "is_new": false
   },
   {
+    "firm": "Truist Securities",
+    "id": "phenom-careers.truist.com-TBJTBFUSR0120558EXTERNALENUS",
+    "title": "Software Engineer for Card Fraud Strategy Data Delivery",
+    "location": "Atlanta, Georgia, USA",
+    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Atlanta-GA/Software-Engineer_R0120558",
+    "source": "phenom",
+    "posted_date": "2026-10-08",
+    "metro": "Atlanta",
+    "sector": "Finance",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
     "firm": "Motion Recruitment",
     "id": "motion-893559",
     "title": "Quantitative Analytics Engineer - Pyton/SQL/Finance - Boston, MA \u00b7 Direct hire",
@@ -104,19 +117,6 @@
     "is_new": false
   },
   {
-    "firm": "CIBC",
-    "id": "wd-cibc-search-/job/Chicago-IL/Senior-Software-Engineer---US-Risk-Technology_2613362",
-    "title": "Databricks Data Engineer, Risk Technology",
-    "location": "Chicago, IL",
-    "url": "https://cibc.wd3.myworkdayjobs.com/search/job/Chicago-IL/Senior-Software-Engineer---US-Risk-Technology_2613362",
-    "source": "workday",
-    "posted_date": "2026-10-16",
-    "metro": "Chicago",
-    "sector": "Finance",
-    "first_seen": "2026-09-27",
-    "is_new": false
-  },
-  {
     "firm": "Charles Schwab",
     "id": "charles-101923577296",
     "title": "Data Engineer",
@@ -149,7 +149,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Cloud-Data-Platform-Engineer_R158514-1",
     "source": "workday",
-    "posted_date": "2026-09-28",
+    "posted_date": "2026-09-29",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -162,7 +162,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Analytics-Engineer_R150313",
     "source": "workday",
-    "posted_date": "2026-09-28",
+    "posted_date": "2026-09-29",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -175,7 +175,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Program-Engineer_R150311",
     "source": "workday",
-    "posted_date": "2026-09-28",
+    "posted_date": "2026-09-29",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -221,19 +221,6 @@
     "is_new": false
   },
   {
-    "firm": "Motion Recruitment",
-    "id": "motion-892724",
-    "title": "GCP Data Platform Engineer / GCP, BigQuery, PostgreSQL / Irvine, CA \u00b7 Direct hire",
-    "location": "Irvine, California",
-    "url": "https://motionrecruitment.com/tech-jobs/irvine/direct-hire/gcp-data-platform-engineer-gcp-bigquery-postgresql-irvine-ca/892724",
-    "source": "motion",
-    "posted_date": null,
-    "metro": "Los Angeles",
-    "sector": "Agency",
-    "first_seen": "2026-10-17",
-    "is_new": false
-  },
-  {
     "firm": "Robert Half",
     "id": "roberthalf-00320-0013503591-usen",
     "title": "Data Engineer \u00b7 Direct hire",
@@ -257,7 +244,7 @@
     "metro": "NYC Area",
     "sector": "Fintech",
     "first_seen": "2026-10-29",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Anthropic",
@@ -344,7 +331,7 @@
     "location": "PA - Philadelphia, 1800 Arch St; NJ - Mount Laurel, 1800 Bishops Gate",
     "url": "https://comcast.wd115.myworkdayjobs.com/Comcast_Careers/job/PA---Philadelphia-1800-Arch-St/Data-Engineer---AI-Enabled-Capacity-Analytics_R444699",
     "source": "workday",
-    "posted_date": "2026-10-23",
+    "posted_date": "2026-10-30",
     "metro": "NYC Area",
     "sector": "Tech",
     "first_seen": "2026-10-24",
@@ -552,7 +539,7 @@
     "location": "MetroPark",
     "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/MetroPark/Cloud-Data-Engineer_R7127",
     "source": "workday",
-    "posted_date": "2026-09-28",
+    "posted_date": "2026-09-29",
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -569,19 +556,6 @@
     "metro": "NYC Area",
     "sector": "Tech",
     "first_seen": "2026-09-27",
-    "is_new": false
-  },
-  {
-    "firm": "Palantir",
-    "id": "lever-palantir-1b690123-1766-4e75-a0ef-0f58afa864b4",
-    "title": "Data Engineer - Talent Acquisition Operations",
-    "location": "New York, NY",
-    "url": "https://jobs.lever.co/palantir/1b690123-1766-4e75-a0ef-0f58afa864b4",
-    "source": "lever",
-    "posted_date": "2026-10-07",
-    "metro": "NYC Area",
-    "sector": "Tech",
-    "first_seen": "2026-10-08",
     "is_new": false
   },
   {
@@ -708,7 +682,7 @@
     "location": "USA - Philadelphia - Pennsylvania",
     "url": "https://nasdaq.wd1.myworkdayjobs.com/Global_External_Site/job/USA---Philadelphia---Pennsylvania/Data-Software-Engineer_R0026752",
     "source": "workday",
-    "posted_date": "2026-09-28",
+    "posted_date": "2026-09-29",
     "metro": "Other US",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -764,6 +738,19 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-29",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-02310-0013535137-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Minneapolis, MN",
+    "url": "https://www.roberthalf.com/us/en/job/minneapolis-mn/data-engineer/02310-0013535137-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-30",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-30",
     "is_new": true
   },
   {
@@ -781,25 +768,25 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-02220-0013514903-usen",
+    "id": "roberthalf-01500-0013497785-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Battle Creek, MI",
-    "url": "https://www.roberthalf.com/us/en/job/battle-creek-mi/data-engineer/02220-0013514903-usen",
+    "location": "Oskaloosa, IA",
+    "url": "https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen",
     "source": "roberthalf",
-    "posted_date": "2026-09-28",
+    "posted_date": "2026-10-13",
     "metro": "Other US",
     "sector": "Agency",
-    "first_seen": "2026-10-05",
+    "first_seen": "2026-10-13",
     "is_new": false
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-04600-0013514110-usen",
+    "id": "roberthalf-03500-0013380490-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Brookfield, WI",
-    "url": "https://www.roberthalf.com/us/en/job/brookfield-wi/data-engineer/04600-0013514110-usen",
+    "location": "Oklahoma City, OK",
+    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
     "source": "roberthalf",
-    "posted_date": "2026-09-28",
+    "posted_date": "2026-10-28",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -812,20 +799,7 @@
     "location": "Milwaukee, WI",
     "url": "https://www.roberthalf.com/us/en/job/milwaukee-wi/data-engineer/04600-0013495125-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-20",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-03500-0013380490-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Oklahoma City, OK",
-    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-28",
+    "posted_date": "2026-10-30",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
@@ -894,19 +868,6 @@
     "metro": "Other US",
     "sector": "Finance",
     "first_seen": "2026-10-22",
-    "is_new": false
-  },
-  {
-    "firm": "TEKsystems",
-    "id": "phenom-careers.teksystems.com-TESYUSJP006319471ENUS",
-    "title": "Data Engineer II \u00b7 Direct hire",
-    "location": "Hanover, Maryland, USA",
-    "url": "https://careers.teksystems.com/us/en/job/TESYUSJP006319471ENUS",
-    "source": "phenom",
-    "posted_date": "2026-09-30",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
     "is_new": false
   },
   {
@@ -1249,19 +1210,6 @@
   },
   {
     "firm": "Meta",
-    "id": "meta-1087303317514493",
-    "title": "Infrastructure Data Governance Engineer - Capacity Engineering",
-    "location": "Menlo Park, CA",
-    "url": "https://www.metacareers.com/profile/job_details/1087303317514493",
-    "source": "meta",
-    "posted_date": null,
-    "metro": "SF Bay Area",
-    "sector": "Tech",
-    "first_seen": "2026-10-07",
-    "is_new": false
-  },
-  {
-    "firm": "Meta",
     "id": "meta-2342974003201767",
     "title": "Software Engineer, Databases",
     "location": "Bellevue, WA; Menlo Park, CA",
@@ -1297,7 +1245,7 @@
     "metro": "SF Bay Area",
     "sector": "Tech",
     "first_seen": "2026-10-29",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Notion",
@@ -1310,7 +1258,7 @@
     "metro": "SF Bay Area",
     "sector": "Tech",
     "first_seen": "2026-10-29",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Notion",
@@ -1466,32 +1414,6 @@
     "metro": "Seattle",
     "sector": "Tech",
     "first_seen": "2026-10-29",
-    "is_new": true
-  },
-  {
-    "firm": "Expedia",
-    "id": "wd-expedia-search-/job/Washington---Seattle-Campus/Global-Data-Sharing-Engineer_R-110073-1",
-    "title": "Global Data Sharing Engineer",
-    "location": "Washington - Seattle Campus; Austin Domain 11 - HomeAway",
-    "url": "https://expedia.wd108.myworkdayjobs.com/search/job/Washington---Seattle-Campus/Global-Data-Sharing-Engineer_R-110073-1",
-    "source": "workday",
-    "posted_date": "2026-10-26",
-    "metro": "Seattle",
-    "sector": "Tech",
-    "first_seen": "2026-10-01",
-    "is_new": false
-  },
-  {
-    "firm": "Google",
-    "id": "google-90752211805446854",
-    "title": "AI Data Engineer I, Professional Services, Google Cloud",
-    "location": "Austin, TX, USA; Atlanta, GA, USA; Boulder, CO, USA; Chicago, IL, USA; Seattle, WA, USA",
-    "url": "https://www.google.com/about/careers/applications/jobs/results/90752211805446854",
-    "source": "google",
-    "posted_date": "2026-10-20",
-    "metro": "Seattle",
-    "sector": "Tech",
-    "first_seen": "2026-10-20",
     "is_new": false
   },
   {
@@ -1518,19 +1440,6 @@
     "metro": "Seattle",
     "sector": "Tech",
     "first_seen": "2026-10-27",
-    "is_new": false
-  },
-  {
-    "firm": "Google",
-    "id": "google-83051369803457222",
-    "title": "Cloud AI Data Engineer II, Professional Services, Google Cloud",
-    "location": "Austin, TX, USA; Atlanta, GA, USA; Boulder, CO, USA; Chicago, IL, USA; Seattle, WA, USA",
-    "url": "https://www.google.com/about/careers/applications/jobs/results/83051369803457222",
-    "source": "google",
-    "posted_date": "2026-10-20",
-    "metro": "Seattle",
-    "sector": "Tech",
-    "first_seen": "2026-10-20",
     "is_new": false
   },
   {
@@ -1613,19 +1522,6 @@
   },
   {
     "firm": "Charles Schwab",
-    "id": "charles-98187448432",
-    "title": "AI/ML Ops and Data Engineer",
-    "location": "Southlake, TX; Austin, TX; Phoenix, AZ",
-    "url": "https://www.schwabjobs.com/job/southlake/ai-ml-ops-and-data-engineer/33727/98187448432",
-    "source": "charles",
-    "posted_date": null,
-    "metro": "Texas",
-    "sector": "Finance",
-    "first_seen": "2026-09-29",
-    "is_new": false
-  },
-  {
-    "firm": "Charles Schwab",
     "id": "charles-95593502240",
     "title": "Data Engineer",
     "location": "Austin, TX",
@@ -1674,19 +1570,6 @@
     "metro": "Texas",
     "sector": "Finance",
     "first_seen": "2026-09-29",
-    "is_new": false
-  },
-  {
-    "firm": "Dell",
-    "id": "oracle-enterpriseplatform.dell.com-297513",
-    "title": "Postgres Database Engineer",
-    "location": "Austin, TX, United States",
-    "url": "https://enterpriseplatform.dell.com/hcmUI/CandidateExperience/en/sites/careers/job/297513",
-    "source": "oracle",
-    "posted_date": "2026-10-23",
-    "metro": "Texas",
-    "sector": "Tech",
-    "first_seen": "2026-10-24",
     "is_new": false
   },
   {
