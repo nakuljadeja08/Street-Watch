@@ -876,18 +876,6 @@
     "is_new": false
   },
   {
-    "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0120890EXTERNALENUS",
-    "title": "Wealth Advisor Associate",
-    "location": "Chicago, Illinois, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Chicago-IL/Wealth-Advisor-Associate_R0120890",
-    "source": "phenom",
-    "posted_date": "2026-10-28",
-    "metro": "Chicago",
-    "first_seen": "2026-10-28",
-    "is_new": false
-  },
-  {
     "firm": "U.S. Bancorp",
     "id": "wd-usbank-US_Bank_Careers-/job/Remote-IL/BCS-Business-Card-Consultant---Chicago_2026-0030672",
     "title": "BCS Business Card Consultant - Chicago",
@@ -1321,6 +1309,18 @@
   },
   {
     "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210805455",
+    "title": "Associate Banking-Consumer Disciplines Banking \u2013 Associate",
+    "location": "Los Angeles, CA, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210805455",
+    "source": "oracle",
+    "posted_date": "2026-10-30",
+    "metro": "Los Angeles",
+    "first_seen": "2026-10-30",
+    "is_new": true
+  },
+  {
+    "firm": "JPMorgan Chase",
     "id": "oracle-jpmc.fa.oraclecloud.com-210787219",
     "title": "Division Strategy & Support Associate",
     "location": "Los Angeles, CA, United States",
@@ -1621,12 +1621,12 @@
   },
   {
     "firm": "RBC Capital Markets",
-    "id": "phenom-jobs.rbc.com-RBCAA0088R0000187755EXTERNALENCA",
+    "id": "phenom-jobs.rbc.com-RBCAA0088R0000191619EXTERNALENCA",
     "title": "Client Associate",
     "location": "Los Angeles, California, United States of America",
-    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/Los-Angeles-California-United-States-of-America/Branch-Service-Manager-Registered-Client-Associate_R-0000187755",
+    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/CNB-555-FLOWER-STREETLOS-ANGELES/Client-Associate_R-0000191619",
     "source": "phenom",
-    "posted_date": "2026-10-29",
+    "posted_date": "2026-10-30",
     "metro": "Los Angeles",
     "first_seen": "2026-10-24",
     "is_new": false
@@ -1675,18 +1675,6 @@
     "url": "https://www.roberthalf.com/us/en/job/irvine-ca/financial-analyst/00350-0013507229-usen",
     "source": "roberthalf",
     "posted_date": "2026-10-27",
-    "metro": "Los Angeles",
-    "first_seen": "2026-10-24",
-    "is_new": false
-  },
-  {
-    "firm": "Saks Global",
-    "id": "phenom-careers.exemplarluxurygroup.com-SFAVUSR109040EXTERNALENUS",
-    "title": "Top Stylist Product Coordinator",
-    "location": "Newport Beach, California, United States of America",
-    "url": "https://saks.wd1.myworkdayjobs.com/careers_at_saks/job/NM_0218_NEWPORT-BEACH/Top-Stylist-Product-Coordinator_R-109040",
-    "source": "phenom",
-    "posted_date": "2026-10-08",
     "metro": "Los Angeles",
     "first_seen": "2026-10-24",
     "is_new": false
@@ -3735,7 +3723,7 @@
     "firm": "Citizens Financial Group",
     "id": "citizens-102589272896",
     "title": "Associate Financial Planner",
-    "location": "Johnston, Rhode Island; Pennsylvania; Rhode Island; Connecticut; Remote; Massachusetts; New York; Westwood, Massachusetts; West Conshohocken, Pennsylvania",
+    "location": "Johnston, Rhode Island; Rhode Island; Connecticut; Remote; Massachusetts; New York; West Conshohocken, Pennsylvania; Pennsylvania; Westwood, Massachusetts",
     "url": "https://jobs.citizensbank.com/job/johnston/associate-financial-planner/288/102589272896",
     "source": "citizens",
     "posted_date": null,
@@ -3747,7 +3735,7 @@
     "firm": "Citizens Financial Group",
     "id": "citizens-102589272864",
     "title": "Associate Financial Planner",
-    "location": "Westwood, Massachusetts; Pennsylvania; New York; Connecticut; Remote; Johnston, Rhode Island; West Conshohocken, Pennsylvania; Rhode Island; Massachusetts",
+    "location": "Westwood, Massachusetts; West Conshohocken, Pennsylvania; Pennsylvania; Rhode Island; Massachusetts; Remote; Connecticut; New York; Johnston, Rhode Island",
     "url": "https://jobs.citizensbank.com/job/westwood/associate-financial-planner/288/102589272864",
     "source": "citizens",
     "posted_date": null,
@@ -3759,7 +3747,7 @@
     "firm": "Citizens Financial Group",
     "id": "citizens-102589272528",
     "title": "Associate Financial Planner",
-    "location": "West Conshohocken, Pennsylvania; Connecticut; Remote; Massachusetts; Rhode Island; Pennsylvania; New York; Johnston, Rhode Island; Westwood, Massachusetts",
+    "location": "West Conshohocken, Pennsylvania; Connecticut; Westwood, Massachusetts; Johnston, Rhode Island; New York; Pennsylvania; Rhode Island; Massachusetts; Remote",
     "url": "https://jobs.citizensbank.com/job/west-conshohocken/associate-financial-planner/288/102589272528",
     "source": "citizens",
     "posted_date": null,
@@ -3783,7 +3771,7 @@
     "firm": "Citizens Financial Group",
     "id": "citizens-101923260352",
     "title": "Associate, Asset-Backed Securitization",
-    "location": "Stamford, Connecticut; New York, New York; Charlotte, North Carolina",
+    "location": "Stamford, Connecticut; Charlotte, North Carolina; New York, New York",
     "url": "https://jobs.citizensbank.com/job/stamford/associate-asset-backed-securitization/288/101923260352",
     "source": "citizens",
     "posted_date": null,
@@ -3793,21 +3781,9 @@
   },
   {
     "firm": "Citizens Financial Group",
-    "id": "citizens-101663551136",
-    "title": "Investment Strategy & Research Analyst I",
-    "location": "Boston, Massachusetts; New York, New York",
-    "url": "https://jobs.citizensbank.com/job/boston/investment-strategy-and-research-analyst-i/288/101663551136",
-    "source": "citizens",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-07",
-    "is_new": false
-  },
-  {
-    "firm": "Citizens Financial Group",
     "id": "citizens-101748801136",
     "title": "Qualtrics - Business Insights Analyst",
-    "location": "Westwood, Massachusetts; New York, New York; Irving, Texas; Plano, Texas; Johnston, Rhode Island",
+    "location": "Westwood, Massachusetts; Plano, Texas; Irving, Texas; New York, New York; Johnston, Rhode Island",
     "url": "https://jobs.citizensbank.com/job/westwood/qualtrics-business-insights-analyst/288/101748801136",
     "source": "citizens",
     "posted_date": null,
@@ -5557,6 +5533,18 @@
   },
   {
     "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210802257",
+    "title": "Full Time Associate Banker Seventh and 37th Branch, New York, NY",
+    "location": "New York, NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210802257",
+    "source": "oracle",
+    "posted_date": "2026-10-30",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-30",
+    "is_new": true
+  },
+  {
+    "firm": "JPMorgan Chase",
     "id": "oracle-jpmc.fa.oraclecloud.com-210801122",
     "title": "Global Banking Intelligence & Growth Strategy, Associate",
     "location": "New York, NY, United States",
@@ -6465,6 +6453,18 @@
     "posted_date": "2026-10-12",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-24",
+    "is_new": false
+  },
+  {
+    "firm": "LVMH",
+    "id": "lvmh-MFK00767",
+    "title": "Sales Planning and Operations Assistant Manager (Maison Francis Kurkdjian)",
+    "location": "New York, New York, United States",
+    "url": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PYZFK026203F3VBQB798N7VG6-1102560&langCode=en_US",
+    "source": "lvmh",
+    "posted_date": "2026-10-25",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-27",
     "is_new": false
   },
   {
@@ -8137,27 +8137,15 @@
   },
   {
     "firm": "RBC Capital Markets",
-    "id": "phenom-jobs.rbc.com-RBCAA0088R0000191033EXTERNALENCA",
-    "title": "Client Associate",
-    "location": "Albany, New York, United States of America",
-    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/Albany-New-York-United-States-of-America/Client-Associate_R-0000191033",
-    "source": "phenom",
-    "posted_date": "2026-10-29",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-23",
-    "is_new": false
-  },
-  {
-    "firm": "RBC Capital Markets",
-    "id": "phenom-jobs.rbc.com-RBCAA0088R0000190380EXTERNALENCA",
-    "title": "Research Associate, Consumer Retail - Softlines",
+    "id": "phenom-jobs.rbc.com-RBCAA0088R0000189319EXTERNALENCA",
+    "title": "Client Success Team - Relationship Management Associate",
     "location": "New York, New York, United States of America",
-    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Research-Associate--Consumer-Retail---Softlines_R-0000190380-1",
+    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Client-Success-Team---Relationship-Management-Associate_R-0000189319-1",
     "source": "phenom",
-    "posted_date": "2026-10-27",
+    "posted_date": "2026-10-30",
     "metro": "NY + Jersey City",
-    "first_seen": "2026-10-27",
-    "is_new": false
+    "first_seen": "2026-10-30",
+    "is_new": true
   },
   {
     "firm": "RBC Capital Markets",
@@ -9145,6 +9133,18 @@
   },
   {
     "firm": "U.S. Bancorp",
+    "id": "wd-usbank-US_Bank_Careers-/job/New-York-NY/BTIG--Business-Operations---Analytics--Associate_2026-0033971",
+    "title": "BTIG: Business Operations & Analytics, Associate",
+    "location": "New York, NY",
+    "url": "https://usbank.wd1.myworkdayjobs.com/US_Bank_Careers/job/New-York-NY/BTIG--Business-Operations---Analytics--Associate_2026-0033971",
+    "source": "workday",
+    "posted_date": "2026-10-30",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-30",
+    "is_new": true
+  },
+  {
+    "firm": "U.S. Bancorp",
     "id": "wd-usbank-US_Bank_Careers-/job/New-York-NY/BTIG--Corporate-Communications--Special-Events-Coordinator--Associate_2026-0033085",
     "title": "BTIG: Corporate Communications, Special Events Coordinator, Associate",
     "location": "New York, NY",
@@ -9828,6 +9828,30 @@
     "is_new": false
   },
   {
+    "firm": "Column",
+    "id": "ashby-column-7ba7a810-042b-4ac8-809d-20e3e5c920ff",
+    "title": "Growth (French speaking)",
+    "location": "San Francisco, CA",
+    "url": "https://jobs.ashbyhq.com/column/7ba7a810-042b-4ac8-809d-20e3e5c920ff",
+    "source": "ashby",
+    "posted_date": "2026-10-30",
+    "metro": "SF / Bay Area",
+    "first_seen": "2026-10-30",
+    "is_new": true
+  },
+  {
+    "firm": "Column",
+    "id": "ashby-column-5abf3bfb-456a-4c50-b15c-40ecfaa70b44",
+    "title": "Growth (Russian speaking)",
+    "location": "San Francisco, CA",
+    "url": "https://jobs.ashbyhq.com/column/5abf3bfb-456a-4c50-b15c-40ecfaa70b44",
+    "source": "ashby",
+    "posted_date": "2026-10-30",
+    "metro": "SF / Bay Area",
+    "first_seen": "2026-10-30",
+    "is_new": true
+  },
+  {
     "firm": "Gap Inc.",
     "id": "wd-gapinc-GAPINC-/job/SF---2-Folsom/Merchandise-Assistant--Men-s---Banana-Republic_R223293",
     "title": "Merchandise Assistant, Men's - Banana Republic",
@@ -9993,6 +10017,18 @@
     "posted_date": "2026-10-22",
     "metro": "SF / Bay Area",
     "first_seen": "2026-10-23",
+    "is_new": false
+  },
+  {
+    "firm": "LVMH",
+    "id": "lvmh-BEFI101536",
+    "title": "Product Marketing Analyst (BeneFit Cosmetics)",
+    "location": "San Francisco, California, United States",
+    "url": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PYZFK026203F3VBQB798N7VG6-1102940&langCode=en_US",
+    "source": "lvmh",
+    "posted_date": "2026-10-27",
+    "metro": "SF / Bay Area",
+    "first_seen": "2026-10-28",
     "is_new": false
   },
   {
@@ -10165,6 +10201,18 @@
   },
   {
     "firm": "Robert Half",
+    "id": "roberthalf-00412-9504413678-usen",
+    "title": "Accounting Analyst Investment Management $115K $130K + B \u00b7 Direct hire",
+    "location": "San Francisco, CA",
+    "url": "https://www.roberthalf.com/us/en/job/san-francisco-ca/accounting-analyst-investment-management-115k-130k-b/00412-9504413678-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-18",
+    "metro": "SF / Bay Area",
+    "first_seen": "2026-10-18",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
     "id": "roberthalf-00412-9504413679-usen",
     "title": "Accounting Analyst Investment Management $115K $130K + B \u00b7 Direct hire",
     "location": "San Mateo, CA",
@@ -10185,18 +10233,6 @@
     "posted_date": "2026-10-18",
     "metro": "SF / Bay Area",
     "first_seen": "2026-10-24",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-00412-9504413678-usen",
-    "title": "Accounting Analyst Investment Management $115K $130K + B \u00b7 Direct hire",
-    "location": "San Francisco, CA",
-    "url": "https://www.roberthalf.com/us/en/job/san-francisco-ca/accounting-analyst-investment-management-115k-130k-b/00412-9504413678-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-18",
-    "metro": "SF / Bay Area",
-    "first_seen": "2026-10-18",
     "is_new": false
   },
   {
@@ -10234,6 +10270,18 @@
     "metro": "SF / Bay Area",
     "first_seen": "2026-10-21",
     "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-00410-0013535521-usen",
+    "title": "Financial Analyst \u00b7 Contract",
+    "location": "San Francisco, CA",
+    "url": "https://www.roberthalf.com/us/en/job/san-francisco-ca/financial-analyst/00410-0013535521-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-30",
+    "metro": "SF / Bay Area",
+    "first_seen": "2026-10-30",
+    "is_new": true
   },
   {
     "firm": "Robert Half",
@@ -10317,18 +10365,6 @@
     "posted_date": "2026-09-30",
     "metro": "SF / Bay Area",
     "first_seen": "2026-10-24",
-    "is_new": false
-  },
-  {
-    "firm": "U.S. Bancorp",
-    "id": "wd-usbank-US_Bank_Careers-/job/San-Francisco-CA/Payments-Sales-Consultant---San-Francisco--_2026-0026714-1",
-    "title": "Payments Sales Consultant ( San Francisco )",
-    "location": "San Francisco, CA",
-    "url": "https://usbank.wd1.myworkdayjobs.com/US_Bank_Careers/job/San-Francisco-CA/Payments-Sales-Consultant---San-Francisco--_2026-0026714-1",
-    "source": "workday",
-    "posted_date": "2026-10-13",
-    "metro": "SF / Bay Area",
-    "first_seen": "2026-09-19",
     "is_new": false
   },
   {
