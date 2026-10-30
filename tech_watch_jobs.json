@@ -1,6 +1,19 @@
 [
   {
     "firm": "Equifax",
+    "id": "wd-equifax-External-/job/USA---Georgia---Alpharetta---30005/Big-Data---SMAC-Technology-Developer_J00179355",
+    "title": "Big Data / SMAC Technology Developer",
+    "location": "USA - Georgia - Alpharetta - 30005",
+    "url": "https://equifax.wd5.myworkdayjobs.com/External/job/USA---Georgia---Alpharetta---30005/Big-Data---SMAC-Technology-Developer_J00179355",
+    "source": "workday",
+    "posted_date": "2026-10-30",
+    "metro": "Atlanta",
+    "sector": "Finance",
+    "first_seen": "2026-10-30",
+    "is_new": true
+  },
+  {
+    "firm": "Equifax",
     "id": "wd-equifax-External-/job/USA---Georgia---Alpharetta---30005/Software-Engineer--Java-and-Big-Data-_J00179186",
     "title": "Software Engineer (Java and Big Data)",
     "location": "USA - Georgia - Alpharetta - 30005",
@@ -101,6 +114,19 @@
     "metro": "Charlotte",
     "sector": "Finance",
     "first_seen": "2026-10-21",
+    "is_new": false
+  },
+  {
+    "firm": "Truist Securities",
+    "id": "phenom-careers.truist.com-TBJTBFUSR0120831EXTERNALENUS",
+    "title": "Security Engineer (Data Engineering/ Protection)",
+    "location": "Charlotte, North Carolina, USA",
+    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Charlotte-NC/Security-Engineer--Data-Engineering--Protection-_R0120831",
+    "source": "phenom",
+    "posted_date": "2026-10-26",
+    "metro": "Charlotte",
+    "sector": "Finance",
+    "first_seen": "2026-10-17",
     "is_new": false
   },
   {
