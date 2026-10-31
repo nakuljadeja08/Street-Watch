@@ -684,6 +684,18 @@
     "is_new": false
   },
   {
+    "firm": "RBC Capital Markets",
+    "id": "phenom-jobs.rbc.com-RBCAA0088R0000190811EXTERNALENCA",
+    "title": "Client Associate/Registered Client Associate",
+    "location": "Rockford, Illinois, United States of America",
+    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/Rockford-Illinois-United-States-of-America/Client-Associate-Registered-Client-Associate_R-0000190811",
+    "source": "phenom",
+    "posted_date": "2026-10-23",
+    "metro": "Chicago",
+    "first_seen": "2026-10-24",
+    "is_new": false
+  },
+  {
     "firm": "Robert Half",
     "id": "roberthalf-01300-0013534643-usen",
     "title": "Financial Analyst \u00b7 Direct hire",
@@ -777,6 +789,18 @@
     "posted_date": "2026-10-07",
     "metro": "Chicago",
     "first_seen": "2026-10-08",
+    "is_new": false
+  },
+  {
+    "firm": "Truist Securities",
+    "id": "phenom-careers.truist.com-TBJTBFUSR0120890EXTERNALENUS",
+    "title": "Wealth Advisor Associate",
+    "location": "Chicago, Illinois, USA",
+    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Chicago-IL/Wealth-Advisor-Associate_R0120890",
+    "source": "phenom",
+    "posted_date": "2026-10-28",
+    "metro": "Chicago",
+    "first_seen": "2026-10-28",
     "is_new": false
   },
   {
@@ -1042,6 +1066,18 @@
     "metro": "Los Angeles",
     "first_seen": "2026-10-24",
     "is_new": false
+  },
+  {
+    "firm": "Bank of America",
+    "id": "wd-ghr-Lateral-US-/job/Newport-Beach/Private-Wealth-Client-Associate_26040271",
+    "title": "Private Wealth Client Associate",
+    "location": "Newport Beach",
+    "url": "https://ghr.wd1.myworkdayjobs.com/Lateral-US/job/Newport-Beach/Private-Wealth-Client-Associate_26040271",
+    "source": "workday",
+    "posted_date": "2026-10-31",
+    "metro": "Los Angeles",
+    "first_seen": "2026-10-31",
+    "is_new": true
   },
   {
     "firm": "Bank of America",
@@ -7873,6 +7909,18 @@
   },
   {
     "firm": "PVH",
+    "id": "phenom-careers.pvh.com-PCAPCAUSR62949EXTERNALENUS",
+    "title": "Assistant Merchandiser, CTB Outlet and Off-price - Calvin Klein",
+    "location": "New York, New York, United States of America",
+    "url": "https://pvh.wd1.myworkdayjobs.com/PVH_Careers/job/New-York-NY-Calvin-Klein-Office/Assistant-Merchandiser--CTB-Outlet-and-Off-price---Calvin-Klein_R62949",
+    "source": "phenom",
+    "posted_date": "2026-10-19",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-23",
+    "is_new": false
+  },
+  {
+    "firm": "PVH",
     "id": "phenom-careers.pvh.com-PCAPCAUSR62783EXTERNALENUS",
     "title": "Assistant Merchandiser, Womens CTB - Calvin Klein",
     "location": "New York, New York, United States of America",
@@ -10117,10 +10165,10 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-00412-9504413678-usen",
+    "id": "roberthalf-00412-9504413679-usen",
     "title": "Accounting Analyst Investment Management $115K $130K + B \u00b7 Direct hire",
-    "location": "San Francisco, CA",
-    "url": "https://www.roberthalf.com/us/en/job/san-francisco-ca/accounting-analyst-investment-management-115k-130k-b/00412-9504413678-usen",
+    "location": "San Mateo, CA",
+    "url": "https://www.roberthalf.com/us/en/job/san-mateo-ca/accounting-analyst-investment-management-115k-130k-b/00412-9504413679-usen",
     "source": "roberthalf",
     "posted_date": "2026-10-18",
     "metro": "SF / Bay Area",
@@ -10129,10 +10177,10 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-00412-9504413679-usen",
+    "id": "roberthalf-00412-9504413678-usen",
     "title": "Accounting Analyst Investment Management $115K $130K + B \u00b7 Direct hire",
-    "location": "San Mateo, CA",
-    "url": "https://www.roberthalf.com/us/en/job/san-mateo-ca/accounting-analyst-investment-management-115k-130k-b/00412-9504413679-usen",
+    "location": "San Francisco, CA",
+    "url": "https://www.roberthalf.com/us/en/job/san-francisco-ca/accounting-analyst-investment-management-115k-130k-b/00412-9504413678-usen",
     "source": "roberthalf",
     "posted_date": "2026-10-18",
     "metro": "SF / Bay Area",
