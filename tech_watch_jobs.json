@@ -52,6 +52,19 @@
     "is_new": false
   },
   {
+    "firm": "Truist Securities",
+    "id": "phenom-careers.truist.com-TBJTBFUSR0120558EXTERNALENUS",
+    "title": "Software Engineer for Card Fraud Strategy Data Delivery",
+    "location": "Atlanta, Georgia, USA",
+    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Atlanta-GA/Software-Engineer_R0120558",
+    "source": "phenom",
+    "posted_date": "2026-10-08",
+    "metro": "Atlanta",
+    "sector": "Finance",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
     "firm": "Motion Recruitment",
     "id": "motion-893559",
     "title": "Quantitative Analytics Engineer - Pyton/SQL/Finance - Boston, MA \u00b7 Direct hire",
@@ -742,19 +755,6 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-02310-0013535137-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Minneapolis, MN",
-    "url": "https://www.roberthalf.com/us/en/job/minneapolis-mn/data-engineer/02310-0013535137-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-30",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-30",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
     "id": "roberthalf-02310-0013504307-usen",
     "title": "Data Engineer \u00b7 Direct hire",
     "location": "Avon, MN",
@@ -764,6 +764,19 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-16",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-02310-0013535137-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Minneapolis, MN",
+    "url": "https://www.roberthalf.com/us/en/job/minneapolis-mn/data-engineer/02310-0013535137-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-30",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-30",
     "is_new": false
   },
   {
@@ -794,19 +807,6 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-04600-0013495125-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Milwaukee, WI",
-    "url": "https://www.roberthalf.com/us/en/job/milwaukee-wi/data-engineer/04600-0013495125-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-30",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
     "id": "roberthalf-01500-0013497785-usen",
     "title": "Data Engineer \u00b7 Direct hire",
     "location": "Oskaloosa, IA",
@@ -826,6 +826,19 @@
     "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
     "source": "roberthalf",
     "posted_date": "2026-10-28",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-05",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-04600-0013495125-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Milwaukee, WI",
+    "url": "https://www.roberthalf.com/us/en/job/milwaukee-wi/data-engineer/04600-0013495125-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-30",
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
