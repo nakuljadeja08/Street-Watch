@@ -2293,6 +2293,18 @@
   },
   {
     "firm": "Bank of America",
+    "id": "wd-ghr-Lateral-US-/job/New-York/Registered-Private-Wealth-Client-Associate_26040436",
+    "title": "Registered Private Wealth Client Associate",
+    "location": "New York",
+    "url": "https://ghr.wd1.myworkdayjobs.com/Lateral-US/job/New-York/Registered-Private-Wealth-Client-Associate_26040436",
+    "source": "workday",
+    "posted_date": "2026-10-31",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-31",
+    "is_new": true
+  },
+  {
+    "firm": "Bank of America",
     "id": "wd-ghr-Lateral-US-/job/New-York/Registered-Private-Wealth-Client-Associate_26039778",
     "title": "Registered Private Wealth Client Associate",
     "location": "New York",
@@ -7944,18 +7956,6 @@
     "is_new": false
   },
   {
-    "firm": "PVH",
-    "id": "phenom-careers.pvh.com-PCAPCAUSR60141EXTERNALENUS",
-    "title": "Merchandiser, Wholesale - PVH",
-    "location": "New York, New York, United States of America",
-    "url": "https://pvh.wd1.myworkdayjobs.com/PVH_Careers/job/New-York-NY-Calvin-Klein-Office/Merchandiser--Nike---TH-Underwear----PVH_R60141",
-    "source": "phenom",
-    "posted_date": "2026-10-13",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-22",
-    "is_new": false
-  },
-  {
     "firm": "Paxos",
     "id": "ashby-paxos-efa810ec-2996-4d00-991d-51b3272b7ab2",
     "title": "Product Operations Associate",
@@ -8133,18 +8133,6 @@
     "posted_date": "2026-10-30",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-30",
-    "is_new": false
-  },
-  {
-    "firm": "RBC Capital Markets",
-    "id": "phenom-jobs.rbc.com-RBCAA0088R0000190380EXTERNALENCA",
-    "title": "Research Associate, Consumer Retail - Softlines",
-    "location": "New York, New York, United States of America",
-    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Research-Associate--Consumer-Retail---Softlines_R-0000190380-1",
-    "source": "phenom",
-    "posted_date": "2026-10-27",
-    "metro": "NY + Jersey City",
-    "first_seen": "2026-10-27",
     "is_new": false
   },
   {
@@ -10165,10 +10153,10 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-00412-9504413679-usen",
+    "id": "roberthalf-00412-9504413678-usen",
     "title": "Accounting Analyst Investment Management $115K $130K + B \u00b7 Direct hire",
-    "location": "San Mateo, CA",
-    "url": "https://www.roberthalf.com/us/en/job/san-mateo-ca/accounting-analyst-investment-management-115k-130k-b/00412-9504413679-usen",
+    "location": "San Francisco, CA",
+    "url": "https://www.roberthalf.com/us/en/job/san-francisco-ca/accounting-analyst-investment-management-115k-130k-b/00412-9504413678-usen",
     "source": "roberthalf",
     "posted_date": "2026-10-18",
     "metro": "SF / Bay Area",
@@ -10177,10 +10165,10 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-00412-9504413678-usen",
+    "id": "roberthalf-00412-9504413679-usen",
     "title": "Accounting Analyst Investment Management $115K $130K + B \u00b7 Direct hire",
-    "location": "San Francisco, CA",
-    "url": "https://www.roberthalf.com/us/en/job/san-francisco-ca/accounting-analyst-investment-management-115k-130k-b/00412-9504413678-usen",
+    "location": "San Mateo, CA",
+    "url": "https://www.roberthalf.com/us/en/job/san-mateo-ca/accounting-analyst-investment-management-115k-130k-b/00412-9504413679-usen",
     "source": "roberthalf",
     "posted_date": "2026-10-18",
     "metro": "SF / Bay Area",
