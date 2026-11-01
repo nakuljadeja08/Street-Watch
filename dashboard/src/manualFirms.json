@@ -1,0 +1,1770 @@
+[
+ {
+  "firm": "Brandes Investment Partners",
+  "watch": "street",
+  "group": "Asset management",
+  "reason": "no_board",
+  "note": "Openings listed on its own site.",
+  "url": "https://www.brandes.com/careers"
+ },
+ {
+  "firm": "Causeway Capital",
+  "watch": "street",
+  "group": "Asset management",
+  "reason": "no_reader",
+  "note": "Uses Taleo Business Edition.",
+  "url": "https://www.causewaycap.com/careers"
+ },
+ {
+  "firm": "Crescent Capital",
+  "watch": "street",
+  "group": "Asset management",
+  "reason": "no_reader",
+  "note": "Uses Dayforce.",
+  "url": "https://crescentcap.com/careers"
+ },
+ {
+  "firm": "DoubleLine",
+  "watch": "street",
+  "group": "Asset management",
+  "reason": "no_reader",
+  "note": "Uses Paycom.",
+  "url": "https://doubleline.com/careers"
+ },
+ {
+  "firm": "First Pacific Advisors",
+  "watch": "street",
+  "group": "Asset management",
+  "reason": "no_board",
+  "note": "Self-hosted careers page.",
+  "url": "https://fpa.com/careers"
+ },
+ {
+  "firm": "Kayne Anderson",
+  "watch": "street",
+  "group": "Asset management",
+  "reason": "no_reader",
+  "note": "Uses Workable; roles were in Boca Raton and Houston when checked.",
+  "url": "https://kayneanderson.com/careers"
+ },
+ {
+  "firm": "Payden & Rygel",
+  "watch": "street",
+  "group": "Asset management",
+  "reason": "no_board",
+  "note": "Careers page only.",
+  "url": "https://www.payden.com/careers.aspx"
+ },
+ {
+  "firm": "Bank of China",
+  "watch": "street",
+  "group": "Banks",
+  "reason": "untried",
+  "note": "Not investigated yet. Check for US roles.",
+  "url": ""
+ },
+ {
+  "firm": "BBVA CIB",
+  "watch": "street",
+  "group": "Banks",
+  "reason": "untried",
+  "note": "Not investigated yet. Check for US roles.",
+  "url": ""
+ },
+ {
+  "firm": "BNP Paribas",
+  "watch": "street",
+  "group": "Banks",
+  "reason": "blocked",
+  "note": "Akamai bot gate on careers search.",
+  "url": ""
+ },
+ {
+  "firm": "BNY",
+  "watch": "street",
+  "group": "Banks",
+  "reason": "no_reader",
+  "note": "Needs a browser capture to find the real board.",
+  "url": "https://www.bny.com/corporate/global/en/careers.html"
+ },
+ {
+  "firm": "CICC",
+  "watch": "street",
+  "group": "Banks",
+  "reason": "untried",
+  "note": "Not investigated yet. Check for US roles.",
+  "url": ""
+ },
+ {
+  "firm": "Commerzbank",
+  "watch": "street",
+  "group": "Banks",
+  "reason": "untried",
+  "note": "Not investigated yet. Check for US roles.",
+  "url": "https://www.commerzbank.de/group/careers"
+ },
+ {
+  "firm": "Crédit Agricole CIB",
+  "watch": "street",
+  "group": "Banks",
+  "reason": "untried",
+  "note": "Not investigated yet. Check for US roles.",
+  "url": "https://www.ca-cib.com/careers"
+ },
+ {
+  "firm": "Daiwa Capital Markets",
+  "watch": "street",
+  "group": "Banks",
+  "reason": "untried",
+  "note": "Not investigated yet. Check for US roles.",
+  "url": ""
+ },
+ {
+  "firm": "DBS Bank",
+  "watch": "street",
+  "group": "Banks",
+  "reason": "untried",
+  "note": "Not investigated yet. Check for US roles.",
+  "url": "https://www.dbs.com/careers"
+ },
+ {
+  "firm": "DZ BANK",
+  "watch": "street",
+  "group": "Banks",
+  "reason": "untried",
+  "note": "Not investigated yet. Check for US roles.",
+  "url": ""
+ },
+ {
+  "firm": "Fifth Third Securities",
+  "watch": "street",
+  "group": "Banks",
+  "reason": "no_reader",
+  "note": "Needs a browser capture to find the real board.",
+  "url": "https://www.53.com/content/fifth-third/en/careers.html"
+ },
+ {
+  "firm": "Huntington Bancshares",
+  "watch": "street",
+  "group": "Banks",
+  "reason": "no_reader",
+  "note": "Needs a browser capture to find the real board.",
+  "url": "https://www.huntington.com/careers"
+ },
+ {
+  "firm": "ICBC",
+  "watch": "street",
+  "group": "Banks",
+  "reason": "untried",
+  "note": "Not investigated yet. Check for US roles.",
+  "url": ""
+ },
+ {
+  "firm": "Intesa Sanpaolo",
+  "watch": "street",
+  "group": "Banks",
+  "reason": "untried",
+  "note": "Not investigated yet. Check for US roles.",
+  "url": "https://group.intesasanpaolo.com/en/careers"
+ },
+ {
+  "firm": "Lloyds Bank Corporate Markets",
+  "watch": "street",
+  "group": "Banks",
+  "reason": "untried",
+  "note": "Not investigated yet. Check for US roles.",
+  "url": "https://www.lloydsbankinggroup.com/careers.html"
+ },
+ {
+  "firm": "National Bank Financial",
+  "watch": "street",
+  "group": "Banks",
+  "reason": "untried",
+  "note": "Not investigated yet. Check for US roles.",
+  "url": ""
+ },
+ {
+  "firm": "Natixis",
+  "watch": "street",
+  "group": "Banks",
+  "reason": "untried",
+  "note": "Not investigated yet. Check for US roles.",
+  "url": "https://www.natixis.com/en/careers"
+ },
+ {
+  "firm": "Nomura",
+  "watch": "street",
+  "group": "Banks",
+  "reason": "untried",
+  "note": "Not investigated yet. Check for US roles.",
+  "url": "https://www.nomura.com/careers"
+ },
+ {
+  "firm": "Rabobank",
+  "watch": "street",
+  "group": "Banks",
+  "reason": "untried",
+  "note": "Not investigated yet. Check for US roles.",
+  "url": "https://www.rabobank.com/careers"
+ },
+ {
+  "firm": "SMBC Group",
+  "watch": "street",
+  "group": "Banks",
+  "reason": "untried",
+  "note": "Not investigated yet. Check for US roles.",
+  "url": "https://www.smbcgroup.com/americas/careers"
+ },
+ {
+  "firm": "Société Générale",
+  "watch": "street",
+  "group": "Banks",
+  "reason": "untried",
+  "note": "Not investigated yet. Check for US roles.",
+  "url": "https://careers.societegenerale.com"
+ },
+ {
+  "firm": "Standard Chartered",
+  "watch": "street",
+  "group": "Banks",
+  "reason": "untried",
+  "note": "Not investigated yet. Check for US roles.",
+  "url": "https://www.sc.com/en/careers"
+ },
+ {
+  "firm": "UBS",
+  "watch": "street",
+  "group": "Banks",
+  "reason": "untried",
+  "note": "Not investigated yet. Check for US roles.",
+  "url": "https://www.ubs.com/global/en/careers.html"
+ },
+ {
+  "firm": "UniCredit",
+  "watch": "street",
+  "group": "Banks",
+  "reason": "untried",
+  "note": "Not investigated yet. Check for US roles.",
+  "url": ""
+ },
+ {
+  "firm": "Westpac Institutional Bank",
+  "watch": "street",
+  "group": "Banks",
+  "reason": "untried",
+  "note": "Not investigated yet. Check for US roles.",
+  "url": "https://www.westpac.com.au/about-westpac/careers"
+ },
+ {
+  "firm": "Simon-Kucher",
+  "watch": "street",
+  "group": "Consulting",
+  "reason": "no_reader",
+  "note": "Cornerstone board needs a login token. Had 85 US roles when checked.",
+  "url": "https://www.simon-kucher.com/en/careers"
+ },
+ {
+  "firm": "Strategy&",
+  "watch": "street",
+  "group": "Consulting",
+  "reason": "no_reader",
+  "note": "Roles sit inside PwC's global careers system.",
+  "url": "https://www.strategyand.pwc.com/gx/en/careers.html"
+ },
+ {
+  "firm": "Dave",
+  "watch": "street",
+  "group": "Fintech",
+  "reason": "rules",
+  "note": "Every posting is remote, so none land in a metro on the board.",
+  "url": "https://dave.com/careers"
+ },
+ {
+  "firm": "Tala",
+  "watch": "street",
+  "group": "Fintech",
+  "reason": "rules",
+  "note": "Every posting is remote, so none land in a metro on the board.",
+  "url": "https://tala.co/careers"
+ },
+ {
+  "firm": "Whatnot",
+  "watch": "street",
+  "group": "Fintech",
+  "reason": "no_reader",
+  "note": "Its public job feed is switched off.",
+  "url": "https://www.whatnot.com/careers"
+ },
+ {
+  "firm": "Clear Street",
+  "watch": "street",
+  "group": "Hedge funds & trading",
+  "reason": "rules",
+  "note": "Found on 2026-10-22 but left off the board; had about 20 roles across this group.",
+  "url": "https://clearstreet.io/careers"
+ },
+ {
+  "firm": "Hudson River Trading",
+  "watch": "street",
+  "group": "Hedge funds & trading",
+  "reason": "rules",
+  "note": "Found on 2026-10-22 but left off the board; had about 20 roles across this group.",
+  "url": "https://www.hudsonrivertrading.com/careers"
+ },
+ {
+  "firm": "Man Group",
+  "watch": "street",
+  "group": "Hedge funds & trading",
+  "reason": "rules",
+  "note": "Found on 2026-10-22 but left off the board; had about 20 roles across this group.",
+  "url": "https://www.man.com/careers"
+ },
+ {
+  "firm": "Millennium",
+  "watch": "street",
+  "group": "Hedge funds & trading",
+  "reason": "rules",
+  "note": "Found on 2026-10-22 but left off the board; had about 20 roles across this group.",
+  "url": "https://www.mlp.com/careers"
+ },
+ {
+  "firm": "Point72",
+  "watch": "street",
+  "group": "Hedge funds & trading",
+  "reason": "rules",
+  "note": "Found on 2026-10-22 but left off the board; had about 20 roles across this group.",
+  "url": "https://careers.point72.com"
+ },
+ {
+  "firm": "Schonfeld",
+  "watch": "street",
+  "group": "Hedge funds & trading",
+  "reason": "rules",
+  "note": "Found on 2026-10-22 but left off the board; had about 20 roles across this group.",
+  "url": "https://www.schonfeld.com/careers"
+ },
+ {
+  "firm": "Squarepoint Capital",
+  "watch": "street",
+  "group": "Hedge funds & trading",
+  "reason": "rules",
+  "note": "Found on 2026-10-22 but left off the board; had about 20 roles across this group.",
+  "url": ""
+ },
+ {
+  "firm": "Academy Securities",
+  "watch": "street",
+  "group": "Investment banking",
+  "reason": "no_board",
+  "note": "Email-only applications.",
+  "url": "https://www.academysecurities.com/careers"
+ },
+ {
+  "firm": "Allen & Company",
+  "watch": "street",
+  "group": "Investment banking",
+  "reason": "untried",
+  "note": "Not investigated yet.",
+  "url": ""
+ },
+ {
+  "firm": "Canaccord Genuity",
+  "watch": "street",
+  "group": "Investment banking",
+  "reason": "untried",
+  "note": "Not investigated yet.",
+  "url": "https://www.canaccordgenuity.com/careers"
+ },
+ {
+  "firm": "Centerview Partners",
+  "watch": "street",
+  "group": "Investment banking",
+  "reason": "no_board",
+  "note": "Apply through a reCAPTCHA-gated form on its site.",
+  "url": "https://www.centerviewpartners.com/careers"
+ },
+ {
+  "firm": "Jefferies (Experienced)",
+  "watch": "street",
+  "group": "Investment banking",
+  "reason": "blocked",
+  "note": "Campus board is live on Street Watch; experienced roles sit behind a bot check.",
+  "url": ""
+ },
+ {
+  "firm": "Loop Capital Markets",
+  "watch": "street",
+  "group": "Investment banking",
+  "reason": "untried",
+  "note": "Not investigated yet.",
+  "url": "https://www.loopcapital.com/careers"
+ },
+ {
+  "firm": "Needham & Company",
+  "watch": "street",
+  "group": "Investment banking",
+  "reason": "untried",
+  "note": "Not investigated yet.",
+  "url": "https://www.needhamco.com/careers"
+ },
+ {
+  "firm": "Qatalyst Partners",
+  "watch": "street",
+  "group": "Investment banking",
+  "reason": "no_board",
+  "note": "Email-only applications.",
+  "url": ""
+ },
+ {
+  "firm": "Raymond James",
+  "watch": "street",
+  "group": "Investment banking",
+  "reason": "untried",
+  "note": "Not investigated yet.",
+  "url": ""
+ },
+ {
+  "firm": "Rothschild & Co",
+  "watch": "street",
+  "group": "Investment banking",
+  "reason": "no_reader",
+  "note": "Job system not exposed on its landing page.",
+  "url": "https://www.rothschildandco.com/en/careers"
+ },
+ {
+  "firm": "Siebert Williams Shank",
+  "watch": "street",
+  "group": "Investment banking",
+  "reason": "blocked",
+  "note": "Site blocked our access.",
+  "url": ""
+ },
+ {
+  "firm": "Wedbush Securities",
+  "watch": "street",
+  "group": "Investment banking",
+  "reason": "no_board",
+  "note": "Careers page and reCAPTCHA form, no board.",
+  "url": ""
+ },
+ {
+  "firm": "Brilliant Earth",
+  "watch": "street",
+  "group": "Luxury & auction",
+  "reason": "rules",
+  "note": "Left off because its board was mostly store roles. Check for HQ roles.",
+  "url": "https://www.brilliantearth.com/careers"
+ },
+ {
+  "firm": "Gagosian",
+  "watch": "street",
+  "group": "Luxury & auction",
+  "reason": "no_board",
+  "note": "Self-hosted page; its titles rarely pass the filter.",
+  "url": "https://gagosian.com/careers"
+ },
+ {
+  "firm": "Guess",
+  "watch": "street",
+  "group": "Luxury & auction",
+  "reason": "no_reader",
+  "note": "Uses BrassRing.",
+  "url": ""
+ },
+ {
+  "firm": "Hauser & Wirth",
+  "watch": "street",
+  "group": "Luxury & auction",
+  "reason": "no_board",
+  "note": "Self-hosted careers page.",
+  "url": "https://www.hauserwirth.com/careers"
+ },
+ {
+  "firm": "Heritage Auctions",
+  "watch": "street",
+  "group": "Luxury & auction",
+  "reason": "blocked",
+  "note": "Bot check on ha.com. Based in Dallas, outside the metros.",
+  "url": ""
+ },
+ {
+  "firm": "Hermès",
+  "watch": "street",
+  "group": "Luxury & auction",
+  "reason": "blocked",
+  "note": "Careers site shows a bot wall.",
+  "url": ""
+ },
+ {
+  "firm": "Macy's",
+  "watch": "street",
+  "group": "Luxury & auction",
+  "reason": "rules",
+  "note": "Left off because its board was mostly store roles. Check for HQ roles.",
+  "url": "https://www.macysjobs.com"
+ },
+ {
+  "firm": "Nordstrom",
+  "watch": "street",
+  "group": "Luxury & auction",
+  "reason": "rules",
+  "note": "Left off because its board was mostly store roles. Check for HQ roles.",
+  "url": "https://careers.nordstrom.com"
+ },
+ {
+  "firm": "Revolve",
+  "watch": "street",
+  "group": "Luxury & auction",
+  "reason": "no_reader",
+  "note": "Uses ADP Workforce Now.",
+  "url": ""
+ },
+ {
+  "firm": "ASB",
+  "watch": "street",
+  "group": "New Zealand",
+  "reason": "blocked",
+  "note": "Job board's robots.txt disallows all bots.",
+  "url": ""
+ },
+ {
+  "firm": "Fisher Funds",
+  "watch": "street",
+  "group": "New Zealand",
+  "reason": "no_board",
+  "note": "No public board we can read; often posts on Seek.",
+  "url": ""
+ },
+ {
+  "firm": "Forsyth Barr",
+  "watch": "street",
+  "group": "New Zealand",
+  "reason": "no_board",
+  "note": "No public board we can read; often posts on Seek.",
+  "url": "https://www.forsythbarr.co.nz/about-us/careers"
+ },
+ {
+  "firm": "Kiwibank",
+  "watch": "street",
+  "group": "New Zealand",
+  "reason": "no_board",
+  "note": "No public board we can read; often posts on Seek.",
+  "url": ""
+ },
+ {
+  "firm": "McKinsey New Zealand",
+  "watch": "street",
+  "group": "New Zealand",
+  "reason": "blocked",
+  "note": "Blocks scripted requests.",
+  "url": ""
+ },
+ {
+  "firm": "Michael Page New Zealand",
+  "watch": "street",
+  "group": "New Zealand",
+  "reason": "blocked",
+  "note": "Blocks scripted requests.",
+  "url": ""
+ },
+ {
+  "firm": "Milford Asset Management",
+  "watch": "street",
+  "group": "New Zealand",
+  "reason": "no_board",
+  "note": "No public board we can read; often posts on Seek.",
+  "url": "https://milfordasset.com/careers"
+ },
+ {
+  "firm": "Murray & Co",
+  "watch": "street",
+  "group": "New Zealand",
+  "reason": "no_board",
+  "note": "No public board we can read; often posts on Seek.",
+  "url": ""
+ },
+ {
+  "firm": "PwC New Zealand",
+  "watch": "street",
+  "group": "New Zealand",
+  "reason": "blocked",
+  "note": "Blocks scripted requests.",
+  "url": ""
+ },
+ {
+  "firm": "Robert Walters New Zealand",
+  "watch": "street",
+  "group": "New Zealand",
+  "reason": "blocked",
+  "note": "Blocks scripted requests.",
+  "url": ""
+ },
+ {
+  "firm": "Westpac New Zealand",
+  "watch": "street",
+  "group": "New Zealand",
+  "reason": "no_board",
+  "note": "No public board we can read; often posts on Seek.",
+  "url": "https://www.westpac.co.nz/about-us/careers"
+ },
+ {
+  "firm": "Canyon Partners",
+  "watch": "street",
+  "group": "PE & alternatives",
+  "reason": "no_board",
+  "note": "Careers page only.",
+  "url": "https://www.canyonpartners.com/careers"
+ },
+ {
+  "firm": "Clearlake Capital",
+  "watch": "street",
+  "group": "PE & alternatives",
+  "reason": "no_board",
+  "note": "Careers page only.",
+  "url": "https://clearlake.com/careers"
+ },
+ {
+  "firm": "Dragonfly",
+  "watch": "street",
+  "group": "PE & alternatives",
+  "reason": "no_board",
+  "note": "Its jobs page lists portfolio companies' roles, not its own.",
+  "url": ""
+ },
+ {
+  "firm": "Francisco Partners",
+  "watch": "street",
+  "group": "PE & alternatives",
+  "reason": "no_board",
+  "note": "Email-only applications.",
+  "url": ""
+ },
+ {
+  "firm": "Golden Gate Capital",
+  "watch": "street",
+  "group": "PE & alternatives",
+  "reason": "no_board",
+  "note": "No careers page or public roles found.",
+  "url": "https://www.goldengatecap.com"
+ },
+ {
+  "firm": "Hellman & Friedman",
+  "watch": "street",
+  "group": "PE & alternatives",
+  "reason": "no_board",
+  "note": "No careers page or public roles found.",
+  "url": "https://hf.com"
+ },
+ {
+  "firm": "HPS Investment Partners",
+  "watch": "street",
+  "group": "PE & alternatives",
+  "reason": "no_board",
+  "note": "Careers page shows no listings to scripts.",
+  "url": "https://www.hpspartners.com/careers"
+ },
+ {
+  "firm": "Leonard Green & Partners",
+  "watch": "street",
+  "group": "PE & alternatives",
+  "reason": "no_board",
+  "note": "Careers page only.",
+  "url": "https://www.leonardgreen.com"
+ },
+ {
+  "firm": "Platinum Equity",
+  "watch": "street",
+  "group": "PE & alternatives",
+  "reason": "no_board",
+  "note": "Careers page only.",
+  "url": ""
+ },
+ {
+  "firm": "Silver Lake",
+  "watch": "street",
+  "group": "PE & alternatives",
+  "reason": "no_board",
+  "note": "Email-only applications.",
+  "url": "https://www.silverlake.com/careers"
+ },
+ {
+  "firm": "The Gores Group",
+  "watch": "street",
+  "group": "PE & alternatives",
+  "reason": "no_board",
+  "note": "Careers page only.",
+  "url": ""
+ },
+ {
+  "firm": "Thoma Bravo",
+  "watch": "street",
+  "group": "PE & alternatives",
+  "reason": "no_board",
+  "note": "No public roles found.",
+  "url": ""
+ },
+ {
+  "firm": "Ayar Labs",
+  "watch": "tech",
+  "group": "AI infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.ayarlabs.com/careers"
+ },
+ {
+  "firm": "DigitalOcean",
+  "watch": "tech",
+  "group": "AI infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.digitalocean.com/careers"
+ },
+ {
+  "firm": "Fal",
+  "watch": "tech",
+  "group": "AI infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.fal.ai/careers"
+ },
+ {
+  "firm": "Groq",
+  "watch": "tech",
+  "group": "AI infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": ""
+ },
+ {
+  "firm": "Hugging Face",
+  "watch": "tech",
+  "group": "AI infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://apply.workable.com/huggingface"
+ },
+ {
+  "firm": "Nscale",
+  "watch": "tech",
+  "group": "AI infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.nscale.com/careers"
+ },
+ {
+  "firm": "SambaNova",
+  "watch": "tech",
+  "group": "AI infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.sambanova.ai/careers"
+ },
+ {
+  "firm": "Contextual AI",
+  "watch": "tech",
+  "group": "AI research",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.contextual.ai/careers"
+ },
+ {
+  "firm": "Decart",
+  "watch": "tech",
+  "group": "AI research",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": ""
+ },
+ {
+  "firm": "Fundamental Research Labs",
+  "watch": "tech",
+  "group": "AI research",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": ""
+ },
+ {
+  "firm": "Inception",
+  "watch": "tech",
+  "group": "AI research",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.inceptionlabs.ai/careers"
+ },
+ {
+  "firm": "Moonvalley",
+  "watch": "tech",
+  "group": "AI research",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.moonvalley.com/careers"
+ },
+ {
+  "firm": "Pathway",
+  "watch": "tech",
+  "group": "AI research",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.pathway.com/careers"
+ },
+ {
+  "firm": "Recursion",
+  "watch": "tech",
+  "group": "AI research",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.recursion.com/careers"
+ },
+ {
+  "firm": "Skild AI",
+  "watch": "tech",
+  "group": "AI research",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": ""
+ },
+ {
+  "firm": "Unconventional AI",
+  "watch": "tech",
+  "group": "AI research",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.unconv.ai"
+ },
+ {
+  "firm": "Xaira Therapeutics",
+  "watch": "tech",
+  "group": "AI research",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": ""
+ },
+ {
+  "firm": "Anduril",
+  "watch": "tech",
+  "group": "Big tech",
+  "reason": "no_reader",
+  "note": "Needs a custom reader.",
+  "url": "https://www.anduril.com/careers"
+ },
+ {
+  "firm": "Apple",
+  "watch": "tech",
+  "group": "Big tech",
+  "reason": "no_reader",
+  "note": "Needs a custom reader.",
+  "url": "https://jobs.apple.com/en-us/search?search=data%20engineer&location=united-states-USA"
+ },
+ {
+  "firm": "Atlassian",
+  "watch": "tech",
+  "group": "Big tech",
+  "reason": "no_reader",
+  "note": "Needs a custom reader.",
+  "url": "https://www.atlassian.com/company/careers/all-jobs"
+ },
+ {
+  "firm": "dbt Labs",
+  "watch": "tech",
+  "group": "Big tech",
+  "reason": "no_reader",
+  "note": "Needs a custom reader.",
+  "url": "https://www.getdbt.com/careers"
+ },
+ {
+  "firm": "Klarna",
+  "watch": "tech",
+  "group": "Big tech",
+  "reason": "no_reader",
+  "note": "Needs a custom reader.",
+  "url": "https://www.klarna.com/careers"
+ },
+ {
+  "firm": "Palo Alto Networks",
+  "watch": "tech",
+  "group": "Big tech",
+  "reason": "no_reader",
+  "note": "Needs a custom reader.",
+  "url": "https://jobs.paloaltonetworks.com"
+ },
+ {
+  "firm": "Revolut",
+  "watch": "tech",
+  "group": "Big tech",
+  "reason": "no_reader",
+  "note": "Needs a custom reader.",
+  "url": "https://www.revolut.com/careers"
+ },
+ {
+  "firm": "Rippling",
+  "watch": "tech",
+  "group": "Big tech",
+  "reason": "no_reader",
+  "note": "Needs a custom reader.",
+  "url": "https://www.rippling.com/careers"
+ },
+ {
+  "firm": "Shopify",
+  "watch": "tech",
+  "group": "Big tech",
+  "reason": "no_reader",
+  "note": "Needs a custom reader.",
+  "url": "https://www.shopify.com/careers"
+ },
+ {
+  "firm": "Uber",
+  "watch": "tech",
+  "group": "Big tech",
+  "reason": "no_reader",
+  "note": "Old job API is gone.",
+  "url": ""
+ },
+ {
+  "firm": "Beehiiv",
+  "watch": "tech",
+  "group": "Consumer",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.beehiiv.com/careers"
+ },
+ {
+  "firm": "Canva",
+  "watch": "tech",
+  "group": "Consumer",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.canva.com/careers"
+ },
+ {
+  "firm": "Headspace",
+  "watch": "tech",
+  "group": "Consumer",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.headspace.com/careers"
+ },
+ {
+  "firm": "Match Group (Hinge, Tinder)",
+  "watch": "tech",
+  "group": "Consumer",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.mtch.com/careers"
+ },
+ {
+  "firm": "Stord",
+  "watch": "tech",
+  "group": "Consumer",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.stord.com/careers"
+ },
+ {
+  "firm": "Superhuman (formerly Grammarly)",
+  "watch": "tech",
+  "group": "Consumer",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://superhuman.com/company/careers"
+ },
+ {
+  "firm": "Aiven",
+  "watch": "tech",
+  "group": "Data infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.aiven.io/careers"
+ },
+ {
+  "firm": "Alation",
+  "watch": "tech",
+  "group": "Data infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.alation.com/careers"
+ },
+ {
+  "firm": "Bigeye",
+  "watch": "tech",
+  "group": "Data infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.bigeye.com/careers"
+ },
+ {
+  "firm": "Chroma",
+  "watch": "tech",
+  "group": "Data infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.trychroma.com/careers"
+ },
+ {
+  "firm": "Cloudera",
+  "watch": "tech",
+  "group": "Data infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.cloudera.com/careers.html"
+ },
+ {
+  "firm": "Conduktor",
+  "watch": "tech",
+  "group": "Data infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.conduktor.io/careers"
+ },
+ {
+  "firm": "Convex",
+  "watch": "tech",
+  "group": "Data infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.convex.dev/jobs"
+ },
+ {
+  "firm": "Cube (cube.dev)",
+  "watch": "tech",
+  "group": "Data infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": ""
+ },
+ {
+  "firm": "Domo",
+  "watch": "tech",
+  "group": "Data infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": ""
+ },
+ {
+  "firm": "Estuary",
+  "watch": "tech",
+  "group": "Data infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.estuary.dev/careers"
+ },
+ {
+  "firm": "Evidence",
+  "watch": "tech",
+  "group": "Data infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": ""
+ },
+ {
+  "firm": "Fabi.ai",
+  "watch": "tech",
+  "group": "Data infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": ""
+ },
+ {
+  "firm": "Onehouse",
+  "watch": "tech",
+  "group": "Data infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": ""
+ },
+ {
+  "firm": "Precisely",
+  "watch": "tech",
+  "group": "Data infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.precisely.com/careers"
+ },
+ {
+  "firm": "Qdrant",
+  "watch": "tech",
+  "group": "Data infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": ""
+ },
+ {
+  "firm": "Redpanda",
+  "watch": "tech",
+  "group": "Data infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.redpanda.com/careers"
+ },
+ {
+  "firm": "Retool",
+  "watch": "tech",
+  "group": "Data infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.retool.com/careers"
+ },
+ {
+  "firm": "RisingWave",
+  "watch": "tech",
+  "group": "Data infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.risingwave.com/careers"
+ },
+ {
+  "firm": "RudderStack",
+  "watch": "tech",
+  "group": "Data infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.rudderstack.com/careers"
+ },
+ {
+  "firm": "Sourcegraph",
+  "watch": "tech",
+  "group": "Data infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.sourcegraph.com/jobs"
+ },
+ {
+  "firm": "ThoughtSpot",
+  "watch": "tech",
+  "group": "Data infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.thoughtspot.com/careers"
+ },
+ {
+  "firm": "Turso",
+  "watch": "tech",
+  "group": "Data infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": ""
+ },
+ {
+  "firm": "Upstash",
+  "watch": "tech",
+  "group": "Data infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.upstash.com/careers"
+ },
+ {
+  "firm": "VAST Data",
+  "watch": "tech",
+  "group": "Data infrastructure",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.vastdata.com/careers"
+ },
+ {
+  "firm": "Applied Intuition",
+  "watch": "tech",
+  "group": "Defense & robotics",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.appliedintuition.com/careers"
+ },
+ {
+  "firm": "Aurora",
+  "watch": "tech",
+  "group": "Defense & robotics",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.aurora.tech/careers"
+ },
+ {
+  "firm": "Castelion",
+  "watch": "tech",
+  "group": "Defense & robotics",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.castelion.com/careers"
+ },
+ {
+  "firm": "Flock Safety",
+  "watch": "tech",
+  "group": "Defense & robotics",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.flocksafety.com/careers"
+ },
+ {
+  "firm": "Hadrian",
+  "watch": "tech",
+  "group": "Defense & robotics",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.hadrian.co/careers"
+ },
+ {
+  "firm": "K2 Space",
+  "watch": "tech",
+  "group": "Defense & robotics",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.k2space.com/careers"
+ },
+ {
+  "firm": "Stoke Space",
+  "watch": "tech",
+  "group": "Defense & robotics",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.stokespace.com/careers"
+ },
+ {
+  "firm": "Varda Space",
+  "watch": "tech",
+  "group": "Defense & robotics",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.varda.com/careers"
+ },
+ {
+  "firm": "Zipline",
+  "watch": "tech",
+  "group": "Defense & robotics",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.zipline.com/careers"
+ },
+ {
+  "firm": "Cheniere Energy",
+  "watch": "tech",
+  "group": "Energy",
+  "reason": "no_reader",
+  "note": "Not on a job system we can read.",
+  "url": "https://www.cheniere.com/careers"
+ },
+ {
+  "firm": "Coterra",
+  "watch": "tech",
+  "group": "Energy",
+  "reason": "no_reader",
+  "note": "Not on a job system we can read.",
+  "url": ""
+ },
+ {
+  "firm": "Dominion Energy",
+  "watch": "tech",
+  "group": "Energy",
+  "reason": "no_reader",
+  "note": "Not on a job system we can read.",
+  "url": "https://careers.dominionenergy.com"
+ },
+ {
+  "firm": "Enterprise Products",
+  "watch": "tech",
+  "group": "Energy",
+  "reason": "no_reader",
+  "note": "Not on a job system we can read.",
+  "url": "https://www.enterpriseproducts.com/careers"
+ },
+ {
+  "firm": "EOG Resources",
+  "watch": "tech",
+  "group": "Energy",
+  "reason": "no_reader",
+  "note": "Not on a job system we can read.",
+  "url": "https://www.eogresources.com/careers"
+ },
+ {
+  "firm": "ExxonMobil",
+  "watch": "tech",
+  "group": "Energy",
+  "reason": "no_reader",
+  "note": "Uses SAP SuccessFactors.",
+  "url": "https://jobs.exxonmobil.com"
+ },
+ {
+  "firm": "Halliburton",
+  "watch": "tech",
+  "group": "Energy",
+  "reason": "no_reader",
+  "note": "Not on a job system we can read.",
+  "url": "https://jobs.halliburton.com"
+ },
+ {
+  "firm": "Kinder Morgan",
+  "watch": "tech",
+  "group": "Energy",
+  "reason": "no_reader",
+  "note": "Not on a job system we can read.",
+  "url": "https://www.kindermorgan.com/Careers"
+ },
+ {
+  "firm": "NextEra Energy",
+  "watch": "tech",
+  "group": "Energy",
+  "reason": "no_reader",
+  "note": "Not on a job system we can read.",
+  "url": "https://www.nexteraenergy.com/careers.html"
+ },
+ {
+  "firm": "Phillips 66",
+  "watch": "tech",
+  "group": "Energy",
+  "reason": "no_reader",
+  "note": "Uses SAP SuccessFactors.",
+  "url": "https://www.phillips66.com/careers"
+ },
+ {
+  "firm": "SLB",
+  "watch": "tech",
+  "group": "Energy",
+  "reason": "no_reader",
+  "note": "Not on a job system we can read.",
+  "url": "https://careers.slb.com"
+ },
+ {
+  "firm": "Targa Resources",
+  "watch": "tech",
+  "group": "Energy",
+  "reason": "no_reader",
+  "note": "Not on a job system we can read.",
+  "url": "https://www.targaresources.com/careers"
+ },
+ {
+  "firm": "Valero",
+  "watch": "tech",
+  "group": "Energy",
+  "reason": "no_reader",
+  "note": "Not on a job system we can read.",
+  "url": "https://www.valero.com/careers"
+ },
+ {
+  "firm": "Camus Energy",
+  "watch": "tech",
+  "group": "Energy startups",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": ""
+ },
+ {
+  "firm": "Commonwealth Fusion",
+  "watch": "tech",
+  "group": "Energy startups",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.cfs.energy/careers"
+ },
+ {
+  "firm": "Enverus",
+  "watch": "tech",
+  "group": "Energy startups",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.enverus.com/careers"
+ },
+ {
+  "firm": "Karman (formerly Utilidata)",
+  "watch": "tech",
+  "group": "Energy startups",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.karman.co/careers"
+ },
+ {
+  "firm": "Novi Labs",
+  "watch": "tech",
+  "group": "Energy startups",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.novilabs.com/careers"
+ },
+ {
+  "firm": "Rhizome",
+  "watch": "tech",
+  "group": "Energy startups",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": ""
+ },
+ {
+  "firm": "Sublime Systems",
+  "watch": "tech",
+  "group": "Energy startups",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.sublime-systems.com/careers"
+ },
+ {
+  "firm": "TerraPower",
+  "watch": "tech",
+  "group": "Energy startups",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.terrapower.com/careers"
+ },
+ {
+  "firm": "Validere",
+  "watch": "tech",
+  "group": "Energy startups",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.validere.com/careers"
+ },
+ {
+  "firm": "X-energy",
+  "watch": "tech",
+  "group": "Energy startups",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.x-energy.com/careers"
+ },
+ {
+  "firm": "American Express",
+  "watch": "tech",
+  "group": "Finance",
+  "reason": "no_reader",
+  "note": "Job system not identified yet.",
+  "url": ""
+ },
+ {
+  "firm": "Balyasny",
+  "watch": "tech",
+  "group": "Finance",
+  "reason": "no_reader",
+  "note": "Needs a custom reader.",
+  "url": "https://www.bamfunds.com/careers"
+ },
+ {
+  "firm": "BNY",
+  "watch": "tech",
+  "group": "Finance",
+  "reason": "no_reader",
+  "note": "Careers link fails with a domain error for scripts.",
+  "url": "https://www.bny.com/corporate/global/en/careers.html"
+ },
+ {
+  "firm": "Citadel (hedge fund)",
+  "watch": "tech",
+  "group": "Finance",
+  "reason": "no_reader",
+  "note": "Citadel Securities is wired; the fund side is not.",
+  "url": "https://www.citadel.com/careers"
+ },
+ {
+  "firm": "D. E. Shaw",
+  "watch": "tech",
+  "group": "Finance",
+  "reason": "no_reader",
+  "note": "Needs a custom reader.",
+  "url": "https://www.deshaw.com/careers"
+ },
+ {
+  "firm": "DTCC",
+  "watch": "tech",
+  "group": "Finance",
+  "reason": "no_reader",
+  "note": "Uses Oracle. Had 1 data role on 2026-10-22; not added yet.",
+  "url": "https://www.dtcc.com/careers"
+ },
+ {
+  "firm": "Five Rings",
+  "watch": "tech",
+  "group": "Finance",
+  "reason": "no_reader",
+  "note": "Needs a custom reader.",
+  "url": "https://fiverings.com/careers"
+ },
+ {
+  "firm": "Intercontinental Exchange",
+  "watch": "tech",
+  "group": "Finance",
+  "reason": "no_reader",
+  "note": "Needs a custom reader.",
+  "url": "https://careers.ice.com"
+ },
+ {
+  "firm": "Millennium",
+  "watch": "tech",
+  "group": "Finance",
+  "reason": "no_reader",
+  "note": "Needs a custom reader.",
+  "url": "https://www.mlp.com/careers"
+ },
+ {
+  "firm": "Moody's",
+  "watch": "tech",
+  "group": "Finance",
+  "reason": "no_reader",
+  "note": "Job system not identified yet.",
+  "url": "https://careers.moodys.com"
+ },
+ {
+  "firm": "MSCI",
+  "watch": "tech",
+  "group": "Finance",
+  "reason": "no_reader",
+  "note": "Needs a custom reader.",
+  "url": "https://careers.msci.com"
+ },
+ {
+  "firm": "Two Sigma",
+  "watch": "tech",
+  "group": "Finance",
+  "reason": "no_reader",
+  "note": "Job system not identified yet.",
+  "url": "https://careers.twosigma.com"
+ },
+ {
+  "firm": "XTX Markets",
+  "watch": "tech",
+  "group": "Finance",
+  "reason": "no_reader",
+  "note": "Needs a custom reader.",
+  "url": "https://www.xtxmarkets.com/careers"
+ },
+ {
+  "firm": "At-Bay",
+  "watch": "tech",
+  "group": "Fintech",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.at-bay.com/careers"
+ },
+ {
+  "firm": "Bilt",
+  "watch": "tech",
+  "group": "Fintech",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.biltrewards.com/careers"
+ },
+ {
+  "firm": "Pipe",
+  "watch": "tech",
+  "group": "Fintech",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.pipe.com/careers"
+ },
+ {
+  "firm": "Rainforest",
+  "watch": "tech",
+  "group": "Fintech",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.rainforestpay.com/careers"
+ },
+ {
+  "firm": "Rapyd",
+  "watch": "tech",
+  "group": "Fintech",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.rapyd.net/company/careers"
+ },
+ {
+  "firm": "Slash",
+  "watch": "tech",
+  "group": "Fintech",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.slash.com/careers"
+ },
+ {
+  "firm": "Stash",
+  "watch": "tech",
+  "group": "Fintech",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.stash.com/careers"
+ },
+ {
+  "firm": "Tipalti",
+  "watch": "tech",
+  "group": "Fintech",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.tipalti.com/careers"
+ },
+ {
+  "firm": "Vouch",
+  "watch": "tech",
+  "group": "Fintech",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.vouch.us/careers"
+ },
+ {
+  "firm": "Cityblock Health",
+  "watch": "tech",
+  "group": "Health",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.cityblock.com/careers"
+ },
+ {
+  "firm": "Datavant",
+  "watch": "tech",
+  "group": "Health",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.datavant.com/careers"
+ },
+ {
+  "firm": "Devoted Health",
+  "watch": "tech",
+  "group": "Health",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.devoted.com/careers"
+ },
+ {
+  "firm": "Function Health",
+  "watch": "tech",
+  "group": "Health",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.functionhealth.com/careers"
+ },
+ {
+  "firm": "Innovaccer",
+  "watch": "tech",
+  "group": "Health",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.innovaccer.com/careers"
+ },
+ {
+  "firm": "K Health",
+  "watch": "tech",
+  "group": "Health",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.khealth.com/careers"
+ },
+ {
+  "firm": "Spring Health",
+  "watch": "tech",
+  "group": "Health",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.springhealth.com/careers"
+ },
+ {
+  "firm": "Tempus",
+  "watch": "tech",
+  "group": "Health",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.tempus.com/careers"
+ },
+ {
+  "firm": "Viz.ai",
+  "watch": "tech",
+  "group": "Health",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.viz.ai/careers"
+ },
+ {
+  "firm": "Adecco",
+  "watch": "tech",
+  "group": "Staffing agencies",
+  "reason": "no_reader",
+  "note": "Reviewed but not wired.",
+  "url": "https://www.adeccousa.com/jobs"
+ },
+ {
+  "firm": "Atrium",
+  "watch": "tech",
+  "group": "Staffing agencies",
+  "reason": "blocked",
+  "note": "Site refuses scripted requests.",
+  "url": ""
+ },
+ {
+  "firm": "Hays US",
+  "watch": "tech",
+  "group": "Staffing agencies",
+  "reason": "no_reader",
+  "note": "Search pages returned 404.",
+  "url": "https://www.hays.com"
+ },
+ {
+  "firm": "Ambience Healthcare",
+  "watch": "tech",
+  "group": "Vertical AI",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.ambiencehealthcare.com/careers"
+ },
+ {
+  "firm": "Bolt",
+  "watch": "tech",
+  "group": "Vertical AI",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": ""
+ },
+ {
+  "firm": "Clio",
+  "watch": "tech",
+  "group": "Vertical AI",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.clio.com/about/careers"
+ },
+ {
+  "firm": "EvenUp",
+  "watch": "tech",
+  "group": "Vertical AI",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.evenuplaw.com/careers"
+ },
+ {
+  "firm": "Hebbia",
+  "watch": "tech",
+  "group": "Vertical AI",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.hebbia.com/careers"
+ },
+ {
+  "firm": "Hippocratic AI",
+  "watch": "tech",
+  "group": "Vertical AI",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.hippocraticai.com/careers"
+ },
+ {
+  "firm": "Jasper",
+  "watch": "tech",
+  "group": "Vertical AI",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.jasper.ai/careers"
+ },
+ {
+  "firm": "micro1",
+  "watch": "tech",
+  "group": "Vertical AI",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.micro1.ai/jobs"
+ },
+ {
+  "firm": "Rox",
+  "watch": "tech",
+  "group": "Vertical AI",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://www.rox.com/careers"
+ },
+ {
+  "firm": "Whatnot",
+  "watch": "tech",
+  "group": "Vertical AI",
+  "reason": "no_reader",
+  "note": "Its public job feed is switched off.",
+  "url": "https://www.whatnot.com/careers"
+ }
+]

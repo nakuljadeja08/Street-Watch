@@ -209,3 +209,10 @@ already wired (those two counts cover Greenhouse and Ashby boards).
   all crawling. Find leads from funding news and wire each startup's own board.
 - **Coverage gap:** Workday and other keyword-searched boards only look for "data
   engineer", so the research rule mostly reaches full-feed boards.
+
+### 2026-11-01: "Apply manually" list
+Firms we couldn't add now appear in the dashboard's Apply manually view, from
+`dashboard/src/manualFirms.json` (Street Watch uses the same file). When a firm gets
+wired, delete its row there. Left out on purpose: firms you removed or declined
+(Amazon, Booz Allen, the non-tech employers), rejected agencies, firms since acquired,
+and boards that work but weren't approved.

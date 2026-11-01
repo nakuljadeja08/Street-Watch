@@ -3,6 +3,7 @@ import { supabase, authHeaders } from "./supabaseClient.js";
 import Trends from "./Trends.jsx";
 import { DraftModal, PasteJdModal, fileToBase64 } from "./App.jsx";
 import { useRecruiters, RecruitersView, RecruiterMatches } from "./Recruiters.jsx";
+import ManualFirms, { manualFirmCount } from "./ManualFirms.jsx";
 import { needsFollowUp, daysSinceApplied, researchLinks, jobsToCsv, downloadCsv } from "./tracker.js";
 import "./tech.css";
 
@@ -128,7 +129,7 @@ export default function TechApp({ header, signedIn }) {
   const [cmdFocus, setCmdFocus] = useState(false);
   const [view, setView] = useState(() => {
     const v = new URLSearchParams(window.location.search).get("view");
-    return v === "trends" || v === "recruiters" || v === "funnel" ? v : "list";
+    return v === "trends" || v === "recruiters" || v === "funnel" || v === "manual" ? v : "list";
   });
   const [selId, setSelId] = useState(null);
   const [theme, setTheme] = useState(() => {
@@ -520,6 +521,7 @@ export default function TechApp({ header, signedIn }) {
             <NavItem on={view === "funnel"} onClick={() => setView(view === "funnel" ? "list" : "funnel")}>Funnel</NavItem>
             <NavItem on={view === "trends"} onClick={() => setView(view === "trends" ? "list" : "trends")}>Hiring trends</NavItem>
             <NavItem on={view === "recruiters"} onClick={() => setView(view === "recruiters" ? "list" : "recruiters")}>Recruiters</NavItem>
+            <NavItem on={view === "manual"} n={manualFirmCount("tech")} onClick={() => setView(view === "manual" ? "list" : "manual")}>Apply manually</NavItem>
           </NavGroup>
 
           <NavGroup title="Where">
@@ -650,6 +652,10 @@ export default function TechApp({ header, signedIn }) {
           {view === "recruiters" ? (
             <div className="tw-trends">
               <RecruitersView rec={rec} aiFetch={aiFetch} aiReady={aiReady} onSetupAi={() => setAiOpen(true)} />
+            </div>
+          ) : view === "manual" ? (
+            <div className="tw-trends">
+              <ManualFirms watch="tech" />
             </div>
           ) : view === "trends" ? (
             <div className="tw-trends">
