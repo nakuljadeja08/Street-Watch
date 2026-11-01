@@ -178,3 +178,34 @@ change is the title rule.
   `travelers/wd5/External`, Booz Allen `bah/wd1/BAH_Jobs`, Hartford
   `thehartford/wd5/Careers_External`, DTCC Oracle `ebxr.fa.us2…/CX_1`.
 - **Fix:** the Charlotte hub regex matched "Charlottetown, PEI" (Canada).
+
+### 2026-11-01: startup wave + research/infra title rule
+Approved by Nakul: fast-growing small and mid-sized US startups, plus research
+roles on the data, systems and infrastructure side (he has little ML experience).
+Each board's identity was checked that day. A dry run through the real filters
+kept 43 roles from 26 of the 46 boards, and 19 more research/infra roles on boards
+already wired (those two counts cover Greenhouse and Ashby boards).
+
+- **New sector `Startup`, Ashby, had a matching role:** Prime Intellect, Cartesia,
+  Chai Discovery, Mercor, WorkOS, Fluidstack, Campfire, Tennr, Minerva, Turbopuffer,
+  Physical Intelligence, Numeric, MotherDuck, Omni, People Data Labs, Nous Research,
+  Pika, LangChain, Cloaked, Decagon, Baseten, Thinking Machines. Greenhouse: Branch.
+- **Wired for coverage:** Pinecone, Materialize, Prefect, Atlan, Crusoe, Lambda,
+  Fireworks AI, Cerebras, Cognition, Sierra, Reflection AI, Periodic Labs, 1X, Luma AI,
+  Base Power, Form Energy, SPAN, Helion (Ashby); Dremio, PlanetScale, StarTree, Lila
+  Sciences, Redwood Materials (Greenhouse). Some of these matched once the
+  title rule landed.
+- **Title rule:** `_research_infra` in `tech_pipeline.py` adds Research Engineer and
+  Member of Technical Staff titles that name a data or infrastructure area, plus
+  ML/AI infrastructure or platform engineer titles. Seniority exclusions still apply.
+  Model-heavy titles ("Post-Training"), network/SRE/security/hardware roles and
+  SpaceX Starshield (clearance work) stay out.
+- **Not added:** Cube (the `cube` Ashby board is CUBE, a compliance firm, not
+  cube.dev; no cube.dev board found). Lookalike slugs not used: `vast`, `observeai`,
+  `essential`, `figure`, `axiom`.
+- **Boards still to find:** Function Health, K Health, Viz.ai, Stord, Zipline, Dagster,
+  Statsig, Retool.
+- **Do not use:** `api.getro.com` (VC portfolio job search). Its `robots.txt` disallows
+  all crawling. Find leads from funding news and wire each startup's own board.
+- **Coverage gap:** Workday and other keyword-searched boards only look for "data
+  engineer", so the research rule mostly reaches full-feed boards.

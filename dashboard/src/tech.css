@@ -150,6 +150,7 @@ body.tw-body .addBtn, body.tw-body .clearBtn { border-radius: 7px; }
 .tw-badge.sec-finance { background: var(--tw-finS); color: var(--tw-fin); }
 .tw-badge.sec-agency { background: var(--tw-agyS); color: var(--tw-agy); }
 .tw-badge.sec-energy { background: var(--tw-engS); color: var(--tw-eng); }
+.tw-badge.sec-startup { background: var(--tw-newS); color: var(--tw-new); }
 .tw-badge.st-applied, .tw-badge.st-interview, .tw-badge.st-offer { background: var(--tw-accS); color: var(--tw-acc); }
 .tw-badge.st-rejected { background: var(--tw-badS); color: var(--tw-bad); }
 .tw-age { font-size: 12px; color: var(--tw-faint); width: 30px; text-align: right; font-variant-numeric: tabular-nums; }
