@@ -744,18 +744,6 @@
     "is_new": false
   },
   {
-    "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0120890EXTERNALENUS",
-    "title": "Wealth Advisor Associate",
-    "location": "Chicago, Illinois, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Chicago-IL/Wealth-Advisor-Associate_R0120890",
-    "source": "phenom",
-    "posted_date": "2026-10-28",
-    "metro": "Chicago",
-    "first_seen": "2026-10-28",
-    "is_new": false
-  },
-  {
     "firm": "U.S. Bancorp",
     "id": "wd-usbank-US_Bank_Careers-/job/Springfield-IL/Client-Relationship-Consultant-2--Banker----Land-of-Lincoln--Springfield--IL_2026-0022732",
     "title": "Client Relationship Consultant 2 (Banker) - Land of Lincoln, Springfield, IL - $1,500 Sign On Bonus",
@@ -1567,18 +1555,6 @@
     "url": "https://www.roberthalf.com/us/en/job/irvine-ca/financial-analyst/00350-0013507229-usen",
     "source": "roberthalf",
     "posted_date": "2026-10-27",
-    "metro": "Los Angeles",
-    "first_seen": "2026-10-24",
-    "is_new": false
-  },
-  {
-    "firm": "Saks Global",
-    "id": "phenom-careers.exemplarluxurygroup.com-SFAVUSR109040EXTERNALENUS",
-    "title": "Top Stylist Product Coordinator",
-    "location": "Newport Beach, California, United States of America",
-    "url": "https://saks.wd1.myworkdayjobs.com/careers_at_saks/job/NM_0218_NEWPORT-BEACH/Top-Stylist-Product-Coordinator_R-109040",
-    "source": "phenom",
-    "posted_date": "2026-10-08",
     "metro": "Los Angeles",
     "first_seen": "2026-10-24",
     "is_new": false
@@ -7897,6 +7873,54 @@
   },
   {
     "firm": "RBC Capital Markets",
+    "id": "phenom-jobs.rbc.com-RBCAA0088R0000189705EXTERNALENCA",
+    "title": "Analyst, Global Investment Banking, Consumer & Retail",
+    "location": "New York, New York, United States of America",
+    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Analyst--Global-Investment-Banking--Consumer---Retail_R-0000189705",
+    "source": "phenom",
+    "posted_date": "2026-10-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-06",
+    "is_new": false
+  },
+  {
+    "firm": "RBC Capital Markets",
+    "id": "phenom-jobs.rbc.com-RBCAA0088R0000189662EXTERNALENCA",
+    "title": "Analyst/ Associate,  Collateral Analyst",
+    "location": "New York, New York, United States of America",
+    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Analyst--Associate---Collateral-Analyst_R-0000189662",
+    "source": "phenom",
+    "posted_date": "2026-10-27",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-28",
+    "is_new": false
+  },
+  {
+    "firm": "RBC Capital Markets",
+    "id": "phenom-jobs.rbc.com-RBCAA0088R0000183168EXTERNALENCA",
+    "title": "Associate, Financial Institutions Group Corporate Banking",
+    "location": "New York, New York, United States of America",
+    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Associate--Financial-Institutions-Group-Corporate-Banking_R-0000183168",
+    "source": "phenom",
+    "posted_date": "2026-10-02",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-02",
+    "is_new": false
+  },
+  {
+    "firm": "RBC Capital Markets",
+    "id": "phenom-jobs.rbc.com-RBCAA0088R0000189701EXTERNALENCA",
+    "title": "Associate, Global Investment Banking, Consumer & Retail",
+    "location": "New York, New York, United States of America",
+    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Associate--Global-Investment-Banking--Consumer---Retail_R-0000189701-1",
+    "source": "phenom",
+    "posted_date": "2026-10-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-06",
+    "is_new": false
+  },
+  {
+    "firm": "RBC Capital Markets",
     "id": "phenom-jobs.rbc.com-RBCAA0088R0000188215EXTERNALENCA",
     "title": "Associate, Product Control",
     "location": "Jersey City, New Jersey, United States of America",
@@ -8901,6 +8925,18 @@
     "posted_date": "2026-10-15",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-24",
+    "is_new": false
+  },
+  {
+    "firm": "Truist Securities",
+    "id": "phenom-careers.truist.com-TBJTBFUSR0120573EXTERNALENUS",
+    "title": "ECM Corporate Services Associate III",
+    "location": "New York, New York, USA",
+    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY/ECM-Corporate-Services-Associate-III_R0120573",
+    "source": "phenom",
+    "posted_date": "2026-10-08",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-09",
     "is_new": false
   },
   {
