@@ -3,6 +3,7 @@ import { supabase, STATUSES, authHeaders } from "./supabaseClient.js";
 import FIRM_CATEGORIES from "../../firm_categories.json";
 import Trends from "./Trends.jsx";
 import { useRecruiters, RecruitersView, RecruitersButton } from "./Recruiters.jsx";
+import ManualFirms from "./ManualFirms.jsx";
 import { needsFollowUp, daysSinceApplied, researchLinks, jobsToCsv, downloadCsv, FOLLOW_UP_DAYS } from "./tracker.js";
 
 // firm -> type ("PE & Alts", "Bulge Bracket", …); shared with pipeline.py
@@ -165,7 +166,7 @@ function initialParams() {
       statusFilter: p.get("status") || "all",
       q: p.get("q") || "",
       sort: SORTS.some((s) => s.v === p.get("sort")) ? p.get("sort") : "default",
-      view: ["board", "funnel", "trends", "recruiters"].includes(p.get("view")) ? p.get("view") : "list",
+      view: ["board", "funnel", "trends", "recruiters", "manual"].includes(p.get("view")) ? p.get("view") : "list",
     };
   } catch {
     return { metro: "all", segment: "all", category: "all", level: "any", recency: "all", statusFilter: "all", q: "", sort: "default", view: "list" };
@@ -927,11 +928,12 @@ export default function App({ signedIn = false, header = null }) {
               { v: "funnel", label: "Funnel" },
               { v: "trends", label: "Trends" },
               { v: "recruiters", label: "Recruiters" },
+              { v: "manual", label: "Apply manually" },
             ]}
             value={view}
             onChange={setView}
           />
-          {view !== "recruiters" && (
+          {view !== "recruiters" && view !== "manual" && (
           <>
           <Seg options={SEGMENTS} value={segment} onChange={setSegment} />
           <Seg options={METROS.map((m) => ({ v: m, label: METRO_LABEL[m] }))} value={metro} onChange={setMetro} />
@@ -999,7 +1001,7 @@ export default function App({ signedIn = false, header = null }) {
           </>
           )}
         </div>
-        {view !== "recruiters" && (naming || searches.length > 0) && (
+        {view !== "recruiters" && view !== "manual" && (naming || searches.length > 0) && (
           <div className="saved-in">
             {naming && (
               <SaveSearchForm
@@ -1029,6 +1031,8 @@ export default function App({ signedIn = false, header = null }) {
           <Trends metro={metro} segment={segment} segmentOf={segmentOf} category={category} q={q} categoryOf={categoryOf} />
         ) : view === "recruiters" ? (
           <RecruitersView rec={rec} aiFetch={aiFetch} aiReady={aiReady} onSetupAi={() => setAiOpen(true)} />
+        ) : view === "manual" ? (
+          <ManualFirms watch="street" />
         ) : view === "funnel" ? (
           <FunnelView board={board} boardTotal={boardTotal} loading={loading} filtersActive={filtersActive} onExport={exportTracked} />
         ) : (

@@ -200,3 +200,12 @@ B. Riley Securities · Loop Capital Markets · Allen & Company
 - **Removed at your request (2026-09-24):** PNC · Northern Trust · M&T Bank
 - **Dragonfly:** crypto VC fund; its jobs page lists portfolio companies' roles,
   not Dragonfly's own
+
+---
+
+## Apply manually list (added 2026-11-01)
+Firms we couldn't add appear in the dashboard's Apply manually view, from
+`dashboard/src/manualFirms.json` (Tech Watch uses the same file). When a firm gets
+wired, delete its row there. Left out on purpose: PNC, Northern Trust and M&T (removed
+at your request), the excluded regional banks, Western Asset (its roles run through
+Franklin Templeton), Sephora US (on the LVMH board), and rejected agencies.
