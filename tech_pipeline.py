@@ -217,6 +217,32 @@ ASHBY["Fintech"].update({"Polymarket": "polymarket", "Kalshi": "kalshi"})
 LEVER["Tech"].update({"Lyra Health": "lyrahealth"})
 SMARTRECRUITERS = {"Tech": {"ServiceNow": "ServiceNow"}}   # firm -> company id
 
+# Startup wave (approved by the user 2026-11-01, see TECH_FIRMS.md). Fast-growing
+# small/mid US startups, sector "Startup". Each board's identity was checked that
+# day; first group had a matching role, the rest are wired for coverage.
+ASHBY["Startup"] = {
+    "Prime Intellect": "primeintellect", "Cartesia": "cartesia", "Chai Discovery": "chaidiscovery",
+    "Mercor": "mercor", "WorkOS": "workos", "Fluidstack": "fluidstack", "Campfire": "campfire",
+    "Tennr": "tennr", "Minerva": "minerva", "Turbopuffer": "turbopuffer",
+    "Physical Intelligence": "physicalintelligence", "Numeric": "numeric",
+    "MotherDuck": "motherduck", "Omni": "omni", "People Data Labs": "people-data-labs",
+    "Nous Research": "nousresearch", "Pika": "pika", "LangChain": "langchain",
+    "Cloaked": "cloaked", "Decagon": "decagon", "Baseten": "baseten",
+    "Thinking Machines": "thinkingmachines",
+    # coverage
+    "Pinecone": "pinecone", "Materialize": "materialize", "Prefect": "prefect", "Atlan": "atlan",
+    "Crusoe": "crusoe", "Lambda": "lambda", "Fireworks AI": "fireworks", "Cerebras": "cerebras",
+    "Cognition": "cognition", "Sierra": "sierra", "Reflection AI": "reflectionai",
+    "Periodic Labs": "periodic-labs", "1X": "1x", "Luma AI": "lumaai",
+    "Base Power": "base-power", "Form Energy": "formenergy", "SPAN": "span", "Helion": "helion",
+}
+GREENHOUSE["Startup"] = {
+    "Branch": "branch",
+    # coverage
+    "Dremio": "dremio", "PlanetScale": "planetscale", "StarTree": "startree",
+    "Lila Sciences": "lilasciences", "Redwood Materials": "redwoodmaterials",
+}
+
 # Custom-fetcher firms (TASKS.md, added 2026-09-28). Same ATS products Street
 # Watch already scrapes, so they reuse its fetchers.
 ORACLE = {"Tech": {"Dell": ("enterpriseplatform.dell.com", "CX_1001", "careers")}}
@@ -600,8 +626,35 @@ _INFRA_DATA_RE = re.compile(
     r"|ingestion|\betl\b|\bspark\b|\bkafka\b|\bflink\b|lakeflow", re.I)
 _SOFTWARE_RE = re.compile(r"\bsoftware\b", re.I)
 
+# Research and ML-infra roles on the data/systems side (user, 2026-11-01: little
+# ML experience, so model-heavy "Post-Training" titles stay out). The area list
+# skips "systems", "storage" and "performance", which match battery/hardware
+# research at energy firms.
+_RESEARCH_RE = re.compile(
+    r"\bresearch\s+(?!and\b)(?:\w+\s+){0,2}?engineer|\bresearch\s+scientist\s*/\s*engineer"
+    r"|\bmember\s+of\s+technical\s+staff", re.I)
+_RESEARCH_AREA_RE = re.compile(
+    r"\bdata\b|\bdatasets?\b|\bpipelines?\b|\binfra\w*|\bdistributed\b|\bcompute\b|\bclusters?\b"
+    r"|\binference\b|\bplatform\b", re.I)
+_ML_INFRA_RE = re.compile(
+    r"\b(?:ml|ai|machine\s+learning|training|inference|model)\s+(?:infra\w*|platform)\b", re.I)
+_ENGINEER_RE = re.compile(r"\bengineer", re.I)
+_INFRA_ROLE_EXCLUDE_RE = re.compile(
+    r"\bnetwork\b|site\s+reliability|\bsre\b|\bfde\b|\bsecurity\b|\bhardware\b|\bscientist\b(?!\s*/\s*engineer)"
+    r"|\btpm\b|\bstarshield\b", re.I)                    # Starshield is clearance work, like Booz Allen (declined 2026-10-22)
+_MTS_RE = re.compile(r"\bmember\s+of\s+technical\s+staff\b", re.I)   # "Staff" here is not a seniority level
+
+
+def _research_infra(title):
+    if _INFRA_ROLE_EXCLUDE_RE.search(title):
+        return False
+    return bool((_RESEARCH_RE.search(title) and _RESEARCH_AREA_RE.search(title))
+                or (_ML_INFRA_RE.search(title) and _ENGINEER_RE.search(title)))
+
 
 def title_ok(title, firm=None):
+    if _research_infra(title):
+        return not _DE_EXCLUDE_RE.search(_SOFTWARE_RE.sub("", _MTS_RE.sub("", title)))
     if _INFRA_SWE_RE.search(title) and _INFRA_DATA_RE.search(title):
         return not _DE_EXCLUDE_RE.search(_SOFTWARE_RE.sub("", title))
     return _looks_de(title) and not _DE_EXCLUDE_RE.search(title)
@@ -789,7 +842,8 @@ def _matches_search(j, f):
 BG, PANEL, INK, SOFT, FAINT, LINE = "#eef0f4", "#ffffff", "#0f1115", "#5b6270", "#8a919e", "#e4e7ec"
 ACC, NEW, TERM, TERM_INK, TERM_DIM, AMBER, CYAN = "#2b59ff", "#0a8f5c", "#0d1117", "#c9d1d9", "#6e7681", "#e3b341", "#79c0ff"
 SECT = {"Tech": ("#e8ecfd", "#3148c8"), "Fintech": ("#e6f4f1", "#0f766e"), "Finance": ("#fbf1dc", "#8a5a00"),
-        "Agency": ("#f3eafb", "#7a3aa8"), "Energy": ("#fcebe0", "#b1480f")}
+        "Agency": ("#f3eafb", "#7a3aa8"), "Energy": ("#fcebe0", "#b1480f"),
+        "Startup": ("#e3f6ec", "#0a7d50")}
 SANS = "'Geist', 'IBM Plex Sans', -apple-system, Segoe UI, Arial, sans-serif"
 MONO = "'JetBrains Mono', 'Geist Mono', ui-monospace, 'Courier New', monospace"
 FONTS = ("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&"

@@ -113,12 +113,20 @@ export async function saveDescription(jobId, text) {
 // in job_details under a "research:<firm>" key, so roles at the same firm reuse
 // it. Returns "" if search is unavailable — drafting then proceeds without it.
 const RESEARCH_TTL_MS = 14 * 86400000;
+// Hard wall-clock cap on the (serial, blocking) web-search loop. Outside-job
+// firms are almost never cached, so this loop runs on nearly every outside
+// draft; left unbounded it could eat the whole function budget and leave no
+// time to actually write the letter — which is what produced the 504s. When
+// the cap is hit we abort the search and let drafting proceed without research.
+const RESEARCH_BUDGET_MS = 120000;
 
 export async function researchFirm(job, description) {
   const key = `research:${job.firm}`;
   const { data } = await db().from("job_details").select("description, fetched_at").eq("job_id", key).maybeSingle();
   if (data?.description && Date.now() - Date.parse(data.fetched_at) < RESEARCH_TTL_MS) return data.description;
 
+  const controller = new AbortController();
+  const budget = setTimeout(() => controller.abort(), RESEARCH_BUDGET_MS);
   try {
     const messages = [
       {
@@ -133,13 +141,16 @@ export async function researchFirm(job, description) {
     ];
     let response;
     for (let turn = 0; turn < 3; turn++) {
-      response = await claude().messages.create({
-        model: MODEL,
-        max_tokens: 6000,
-        output_config: { effort: "low" },
-        tools: [{ type: "web_search_20260209", name: "web_search", max_uses: 5 }],
-        messages,
-      });
+      response = await claude().messages.create(
+        {
+          model: MODEL,
+          max_tokens: 6000,
+          output_config: { effort: "low" },
+          tools: [{ type: "web_search_20260209", name: "web_search", max_uses: 5 }],
+          messages,
+        },
+        { signal: controller.signal },
+      );
       if (response.stop_reason !== "pause_turn") break;
       messages.push({ role: "assistant", content: response.content }); // server resumes the search loop
     }
@@ -155,8 +166,11 @@ export async function researchFirm(job, description) {
     }
     return brief;
   } catch (e) {
-    console.warn(`firm research failed for ${job.firm}: ${e.message}`);
+    const reason = controller.signal.aborted ? `timed out after ${RESEARCH_BUDGET_MS / 1000}s` : e.message;
+    console.warn(`firm research failed for ${job.firm}: ${reason}`);
     return "";
+  } finally {
+    clearTimeout(budget);
   }
 }
 

@@ -112,6 +112,7 @@ const TECH_SECTOR_IND = {
   Tech: ["HIT", "SFT", "WWW", "BIG", "CYB", "CMP", "APP"],
   Fintech: ["FTC", "FIN"],
   Finance: ["FIN", "BAN", "INV"],
+  Startup: ["HIT", "SFT", "WWW", "BIG", "CYB", "CMP", "APP"],
 };
 
 function jobCodes(job, watch, category) {
