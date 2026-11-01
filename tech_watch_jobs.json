@@ -117,19 +117,6 @@
     "is_new": false
   },
   {
-    "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0120831EXTERNALENUS",
-    "title": "Security Engineer (Data Engineering/ Protection)",
-    "location": "Charlotte, North Carolina, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Charlotte-NC/Security-Engineer--Data-Engineering--Protection-_R0120831",
-    "source": "phenom",
-    "posted_date": "2026-10-26",
-    "metro": "Charlotte",
-    "sector": "Finance",
-    "first_seen": "2026-10-17",
-    "is_new": false
-  },
-  {
     "firm": "Comcast",
     "id": "wd-comcast-Comcast_Careers-/job/IL---Chicago-350-N-Orleans-St-1300N/Data-Engineer-3---Reston--VA---Freewheel_R444945",
     "title": "Data Engineer 3 - Reston, VA - Freewheel",
@@ -149,7 +136,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Cloud-Data-Platform-Engineer_R158514-1",
     "source": "workday",
-    "posted_date": "2026-09-30",
+    "posted_date": "2026-10-01",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -162,7 +149,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Analytics-Engineer_R150313",
     "source": "workday",
-    "posted_date": "2026-09-30",
+    "posted_date": "2026-10-01",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -175,7 +162,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Program-Engineer_R150311",
     "source": "workday",
-    "posted_date": "2026-09-30",
+    "posted_date": "2026-10-01",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -257,7 +244,7 @@
     "metro": "NYC Area",
     "sector": "Tech",
     "first_seen": "2026-10-31",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Anthropic",
@@ -416,32 +403,6 @@
     "is_new": false
   },
   {
-    "firm": "Jump Trading",
-    "id": "gh-jumptrading-8171060",
-    "title": "Data Engineer",
-    "location": "New York or Chicago",
-    "url": "https://www.jumptrading.com/hr/job?gh_jid=8171060",
-    "source": "greenhouse",
-    "posted_date": "2026-09-01",
-    "metro": "NYC Area",
-    "sector": "Finance",
-    "first_seen": "2026-09-27",
-    "is_new": false
-  },
-  {
-    "firm": "Jump Trading",
-    "id": "gh-jumptrading-8171513",
-    "title": "Derived Data Engineer",
-    "location": "Chicago or New York",
-    "url": "https://www.jumptrading.com/hr/job?gh_jid=8171513",
-    "source": "greenhouse",
-    "posted_date": "2026-09-01",
-    "metro": "NYC Area",
-    "sector": "Finance",
-    "first_seen": "2026-09-27",
-    "is_new": false
-  },
-  {
     "firm": "KKR",
     "id": "gh-stage-6226589004",
     "title": "Associate, Data Engineer",
@@ -495,10 +456,10 @@
   },
   {
     "firm": "Meta",
-    "id": "meta-1283364266159062",
+    "id": "meta-3713685685437806",
     "title": "Data Engineer, Product Analytics",
-    "location": "Sunnyvale, CA; Bellevue, WA; Menlo Park, CA; Burlingame, CA; Remote, US; New York, NY; San Francisco, CA",
-    "url": "https://www.metacareers.com/profile/job_details/1283364266159062",
+    "location": "Remote, US; Bellevue, WA; Menlo Park, CA; Seattle, WA; New York, NY; San Francisco, CA; Fremont, CA",
+    "url": "https://www.metacareers.com/profile/job_details/3713685685437806",
     "source": "meta",
     "posted_date": null,
     "metro": "NYC Area",
@@ -508,10 +469,10 @@
   },
   {
     "firm": "Meta",
-    "id": "meta-3713685685437806",
+    "id": "meta-1283364266159062",
     "title": "Data Engineer, Product Analytics",
-    "location": "Remote, US; Bellevue, WA; Menlo Park, CA; Seattle, WA; New York, NY; San Francisco, CA; Fremont, CA",
-    "url": "https://www.metacareers.com/profile/job_details/3713685685437806",
+    "location": "Sunnyvale, CA; Bellevue, WA; Menlo Park, CA; Burlingame, CA; Remote, US; New York, NY; San Francisco, CA",
+    "url": "https://www.metacareers.com/profile/job_details/1283364266159062",
     "source": "meta",
     "posted_date": null,
     "metro": "NYC Area",
@@ -539,7 +500,7 @@
     "location": "MetroPark",
     "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/MetroPark/Cloud-Data-Engineer_R7127",
     "source": "workday",
-    "posted_date": "2026-09-30",
+    "posted_date": "2026-10-01",
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -565,7 +526,7 @@
     "location": "New York, New York, United States of America",
     "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Data-Engineer---Financial-Crimes---Associate_PT-JR035703",
     "source": "workday",
-    "posted_date": "2026-09-30",
+    "posted_date": "2026-10-01",
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-10-21",
@@ -660,7 +621,7 @@
     "metro": "Other US",
     "sector": "Fintech",
     "first_seen": "2026-10-31",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Gopuff",
@@ -721,7 +682,7 @@
     "location": "USA - Philadelphia - Pennsylvania",
     "url": "https://nasdaq.wd1.myworkdayjobs.com/Global_External_Site/job/USA---Philadelphia---Pennsylvania/Data-Software-Engineer_R0026752",
     "source": "workday",
-    "posted_date": "2026-09-30",
+    "posted_date": "2026-10-01",
     "metro": "Other US",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -755,19 +716,6 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-02310-0013504307-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Avon, MN",
-    "url": "https://www.roberthalf.com/us/en/job/avon-mn/data-engineer/02310-0013504307-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-20",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-16",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
     "id": "roberthalf-02310-0013535137-usen",
     "title": "Data Engineer \u00b7 Direct hire",
     "location": "Minneapolis, MN",
@@ -794,6 +742,19 @@
   },
   {
     "firm": "Robert Half",
+    "id": "roberthalf-02310-0013504307-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Avon, MN",
+    "url": "https://www.roberthalf.com/us/en/job/avon-mn/data-engineer/02310-0013504307-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-20",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-16",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
     "id": "roberthalf-01120-0013490448-usen",
     "title": "Data Engineer \u00b7 Direct hire",
     "location": "Jacksonville, FL",
@@ -807,15 +768,15 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-03500-0013380490-usen",
+    "id": "roberthalf-01500-0013497785-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Oklahoma City, OK",
-    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
+    "location": "Oskaloosa, IA",
+    "url": "https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-28",
+    "posted_date": "2026-10-13",
     "metro": "Other US",
     "sector": "Agency",
-    "first_seen": "2026-10-05",
+    "first_seen": "2026-10-13",
     "is_new": false
   },
   {
@@ -833,15 +794,15 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-01500-0013497785-usen",
+    "id": "roberthalf-03500-0013380490-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Oskaloosa, IA",
-    "url": "https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen",
+    "location": "Oklahoma City, OK",
+    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-13",
+    "posted_date": "2026-10-28",
     "metro": "Other US",
     "sector": "Agency",
-    "first_seen": "2026-10-13",
+    "first_seen": "2026-10-05",
     "is_new": false
   },
   {
@@ -1596,7 +1557,7 @@
     "metro": "Texas",
     "sector": "Finance",
     "first_seen": "2026-10-31",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Google",
