@@ -104,17 +104,17 @@
     "is_new": false
   },
   {
-    "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0120978EXTERNALENUS",
-    "title": "Data Engineer",
-    "location": "Charlotte, North Carolina, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Charlotte-NC/Data-Engineer_R0120978-1",
-    "source": "phenom",
-    "posted_date": "2026-10-20",
+    "firm": "Capital Group",
+    "id": "wd-capgroup-capitalgroupcareers-/job/Charlotte/Platform-Engineer-IV_JR6886",
+    "title": "AI Platform Engineer",
+    "location": "Charlotte",
+    "url": "https://capgroup.wd1.myworkdayjobs.com/capitalgroupcareers/job/Charlotte/Platform-Engineer-IV_JR6886",
+    "source": "workday",
+    "posted_date": "2026-10-02",
     "metro": "Charlotte",
     "sector": "Finance",
-    "first_seen": "2026-10-21",
-    "is_new": false
+    "first_seen": "2026-11-02",
+    "is_new": true
   },
   {
     "firm": "Truist Securities",
@@ -143,43 +143,17 @@
     "is_new": false
   },
   {
-    "firm": "Northern Trust",
-    "id": "wd-ntrs-northerntrust-/job/Chicago-IL/Cloud-Data-Platform-Engineer_R158514-1",
-    "title": "Cloud Data Platform Engineer",
-    "location": "Chicago, IL",
-    "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Cloud-Data-Platform-Engineer_R158514-1",
-    "source": "workday",
-    "posted_date": "2026-10-01",
+    "firm": "DRW",
+    "id": "gh-drweng-8230509",
+    "title": "AI Inference Platform Engineer",
+    "location": "Chicago",
+    "url": "https://job-boards.greenhouse.io/drweng/jobs/8230509",
+    "source": "greenhouse",
+    "posted_date": "2026-09-29",
     "metro": "Chicago",
     "sector": "Finance",
-    "first_seen": "2026-09-27",
-    "is_new": false
-  },
-  {
-    "firm": "Northern Trust",
-    "id": "wd-ntrs-northerntrust-/job/Chicago-IL/Data-Analytics-Engineer_R150313",
-    "title": "Data Analytics Engineer",
-    "location": "Chicago, IL",
-    "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Analytics-Engineer_R150313",
-    "source": "workday",
-    "posted_date": "2026-10-01",
-    "metro": "Chicago",
-    "sector": "Finance",
-    "first_seen": "2026-09-27",
-    "is_new": false
-  },
-  {
-    "firm": "Northern Trust",
-    "id": "wd-ntrs-northerntrust-/job/Chicago-IL/Data-Program-Engineer_R150311",
-    "title": "Data Program Engineer",
-    "location": "Chicago, IL",
-    "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Program-Engineer_R150311",
-    "source": "workday",
-    "posted_date": "2026-10-01",
-    "metro": "Chicago",
-    "sector": "Finance",
-    "first_seen": "2026-09-27",
-    "is_new": false
+    "first_seen": "2026-11-02",
+    "is_new": true
   },
   {
     "firm": "Franklin Templeton",
@@ -232,6 +206,19 @@
     "sector": "Agency",
     "first_seen": "2026-10-05",
     "is_new": false
+  },
+  {
+    "firm": "Addepar",
+    "id": "gh-addepar1-8906234002",
+    "title": "AI Engineer - AI Platform",
+    "location": "New York, NY",
+    "url": "https://job-boards.greenhouse.io/addepar1/jobs/8906234002",
+    "source": "greenhouse",
+    "posted_date": "2026-10-27",
+    "metro": "NYC Area",
+    "sector": "Fintech",
+    "first_seen": "2026-11-02",
+    "is_new": true
   },
   {
     "firm": "Addepar",
@@ -312,6 +299,19 @@
     "is_new": false
   },
   {
+    "firm": "Anthropic",
+    "id": "gh-anthropic-5438030008",
+    "title": "Research Engineer / Performance Engineer, RL Distributed Systems",
+    "location": "San Francisco, CA | New York City, NY | Seattle, WA",
+    "url": "https://job-boards.greenhouse.io/anthropic/jobs/5438030008",
+    "source": "greenhouse",
+    "posted_date": "2026-09-29",
+    "metro": "NYC Area",
+    "sector": "Tech",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
     "firm": "Carlyle",
     "id": "wd-carlyle-Carlyle-/job/New-York-NY/Data-Engineer_R-00280",
     "title": "Data Engineer",
@@ -336,6 +336,19 @@
     "sector": "Finance",
     "first_seen": "2026-09-27",
     "is_new": false
+  },
+  {
+    "firm": "Cloaked",
+    "id": "ashby-cloaked-f749ab20-4fa2-45e8-8ef6-aba01f0a645e",
+    "title": "Analytics Engineer, Semantic Layer",
+    "location": "New York, NY",
+    "url": "https://jobs.ashbyhq.com/cloaked/f749ab20-4fa2-45e8-8ef6-aba01f0a645e",
+    "source": "ashby",
+    "posted_date": "2026-10-16",
+    "metro": "NYC Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
   },
   {
     "firm": "Comcast",
@@ -414,6 +427,19 @@
     "sector": "Tech",
     "first_seen": "2026-10-22",
     "is_new": false
+  },
+  {
+    "firm": "Harvey",
+    "id": "ashby-harvey-7d5946ab-9b70-4c33-9e0f-cadbf0b892aa",
+    "title": "Research Engineer, Infrastructure",
+    "location": "New York",
+    "url": "https://jobs.ashbyhq.com/harvey/7d5946ab-9b70-4c33-9e0f-cadbf0b892aa",
+    "source": "ashby",
+    "posted_date": "2026-10-29",
+    "metro": "NYC Area",
+    "sector": "Tech",
+    "first_seen": "2026-11-02",
+    "is_new": true
   },
   {
     "firm": "KKR",
@@ -507,13 +533,26 @@
     "is_new": false
   },
   {
+    "firm": "Minerva",
+    "id": "ashby-minerva-6ea8cc3e-cafb-4c3d-bcd9-49336b368988",
+    "title": "Data Platform Engineer, Ingestion",
+    "location": "New York City",
+    "url": "https://jobs.ashbyhq.com/minerva/6ea8cc3e-cafb-4c3d-bcd9-49336b368988",
+    "source": "ashby",
+    "posted_date": "2026-10-23",
+    "metro": "NYC Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
     "firm": "Mizuho",
     "id": "wd-mizuho-mizuhoamericas-/job/MetroPark/Cloud-Data-Engineer_R7127",
     "title": "Cloud Data Engineer",
     "location": "MetroPark",
     "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/MetroPark/Cloud-Data-Engineer_R7127",
     "source": "workday",
-    "posted_date": "2026-10-01",
+    "posted_date": "2026-10-02",
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -539,11 +578,37 @@
     "location": "New York, New York, United States of America",
     "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Data-Engineer---Financial-Crimes---Associate_PT-JR035703",
     "source": "workday",
-    "posted_date": "2026-10-01",
+    "posted_date": "2026-10-02",
     "metro": "NYC Area",
     "sector": "Finance",
     "first_seen": "2026-10-21",
     "is_new": false
+  },
+  {
+    "firm": "MotherDuck",
+    "id": "ashby-motherduck-111fd8f5-a8ad-4aa4-937f-79da7c2184db",
+    "title": "Software Engineer - Database",
+    "location": "New York City",
+    "url": "https://jobs.ashbyhq.com/motherduck/111fd8f5-a8ad-4aa4-937f-79da7c2184db",
+    "source": "ashby",
+    "posted_date": "2026-10-30",
+    "metro": "NYC Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Numeric",
+    "id": "ashby-numeric-f508976c-a20b-4ac4-a103-4c30d65b81eb",
+    "title": "Software Engineer, Data Platform",
+    "location": "New York",
+    "url": "https://jobs.ashbyhq.com/numeric/f508976c-a20b-4ac4-a103-4c30d65b81eb",
+    "source": "ashby",
+    "posted_date": "2026-09-14",
+    "metro": "NYC Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
   },
   {
     "firm": "Palantir",
@@ -557,6 +622,32 @@
     "sector": "Tech",
     "first_seen": "2026-10-08",
     "is_new": false
+  },
+  {
+    "firm": "Reflection AI",
+    "id": "ashby-reflectionai-d5e3d318-79b4-4104-9e72-5a48ddfad114",
+    "title": "Member of Technical Staff - Data Platform",
+    "location": "New York, NY",
+    "url": "https://jobs.ashbyhq.com/reflectionai/d5e3d318-79b4-4104-9e72-5a48ddfad114",
+    "source": "ashby",
+    "posted_date": "2026-09-30",
+    "metro": "NYC Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Reflection AI",
+    "id": "ashby-reflectionai-5c9835ae-4424-41ab-8585-16aefcce5a7a",
+    "title": "Member of Technical Staff - Pre-Training Evals Infra",
+    "location": "New York, NY",
+    "url": "https://jobs.ashbyhq.com/reflectionai/5c9835ae-4424-41ab-8585-16aefcce5a7a",
+    "source": "ashby",
+    "posted_date": "2026-10-13",
+    "metro": "NYC Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
   },
   {
     "firm": "Rogo",
@@ -585,6 +676,45 @@
     "is_new": false
   },
   {
+    "firm": "Tennr",
+    "id": "ashby-tennr-ce18e908-3e76-4828-a95d-ef98569937e0",
+    "title": "Data Engineer",
+    "location": "New York City Office",
+    "url": "https://jobs.ashbyhq.com/tennr/ce18e908-3e76-4828-a95d-ef98569937e0",
+    "source": "ashby",
+    "posted_date": "2026-09-28",
+    "metro": "NYC Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Tower Research Capital",
+    "id": "gh-towerresearchcapital-8095925",
+    "title": "Research Platform Engineer",
+    "location": "New York",
+    "url": "https://www.tower-research.com/open-positions/?gh_jid=8095925",
+    "source": "greenhouse",
+    "posted_date": "2026-10-01",
+    "metro": "NYC Area",
+    "sector": "Finance",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Vercel",
+    "id": "gh-vercel-6231535004",
+    "title": "Member of Technical Staff, Finance Data",
+    "location": "Hybrid - San Francisco, New York City",
+    "url": "https://job-boards.greenhouse.io/vercel/jobs/6231535004",
+    "source": "greenhouse",
+    "posted_date": "2026-10-22",
+    "metro": "NYC Area",
+    "sector": "Tech",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
     "firm": "Carvana",
     "id": "gh-carvana-8188615",
     "title": "Data Product Engineer",
@@ -598,17 +728,17 @@
     "is_new": false
   },
   {
-    "firm": "Charles Schwab",
-    "id": "charles-95734216864",
-    "title": "ETL Developer - Data Engineer",
-    "location": "Southlake, TX",
-    "url": "https://www.schwabjobs.com/job/southlake/etl-developer-data-engineer/33727/95734216864",
-    "source": "charles",
-    "posted_date": null,
+    "firm": "Cohere",
+    "id": "ashby-cohere-eef82766-7e31-430f-a102-bc33a5022597",
+    "title": "Member of Technical Staff - Post-training (Data Infrastructure)",
+    "location": "United States",
+    "url": "https://jobs.ashbyhq.com/cohere/eef82766-7e31-430f-a102-bc33a5022597",
+    "source": "ashby",
+    "posted_date": "2026-10-14",
     "metro": "Other US",
-    "sector": "Finance",
-    "first_seen": "2026-09-29",
-    "is_new": false
+    "sector": "Tech",
+    "first_seen": "2026-11-02",
+    "is_new": true
   },
   {
     "firm": "Elastic",
@@ -689,17 +819,43 @@
     "is_new": false
   },
   {
+    "firm": "Meta",
+    "id": "meta-2207519130043101",
+    "title": "Research Engineer, Synthetic Data Generation",
+    "location": "Burlingame, CA",
+    "url": "https://www.metacareers.com/profile/job_details/2207519130043101",
+    "source": "meta",
+    "posted_date": null,
+    "metro": "Other US",
+    "sector": "Tech",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
     "firm": "Nasdaq",
     "id": "wd-nasdaq-Global_External_Site-/job/USA---Philadelphia---Pennsylvania/Data-Software-Engineer_R0026752",
     "title": "Data Software Engineer",
     "location": "USA - Philadelphia - Pennsylvania",
     "url": "https://nasdaq.wd1.myworkdayjobs.com/Global_External_Site/job/USA---Philadelphia---Pennsylvania/Data-Software-Engineer_R0026752",
     "source": "workday",
-    "posted_date": "2026-10-01",
+    "posted_date": "2026-10-02",
     "metro": "Other US",
     "sector": "Finance",
     "first_seen": "2026-09-27",
     "is_new": false
+  },
+  {
+    "firm": "Nous Research",
+    "id": "ashby-nousresearch-170e061a-5df1-420c-84df-c2d20ef93dbd",
+    "title": "Data Engineer",
+    "location": "Americas (US time zones)",
+    "url": "https://jobs.ashbyhq.com/nousresearch/170e061a-5df1-420c-84df-c2d20ef93dbd",
+    "source": "ashby",
+    "posted_date": "2026-10-15",
+    "metro": "Other US",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
   },
   {
     "firm": "Robert Half",
@@ -725,19 +881,6 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-02310-0013535137-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Minneapolis, MN",
-    "url": "https://www.roberthalf.com/us/en/job/minneapolis-mn/data-engineer/02310-0013535137-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-30",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-30",
     "is_new": false
   },
   {
@@ -768,6 +911,19 @@
   },
   {
     "firm": "Robert Half",
+    "id": "roberthalf-02310-0013535137-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Minneapolis, MN",
+    "url": "https://www.roberthalf.com/us/en/job/minneapolis-mn/data-engineer/02310-0013535137-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-30",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-30",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
     "id": "roberthalf-01120-0013490448-usen",
     "title": "Data Engineer \u00b7 Direct hire",
     "location": "Jacksonville, FL",
@@ -777,6 +933,19 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-01500-0013497785-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Oskaloosa, IA",
+    "url": "https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-13",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-13",
     "is_new": false
   },
   {
@@ -803,19 +972,6 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-01500-0013497785-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Oskaloosa, IA",
-    "url": "https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-13",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-13",
     "is_new": false
   },
   {
@@ -910,6 +1066,32 @@
     "is_new": false
   },
   {
+    "firm": "Turbopuffer",
+    "id": "ashby-turbopuffer-317f14bf-49dc-46ae-a4d8-6aea3fa41ecc",
+    "title": "database engineer",
+    "location": "US / Canada",
+    "url": "https://jobs.ashbyhq.com/turbopuffer/317f14bf-49dc-46ae-a4d8-6aea3fa41ecc",
+    "source": "ashby",
+    "posted_date": "2026-09-30",
+    "metro": "Other US",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "WorkOS",
+    "id": "ashby-workos-26377b4d-b392-4fd7-b813-10c2920299f9",
+    "title": "Data Engineer",
+    "location": "United States & Canada",
+    "url": "https://jobs.ashbyhq.com/workos/26377b4d-b392-4fd7-b813-10c2920299f9",
+    "source": "ashby",
+    "posted_date": "2026-10-06",
+    "metro": "Other US",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
     "firm": "Affirm",
     "id": "gh-affirm-8003020003",
     "title": "Software Engineer II, Backend (Streaming)",
@@ -936,6 +1118,19 @@
     "is_new": false
   },
   {
+    "firm": "Branch",
+    "id": "gh-branch-8044391003",
+    "title": "Data Engineer",
+    "location": "Remote, US",
+    "url": "https://job-boards.greenhouse.io/branch/jobs/8044391003",
+    "source": "greenhouse",
+    "posted_date": "2026-10-26",
+    "metro": "Remote (US)",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
     "firm": "Coinbase",
     "id": "gh-coinbase-8304038",
     "title": "Software Engineer - Crypto Data Foundations",
@@ -947,6 +1142,97 @@
     "sector": "Fintech",
     "first_seen": "2026-10-22",
     "is_new": false
+  },
+  {
+    "firm": "Harvey",
+    "id": "ashby-harvey-9b63e15d-2d43-4c4a-94be-75908e942ea7",
+    "title": "Research Engineer, Infrastructure",
+    "location": "Remote",
+    "url": "https://jobs.ashbyhq.com/harvey/9b63e15d-2d43-4c4a-94be-75908e942ea7",
+    "source": "ashby",
+    "posted_date": "2026-10-30",
+    "metro": "Remote (US)",
+    "sector": "Tech",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "LangChain",
+    "id": "ashby-langchain-e10513d4-1b8d-492f-a6af-94bdae366a1a",
+    "title": "Analytics Engineer",
+    "location": "Remote - US",
+    "url": "https://jobs.ashbyhq.com/langchain/e10513d4-1b8d-492f-a6af-94bdae366a1a",
+    "source": "ashby",
+    "posted_date": "2026-10-05",
+    "metro": "Remote (US)",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Luma AI",
+    "id": "ashby-lumaai-3abaffc4-01f1-4d72-b20d-4c8474d8cc80",
+    "title": "Research Scientist / Engineer \u2013 Reinforcement Learning Infrastructure",
+    "location": "Remote, EU",
+    "url": "https://jobs.ashbyhq.com/lumaai/3abaffc4-01f1-4d72-b20d-4c8474d8cc80",
+    "source": "ashby",
+    "posted_date": "2026-10-08",
+    "metro": "Remote (US)",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Luma AI",
+    "id": "ashby-lumaai-d94b1360-710c-4f3b-93a8-e4ac51591e9a",
+    "title": "Research Scientist / Engineer \u2013 Training Infrastructure",
+    "location": "Remote, EU",
+    "url": "https://jobs.ashbyhq.com/lumaai/d94b1360-710c-4f3b-93a8-e4ac51591e9a",
+    "source": "ashby",
+    "posted_date": "2026-10-08",
+    "metro": "Remote (US)",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "People Data Labs",
+    "id": "ashby-people-data-labs-98b60e46-4da9-4ca5-8e11-676b23e950c6",
+    "title": "Data Engineer",
+    "location": "Remote",
+    "url": "https://jobs.ashbyhq.com/people-data-labs/98b60e46-4da9-4ca5-8e11-676b23e950c6",
+    "source": "ashby",
+    "posted_date": "2026-10-26",
+    "metro": "Remote (US)",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Pika",
+    "id": "ashby-pika-c3e5e920-3ff1-4fdf-a43c-552c94ac5b03",
+    "title": "Data Engineer",
+    "location": "US remote",
+    "url": "https://jobs.ashbyhq.com/pika/c3e5e920-3ff1-4fdf-a43c-552c94ac5b03",
+    "source": "ashby",
+    "posted_date": "2026-09-22",
+    "metro": "Remote (US)",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Quora",
+    "id": "ashby-quora-cf34f80e-fe5c-454d-bc9a-4c59993ffda0",
+    "title": "Software Engineer New Grad, Machine Learning Platform - Quora (Remote)",
+    "location": "Remote - Multiple Locations",
+    "url": "https://jobs.ashbyhq.com/quora/cf34f80e-fe5c-454d-bc9a-4c59993ffda0",
+    "source": "ashby",
+    "posted_date": "2026-09-25",
+    "metro": "Remote (US)",
+    "sector": "Tech",
+    "first_seen": "2026-11-02",
+    "is_new": true
   },
   {
     "firm": "Reddit",
@@ -1118,6 +1404,71 @@
     "is_new": false
   },
   {
+    "firm": "Baseten",
+    "id": "ashby-baseten-14c4a663-0b1f-4c11-93ff-1359741ee456",
+    "title": "Software Engineer - Inference Platform",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/baseten/14c4a663-0b1f-4c11-93ff-1359741ee456",
+    "source": "ashby",
+    "posted_date": "2026-10-05",
+    "metro": "SF Bay Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Campfire",
+    "id": "ashby-campfire-2b30b7a1-3649-40e5-804a-ea07bfc94318",
+    "title": "Data Engineer",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/campfire/2b30b7a1-3649-40e5-804a-ea07bfc94318",
+    "source": "ashby",
+    "posted_date": "2026-09-18",
+    "metro": "SF Bay Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Cartesia",
+    "id": "ashby-cartesia-6ca9b352-6a7b-42a3-a7c4-8f071712db90",
+    "title": "Research Engineer, Data Infrastructure (Language Modeling)",
+    "location": "*HQ - San Francisco, CA",
+    "url": "https://jobs.ashbyhq.com/cartesia/6ca9b352-6a7b-42a3-a7c4-8f071712db90",
+    "source": "ashby",
+    "posted_date": "2026-09-24",
+    "metro": "SF Bay Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Chai Discovery",
+    "id": "ashby-chaidiscovery-dd8bf1b0-be34-42ba-94f7-76e6ebe204f6",
+    "title": "Research Engineer, ML Infrastructure",
+    "location": "San Francisco office",
+    "url": "https://jobs.ashbyhq.com/chaidiscovery/dd8bf1b0-be34-42ba-94f7-76e6ebe204f6",
+    "source": "ashby",
+    "posted_date": "2026-09-24",
+    "metro": "SF Bay Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Chai Discovery",
+    "id": "ashby-chaidiscovery-ad8dd3de-8139-4385-8c5a-566a359e9be0",
+    "title": "Software Engineer, AI Platform",
+    "location": "San Francisco office",
+    "url": "https://jobs.ashbyhq.com/chaidiscovery/ad8dd3de-8139-4385-8c5a-566a359e9be0",
+    "source": "ashby",
+    "posted_date": "2026-10-12",
+    "metro": "SF Bay Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
     "firm": "Charles Schwab",
     "id": "charles-100639412896",
     "title": "Quantitative Software Engineer - Research Data and Models (PL)",
@@ -1157,6 +1508,19 @@
     "is_new": false
   },
   {
+    "firm": "Decagon",
+    "id": "ashby-decagon-d5af97d3-e615-4387-8636-8a461e8677f2",
+    "title": "Business Operations, Analytics Engineer",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/decagon/d5af97d3-e615-4387-8636-8a461e8677f2",
+    "source": "ashby",
+    "posted_date": "2026-09-14",
+    "metro": "SF Bay Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
     "firm": "DoorDash",
     "id": "gh-doordashusa-8192116",
     "title": "Software Engineer, Data Engineering",
@@ -1183,6 +1547,84 @@
     "is_new": false
   },
   {
+    "firm": "DoorDash",
+    "id": "gh-doordashusa-8283735",
+    "title": "Software Engineer, ML Infrastructure (MDX)",
+    "location": "San Francisco, CA; Sunnyvale, CA; Seattle, WA",
+    "url": "https://job-boards.greenhouse.io/doordashusa/jobs/8283735",
+    "source": "greenhouse",
+    "posted_date": "2026-10-14",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "DoorDash",
+    "id": "gh-doordashusa-8264542",
+    "title": "Software Engineer, Machine Learning Platform - Gen AI",
+    "location": "San Francisco, CA; Sunnyvale, CA; Seattle, WA",
+    "url": "https://job-boards.greenhouse.io/doordashusa/jobs/8264542",
+    "source": "greenhouse",
+    "posted_date": "2026-10-08",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Fireworks AI",
+    "id": "ashby-fireworks-85486dc8-023f-4a82-9cdb-8394bbfcf1ab",
+    "title": "Member of Technical Staff, Data",
+    "location": "San Mateo",
+    "url": "https://jobs.ashbyhq.com/fireworks/85486dc8-023f-4a82-9cdb-8394bbfcf1ab",
+    "source": "ashby",
+    "posted_date": "2026-09-19",
+    "metro": "SF Bay Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Fireworks AI",
+    "id": "ashby-fireworks-46f91fc1-c77a-41fc-9609-fc0ec291c93f",
+    "title": "Member of Technical Staff, Data Infrastructure",
+    "location": "San Mateo",
+    "url": "https://jobs.ashbyhq.com/fireworks/46f91fc1-c77a-41fc-9609-fc0ec291c93f",
+    "source": "ashby",
+    "posted_date": "2026-10-22",
+    "metro": "SF Bay Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Fireworks AI",
+    "id": "ashby-fireworks-ad58a098-ef75-4a4b-8475-55c2653213ef",
+    "title": "Member of Technical Staff, Systems Infrastructure (2026 PhD New Grad)",
+    "location": "San Mateo",
+    "url": "https://jobs.ashbyhq.com/fireworks/ad58a098-ef75-4a4b-8475-55c2653213ef",
+    "source": "ashby",
+    "posted_date": "2026-09-08",
+    "metro": "SF Bay Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Fireworks AI",
+    "id": "ashby-fireworks-061f8cef-4553-428a-8154-688fa91953af",
+    "title": "Member of Technical Staff, Traffic Infrastructure",
+    "location": "San Mateo",
+    "url": "https://jobs.ashbyhq.com/fireworks/061f8cef-4553-428a-8154-688fa91953af",
+    "source": "ashby",
+    "posted_date": "2026-10-26",
+    "metro": "SF Bay Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
     "firm": "Google",
     "id": "google-103320076387525318",
     "title": "Data Engineer, Technical Solutions, Geo",
@@ -1194,6 +1636,84 @@
     "sector": "Tech",
     "first_seen": "2026-10-21",
     "is_new": false
+  },
+  {
+    "firm": "Harvey",
+    "id": "ashby-harvey-264aac9e-3f8d-402f-a33b-04d2fe1e16be",
+    "title": "Research Engineer, Infrastructure",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/harvey/264aac9e-3f8d-402f-a33b-04d2fe1e16be",
+    "source": "ashby",
+    "posted_date": "2026-10-29",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Luma AI",
+    "id": "ashby-lumaai-d2ecd718-6ba4-42a4-a067-e5f8c4c8bb1d",
+    "title": "Research Scientist / Engineer \u2013 Training Infrastructure",
+    "location": "Redwood City, CA",
+    "url": "https://jobs.ashbyhq.com/lumaai/d2ecd718-6ba4-42a4-a067-e5f8c4c8bb1d",
+    "source": "ashby",
+    "posted_date": "2026-10-08",
+    "metro": "SF Bay Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Mercor",
+    "id": "ashby-mercor-799ecfcc-4258-4075-8b11-12fc64fb2868",
+    "title": "AI Infrastructure Engineer",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/mercor/799ecfcc-4258-4075-8b11-12fc64fb2868",
+    "source": "ashby",
+    "posted_date": "2026-10-27",
+    "metro": "SF Bay Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Mercor",
+    "id": "ashby-mercor-e1f7a5ed-248c-45ea-aa2d-838f3db8ce27",
+    "title": "Analytics Engineer",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/mercor/e1f7a5ed-248c-45ea-aa2d-838f3db8ce27",
+    "source": "ashby",
+    "posted_date": "2026-10-28",
+    "metro": "SF Bay Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Mercor",
+    "id": "ashby-mercor-415d2ee3-44b9-40e5-ab4b-04340faa3872",
+    "title": "Data Platform Engineer",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/mercor/415d2ee3-44b9-40e5-ab4b-04340faa3872",
+    "source": "ashby",
+    "posted_date": "2026-09-10",
+    "metro": "SF Bay Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Mercor",
+    "id": "ashby-mercor-ae344099-3fde-4027-bfde-f953db8b4728",
+    "title": "Software Engineer, Frontier Data Products",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/mercor/ae344099-3fde-4027-bfde-f953db8b4728",
+    "source": "ashby",
+    "posted_date": "2026-10-27",
+    "metro": "SF Bay Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
   },
   {
     "firm": "Meta",
@@ -1223,6 +1743,19 @@
   },
   {
     "firm": "Meta",
+    "id": "meta-1419173033108804",
+    "title": "Research Engineer, Pre-training Data - MSL FAIR",
+    "location": "Menlo Park, CA",
+    "url": "https://www.metacareers.com/profile/job_details/1419173033108804",
+    "source": "meta",
+    "posted_date": null,
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Meta",
     "id": "meta-2342974003201767",
     "title": "Software Engineer, Databases",
     "location": "Bellevue, WA; Menlo Park, CA",
@@ -1233,6 +1766,19 @@
     "sector": "Tech",
     "first_seen": "2026-10-22",
     "is_new": false
+  },
+  {
+    "firm": "Modal",
+    "id": "ashby-modal-6195f552-ca6f-4540-b7f6-e7e6054e47ad",
+    "title": "Member of Technical Staff - Inference Runtime",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/modal/6195f552-ca6f-4540-b7f6-e7e6054e47ad",
+    "source": "ashby",
+    "posted_date": "2026-10-05",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-11-02",
+    "is_new": true
   },
   {
     "firm": "NVIDIA",
@@ -1287,6 +1833,45 @@
     "is_new": false
   },
   {
+    "firm": "Numeric",
+    "id": "ashby-numeric-47b4e39c-3286-4d04-b3fd-6709ce0e7223",
+    "title": "Software Engineer, Data Platform",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/numeric/47b4e39c-3286-4d04-b3fd-6709ce0e7223",
+    "source": "ashby",
+    "posted_date": "2026-09-14",
+    "metro": "SF Bay Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Omni",
+    "id": "ashby-omni-de8286db-3605-4e37-a41d-84979d8d0ae8",
+    "title": "Software Engineer, Growth Data Platform",
+    "location": "San Francisco, CA",
+    "url": "https://jobs.ashbyhq.com/omni/de8286db-3605-4e37-a41d-84979d8d0ae8",
+    "source": "ashby",
+    "posted_date": "2026-09-08",
+    "metro": "SF Bay Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "OpenAI",
+    "id": "ashby-openai-b2250643-bfd0-4ce6-abbf-cb7e8c8123ba",
+    "title": "AI Infrastructure Engineer, pAGI",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/openai/b2250643-bfd0-4ce6-abbf-cb7e8c8123ba",
+    "source": "ashby",
+    "posted_date": "2026-09-14",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
     "firm": "OpenAI",
     "id": "ashby-openai-c25fd30e-056e-4a26-af80-7ea1074fc56e",
     "title": "Data Engineer, Hardware & Consumer Devices",
@@ -1300,6 +1885,84 @@
     "is_new": false
   },
   {
+    "firm": "OpenAI",
+    "id": "ashby-openai-a5dd77a2-9ab1-4165-98aa-c7bb0260985b",
+    "title": "Software Engineer, CI/CD & ML Infrastructure",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/openai/a5dd77a2-9ab1-4165-98aa-c7bb0260985b",
+    "source": "ashby",
+    "posted_date": "2026-10-19",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Perplexity",
+    "id": "ashby-perplexity-3f800e42-7c48-4f9a-9b12-43ee23e52516",
+    "title": "Member of Technical Staff (Software Engineer, API Platform)",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/perplexity/3f800e42-7c48-4f9a-9b12-43ee23e52516",
+    "source": "ashby",
+    "posted_date": "2026-10-31",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Perplexity",
+    "id": "ashby-perplexity-886f4ab3-e691-45ed-b2db-069edf6f5413",
+    "title": "Member of Technical Staff (Software Engineer, GPU Cluster Infrastructure)",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/perplexity/886f4ab3-e691-45ed-b2db-069edf6f5413",
+    "source": "ashby",
+    "posted_date": "2026-10-28",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Perplexity",
+    "id": "ashby-perplexity-76c9b39f-aecc-4247-b5f5-ebcd02dff7c3",
+    "title": "Member of Technical Staff (Software Engineer, Infrastructure & Platform)",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/perplexity/76c9b39f-aecc-4247-b5f5-ebcd02dff7c3",
+    "source": "ashby",
+    "posted_date": "2026-09-05",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Perplexity",
+    "id": "ashby-perplexity-2a5aa5f6-596b-45c3-84db-ac0b96363f93",
+    "title": "Member of Technical Staff (Software Engineer, Training Infrastructure)",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/perplexity/2a5aa5f6-596b-45c3-84db-ac0b96363f93",
+    "source": "ashby",
+    "posted_date": "2026-10-31",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Physical Intelligence",
+    "id": "ashby-physicalintelligence-16093ed0-49de-429e-81d4-6d8b5d715c01",
+    "title": "ML Infra Engineer, Platform",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/physicalintelligence/16093ed0-49de-429e-81d4-6d8b5d715c01",
+    "source": "ashby",
+    "posted_date": "2026-10-09",
+    "metro": "SF Bay Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
     "firm": "Pinterest",
     "id": "gh-pinterest-8213988",
     "title": "Software Engineer II, Data Analytics & Engineering",
@@ -1311,6 +1974,97 @@
     "sector": "Tech",
     "first_seen": "2026-09-27",
     "is_new": false
+  },
+  {
+    "firm": "Prime Intellect",
+    "id": "ashby-primeintellect-26c41d54-f823-4aac-8fdf-4e78fc760184",
+    "title": "Member of Technical Staff - Sandbox Platform",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/primeintellect/26c41d54-f823-4aac-8fdf-4e78fc760184",
+    "source": "ashby",
+    "posted_date": "2026-09-23",
+    "metro": "SF Bay Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Prime Intellect",
+    "id": "ashby-primeintellect-7ef14297-51c3-45b1-abe4-890489a0bddb",
+    "title": "Research Engineer - Data and Evaluation",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/primeintellect/7ef14297-51c3-45b1-abe4-890489a0bddb",
+    "source": "ashby",
+    "posted_date": "2026-10-16",
+    "metro": "SF Bay Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Prime Intellect",
+    "id": "ashby-primeintellect-3103e1a4-2515-4ae0-a2f0-784e25d30cfe",
+    "title": "Research Engineer - Inference",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/primeintellect/3103e1a4-2515-4ae0-a2f0-784e25d30cfe",
+    "source": "ashby",
+    "posted_date": "2026-10-16",
+    "metro": "SF Bay Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Prime Intellect",
+    "id": "ashby-primeintellect-eecf9af5-46fb-4b62-b8c8-921098fd6514",
+    "title": "Research Engineer - Pre-training Data",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/primeintellect/eecf9af5-46fb-4b62-b8c8-921098fd6514",
+    "source": "ashby",
+    "posted_date": "2026-10-16",
+    "metro": "SF Bay Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Prime Intellect",
+    "id": "ashby-primeintellect-07f6f7bc-5f5b-4565-8897-9876763198dd",
+    "title": "Research Engineer - RL Infrastructure",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/primeintellect/07f6f7bc-5f5b-4565-8897-9876763198dd",
+    "source": "ashby",
+    "posted_date": "2026-10-19",
+    "metro": "SF Bay Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Reflection AI",
+    "id": "ashby-reflectionai-4b11103d-3087-4a95-b31c-64a0357818d7",
+    "title": "Member of Technical Staff - Multilingual Data",
+    "location": "San Francisco, CA",
+    "url": "https://jobs.ashbyhq.com/reflectionai/4b11103d-3087-4a95-b31c-64a0357818d7",
+    "source": "ashby",
+    "posted_date": "2026-09-11",
+    "metro": "SF Bay Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
+  },
+  {
+    "firm": "Reflection AI",
+    "id": "ashby-reflectionai-2b0b0fbf-0e82-4212-be2e-36e4ca37756c",
+    "title": "Member of Technical Staff - Pre-Training  Data",
+    "location": "San Francisco, CA",
+    "url": "https://jobs.ashbyhq.com/reflectionai/2b0b0fbf-0e82-4212-be2e-36e4ca37756c",
+    "source": "ashby",
+    "posted_date": "2026-10-22",
+    "metro": "SF Bay Area",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
   },
   {
     "firm": "Roblox",
@@ -1352,17 +2106,17 @@
     "is_new": false
   },
   {
-    "firm": "Socure",
-    "id": "ashby-socure-5ee37ea6-a36a-472c-90a9-73067f6d6dac",
-    "title": "Data Scientist II - Big Data R&D, Identity Graph & Deceased Monitoring",
-    "location": "Hybrid - San Francisco, CA",
-    "url": "https://jobs.ashbyhq.com/socure/5ee37ea6-a36a-472c-90a9-73067f6d6dac",
+    "firm": "Thinking Machines",
+    "id": "ashby-thinkingmachines-d6098644-7904-4423-9330-a1b7f5767fbc",
+    "title": "Software Engineer, Privacy & Data Governance",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/thinkingmachines/d6098644-7904-4423-9330-a1b7f5767fbc",
     "source": "ashby",
-    "posted_date": "2026-09-02",
+    "posted_date": "2026-10-27",
     "metro": "SF Bay Area",
-    "sector": "Fintech",
-    "first_seen": "2026-09-30",
-    "is_new": false
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
   },
   {
     "firm": "Zoox",
@@ -1522,19 +2276,6 @@
   },
   {
     "firm": "Charles Schwab",
-    "id": "charles-100738780800",
-    "title": "Data Engineer",
-    "location": "Southlake, TX; Austin, TX",
-    "url": "https://www.schwabjobs.com/job/southlake/data-engineer/33727/100738780800",
-    "source": "charles",
-    "posted_date": null,
-    "metro": "Texas",
-    "sector": "Finance",
-    "first_seen": "2026-09-29",
-    "is_new": false
-  },
-  {
-    "firm": "Charles Schwab",
     "id": "charles-101625328992",
     "title": "Data Engineer",
     "location": "Southlake, TX; Austin, TX",
@@ -1571,6 +2312,19 @@
     "sector": "Finance",
     "first_seen": "2026-10-31",
     "is_new": false
+  },
+  {
+    "firm": "Fluidstack",
+    "id": "ashby-fluidstack-78365bf7-7a0e-4e15-b30f-827d68c9b8b8",
+    "title": "Data Engineer",
+    "location": "Austin, TX",
+    "url": "https://jobs.ashbyhq.com/fluidstack/78365bf7-7a0e-4e15-b30f-827d68c9b8b8",
+    "source": "ashby",
+    "posted_date": "2026-10-01",
+    "metro": "Texas",
+    "sector": "Startup",
+    "first_seen": "2026-11-02",
+    "is_new": true
   },
   {
     "firm": "Google",
@@ -1635,19 +2389,6 @@
     "metro": "Texas",
     "sector": "Finance",
     "first_seen": "2026-10-07",
-    "is_new": false
-  },
-  {
-    "firm": "eBay",
-    "id": "wd-ebay-apply-/job/Austin/AI-Analytics-Engineer---Traffic_R0076601",
-    "title": "AI Analytics Engineer - Traffic",
-    "location": "Austin",
-    "url": "https://ebay.wd5.myworkdayjobs.com/apply/job/Austin/AI-Analytics-Engineer---Traffic_R0076601",
-    "source": "workday",
-    "posted_date": "2026-10-29",
-    "metro": "Texas",
-    "sector": "Tech",
-    "first_seen": "2026-09-30",
     "is_new": false
   }
 ]
