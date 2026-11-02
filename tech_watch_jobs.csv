@@ -35,7 +35,7 @@ NYC Area,Tech,DoorDash,"Software Engineer, Spark Platform","San Francisco, CA; S
 NYC Area,Tech,FanDuel,Data Engineer,New York City,greenhouse,2026-09-04,2026-10-22,False,https://www.fanduel.careers/open-positions?gh_jid=8180103
 NYC Area,Tech,Figma,Data Platform Engineer,"San Francisco, CA • New York, NY • United States",greenhouse,2026-09-21,2026-09-27,False,https://boards.greenhouse.io/figma/jobs/6201407004?gh_jid=6201407004
 NYC Area,Tech,Garner Health,Data Engineer II,"New York City, New York",greenhouse,2026-10-15,2026-10-22,False,https://job-boards.greenhouse.io/garnerhealth/jobs/6225499004
-NYC Area,Tech,Harvey,"Research Engineer, Infrastructure",New York,ashby,2026-10-29,2026-11-02,True,https://jobs.ashbyhq.com/harvey/7d5946ab-9b70-4c33-9e0f-cadbf0b892aa
+NYC Area,Tech,Harvey,"Research Engineer, Infrastructure",New York,ashby,2026-11-02,2026-11-02,True,https://jobs.ashbyhq.com/harvey/7d5946ab-9b70-4c33-9e0f-cadbf0b892aa
 NYC Area,Finance,KKR,"Associate, Data Engineer","New York, New York, United States",greenhouse,2026-10-16,2026-10-16,False,https://www.kkr.com/careers/career-opportunities/post?gh_jid=6226589004
 NYC Area,Finance,KKR,Reference Data Engineer,"New York, New York, United States",greenhouse,2026-09-27,2026-09-28,False,https://www.kkr.com/careers/career-opportunities/post?gh_jid=6188875004
 NYC Area,Finance,Lazard,Data Engineer,"New York, United States",oracle,2026-10-27,2026-10-07,False,https://icbpjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/LazardProfessionalCareers/job/6714
@@ -61,6 +61,7 @@ Other US,Tech,Cohere,Member of Technical Staff - Post-training (Data Infrastruct
 Other US,Tech,Elastic,"Analytics Engineer, HR Analytics",United States,greenhouse,2026-10-05,2026-10-05,False,https://jobs.elastic.co/jobs?gh_jid=8244449&gh_jid=8244449
 Other US,Fintech,FIS,Data Engineers,US FL JAX 347,workday,2026-10-30,2026-10-31,False,https://fis.wd5.myworkdayjobs.com/SearchJobs/job/US-FL-JAX-347/Data-Engineers_JR0310783-1
 Other US,Tech,Gopuff,Analytics Engineer,"Philadelphia, PA; Miami, FL",lever,2026-09-10,2026-09-30,False,https://jobs.lever.co/gopuff/bfa7bc15-793e-486c-a3f5-b27d84c53025
+Other US,Tech,HP,Big Data Laser Analyst,"Vancouver, Washington, United States of America",workday,2026-11-02,2026-10-20,False,https://hp.wd5.myworkdayjobs.com/ExternalCareerSite/job/Vancouver-Washington-United-States-of-America/Big-Data-Laser-Analyst_3162874-1
 Other US,Finance,JPMorgan Chase,Data Engineering Associate,"OH, United States",oracle,2026-09-25,2026-09-27,False,https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210793562
 Other US,Fintech,Mastercard,Data Engineer II,"O'Fallon, Missouri",workday,2026-10-27,2026-09-29,False,https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/OFallon-Missouri/Data-Engineer-II_R-286580
 Other US,Fintech,Mastercard,Data Engineer II,"O'Fallon, Missouri",workday,2026-10-27,2026-10-07,False,https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/OFallon-Missouri/Data-Engineer-II_R-289305
@@ -70,8 +71,8 @@ Other US,Startup,Nous Research,Data Engineer,Americas (US time zones),ashby,2026
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Commerce, CA",roberthalf,2026-10-15,2026-10-15,False,https://www.roberthalf.com/us/en/job/commerce-ca/data-engineer/00320-0013526498-usen
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Jacksonville, FL",roberthalf,2026-10-21,2026-10-05,False,https://www.roberthalf.com/us/en/job/jacksonville-fl/data-engineer/01120-0013490145-usen
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Avon, MN",roberthalf,2026-10-20,2026-10-16,False,https://www.roberthalf.com/us/en/job/avon-mn/data-engineer/02310-0013504307-usen
-Other US,Agency,Robert Half,Data Engineer · Direct hire,"Naperville, IL",roberthalf,2026-10-29,2026-10-29,False,https://www.roberthalf.com/us/en/job/naperville-il/data-engineer/01300-0013534672-usen
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Minneapolis, MN",roberthalf,2026-10-30,2026-10-30,False,https://www.roberthalf.com/us/en/job/minneapolis-mn/data-engineer/02310-0013535137-usen
+Other US,Agency,Robert Half,Data Engineer · Direct hire,"Naperville, IL",roberthalf,2026-10-29,2026-10-29,False,https://www.roberthalf.com/us/en/job/naperville-il/data-engineer/01300-0013534672-usen
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Jacksonville, FL",roberthalf,2026-10-21,2026-10-05,False,https://www.roberthalf.com/us/en/job/jacksonville-fl/data-engineer/01120-0013490448-usen
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Milwaukee, WI",roberthalf,2026-10-30,2026-10-05,False,https://www.roberthalf.com/us/en/job/milwaukee-wi/data-engineer/04600-0013495125-usen
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Oskaloosa, IA",roberthalf,2026-10-13,2026-10-13,False,https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen
@@ -89,7 +90,7 @@ Remote (US),Fintech,Affirm,"Software Engineer II, Backend (Streaming)",Remote US
 Remote (US),Finance,Allstate,"Managing Engineer, Data Engineering",US - Remote,workday,2026-10-05,2026-10-05,False,https://allstate.wd5.myworkdayjobs.com/allstate_careers/job/US---Remote/Managing-Engineer--Data-Engineering_R35362-1
 Remote (US),Startup,Branch,Data Engineer,"Remote, US",greenhouse,2026-10-26,2026-11-02,True,https://job-boards.greenhouse.io/branch/jobs/8044391003
 Remote (US),Fintech,Coinbase,Software Engineer - Crypto Data Foundations,Remote - USA,greenhouse,2026-10-20,2026-10-22,False,https://www.coinbase.com/careers/positions/8304038?gh_jid=8304038
-Remote (US),Tech,Harvey,"Research Engineer, Infrastructure",Remote,ashby,2026-10-30,2026-11-02,True,https://jobs.ashbyhq.com/harvey/9b63e15d-2d43-4c4a-94be-75908e942ea7
+Remote (US),Tech,Harvey,"Research Engineer, Infrastructure",Remote,ashby,2026-11-02,2026-11-02,True,https://jobs.ashbyhq.com/harvey/9b63e15d-2d43-4c4a-94be-75908e942ea7
 Remote (US),Startup,LangChain,Analytics Engineer,Remote - US,ashby,2026-10-05,2026-11-02,True,https://jobs.ashbyhq.com/langchain/e10513d4-1b8d-492f-a6af-94bdae366a1a
 Remote (US),Startup,Luma AI,Research Scientist / Engineer – Reinforcement Learning Infrastructure,"Remote, EU",ashby,2026-10-08,2026-11-02,True,https://jobs.ashbyhq.com/lumaai/3abaffc4-01f1-4d72-b20d-4c8474d8cc80
 Remote (US),Startup,Luma AI,Research Scientist / Engineer – Training Infrastructure,"Remote, EU",ashby,2026-10-08,2026-11-02,True,https://jobs.ashbyhq.com/lumaai/d94b1360-710c-4f3b-93a8-e4ac51591e9a
@@ -97,9 +98,8 @@ Remote (US),Startup,People Data Labs,Data Engineer,Remote,ashby,2026-10-26,2026-
 Remote (US),Startup,Pika,Data Engineer,US remote,ashby,2026-09-22,2026-11-02,True,https://jobs.ashbyhq.com/pika/c3e5e920-3ff1-4fdf-a43c-552c94ac5b03
 Remote (US),Tech,Quora,"Software Engineer New Grad, Machine Learning Platform - Quora (Remote)",Remote - Multiple Locations,ashby,2026-09-25,2026-11-02,True,https://jobs.ashbyhq.com/quora/cf34f80e-fe5c-454d-bc9a-4c59993ffda0
 Remote (US),Tech,Reddit,Analytics Engineer,Remote - United States,greenhouse,2026-10-14,2026-10-15,False,https://job-boards.greenhouse.io/reddit/jobs/8282760
-Remote (US),Tech,Reddit,"Software Engineer, Ingestion Platform",Remote - United States,greenhouse,2026-09-18,2026-10-22,False,https://job-boards.greenhouse.io/reddit/jobs/8214910
 Remote (US),Agency,Robert Half,Data Engineer · Direct hire,"Conshohocken, PA (Remote)",roberthalf,2026-10-08,2026-10-08,False,https://www.roberthalf.com/us/en/job/conshohocken-pa/data-engineer/03720-0013461058-usen
-Remote (US),Agency,Robert Half,Database Developer · Direct hire,"Lehi, UT (Remote)",roberthalf,2026-10-20,2026-10-22,False,https://www.roberthalf.com/us/en/job/lehi-ut/database-developer/04820-0013462704-usen
+Remote (US),Agency,Robert Half,Database Developer · Direct hire,"Lehi, UT (Remote)",roberthalf,2026-11-02,2026-10-22,False,https://www.roberthalf.com/us/en/job/lehi-ut/database-developer/04820-0013462704-usen
 Remote (US),Tech,Samsara,Data Engineer,Remote - US,greenhouse,2026-10-05,2026-10-05,False,https://www.samsara.com/company/careers/roles/8141959?gh_jid=8141959
 Remote (US),Tech,Supabase,Data API Engineer,"Remote, Global",ashby,2026-10-24,2026-10-24,False,https://jobs.ashbyhq.com/supabase/950e8ffc-79a5-4626-b1dd-115fcbcddad0
 Remote (US),Tech,Supabase,FinOps Data Engineer,"Remote, Global",ashby,2026-10-14,2026-10-14,False,https://jobs.ashbyhq.com/supabase/73ddf93b-fe0c-455d-ba27-cdde0d3fb94f
@@ -127,7 +127,7 @@ SF Bay Area,Startup,Fireworks AI,"Member of Technical Staff, Data Infrastructure
 SF Bay Area,Startup,Fireworks AI,"Member of Technical Staff, Systems Infrastructure (2026 PhD New Grad)",San Mateo,ashby,2026-09-08,2026-11-02,True,https://jobs.ashbyhq.com/fireworks/ad58a098-ef75-4a4b-8475-55c2653213ef
 SF Bay Area,Startup,Fireworks AI,"Member of Technical Staff, Traffic Infrastructure",San Mateo,ashby,2026-10-26,2026-11-02,True,https://jobs.ashbyhq.com/fireworks/061f8cef-4553-428a-8154-688fa91953af
 SF Bay Area,Tech,Google,"Data Engineer, Technical Solutions, Geo","Mountain View, CA, USA",google,2026-10-21,2026-10-21,False,https://www.google.com/about/careers/applications/jobs/results/103320076387525318
-SF Bay Area,Tech,Harvey,"Research Engineer, Infrastructure",San Francisco,ashby,2026-10-29,2026-11-02,True,https://jobs.ashbyhq.com/harvey/264aac9e-3f8d-402f-a33b-04d2fe1e16be
+SF Bay Area,Tech,Harvey,"Research Engineer, Infrastructure",San Francisco,ashby,2026-11-02,2026-11-02,True,https://jobs.ashbyhq.com/harvey/264aac9e-3f8d-402f-a33b-04d2fe1e16be
 SF Bay Area,Startup,Luma AI,Research Scientist / Engineer – Training Infrastructure,"Redwood City, CA",ashby,2026-10-08,2026-11-02,True,https://jobs.ashbyhq.com/lumaai/d2ecd718-6ba4-42a4-a067-e5f8c4c8bb1d
 SF Bay Area,Startup,Mercor,AI Infrastructure Engineer,San Francisco,ashby,2026-10-27,2026-11-02,True,https://jobs.ashbyhq.com/mercor/799ecfcc-4258-4075-8b11-12fc64fb2868
 SF Bay Area,Startup,Mercor,Analytics Engineer,San Francisco,ashby,2026-10-28,2026-11-02,True,https://jobs.ashbyhq.com/mercor/e1f7a5ed-248c-45ea-aa2d-838f3db8ce27

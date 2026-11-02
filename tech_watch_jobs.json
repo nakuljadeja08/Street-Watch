@@ -474,7 +474,7 @@
     "location": "New York",
     "url": "https://jobs.ashbyhq.com/harvey/7d5946ab-9b70-4c33-9e0f-cadbf0b892aa",
     "source": "ashby",
-    "posted_date": "2026-10-29",
+    "posted_date": "2026-11-02",
     "metro": "NYC Area",
     "sector": "Tech",
     "first_seen": "2026-11-02",
@@ -806,6 +806,19 @@
     "is_new": false
   },
   {
+    "firm": "HP",
+    "id": "wd-hp-ExternalCareerSite-/job/Vancouver-Washington-United-States-of-America/Big-Data-Laser-Analyst_3162874-1",
+    "title": "Big Data Laser Analyst",
+    "location": "Vancouver, Washington, United States of America",
+    "url": "https://hp.wd5.myworkdayjobs.com/ExternalCareerSite/job/Vancouver-Washington-United-States-of-America/Big-Data-Laser-Analyst_3162874-1",
+    "source": "workday",
+    "posted_date": "2026-11-02",
+    "metro": "Other US",
+    "sector": "Tech",
+    "first_seen": "2026-10-20",
+    "is_new": false
+  },
+  {
     "firm": "JPMorgan Chase",
     "id": "oracle-jpmc.fa.oraclecloud.com-210793562",
     "title": "Data Engineering Associate",
@@ -924,19 +937,6 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-01300-0013534672-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Naperville, IL",
-    "url": "https://www.roberthalf.com/us/en/job/naperville-il/data-engineer/01300-0013534672-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-29",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-29",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
     "id": "roberthalf-02310-0013535137-usen",
     "title": "Data Engineer \u00b7 Direct hire",
     "location": "Minneapolis, MN",
@@ -946,6 +946,19 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-30",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-01300-0013534672-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Naperville, IL",
+    "url": "https://www.roberthalf.com/us/en/job/naperville-il/data-engineer/01300-0013534672-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-29",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-29",
     "is_new": false
   },
   {
@@ -1176,7 +1189,7 @@
     "location": "Remote",
     "url": "https://jobs.ashbyhq.com/harvey/9b63e15d-2d43-4c4a-94be-75908e942ea7",
     "source": "ashby",
-    "posted_date": "2026-10-30",
+    "posted_date": "2026-11-02",
     "metro": "Remote (US)",
     "sector": "Tech",
     "first_seen": "2026-11-02",
@@ -1274,19 +1287,6 @@
     "is_new": false
   },
   {
-    "firm": "Reddit",
-    "id": "gh-reddit-8214910",
-    "title": "Software Engineer, Ingestion Platform",
-    "location": "Remote - United States",
-    "url": "https://job-boards.greenhouse.io/reddit/jobs/8214910",
-    "source": "greenhouse",
-    "posted_date": "2026-09-18",
-    "metro": "Remote (US)",
-    "sector": "Tech",
-    "first_seen": "2026-10-22",
-    "is_new": false
-  },
-  {
     "firm": "Robert Half",
     "id": "roberthalf-03720-0013461058-usen",
     "title": "Data Engineer \u00b7 Direct hire",
@@ -1306,7 +1306,7 @@
     "location": "Lehi, UT (Remote)",
     "url": "https://www.roberthalf.com/us/en/job/lehi-ut/database-developer/04820-0013462704-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-20",
+    "posted_date": "2026-11-02",
     "metro": "Remote (US)",
     "sector": "Agency",
     "first_seen": "2026-10-22",
@@ -1670,7 +1670,7 @@
     "location": "San Francisco",
     "url": "https://jobs.ashbyhq.com/harvey/264aac9e-3f8d-402f-a33b-04d2fe1e16be",
     "source": "ashby",
-    "posted_date": "2026-10-29",
+    "posted_date": "2026-11-02",
     "metro": "SF Bay Area",
     "sector": "Tech",
     "first_seen": "2026-11-02",
