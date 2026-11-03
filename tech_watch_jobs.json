@@ -533,19 +533,6 @@
     "is_new": false
   },
   {
-    "firm": "FIS",
-    "id": "wd-fis-SearchJobs-/job/US-FL-JAX-347/Data-Engineers_JR0310783-1",
-    "title": "Data Engineers",
-    "location": "US FL JAX 347",
-    "url": "https://fis.wd5.myworkdayjobs.com/SearchJobs/job/US-FL-JAX-347/Data-Engineers_JR0310783-1",
-    "source": "workday",
-    "posted_date": "2026-10-30",
-    "metro": "Other US",
-    "sector": "Fintech",
-    "first_seen": "2026-10-31",
-    "is_new": false
-  },
-  {
     "firm": "Gopuff",
     "id": "lever-gopuff-bfa7bc15-793e-486c-a3f5-b27d84c53025",
     "title": "Analytics Engineer",
@@ -767,6 +754,19 @@
     "is_new": false
   },
   {
+    "firm": "Robert Half",
+    "id": "roberthalf-03720-0013512453-usen",
+    "title": "Snowflake Data Engineer \u00b7 Direct hire",
+    "location": "Radnor, PA",
+    "url": "https://www.roberthalf.com/us/en/job/radnor-pa/snowflake-data-engineer/03720-0013512453-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-11-03",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-05",
+    "is_new": false
+  },
+  {
     "firm": "SpaceX",
     "id": "gh-spacex-8880868002",
     "title": "Software Engineer (AI Data Engineering)",
@@ -778,6 +778,19 @@
     "sector": "Tech",
     "first_seen": "2026-10-22",
     "is_new": false
+  },
+  {
+    "firm": "SpaceX",
+    "id": "gh-spacex-8927919002",
+    "title": "Software Engineer, Full Stack (Data & Video Analysis)",
+    "location": "Hawthorne, CA",
+    "url": "https://boards.greenhouse.io/spacex/jobs/8927919002?gh_jid=8927919002",
+    "source": "greenhouse",
+    "posted_date": "2026-11-03",
+    "metro": "Other US",
+    "sector": "Tech",
+    "first_seen": "2026-11-03",
+    "is_new": true
   },
   {
     "firm": "Susquehanna International Group",
