@@ -664,6 +664,19 @@
   },
   {
     "firm": "Robert Half",
+    "id": "roberthalf-03900-9504421867-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Memphis, TN",
+    "url": "https://www.roberthalf.com/us/en/job/memphis-tn/data-engineer/03900-9504421867-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-11-03",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-11-03",
+    "is_new": true
+  },
+  {
+    "firm": "Robert Half",
     "id": "roberthalf-02310-0013535137-usen",
     "title": "Data Engineer \u00b7 Direct hire",
     "location": "Minneapolis, MN",
@@ -716,6 +729,19 @@
   },
   {
     "firm": "Robert Half",
+    "id": "roberthalf-03500-0013380490-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Oklahoma City, OK",
+    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-28",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-05",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
     "id": "roberthalf-03340-0013535323-usen",
     "title": "Data Platform Engineer \u00b7 Direct hire",
     "location": "Cleveland, OH",
@@ -737,6 +763,19 @@
     "posted_date": "2026-10-01",
     "metro": "Other US",
     "sector": "Agency",
+    "first_seen": "2026-10-22",
+    "is_new": false
+  },
+  {
+    "firm": "SpaceX",
+    "id": "gh-spacex-8880868002",
+    "title": "Software Engineer (AI Data Engineering)",
+    "location": "Hawthorne, CA",
+    "url": "https://boards.greenhouse.io/spacex/jobs/8880868002?gh_jid=8880868002",
+    "source": "greenhouse",
+    "posted_date": "2026-10-08",
+    "metro": "Other US",
+    "sector": "Tech",
     "first_seen": "2026-10-22",
     "is_new": false
   },
@@ -1102,19 +1141,6 @@
     "metro": "SF Bay Area",
     "sector": "Startup",
     "first_seen": "2026-11-02",
-    "is_new": false
-  },
-  {
-    "firm": "Cursor",
-    "id": "ashby-cursor-aef8f0e7-37cd-4d6e-96c9-3af72f588bae",
-    "title": "Software Engineer, RL Data",
-    "location": "Palo Alto, CA",
-    "url": "https://jobs.ashbyhq.com/cursor/aef8f0e7-37cd-4d6e-96c9-3af72f588bae",
-    "source": "ashby",
-    "posted_date": "2026-10-12",
-    "metro": "SF Bay Area",
-    "sector": "Tech",
-    "first_seen": "2026-10-22",
     "is_new": false
   },
   {
@@ -1648,6 +1674,32 @@
     "metro": "Seattle",
     "sector": "Tech",
     "first_seen": "2026-10-23",
+    "is_new": false
+  },
+  {
+    "firm": "SpaceX",
+    "id": "gh-spacex-8694609002",
+    "title": "Data Engineer (Starlink Mobile)",
+    "location": "Redmond, WA",
+    "url": "https://boards.greenhouse.io/spacex/jobs/8694609002?gh_jid=8694609002",
+    "source": "greenhouse",
+    "posted_date": "2026-10-21",
+    "metro": "Seattle",
+    "sector": "Tech",
+    "first_seen": "2026-10-21",
+    "is_new": false
+  },
+  {
+    "firm": "SpaceX",
+    "id": "gh-spacex-8784022002",
+    "title": "Data Engineer, Ground Network Engineering (Gateway)",
+    "location": "Redmond, WA",
+    "url": "https://boards.greenhouse.io/spacex/jobs/8784022002?gh_jid=8784022002",
+    "source": "greenhouse",
+    "posted_date": "2026-09-11",
+    "metro": "Seattle",
+    "sector": "Tech",
+    "first_seen": "2026-09-30",
     "is_new": false
   },
   {
