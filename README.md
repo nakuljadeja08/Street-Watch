@@ -26,6 +26,14 @@ Recruitment/Jobspring, Harvey Nash, Blue Signal (tech), Aerotek (industrial),
 Adecco, Goodwin (hospitality), Alexander Chapman (UK) and BW Global USA (no
 job board; generic "training" site).
 
+**Experience cap** (added 2026-11-02, both Street Watch and Tech Watch): a role
+whose description requires 5 years or more is left out (`drop_over_experience`,
+`MAX_REQUIRED_YEARS` in `pipeline.py`). `required_years` reads the largest required
+ask, so "6+ years overall, 3+ in Snowflake" counts as 6 and "5-8 years" as 5; asks
+worded as preferred don't count, and "7 years, or 3 with a Master's" counts as 3.
+Postings that state no number, or can't be read, stay on the board. Each answer is
+kept in the state file, so a posting is fetched once rather than on every run.
+
 **New Zealand** (added 2026-10-11; Ms Tian can work there) is a fourth metro,
 "New Zealand", covering the whole country. Global firms already on the board
 (Goldman, Macquarie, Citi, HSBC and others) file their Auckland and Wellington roles
@@ -250,8 +258,8 @@ metro) to Supabase `hiring_trends` (history also kept in
 - **Posted**: first seen today. A firm's first day in the pipeline doesn't
   count, so wiring up a new firm isn't read as a hiring spike.
 - **Taken down**: on yesterday's board and gone from the firm's own feed today.
-  A role still listed that we now filter out (a new title rule, past the 30-day
-  age cap) leaves the board without counting.
+  A role still listed that we now filter out (a new title rule, the experience
+  cap, past the 30-day age cap) leaves the board without counting.
 - A firm whose feed fails (0 rows) is carried forward, not counted as taken down.
 - Same-day re-runs (backup crons, manual runs) recompute the day instead of
   double counting. A missed day rolls into the next day's numbers.
