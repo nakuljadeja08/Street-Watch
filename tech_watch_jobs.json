@@ -26,6 +26,19 @@
     "is_new": false
   },
   {
+    "firm": "Fidelity",
+    "id": "wd-fmr-FidelityCareers-/job/Boston-MA/Data-Engineer--Snowflake--MySQL--Python-_2132954-1",
+    "title": "Data Engineer (Snowflake, MySQL, Python)",
+    "location": "Boston, MA; Covington, KY",
+    "url": "https://fmr.wd1.myworkdayjobs.com/FidelityCareers/job/Boston-MA/Data-Engineer--Snowflake--MySQL--Python-_2132954-1",
+    "source": "workday",
+    "posted_date": "2026-11-04",
+    "metro": "Boston",
+    "sector": "Finance",
+    "first_seen": "2026-11-04",
+    "is_new": true
+  },
+  {
     "firm": "Motion Recruitment",
     "id": "motion-893559",
     "title": "Quantitative Analytics Engineer - Python/SQL/Finance - Boston, MA \u00b7 Direct hire",
@@ -58,7 +71,7 @@
     "location": "Charlotte",
     "url": "https://capgroup.wd1.myworkdayjobs.com/capitalgroupcareers/job/Charlotte/Platform-Engineer-IV_JR6886",
     "source": "workday",
-    "posted_date": "2026-10-03",
+    "posted_date": "2026-10-04",
     "metro": "Charlotte",
     "sector": "Finance",
     "first_seen": "2026-11-02",
@@ -84,7 +97,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Analytics-Engineer_R150313",
     "source": "workday",
-    "posted_date": "2026-10-03",
+    "posted_date": "2026-10-04",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -97,7 +110,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Program-Engineer_R150311",
     "source": "workday",
-    "posted_date": "2026-10-03",
+    "posted_date": "2026-10-04",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -241,19 +254,6 @@
     "url": "https://job-boards.greenhouse.io/doordashusa/jobs/8192190",
     "source": "greenhouse",
     "posted_date": "2026-10-13",
-    "metro": "NYC Area",
-    "sector": "Tech",
-    "first_seen": "2026-10-22",
-    "is_new": false
-  },
-  {
-    "firm": "FanDuel",
-    "id": "gh-fanduel-8180103",
-    "title": "Data Engineer",
-    "location": "New York City",
-    "url": "https://www.fanduel.careers/open-positions?gh_jid=8180103",
-    "source": "greenhouse",
-    "posted_date": "2026-09-04",
     "metro": "NYC Area",
     "sector": "Tech",
     "first_seen": "2026-10-22",
@@ -617,7 +617,7 @@
     "location": "USA - Philadelphia - Pennsylvania",
     "url": "https://nasdaq.wd1.myworkdayjobs.com/Global_External_Site/job/USA---Philadelphia---Pennsylvania/Data-Software-Engineer_R0026752",
     "source": "workday",
-    "posted_date": "2026-10-03",
+    "posted_date": "2026-10-04",
     "metro": "Other US",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -647,7 +647,7 @@
     "metro": "Other US",
     "sector": "Finance",
     "first_seen": "2026-11-03",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Robert Half",
@@ -660,7 +660,7 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-11-03",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Robert Half",
@@ -690,15 +690,15 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-01500-0013497785-usen",
+    "id": "roberthalf-03500-0013380490-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Oskaloosa, IA",
-    "url": "https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen",
+    "location": "Oklahoma City, OK",
+    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-13",
+    "posted_date": "2026-10-28",
     "metro": "Other US",
     "sector": "Agency",
-    "first_seen": "2026-10-13",
+    "first_seen": "2026-10-05",
     "is_new": false
   },
   {
@@ -716,15 +716,15 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-03500-0013380490-usen",
+    "id": "roberthalf-01500-0013497785-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Oklahoma City, OK",
-    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
+    "location": "Oskaloosa, IA",
+    "url": "https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-28",
+    "posted_date": "2026-10-13",
     "metro": "Other US",
     "sector": "Agency",
-    "first_seen": "2026-10-05",
+    "first_seen": "2026-10-13",
     "is_new": false
   },
   {
@@ -790,7 +790,7 @@
     "metro": "Other US",
     "sector": "Tech",
     "first_seen": "2026-11-03",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Susquehanna International Group",
@@ -1730,6 +1730,19 @@
   },
   {
     "firm": "Charles Schwab",
+    "id": "charles-99231496432",
+    "title": "Data Engineer",
+    "location": "Austin, TX; Southlake, TX",
+    "url": "https://www.schwabjobs.com/job/austin/data-engineer/33727/99231496432",
+    "source": "charles",
+    "posted_date": null,
+    "metro": "Texas",
+    "sector": "Finance",
+    "first_seen": "2026-09-29",
+    "is_new": false
+  },
+  {
+    "firm": "Charles Schwab",
     "id": "charles-98102690752",
     "title": "Platform Support Data Engineer",
     "location": "Austin, TX; Southlake, TX",
@@ -1740,6 +1753,19 @@
     "sector": "Finance",
     "first_seen": "2026-09-29",
     "is_new": false
+  },
+  {
+    "firm": "Citi",
+    "id": "citi-102849925136",
+    "title": "Data Analytics Engineer",
+    "location": "Irving, Texas, United States",
+    "url": "https://jobs.citi.com/job/irving/data-analytics-engineer/287/102849925136",
+    "source": "citi",
+    "posted_date": null,
+    "metro": "Texas",
+    "sector": "Finance",
+    "first_seen": "2026-11-04",
+    "is_new": true
   },
   {
     "firm": "Fluidstack",
