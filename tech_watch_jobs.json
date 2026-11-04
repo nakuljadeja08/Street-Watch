@@ -690,19 +690,6 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-01500-0013497785-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Oskaloosa, IA",
-    "url": "https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-13",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-13",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
     "id": "roberthalf-04600-0013495125-usen",
     "title": "Data Engineer \u00b7 Direct hire",
     "location": "Milwaukee, WI",
@@ -712,6 +699,19 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-01500-0013497785-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Oskaloosa, IA",
+    "url": "https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-13",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-13",
     "is_new": false
   },
   {
@@ -764,32 +764,6 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "SpaceX",
-    "id": "gh-spacex-8880868002",
-    "title": "Software Engineer (AI Data Engineering)",
-    "location": "Hawthorne, CA",
-    "url": "https://boards.greenhouse.io/spacex/jobs/8880868002?gh_jid=8880868002",
-    "source": "greenhouse",
-    "posted_date": "2026-10-08",
-    "metro": "Other US",
-    "sector": "Tech",
-    "first_seen": "2026-10-22",
-    "is_new": false
-  },
-  {
-    "firm": "SpaceX",
-    "id": "gh-spacex-8927919002",
-    "title": "Software Engineer, Full Stack (Data & Video Analysis)",
-    "location": "Hawthorne, CA",
-    "url": "https://boards.greenhouse.io/spacex/jobs/8927919002?gh_jid=8927919002",
-    "source": "greenhouse",
-    "posted_date": "2026-11-03",
-    "metro": "Other US",
-    "sector": "Tech",
-    "first_seen": "2026-11-03",
     "is_new": false
   },
   {
@@ -1313,19 +1287,6 @@
     "is_new": false
   },
   {
-    "firm": "Mercor",
-    "id": "ashby-mercor-ae344099-3fde-4027-bfde-f953db8b4728",
-    "title": "Software Engineer, Frontier Data Products",
-    "location": "San Francisco",
-    "url": "https://jobs.ashbyhq.com/mercor/ae344099-3fde-4027-bfde-f953db8b4728",
-    "source": "ashby",
-    "posted_date": "2026-10-27",
-    "metro": "SF Bay Area",
-    "sector": "Startup",
-    "first_seen": "2026-11-02",
-    "is_new": false
-  },
-  {
     "firm": "Meta",
     "id": "meta-4647361298838627",
     "title": "Data Engineer, Analytics (Ranking, AI)",
@@ -1687,32 +1648,6 @@
     "metro": "Seattle",
     "sector": "Tech",
     "first_seen": "2026-10-23",
-    "is_new": false
-  },
-  {
-    "firm": "SpaceX",
-    "id": "gh-spacex-8694609002",
-    "title": "Data Engineer (Starlink Mobile)",
-    "location": "Redmond, WA",
-    "url": "https://boards.greenhouse.io/spacex/jobs/8694609002?gh_jid=8694609002",
-    "source": "greenhouse",
-    "posted_date": "2026-10-21",
-    "metro": "Seattle",
-    "sector": "Tech",
-    "first_seen": "2026-10-21",
-    "is_new": false
-  },
-  {
-    "firm": "SpaceX",
-    "id": "gh-spacex-8784022002",
-    "title": "Data Engineer, Ground Network Engineering (Gateway)",
-    "location": "Redmond, WA",
-    "url": "https://boards.greenhouse.io/spacex/jobs/8784022002?gh_jid=8784022002",
-    "source": "greenhouse",
-    "posted_date": "2026-09-11",
-    "metro": "Seattle",
-    "sector": "Tech",
-    "first_seen": "2026-09-30",
     "is_new": false
   },
   {
