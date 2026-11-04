@@ -1,7 +1,6 @@
 metro,sector,firm,title,location,source,posted_date,first_seen,is_new,url
 Atlanta,Finance,Equifax,Big Data / SMAC Technology Developer,USA - Georgia - Alpharetta - 30005,workday,2026-10-30,2026-10-30,False,https://equifax.wd5.myworkdayjobs.com/External/job/USA---Georgia---Alpharetta---30005/Big-Data---SMAC-Technology-Developer_J00179355
 Atlanta,Tech,FanDuel,Data Engineer,"Atlanta, Georgia, United States",greenhouse,2026-10-20,2026-10-22,False,https://www.fanduel.careers/open-positions?gh_jid=8267158
-Boston,Finance,Fidelity,"Data Engineer (Snowflake, MySQL, Python)","Boston, MA; Covington, KY",workday,2026-11-04,2026-11-04,True,https://fmr.wd1.myworkdayjobs.com/FidelityCareers/job/Boston-MA/Data-Engineer--Snowflake--MySQL--Python-_2132954-1
 Boston,Agency,Motion Recruitment,"Quantitative Analytics Engineer - Python/SQL/Finance - Boston, MA · Direct hire","Boston, MA",motion,,2026-10-28,False,https://motionrecruitment.com/tech-jobs/boston/direct-hire/quantitative-analytics-engineer-python-sql-finance-boston-ma/893559
 Boston,Finance,State Street,Technology Financial Operations Data Analytics & BI Engineer,"Quincy, Massachusetts",workday,2026-10-05,2026-10-22,False,https://statestreet.wd1.myworkdayjobs.com/Global/job/Quincy-Massachusetts/Technology-Financial-Operations-Data-Analytics---BI-Engineer_R-796407
 Charlotte,Finance,Capital Group,AI Platform Engineer,Charlotte,workday,2026-10-04,2026-11-02,False,https://capgroup.wd1.myworkdayjobs.com/capitalgroupcareers/job/Charlotte/Platform-Engineer-IV_JR6886
@@ -11,8 +10,9 @@ Chicago,Finance,Northern Trust,Data Program Engineer,"Chicago, IL",workday,2026-
 DC / Virginia,Agency,Robert Half,Data Engineer · Direct hire,"Arlington, TX",roberthalf,2026-10-17,2026-10-17,False,https://www.roberthalf.com/us/en/job/arlington-tx/data-engineer/04030-0013527669-usen
 NYC Area,Fintech,Addepar,AI Engineer - AI Platform,"New York, NY",greenhouse,2026-10-27,2026-11-02,False,https://job-boards.greenhouse.io/addepar1/jobs/8906234002
 NYC Area,Fintech,Addepar,Full Stack Software Engineer - Alts & Data Management,"New York, NY",greenhouse,2026-10-28,2026-10-29,False,https://job-boards.greenhouse.io/addepar1/jobs/8912699002
-NYC Area,Tech,Anthropic,Data Engineer,"San Francisco, CA | New York City, NY; Seattle, WA",greenhouse,2026-10-30,2026-10-31,False,https://job-boards.greenhouse.io/anthropic/jobs/5464234008
+NYC Area,Tech,Anthropic,Accounting Analytics & BI Engineer,"San Francisco, CA | New York City, NY",greenhouse,2026-11-04,2026-11-04,True,https://job-boards.greenhouse.io/anthropic/jobs/5471539008
 NYC Area,Tech,Anthropic,"Data Engineer, Billing & Payments","San Francisco, CA | New York City, NY",greenhouse,2026-10-12,2026-10-12,False,https://job-boards.greenhouse.io/anthropic/jobs/5450099008
+NYC Area,Tech,Anthropic,"Data Engineer, GTM Systems","San Francisco, CA | New York City, NY; Seattle, WA",greenhouse,2026-10-30,2026-10-31,False,https://job-boards.greenhouse.io/anthropic/jobs/5464234008
 NYC Area,Tech,Anthropic,Recruiting Analytics Data Engineer,"San Francisco, CA | New York City, NY | Seattle, WA",greenhouse,2026-09-14,2026-09-27,False,https://job-boards.greenhouse.io/anthropic/jobs/5424111008
 NYC Area,Tech,Anthropic,"Research Engineer / Performance Engineer, RL Distributed Systems","San Francisco, CA | New York City, NY | Seattle, WA",greenhouse,2026-09-29,2026-11-02,False,https://job-boards.greenhouse.io/anthropic/jobs/5438030008
 NYC Area,Finance,Citadel Securities,C++ Market Data Engineer,"Miami, New York",citadel,,2026-09-27,False,https://www.citadelsecurities.com/careers/details/c-market-data-engineer/
@@ -52,9 +52,9 @@ Other US,Finance,Regions Securities,Data and Analytics Developer,"Hoover, Alabam
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Memphis, TN",roberthalf,2026-11-03,2026-11-03,False,https://www.roberthalf.com/us/en/job/memphis-tn/data-engineer/03900-9504421867-usen
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Minneapolis, MN",roberthalf,2026-10-30,2026-10-30,False,https://www.roberthalf.com/us/en/job/minneapolis-mn/data-engineer/02310-0013535137-usen
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Naperville, IL",roberthalf,2026-10-29,2026-10-29,False,https://www.roberthalf.com/us/en/job/naperville-il/data-engineer/01300-0013534672-usen
-Other US,Agency,Robert Half,Data Engineer · Direct hire,"Oklahoma City, OK",roberthalf,2026-10-28,2026-10-05,False,https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen
-Other US,Agency,Robert Half,Data Engineer · Direct hire,"Milwaukee, WI",roberthalf,2026-10-30,2026-10-05,False,https://www.roberthalf.com/us/en/job/milwaukee-wi/data-engineer/04600-0013495125-usen
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Oskaloosa, IA",roberthalf,2026-10-13,2026-10-13,False,https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen
+Other US,Agency,Robert Half,Data Engineer · Direct hire,"Milwaukee, WI",roberthalf,2026-10-30,2026-10-05,False,https://www.roberthalf.com/us/en/job/milwaukee-wi/data-engineer/04600-0013495125-usen
+Other US,Agency,Robert Half,Data Engineer · Direct hire,"Oklahoma City, OK",roberthalf,2026-10-28,2026-10-05,False,https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen
 Other US,Agency,Robert Half,Data Platform Engineer · Direct hire,"Cleveland, OH",roberthalf,2026-10-30,2026-10-30,False,https://www.roberthalf.com/us/en/job/cleveland-oh/data-platform-engineer/03340-0013535323-usen
 Other US,Agency,Robert Half,Database Engineer · Direct hire,"Westlake, OH",roberthalf,2026-10-01,2026-10-22,False,https://www.roberthalf.com/us/en/job/westlake-oh/database-engineer/03340-0013407327-usen
 Other US,Agency,Robert Half,Snowflake Data Engineer · Direct hire,"Radnor, PA",roberthalf,2026-11-03,2026-10-05,False,https://www.roberthalf.com/us/en/job/radnor-pa/snowflake-data-engineer/03720-0013512453-usen

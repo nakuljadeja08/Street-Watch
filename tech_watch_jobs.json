@@ -26,19 +26,6 @@
     "is_new": false
   },
   {
-    "firm": "Fidelity",
-    "id": "wd-fmr-FidelityCareers-/job/Boston-MA/Data-Engineer--Snowflake--MySQL--Python-_2132954-1",
-    "title": "Data Engineer (Snowflake, MySQL, Python)",
-    "location": "Boston, MA; Covington, KY",
-    "url": "https://fmr.wd1.myworkdayjobs.com/FidelityCareers/job/Boston-MA/Data-Engineer--Snowflake--MySQL--Python-_2132954-1",
-    "source": "workday",
-    "posted_date": "2026-11-04",
-    "metro": "Boston",
-    "sector": "Finance",
-    "first_seen": "2026-11-04",
-    "is_new": true
-  },
-  {
     "firm": "Motion Recruitment",
     "id": "motion-893559",
     "title": "Quantitative Analytics Engineer - Python/SQL/Finance - Boston, MA \u00b7 Direct hire",
@@ -157,16 +144,16 @@
   },
   {
     "firm": "Anthropic",
-    "id": "gh-anthropic-5464234008",
-    "title": "Data Engineer",
-    "location": "San Francisco, CA | New York City, NY; Seattle, WA",
-    "url": "https://job-boards.greenhouse.io/anthropic/jobs/5464234008",
+    "id": "gh-anthropic-5471539008",
+    "title": "Accounting Analytics & BI Engineer",
+    "location": "San Francisco, CA | New York City, NY",
+    "url": "https://job-boards.greenhouse.io/anthropic/jobs/5471539008",
     "source": "greenhouse",
-    "posted_date": "2026-10-30",
+    "posted_date": "2026-11-04",
     "metro": "NYC Area",
     "sector": "Tech",
-    "first_seen": "2026-10-31",
-    "is_new": false
+    "first_seen": "2026-11-04",
+    "is_new": true
   },
   {
     "firm": "Anthropic",
@@ -179,6 +166,19 @@
     "metro": "NYC Area",
     "sector": "Tech",
     "first_seen": "2026-10-12",
+    "is_new": false
+  },
+  {
+    "firm": "Anthropic",
+    "id": "gh-anthropic-5464234008",
+    "title": "Data Engineer, GTM Systems",
+    "location": "San Francisco, CA | New York City, NY; Seattle, WA",
+    "url": "https://job-boards.greenhouse.io/anthropic/jobs/5464234008",
+    "source": "greenhouse",
+    "posted_date": "2026-10-30",
+    "metro": "NYC Area",
+    "sector": "Tech",
+    "first_seen": "2026-10-31",
     "is_new": false
   },
   {
@@ -690,15 +690,15 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-03500-0013380490-usen",
+    "id": "roberthalf-01500-0013497785-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Oklahoma City, OK",
-    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
+    "location": "Oskaloosa, IA",
+    "url": "https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-28",
+    "posted_date": "2026-10-13",
     "metro": "Other US",
     "sector": "Agency",
-    "first_seen": "2026-10-05",
+    "first_seen": "2026-10-13",
     "is_new": false
   },
   {
@@ -716,15 +716,15 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-01500-0013497785-usen",
+    "id": "roberthalf-03500-0013380490-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Oskaloosa, IA",
-    "url": "https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen",
+    "location": "Oklahoma City, OK",
+    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-13",
+    "posted_date": "2026-10-28",
     "metro": "Other US",
     "sector": "Agency",
-    "first_seen": "2026-10-13",
+    "first_seen": "2026-10-05",
     "is_new": false
   },
   {
