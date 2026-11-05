@@ -4,6 +4,7 @@ import FIRM_CATEGORIES from "../../firm_categories.json";
 import Trends from "./Trends.jsx";
 import { useRecruiters, RecruitersView, RecruitersButton } from "./Recruiters.jsx";
 import ManualFirms from "./ManualFirms.jsx";
+import Notepad from "./Notepad.jsx";
 import { needsFollowUp, daysSinceApplied, researchLinks, jobsToCsv, downloadCsv, FOLLOW_UP_DAYS } from "./tracker.js";
 
 // firm -> type ("PE & Alts", "Bulge Bracket", …); shared with pipeline.py
@@ -1037,6 +1038,7 @@ export default function App({ signedIn = false, header = null }) {
           <FunnelView board={board} boardTotal={boardTotal} loading={loading} filtersActive={filtersActive} onExport={exportTracked} />
         ) : (
         <>
+        {view === "list" && <Notepad watch="street" />}
         <div className="meta">
           {loading
             ? "Loading…"

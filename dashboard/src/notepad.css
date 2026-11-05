@@ -1,0 +1,81 @@
+/* To-do notepad, shared by both watches. Each watch maps its own theme tokens,
+   so light and dark come along for free (same pattern as manual.css). */
+.np-street {
+  --np-ink: var(--ink); --np-soft: var(--soft); --np-line: var(--line); --np-panel: var(--panel);
+  --np-field: var(--panel2); --np-accent: var(--green); --np-on: var(--onGreen); --np-bad: var(--lip);
+}
+.np-tech {
+  --np-ink: var(--tw-ink); --np-soft: var(--tw-soft); --np-line: var(--tw-line); --np-panel: var(--tw-panel);
+  --np-field: var(--tw-panel); --np-accent: var(--tw-acc); --np-on: #fff; --np-bad: var(--tw-bad);
+}
+
+.np { color: var(--np-ink); }
+.np-head { display: flex; align-items: center; }
+.np-title {
+  all: unset; box-sizing: border-box; display: flex; align-items: center; gap: 8px; cursor: pointer;
+  border-radius: 6px; padding: 2px 4px; margin-left: -4px;
+}
+.np-title:focus-visible, .np-text:focus-visible, .np-x:focus-visible, .np-link:focus-visible { outline: 2px solid var(--np-accent); outline-offset: 1px; }
+.np-title h2 { margin: 0; }
+.np-caret { color: var(--np-soft); font-size: 12px; width: 10px; }
+.np-n {
+  font-size: 11.5px; font-variant-numeric: tabular-nums; color: var(--np-soft);
+  border: 1px solid var(--np-line); border-radius: 999px; padding: 0 7px;
+}
+
+.np-add { display: flex; gap: 6px; margin: 10px 0 8px; }
+.np-add input, .np-edit {
+  flex: 1; min-width: 0; font: inherit; color: var(--np-ink); background: var(--np-field);
+  border: 1px solid var(--np-line); border-radius: 8px; padding: 7px 10px;
+}
+.np-add input:focus, .np-edit:focus { outline: none; border-color: var(--np-accent); }
+.np-addBtn {
+  flex: none; width: 34px; border-radius: 8px; border: 1px solid var(--np-accent);
+  background: var(--np-accent); color: var(--np-on); font-size: 16px; cursor: pointer;
+}
+.np-addBtn:disabled { opacity: .4; cursor: default; }
+
+.np-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.np-item { display: flex; align-items: flex-start; gap: 8px; padding: 4px 0; }
+.np-check { flex: none; width: 16px; height: 16px; margin: 3px 0 0; accent-color: var(--np-accent); cursor: pointer; }
+.np-text {
+  all: unset; flex: 1; min-width: 0; cursor: text; overflow-wrap: anywhere; line-height: 1.45; border-radius: 4px;
+}
+.np-item.done .np-text { color: var(--np-soft); text-decoration: line-through; }
+.np-edit { padding: 2px 6px; border-radius: 5px; }
+.np-x {
+  all: unset; flex: none; cursor: pointer; color: var(--np-soft); padding: 0 6px; border-radius: 4px;
+  line-height: 1.45; opacity: 0; transition: opacity .12s;
+}
+.np-item:hover .np-x, .np-x:focus-visible { opacity: 1; }
+.np-x:hover { color: var(--np-bad); }
+@media (hover: none) { .np-x { opacity: 1; } }
+
+.np-doneBar { display: flex; justify-content: space-between; gap: 8px; margin: 8px 0 2px; }
+.np-link { all: unset; cursor: pointer; font-size: 12px; color: var(--np-soft); border-radius: 4px; }
+.np-link:hover { color: var(--np-ink); text-decoration: underline; }
+.np-empty { margin: 4px 0; font-size: 13px; color: var(--np-soft); }
+.np-note { margin: 8px 0 0; font-size: 11.5px; color: var(--np-soft); }
+
+/* Street Watch: a cream card at the top of the list */
+.np-street {
+  background: var(--np-panel); border: 1px solid var(--np-line); border-radius: 16px;
+  padding: 14px 18px; margin: 0 0 18px; font-size: 14.5px;
+}
+.np-street .np-title h2 { font-family: "Fraunces", Georgia, serif; font-size: 20px; font-weight: 500; font-style: italic; }
+.np-street.closed { padding-bottom: 12px; }
+.np-street .np-list { max-height: 260px; overflow-y: auto; }
+
+/* Tech Watch: a compact block in the sidebar, styled like the nav groups */
+.np-tech { font-size: 13px; padding: 0 8px; }
+.np-tech .np-title h2 {
+  font: 500 10.5px "JetBrains Mono", "Geist Mono", ui-monospace, monospace;
+  color: var(--tw-faint); letter-spacing: .1em; text-transform: uppercase;
+}
+.np-tech .np-n { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 10.5px; padding: 0 6px; }
+.np-tech .np-add input { padding: 5px 8px; border-radius: 6px; font-size: 12.5px; }
+.np-tech .np-add input::placeholder { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 11.5px; }
+.np-tech .np-addBtn { width: 28px; border-radius: 6px; font-size: 14px; }
+.np-tech .np-list { max-height: 240px; overflow-y: auto; }
+.np-tech .np-check { width: 14px; height: 14px; margin-top: 2px; }
+.np-tech .np-empty, .np-tech .np-note { font-size: 12px; }
