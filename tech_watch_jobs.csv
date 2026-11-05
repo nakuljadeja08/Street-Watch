@@ -10,7 +10,6 @@ Chicago,Finance,Northern Trust,Data Program Engineer,"Chicago, IL",workday,2026-
 DC / Virginia,Agency,Robert Half,Data Engineer · Direct hire,"Arlington, TX",roberthalf,2026-10-17,2026-10-17,False,https://www.roberthalf.com/us/en/job/arlington-tx/data-engineer/04030-0013527669-usen
 NYC Area,Fintech,Addepar,AI Engineer - AI Platform,"New York, NY",greenhouse,2026-10-27,2026-11-02,False,https://job-boards.greenhouse.io/addepar1/jobs/8906234002
 NYC Area,Fintech,Addepar,Full Stack Software Engineer - Alts & Data Management,"New York, NY",greenhouse,2026-10-28,2026-10-29,False,https://job-boards.greenhouse.io/addepar1/jobs/8912699002
-NYC Area,Tech,Anthropic,Accounting Analytics & BI Engineer,"San Francisco, CA | New York City, NY",greenhouse,2026-11-04,2026-11-04,False,https://job-boards.greenhouse.io/anthropic/jobs/5471539008
 NYC Area,Tech,Anthropic,"Data Engineer, Billing & Payments","San Francisco, CA | New York City, NY",greenhouse,2026-10-12,2026-10-12,False,https://job-boards.greenhouse.io/anthropic/jobs/5450099008
 NYC Area,Tech,Anthropic,"Data Engineer, GTM Systems","San Francisco, CA | New York City, NY; Seattle, WA",greenhouse,2026-10-30,2026-10-31,False,https://job-boards.greenhouse.io/anthropic/jobs/5464234008
 NYC Area,Tech,Anthropic,Recruiting Analytics Data Engineer,"San Francisco, CA | New York City, NY | Seattle, WA",greenhouse,2026-09-14,2026-09-27,False,https://job-boards.greenhouse.io/anthropic/jobs/5424111008
@@ -40,6 +39,7 @@ NYC Area,Finance,Tower Research Capital,Research Platform Engineer,New York,gree
 Other US,Tech,Carvana,Data Product Engineer,"Tempe, AZ",greenhouse,2026-09-09,2026-10-22,False,https://www.carvana.com/careers/apply?gh_jid=8188615
 Other US,Tech,Cohere,Member of Technical Staff - Post-training (Data Infrastructure),United States,ashby,2026-10-14,2026-11-02,False,https://jobs.ashbyhq.com/cohere/eef82766-7e31-430f-a102-bc33a5022597
 Other US,Tech,Elastic,"Analytics Engineer, HR Analytics",United States,greenhouse,2026-10-05,2026-10-05,False,https://jobs.elastic.co/jobs?gh_jid=8244449&gh_jid=8244449
+Other US,Tech,Gopuff,Analytics Engineer,"Philadelphia, PA; Miami, FL",lever,2026-09-10,2026-09-30,False,https://jobs.lever.co/gopuff/bfa7bc15-793e-486c-a3f5-b27d84c53025
 Other US,Tech,HP,Big Data Laser Analyst,"Vancouver, Washington, United States of America",workday,2026-11-02,2026-10-20,False,https://hp.wd5.myworkdayjobs.com/ExternalCareerSite/job/Vancouver-Washington-United-States-of-America/Big-Data-Laser-Analyst_3162874-1
 Other US,Finance,JPMorgan Chase,Data Engineer II - AWS/PySpark/ETL,"OH, United States",oracle,2026-11-04,2026-11-05,True,https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210803719
 Other US,Finance,JPMorgan Chase,Data Engineering Associate,"OH, United States",oracle,2026-09-25,2026-09-27,False,https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210793562
@@ -50,8 +50,8 @@ Other US,Finance,Nasdaq,Data Software Engineer,USA - Philadelphia - Pennsylvania
 Other US,Startup,Nous Research,Data Engineer,Americas (US time zones),ashby,2026-10-15,2026-11-02,False,https://jobs.ashbyhq.com/nousresearch/170e061a-5df1-420c-84df-c2d20ef93dbd
 Other US,Finance,Regions Securities,Data and Analytics Developer,"Hoover, Alabama, United States of America",phenom,2026-11-03,2026-11-03,False,https://regions.wd5.myworkdayjobs.com/Regions_Careers/job/Hoover-AL---Riverchase-Operations-Center-Birmingham-AL/Data-and-Analytics-Developer_R106997-1
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Memphis, TN",roberthalf,2026-11-03,2026-11-03,False,https://www.roberthalf.com/us/en/job/memphis-tn/data-engineer/03900-9504421867-usen
-Other US,Agency,Robert Half,Data Engineer · Direct hire,"Naperville, IL",roberthalf,2026-10-29,2026-10-29,False,https://www.roberthalf.com/us/en/job/naperville-il/data-engineer/01300-0013534672-usen
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Minneapolis, MN",roberthalf,2026-10-30,2026-10-30,False,https://www.roberthalf.com/us/en/job/minneapolis-mn/data-engineer/02310-0013535137-usen
+Other US,Agency,Robert Half,Data Engineer · Direct hire,"Naperville, IL",roberthalf,2026-10-29,2026-10-29,False,https://www.roberthalf.com/us/en/job/naperville-il/data-engineer/01300-0013534672-usen
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Oskaloosa, IA",roberthalf,2026-10-13,2026-10-13,False,https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Oklahoma City, OK",roberthalf,2026-10-28,2026-10-05,False,https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen
 Other US,Agency,Robert Half,Data Platform Engineer · Direct hire,"Cleveland, OH",roberthalf,2026-10-30,2026-10-30,False,https://www.roberthalf.com/us/en/job/cleveland-oh/data-platform-engineer/03340-0013535323-usen
@@ -130,7 +130,6 @@ Seattle,Tech,SpaceX,Data Engineer (Starlink Mobile),"Redmond, WA",greenhouse,202
 Seattle,Tech,SpaceX,"Data Engineer, Ground Network Engineering (Gateway)","Redmond, WA",greenhouse,2026-09-11,2026-09-30,False,https://boards.greenhouse.io/spacex/jobs/8784022002?gh_jid=8784022002
 Texas,Agency,Blue Signal,GTM & AI Analytics Engineer,"Houston, Texas, United States",loxo,,2026-10-05,False,https://blue-signal-search.app.loxo.co/job/MzY5MzEtaHFubGFtaXducndra3ZsNw==
 Texas,Finance,Charles Schwab,Data Engineer,"Austin, TX; Southlake, TX",charles,,2026-09-29,False,https://www.schwabjobs.com/job/austin/data-engineer/33727/99231496432
-Texas,Finance,Citi,Data Analytics Engineer,"Irving, Texas, United States",citi,,2026-11-04,False,https://jobs.citi.com/job/irving/data-analytics-engineer/287/102849925136
 Texas,Tech,Dell,Postgres Database Engineer,"Austin, TX, United States",oracle,2026-11-05,2026-10-24,False,https://enterpriseplatform.dell.com/hcmUI/CandidateExperience/en/sites/careers/job/297513
 Texas,Startup,Fluidstack,Data Engineer,"Austin, TX",ashby,2026-10-01,2026-11-02,False,https://jobs.ashbyhq.com/fluidstack/78365bf7-7a0e-4e15-b30f-827d68c9b8b8
 Texas,Finance,Macquarie Group,Data Platform Engineer,Houston Office,pageup,2026-10-28,2026-10-28,False,https://recruitment.macquarie.com/en_US/careers/JobDetail?jobId=24612

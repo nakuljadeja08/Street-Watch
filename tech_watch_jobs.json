@@ -144,19 +144,6 @@
   },
   {
     "firm": "Anthropic",
-    "id": "gh-anthropic-5471539008",
-    "title": "Accounting Analytics & BI Engineer",
-    "location": "San Francisco, CA | New York City, NY",
-    "url": "https://job-boards.greenhouse.io/anthropic/jobs/5471539008",
-    "source": "greenhouse",
-    "posted_date": "2026-11-04",
-    "metro": "NYC Area",
-    "sector": "Tech",
-    "first_seen": "2026-11-04",
-    "is_new": false
-  },
-  {
-    "firm": "Anthropic",
     "id": "gh-anthropic-5450099008",
     "title": "Data Engineer, Billing & Payments",
     "location": "San Francisco, CA | New York City, NY",
@@ -533,6 +520,19 @@
     "is_new": false
   },
   {
+    "firm": "Gopuff",
+    "id": "lever-gopuff-bfa7bc15-793e-486c-a3f5-b27d84c53025",
+    "title": "Analytics Engineer",
+    "location": "Philadelphia, PA; Miami, FL",
+    "url": "https://jobs.lever.co/gopuff/bfa7bc15-793e-486c-a3f5-b27d84c53025",
+    "source": "lever",
+    "posted_date": "2026-09-10",
+    "metro": "Other US",
+    "sector": "Tech",
+    "first_seen": "2026-09-30",
+    "is_new": false
+  },
+  {
     "firm": "HP",
     "id": "wd-hp-ExternalCareerSite-/job/Vancouver-Washington-United-States-of-America/Big-Data-Laser-Analyst_3162874-1",
     "title": "Big Data Laser Analyst",
@@ -664,19 +664,6 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-01300-0013534672-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Naperville, IL",
-    "url": "https://www.roberthalf.com/us/en/job/naperville-il/data-engineer/01300-0013534672-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-29",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-29",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
     "id": "roberthalf-02310-0013535137-usen",
     "title": "Data Engineer \u00b7 Direct hire",
     "location": "Minneapolis, MN",
@@ -686,6 +673,19 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-30",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-01300-0013534672-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Naperville, IL",
+    "url": "https://www.roberthalf.com/us/en/job/naperville-il/data-engineer/01300-0013534672-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-29",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-29",
     "is_new": false
   },
   {
@@ -1700,19 +1700,6 @@
     "metro": "Texas",
     "sector": "Finance",
     "first_seen": "2026-09-29",
-    "is_new": false
-  },
-  {
-    "firm": "Citi",
-    "id": "citi-102849925136",
-    "title": "Data Analytics Engineer",
-    "location": "Irving, Texas, United States",
-    "url": "https://jobs.citi.com/job/irving/data-analytics-engineer/287/102849925136",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "Texas",
-    "sector": "Finance",
-    "first_seen": "2026-11-04",
     "is_new": false
   },
   {
