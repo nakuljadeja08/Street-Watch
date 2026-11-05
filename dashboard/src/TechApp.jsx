@@ -4,6 +4,7 @@ import Trends from "./Trends.jsx";
 import { DraftModal, PasteJdModal, fileToBase64 } from "./App.jsx";
 import { useRecruiters, RecruitersView, RecruiterMatches } from "./Recruiters.jsx";
 import ManualFirms, { manualFirmCount } from "./ManualFirms.jsx";
+import Notepad from "./Notepad.jsx";
 import { needsFollowUp, daysSinceApplied, researchLinks, jobsToCsv, downloadCsv } from "./tracker.js";
 import "./tech.css";
 
@@ -523,6 +524,8 @@ export default function TechApp({ header, signedIn }) {
             <NavItem on={view === "recruiters"} onClick={() => setView(view === "recruiters" ? "list" : "recruiters")}>Recruiters</NavItem>
             <NavItem on={view === "manual"} n={manualFirmCount("tech")} onClick={() => setView(view === "manual" ? "list" : "manual")}>Apply manually</NavItem>
           </NavGroup>
+
+          <Notepad watch="tech" />
 
           <NavGroup title="Where">
             {HUBS.filter(([, name]) => counts.hub[name]).map(([slug, name]) => (

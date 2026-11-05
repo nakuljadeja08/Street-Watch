@@ -1765,8 +1765,14 @@ NZ_SENIOR_MAX_YEARS = 3
 _NUM = r"(\d{1,2}|one|two|three|four|five|six|seven|eight|nine|ten)"
 _WORDNUM = {w: i for i, w in enumerate(
     "zero one two three four five six seven eight nine ten".split())}
-_YEARS_RE = re.compile(_NUM + r"\s*\+?\s*(?:plus\s*)?(?:(?:-|\u2013|to)\s*" + _NUM
-                       + r"\s*\+?\s*)?(?:years?|yrs?)\b", re.I)
+# The lookbehind stops "1.5 years" reading as 5 and "135 years" as 35.
+_YEARS_RE = re.compile(r"(?<![\d.,])" + _NUM + r"\s*\+?\s*(?:plus\s*)?(?:(?:-|\u2013|\u2014|to)\s*" + _NUM
+                       + r"\s*\+?\s*(?:plus\s*)?)?(?:years?|yrs?)\b", re.I)
+
+
+def _years_num(mt):
+    n = mt.group(1).lower()
+    return int(n) if n.isdigit() else _WORDNUM[n]
 
 
 def min_years(text):
@@ -1778,11 +1784,93 @@ def min_years(text):
         near = text[max(0, mt.start() - 80):mt.end() + 80].lower()
         if "experience" not in near:
             continue
-        n = mt.group(1).lower()
-        n = int(n) if n.isdigit() else _WORDNUM[n]
+        n = _years_num(mt)
         if n <= 15:
             found.append(n)
     return min(found) if found else None
+
+
+# Both boards leave out roles that require more than this many years, so "5+"
+# and "5-8 years" go (user, 2026-11-02: they have 2-3 years, so acceptance odds
+# from 5 up are low). Postings that state no number, or can't be read, stay.
+MAX_REQUIRED_YEARS = 4
+YEARS_CACHE_KEY = "__required_years__"   # state-file key: posting id -> its required_years()
+_PREFERRED_HEAD_RE = re.compile(r"(?:preferred|desired|bonus|additional|nice[\s-]to[\s-]have)\s+"
+                                r"(?:qualifications?|skills?|experience|requirements?|points?)"
+                                r"|nice[\s-]to[\s-]haves?\b|bonus points", re.I)
+_REQUIRED_HEAD_RE = re.compile(r"(?:minimum|basic|required|must[\s-]have)\s+"
+                               r"(?:qualifications?|skills?|experience|requirements?)"
+                               r"|\brequirements\b|what you(?:'|\u2019)?(?:ll| will)? (?:need|bring)", re.I)
+_YEARS_LOCAL_PREF_RE = re.compile(r"prefer|ideally|desired|\ba plus\b|nice to have|bonus", re.I)
+# "up to 7 years", "within 6 years of graduating", "in the last 10 years": a
+# ceiling or a time window, not an ask.
+_YEARS_NOT_ASK_RE = re.compile(r"(?:up to|less than|fewer than|under|no more than|maximum of|max|within"
+                               r"|last|past|next|after|every|than)\s*$", re.I)
+_YEARS_AFTER_RE = re.compile(r"^[^.;:\u2022]{0,80}?\b(?:experience|expertise)\b", re.I)
+_YEARS_BEFORE_RE = re.compile(r"\bexperience\b[^.;\u2022]{0,20}$", re.I)
+_YEARS_BLURB_RE = re.compile(r"\b(?:we have|we bring|we've|our|firm|company|founded|history)\b[^.;:\u2022]{0,40}$", re.I)
+_YEARS_ALT_RE = re.compile(r"alternatively|will accept|in lieu|may substitute", re.I)
+
+
+def required_years(text):
+    """Years of experience a description requires, read from its largest ask:
+    "6+ years overall, 3+ in Snowflake" is 6, "5-8 years" is 5. Asks under a
+    preferred heading or worded as preferred don't count, and "7 years, or 5
+    with a Master's" is 5. None when nothing is stated."""
+    text = text or ""
+    heads = sorted([(m.start(), True) for m in _PREFERRED_HEAD_RE.finditer(text)]
+                   + [(m.start(), False) for m in _REQUIRED_HEAD_RE.finditer(text)])
+    best, prev_end, group = None, 0, None
+    for mt in _YEARS_RE.finditer(text):
+        n, before, after = _years_num(mt), text[max(0, mt.start() - 60):mt.start()], text[mt.end():mt.end() + 100]
+        # the wording around an ask only counts up to the sentence or bullet edge
+        clause = re.split(r"[.;:•]", before)[-1]
+        if (n > 15 or _YEARS_NOT_ASK_RE.search(before.rstrip(" ,(")) and not re.search(r"(?:more|greater) than\s*$", before, re.I)
+                or _YEARS_BLURB_RE.search(before)
+                or not (_YEARS_AFTER_RE.search(after) or _YEARS_BEFORE_RE.search(before))
+                or _YEARS_LOCAL_PREF_RE.search(re.split(r"[.;:•]", after)[0][:25]) or _YEARS_LOCAL_PREF_RE.search(clause[-25:])
+                or next((p for at, p in reversed(heads) if at < mt.start()), False)):
+            continue
+        # consecutive asks joined by "or" are alternatives: the easier one counts
+        if group is not None and (_YEARS_ALT_RE.search(before) or (
+                mt.start() - prev_end <= 150 and re.search(r"\bor\b", text[prev_end:mt.start()], re.I))):
+            group = min(group, n)
+        else:
+            best = group if best is None else max(best, group if group is not None else best)
+            group = n
+        prev_end = mt.end()
+    if group is not None:
+        best = group if best is None else max(best, group)
+    return best
+
+
+def drop_over_experience(jobs, state):
+    """Leave out roles requiring more than MAX_REQUIRED_YEARS. Each description
+    is read once and its answer kept in the state file, since a run would
+    otherwise re-fetch hundreds of postings; an unreadable one (no text, or too
+    little to be the posting, like a bot-check page) is retried next run."""
+    from concurrent.futures import ThreadPoolExecutor
+    cache = state.get(YEARS_CACHE_KEY) or {}
+    todo = [j for j in jobs if j["id"] not in cache]
+
+    def read(j):
+        text = job_text(j)
+        return j["id"], required_years(text), len(text) > 200
+
+    with ThreadPoolExecutor(12) as ex:
+        for jid, yrs, readable in ex.map(read, todo):
+            if readable:
+                cache[jid] = yrs
+    state[YEARS_CACHE_KEY] = {j["id"]: cache[j["id"]] for j in jobs if j["id"] in cache}
+    kept = []
+    for j in jobs:
+        yrs = cache.get(j["id"])
+        if yrs is not None and yrs > MAX_REQUIRED_YEARS:
+            print(f"  Over {MAX_REQUIRED_YEARS} yrs: {j['firm']} | {j['title'][:60]} -> {yrs}+ yrs -> drop")
+        else:
+            kept.append(j)
+    print(f"Experience check: read {len(todo)} new descriptions, dropped {len(jobs) - len(kept)} of {len(jobs)}")
+    return kept
 
 
 def _html_text(h):
@@ -2258,7 +2346,7 @@ def filter_rows(raw):
 
 
 # ---------------------------------------------------------------- supabase
-def push_supabase(rows, table="jobs", apps_table="applications", max_age_days=None):
+def push_supabase(rows, table="jobs", apps_table="applications", max_age_days=None, prune_firms=()):
     url, key = os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_SERVICE_KEY")
     if not (url and key):
         print("Supabase env not set — skipping DB upsert."); return
@@ -2325,7 +2413,9 @@ def push_supabase(rows, table="jobs", apps_table="applications", max_age_days=No
         return
     keep = ({"id": "not.in.(" + ",".join(json.dumps(i) for i in tracked) + ")"}
             if tracked else {})
-    for firm in sorted({r["firm"] for r in rows}):
+    # prune_firms: firms whose feed worked but whose every role a late filter
+    # dropped, so they have no row here yet their old rows should still go.
+    for firm in sorted({r["firm"] for r in rows} | set(prune_firms)):
         try:
             d = requests.delete(f"{url}/rest/v1/{table}",
                                 headers={**headers, "Prefer": "return=minimal"},
@@ -3130,6 +3220,8 @@ def main():
     state = json.load(open(STATE_FILE)) if os.path.exists(STATE_FILE) else {}
     prev = json.load(open("street_watch_jobs.json", encoding="utf-8")) if os.path.exists("street_watch_jobs.json") else []
     jobs, raw = collect()
+    live_firms = {j["firm"] for j in jobs}
+    jobs = drop_over_experience(jobs, state)
 
     new = assign_first_seen(jobs, state, prev, today)
     json.dump(state, open(STATE_FILE, "w"))
@@ -3142,7 +3234,7 @@ def main():
             w.writerow([j["metro"], j["firm"], j["title"], j["location"], j["source"],
                         j.get("posted_date"), j["first_seen"], j["is_new"], j["url"]])
 
-    push_supabase(jobs)
+    push_supabase(jobs, prune_firms=live_firms)
 
     trends = json.load(open(TRENDS_FILE)) if os.path.exists(TRENDS_FILE) else {}
     day_rows = update_trends(trends, jobs, {r["id"] for r in raw},

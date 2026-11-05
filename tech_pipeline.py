@@ -1005,6 +1005,8 @@ def main():
     state = json.load(open(STATE_FILE)) if os.path.exists(STATE_FILE) else {}
     prev = json.load(open(JOBS_JSON, encoding="utf-8")) if os.path.exists(JOBS_JSON) else []
     jobs, raw = collect()
+    live_firms = {j["firm"] for j in jobs}
+    jobs = P.drop_over_experience(jobs, state)
 
     new = P.assign_first_seen(jobs, state, prev, today)
     json.dump(state, open(STATE_FILE, "w"))
@@ -1018,7 +1020,8 @@ def main():
             w.writerow([j["metro"], j["sector"], j["firm"], j["title"], j["location"], j["source"],
                         j.get("posted_date"), j["first_seen"], j["is_new"], j["url"]])
 
-    P.push_supabase(jobs, table=TABLES["jobs"], apps_table=TABLES["apps"], max_age_days=MAX_AGE_DAYS)
+    P.push_supabase(jobs, table=TABLES["jobs"], apps_table=TABLES["apps"], max_age_days=MAX_AGE_DAYS,
+                    prune_firms=live_firms)
 
     trends = json.load(open(TRENDS_FILE)) if os.path.exists(TRENDS_FILE) else {}
     day_rows = P.update_trends(trends, jobs, {r["id"] for r in raw},
