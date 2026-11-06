@@ -45,7 +45,7 @@
     "location": "Quincy, Massachusetts",
     "url": "https://statestreet.wd1.myworkdayjobs.com/Global/job/Quincy-Massachusetts/Technology-Financial-Operations-Data-Analytics---BI-Engineer_R-796407",
     "source": "workday",
-    "posted_date": "2026-10-05",
+    "posted_date": "2026-10-06",
     "metro": "Boston",
     "sector": "Finance",
     "first_seen": "2026-10-22",
@@ -58,7 +58,7 @@
     "location": "Charlotte",
     "url": "https://capgroup.wd1.myworkdayjobs.com/capitalgroupcareers/job/Charlotte/Platform-Engineer-IV_JR6886",
     "source": "workday",
-    "posted_date": "2026-10-05",
+    "posted_date": "2026-10-06",
     "metro": "Charlotte",
     "sector": "Finance",
     "first_seen": "2026-11-02",
@@ -84,7 +84,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Analytics-Engineer_R150313",
     "source": "workday",
-    "posted_date": "2026-10-05",
+    "posted_date": "2026-10-06",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -97,7 +97,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Program-Engineer_R150311",
     "source": "workday",
-    "posted_date": "2026-10-05",
+    "posted_date": "2026-10-06",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -404,6 +404,19 @@
   },
   {
     "firm": "Palantir",
+    "id": "lever-palantir-9aadca04-df88-4b46-95d8-c3b2628b30b0",
+    "title": "Backend Software Engineer - Data Connectors",
+    "location": "New York, NY",
+    "url": "https://jobs.lever.co/palantir/9aadca04-df88-4b46-95d8-c3b2628b30b0",
+    "source": "lever",
+    "posted_date": "2026-11-04",
+    "metro": "NYC Area",
+    "sector": "Tech",
+    "first_seen": "2026-11-06",
+    "is_new": true
+  },
+  {
+    "firm": "Palantir",
     "id": "lever-palantir-1b690123-1766-4e75-a0ef-0f58afa864b4",
     "title": "Data Engineer - Talent Acquisition Operations",
     "location": "New York, NY",
@@ -556,7 +569,7 @@
     "metro": "Other US",
     "sector": "Finance",
     "first_seen": "2026-11-05",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "JPMorgan Chase",
@@ -617,7 +630,7 @@
     "location": "USA - Philadelphia - Pennsylvania",
     "url": "https://nasdaq.wd1.myworkdayjobs.com/Global_External_Site/job/USA---Philadelphia---Pennsylvania/Data-Software-Engineer_R0026752",
     "source": "workday",
-    "posted_date": "2026-10-05",
+    "posted_date": "2026-10-06",
     "metro": "Other US",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -664,19 +677,6 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-02310-0013535137-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Minneapolis, MN",
-    "url": "https://www.roberthalf.com/us/en/job/minneapolis-mn/data-engineer/02310-0013535137-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-30",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-30",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
     "id": "roberthalf-01300-0013534672-usen",
     "title": "Data Engineer \u00b7 Direct hire",
     "location": "Naperville, IL",
@@ -690,15 +690,15 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-01500-0013497785-usen",
+    "id": "roberthalf-02310-0013535137-usen",
     "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Oskaloosa, IA",
-    "url": "https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen",
+    "location": "Minneapolis, MN",
+    "url": "https://www.roberthalf.com/us/en/job/minneapolis-mn/data-engineer/02310-0013535137-usen",
     "source": "roberthalf",
-    "posted_date": "2026-10-13",
+    "posted_date": "2026-10-30",
     "metro": "Other US",
     "sector": "Agency",
-    "first_seen": "2026-10-13",
+    "first_seen": "2026-10-30",
     "is_new": false
   },
   {
@@ -716,6 +716,19 @@
   },
   {
     "firm": "Robert Half",
+    "id": "roberthalf-01500-0013497785-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Oskaloosa, IA",
+    "url": "https://www.roberthalf.com/us/en/job/oskaloosa-ia/data-engineer/01500-0013497785-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-13",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-13",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
     "id": "roberthalf-03340-0013535323-usen",
     "title": "Data Platform Engineer \u00b7 Direct hire",
     "location": "Cleveland, OH",
@@ -729,19 +742,6 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-03340-0013407327-usen",
-    "title": "Database Engineer \u00b7 Direct hire",
-    "location": "Westlake, OH",
-    "url": "https://www.roberthalf.com/us/en/job/westlake-oh/database-engineer/03340-0013407327-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-01",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-22",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
     "id": "roberthalf-03720-0013512453-usen",
     "title": "Snowflake Data Engineer \u00b7 Direct hire",
     "location": "Radnor, PA",
@@ -751,32 +751,6 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "SpaceX",
-    "id": "gh-spacex-8880868002",
-    "title": "Software Engineer (AI Data Engineering)",
-    "location": "Hawthorne, CA",
-    "url": "https://boards.greenhouse.io/spacex/jobs/8880868002?gh_jid=8880868002",
-    "source": "greenhouse",
-    "posted_date": "2026-10-08",
-    "metro": "Other US",
-    "sector": "Tech",
-    "first_seen": "2026-10-22",
-    "is_new": false
-  },
-  {
-    "firm": "SpaceX",
-    "id": "gh-spacex-8927919002",
-    "title": "Software Engineer, Full Stack (Data & Video Analysis)",
-    "location": "Hawthorne, CA",
-    "url": "https://boards.greenhouse.io/spacex/jobs/8927919002?gh_jid=8927919002",
-    "source": "greenhouse",
-    "posted_date": "2026-11-03",
-    "metro": "Other US",
-    "sector": "Tech",
-    "first_seen": "2026-11-03",
     "is_new": false
   },
   {
@@ -864,7 +838,7 @@
     "location": "US - Remote",
     "url": "https://allstate.wd5.myworkdayjobs.com/allstate_careers/job/US---Remote/Managing-Engineer--Data-Engineering_R35362-1",
     "source": "workday",
-    "posted_date": "2026-10-05",
+    "posted_date": "2026-10-06",
     "metro": "Remote (US)",
     "sector": "Finance",
     "first_seen": "2026-10-05",
@@ -1392,19 +1366,6 @@
   },
   {
     "firm": "OpenAI",
-    "id": "ashby-openai-b2250643-bfd0-4ce6-abbf-cb7e8c8123ba",
-    "title": "AI Infrastructure Engineer, pAGI",
-    "location": "San Francisco",
-    "url": "https://jobs.ashbyhq.com/openai/b2250643-bfd0-4ce6-abbf-cb7e8c8123ba",
-    "source": "ashby",
-    "posted_date": "2026-09-14",
-    "metro": "SF Bay Area",
-    "sector": "Tech",
-    "first_seen": "2026-11-02",
-    "is_new": false
-  },
-  {
-    "firm": "OpenAI",
     "id": "ashby-openai-c25fd30e-056e-4a26-af80-7ea1074fc56e",
     "title": "Data Engineer, Hardware & Consumer Devices",
     "location": "San Francisco",
@@ -1626,6 +1587,19 @@
   },
   {
     "firm": "xAI",
+    "id": "gh-xai-5286889007",
+    "title": "Analytics Engineer (X)",
+    "location": "Palo Alto, CA",
+    "url": "https://job-boards.greenhouse.io/xai/jobs/5286889007",
+    "source": "greenhouse",
+    "posted_date": "2026-11-05",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-11-06",
+    "is_new": true
+  },
+  {
+    "firm": "xAI",
     "id": "gh-xai-5265194007",
     "title": "Data Visualization Engineer",
     "location": "Palo Alto, CA",
@@ -1638,6 +1612,19 @@
     "is_new": false
   },
   {
+    "firm": "Cohere",
+    "id": "ashby-cohere-735f26a3-9456-49e2-8f84-23804534cfe4",
+    "title": "Member of Technical Staff, GPU Infrastructure",
+    "location": "Seattle",
+    "url": "https://jobs.ashbyhq.com/cohere/735f26a3-9456-49e2-8f84-23804534cfe4",
+    "source": "ashby",
+    "posted_date": "2026-11-06",
+    "metro": "Seattle",
+    "sector": "Tech",
+    "first_seen": "2026-11-06",
+    "is_new": true
+  },
+  {
     "firm": "Microsoft",
     "id": "microsoft-1970393557040468",
     "title": "Software Engineer II - Finance Data & Experiences",
@@ -1648,32 +1635,6 @@
     "metro": "Seattle",
     "sector": "Tech",
     "first_seen": "2026-10-23",
-    "is_new": false
-  },
-  {
-    "firm": "SpaceX",
-    "id": "gh-spacex-8694609002",
-    "title": "Data Engineer (Starlink Mobile)",
-    "location": "Redmond, WA",
-    "url": "https://boards.greenhouse.io/spacex/jobs/8694609002?gh_jid=8694609002",
-    "source": "greenhouse",
-    "posted_date": "2026-10-21",
-    "metro": "Seattle",
-    "sector": "Tech",
-    "first_seen": "2026-10-21",
-    "is_new": false
-  },
-  {
-    "firm": "SpaceX",
-    "id": "gh-spacex-8784022002",
-    "title": "Data Engineer, Ground Network Engineering (Gateway)",
-    "location": "Redmond, WA",
-    "url": "https://boards.greenhouse.io/spacex/jobs/8784022002?gh_jid=8784022002",
-    "source": "greenhouse",
-    "posted_date": "2026-09-11",
-    "metro": "Seattle",
-    "sector": "Tech",
-    "first_seen": "2026-09-30",
     "is_new": false
   },
   {
@@ -1739,32 +1700,6 @@
     "metro": "Texas",
     "sector": "Finance",
     "first_seen": "2026-10-28",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-04130-0013225544-usen",
-    "title": "Data Engineer - Python/Snowflake \u00b7 Direct hire",
-    "location": "Houston, TX",
-    "url": "https://www.roberthalf.com/us/en/job/houston-tx/data-engineer-pythonsnowflake/04130-0013225544-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-05",
-    "metro": "Texas",
-    "sector": "Agency",
-    "first_seen": "2026-10-06",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-04130-0013486331-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Houston, TX",
-    "url": "https://www.roberthalf.com/us/en/job/houston-tx/data-engineer/04130-0013486331-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-05",
-    "metro": "Texas",
-    "sector": "Agency",
-    "first_seen": "2026-10-06",
     "is_new": false
   },
   {
