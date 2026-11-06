@@ -469,6 +469,18 @@
   },
   {
     "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210806107",
+    "title": "Associate Relationship Banker - Streamwood Route 59 - Streamwood, IL",
+    "location": "Streamwood, IL, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210806107",
+    "source": "oracle",
+    "posted_date": "2026-11-06",
+    "metro": "Chicago",
+    "first_seen": "2026-11-06",
+    "is_new": true
+  },
+  {
+    "firm": "JPMorgan Chase",
     "id": "oracle-jpmc.fa.oraclecloud.com-210806533",
     "title": "Client Data Associate",
     "location": "Chicago, IL, United States",
@@ -3567,13 +3579,25 @@
     "firm": "Citizens Financial Group",
     "id": "citizens-101923260352",
     "title": "Associate, Asset-Backed Securitization",
-    "location": "Stamford, Connecticut; Charlotte, North Carolina; New York, New York",
+    "location": "Stamford, Connecticut; New York, New York; Charlotte, North Carolina",
     "url": "https://jobs.citizensbank.com/job/stamford/associate-asset-backed-securitization/288/101923260352",
     "source": "citizens",
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-29",
     "is_new": false
+  },
+  {
+    "firm": "DRW",
+    "id": "gh-drweng-8359837",
+    "title": "Software Engineer - Trading Operations",
+    "location": "New York City",
+    "url": "https://job-boards.greenhouse.io/drweng/jobs/8359837",
+    "source": "greenhouse",
+    "posted_date": "2026-11-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-11-06",
+    "is_new": true
   },
   {
     "firm": "DRW",
@@ -4297,6 +4321,18 @@
   },
   {
     "firm": "Goldman Sachs",
+    "id": "gs-163296_GS_MID_CAREER",
+    "title": "Asset & Wealth Management, Risk Management, Analyst - New York",
+    "location": "New York, NY, United States",
+    "url": "https://higher.gs.com/roles/163296",
+    "source": "goldman",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-23",
+    "is_new": false
+  },
+  {
+    "firm": "Goldman Sachs",
     "id": "gs-176984_GS_EARLY_CAREER",
     "title": "Asset & Wealth Management, Wealth Investment Solutions (WIS), Digital Product Manager, Analyst - New York",
     "location": "New York, NY, United States",
@@ -4498,6 +4534,30 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-11-02",
     "is_new": false
+  },
+  {
+    "firm": "Goldman Sachs",
+    "id": "gs-188549_GS_MID_CAREER",
+    "title": "Global Banking & Markets Operations-New York-Associate-Equities Execution Client Operations",
+    "location": "New York, NY, United States",
+    "url": "https://higher.gs.com/roles/188549",
+    "source": "goldman",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-11-06",
+    "is_new": true
+  },
+  {
+    "firm": "Goldman Sachs",
+    "id": "gs-188559_GS_MID_CAREER",
+    "title": "Global Banking & Markets Operations-New York-Associate-Settlements",
+    "location": "New York, NY, United States",
+    "url": "https://higher.gs.com/roles/188559",
+    "source": "goldman",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-11-06",
+    "is_new": true
   },
   {
     "firm": "Goldman Sachs",
@@ -4873,6 +4933,18 @@
   },
   {
     "firm": "HSBC",
+    "id": "eightfold-portal.careers.hsbc.com-563774612597237",
+    "title": "Client Experience Associate",
+    "location": "New York, New York, United States",
+    "url": "https://portal.careers.hsbc.com/careers/job/563774612597237",
+    "source": "eightfold",
+    "posted_date": "2026-11-05",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-11-06",
+    "is_new": true
+  },
+  {
+    "firm": "HSBC",
     "id": "eightfold-portal.careers.hsbc.com-563774612523302",
     "title": "Client Experience Associate",
     "location": "Buffalo, New York, United States",
@@ -5089,6 +5161,18 @@
   },
   {
     "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210773454",
+    "title": "2027 Global Private Bank Advisor Program (Full-time Associate) - US Private Bank",
+    "location": "New York, NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210773454",
+    "source": "oracle",
+    "posted_date": "2026-11-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-01",
+    "is_new": false
+  },
+  {
+    "firm": "JPMorgan Chase",
     "id": "oracle-jpmc.fa.oraclecloud.com-210799018",
     "title": "AI Junior Designer - Associate",
     "location": "New York, NY, United States",
@@ -5182,6 +5266,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-16",
     "is_new": false
+  },
+  {
+    "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210807548",
+    "title": "Associate Relationship Banker - Oswego, NY",
+    "location": "NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210807548",
+    "source": "oracle",
+    "posted_date": "2026-11-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-11-06",
+    "is_new": true
   },
   {
     "firm": "JPMorgan Chase",
@@ -5725,6 +5821,18 @@
   },
   {
     "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210806056",
+    "title": "Payments Product Control - Associate",
+    "location": "Brooklyn, NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210806056",
+    "source": "oracle",
+    "posted_date": "2026-11-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-11-06",
+    "is_new": true
+  },
+  {
+    "firm": "JPMorgan Chase",
     "id": "oracle-jpmc.fa.oraclecloud.com-210772103",
     "title": "Payments Strategic Client Engagement Associate",
     "location": "Jersey City, NJ, United States",
@@ -5806,6 +5914,18 @@
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-29",
     "is_new": false
+  },
+  {
+    "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210807588",
+    "title": "Quantitative Trading & Research - EM Rates - Associate",
+    "location": "New York, NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210807588",
+    "source": "oracle",
+    "posted_date": "2026-11-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-11-06",
+    "is_new": true
   },
   {
     "firm": "JPMorgan Chase",
@@ -7033,6 +7153,18 @@
   },
   {
     "firm": "Morgan Stanley",
+    "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Equity-Research---Analyst-Associate--Utilities---Clean-Tech-Associate--New-York-_JR046350-1",
+    "title": "Equity Research \u2013 Analyst/Associate, Utilities & Clean Tech Associate (New York)",
+    "location": "New York, New York, United States of America",
+    "url": "https://ms.wd5.myworkdayjobs.com/External/job/New-York-New-York-United-States-of-America/Equity-Research---Analyst-Associate--Utilities---Clean-Tech-Associate--New-York-_JR046350-1",
+    "source": "workday",
+    "posted_date": "2026-11-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-11-06",
+    "is_new": true
+  },
+  {
+    "firm": "Morgan Stanley",
     "id": "wd-ms-External-/job/New-York-New-York-United-States-of-America/Equity-Research---Associate--Biopharma--New-York-_JR045717-1",
     "title": "Equity Research \u2013 Associate, SMID Cap Biotech (New York)",
     "location": "New York, New York, United States of America",
@@ -7821,6 +7953,18 @@
     "posted_date": "2026-10-30",
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-30",
+    "is_new": false
+  },
+  {
+    "firm": "RBC Capital Markets",
+    "id": "phenom-jobs.rbc.com-RBCAA0088R0000190380EXTERNALENCA",
+    "title": "Research Associate, Consumer Retail - Softlines",
+    "location": "New York, New York, United States of America",
+    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Research-Associate--Consumer-Retail---Softlines_R-0000190380-1",
+    "source": "phenom",
+    "posted_date": "2026-10-27",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-10-27",
     "is_new": false
   },
   {
@@ -8641,6 +8785,18 @@
   },
   {
     "firm": "TD Bank",
+    "id": "wd-td-TD_Bank_Careers-/job/Ozone-Park-New-York/Associate-Banker-I--Ozone-Park--Full-Time_R_1513565",
+    "title": "Associate Banker I (Ozone Park) Full Time",
+    "location": "Ozone Park, New York",
+    "url": "https://td.wd3.myworkdayjobs.com/TD_Bank_Careers/job/Ozone-Park-New-York/Associate-Banker-I--Ozone-Park--Full-Time_R_1513565",
+    "source": "workday",
+    "posted_date": "2026-11-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-29",
+    "is_new": false
+  },
+  {
+    "firm": "TD Bank",
     "id": "wd-td-TD_Bank_Careers-/job/Bohemia-New-York/Associate-Banker-I---Bohemia_R_1512950",
     "title": "Associate Banker I - Bohemia",
     "location": "Bohemia, New York",
@@ -8832,6 +8988,18 @@
     "is_new": false
   },
   {
+    "firm": "Truist Securities",
+    "id": "phenom-careers.truist.com-TBJTBFUSR0118087EXTERNALENUS",
+    "title": "Equity Research Associate - Biotech",
+    "location": "New York, New York, USA",
+    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY/Associate-Equity-Research---Biotech_R0118087",
+    "source": "phenom",
+    "posted_date": "2026-11-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-11-06",
+    "is_new": true
+  },
+  {
     "firm": "U.S. Bancorp",
     "id": "wd-usbank-US_Bank_Careers-/job/New-York-NY/BTIG--Corporate-Communications--Special-Events-Coordinator--Associate_2026-0033085",
     "title": "BTIG: Corporate Communications, Special Events Coordinator, Associate",
@@ -8925,6 +9093,18 @@
     "posted_date": null,
     "metro": "NY + Jersey City",
     "first_seen": "2026-10-24",
+    "is_new": false
+  },
+  {
+    "firm": "Wells Fargo",
+    "id": "wd-wf-WellsFargoJobs-/job/NEW-YORK-NY/Associate-Executive-Specialist---Corporate---Investment-Banking_R-577708",
+    "title": "Associate Executive Specialist - Corporate & Investment Banking",
+    "location": "NEW YORK, NY",
+    "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs/job/NEW-YORK-NY/Associate-Executive-Specialist---Corporate---Investment-Banking_R-577708",
+    "source": "workday",
+    "posted_date": "2026-11-06",
+    "metro": "NY + Jersey City",
+    "first_seen": "2026-09-25",
     "is_new": false
   },
   {
