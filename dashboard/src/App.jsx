@@ -5,7 +5,10 @@ import Trends from "./Trends.jsx";
 import { useRecruiters, RecruitersView, RecruitersButton } from "./Recruiters.jsx";
 import ManualFirms from "./ManualFirms.jsx";
 import Notepad from "./Notepad.jsx";
-import { needsFollowUp, daysSinceApplied, researchLinks, jobsToCsv, downloadCsv, FOLLOW_UP_DAYS } from "./tracker.js";
+import {
+  needsFollowUp, daysSinceApplied, researchLinks, jobsToCsv, downloadCsv, FOLLOW_UP_DAYS,
+  payLabel, payTop, openDays, staleTitle, recentTakedowns, STALE_DAYS,
+} from "./tracker.js";
 
 // firm -> type ("PE & Alts", "Bulge Bracket", …); shared with pipeline.py
 const CATEGORIES = Object.keys(FIRM_CATEGORIES).filter((k) => !k.startsWith("_"));
@@ -125,7 +128,30 @@ const SORTS = [
   { v: "newest", label: "Newest" },
   { v: "firm", label: "Firm A–Z" },
   { v: "fit", label: "Best fit" },
+  { v: "pay", label: "Highest pay" },
 ];
+// pay filter: "listed" = any stated pay; a number = top of the range ≥ that many $k a year
+const PAY_OPTS = [
+  { v: "any", label: "Any pay" },
+  { v: "listed", label: "Pay listed" },
+  { v: "75", label: "$75k+" },
+  { v: "100", label: "$100k+" },
+  { v: "125", label: "$125k+" },
+  { v: "150", label: "$150k+" },
+];
+function payOk(j, pay) {
+  if (pay === "any") return true;
+  const top = payTop(j);
+  if (top === null) return false;
+  return pay === "listed" || top >= Number(pay) * 1000;
+}
+// status-select entries that read the posting's history rather than the tracker
+function historyOk(j, f) {
+  if (f === "reposted") return j.repost_count > 0;
+  if (f === "stale") return (openDays(j) ?? 0) >= STALE_DAYS;
+  if (f === "takendown") return !!j.taken_down_on;
+  return true;
+}
 // older cover letters for roles on neither board use this id prefix; new ones
 // are saved on the "＋ Add your own" row (c_ id) so the role is tracked too
 export const OUTSIDE_PREFIX = "x_";
@@ -165,12 +191,13 @@ function initialParams() {
       level: LEVELS.some((l) => l.v === p.get("level")) ? p.get("level") : "any",
       recency: p.get("recency") || "all",
       statusFilter: p.get("status") || "all",
+      pay: PAY_OPTS.some((o) => o.v === p.get("pay")) ? p.get("pay") : "any",
       q: p.get("q") || "",
       sort: SORTS.some((s) => s.v === p.get("sort")) ? p.get("sort") : "default",
       view: ["board", "funnel", "trends", "recruiters", "manual"].includes(p.get("view")) ? p.get("view") : "list",
     };
   } catch {
-    return { metro: "all", segment: "all", category: "all", level: "any", recency: "all", statusFilter: "all", q: "", sort: "default", view: "list" };
+    return { metro: "all", segment: "all", category: "all", level: "any", recency: "all", statusFilter: "all", pay: "any", q: "", sort: "default", view: "list" };
   }
 }
 
@@ -195,7 +222,8 @@ export default function App({ signedIn = false, header = null }) {
   const [searches, setSearches] = useState([]); // saved searches (named filter sets)
   const [naming, setNaming] = useState(false); // "save search" name box open
   const [recency, setRecency] = useState(init.recency);
-  const [statusFilter, setStatusFilter] = useState(init.statusFilter); // all | tracked | untracked | <status>
+  const [statusFilter, setStatusFilter] = useState(init.statusFilter); // all | tracked | untracked | <status> | reposted | stale | takendown
+  const [pay, setPay] = useState(init.pay); // PAY_OPTS
   const [q, setQ] = useState(init.q);
   const [sort, setSort] = useState(init.sort);
   const [view, setView] = useState(init.view); // list | board | trends
@@ -258,12 +286,13 @@ export default function App({ signedIn = false, header = null }) {
     if (level !== "any") p.set("level", level);
     if (recency !== "all") p.set("recency", String(recency));
     if (statusFilter !== "all") p.set("status", statusFilter);
+    if (pay !== "any") p.set("pay", pay);
     if (q.trim()) p.set("q", q.trim());
     if (sort !== "default") p.set("sort", sort);
     if (view !== "list") p.set("view", view);
     const qs = p.toString();
     window.history.replaceState(null, "", qs ? `?${qs}` : window.location.pathname);
-  }, [metro, segment, category, level, recency, statusFilter, q, sort, view]);
+  }, [metro, segment, category, level, recency, statusFilter, pay, q, sort, view]);
 
   // ---------------------------------------------------------------- AI (fit score + drafts)
   // The /api routes are gated by a passphrase (STREET_WATCH_KEY on Vercel)
@@ -484,6 +513,7 @@ export default function App({ signedIn = false, header = null }) {
     level !== "any" ||
     recency !== "all" ||
     statusFilter !== "all" ||
+    pay !== "any" ||
     q.trim() !== "" ||
     sort !== "default";
   function clearFilters() {
@@ -493,6 +523,7 @@ export default function App({ signedIn = false, header = null }) {
     setLevel("any");
     setRecency("all");
     setStatusFilter("all");
+    setPay("any");
     setQ("");
     setSort("default");
   }
@@ -682,9 +713,14 @@ export default function App({ signedIn = false, header = null }) {
       if (statusFilter === "followup" && !needsFollowUp(appMap[j.id])) return false;
       if (["interested", "applied", "interview", "offer", "rejected"].includes(statusFilter) && st !== statusFilter)
         return false;
+      if (!historyOk(j, statusFilter)) return false;
+      if (!payOk(j, pay)) return false;
       return true;
     });
-    if (sort === "newest") {
+    if (sort === "pay") {
+      // highest top-of-range first; roles with no stated pay keep their order below
+      rows.sort((a, b) => (payTop(b) ?? -1) - (payTop(a) ?? -1));
+    } else if (sort === "newest") {
       // most-recently posted first; undated rows sink to the bottom
       rows.sort((a, b) => (daysSince(a.posted_date) ?? Infinity) - (daysSince(b.posted_date) ?? Infinity));
     } else if (sort === "firm") {
@@ -698,7 +734,7 @@ export default function App({ signedIn = false, header = null }) {
       rows.sort((a, b) => (ai.fits[b.id]?.score ?? -1) - (ai.fits[a.id]?.score ?? -1));
     }
     return rows;
-  }, [allJobs, appMap, metro, segment, category, level, recency, statusFilter, q, sort, ai.fits]);
+  }, [allJobs, appMap, metro, segment, category, level, recency, statusFilter, pay, q, sort, ai.fits]);
 
   // board view: tracked roles grouped by status. Honors metro/recency/search
   // and the sort order, but ignores the status filter (columns cover all).
@@ -709,7 +745,7 @@ export default function App({ signedIn = false, header = null }) {
     for (const j of allJobs) {
       const st = statusOf(j.id);
       if (st === "none" || !cols[st]) continue;
-      if (!matchesSearch(j, f)) continue;
+      if (!matchesSearch(j, f) || !payOk(j, pay)) continue;
       if (win !== Infinity) {
         const n = daysSince(j.posted_date);
         if (n === null || n > win) continue;
@@ -717,7 +753,9 @@ export default function App({ signedIn = false, header = null }) {
       cols[st].push(j);
     }
     const cmp =
-      sort === "fit"
+      sort === "pay"
+        ? (a, b) => (payTop(b) ?? -1) - (payTop(a) ?? -1)
+        : sort === "fit"
         ? (a, b) => (ai.fits[b.id]?.score ?? -1) - (ai.fits[a.id]?.score ?? -1)
         : sort === "firm"
         ? (a, b) =>
@@ -726,7 +764,7 @@ export default function App({ signedIn = false, header = null }) {
         : (a, b) => (daysSince(a.posted_date) ?? Infinity) - (daysSince(b.posted_date) ?? Infinity);
     for (const s of BOARD_COLS) cols[s].sort(cmp);
     return cols;
-  }, [allJobs, appMap, metro, segment, category, level, recency, q, sort, ai.fits]);
+  }, [allJobs, appMap, metro, segment, category, level, recency, pay, q, sort, ai.fits]);
 
   const boardTotal = BOARD_COLS.reduce((n, s) => n + board[s].length, 0);
 
@@ -742,10 +780,11 @@ export default function App({ signedIn = false, header = null }) {
       if (statusFilter === "tracked" && st === "none") continue;
       if (statusFilter === "untracked" && st !== "none") continue;
       if (["interested", "applied", "interview", "offer", "rejected"].includes(statusFilter) && st !== statusFilter) continue;
+      if (!historyOk(j, statusFilter) || !payOk(j, pay)) continue;
       if (daysSince(j.posted_date) === null) n++;
     }
     return n;
-  }, [allJobs, appMap, metro, segment, category, level, statusFilter, q, recency]);
+  }, [allJobs, appMap, metro, segment, category, level, statusFilter, pay, q, recency]);
 
   // saved searches → roles first seen after you last looked (scraped roles only)
   const searchHits = useMemo(
@@ -757,6 +796,8 @@ export default function App({ signedIn = false, header = null }) {
     [searches, jobs]
   );
   const pinned = searchHits.filter((h) => h.fresh.length);
+  // tracked roles the firm took down in the last two weeks (pipeline flag)
+  const takedowns = useMemo(() => recentTakedowns(jobs, appMap), [jobs, appMap]);
 
   // next few unscored roles in the current list order (for "Score next 5")
   const unscoredVisible = useMemo(
@@ -785,14 +826,31 @@ export default function App({ signedIn = false, header = null }) {
     const fit = ai.fits[j.id];
     const busy = scoring.has(j.id);
     const followDays = needsFollowUp(app) ? daysSinceApplied(app) : null;
+    const open = j.custom ? null : openDays(j);
+    const pay = payLabel(j);
     return (
-      <div className={`card ${st !== "none" ? "tracked" : ""}`} key={j.id}>
+      <div className={`card ${st !== "none" ? "tracked" : ""} ${j.taken_down_on ? "down" : ""}`} key={j.id}>
         <div className="of">
           <span>{j.firm}</span>
           <span className="tags">
             {fit && (
               <span className={`fit ${fitClass(fit.score)}`} title="Fit score vs. your resume">
                 {fit.score}
+              </span>
+            )}
+            {j.taken_down_on && (
+              <span className="pill gone" title={`The firm took this posting down on ${j.taken_down_on}`}>
+                Taken down
+              </span>
+            )}
+            {j.repost_count > 0 && (
+              <span className="pill repost" title={staleTitle(j)}>
+                ↻ Reposted{j.repost_count > 1 ? ` ×${j.repost_count}` : ""}
+              </span>
+            )}
+            {open !== null && open >= STALE_DAYS && !j.taken_down_on && (
+              <span className="pill stale" title={staleTitle(j)}>
+                Open {open}d
               </span>
             )}
             {j.is_new && <span className="new">NEW</span>}
@@ -815,6 +873,7 @@ export default function App({ signedIn = false, header = null }) {
           <span className="role">{j.title}</span>
         )}
         <div className="loc">
+          {pay && <span className="pay">{pay}</span>}
           {(j.location || j.metro) + " · " + j.source + (age ? ` · ${age}` : "")}
           {app?.applied_at && st === "applied" ? ` · applied ${app.applied_at}` : ""}
         </div>
@@ -980,6 +1039,18 @@ export default function App({ signedIn = false, header = null }) {
               <option value="interview">Interview</option>
               <option value="offer">Offer</option>
               <option value="rejected">Rejected</option>
+              <option value="reposted">Reposted</option>
+              <option value="stale">{`Open ${STALE_DAYS}+ days`}</option>
+              <option value="takendown">Taken down</option>
+            </select>
+          )}
+          {(view === "list" || view === "board") && (
+            <select className="statusSel" value={pay} onChange={(e) => setPay(e.target.value)} aria-label="Pay">
+              {PAY_OPTS.map((o) => (
+                <option key={o.v} value={o.v}>
+                  {o.label}
+                </option>
+              ))}
             </select>
           )}
           <input
@@ -1140,6 +1211,17 @@ export default function App({ signedIn = false, header = null }) {
           </>
         ) : (
         <>
+        {!loading && statusFilter !== "takendown" && (
+          <TakedownBanner
+            gone={takedowns}
+            appMap={appMap}
+            storageKey="sw-takedowns-seen"
+            onShow={() => {
+              setStatusFilter("takendown");
+              setView("list");
+            }}
+          />
+        )}
         {!loading && pinned.length > 0 && (
           <section className="pinned">
             {pinned.map(({ search: s, fresh }) => (
@@ -1473,6 +1555,52 @@ function ResearchLinks({ firm, title }) {
 }
 
 // Pipeline funnel over the currently-tracked roles (honors the filter bar).
+// "2 roles you saved came down before you applied" — tracked roles the firm
+// removed (taken_down_on, set by the daily pull). Dismissing hides it until a
+// newer takedown arrives; the dismissal lives in this browser only.
+export function TakedownBanner({ gone, appMap, storageKey, onShow, className = "tdBanner" }) {
+  const newest = gone.reduce((m, j) => (j.taken_down_on > m ? j.taken_down_on : m), "");
+  const [seen, setSeen] = useState(() => {
+    try {
+      return localStorage.getItem(storageKey) || "";
+    } catch {
+      return "";
+    }
+  });
+  if (!gone.length || newest <= seen) return null;
+  const nInt = gone.filter((j) => appMap[j.id]?.status === "interested").length;
+  const head = nInt
+    ? `${nInt} role${nInt === 1 ? "" : "s"} you saved came down before you applied`
+    : `${gone.length} posting${gone.length === 1 ? "" : "s"} you applied to ${gone.length === 1 ? "has" : "have"} closed`;
+  function dismiss() {
+    setSeen(newest);
+    try {
+      localStorage.setItem(storageKey, newest);
+    } catch {
+      /* private mode: dismiss for this visit only */
+    }
+  }
+  return (
+    <div className={className} role="status">
+      <div className="td-text">
+        <b>⚠ {head}</b>
+        <span className="td-list">
+          {gone.slice(0, 3).map((j) => `${j.firm} · ${j.title}`).join("  /  ")}
+          {gone.length > 3 ? `  +${gone.length - 3} more` : ""}
+        </span>
+      </div>
+      <span className="td-actions">
+        <button className="clearBtn ghost" onClick={onShow}>
+          Show them
+        </button>
+        <button className="clearBtn ghost" onClick={dismiss} aria-label="Dismiss">
+          ✕
+        </button>
+      </span>
+    </div>
+  );
+}
+
 function FunnelView({ board, boardTotal, loading, filtersActive, onExport }) {
   if (loading) return <div className="meta">Loading…</div>;
   if (boardTotal === 0) {

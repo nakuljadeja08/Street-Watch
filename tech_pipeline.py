@@ -876,7 +876,7 @@ def _pulse_html(p, url):
 </td></tr>"""
 
 
-def _newsletter_html(new_jobs, total, today, url, hits=(), pulse=None, recruiters=None):
+def _newsletter_html(new_jobs, total, today, url, hits=(), pulse=None, recruiters=None, gone=()):
     CAP = 40
     rows, cur = [], None
     for j in new_jobs[:CAP]:
@@ -892,7 +892,8 @@ def _newsletter_html(new_jobs, total, today, url, hits=(), pulse=None, recruiter
             f'font-size:10px">{_esc((j.get("sector") or "").lower())}</span></div>'
             f'<a href="{_esc(j["url"])}" style="font-family:{SANS};font-weight:600;font-size:15px;'
             f'line-height:1.3;color:{INK};text-decoration:none">{_esc(j["title"])}</a>'
-            f'<div style="font-family:{SANS};font-size:12.5px;color:{SOFT};padding-top:2px">{_esc(j.get("location") or "")}</div>'
+            f'<div style="font-family:{SANS};font-size:12.5px;color:{SOFT};padding-top:2px">'
+            f'{_esc(" · ".join(x for x in (j.get("location") or "", P.pay_label(j)) if x))}</div>'
             f'</td></tr>')
     more = len(new_jobs) - min(len(new_jobs), CAP)
     if more > 0:
@@ -927,6 +928,7 @@ def _newsletter_html(new_jobs, total, today, url, hits=(), pulse=None, recruiter
 </td></tr>
 <tr><td style="padding:22px 32px 0;font-family:{SANS};font-size:17px;font-weight:600;color:{INK}">Good morning, Nakul.</td></tr>
 {pinned}
+{P.takedowns_html(gone, INK, SOFT, LINE, ACC, MONO, SANS)}
 <tr><td style="padding:4px 32px 10px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">{''.join(rows)}</table></td></tr>
 {_pulse_html(pulse, url)}
 {P._recruiters_html(recruiters, P._recruiters_link(url), INK, SOFT, LINE, ACC, MONO, SANS)}
@@ -938,7 +940,7 @@ def _newsletter_html(new_jobs, total, today, url, hits=(), pulse=None, recruiter
 </td></tr></table></body></html>"""
 
 
-def _newsletter_text(new_jobs, total, today, url, hits=(), pulse=None, recruiters=None):
+def _newsletter_text(new_jobs, total, today, url, hits=(), pulse=None, recruiters=None, gone=()):
     n = len(new_jobs)
     lines = [f"Tech Watch — {today}", "", "Good morning, Nakul.", "",
              f"{n} new data role{'s' if n != 1 else ''} since yesterday ({total} live)." if n
@@ -951,16 +953,18 @@ def _newsletter_text(new_jobs, total, today, url, hits=(), pulse=None, recruiter
     for j in new_jobs[:40]:
         if j["metro"] != cur:
             cur = j["metro"]; lines.append(f"[{cur}]")
-        lines.append(f"  • {j['firm']} — {j['title']} · {j.get('location') or ''}\n    {j['url']}")
+        loc = " · ".join(x for x in (j.get("location") or "", P.pay_label(j)) if x)
+        lines.append(f"  • {j['firm']} — {j['title']} · {loc}\n    {j['url']}")
     if n > 40:
         lines.append(f"  … {n - 40} more on the board.")
+    lines += P.takedowns_text(gone)
     lines += P._pulse_text(pulse, url)
     lines += P._recruiters_text(recruiters, P._recruiters_link(url))
     lines += ["", f"Open Tech Watch: {url}"]
     return "\n".join(lines)
 
 
-def send_newsletter(jobs, today, trends=None):
+def send_newsletter(jobs, today, trends=None, taken=None):
     """Email the Tech Watch digest. Same SMTP env and recipients as Street
     Watch (NEWSLETTER_TO). Non-fatal; returns True when sent."""
     from email.mime.text import MIMEText
@@ -986,8 +990,9 @@ def send_newsletter(jobs, today, trends=None):
     hits = P.saved_search_hits(new_jobs, table=TABLES["searches"], matches=_matches_search)
     pulse = P.trend_summary(trends, today)
     recruiters = P.recruiter_nudge("tech", today)
-    msg.attach(MIMEText(_newsletter_text(new_jobs, len(jobs), today, url, hits, pulse, recruiters), "plain", "utf-8"))
-    msg.attach(MIMEText(_newsletter_html(new_jobs, len(jobs), today, url, hits, pulse, recruiters), "html", "utf-8"))
+    gone = P.takedowns_for_digest(taken, today)
+    msg.attach(MIMEText(_newsletter_text(new_jobs, len(jobs), today, url, hits, pulse, recruiters, gone), "plain", "utf-8"))
+    msg.attach(MIMEText(_newsletter_html(new_jobs, len(jobs), today, url, hits, pulse, recruiters, gone), "html", "utf-8"))
     if P._smtp_send(host, port, user, password, recipients, msg):
         print(f"  tech newsletter sent to {len(recipients)} recipient(s) ({n} new roles)")
         return True
@@ -1022,6 +1027,7 @@ def main():
 
     P.push_supabase(jobs, table=TABLES["jobs"], apps_table=TABLES["apps"], max_age_days=MAX_AGE_DAYS,
                     prune_firms=live_firms)
+    taken = P.flag_taken_down(raw, today, table=TABLES["jobs"], apps_table=TABLES["apps"])
 
     trends = json.load(open(TRENDS_FILE)) if os.path.exists(TRENDS_FILE) else {}
     day_rows = P.update_trends(trends, jobs, {r["id"] for r in raw},
@@ -1033,7 +1039,7 @@ def main():
         print(f"Tech newsletter already sent today ({today}) — skipping (set NEWSLETTER_FORCE=1 to re-send).")
     elif os.getenv("TECH_NEWSLETTER", "1") in ("0", "false", "no"):
         print("Tech newsletter disabled (TECH_NEWSLETTER=0).")
-    elif send_newsletter(jobs, today, trends):
+    elif send_newsletter(jobs, today, trends, taken):
         state[P.NEWSLETTER_SENT_KEY] = today
         json.dump(state, open(STATE_FILE, "w"))
 

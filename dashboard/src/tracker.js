@@ -24,6 +24,54 @@ export function needsFollowUp(app, threshold = FOLLOW_UP_DAYS) {
   return n !== null && n >= threshold;
 }
 
+// --- pay, staleness, takedowns (pipeline.py, added 2026-11-07) -------------
+// "$85k–$105k", "$95k", "$30–44/hr", or "" when the posting states no pay.
+// Same format as pay_label() in pipeline.py.
+export function payLabel(j) {
+  const lo = j?.pay_min, hi = j?.pay_max;
+  if (!lo) return "";
+  if (j.pay_period === "hour") return lo === hi ? `$${lo}/hr` : `$${lo}–${hi}/hr`;
+  const k = (v) => `$${Math.round(v / 1000)}k`;
+  return lo === hi ? k(lo) : `${k(lo)}–${k(hi)}`;
+}
+
+// Annual top of the range, for "pay ≥ X" filters and sorting (hourly × 2080).
+export function payTop(j) {
+  if (!j?.pay_max) return null;
+  return j.pay_period === "hour" ? j.pay_max * 2080 : j.pay_max;
+}
+
+// A role still up this many days after we (or the firm) first listed it gets an
+// "open Nd" badge: long-open and reposted roles are the usual ghost-job signs.
+// 45, not 30: at 30 over a third of each board was flagged (2026-11-07).
+export const STALE_DAYS = 45;
+
+// Days the role has been open: from the earliest of its post date, when we
+// first saw it, and (for a reposted role) when we first saw the original.
+export function openDays(j) {
+  const ds = [j?.posted_date, j?.first_seen, j?.orig_first_seen].map(daysSince).filter((n) => n !== null);
+  return ds.length ? Math.max(...ds) : null;
+}
+
+// "Reposted ×2 · first seen 2026-09-19 · open 49 days"
+export function staleTitle(j) {
+  const parts = [];
+  if (j?.repost_count > 0)
+    parts.push(`Taken down and reposted ${j.repost_count > 1 ? `${j.repost_count} times` : "once"}`);
+  if (j?.orig_first_seen) parts.push(`first seen ${j.orig_first_seen}`);
+  const n = openDays(j);
+  if (n !== null) parts.push(`open ${n} days`);
+  return parts.join(" · ");
+}
+
+// Tracked roles the firm took down in the last `days` days, Interested first.
+export function recentTakedowns(jobs, appMap, days = 14) {
+  const rank = { interested: 0, applied: 1, interview: 2 };
+  return jobs
+    .filter((j) => j.taken_down_on && rank[appMap[j.id]?.status] !== undefined && daysSince(j.taken_down_on) <= days)
+    .sort((a, b) => rank[appMap[a.id].status] - rank[appMap[b.id].status] || b.taken_down_on.localeCompare(a.taken_down_on));
+}
+
 // Quick company-research links for a firm (+ optional role title). No API — just
 // opens the usual places in a new tab.
 export function researchLinks(firm, title = "") {
