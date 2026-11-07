@@ -519,3 +519,20 @@ code { font-family: "IBM Plex Mono", monospace; font-size: 12px; }
   .funnel-row { grid-template-columns: 84px 1fr; }
   .funnel-conv { grid-column: 2; text-align: right; }
 }
+
+/* pay, reposts, staleness and takedowns (2026-11-07) */
+.loc .pay { color: var(--green); font-weight: 600; margin-right: 6px; }
+.pill.repost { color: var(--gold); background: var(--goldS); }
+.pill.stale { color: var(--gray); background: var(--grayS); }
+.pill.gone { color: var(--lip); background: var(--lipS); }
+.card.down { opacity: .72; }
+.card.down .role { text-decoration: line-through; text-decoration-thickness: 1px; }
+.tdBanner {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  background: var(--lipS); color: var(--ink); border: 1px solid var(--lip); border-radius: 12px;
+  padding: 10px 14px; margin-bottom: 14px; font-size: 13px;
+}
+.tdBanner b { color: var(--lip); }
+.tdBanner .td-text { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.tdBanner .td-list { color: var(--soft); font-size: 12px; overflow-wrap: anywhere; }
+.tdBanner .td-actions { display: flex; gap: 6px; flex-shrink: 0; }

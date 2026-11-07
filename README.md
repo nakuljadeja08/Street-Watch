@@ -34,6 +34,34 @@ worded as preferred don't count, and "7 years, or 3 with a Master's" counts as 3
 Postings that state no number, or can't be read, stay on the board. Each answer is
 kept in the state file, so a posting is fetched once rather than on every run.
 
+**Pay, reposts and takedowns** (added 2026-11-07, both watches; run
+`schema_pay_reposts.sql` once — until then the pull pushes rows without these
+columns and skips the takedown check):
+- **Pay**: `pay_range()` reads the base pay from the description fetched for the
+  experience cap ("$85,000 - $105,000", "$85K–$105K", "$40 - $55 per hour") and
+  stores `pay_min`/`pay_max`/`pay_period`. Bonus, relocation and benefit caps,
+  fund sizes and other currencies are ignored; a stated range beats a single
+  figure, and only the first cluster of figures counts (a page read as plain
+  HTML can list other roles' pay further down). NZ rows get none. Day one: 65%
+  of Street Watch roles and 38% of Tech Watch roles state pay. The boards show
+  it on each card, filter on it (Street: *Any pay* select; Tech: `pay:120k`,
+  `paid`) and sort by it (*Highest pay* / `sort:pay`); the newsletters list it.
+- **Reposts**: a role that leaves the board goes into a ledger (`__gone__` in the
+  state file, 180 days). A new id with the same firm/title/location on a later
+  day is a repost: still new, but carries `repost_count` and `orig_first_seen`
+  ("↻ Reposted" badge; Street *Reposted* status option, Tech `reposted`).
+  `backfill_reposts.py` seeded the ledger from the git snapshots.
+- **Open N days**: roles open 45+ days (earliest of post date, first seen,
+  original first seen) get an "Open Nd" badge (`STALE_DAYS` in
+  `dashboard/src/tracker.js`; Street *Open 45+ days*, Tech `stale`).
+- **Takedowns**: tracked roles stay in the jobs table after they leave the board.
+  `flag_taken_down()` sets `taken_down_on` on one the firm has removed from its
+  feed (checked against the raw feed, so our own filters don't count, and a
+  failed feed is skipped) and clears it if the role returns. The newsletter
+  lists them ("came down before you applied" for Interested ones), each board
+  shows a dismissable banner for the last 14 days and a "Taken down" badge
+  (Street *Taken down* status option, Tech `down`).
+
 **New Zealand** (added 2026-10-11; Ms Tian can work there) is a fourth metro,
 "New Zealand", covering the whole country. Global firms already on the board
 (Goldman, Macquarie, Citi, HSBC and others) file their Auckland and Wellington roles

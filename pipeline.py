@@ -1844,24 +1844,129 @@ def required_years(text):
     return best
 
 
+# ---------------------------------------------------------------- pay ranges
+# Pay read from the description (added 2026-11-07). NY, CA, CO, WA and others
+# require a range in the posting, so most roles in our metros state one. Kept
+# per posting in the state file next to the experience answer, so each
+# description is fetched once. Stored on the row as pay_min / pay_max (whole
+# dollars) and pay_period ("year" | "hour"). NZ rows get none: their "$" is NZD.
+PAY_CACHE_KEY = "__pay__"   # state-file key: posting id -> [min, max, period] or None
+_AMT = r"(\d{1,3}(?:,\d{3})+|\d+(?:\.\d+)?)(?:\.\d{2})?\s*([kK]\b)?"
+_CUR = r"(?:US\s?\$|USD\s*\$?|\$)"
+_PAY_RANGE_RE = re.compile(
+    _CUR + r"\s?" + _AMT + r"(?:\s*(?:USD|per year|/\s?(?:yr|year)|annually|per hour|/\s?(?:hr|hour)))?"
+    r"\s*(?:-|–|—|to|and)\s*" + _CUR + r"?\s?" + _AMT)
+_PAY_ONE_RE = re.compile(_CUR + r"\s?" + _AMT)
+_PAY_WORDS_RE = re.compile(r"salary|base|pay\b|pay range|compensation|wage|\brange\b|annual|per year"
+                           r"|hourly|per hour|\bOTE\b|earn", re.I)
+# a range for something other than base pay (fund and deal sizes are caught by
+# _PAY_SCALE_RE, since they come in millions and billions)
+_PAY_NOT_RE = re.compile(r"bonus|commission|incentive|relocation|stipend|sign[\s-]?on|tuition|401|"
+                         r"reimburse|allowance", re.I)
+_PAY_SCALE_RE = re.compile(r"^\s*(?:\+\s*)?(?:million|billion|mm|bn|m\b|b\b|trillion)", re.I)
+_HOURLY_RE = re.compile(r"per hour|/\s?(?:hr|hour)\b|hourly|an hour|\bhr\b", re.I)
+
+
+def _amount(num, k):
+    v = float(num.replace(",", ""))
+    return v * 1000 if k else v
+
+
+def pay_range(text):
+    """(min, max, period) of the base pay a description states, or None.
+    "$85,000 - $105,000", "$85K–$105K", "USD 120,000 to 150,000", "$40.00 -
+    $55.00 per hour". Several ranges (one per city) widen to their outer
+    bounds. Amounts with no pay wording nearby, bonus/relocation ranges and
+    fund sizes ("$5-10 billion") are ignored. Only the first cluster of pay
+    figures counts (the first one and those of the same period within
+    PAY_CLUSTER chars after it): a page read as plain HTML can list other
+    roles' pay in a "similar jobs" panel further down (Michael Page)."""
+    text = text or ""
+    found = []   # (position, lo, hi, period)
+
+    def add(lo, hi, before, after, pos):
+        clause = re.split(r"[.;\n•]\s", before)[-1]   # "...plus a bonus. Base pay: $X" is pay
+        if _PAY_SCALE_RE.match(after) or _PAY_NOT_RE.search(clause[-45:]):
+            return
+        if re.match(r"\s*\(?(?:CAD|GBP|EUR|AUD|NZD|SGD|HKD|CHF|JPY|INR)\b", after):
+            return   # another currency (a Toronto range next to the US one)
+        if re.search(r"save job", before[-90:], re.I):
+            return   # a "similar jobs" card on a page read as plain HTML (Michael Page)
+        if not _PAY_WORDS_RE.search(before[-300:] + " " + after[:40]):
+            return
+        is_hr = bool(_HOURLY_RE.search(after[:30])) or hi < 300
+        if is_hr:
+            if 12 <= lo <= hi <= 300:
+                found.append((pos, lo, hi, "hour"))
+        elif 30000 <= lo <= hi <= 1_000_000 and hi <= lo * 4:
+            found.append((pos, lo, hi, "year"))
+
+    spans = []
+    for m in _PAY_RANGE_RE.finditer(text):
+        k1, k2 = m.group(2), m.group(4)
+        lo, hi = float(m.group(1).replace(",", "")), float(m.group(3).replace(",", ""))
+        # "$85-105K" / "$85K-105": a k on one side applies to both
+        if (k1 or k2) and lo < 1000 and hi < 1000:
+            lo, hi = lo * 1000, hi * 1000
+        else:
+            lo, hi = _amount(m.group(1), k1), _amount(m.group(3), k2)
+        if lo > hi:
+            lo, hi = hi, lo
+        spans.append(m.span())
+        add(lo, hi, text[max(0, m.start() - 300):m.start()], text[m.end():m.end() + 60], m.start())
+    # single figures, only when no range is stated: "base salary of $95,000",
+    # "Minimum Salary: $150,000 … Maximum Salary: $175,000". Benefit caps
+    # ("life insurance 3x base salary up to $400k") are not pay.
+    for m in ([] if found else _PAY_ONE_RE.finditer(text)):
+        if any(a <= m.start() < b for a, b in spans):
+            continue
+        v = _amount(m.group(1), m.group(2))
+        before = text[max(0, m.start() - 60):m.start()]
+        if (re.search(r"salary|base pay|compensation|pay rate|hourly rate|wage|\brange\b", before, re.I)
+                and not re.search(r"up to\s*$|insurance|coverage|\d+x\b|times\b|limit|match", before, re.I)):
+            add(v, v, before, text[m.end():m.end() + 60], m.start())
+    if not found:
+        return None
+    found.sort()
+    first, period = found[0][0], found[0][3]
+    near = [f for f in found if f[3] == period and f[0] - first <= PAY_CLUSTER]
+    return int(min(f[1] for f in near)), int(max(f[2] for f in near)), period
+
+
+PAY_CLUSTER = 800   # chars: a per-city list of ranges sits together
+
+
+def attach_pay(jobs, state):
+    """Copy each posting's cached pay onto its row (None when not stated)."""
+    cache = state.get(PAY_CACHE_KEY) or {}
+    for j in jobs:
+        p = None if j.get("metro") == NZ_METRO else cache.get(j["id"])
+        j["pay_min"], j["pay_max"], j["pay_period"] = p if p else (None, None, None)
+
+
 def drop_over_experience(jobs, state):
     """Leave out roles requiring more than MAX_REQUIRED_YEARS. Each description
     is read once and its answer kept in the state file, since a run would
     otherwise re-fetch hundreds of postings; an unreadable one (no text, or too
-    little to be the posting, like a bot-check page) is retried next run."""
+    little to be the posting, like a bot-check page) is retried next run. The
+    same read fills the pay cache (pay_range), and attach_pay puts it on the rows."""
     from concurrent.futures import ThreadPoolExecutor
     cache = state.get(YEARS_CACHE_KEY) or {}
-    todo = [j for j in jobs if j["id"] not in cache]
+    pay = state.get(PAY_CACHE_KEY) or {}
+    todo = [j for j in jobs if j["id"] not in cache or j["id"] not in pay]
 
     def read(j):
         text = job_text(j)
-        return j["id"], required_years(text), len(text) > 200
+        return j["id"], required_years(text), pay_range(text), len(text) > 200
 
     with ThreadPoolExecutor(12) as ex:
-        for jid, yrs, readable in ex.map(read, todo):
+        for jid, yrs, p, readable in ex.map(read, todo):
             if readable:
                 cache[jid] = yrs
+                pay[jid] = list(p) if p else None
     state[YEARS_CACHE_KEY] = {j["id"]: cache[j["id"]] for j in jobs if j["id"] in cache}
+    state[PAY_CACHE_KEY] = {j["id"]: pay[j["id"]] for j in jobs if j["id"] in pay}
+    attach_pay(jobs, state)
     kept = []
     for j in jobs:
         yrs = cache.get(j["id"])
@@ -2346,6 +2451,11 @@ def filter_rows(raw):
 
 
 # ---------------------------------------------------------------- supabase
+# columns added 2026-11-07 (schema_pay_reposts.sql); a push to a table that
+# doesn't have them yet retries without them
+NEW_JOB_COLS = ("pay_min", "pay_max", "pay_period", "repost_count", "orig_first_seen")
+
+
 def push_supabase(rows, table="jobs", apps_table="applications", max_age_days=None, prune_firms=()):
     url, key = os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_SERVICE_KEY")
     if not (url and key):
@@ -2362,10 +2472,21 @@ def push_supabase(rows, table="jobs", apps_table="applications", max_age_days=No
     run_ts = datetime.now(timezone.utc).isoformat()
     # upsert in chunks — a network/HTTP failure here must not crash the run
     # (the JSON/CSV are already written; a daily cron should exit cleanly).
+    strip = False   # set once the table turns out to lack the 2026-11-07 columns
     for i in range(0, len(rows), 200):
         chunk = [{**r, "updated_at": run_ts} for r in rows[i:i+200]]
         try:
-            r = requests.post(endpoint, headers=headers, data=json.dumps(chunk), timeout=TIMEOUT)
+            for attempt in (0, 1):
+                body = [{k: v for k, v in c.items() if k not in NEW_JOB_COLS} for c in chunk] if strip else chunk
+                r = requests.post(endpoint, headers=headers, data=json.dumps(body), timeout=TIMEOUT)
+                # PGRST204: a column we send isn't in the table yet (schema_pay_reposts.sql
+                # not run). Push without the new columns rather than lose the day.
+                if r.status_code == 400 and "PGRST204" in r.text and not strip:
+                    print("  ! new columns missing — run schema_pay_reposts.sql; pushing without them",
+                          file=sys.stderr)
+                    strip = True
+                    continue
+                break
         except Exception as e:
             print(f"  ! supabase request failed: {e}", file=sys.stderr); continue
         if r.status_code >= 300:
@@ -2449,6 +2570,118 @@ def push_supabase(rows, table="jobs", apps_table="applications", max_age_days=No
                 print(f"  ! supabase purge {d.status_code}: {d.text[:150]}", file=sys.stderr)
         except Exception as e:
             print(f"  ! supabase purge failed: {e}", file=sys.stderr)
+
+
+def flag_taken_down(raw, today, table="jobs", apps_table="applications"):
+    """Mark tracked roles the firm has taken down (added 2026-11-07).
+
+    Tracked roles stay in the jobs table after they leave the board (so the
+    tracker keeps them). Here each one is checked against `raw`, everything the
+    feeds returned today before our filters: a role whose firm's feed worked
+    but which is no longer in it, under its id or (for boards that re-key)
+    its firm/title/location, gets taken_down_on = today. One that comes back
+    is cleared. Returns every tracked row with taken_down_on set, plus its
+    status, for the newsletter; [] if Supabase isn't set up or the column is
+    missing (schema_pay_reposts.sql not run)."""
+    url, key = os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_SERVICE_KEY")
+    if not (url and key):
+        return []
+    h = {"apikey": key, "Authorization": f"Bearer {key}", "Content-Type": "application/json",
+         "Prefer": "return=minimal"}
+    raw_ids = {r["id"] for r in raw}
+    raw_keys = {_repost_key(r) for r in raw if r.get("title") and r.get("location") is not None}
+    ok_firms = {r["firm"] for r in raw}
+    try:
+        a = requests.get(f"{url}/rest/v1/{apps_table}", headers=h,
+                         params={"select": "job_id,status"}, timeout=TIMEOUT)
+        a.raise_for_status()
+        status = {x["job_id"]: x["status"] for x in a.json() if x.get("job_id")}
+        rows, ids = [], sorted(status)
+        for i in range(0, len(ids), 100):
+            q = requests.get(f"{url}/rest/v1/{table}", headers=h, timeout=TIMEOUT, params={
+                "select": "id,firm,title,location,url,metro,taken_down_on",
+                "id": "in.(" + ",".join(json.dumps(x) for x in ids[i:i + 100]) + ")"})
+            q.raise_for_status()
+            rows += q.json()
+    except Exception as e:
+        print(f"  takedown check skipped ({type(e).__name__}: run schema_pay_reposts.sql if the column is missing)",
+              file=sys.stderr)
+        return []
+    down, back = [], []
+    for j in rows:
+        if j["firm"] not in ok_firms:
+            continue   # feed failed today: can't tell
+        listed = j["id"] in raw_ids or _repost_key({**j, "location": j.get("location") or ""}) in raw_keys
+        if not listed and not j.get("taken_down_on"):
+            down.append(j["id"]); j["taken_down_on"] = today
+        elif listed and j.get("taken_down_on"):
+            back.append(j["id"]); j["taken_down_on"] = None
+    for ids_, val in ((down, today), (back, None)):
+        for i in range(0, len(ids_), 100):
+            try:
+                p = requests.patch(f"{url}/rest/v1/{table}", headers=h, timeout=TIMEOUT,
+                                   params={"id": "in.(" + ",".join(json.dumps(x) for x in ids_[i:i + 100]) + ")"},
+                                   data=json.dumps({"taken_down_on": val}))
+                if p.status_code >= 300:
+                    print(f"  ! takedown flag {p.status_code}: {p.text[:150]}", file=sys.stderr)
+            except Exception as e:
+                print(f"  ! takedown flag failed: {e}", file=sys.stderr)
+    if down or back:
+        print(f"  tracked roles taken down today: {len(down)}; back up: {len(back)}")
+    return [{**j, "status": status.get(j["id"])} for j in rows if j.get("taken_down_on")]
+
+
+def pay_label(j):
+    """"$85k–$105k", "$95k", "$30–44/hr" or "" (same format as the boards)."""
+    lo, hi, per = j.get("pay_min"), j.get("pay_max"), j.get("pay_period")
+    if not lo:
+        return ""
+    if per == "hour":
+        return f"${lo}/hr" if lo == hi else f"${lo}–{hi}/hr"
+    k = lambda v: f"${round(v / 1000)}k"
+    return k(lo) if lo == hi else f"{k(lo)}–{k(hi)}"
+
+
+_TAKEN_STATUS = {"interested": "you hadn't applied yet", "applied": "you applied", "interview": "you're interviewing"}
+
+
+def takedowns_html(gone, ink, soft, line, accent, label_font, body_font):
+    """Newsletter block: tracked roles the firm took down since the last digest."""
+    if not gone:
+        return ""
+    items = "".join(
+        f'<div style="padding:6px 0;border-bottom:1px solid {line}">'
+        f'<span style="font-family:{label_font};font-size:10px;letter-spacing:.06em;text-transform:uppercase;'
+        f'color:{accent}">{_esc(j["firm"])}</span> '
+        f'<span style="font-family:{body_font};font-size:14px;font-weight:600;color:{ink}">{_esc(j["title"])}</span>'
+        f'<span style="font-family:{body_font};font-size:12.5px;color:{soft}"> · {_TAKEN_STATUS[j["status"]]}</span></div>'
+        for j in gone[:10])
+    n_int = sum(j["status"] == "interested" for j in gone)
+    head = (f"{n_int} role{'s' if n_int != 1 else ''} you saved came down before you applied"
+            if n_int else "Postings you applied to have closed")
+    return (f'<tr><td style="padding:14px 34px 4px"><div style="border:1px solid {line};border-left:3px solid {accent};'
+            f'border-radius:10px;padding:8px 14px 10px">'
+            f'<div style="font-family:{label_font};font-size:11px;letter-spacing:.1em;text-transform:uppercase;'
+            f'color:{accent};padding-bottom:4px">⚠ Taken down · {_esc(head)}</div>{items}</div></td></tr>')
+
+
+def takedowns_text(gone):
+    if not gone:
+        return []
+    lines = ["", "Taken down (tracked roles the firm removed):"]
+    lines += [f"  • {j['firm']} — {j['title']} · {_TAKEN_STATUS[j['status']]}" for j in gone[:10]]
+    return lines
+
+
+def takedowns_for_digest(taken, today):
+    """Tracked roles taken down since the last digest (Monday also covers
+    Sunday, whose digest is a rest note), Interested ones first."""
+    d = datetime.strptime(today, "%Y-%m-%d")
+    since = (d - timedelta(days=1 if d.weekday() == 0 else 0)).strftime("%Y-%m-%d")
+    rank = {"interested": 0, "applied": 1, "interview": 2}
+    return sorted((j for j in taken or [] if (j.get("taken_down_on") or "") >= since
+                   and j.get("status") in rank),
+                  key=lambda j: (rank[j["status"]], j["firm"], j["title"]))
 
 
 # ---------------------------------------------------------------- hiring trends
@@ -2836,7 +3069,7 @@ def _pulse_text(p, dash_url):
     return lines
 
 
-def _newsletter_html(new_jobs, total, today, dash_url, hits=(), pulse=None, recruiters=None):
+def _newsletter_html(new_jobs, total, today, dash_url, hits=(), pulse=None, recruiters=None, gone=()):
     """Build an inbox-friendly HTML digest of today's NEW roles, styled to match
     the dashboard's editorial theme (soft pink + cream + forest green, Fraunces
     serif with italic-rose accents, IBM Plex Mono eyebrows/labels).
@@ -2868,7 +3101,7 @@ def _newsletter_html(new_jobs, total, today, dash_url, hits=(), pulse=None, recr
                 f'✿ {_esc(cur)}</td></tr>')
         title = _esc(j["title"])
         firm = _esc(j["firm"])
-        loc = _esc(j.get("location") or "")
+        loc = _esc(" · ".join(x for x in (j.get("location") or "", pay_label(j)) if x))
         rows.append(
             f'<tr><td style="padding:9px 0;border-bottom:1px solid {LINE2}">'
             f'<div style="font-family:{MONO};font-size:9.5px;letter-spacing:.08em;'
@@ -2956,6 +3189,7 @@ def _newsletter_html(new_jobs, total, today, dash_url, hits=(), pulse=None, recr
   {intro}
 </td></tr>
 {pinned_block}
+{takedowns_html(gone, INK, SOFT, LINE2, LIP, MONO, SANS)}
 
 <tr><td style="padding:2px 34px 8px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">{''.join(rows)}</table></td></tr>
 {_pulse_html(pulse, dash_url)}
@@ -2974,7 +3208,7 @@ def _esc(s):
             .replace(">", "&gt;").replace('"', "&quot;"))
 
 
-def _newsletter_text(new_jobs, total, today, dash_url, hits=(), pulse=None, recruiters=None):
+def _newsletter_text(new_jobs, total, today, dash_url, hits=(), pulse=None, recruiters=None, gone=()):
     """Plain-text alternative part — what non-HTML clients (and spam filters)
     read. Keeps the digest legible without any markup."""
     lines = [f"Street Watch — {today} morning digest", "", "Good morning, Ms Tian", ""]
@@ -2993,11 +3227,12 @@ def _newsletter_text(new_jobs, total, today, dash_url, hits=(), pulse=None, recr
     for j in new_jobs[:40]:
         if j["metro"] != cur:
             cur = j["metro"]; lines.append(f"[{cur}]")
-        loc = j.get("location") or ""
+        loc = " · ".join(x for x in (j.get("location") or "", pay_label(j)) if x)
         lines.append(f"  • {j['firm']} — {j['title']} · {loc}\n    {j['url']}")
     more = n - min(n, 40)
     if more > 0:
         lines.append(f"  …and {more} more new role{'s' if more != 1 else ''}.")
+    lines += takedowns_text(gone)
     lines += _pulse_text(pulse, dash_url)
     lines += _recruiters_text(recruiters, _recruiters_link(dash_url))
     lines += ["", f"Open the dashboard: {dash_url}"]
@@ -3065,7 +3300,7 @@ def _sunday_text(today, dash_url):
     ])
 
 
-def send_newsletter(jobs, today, trends=None):
+def send_newsletter(jobs, today, trends=None, taken=None):
     """Email a morning digest of today's NEW roles over SMTP (Gmail or any host).
 
     Opt-in and non-fatal: if the SMTP env isn't set we skip quietly, and any
@@ -3148,8 +3383,9 @@ def send_newsletter(jobs, today, trends=None):
     if hits:
         print(f"  saved searches with new matches: {', '.join(f'{nm} ({len(f)})' for nm, f in hits)}")
     recruiters = recruiter_nudge("street", today)
-    msg.attach(MIMEText(_newsletter_text(new_jobs, len(jobs), today, dash_url, hits, pulse, recruiters), "plain", "utf-8"))
-    msg.attach(MIMEText(_newsletter_html(new_jobs, len(jobs), today, dash_url, hits, pulse, recruiters), "html", "utf-8"))
+    gone = takedowns_for_digest(taken, today)
+    msg.attach(MIMEText(_newsletter_text(new_jobs, len(jobs), today, dash_url, hits, pulse, recruiters, gone), "plain", "utf-8"))
+    msg.attach(MIMEText(_newsletter_html(new_jobs, len(jobs), today, dash_url, hits, pulse, recruiters, gone), "html", "utf-8"))
 
     if _smtp_send(host, port, user, password, recipients, msg):
         print(f"  newsletter sent to {len(recipients)} recipient(s) ({n} new roles)")
@@ -3188,23 +3424,74 @@ def assign_first_seen(jobs, state, prev_jobs, today):
     fresh ids for all 28 of its roles on 2026-10-19), which made old roles look
     new. So an unseen id inherits first_seen from a role on the previous board
     with the same firm/title/location whose id has since disappeared. Each old
-    role is claimed once, so a second opening with the same title still counts."""
+    role is claimed once, so a second opening with the same title still counts.
+
+    Reposts (added 2026-11-07): a role that leaves the board goes into a ledger
+    (GONE_KEY) under its firm/title/location. If a new id with the same key
+    turns up on a later day, the firm took the role down and posted it again:
+    it still counts as new, but carries repost_count and orig_first_seen (when
+    the role was first seen, before any repost), which the boards show as a
+    "Reposted" badge. A role open a long time and reposted is a ghost-job sign."""
     ids = {j["id"] for j in jobs}
+    reposts = state.get(REPOSTS_KEY) or {}
+    ledger = state.get(GONE_KEY) or {}
     gone = {}
     for p in prev_jobs:
         if p["id"] not in ids and p.get("first_seen"):
-            gone.setdefault(_repost_key(p), []).append(p["first_seen"])
+            gone.setdefault(_repost_key(p), []).append(p)
+    # a role back under its old id (its feed was down for a day) wasn't reposted
+    for j in jobs:
+        if j["id"] in state:
+            ledger.pop(_ledger_key(j), None)
     new = 0
     for j in jobs:
         if j["id"] not in state:
             olds = gone.get(_repost_key(j))
-            if olds:
-                state[j["id"]] = olds.pop()
+            if olds:   # re-keyed overnight: the same role under a new id
+                old = olds.pop()
+                state[j["id"]] = old["first_seen"]
+                if old["id"] in reposts:
+                    reposts[j["id"]] = reposts.pop(old["id"])
             else:
                 state[j["id"]] = today; new += 1
+                entries = ledger.get(_ledger_key(j))
+                if entries:   # left on an earlier day and is back under a new id
+                    e = entries.pop(0)
+                    reposts[j["id"]] = {"orig": e["orig"], "n": e["n"] + 1, "gone": e["gone"]}
+                    if not entries:
+                        ledger.pop(_ledger_key(j))
         j["first_seen"] = state[j["id"]]
         j["is_new"] = state[j["id"]] == today
+    # what left the board today (and wasn't just re-keyed) goes into the ledger
+    for olds in gone.values():
+        for p in olds:
+            r = reposts.get(p["id"]) or {}
+            ledger.setdefault(_ledger_key(p), []).append(
+                {"orig": r.get("orig") or p["first_seen"], "n": r.get("n", 0), "gone": today})
+    cutoff = (datetime.strptime(today, "%Y-%m-%d") - timedelta(days=REPOST_MEMORY_DAYS)).strftime("%Y-%m-%d")
+    state[GONE_KEY] = {k: kept for k, v in ledger.items()
+                       if (kept := [e for e in v if e["gone"] >= cutoff])}
+    state[REPOSTS_KEY] = {i: r for i, r in reposts.items() if i in ids}
+    attach_reposts(jobs, state)
     return new
+
+
+# how long a role that left the board is remembered for repost matching
+REPOST_MEMORY_DAYS = 180
+GONE_KEY = "__gone__"         # "firm|title|location" -> [{"orig", "n", "gone"}]
+REPOSTS_KEY = "__reposts__"   # posting id -> {"orig": first seen, "n": times reposted, "gone": date it left}
+
+
+def _ledger_key(j):
+    return "|".join(_repost_key(j))
+
+
+def attach_reposts(jobs, state):
+    reposts = state.get(REPOSTS_KEY) or {}
+    for j in jobs:
+        r = reposts.get(j["id"])
+        j["repost_count"] = r["n"] if r else 0
+        j["orig_first_seen"] = r["orig"] if r else None
 
 
 def main():
@@ -3235,6 +3522,7 @@ def main():
                         j.get("posted_date"), j["first_seen"], j["is_new"], j["url"]])
 
     push_supabase(jobs, prune_firms=live_firms)
+    taken = flag_taken_down(raw, today)
 
     trends = json.load(open(TRENDS_FILE)) if os.path.exists(TRENDS_FILE) else {}
     day_rows = update_trends(trends, jobs, {r["id"] for r in raw},
@@ -3247,7 +3535,7 @@ def main():
     # NEWSLETTER_FORCE=1 overrides for a deliberate re-send.
     if state.get(NEWSLETTER_SENT_KEY) == today and os.getenv("NEWSLETTER_FORCE", "") not in ("1", "true", "yes"):
         print(f"Newsletter already sent today ({today}) — skipping (set NEWSLETTER_FORCE=1 to re-send).")
-    elif send_newsletter(jobs, today, trends):
+    elif send_newsletter(jobs, today, trends, taken):
         state[NEWSLETTER_SENT_KEY] = today
         json.dump(state, open(STATE_FILE, "w"))
 

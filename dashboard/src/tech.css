@@ -258,3 +258,19 @@ body.tw-body .addBtn, body.tw-body .clearBtn { border-radius: 7px; }
   .tw-funnel-row { grid-template-columns: 76px 1fr; }
   .tw-funnel-conv { grid-column: 2; }
 }
+
+/* pay, reposts, staleness and takedowns (2026-11-07) */
+.tw-pay { font-family: var(--tw-mono, ui-monospace, monospace); font-size: 11.5px; color: var(--tw-new); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tw-badge.repost { background: var(--tw-finS); color: var(--tw-fin); }
+.tw-badge.stale { background: var(--tw-side); color: var(--tw-faint); border: 1px solid var(--tw-line); }
+.tw-badge.down { background: var(--tw-badS); color: var(--tw-bad); }
+.tw-down-note { color: var(--tw-bad); }
+.tw-td-banner {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  margin: 10px 14px 0; padding: 8px 12px; border: 1px solid var(--tw-bad); border-left-width: 3px;
+  border-radius: 6px; background: var(--tw-badS); color: var(--tw-ink); font-size: 12.5px;
+}
+.tw-td-banner b { color: var(--tw-bad); font-weight: 600; }
+.tw-td-banner .td-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.tw-td-banner .td-list { color: var(--tw-soft); font-size: 12px; overflow-wrap: anywhere; }
+.tw-td-banner .td-actions { display: flex; gap: 6px; flex-shrink: 0; }

@@ -1,11 +1,14 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { supabase, authHeaders } from "./supabaseClient.js";
 import Trends from "./Trends.jsx";
-import { DraftModal, PasteJdModal, fileToBase64 } from "./App.jsx";
+import { DraftModal, PasteJdModal, fileToBase64, TakedownBanner } from "./App.jsx";
 import { useRecruiters, RecruitersView, RecruiterMatches } from "./Recruiters.jsx";
 import ManualFirms, { manualFirmCount } from "./ManualFirms.jsx";
 import Notepad from "./Notepad.jsx";
-import { needsFollowUp, daysSinceApplied, researchLinks, jobsToCsv, downloadCsv } from "./tracker.js";
+import {
+  needsFollowUp, daysSinceApplied, researchLinks, jobsToCsv, downloadCsv,
+  payLabel, payTop, openDays, staleTitle, recentTakedowns, STALE_DAYS,
+} from "./tracker.js";
 import "./tech.css";
 
 // Tech Watch: data engineering roles (tech_pipeline.py -> Supabase tech_*).
@@ -24,7 +27,7 @@ const SLUG_OF = Object.fromEntries(HUBS.map(([s, n]) => [n, s]));
 const SECTORS = ["Tech", "Fintech", "Startup", "Finance", "Energy", "Agency"];
 const STATUSES = ["interested", "applied", "interview", "offer", "rejected"];
 const STATUS_LABEL = { interested: "Interested", applied: "Applied", interview: "Interview", offer: "Offer", rejected: "Rejected" };
-const SORTS = ["new", "fit", "firm"];
+const SORTS = ["new", "fit", "firm", "pay"];
 
 const today = () => new Date().toISOString().slice(0, 10);
 function daysSince(d) {
@@ -56,7 +59,10 @@ const customToJob = (c) => ({
 
 // "sector:fintech hub:nyc new spark" -> filter spec. Unknown words search.
 export function parseCmd(cmd) {
-  const f = { words: [], sector: null, hub: null, status: null, sort: "new", isNew: false, outside: false, followup: false, days: null };
+  const f = {
+    words: [], sector: null, hub: null, status: null, sort: "new", isNew: false, outside: false, followup: false, days: null,
+    pay: null, paid: false, reposted: false, stale: false, down: false,
+  };
   for (const tok of cmd.trim().split(/\s+/).filter(Boolean)) {
     const [k, ...rest] = tok.split(":");
     const v = rest.join(":").toLowerCase();
@@ -66,6 +72,12 @@ export function parseCmd(cmd) {
     else if (rest.length && key === "status") f.status = v === "tracked" || STATUSES.includes(v) ? v : null;
     else if (rest.length && key === "sort") f.sort = SORTS.includes(v) ? v : "new";
     else if (rest.length && key === "age") f.days = Number(v) || null;
+    // pay:120 / pay:120k / pay:>120k -> top of the stated range is $120k+ a year
+    else if (rest.length && key === "pay") f.pay = Number(v.replace(/^>=?/, "").replace(/k$/, "")) || null;
+    else if (!rest.length && key === "paid") f.paid = true;
+    else if (!rest.length && key === "reposted") f.reposted = true;
+    else if (!rest.length && key === "stale") f.stale = true;
+    else if (!rest.length && key === "down") f.down = true;
     else if (!rest.length && key === "new") f.isNew = true;
     else if (!rest.length && key === "outside") f.outside = true;
     else if (!rest.length && key === "followup") f.followup = true;
@@ -83,6 +95,11 @@ function matches(j, f, app) {
   if (f.isNew && !j.is_new) return false;
   if (f.outside && !j.custom) return false;
   if (f.followup && !needsFollowUp(app)) return false;
+  if (f.paid && payTop(j) === null) return false;
+  if (f.pay != null && (payTop(j) ?? 0) < f.pay * 1000) return false;
+  if (f.reposted && !(j.repost_count > 0)) return false;
+  if (f.stale && (openDays(j) ?? 0) < STALE_DAYS) return false;
+  if (f.down && !j.taken_down_on) return false;
   if (f.days != null) {
     const a = ageOf(j);
     if (a == null || a > f.days) return false;
@@ -414,9 +431,13 @@ export default function TechApp({ header, signedIn }) {
     const fit = (j) => ai.fits[j.id]?.score ?? -1;
     if (spec.sort === "fit") out.sort((a, b) => fit(b) - fit(a) || (ageOf(a) ?? 99) - (ageOf(b) ?? 99));
     else if (spec.sort === "firm") out.sort((a, b) => a.firm.localeCompare(b.firm) || a.title.localeCompare(b.title));
+    else if (spec.sort === "pay") out.sort((a, b) => (payTop(b) ?? -1) - (payTop(a) ?? -1) || (ageOf(a) ?? 99) - (ageOf(b) ?? 99));
     else out.sort((a, b) => (ageOf(a) ?? 99) - (ageOf(b) ?? 99) || a.firm.localeCompare(b.firm));
     return out;
   }, [allJobs, spec, tracked, ai.fits]);
+
+  // tracked roles the firm took down in the last two weeks (pipeline flag)
+  const takedowns = useMemo(() => recentTakedowns(allJobs, tracked), [allJobs, tracked]);
 
   const counts = useMemo(() => {
     const c = { all: allJobs.length, new: 0, outside: customs.length, followup: 0, sector: {}, hub: {}, status: {} };
@@ -492,6 +513,11 @@ export default function TechApp({ header, signedIn }) {
     spec.outside && "outside",
     spec.followup && "followup",
     spec.days != null && `age:${spec.days}`,
+    spec.pay != null && `pay:${spec.pay}k+`,
+    spec.paid && "paid",
+    spec.reposted && "reposted",
+    spec.stale && "stale",
+    spec.down && "down",
     spec.q && `grep "${spec.q}"`,
     spec.sort !== "new" && `sort:${spec.sort}`,
   ].filter(Boolean);
@@ -596,7 +622,7 @@ export default function TechApp({ header, signedIn }) {
                   setView("list");
                 }
               }}
-              placeholder="spark · sector:fintech · hub:nyc · new · status:applied · sort:fit"
+              placeholder="spark · sector:fintech · hub:nyc · new · pay:120k · status:applied · sort:fit"
               autoComplete="off"
               spellCheck="false"
             />
@@ -675,6 +701,16 @@ export default function TechApp({ header, signedIn }) {
               <TechFunnel status={counts.status} loading={loading} onExport={exportTracked} />
             </div>
           ) : (
+            <>
+            {!loading && !spec.down && (
+              <TakedownBanner
+                className="tw-td-banner"
+                gone={takedowns}
+                appMap={tracked}
+                storageKey="tw-takedowns-seen"
+                onShow={() => setCmd("down")}
+              />
+            )}
             <div className="tw-body">
               <div className="tw-list" ref={listRef} role="listbox" aria-label="Roles">
                 {loading && <div className="tw-empty">$ fetching roles…</div>}
@@ -713,6 +749,7 @@ export default function TechApp({ header, signedIn }) {
                 />
               )}
             </div>
+            </>
           )}
 
           <div className="tw-status">
@@ -785,7 +822,17 @@ function Row({ job, on, status, follow, fit, onClick }) {
         {fit && <span className={`tw-fit ${fit.score >= 80 ? "hi" : fit.score >= 60 ? "mid" : "lo"}`}>{fit.score}</span>}
         {follow && <span className="tw-badge followup" title="Applied a while ago with no update">follow up</span>}
         {status && <span className={`tw-badge st-${status}`}>{status}</span>}
+        {job.taken_down_on && <span className="tw-badge down" title={`Taken down ${job.taken_down_on}`}>taken down</span>}
+        {job.repost_count > 0 && (
+          <span className="tw-badge repost" title={staleTitle(job)}>
+            reposted{job.repost_count > 1 ? ` ×${job.repost_count}` : ""}
+          </span>
+        )}
+        {!job.custom && !job.taken_down_on && (openDays(job) ?? 0) >= STALE_DAYS && (
+          <span className="tw-badge stale" title={staleTitle(job)}>open {openDays(job)}d</span>
+        )}
         {job.is_new && <span className="tw-badge new">new</span>}
+        {payLabel(job) && <span className="tw-pay">{payLabel(job)}</span>}
         <span className={`tw-badge sec-${(job.sector || "").toLowerCase()}`}>{(job.sector || "").toLowerCase()}</span>
         <span className="tw-age">{age == null ? "–" : `${age}d`}</span>
       </span>
@@ -820,10 +867,24 @@ function Detail({ job, app, fit, scoring, aiReady, hasDraft, onStatus, onNotes, 
         <dd>{job.metro}</dd>
         <dt>sector</dt>
         <dd>{job.sector}</dd>
+        <dt>pay</dt>
+        <dd>{payLabel(job) || "not stated"}</dd>
         <dt>posted</dt>
         <dd>{job.posted_date ? `${job.posted_date} (${posted}d)` : "not given"}</dd>
         <dt>first seen</dt>
         <dd>{job.first_seen || "—"}</dd>
+        <dt>open</dt>
+        <dd>
+          {openDays(job) != null ? `${openDays(job)} days` : "—"}
+          {job.repost_count > 0 &&
+            ` · reposted ${job.repost_count > 1 ? `${job.repost_count} times` : "once"}, first seen ${job.orig_first_seen}`}
+        </dd>
+        {job.taken_down_on && (
+          <>
+            <dt>status</dt>
+            <dd className="tw-down-note">taken down by the firm on {job.taken_down_on}</dd>
+          </>
+        )}
         <dt>source</dt>
         <dd>{job.source}</dd>
       </dl>
