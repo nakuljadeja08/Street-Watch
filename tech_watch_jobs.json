@@ -45,7 +45,7 @@
     "location": "Quincy, Massachusetts",
     "url": "https://statestreet.wd1.myworkdayjobs.com/Global/job/Quincy-Massachusetts/Technology-Financial-Operations-Data-Analytics---BI-Engineer_R-796407",
     "source": "workday",
-    "posted_date": "2026-10-06",
+    "posted_date": "2026-10-07",
     "metro": "Boston",
     "sector": "Finance",
     "first_seen": "2026-10-22",
@@ -58,7 +58,7 @@
     "location": "Charlotte",
     "url": "https://capgroup.wd1.myworkdayjobs.com/capitalgroupcareers/job/Charlotte/Platform-Engineer-IV_JR6886",
     "source": "workday",
-    "posted_date": "2026-10-06",
+    "posted_date": "2026-10-07",
     "metro": "Charlotte",
     "sector": "Finance",
     "first_seen": "2026-11-02",
@@ -84,7 +84,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Analytics-Engineer_R150313",
     "source": "workday",
-    "posted_date": "2026-10-06",
+    "posted_date": "2026-10-07",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -97,7 +97,7 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Program-Engineer_R150311",
     "source": "workday",
-    "posted_date": "2026-10-06",
+    "posted_date": "2026-10-07",
     "metro": "Chicago",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -413,7 +413,7 @@
     "metro": "NYC Area",
     "sector": "Tech",
     "first_seen": "2026-11-06",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Palantir",
@@ -556,7 +556,7 @@
     "metro": "Other US",
     "sector": "Fintech",
     "first_seen": "2026-11-06",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "Gopuff",
@@ -582,19 +582,6 @@
     "metro": "Other US",
     "sector": "Tech",
     "first_seen": "2026-10-20",
-    "is_new": false
-  },
-  {
-    "firm": "JPMorgan Chase",
-    "id": "oracle-jpmc.fa.oraclecloud.com-210803719",
-    "title": "Data Engineer II - AWS/PySpark/ETL",
-    "location": "OH, United States",
-    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210803719",
-    "source": "oracle",
-    "posted_date": "2026-11-04",
-    "metro": "Other US",
-    "sector": "Finance",
-    "first_seen": "2026-11-05",
     "is_new": false
   },
   {
@@ -656,7 +643,7 @@
     "location": "USA - Philadelphia - Pennsylvania",
     "url": "https://nasdaq.wd1.myworkdayjobs.com/Global_External_Site/job/USA---Philadelphia---Pennsylvania/Data-Software-Engineer_R0026752",
     "source": "workday",
-    "posted_date": "2026-10-06",
+    "posted_date": "2026-10-07",
     "metro": "Other US",
     "sector": "Finance",
     "first_seen": "2026-09-27",
@@ -690,6 +677,19 @@
   },
   {
     "firm": "Robert Half",
+    "id": "roberthalf-01300-0013534672-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Naperville, IL",
+    "url": "https://www.roberthalf.com/us/en/job/naperville-il/data-engineer/01300-0013534672-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-29",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-29",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
     "id": "roberthalf-03900-9504421867-usen",
     "title": "Data Engineer \u00b7 Direct hire",
     "location": "Memphis, TN",
@@ -699,6 +699,19 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-11-03",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-03720-0013461058-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Conshohocken, PA",
+    "url": "https://www.roberthalf.com/us/en/job/conshohocken-pa/data-engineer/03720-0013461058-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-08",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-08",
     "is_new": false
   },
   {
@@ -716,32 +729,6 @@
   },
   {
     "firm": "Robert Half",
-    "id": "roberthalf-01300-0013534672-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Naperville, IL",
-    "url": "https://www.roberthalf.com/us/en/job/naperville-il/data-engineer/01300-0013534672-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-29",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-29",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-03500-0013380490-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Oklahoma City, OK",
-    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-28",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
     "id": "roberthalf-01500-0013497785-usen",
     "title": "Data Engineer \u00b7 Direct hire",
     "location": "Oskaloosa, IA",
@@ -751,6 +738,19 @@
     "metro": "Other US",
     "sector": "Agency",
     "first_seen": "2026-10-13",
+    "is_new": false
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-03500-0013380490-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Oklahoma City, OK",
+    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-09",
+    "metro": "Other US",
+    "sector": "Agency",
+    "first_seen": "2026-10-05",
     "is_new": false
   },
   {
@@ -890,7 +890,7 @@
     "location": "US - Remote",
     "url": "https://allstate.wd5.myworkdayjobs.com/allstate_careers/job/US---Remote/Managing-Engineer--Data-Engineering_R35362-1",
     "source": "workday",
-    "posted_date": "2026-10-06",
+    "posted_date": "2026-10-07",
     "metro": "Remote (US)",
     "sector": "Finance",
     "first_seen": "2026-10-05",
@@ -1027,19 +1027,6 @@
     "is_new": false
   },
   {
-    "firm": "Robert Half",
-    "id": "roberthalf-03720-0013461058-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Conshohocken, PA (Remote)",
-    "url": "https://www.roberthalf.com/us/en/job/conshohocken-pa/data-engineer/03720-0013461058-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-08",
-    "metro": "Remote (US)",
-    "sector": "Agency",
-    "first_seen": "2026-10-08",
-    "is_new": false
-  },
-  {
     "firm": "Samsara",
     "id": "gh-samsara-8141959",
     "title": "Data Engineer",
@@ -1168,6 +1155,19 @@
     "sector": "Startup",
     "first_seen": "2026-11-02",
     "is_new": false
+  },
+  {
+    "firm": "Cisco",
+    "id": "wd-cisco-Cisco_Careers-/job/San-Jose-California-US/Software-Engineer-Data---AI-II--Full-Time----United-States_2030929",
+    "title": "Software Engineer Data & AI II (Full Time) \u2013 United States",
+    "location": "San Jose, California, US; RTP, North Carolina, US; San Francisco, California, US; Seattle, Washington, US; Carlsbad, California, US",
+    "url": "https://cisco.wd5.myworkdayjobs.com/Cisco_Careers/job/San-Jose-California-US/Software-Engineer-Data---AI-II--Full-Time----United-States_2030929",
+    "source": "workday",
+    "posted_date": "2026-11-06",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "first_seen": "2026-11-07",
+    "is_new": true
   },
   {
     "firm": "Decagon",
@@ -1648,7 +1648,7 @@
     "metro": "SF Bay Area",
     "sector": "Tech",
     "first_seen": "2026-11-06",
-    "is_new": true
+    "is_new": false
   },
   {
     "firm": "xAI",
@@ -1661,32 +1661,6 @@
     "metro": "SF Bay Area",
     "sector": "Tech",
     "first_seen": "2026-10-22",
-    "is_new": false
-  },
-  {
-    "firm": "Cohere",
-    "id": "ashby-cohere-735f26a3-9456-49e2-8f84-23804534cfe4",
-    "title": "Member of Technical Staff, GPU Infrastructure",
-    "location": "Seattle",
-    "url": "https://jobs.ashbyhq.com/cohere/735f26a3-9456-49e2-8f84-23804534cfe4",
-    "source": "ashby",
-    "posted_date": "2026-11-06",
-    "metro": "Seattle",
-    "sector": "Tech",
-    "first_seen": "2026-11-06",
-    "is_new": true
-  },
-  {
-    "firm": "Microsoft",
-    "id": "microsoft-1970393557040468",
-    "title": "Software Engineer II - Finance Data & Experiences",
-    "location": "Redmond, WA, US",
-    "url": "https://apply.careers.microsoft.com/careers/job/1970393557040468",
-    "source": "microsoft",
-    "posted_date": "2026-10-23",
-    "metro": "Seattle",
-    "sector": "Tech",
-    "first_seen": "2026-10-23",
     "is_new": false
   },
   {
