@@ -919,9 +919,9 @@ export default function App({ signedIn = false, header = null, userName = "" }) 
   const detailList = useMemo(() => {
     if (view === "board") return BOARD_COLS.flatMap((s) => board[s]);
     if (view !== "today") return filtered;
-    // Today: the "Needs you" rows in order, then the new roles
+    // Today: in page order (new roles, needs-you rows, then follow-ups)
     const seen = new Set();
-    return [...todayData.followups, ...todayData.interviews, ...takedowns, ...todayData.newJobs].filter(
+    return [...todayData.newJobs, ...todayData.interviews, ...takedowns, ...todayData.followups].filter(
       (j) => !seen.has(j.id) && seen.add(j.id)
     );
   }, [view, board, filtered, todayData, takedowns]);
@@ -2120,7 +2120,7 @@ function TodayView({
   const hour = new Date().getHours();
   const hello = hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening";
   const dateStr = new Date().toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" });
-  const tasks = followups.length + interviews.length + takedowns.length;
+  const tasks = interviews.length + takedowns.length;
   const shown = newJobs.slice(0, 9);
   if (loading) return <div className="empty">Loading your day…</div>;
   const summary = [
@@ -2150,61 +2150,6 @@ function TodayView({
         </p>
       </div>
 
-      {tasks > 0 && (
-        <section className="today-sec">
-          <h3>Needs you</h3>
-          <div className="today-cols">
-            {followups.length > 0 && (
-              <div className="today-box">
-                <h4>
-                  ⏰ Follow up <span>applied {FOLLOW_UP_DAYS}+ days ago, no reply</span>
-                </h4>
-                <ul>{followups.map((j) => row(j, `applied ${daysSinceApplied(appMap[j.id])}d ago`))}</ul>
-              </div>
-            )}
-            {interviews.length > 0 && (
-              <div className="today-box">
-                <h4>
-                  🎙 Interviewing <span>prep and follow-ups</span>
-                </h4>
-                <ul>{interviews.map((j) => row(j, appMap[j.id]?.notes ? "has notes" : ""))}</ul>
-              </div>
-            )}
-            {takedowns.length > 0 && (
-              <div className="today-box warn">
-                <h4>
-                  ⚠ Taken down <span>by the firm, last 14 days</span>
-                </h4>
-                <ul>
-                  {takedowns.map((j) =>
-                    row(j, appMap[j.id]?.status === "interested" ? "you hadn't applied" : STATUS_META[appMap[j.id]?.status]?.label)
-                  )}
-                </ul>
-              </div>
-            )}
-          </div>
-        </section>
-      )}
-
-      {pinned.length > 0 && (
-        <section className="today-sec">
-          <h3>Saved searches</h3>
-          <div className="today-searches">
-            {pinned.map(({ search: s, fresh }) => (
-              <span className="chip" key={s.id}>
-                <button className="chip-main" onClick={() => onSearch(s)}>
-                  ★ {s.name}
-                  <span className="chip-n">{fresh.length} new</span>
-                </button>
-                <button className="chip-x" onClick={() => onSeen(s)} aria-label={`Mark ${s.name} seen`} title="Mark seen">
-                  ✓
-                </button>
-              </span>
-            ))}
-          </div>
-        </section>
-      )}
-
       <section className="today-sec">
         <h3>
           New today <span className="today-n">{newJobs.length}</span>
@@ -2229,6 +2174,67 @@ function TodayView({
           </p>
         )}
       </section>
+
+      {pinned.length > 0 && (
+        <section className="today-sec">
+          <h3>Saved searches</h3>
+          <div className="today-searches">
+            {pinned.map(({ search: s, fresh }) => (
+              <span className="chip" key={s.id}>
+                <button className="chip-main" onClick={() => onSearch(s)}>
+                  ★ {s.name}
+                  <span className="chip-n">{fresh.length} new</span>
+                </button>
+                <button className="chip-x" onClick={() => onSeen(s)} aria-label={`Mark ${s.name} seen`} title="Mark seen">
+                  ✓
+                </button>
+              </span>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {tasks > 0 && (
+        <section className="today-sec">
+          <h3>Needs you</h3>
+          <div className="today-cols">
+            {interviews.length > 0 && (
+              <div className="today-box">
+                <h4>
+                  🎙 Interviewing <span>prep and follow-ups</span>
+                </h4>
+                <ul>{interviews.map((j) => row(j, appMap[j.id]?.notes ? "has notes" : ""))}</ul>
+              </div>
+            )}
+            {takedowns.length > 0 && (
+              <div className="today-box warn">
+                <h4>
+                  ⚠ Taken down <span>by the firm, last 14 days</span>
+                </h4>
+                <ul>
+                  {takedowns.map((j) =>
+                    row(j, appMap[j.id]?.status === "interested" ? "you hadn't applied" : STATUS_META[appMap[j.id]?.status]?.label)
+                  )}
+                </ul>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      {followups.length > 0 && (
+        <section className="today-sec">
+          <h3>
+            Follow up <span className="today-n">{followups.length}</span>
+          </h3>
+          <div className="today-box">
+            <h4>
+              <span>applied {FOLLOW_UP_DAYS}+ days ago, no reply</span>
+            </h4>
+            <ul>{followups.map((j) => row(j, `applied ${daysSinceApplied(appMap[j.id])}d ago`))}</ul>
+          </div>
+        </section>
+      )}
 
       {todoCount > 0 && (
         <p className="today-foot">
