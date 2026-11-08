@@ -9,8 +9,13 @@
     "posted_date": "2026-10-30",
     "metro": "Atlanta",
     "sector": "Finance",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-10-30",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "FanDuel",
@@ -22,8 +27,13 @@
     "posted_date": "2026-10-20",
     "metro": "Atlanta",
     "sector": "Tech",
+    "pay_min": 116000,
+    "pay_max": 152250,
+    "pay_period": "year",
     "first_seen": "2026-10-22",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Motion Recruitment",
@@ -35,8 +45,13 @@
     "posted_date": null,
     "metro": "Boston",
     "sector": "Agency",
+    "pay_min": 160000,
+    "pay_max": 165000,
+    "pay_period": "year",
     "first_seen": "2026-10-28",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "State Street",
@@ -45,11 +60,16 @@
     "location": "Quincy, Massachusetts",
     "url": "https://statestreet.wd1.myworkdayjobs.com/Global/job/Quincy-Massachusetts/Technology-Financial-Operations-Data-Analytics---BI-Engineer_R-796407",
     "source": "workday",
-    "posted_date": "2026-10-07",
+    "posted_date": "2026-10-08",
     "metro": "Boston",
     "sector": "Finance",
+    "pay_min": 70000,
+    "pay_max": 118750,
+    "pay_period": "year",
     "first_seen": "2026-10-22",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Capital Group",
@@ -58,11 +78,16 @@
     "location": "Charlotte",
     "url": "https://capgroup.wd1.myworkdayjobs.com/capitalgroupcareers/job/Charlotte/Platform-Engineer-IV_JR6886",
     "source": "workday",
-    "posted_date": "2026-10-07",
+    "posted_date": "2026-10-08",
     "metro": "Charlotte",
     "sector": "Finance",
+    "pay_min": 136749,
+    "pay_max": 218798,
+    "pay_period": "year",
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "DRW",
@@ -74,8 +99,13 @@
     "posted_date": "2026-09-29",
     "metro": "Chicago",
     "sector": "Finance",
+    "pay_min": 200000,
+    "pay_max": 250000,
+    "pay_period": "year",
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Northern Trust",
@@ -84,11 +114,16 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Analytics-Engineer_R150313",
     "source": "workday",
-    "posted_date": "2026-10-07",
+    "posted_date": "2026-10-08",
     "metro": "Chicago",
     "sector": "Finance",
+    "pay_min": 114500,
+    "pay_max": 194700,
+    "pay_period": "year",
     "first_seen": "2026-09-27",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Northern Trust",
@@ -97,11 +132,16 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Program-Engineer_R150311",
     "source": "workday",
-    "posted_date": "2026-10-07",
+    "posted_date": "2026-10-08",
     "metro": "Chicago",
     "sector": "Finance",
+    "pay_min": 114500,
+    "pay_max": 194700,
+    "pay_period": "year",
     "first_seen": "2026-09-27",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Robert Half",
@@ -113,8 +153,13 @@
     "posted_date": "2026-10-17",
     "metro": "DC / Virginia",
     "sector": "Agency",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-10-17",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Addepar",
@@ -126,8 +171,13 @@
     "posted_date": "2026-10-27",
     "metro": "NYC Area",
     "sector": "Fintech",
+    "pay_min": 163000,
+    "pay_max": 203500,
+    "pay_period": "year",
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Addepar",
@@ -139,8 +189,13 @@
     "posted_date": "2026-10-28",
     "metro": "NYC Area",
     "sector": "Fintech",
+    "pay_min": 114000,
+    "pay_max": 178000,
+    "pay_period": "year",
     "first_seen": "2026-10-29",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Anthropic",
@@ -152,8 +207,13 @@
     "posted_date": "2026-10-12",
     "metro": "NYC Area",
     "sector": "Tech",
+    "pay_min": 320000,
+    "pay_max": 405000,
+    "pay_period": "year",
     "first_seen": "2026-10-12",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Anthropic",
@@ -165,8 +225,13 @@
     "posted_date": "2026-10-30",
     "metro": "NYC Area",
     "sector": "Tech",
+    "pay_min": 270000,
+    "pay_max": 345000,
+    "pay_period": "year",
     "first_seen": "2026-10-31",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Anthropic",
@@ -178,8 +243,13 @@
     "posted_date": "2026-09-14",
     "metro": "NYC Area",
     "sector": "Tech",
+    "pay_min": 285000,
+    "pay_max": 380000,
+    "pay_period": "year",
     "first_seen": "2026-09-27",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Anthropic",
@@ -191,8 +261,13 @@
     "posted_date": "2026-09-29",
     "metro": "NYC Area",
     "sector": "Tech",
+    "pay_min": 500000,
+    "pay_max": 850000,
+    "pay_period": "year",
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Citadel Securities",
@@ -204,8 +279,13 @@
     "posted_date": null,
     "metro": "NYC Area",
     "sector": "Finance",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-09-27",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Cloaked",
@@ -217,8 +297,13 @@
     "posted_date": "2026-10-16",
     "metro": "NYC Area",
     "sector": "Startup",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "DoorDash",
@@ -230,8 +315,13 @@
     "posted_date": "2026-10-13",
     "metro": "NYC Area",
     "sector": "Tech",
+    "pay_min": 130600,
+    "pay_max": 192000,
+    "pay_period": "year",
     "first_seen": "2026-10-22",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "DoorDash",
@@ -243,8 +333,13 @@
     "posted_date": "2026-10-13",
     "metro": "NYC Area",
     "sector": "Tech",
+    "pay_min": 130600,
+    "pay_max": 192000,
+    "pay_period": "year",
     "first_seen": "2026-10-22",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Garner Health",
@@ -256,8 +351,13 @@
     "posted_date": "2026-10-15",
     "metro": "NYC Area",
     "sector": "Tech",
+    "pay_min": 138000,
+    "pay_max": 160000,
+    "pay_period": "year",
     "first_seen": "2026-10-22",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Harvey",
@@ -269,8 +369,13 @@
     "posted_date": "2026-11-02",
     "metro": "NYC Area",
     "sector": "Tech",
+    "pay_min": 230000,
+    "pay_max": 450000,
+    "pay_period": "year",
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "KKR",
@@ -282,8 +387,13 @@
     "posted_date": "2026-10-16",
     "metro": "NYC Area",
     "sector": "Finance",
+    "pay_min": 145000,
+    "pay_max": 165000,
+    "pay_period": "year",
     "first_seen": "2026-10-16",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "KKR",
@@ -295,8 +405,13 @@
     "posted_date": "2026-09-27",
     "metro": "NYC Area",
     "sector": "Finance",
+    "pay_min": 135000,
+    "pay_max": 170000,
+    "pay_period": "year",
     "first_seen": "2026-09-28",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Meta",
@@ -308,8 +423,13 @@
     "posted_date": null,
     "metro": "NYC Area",
     "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-09-30",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Meta",
@@ -321,8 +441,13 @@
     "posted_date": null,
     "metro": "NYC Area",
     "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-09-30",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Meta",
@@ -334,8 +459,13 @@
     "posted_date": null,
     "metro": "NYC Area",
     "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-09-30",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Meta",
@@ -347,8 +477,13 @@
     "posted_date": null,
     "metro": "NYC Area",
     "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-09-30",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Minerva",
@@ -360,8 +495,13 @@
     "posted_date": "2026-10-23",
     "metro": "NYC Area",
     "sector": "Startup",
+    "pay_min": 170000,
+    "pay_max": 236000,
+    "pay_period": "year",
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Modal",
@@ -373,8 +513,13 @@
     "posted_date": "2026-09-23",
     "metro": "NYC Area",
     "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-09-27",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "MotherDuck",
@@ -386,8 +531,13 @@
     "posted_date": "2026-10-30",
     "metro": "NYC Area",
     "sector": "Startup",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Numeric",
@@ -399,8 +549,13 @@
     "posted_date": "2026-09-14",
     "metro": "NYC Area",
     "sector": "Startup",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Palantir",
@@ -412,8 +567,13 @@
     "posted_date": "2026-11-04",
     "metro": "NYC Area",
     "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-06",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Palantir",
@@ -425,8 +585,13 @@
     "posted_date": "2026-10-07",
     "metro": "NYC Area",
     "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-10-08",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Reflection AI",
@@ -438,8 +603,13 @@
     "posted_date": "2026-09-30",
     "metro": "NYC Area",
     "sector": "Startup",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Reflection AI",
@@ -451,8 +621,13 @@
     "posted_date": "2026-10-13",
     "metro": "NYC Area",
     "sector": "Startup",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Robert Half",
@@ -464,8 +639,13 @@
     "posted_date": "2026-11-03",
     "metro": "NYC Area",
     "sector": "Agency",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-10-05",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Target",
@@ -477,8 +657,13 @@
     "posted_date": "2026-11-06",
     "metro": "NYC Area",
     "sector": "Tech",
+    "pay_min": 75400,
+    "pay_max": 135700,
+    "pay_period": "year",
     "first_seen": "2026-10-13",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Tennr",
@@ -490,8 +675,13 @@
     "posted_date": "2026-09-28",
     "metro": "NYC Area",
     "sector": "Startup",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Tower Research Capital",
@@ -503,8 +693,13 @@
     "posted_date": "2026-10-01",
     "metro": "NYC Area",
     "sector": "Finance",
+    "pay_min": 200000,
+    "pay_max": 300000,
+    "pay_period": "year",
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Carvana",
@@ -516,8 +711,13 @@
     "posted_date": "2026-09-09",
     "metro": "Other US",
     "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-10-22",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Cohere",
@@ -529,8 +729,13 @@
     "posted_date": "2026-10-14",
     "metro": "Other US",
     "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Elastic",
@@ -542,8 +747,13 @@
     "posted_date": "2026-10-05",
     "metro": "Other US",
     "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-10-05",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "FIS",
@@ -555,8 +765,13 @@
     "posted_date": "2026-11-06",
     "metro": "Other US",
     "sector": "Fintech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-06",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Gopuff",
@@ -568,8 +783,13 @@
     "posted_date": "2026-09-10",
     "metro": "Other US",
     "sector": "Tech",
+    "pay_min": 100000,
+    "pay_max": 125000,
+    "pay_period": "year",
     "first_seen": "2026-09-30",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "HP",
@@ -581,8 +801,13 @@
     "posted_date": "2026-11-02",
     "metro": "Other US",
     "sector": "Tech",
+    "pay_min": 83000,
+    "pay_max": 127800,
+    "pay_period": "year",
     "first_seen": "2026-10-20",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "JPMorgan Chase",
@@ -594,8 +819,13 @@
     "posted_date": "2026-09-25",
     "metro": "Other US",
     "sector": "Finance",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-09-27",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Mastercard",
@@ -607,8 +837,13 @@
     "posted_date": "2026-10-27",
     "metro": "Other US",
     "sector": "Fintech",
+    "pay_min": 92000,
+    "pay_max": 147000,
+    "pay_period": "year",
     "first_seen": "2026-09-29",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Mastercard",
@@ -620,8 +855,13 @@
     "posted_date": "2026-10-27",
     "metro": "Other US",
     "sector": "Fintech",
+    "pay_min": 92000,
+    "pay_max": 147000,
+    "pay_period": "year",
     "first_seen": "2026-10-07",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Meta",
@@ -633,8 +873,13 @@
     "posted_date": null,
     "metro": "Other US",
     "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Nasdaq",
@@ -643,11 +888,16 @@
     "location": "USA - Philadelphia - Pennsylvania",
     "url": "https://nasdaq.wd1.myworkdayjobs.com/Global_External_Site/job/USA---Philadelphia---Pennsylvania/Data-Software-Engineer_R0026752",
     "source": "workday",
-    "posted_date": "2026-10-07",
+    "posted_date": "2026-10-08",
     "metro": "Other US",
     "sector": "Finance",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-09-27",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Nous Research",
@@ -659,8 +909,13 @@
     "posted_date": "2026-10-15",
     "metro": "Other US",
     "sector": "Startup",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Regions Securities",
@@ -672,21 +927,13 @@
     "posted_date": "2026-11-03",
     "metro": "Other US",
     "sector": "Finance",
+    "pay_min": 79222,
+    "pay_max": 100070,
+    "pay_period": "year",
     "first_seen": "2026-11-03",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-01300-0013534672-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Naperville, IL",
-    "url": "https://www.roberthalf.com/us/en/job/naperville-il/data-engineer/01300-0013534672-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-29",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-29",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Robert Half",
@@ -698,21 +945,13 @@
     "posted_date": "2026-11-03",
     "metro": "Other US",
     "sector": "Agency",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-03",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-03720-0013461058-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Conshohocken, PA",
-    "url": "https://www.roberthalf.com/us/en/job/conshohocken-pa/data-engineer/03720-0013461058-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-08",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-08",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Robert Half",
@@ -724,8 +963,49 @@
     "posted_date": "2026-10-30",
     "metro": "Other US",
     "sector": "Agency",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-10-30",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-01300-0013534672-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Naperville, IL",
+    "url": "https://www.roberthalf.com/us/en/job/naperville-il/data-engineer/01300-0013534672-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-29",
+    "metro": "Other US",
+    "sector": "Agency",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
+    "first_seen": "2026-10-29",
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-03500-0013380490-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Oklahoma City, OK",
+    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-28",
+    "metro": "Other US",
+    "sector": "Agency",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
+    "first_seen": "2026-10-05",
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Robert Half",
@@ -737,21 +1017,13 @@
     "posted_date": "2026-10-13",
     "metro": "Other US",
     "sector": "Agency",
+    "pay_min": 100000,
+    "pay_max": 120000,
+    "pay_period": "year",
     "first_seen": "2026-10-13",
-    "is_new": false
-  },
-  {
-    "firm": "Robert Half",
-    "id": "roberthalf-03500-0013380490-usen",
-    "title": "Data Engineer \u00b7 Direct hire",
-    "location": "Oklahoma City, OK",
-    "url": "https://www.roberthalf.com/us/en/job/oklahoma-city-ok/data-engineer/03500-0013380490-usen",
-    "source": "roberthalf",
-    "posted_date": "2026-10-09",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-05",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Robert Half",
@@ -763,8 +1035,13 @@
     "posted_date": "2026-10-30",
     "metro": "Other US",
     "sector": "Agency",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-10-30",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Robert Half",
@@ -776,8 +1053,13 @@
     "posted_date": "2026-11-03",
     "metro": "Other US",
     "sector": "Agency",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-10-05",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "SpaceX",
@@ -789,8 +1071,13 @@
     "posted_date": "2026-10-08",
     "metro": "Other US",
     "sector": "Tech",
+    "pay_min": 125000,
+    "pay_max": 195000,
+    "pay_period": "year",
     "first_seen": "2026-10-22",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "SpaceX",
@@ -802,8 +1089,13 @@
     "posted_date": "2026-11-03",
     "metro": "Other US",
     "sector": "Tech",
+    "pay_min": 125000,
+    "pay_max": 195000,
+    "pay_period": "year",
     "first_seen": "2026-11-03",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Susquehanna International Group",
@@ -815,8 +1107,13 @@
     "posted_date": "2026-09-28",
     "metro": "Other US",
     "sector": "Finance",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-09-29",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Susquehanna International Group",
@@ -828,21 +1125,13 @@
     "posted_date": "2026-09-16",
     "metro": "Other US",
     "sector": "Finance",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-10-22",
-    "is_new": false
-  },
-  {
-    "firm": "TEKsystems",
-    "id": "phenom-careers.teksystems.com-TESYUSJP006338501ENUS",
-    "title": "Data Engineer II \u00b7 Direct hire",
-    "location": "Hanover, Maryland, USA",
-    "url": "https://careers.teksystems.com/us/en/job/TESYUSJP006338501ENUS",
-    "source": "phenom",
-    "posted_date": "2026-10-09",
-    "metro": "Other US",
-    "sector": "Agency",
-    "first_seen": "2026-10-09",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Turbopuffer",
@@ -854,8 +1143,13 @@
     "posted_date": "2026-09-30",
     "metro": "Other US",
     "sector": "Startup",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "WorkOS",
@@ -867,8 +1161,13 @@
     "posted_date": "2026-10-06",
     "metro": "Other US",
     "sector": "Startup",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Affirm",
@@ -880,8 +1179,13 @@
     "posted_date": "2026-09-30",
     "metro": "Remote (US)",
     "sector": "Fintech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-10-22",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Allstate",
@@ -890,11 +1194,16 @@
     "location": "US - Remote",
     "url": "https://allstate.wd5.myworkdayjobs.com/allstate_careers/job/US---Remote/Managing-Engineer--Data-Engineering_R35362-1",
     "source": "workday",
-    "posted_date": "2026-10-07",
+    "posted_date": "2026-10-08",
     "metro": "Remote (US)",
     "sector": "Finance",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-10-05",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Branch",
@@ -906,8 +1215,13 @@
     "posted_date": "2026-10-26",
     "metro": "Remote (US)",
     "sector": "Startup",
+    "pay_min": 135000,
+    "pay_max": 145000,
+    "pay_period": "year",
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Coinbase",
@@ -919,8 +1233,13 @@
     "posted_date": "2026-10-20",
     "metro": "Remote (US)",
     "sector": "Fintech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-10-22",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Harvey",
@@ -932,8 +1251,13 @@
     "posted_date": "2026-11-02",
     "metro": "Remote (US)",
     "sector": "Tech",
+    "pay_min": 230000,
+    "pay_max": 450000,
+    "pay_period": "year",
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "LangChain",
@@ -945,8 +1269,13 @@
     "posted_date": "2026-10-05",
     "metro": "Remote (US)",
     "sector": "Startup",
+    "pay_min": 140000,
+    "pay_max": 180000,
+    "pay_period": "year",
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Luma AI",
@@ -958,8 +1287,13 @@
     "posted_date": "2026-10-08",
     "metro": "Remote (US)",
     "sector": "Startup",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Luma AI",
@@ -971,8 +1305,13 @@
     "posted_date": "2026-10-08",
     "metro": "Remote (US)",
     "sector": "Startup",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "People Data Labs",
@@ -984,8 +1323,13 @@
     "posted_date": "2026-10-26",
     "metro": "Remote (US)",
     "sector": "Startup",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Pika",
@@ -997,8 +1341,13 @@
     "posted_date": "2026-09-22",
     "metro": "Remote (US)",
     "sector": "Startup",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Quora",
@@ -1010,8 +1359,13 @@
     "posted_date": "2026-09-25",
     "metro": "Remote (US)",
     "sector": "Tech",
+    "pay_min": 97600,
+    "pay_max": 139000,
+    "pay_period": "year",
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Reddit",
@@ -1023,8 +1377,31 @@
     "posted_date": "2026-10-14",
     "metro": "Remote (US)",
     "sector": "Tech",
+    "pay_min": 164200,
+    "pay_max": 229990,
+    "pay_period": "year",
     "first_seen": "2026-10-15",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "Robert Half",
+    "id": "roberthalf-03720-0013461058-usen",
+    "title": "Data Engineer \u00b7 Direct hire",
+    "location": "Conshohocken, PA (Remote)",
+    "url": "https://www.roberthalf.com/us/en/job/conshohocken-pa/data-engineer/03720-0013461058-usen",
+    "source": "roberthalf",
+    "posted_date": "2026-10-08",
+    "metro": "Remote (US)",
+    "sector": "Agency",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
+    "first_seen": "2026-10-08",
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Samsara",
@@ -1036,8 +1413,13 @@
     "posted_date": "2026-10-05",
     "metro": "Remote (US)",
     "sector": "Tech",
+    "pay_min": 99365,
+    "pay_max": 167000,
+    "pay_period": "year",
     "first_seen": "2026-10-05",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Supabase",
@@ -1049,8 +1431,13 @@
     "posted_date": "2026-10-24",
     "metro": "Remote (US)",
     "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-10-24",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Supabase",
@@ -1062,8 +1449,13 @@
     "posted_date": "2026-10-14",
     "metro": "Remote (US)",
     "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-10-14",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Anthropic",
@@ -1075,8 +1467,13 @@
     "posted_date": "2026-10-26",
     "metro": "SF Bay Area",
     "sector": "Tech",
+    "pay_min": 320000,
+    "pay_max": 405000,
+    "pay_period": "year",
     "first_seen": "2026-10-27",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "AppLovin",
@@ -1088,8 +1485,13 @@
     "posted_date": "2026-09-24",
     "metro": "SF Bay Area",
     "sector": "Tech",
+    "pay_min": 140000,
+    "pay_max": 250000,
+    "pay_period": "year",
     "first_seen": "2026-10-22",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Baseten",
@@ -1101,8 +1503,13 @@
     "posted_date": "2026-10-05",
     "metro": "SF Bay Area",
     "sector": "Startup",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Campfire",
@@ -1114,8 +1521,13 @@
     "posted_date": "2026-09-18",
     "metro": "SF Bay Area",
     "sector": "Startup",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Cartesia",
@@ -1127,8 +1539,13 @@
     "posted_date": "2026-09-24",
     "metro": "SF Bay Area",
     "sector": "Startup",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Chai Discovery",
@@ -1140,8 +1557,13 @@
     "posted_date": "2026-09-24",
     "metro": "SF Bay Area",
     "sector": "Startup",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Chai Discovery",
@@ -1153,8 +1575,13 @@
     "posted_date": "2026-10-12",
     "metro": "SF Bay Area",
     "sector": "Startup",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Cisco",
@@ -1166,8 +1593,13 @@
     "posted_date": "2026-11-06",
     "metro": "SF Bay Area",
     "sector": "Tech",
+    "pay_min": 111700,
+    "pay_max": 203100,
+    "pay_period": "year",
     "first_seen": "2026-11-07",
-    "is_new": true
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Decagon",
@@ -1179,8 +1611,13 @@
     "posted_date": "2026-09-14",
     "metro": "SF Bay Area",
     "sector": "Startup",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "DoorDash",
@@ -1192,8 +1629,13 @@
     "posted_date": "2026-10-13",
     "metro": "SF Bay Area",
     "sector": "Tech",
+    "pay_min": 117500,
+    "pay_max": 172800,
+    "pay_period": "year",
     "first_seen": "2026-10-22",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "DoorDash",
@@ -1205,8 +1647,13 @@
     "posted_date": "2026-10-13",
     "metro": "SF Bay Area",
     "sector": "Tech",
+    "pay_min": 130600,
+    "pay_max": 192000,
+    "pay_period": "year",
     "first_seen": "2026-10-22",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "DoorDash",
@@ -1218,8 +1665,13 @@
     "posted_date": "2026-10-14",
     "metro": "SF Bay Area",
     "sector": "Tech",
+    "pay_min": 130600,
+    "pay_max": 192000,
+    "pay_period": "year",
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "DoorDash",
@@ -1231,8 +1683,13 @@
     "posted_date": "2026-10-08",
     "metro": "SF Bay Area",
     "sector": "Tech",
+    "pay_min": 130600,
+    "pay_max": 192000,
+    "pay_period": "year",
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Fireworks AI",
@@ -1244,21 +1701,13 @@
     "posted_date": "2026-09-19",
     "metro": "SF Bay Area",
     "sector": "Startup",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
-  },
-  {
-    "firm": "Fireworks AI",
-    "id": "ashby-fireworks-ad58a098-ef75-4a4b-8475-55c2653213ef",
-    "title": "Member of Technical Staff, Systems Infrastructure (2026 PhD New Grad)",
-    "location": "San Mateo",
-    "url": "https://jobs.ashbyhq.com/fireworks/ad58a098-ef75-4a4b-8475-55c2653213ef",
-    "source": "ashby",
-    "posted_date": "2026-09-08",
-    "metro": "SF Bay Area",
-    "sector": "Startup",
-    "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Google",
@@ -1270,8 +1719,13 @@
     "posted_date": "2026-10-21",
     "metro": "SF Bay Area",
     "sector": "Tech",
+    "pay_min": 130000,
+    "pay_max": 187000,
+    "pay_period": "year",
     "first_seen": "2026-10-21",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Harvey",
@@ -1283,8 +1737,13 @@
     "posted_date": "2026-11-02",
     "metro": "SF Bay Area",
     "sector": "Tech",
+    "pay_min": 230000,
+    "pay_max": 450000,
+    "pay_period": "year",
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Luma AI",
@@ -1296,8 +1755,13 @@
     "posted_date": "2026-10-08",
     "metro": "SF Bay Area",
     "sector": "Startup",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Mercor",
@@ -1309,8 +1773,13 @@
     "posted_date": "2026-10-27",
     "metro": "SF Bay Area",
     "sector": "Startup",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Mercor",
@@ -1322,8 +1791,13 @@
     "posted_date": "2026-09-10",
     "metro": "SF Bay Area",
     "sector": "Startup",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Meta",
@@ -1335,8 +1809,13 @@
     "posted_date": null,
     "metro": "SF Bay Area",
     "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-09-30",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Meta",
@@ -1348,8 +1827,13 @@
     "posted_date": null,
     "metro": "SF Bay Area",
     "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-09-30",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Meta",
@@ -1361,8 +1845,13 @@
     "posted_date": null,
     "metro": "SF Bay Area",
     "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Meta",
@@ -1374,8 +1863,13 @@
     "posted_date": null,
     "metro": "SF Bay Area",
     "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-10-22",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Modal",
@@ -1387,8 +1881,13 @@
     "posted_date": "2026-10-05",
     "metro": "SF Bay Area",
     "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Numeric",
@@ -1400,21 +1899,13 @@
     "posted_date": "2026-09-14",
     "metro": "SF Bay Area",
     "sector": "Startup",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
-  },
-  {
-    "firm": "Omni",
-    "id": "ashby-omni-de8286db-3605-4e37-a41d-84979d8d0ae8",
-    "title": "Software Engineer, Growth Data Platform",
-    "location": "San Francisco, CA",
-    "url": "https://jobs.ashbyhq.com/omni/de8286db-3605-4e37-a41d-84979d8d0ae8",
-    "source": "ashby",
-    "posted_date": "2026-09-08",
-    "metro": "SF Bay Area",
-    "sector": "Startup",
-    "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "OpenAI",
@@ -1426,8 +1917,13 @@
     "posted_date": "2026-10-01",
     "metro": "SF Bay Area",
     "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-10-01",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "OpenAI",
@@ -1439,8 +1935,13 @@
     "posted_date": "2026-10-19",
     "metro": "SF Bay Area",
     "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Perplexity",
@@ -1452,8 +1953,13 @@
     "posted_date": "2026-10-28",
     "metro": "SF Bay Area",
     "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Perplexity",
@@ -1465,8 +1971,13 @@
     "posted_date": "2026-10-31",
     "metro": "SF Bay Area",
     "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Physical Intelligence",
@@ -1478,8 +1989,13 @@
     "posted_date": "2026-10-09",
     "metro": "SF Bay Area",
     "sector": "Startup",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Pinterest",
@@ -1491,8 +2007,13 @@
     "posted_date": "2026-09-18",
     "metro": "SF Bay Area",
     "sector": "Tech",
+    "pay_min": 123696,
+    "pay_max": 254667,
+    "pay_period": "year",
     "first_seen": "2026-09-27",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Prime Intellect",
@@ -1504,8 +2025,13 @@
     "posted_date": "2026-10-16",
     "metro": "SF Bay Area",
     "sector": "Startup",
+    "pay_min": 150000,
+    "pay_max": 350000,
+    "pay_period": "year",
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Prime Intellect",
@@ -1517,8 +2043,13 @@
     "posted_date": "2026-10-16",
     "metro": "SF Bay Area",
     "sector": "Startup",
+    "pay_min": 150000,
+    "pay_max": 350000,
+    "pay_period": "year",
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Prime Intellect",
@@ -1530,8 +2061,13 @@
     "posted_date": "2026-10-16",
     "metro": "SF Bay Area",
     "sector": "Startup",
+    "pay_min": 150000,
+    "pay_max": 350000,
+    "pay_period": "year",
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Prime Intellect",
@@ -1543,8 +2079,13 @@
     "posted_date": "2026-10-19",
     "metro": "SF Bay Area",
     "sector": "Startup",
+    "pay_min": 150000,
+    "pay_max": 350000,
+    "pay_period": "year",
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Reflection AI",
@@ -1556,8 +2097,13 @@
     "posted_date": "2026-09-11",
     "metro": "SF Bay Area",
     "sector": "Startup",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Reflection AI",
@@ -1569,8 +2115,13 @@
     "posted_date": "2026-10-22",
     "metro": "SF Bay Area",
     "sector": "Startup",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Roblox",
@@ -1582,8 +2133,13 @@
     "posted_date": "2026-09-23",
     "metro": "SF Bay Area",
     "sector": "Tech",
+    "pay_min": 153120,
+    "pay_max": 196750,
+    "pay_period": "year",
     "first_seen": "2026-09-27",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Roblox",
@@ -1595,8 +2151,13 @@
     "posted_date": "2026-10-08",
     "metro": "SF Bay Area",
     "sector": "Tech",
+    "pay_min": 168680,
+    "pay_max": 212490,
+    "pay_period": "year",
     "first_seen": "2026-10-22",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "ServiceNow",
@@ -1608,8 +2169,13 @@
     "posted_date": "2026-10-14",
     "metro": "SF Bay Area",
     "sector": "Tech",
+    "pay_min": 139700,
+    "pay_max": 216500,
+    "pay_period": "year",
     "first_seen": "2026-10-22",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Thinking Machines",
@@ -1621,21 +2187,13 @@
     "posted_date": "2026-10-27",
     "metro": "SF Bay Area",
     "sector": "Startup",
+    "pay_min": 300000,
+    "pay_max": 350000,
+    "pay_period": "year",
     "first_seen": "2026-11-02",
-    "is_new": false
-  },
-  {
-    "firm": "Zoox",
-    "id": "lever-zoox-978e36ef-e8e9-4874-ade6-f33a80e46309",
-    "title": "Software Engineer - Pipeline Infrastructure & Integration",
-    "location": "Foster City, CA",
-    "url": "https://jobs.lever.co/zoox/978e36ef-e8e9-4874-ade6-f33a80e46309",
-    "source": "lever",
-    "posted_date": "2026-09-08",
-    "metro": "SF Bay Area",
-    "sector": "Tech",
-    "first_seen": "2026-10-22",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "xAI",
@@ -1647,8 +2205,13 @@
     "posted_date": "2026-11-05",
     "metro": "SF Bay Area",
     "sector": "Tech",
+    "pay_min": 140000,
+    "pay_max": 225000,
+    "pay_period": "year",
     "first_seen": "2026-11-06",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "xAI",
@@ -1660,8 +2223,13 @@
     "posted_date": "2026-10-13",
     "metro": "SF Bay Area",
     "sector": "Tech",
+    "pay_min": 132000,
+    "pay_max": 198000,
+    "pay_period": "year",
     "first_seen": "2026-10-22",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "SpaceX",
@@ -1673,8 +2241,13 @@
     "posted_date": "2026-10-21",
     "metro": "Seattle",
     "sector": "Tech",
+    "pay_min": 125000,
+    "pay_max": 200000,
+    "pay_period": "year",
     "first_seen": "2026-10-21",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "SpaceX",
@@ -1686,8 +2259,13 @@
     "posted_date": "2026-09-11",
     "metro": "Seattle",
     "sector": "Tech",
+    "pay_min": 125000,
+    "pay_max": 200000,
+    "pay_period": "year",
     "first_seen": "2026-09-30",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Blue Signal",
@@ -1699,8 +2277,13 @@
     "posted_date": null,
     "metro": "Texas",
     "sector": "Agency",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-10-05",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Charles Schwab",
@@ -1712,8 +2295,13 @@
     "posted_date": null,
     "metro": "Texas",
     "sector": "Finance",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-09-29",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Charles Schwab",
@@ -1725,8 +2313,13 @@
     "posted_date": null,
     "metro": "Texas",
     "sector": "Finance",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-10-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Dell",
@@ -1738,8 +2331,13 @@
     "posted_date": "2026-11-05",
     "metro": "Texas",
     "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-10-24",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Fluidstack",
@@ -1751,8 +2349,13 @@
     "posted_date": "2026-10-01",
     "metro": "Texas",
     "sector": "Startup",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Macquarie Group",
@@ -1764,8 +2367,13 @@
     "posted_date": "2026-10-28",
     "metro": "Texas",
     "sector": "Finance",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-10-28",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "TPG",
@@ -1777,7 +2385,12 @@
     "posted_date": "2026-10-06",
     "metro": "Texas",
     "sector": "Finance",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
     "first_seen": "2026-10-07",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   }
 ]
