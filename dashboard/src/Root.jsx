@@ -78,6 +78,6 @@ export default function Root() {
   return watch === "tech" ? (
     <TechApp header={bar} signedIn={!!session} />
   ) : (
-    <App header={bar} signedIn={!!session} />
+    <App header={bar} signedIn={!!session} userName={profile?.display_name || ""} />
   );
 }

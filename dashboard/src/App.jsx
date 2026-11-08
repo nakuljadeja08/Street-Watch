@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { supabase, STATUSES, authHeaders } from "./supabaseClient.js";
 import FIRM_CATEGORIES from "../../firm_categories.json";
 import Trends from "./Trends.jsx";
-import { useRecruiters, RecruitersView, RecruitersButton } from "./Recruiters.jsx";
+import { useRecruiters, RecruitersView, RecruitersButton, RecruiterMatches } from "./Recruiters.jsx";
 import ManualFirms from "./ManualFirms.jsx";
 import Notepad from "./Notepad.jsx";
 import {
@@ -131,6 +131,7 @@ const SORTS = [
   { v: "pay", label: "Highest pay" },
 ];
 const VIEWS = [
+  { v: "today", label: "Today" },
   { v: "list", label: "List" },
   { v: "board", label: "Board" },
   { v: "funnel", label: "Funnel" },
@@ -238,15 +239,19 @@ function initialParams() {
       pay: PAY_OPTS.some((o) => o.v === p.get("pay")) ? p.get("pay") : "any",
       q: p.get("q") || "",
       sort: SORTS.some((s) => s.v === p.get("sort")) ? p.get("sort") : "default",
-      view: ["board", "funnel", "trends", "recruiters", "manual"].includes(p.get("view")) ? p.get("view") : "list",
+      // Today is the landing page; ?view=list etc. for the rest
+      view: VIEWS.some((v) => v.v === p.get("view")) ? p.get("view") : "today",
+      job: p.get("job") || null,
     };
   } catch {
-    return { metro: "all", segment: "all", category: "all", level: "any", recency: "all", statusFilter: "all", pay: "any", q: "", sort: "default", view: "list" };
+    return { metro: "all", segment: "all", category: "all", level: "any", recency: "all", statusFilter: "all", pay: "any", q: "", sort: "default", view: "today", job: null };
   }
 }
 
-export default function App({ signedIn = false, header = null }) {
+export default function App({ signedIn = false, header = null, userName = "" }) {
   const init = initialParams();
+  const [detailId, setDetailId] = useState(init.job); // role open in the detail panel
+  const [descs, setDescs] = useState({}); // job id -> { state, text?, error? } for the panel
   const [jobs, setJobs] = useState([]);
   const [apps, setApps] = useState({}); // job_id -> {status, applied_at, notes}
   const [customJobs, setCustomJobs] = useState([]); // off-list roles you added yourself
@@ -363,10 +368,11 @@ export default function App({ signedIn = false, header = null }) {
     if (pay !== "any") p.set("pay", pay);
     if (q.trim()) p.set("q", q.trim());
     if (sort !== "default") p.set("sort", sort);
-    if (view !== "list") p.set("view", view);
+    if (view !== "today") p.set("view", view);
+    if (detailId) p.set("job", detailId);
     const qs = p.toString();
     window.history.replaceState(null, "", qs ? `?${qs}` : window.location.pathname);
-  }, [metro, segment, category, level, recency, statusFilter, pay, q, sort, view]);
+  }, [metro, segment, category, level, recency, statusFilter, pay, q, sort, view, detailId]);
 
   // ---------------------------------------------------------------- AI (fit score + drafts)
   // The /api routes are gated by a passphrase (STREET_WATCH_KEY on Vercel)
@@ -898,6 +904,53 @@ export default function App({ signedIn = false, header = null }) {
   // tracked roles the firm took down in the last two weeks (pipeline flag)
   const takedowns = useMemo(() => recentTakedowns(jobs, appMap), [jobs, appMap]);
 
+  // Today view
+  const todayData = useMemo(() => {
+    const byFollow = (a, b) => (daysSinceApplied(appMap[b.id]) ?? 0) - (daysSinceApplied(appMap[a.id]) ?? 0);
+    return {
+      newJobs: jobs.filter((j) => j.is_new),
+      followups: allJobs.filter((j) => needsFollowUp(appMap[j.id])).sort(byFollow),
+      interviews: allJobs.filter((j) => appMap[j.id]?.status === "interview"),
+    };
+  }, [jobs, allJobs, appMap]);
+
+  // detail panel: the open role, and its neighbours in the list it was opened from
+  const detailJob = detailId ? allJobs.find((j) => String(j.id) === String(detailId)) : null;
+  const detailList = useMemo(() => {
+    if (view === "board") return BOARD_COLS.flatMap((s) => board[s]);
+    if (view !== "today") return filtered;
+    // Today: the "Needs you" rows in order, then the new roles
+    const seen = new Set();
+    return [...todayData.followups, ...todayData.interviews, ...takedowns, ...todayData.newJobs].filter(
+      (j) => !seen.has(j.id) && seen.add(j.id)
+    );
+  }, [view, board, filtered, todayData, takedowns]);
+  const detailIdx = detailJob ? detailList.findIndex((j) => j.id === detailJob.id) : -1;
+  const canFetchJd = signedIn || !!swKey;
+  useEffect(() => {
+    if (!detailJob || detailJob.custom || !canFetchJd || descs[detailJob.id]) return;
+    const id = detailJob.id;
+    setDescs((d) => ({ ...d, [id]: { state: "loading" } }));
+    aiFetch("jd", { job: pickJob(detailJob) })
+      .then((r) =>
+        setDescs((d) => ({ ...d, [id]: r.description ? { state: "ok", text: r.description } : { state: "none" } }))
+      )
+      .catch((e) => setDescs((d) => ({ ...d, [id]: { state: "error", error: e.message } })));
+  }, [detailJob?.id, canFetchJd]);
+  // j / k step through the list, Escape closes
+  useEffect(() => {
+    if (!detailJob) return;
+    const onKey = (e) => {
+      const tag = document.activeElement?.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+      if (e.key === "Escape") setDetailId(null);
+      else if (e.key === "j" && detailIdx >= 0 && detailIdx < detailList.length - 1) setDetailId(detailList[detailIdx + 1].id);
+      else if (e.key === "k" && detailIdx > 0) setDetailId(detailList[detailIdx - 1].id);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [detailJob?.id, detailIdx, detailList]);
+
   // next few unscored roles in the current list order (for "Score next 5")
   const unscoredVisible = useMemo(
     () => (aiReady ? filtered.filter((j) => !ai.fits[j.id] && !scoring.has(j.id) && !noJd.has(j.id)).slice(0, 5) : []),
@@ -961,13 +1014,9 @@ export default function App({ signedIn = false, header = null }) {
             )}
           </span>
         </div>
-        {j.url ? (
-          <a className="role" href={j.url} target="_blank" rel="noopener noreferrer">
-            {j.title}
-          </a>
-        ) : (
-          <span className="role">{j.title}</span>
-        )}
+        <button className="role roleBtn" onClick={() => setDetailId(j.id)} title="Details, description and notes">
+          {j.title}
+        </button>
         <div className="loc" title={j.location || ""}>
           {pay && <span className="pay">{pay}</span>}
           {[cleanLoc(j.location) || j.metro, age].filter(Boolean).join(" · ")}
@@ -1087,7 +1136,7 @@ export default function App({ signedIn = false, header = null }) {
         />
       )}
 
-      {view !== "recruiters" && view !== "manual" && (
+      {view !== "recruiters" && view !== "manual" && view !== "today" && (
       <div className={`bar ${scrolled ? "scrolled" : ""}`}>
         <div className="bar-in">
           <Seg options={METROS.map((m) => ({ v: m, label: METRO_LABEL[m] }))} value={metro} onChange={setMetro} label="Metro" />
@@ -1253,7 +1302,29 @@ export default function App({ signedIn = false, header = null }) {
 
       <main className="wrap">
         {error && <div className="err">{error}</div>}
-        {view === "trends" ? (
+        {view === "today" ? (
+          <TodayView
+            loading={loading}
+            name={userName}
+            newJobs={todayData.newJobs}
+            followups={todayData.followups}
+            interviews={todayData.interviews}
+            takedowns={takedowns}
+            pinned={pinned}
+            todoCount={todoCount}
+            appMap={appMap}
+            total={jobs.length}
+            renderCard={renderCard}
+            onOpen={(j) => setDetailId(j.id)}
+            onQuick={quick}
+            onSearch={(s) => {
+              applySearch(s);
+              setView("list");
+            }}
+            onSeen={markSeen}
+            onTodos={() => setTodosOpen(true)}
+          />
+        ) : view === "trends" ? (
           <Trends metro={metro} segment={segment} segmentOf={segmentOf} category={category} q={q} categoryOf={categoryOf} />
         ) : view === "recruiters" ? (
           <RecruitersView rec={rec} aiFetch={aiFetch} aiReady={aiReady} onSetupAi={() => setAiOpen(true)} />
@@ -1353,6 +1424,7 @@ export default function App({ signedIn = false, header = null }) {
                         setStatus={setStatus}
                         fit={ai.fits[j.id]}
                         onDraft={aiReady ? () => setDraftFor(j) : null}
+                        onOpen={() => setDetailId(j.id)}
                       />
                     ))}
                     {board[s].length === 0 && <div className="col-empty">Drop here</div>}
@@ -1448,6 +1520,32 @@ export default function App({ signedIn = false, header = null }) {
         )}
       </main>
 
+      {detailJob && (
+        <JobDetail
+          job={detailJob}
+          app={appMap[detailJob.id]}
+          fit={ai.fits[detailJob.id]}
+          scoring={scoring.has(detailJob.id)}
+          aiReady={aiReady}
+          hasDraft={ai.drafts.includes(detailJob.id)}
+          desc={descs[detailJob.id]}
+          canFetch={canFetchJd}
+          rec={rec}
+          aiFetch={aiFetch}
+          pos={detailIdx >= 0 ? `${detailIdx + 1} of ${detailList.length}` : ""}
+          onStatus={(s) => setStatus(detailJob, s)}
+          onNotes={(n) => saveNotes(detailJob, n)}
+          onFit={() => scoreJobs([detailJob])}
+          onDraft={() => setDraftFor(detailJob)}
+          onSetupAi={() => {
+            setDetailId(null);
+            setAiOpen(true);
+          }}
+          onClose={() => setDetailId(null)}
+          onPrev={detailIdx > 0 ? () => setDetailId(detailList[detailIdx - 1].id) : null}
+          onNext={detailIdx >= 0 && detailIdx < detailList.length - 1 ? () => setDetailId(detailList[detailIdx + 1].id) : null}
+        />
+      )}
       {draftFor && (
         <DraftModal
           job={draftFor}
@@ -1602,7 +1700,7 @@ function AddCustomForm({ aiReady, onAdd, onCancel }) {
   );
 }
 
-function BoardCard({ job, status, setStatus, fit, onDraft }) {
+function BoardCard({ job, status, setStatus, fit, onDraft, onOpen }) {
   const age = postedLabel(job.posted_date);
   return (
     <div
@@ -1624,13 +1722,9 @@ function BoardCard({ job, status, setStatus, fit, onDraft }) {
           </span>
         )}
       </div>
-      {job.url ? (
-        <a className="brole" href={job.url} target="_blank" rel="noopener noreferrer">
-          {job.title}
-        </a>
-      ) : (
-        <span className="brole">{job.title}</span>
-      )}
+      <button className="brole roleBtn" onClick={onOpen} title="Details, description and notes">
+        {job.title}
+      </button>
       <div className="bloc">{[job.location || job.metro, age].filter(Boolean).join(" · ")}</div>
       <select
         className="bmove"
@@ -1854,6 +1948,295 @@ export function TakedownBanner({ gone, appMap, storageKey, onShow, className = "
           ✕
         </button>
       </span>
+    </div>
+  );
+}
+
+// Side panel with everything about one role (full screen on phones): pay,
+// dates, status, notes, fit, cover letter, recruiters, research and the job
+// description (fetched once through /api/jd and cached in job_details).
+function JobDetail({
+  job, app, fit, scoring, aiReady, hasDraft, desc, canFetch, rec, aiFetch,
+  onStatus, onNotes, onFit, onDraft, onSetupAi, onClose, onPrev, onNext, pos,
+}) {
+  const st = app?.status || (job.custom ? job.status : null) || "none";
+  const [notes, setNotes] = useState(app?.notes || "");
+  useEffect(() => setNotes(app?.notes || ""), [job.id, app?.notes]);
+  const panelRef = useRef(null);
+  useEffect(() => {
+    panelRef.current?.focus();
+  }, [job.id]);
+  const pay = payLabel(job);
+  const open = job.custom ? null : openDays(job);
+  const age = postedLabel(job.posted_date);
+  const rows = [
+    ["Pay", pay || "Not stated"],
+    ["Location", job.location || job.metro || "—"],
+    ["Posted", job.posted_date ? `${job.posted_date}${age ? ` (${age})` : ""}` : "Not given"],
+    ["First seen", job.first_seen || "—"],
+    open !== null && ["Open", `${open} days`],
+    job.repost_count > 0 && [
+      "Reposted",
+      `${job.repost_count > 1 ? `${job.repost_count} times` : "Once"}, first seen ${job.orig_first_seen}`,
+    ],
+    app?.applied_at && ["Applied", app.applied_at],
+    job.source && ["Source", job.source],
+  ].filter(Boolean);
+  return (
+    <>
+      <div className="drawer-bg detail-bg" onClick={onClose} aria-hidden="true" />
+      <aside className="detail" role="dialog" aria-modal="true" aria-label={`${job.title} at ${job.firm}`} ref={panelRef} tabIndex={-1}>
+        <div className="detail-nav">
+          <span className="detail-pos">{pos}</span>
+          <span className="detail-navBtns">
+            <button onClick={onPrev} disabled={!onPrev} aria-label="Previous role (k)" title="Previous (k)">
+              ↑
+            </button>
+            <button onClick={onNext} disabled={!onNext} aria-label="Next role (j)" title="Next (j)">
+              ↓
+            </button>
+            <button onClick={onClose} aria-label="Close details" title="Close (Esc)">
+              ✕
+            </button>
+          </span>
+        </div>
+        <div className="detail-firm">{job.firm}</div>
+        <h2 className="detail-title">{job.title}</h2>
+        <div className="detail-tags">
+          {job.is_new && <span className="new">NEW</span>}
+          {job.taken_down_on && <span className="pill gone">Taken down {job.taken_down_on}</span>}
+          {job.repost_count > 0 && <span className="pill repost">↻ Reposted</span>}
+          {open !== null && open >= STALE_DAYS && !job.taken_down_on && <span className="pill stale">Open {open}d</span>}
+          {fit && <span className={`fit ${fitClass(fit.score)}`}>Fit {fit.score}</span>}
+        </div>
+        {job.taken_down_on && (
+          <p className="detail-warn">The firm took this posting down on {job.taken_down_on}. It may be filled.</p>
+        )}
+
+        <div className="detail-actions">
+          {job.url && (
+            <a className="doneBtn detail-open" href={job.url} target="_blank" rel="noopener noreferrer">
+              Open posting ↗
+            </a>
+          )}
+          {aiReady ? (
+            <>
+              <button className="aiBtn" disabled={scoring} onClick={onFit}>
+                {scoring ? "Scoring…" : fit ? "↻ Re-score fit" : "✨ Score fit"}
+              </button>
+              <button className="aiBtn" onClick={onDraft}>
+                ✍ {hasDraft ? "Open cover letter" : "Write cover letter"}
+              </button>
+            </>
+          ) : (
+            <button className="aiBtn" onClick={onSetupAi}>
+              ✨ Set up AI for fit + cover letters
+            </button>
+          )}
+        </div>
+        {fit?.reason && <p className="fitWhy detail-fit">✨ {fit.reason}</p>}
+
+        <section className="detail-sec">
+          <h3>Status</h3>
+          <div className="detail-status" role="group" aria-label="Application status">
+            {TRACKED.map((s) => (
+              <button
+                key={s}
+                className={`statusChip ${st === s ? STATUS_META[s].cls : "s-off"}`}
+                aria-pressed={st === s}
+                onClick={() => onStatus(st === s ? "none" : s)}
+              >
+                {STATUS_META[s].label}
+              </button>
+            ))}
+          </div>
+          {st !== "none" ? (
+            <textarea
+              className="noteBox detail-notes"
+              rows={3}
+              placeholder="Notes — recruiter, referral, deadline…"
+              value={notes}
+              onChange={(e) => setNotes(e.target.value)}
+              onBlur={() => onNotes(notes)}
+            />
+          ) : (
+            <p className="detail-hint">Set a status to track this role and add notes.</p>
+          )}
+        </section>
+
+        <dl className="detail-kv">
+          {rows.map(([k, v]) => (
+            <React.Fragment key={k}>
+              <dt>{k}</dt>
+              <dd>{v}</dd>
+            </React.Fragment>
+          ))}
+        </dl>
+
+        {!job.custom && rec?.state === "ready" && (
+          <section className="detail-sec">
+            <h3>Recruiters</h3>
+            <RecruiterMatches rec={rec} job={job} category={categoryOf(job.firm)} aiFetch={aiFetch} aiReady={aiReady} onSetupAi={onSetupAi} compact />
+          </section>
+        )}
+
+        <section className="detail-sec">
+          <h3>Research</h3>
+          <div className="detail-links">
+            {researchLinks(job.firm, job.title).map((l) => (
+              <a key={l.label} href={l.url} target="_blank" rel="noopener noreferrer">
+                {l.label} ↗
+              </a>
+            ))}
+          </div>
+        </section>
+
+        {!job.custom && (
+          <section className="detail-sec">
+            <h3>Job description</h3>
+            {!canFetch ? (
+              <p className="detail-hint">Sign in to load the description here, or open the posting.</p>
+            ) : !desc || desc.state === "loading" ? (
+              <p className="detail-hint">Loading the description…</p>
+            ) : desc.state === "error" ? (
+              <p className="detail-hint">Couldn't load it ({desc.error}). Open the posting instead.</p>
+            ) : desc.state === "none" ? (
+              <p className="detail-hint">This firm's site couldn't be read automatically. Open the posting instead.</p>
+            ) : (
+              <div className="detail-desc">{desc.text}</div>
+            )}
+          </section>
+        )}
+      </aside>
+    </>
+  );
+}
+
+// The landing view: what needs doing today, then what's new.
+function TodayView({
+  loading, name, newJobs, followups, interviews, takedowns, pinned, todoCount, appMap,
+  renderCard, onOpen, onQuick, onSearch, onSeen, onTodos, total,
+}) {
+  const hour = new Date().getHours();
+  const hello = hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening";
+  const dateStr = new Date().toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" });
+  const tasks = followups.length + interviews.length + takedowns.length;
+  const shown = newJobs.slice(0, 9);
+  if (loading) return <div className="empty">Loading your day…</div>;
+  const summary = [
+    `${newJobs.length} new role${newJobs.length === 1 ? "" : "s"}`,
+    followups.length && `${followups.length} follow-up${followups.length === 1 ? "" : "s"} due`,
+    interviews.length && `${interviews.length} interview${interviews.length === 1 ? "" : "s"} in progress`,
+    todoCount && `${todoCount} to-do${todoCount === 1 ? "" : "s"}`,
+  ].filter(Boolean);
+  const row = (j, note) => (
+    <li key={j.id}>
+      <button className="tRow" onClick={() => onOpen(j)}>
+        <span className="tRow-firm">{j.firm}</span>
+        <span className="tRow-title">{j.title}</span>
+        <span className="tRow-note">{note}</span>
+      </button>
+    </li>
+  );
+  return (
+    <div className="today">
+      <div className="today-h">
+        <h2>
+          {hello}
+          {name ? `, ${name}` : ""}
+        </h2>
+        <p>
+          {dateStr} · {summary.join(" · ")}
+        </p>
+      </div>
+
+      {tasks > 0 && (
+        <section className="today-sec">
+          <h3>Needs you</h3>
+          <div className="today-cols">
+            {followups.length > 0 && (
+              <div className="today-box">
+                <h4>
+                  ⏰ Follow up <span>applied {FOLLOW_UP_DAYS}+ days ago, no reply</span>
+                </h4>
+                <ul>{followups.map((j) => row(j, `applied ${daysSinceApplied(appMap[j.id])}d ago`))}</ul>
+              </div>
+            )}
+            {interviews.length > 0 && (
+              <div className="today-box">
+                <h4>
+                  🎙 Interviewing <span>prep and follow-ups</span>
+                </h4>
+                <ul>{interviews.map((j) => row(j, appMap[j.id]?.notes ? "has notes" : ""))}</ul>
+              </div>
+            )}
+            {takedowns.length > 0 && (
+              <div className="today-box warn">
+                <h4>
+                  ⚠ Taken down <span>by the firm, last 14 days</span>
+                </h4>
+                <ul>
+                  {takedowns.map((j) =>
+                    row(j, appMap[j.id]?.status === "interested" ? "you hadn't applied" : STATUS_META[appMap[j.id]?.status]?.label)
+                  )}
+                </ul>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      {pinned.length > 0 && (
+        <section className="today-sec">
+          <h3>Saved searches</h3>
+          <div className="today-searches">
+            {pinned.map(({ search: s, fresh }) => (
+              <span className="chip" key={s.id}>
+                <button className="chip-main" onClick={() => onSearch(s)}>
+                  ★ {s.name}
+                  <span className="chip-n">{fresh.length} new</span>
+                </button>
+                <button className="chip-x" onClick={() => onSeen(s)} aria-label={`Mark ${s.name} seen`} title="Mark seen">
+                  ✓
+                </button>
+              </span>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <section className="today-sec">
+        <h3>
+          New today <span className="today-n">{newJobs.length}</span>
+        </h3>
+        {newJobs.length ? (
+          <>
+            <div className="grid">{shown.map(renderCard)}</div>
+            {newJobs.length > shown.length && (
+              <div className="more-row">
+                <button className="moreRoles" onClick={() => onQuick("new")}>
+                  See all {newJobs.length} new roles →
+                </button>
+              </div>
+            )}
+          </>
+        ) : (
+          <p className="today-empty">
+            No new roles overnight.{" "}
+            <button className="linkBtn" onClick={() => onQuick("all")}>
+              Browse all {total} roles
+            </button>
+          </p>
+        )}
+      </section>
+
+      {todoCount > 0 && (
+        <p className="today-foot">
+          <button className="linkBtn" onClick={onTodos}>
+            Open your {todoCount} to-do{todoCount === 1 ? "" : "s"}
+          </button>
+        </p>
+      )}
     </div>
   );
 }
