@@ -130,6 +130,49 @@ const SORTS = [
   { v: "fit", label: "Best fit" },
   { v: "pay", label: "Highest pay" },
 ];
+const VIEWS = [
+  { v: "list", label: "List" },
+  { v: "board", label: "Board" },
+  { v: "funnel", label: "Funnel" },
+  { v: "trends", label: "Trends" },
+  { v: "recruiters", label: "Recruiters" },
+  { v: "manual", label: "Apply manually" },
+];
+const STATUS_FILTERS = [
+  { v: "all", label: "All statuses" },
+  { v: "new", label: "New today" },
+  { v: "untracked", label: "Not tracked" },
+  { v: "tracked", label: "Tracked (any)" },
+  { v: "followup", label: "Needs follow-up" },
+  { v: "interested", label: "Interested" },
+  { v: "applied", label: "Applied" },
+  { v: "interview", label: "Interview" },
+  { v: "offer", label: "Offer" },
+  { v: "rejected", label: "Rejected" },
+  { v: "reposted", label: "Reposted" },
+  { v: "stale", label: `Open ${STALE_DAYS}+ days` },
+  { v: "takendown", label: "Taken down" },
+];
+// the list renders this many cards, then "Show more" (all 900+ at once made
+// the page 68,000px tall and slow to scroll)
+const PAGE = 60;
+
+// "US-MA-Boston | US-IL-Chicago | …" -> "Boston, MA +3 more"; drops a trailing
+// country and street addresses ("Chicago - 150 - 36", "SF - 2 Folsom").
+function cleanLoc(loc) {
+  if (!loc) return "";
+  const one = (p) => {
+    const m = p.match(/^(?:US-)?([A-Z]{2})-([A-Za-z][^-]*)$/); // "US-MA-Boston", "IL-Chicago"
+    if (m) return `${m[2].trim()}, ${m[1]}`;
+    return p
+      .replace(/,?\s*(United States( of America)?|USA|US)$/i, "")
+      .replace(/\s+-\s+\d.*$/, "")
+      .trim();
+  };
+  const parts = [...new Set(loc.split(/\s*[|;]\s*/).filter(Boolean).map(one).filter(Boolean))];
+  return parts.length > 2 ? `${parts[0]} +${parts.length - 1} more` : parts.join(" · ");
+}
+
 // pay filter: "listed" = any stated pay; a number = top of the range ≥ that many $k a year
 const PAY_OPTS = [
   { v: "any", label: "Any pay" },
@@ -147,6 +190,7 @@ function payOk(j, pay) {
 }
 // status-select entries that read the posting's history rather than the tracker
 function historyOk(j, f) {
+  if (f === "new") return !!j.is_new;
   if (f === "reposted") return j.repost_count > 0;
   if (f === "stale") return (openDays(j) ?? 0) >= STALE_DAYS;
   if (f === "takendown") return !!j.taken_down_on;
@@ -229,6 +273,36 @@ export default function App({ signedIn = false, header = null }) {
   const [view, setView] = useState(init.view); // list | board | trends
   const [dragOverCol, setDragOverCol] = useState(null);
   const [scrolled, setScrolled] = useState(false);
+  const [filtersOpen, setFiltersOpen] = useState(false); // "Filters" panel (a bottom sheet on phones)
+  const [shown, setShown] = useState(PAGE); // cards rendered in the list
+  const [todoCount, setTodoCount] = useState(0);
+  const [todosOpen, setTodosOpenState] = useState(() => {
+    try {
+      return localStorage.getItem("sw-todos-open") === "1";
+    } catch {
+      return false;
+    }
+  });
+  function setTodosOpen(next) {
+    setTodosOpenState((o) => {
+      const v = typeof next === "function" ? next(o) : next;
+      try {
+        localStorage.setItem("sw-todos-open", v ? "1" : "0");
+      } catch {}
+      return v;
+    });
+  }
+  // Escape closes the filters panel and the to-do drawer
+  useEffect(() => {
+    if (!filtersOpen && !todosOpen) return;
+    const onKey = (e) => {
+      if (e.key !== "Escape") return;
+      setFiltersOpen(false);
+      setTodosOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [filtersOpen, todosOpen]);
   const [theme, setTheme] = useState(() => {
     try {
       return localStorage.getItem("sw-theme") || "auto";
@@ -527,6 +601,31 @@ export default function App({ signedIn = false, header = null }) {
     setQ("");
     setSort("default");
   }
+
+  // views that list roles (vs. trends/funnel, which only take metro/segment/type)
+  const listish = view === "list" || view === "board";
+  // filters that live behind the "Filters" button, shown as removable chips when set
+  const hiddenActive = [
+    segment !== "all" && { k: "seg", label: SEGMENTS.find((s) => s.v === segment)?.label, clear: () => setSegment("all") },
+    category !== "all" && { k: "type", label: category, clear: () => setCategory("all") },
+    listish && recency !== "all" && {
+      k: "rec", label: `Posted ${RECENCY.find((r) => String(r.d) === String(recency))?.label}`, clear: () => setRecency("all"),
+    },
+    view === "list" && statusFilter !== "all" && {
+      k: "st", label: STATUS_FILTERS.find((s) => s.v === statusFilter)?.label || statusFilter, clear: () => setStatusFilter("all"),
+    },
+    listish && pay !== "any" && { k: "pay", label: PAY_OPTS.find((o) => o.v === pay)?.label, clear: () => setPay("any") },
+    listish && sort !== "default" && { k: "sort", label: `Sort: ${SORTS.find((s) => s.v === sort)?.label}`, clear: () => setSort("default") },
+  ].filter(Boolean);
+
+  // the stat line doubles as quick filters
+  function quick(s) {
+    setStatusFilter(s);
+    setView("list");
+  }
+
+  // a new filter starts the list from the top again
+  useEffect(() => setShown(PAGE), [metro, segment, category, level, recency, statusFilter, pay, q, sort, view]);
 
   // download every tracked role (board + custom) as a CSV backup
   function exportTracked() {
@@ -830,8 +929,8 @@ export default function App({ signedIn = false, header = null }) {
     const pay = payLabel(j);
     return (
       <div className={`card ${st !== "none" ? "tracked" : ""} ${j.taken_down_on ? "down" : ""}`} key={j.id}>
-        <div className="of">
-          <span>{j.firm}</span>
+        <div className="card-top">
+          <span className="firm">{j.firm}</span>
           <span className="tags">
             {fit && (
               <span className={`fit ${fitClass(fit.score)}`} title="Fit score vs. your resume">
@@ -855,9 +954,6 @@ export default function App({ signedIn = false, header = null }) {
             )}
             {j.is_new && <span className="new">NEW</span>}
             {j.custom && <span className="mine">YOURS</span>}
-            {st !== "none" && (
-              <span className={`pill ${STATUS_META[st].cls}`}>{STATUS_META[st].label}</span>
-            )}
             {followDays !== null && (
               <span className="pill follow" title={`Applied ${followDays} days ago with no update`}>
                 ⏰ {followDays}d
@@ -872,25 +968,14 @@ export default function App({ signedIn = false, header = null }) {
         ) : (
           <span className="role">{j.title}</span>
         )}
-        <div className="loc">
+        <div className="loc" title={j.location || ""}>
           {pay && <span className="pay">{pay}</span>}
-          {(j.location || j.metro) + " · " + j.source + (age ? ` · ${age}` : "")}
+          {[cleanLoc(j.location) || j.metro, age].filter(Boolean).join(" · ")}
           {app?.applied_at && st === "applied" ? ` · applied ${app.applied_at}` : ""}
         </div>
         {fit?.reason && <div className="fitWhy">✨ {fit.reason}</div>}
-        <div className="track">
-          <select
-            className={`trackSel ${STATUS_META[st].cls}`}
-            value={st}
-            onChange={(e) => setStatus(j, e.target.value)}
-          >
-            <option value="none">— Track…</option>
-            {TRACKED.map((s) => (
-              <option key={s} value={s}>
-                {STATUS_META[s].label}
-              </option>
-            ))}
-          </select>
+        <div className="card-actions">
+          <StatusMenu status={st} onChange={(s) => setStatus(j, s)} />
           {aiReady && (
             <>
               <button
@@ -916,8 +1001,8 @@ export default function App({ signedIn = false, header = null }) {
               onSetupAi={() => setAiOpen(true)}
             />
           )}
+          <MoreMenu job={j} />
         </div>
-        <ResearchLinks firm={j.firm} title={j.title} />
         {st !== "none" && (
           <NoteEditor value={app?.notes} onSave={(v) => saveNotes(j, v)} />
         )}
@@ -928,37 +1013,60 @@ export default function App({ signedIn = false, header = null }) {
   return (
     <div className="app">
       {header}
-      <header>
+      <header className="top">
         <div className="wrap">
-          <button
-            className="themeToggle"
-            onClick={toggleTheme}
-            aria-label={effectiveDark ? "Switch to light mode" : "Switch to dark mode"}
-            title={effectiveDark ? "Light mode" : "Dark mode"}
-          >
-            {effectiveDark ? "☀" : "☾"}
-          </button>
-          <button
-            className={`aiToggle ${aiReady ? "on" : ""}`}
-            onClick={() => setAiOpen((o) => !o)}
-            title="Resume, fit scores and cover letters"
-          >
-            ✨ AI{aiReady ? "" : " setup"}
-          </button>
-          <p className="eyebrow">Finance · Fintech · Fashion · Live from Supabase</p>
-          <h1>Street <em>Watch</em></h1>
-          <p className="sub">
-            Your openings, your rhythm. Live finance, fintech and fashion roles with a built-in
-            application tracker — set a status on any role and it saves to Supabase instantly.
-          </p>
-          <div className="stats">
-            <Stat n={stats.total} label="roles" />
-            <Stat n={stats.new} label="new today" hot={stats.new > 0} />
-            <Stat n={stats.tracked} label="tracked" />
-            <Stat n={stats.applied} label="applied" accent />
-            <Stat n={stats.followup} label="follow up" hot={stats.followup > 0} />
-            <Stat n={stats.interview} label="interview" accent />
-            <Stat n={stats.offer} label="offer" accent />
+          <div className="top-row">
+            <h1 className="logo">
+              Street <em>Watch</em>
+            </h1>
+            <nav className="views" aria-label="Views">
+              {VIEWS.map((v) => (
+                <button key={v.v} aria-current={view === v.v ? "page" : undefined} onClick={() => setView(v.v)}>
+                  {v.label}
+                </button>
+              ))}
+            </nav>
+            <div className="top-actions">
+              <button
+                className={`topBtn ${todosOpen ? "on" : ""}`}
+                onClick={() => setTodosOpen((o) => !o)}
+                aria-expanded={todosOpen}
+                aria-controls="todo-drawer"
+                title="To-do notepad"
+              >
+                ✎<span className="lbl"> To-dos</span>{todoCount > 0 && <span className="cnt">{todoCount}</span>}
+              </button>
+              <button
+                className={`topBtn aiToggle ${aiReady ? "on" : ""}`}
+                onClick={() => setAiOpen((o) => !o)}
+                title="Resume, fit scores and cover letters"
+              >
+                ✨ AI{aiReady ? "" : <span className="lbl"> setup</span>}
+              </button>
+              <button
+                className="themeToggle"
+                onClick={toggleTheme}
+                aria-label={effectiveDark ? "Switch to light mode" : "Switch to dark mode"}
+                title={effectiveDark ? "Light mode" : "Dark mode"}
+              >
+                {effectiveDark ? "☀" : "☾"}
+              </button>
+            </div>
+          </div>
+          <div className="statline" role="group" aria-label="Quick filters">
+            <QuickStat n={stats.total} label="roles" on={view === "list" && statusFilter === "all"} onClick={() => quick("all")} />
+            <QuickStat n={stats.new} label="new today" hot={stats.new > 0} on={view === "list" && statusFilter === "new"} onClick={() => quick("new")} />
+            <QuickStat n={stats.tracked} label="tracked" on={view === "list" && statusFilter === "tracked"} onClick={() => quick("tracked")} />
+            <QuickStat n={stats.applied} label="applied" on={view === "list" && statusFilter === "applied"} onClick={() => quick("applied")} />
+            {stats.followup > 0 && (
+              <QuickStat n={stats.followup} label="follow up" hot on={view === "list" && statusFilter === "followup"} onClick={() => quick("followup")} />
+            )}
+            {stats.interview > 0 && (
+              <QuickStat n={stats.interview} label="interview" on={view === "list" && statusFilter === "interview"} onClick={() => quick("interview")} />
+            )}
+            {stats.offer > 0 && (
+              <QuickStat n={stats.offer} label="offer" on={view === "list" && statusFilter === "offer"} onClick={() => quick("offer")} />
+            )}
           </div>
         </div>
       </header>
@@ -979,101 +1087,129 @@ export default function App({ signedIn = false, header = null }) {
         />
       )}
 
+      {view !== "recruiters" && view !== "manual" && (
       <div className={`bar ${scrolled ? "scrolled" : ""}`}>
         <div className="bar-in">
-          <Seg
-            options={[
-              { v: "list", label: "List" },
-              { v: "board", label: "Board" },
-              { v: "funnel", label: "Funnel" },
-              { v: "trends", label: "Trends" },
-              { v: "recruiters", label: "Recruiters" },
-              { v: "manual", label: "Apply manually" },
-            ]}
-            value={view}
-            onChange={setView}
-          />
-          {view !== "recruiters" && view !== "manual" && (
-          <>
-          <Seg options={SEGMENTS} value={segment} onChange={setSegment} />
-          <Seg options={METROS.map((m) => ({ v: m, label: METRO_LABEL[m] }))} value={metro} onChange={setMetro} />
-          {view !== "trends" && view !== "funnel" && <Seg options={levelsFor(segment)} value={level} onChange={setLevel} />}
-          <select
-            className="statusSel"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            aria-label="Firm type"
-          >
-            <option value="all">All firm types</option>
-            {[...CATEGORIES, "Other"].filter((c) => segment === "all" || segmentOfCat(c) === segment).map((c) => (
-              <option key={c} value={c}>
-                {c}
-              </option>
-            ))}
-          </select>
-          {view !== "trends" && view !== "funnel" && (
-            <>
-              <Seg options={RECENCY.map((r) => ({ v: r.d, label: r.label }))} value={recency} onChange={setRecency} />
-              <select
-                className="statusSel"
-                value={sort}
-                onChange={(e) => setSort(e.target.value)}
-                aria-label="Sort"
-              >
-                {SORTS.map((s) => (
-                  <option key={s.v} value={s.v}>
-                    {`Sort: ${s.label}`}
-                  </option>
-                ))}
-              </select>
-            </>
-          )}
-          {view === "list" && (
-            <select className="statusSel" value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
-              <option value="all">All statuses</option>
-              <option value="untracked">Not tracked</option>
-              <option value="tracked">Tracked (any)</option>
-              <option value="followup">Needs follow-up</option>
-              <option value="interested">Interested</option>
-              <option value="applied">Applied</option>
-              <option value="interview">Interview</option>
-              <option value="offer">Offer</option>
-              <option value="rejected">Rejected</option>
-              <option value="reposted">Reposted</option>
-              <option value="stale">{`Open ${STALE_DAYS}+ days`}</option>
-              <option value="takendown">Taken down</option>
-            </select>
-          )}
-          {(view === "list" || view === "board") && (
-            <select className="statusSel" value={pay} onChange={(e) => setPay(e.target.value)} aria-label="Pay">
-              {PAY_OPTS.map((o) => (
-                <option key={o.v} value={o.v}>
-                  {o.label}
-                </option>
-              ))}
-            </select>
-          )}
-          <input
-            ref={searchRef}
-            type="search"
-            placeholder={view === "trends" ? "Filter by firm…  ( / )" : "Filter by firm or role…  ( / )"}
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
-          />
-          {filtersActive && (
-            <button className="clearBtn" onClick={clearFilters}>
-              Clear ✕
+          <Seg options={METROS.map((m) => ({ v: m, label: METRO_LABEL[m] }))} value={metro} onChange={setMetro} label="Metro" />
+          {listish && <Seg options={levelsFor(segment)} value={level} onChange={setLevel} label="Role" />}
+          <div className="bar-search">
+            <input
+              ref={searchRef}
+              type="search"
+              placeholder={view === "trends" ? "Filter by firm…  ( / )" : "Firm or role…  ( / )"}
+              value={q}
+              onChange={(e) => setQ(e.target.value)}
+              aria-label="Filter by firm or role"
+            />
+            <button
+              className={`filtersBtn ${filtersOpen ? "on" : ""}`}
+              onClick={() => setFiltersOpen((o) => !o)}
+              aria-expanded={filtersOpen}
+              aria-controls="filters-panel"
+            >
+              Filters{hiddenActive.length > 0 && <span className="cnt">{hiddenActive.length}</span>}
             </button>
-          )}
-          {searchable && !naming && view !== "trends" && view !== "funnel" && (
-            <button className="saveBtn" onClick={() => setNaming(true)} title="Save these filters and get alerts for new matches">
-              ☆ Save search
-            </button>
-          )}
-          </>
-          )}
+            {searchable && !naming && listish && (
+              <button className="saveBtn" onClick={() => setNaming(true)} title="Save these filters and get alerts for new matches">
+                ☆ Save
+              </button>
+            )}
+          </div>
         </div>
-        {view !== "recruiters" && view !== "manual" && (naming || searches.length > 0) && (
+        {filtersOpen && (
+          <>
+            <div className="sheet-bg" onClick={() => setFiltersOpen(false)} aria-hidden="true" />
+            <div id="filters-panel" className="filters-panel" role="region" aria-label="More filters">
+              <div className="fp-grid">
+                <div className="fp-field">
+                  <span>Segment</span>
+                  <Seg options={SEGMENTS} value={segment} onChange={setSegment} label="Segment" />
+                </div>
+                <label className="fp-field">
+                  <span>Firm type</span>
+                  <select className="statusSel" value={category} onChange={(e) => setCategory(e.target.value)}>
+                    <option value="all">All firm types</option>
+                    {[...CATEGORIES, "Other"].filter((c) => segment === "all" || segmentOfCat(c) === segment).map((c) => (
+                      <option key={c} value={c}>
+                        {c}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                {listish && (
+                  <div className="fp-field">
+                    <span>Posted</span>
+                    <Seg options={RECENCY.map((r) => ({ v: r.d, label: r.label }))} value={recency} onChange={setRecency} label="Posted" />
+                  </div>
+                )}
+                {view === "list" && (
+                  <label className="fp-field">
+                    <span>Status</span>
+                    <select className="statusSel" value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
+                      {STATUS_FILTERS.map((o) => (
+                        <option key={o.v} value={o.v}>
+                          {o.label}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                )}
+                {listish && (
+                  <label className="fp-field">
+                    <span>Pay</span>
+                    <select className="statusSel" value={pay} onChange={(e) => setPay(e.target.value)}>
+                      {PAY_OPTS.map((o) => (
+                        <option key={o.v} value={o.v}>
+                          {o.label}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                )}
+                {listish && (
+                  <label className="fp-field">
+                    <span>Sort</span>
+                    <select className="statusSel" value={sort} onChange={(e) => setSort(e.target.value)}>
+                      {SORTS.map((s) => (
+                        <option key={s.v} value={s.v}>
+                          {s.label}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                )}
+              </div>
+              <div className="fp-foot">
+                {filtersActive && (
+                  <button className="linkBtn" onClick={clearFilters}>
+                    Clear all
+                  </button>
+                )}
+                <button className="doneBtn" onClick={() => setFiltersOpen(false)}>
+                  Done
+                </button>
+              </div>
+            </div>
+          </>
+        )}
+        {(hiddenActive.length > 0 || filtersActive) && (
+          <div className="active-in">
+            {hiddenActive.map((c) => (
+              <span className="fchip" key={c.k}>
+                {c.label}
+                <button onClick={c.clear} aria-label={`Remove filter: ${c.label}`}>
+                  ✕
+                </button>
+              </span>
+            ))}
+            {filtersActive && (
+              <button className="linkBtn" onClick={clearFilters}>
+                Clear all
+              </button>
+            )}
+          </div>
+        )}
+        {(naming || searches.length > 0) && (
           <div className="saved-in">
             {naming && (
               <SaveSearchForm
@@ -1096,6 +1232,24 @@ export default function App({ signedIn = false, header = null }) {
           </div>
         )}
       </div>
+      )}
+
+      <div
+        id="todo-drawer"
+        className={`drawer ${todosOpen ? "open" : ""}`}
+        role="dialog"
+        aria-label="To-dos"
+        aria-hidden={!todosOpen}
+      >
+        <div className="drawer-h">
+          <h2>To-dos</h2>
+          <button className="drawer-x" onClick={() => setTodosOpen(false)} aria-label="Close to-dos">
+            ✕
+          </button>
+        </div>
+        <Notepad watch="street" embedded onCount={setTodoCount} />
+      </div>
+      {todosOpen && <div className="drawer-bg" onClick={() => setTodosOpen(false)} aria-hidden="true" />}
 
       <main className="wrap">
         {error && <div className="err">{error}</div>}
@@ -1109,7 +1263,6 @@ export default function App({ signedIn = false, header = null }) {
           <FunnelView board={board} boardTotal={boardTotal} loading={loading} filtersActive={filtersActive} onExport={exportTracked} />
         ) : (
         <>
-        {view === "list" && <Notepad watch="street" />}
         <div className="meta">
           {loading
             ? "Loading…"
@@ -1260,8 +1413,21 @@ export default function App({ signedIn = false, header = null }) {
                 <div className="sk-line sk-track" />
               </div>
             ))}
-          {filtered.map(renderCard)}
+          {filtered.slice(0, shown).map(renderCard)}
         </div>
+        {!loading && filtered.length > shown && (
+          <div className="more-row">
+            <button className="moreRoles" onClick={() => setShown((n) => n + PAGE)}>
+              Show {Math.min(PAGE, filtered.length - shown)} more
+            </button>
+            <button className="linkBtn" onClick={() => setShown(Infinity)}>
+              Show all {filtered.length}
+            </button>
+            <span className="more-n">
+              Showing {shown} of {filtered.length}
+            </span>
+          </div>
+        )}
         {!loading && filtered.length === 0 && (
           <div className="empty">
             {filtersActive ? (
@@ -1307,8 +1473,7 @@ export default function App({ signedIn = false, header = null }) {
 
       <footer>
         <div className="wrap">
-          Data refreshes daily via the pipeline. Application statuses are stored in your
-          Supabase <code>applications</code> table.
+          Roles refresh every morning. Your statuses and notes save as you go.
         </div>
       </footer>
     </div>
@@ -1531,25 +1696,117 @@ function NoteEditor({ value, onSave }) {
   );
 }
 
-function Stat({ n, label, hot, accent }) {
+// one number in the top bar's stat line; clicking it filters the list
+function QuickStat({ n, label, hot, on, onClick }) {
   return (
-    <div className={`stat ${hot ? "hot" : ""} ${accent ? "acc" : ""}`}>
-      <span className="num">{n}</span>
-      <span className="lbl">{label}</span>
+    <button className={`qstat ${hot ? "hot" : ""} ${on ? "on" : ""}`} aria-pressed={on} onClick={onClick}>
+      <span className="num">{n}</span> {label}
+    </button>
+  );
+}
+
+// closes a popover on a click outside it or Escape; focuses its first item on open
+function usePopover(open, setOpen) {
+  const ref = useRef(null);
+  useEffect(() => {
+    if (!open) return;
+    ref.current?.querySelector("[role^=menuitem]")?.focus();
+    const onDown = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+    };
+    const onKey = (e) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        ref.current?.querySelector("button")?.focus();
+      }
+      if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+        const items = [...(ref.current?.querySelectorAll("[role^=menuitem]") || [])];
+        const i = items.indexOf(document.activeElement);
+        if (i < 0 || !items.length) return;
+        e.preventDefault();
+        items[(i + (e.key === "ArrowDown" ? 1 : items.length - 1)) % items.length].focus();
+      }
+    };
+    document.addEventListener("mousedown", onDown);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onDown);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open, setOpen]);
+  return ref;
+}
+
+// the card's status control: a chip that opens a short menu (was a full-width select)
+function StatusMenu({ status, onChange }) {
+  const [open, setOpen] = useState(false);
+  const ref = usePopover(open, setOpen);
+  const pick = (s) => {
+    setOpen(false);
+    if (s !== status) onChange(s);
+  };
+  return (
+    <div className="menuWrap" ref={ref}>
+      <button
+        className={`statusChip ${STATUS_META[status].cls}`}
+        aria-haspopup="menu"
+        aria-expanded={open}
+        onClick={() => setOpen((o) => !o)}
+      >
+        {status === "none" ? "＋ Track" : STATUS_META[status].label}
+        <span className="caret" aria-hidden="true">▾</span>
+      </button>
+      {open && (
+        <div className="menu" role="menu" aria-label="Set status">
+          {TRACKED.map((s) => (
+            <button key={s} role="menuitemradio" aria-checked={s === status} onClick={() => pick(s)}>
+              <span className={`dot ${STATUS_META[s].cls}`} aria-hidden="true" />
+              {STATUS_META[s].label}
+              {s === status && <span className="tick" aria-hidden="true">✓</span>}
+            </button>
+          ))}
+          {status !== "none" && (
+            <>
+              <div className="menu-sep" role="separator" />
+              <button role="menuitem" className="danger" onClick={() => pick("none")}>
+                Remove from tracker
+              </button>
+            </>
+          )}
+        </div>
+      )}
     </div>
   );
 }
 
-// Compact "look this firm up" links — opens the usual research spots in a new tab.
-function ResearchLinks({ firm, title }) {
+// "⋯" on a card: research links and where the posting came from
+function MoreMenu({ job }) {
+  const [open, setOpen] = useState(false);
+  const ref = usePopover(open, setOpen);
   return (
-    <div className="research" aria-label="Research links">
-      <span className="research-lbl">Research</span>
-      {researchLinks(firm, title).map((l) => (
-        <a key={l.label} href={l.url} target="_blank" rel="noopener noreferrer">
-          {l.label}
-        </a>
-      ))}
+    <div className="menuWrap more" ref={ref}>
+      <button className="moreBtn" aria-haspopup="menu" aria-expanded={open} aria-label="More: research links" onClick={() => setOpen((o) => !o)}>
+        ⋯
+      </button>
+      {open && (
+        <div className="menu right" role="menu" aria-label="Research">
+          <div className="menu-h">Research {job.firm}</div>
+          {researchLinks(job.firm, job.title).map((l) => (
+            <a key={l.label} role="menuitem" href={l.url} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
+              {l.label} ↗
+            </a>
+          ))}
+          {job.url && (
+            <>
+              <div className="menu-sep" role="separator" />
+              <a role="menuitem" href={job.url} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
+                Open posting ↗
+              </a>
+            </>
+          )}
+          {job.source && <div className="menu-foot">From {job.source}</div>}
+        </div>
+      )}
     </div>
   );
 }
@@ -1660,9 +1917,9 @@ function FunnelView({ board, boardTotal, loading, filtersActive, onExport }) {
   );
 }
 
-function Seg({ options, value, onChange }) {
+function Seg({ options, value, onChange, label }) {
   return (
-    <div className="seg">
+    <div className="seg" role="group" aria-label={label}>
       {options.map((o) => (
         <button
           key={String(o.v)}
