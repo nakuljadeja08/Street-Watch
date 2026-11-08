@@ -43,7 +43,10 @@ const now = () => new Date().toISOString();
 const localId = () => `l_${Date.now().toString(36)}${Math.random().toString(36).slice(2, 7)}`;
 const migrating = new Set(); // watches whose browser-only items are being moved up right now
 
-export default function Notepad({ watch }) {
+// embedded: shown inside a drawer that has its own title and close button, so
+// the notepad's collapse header is dropped and it's always open.
+// onCount(n): reports the open to-do count (the drawer's button shows it).
+export default function Notepad({ watch, embedded = false, onCount }) {
   const [items, setItems] = useState([]);
   const [mode, setMode] = useState("loading"); // loading | db | local
   const [draft, setDraft] = useState("");
@@ -171,6 +174,10 @@ export default function Notepad({ watch }) {
 
   const todo = items.filter((t) => !t.done);
   const done = items.filter((t) => t.done).sort((a, b) => (b.done_at || "").localeCompare(a.done_at || ""));
+  useEffect(() => {
+    if (onCount && mode !== "loading") onCount(todo.length);
+  }, [onCount, mode, todo.length]);
+  const isOpen = embedded || open;
 
   const row = (t) => (
     <li className={`np-item ${t.done ? "done" : ""}`} key={t.id}>
@@ -207,16 +214,18 @@ export default function Notepad({ watch }) {
   );
 
   return (
-    <section className={`np np-${watch} ${open ? "" : "closed"}`} aria-label="To-do notepad">
-      <div className="np-head">
-        <button className="np-title" onClick={toggleOpen} aria-expanded={open}>
-          <span className="np-caret" aria-hidden="true">{open ? "▾" : "▸"}</span>
-          <h2>To-dos</h2>
-          {mode !== "loading" && <span className="np-n">{todo.length}</span>}
-        </button>
-      </div>
+    <section className={`np np-${watch} ${isOpen ? "" : "closed"} ${embedded ? "embedded" : ""}`} aria-label="To-do notepad">
+      {!embedded && (
+        <div className="np-head">
+          <button className="np-title" onClick={toggleOpen} aria-expanded={open}>
+            <span className="np-caret" aria-hidden="true">{open ? "▾" : "▸"}</span>
+            <h2>To-dos</h2>
+            {mode !== "loading" && <span className="np-n">{todo.length}</span>}
+          </button>
+        </div>
+      )}
 
-      {open && (
+      {isOpen && (
         <div className="np-body">
           <form className="np-add" onSubmit={add}>
             <input
