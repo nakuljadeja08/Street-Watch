@@ -46,7 +46,6 @@ NYC Area,Finance,Tower Research Capital,Research Platform Engineer,New York,gree
 Other US,Tech,Cohere,Member of Technical Staff - Post-training (Data Infrastructure),United States,ashby,2026-10-14,2026-11-02,False,https://jobs.ashbyhq.com/cohere/eef82766-7e31-430f-a102-bc33a5022597
 Other US,Tech,Elastic,"Analytics Engineer, HR Analytics",United States,greenhouse,2026-10-05,2026-10-05,False,https://jobs.elastic.co/jobs?gh_jid=8244449&gh_jid=8244449
 Other US,Fintech,FIS,Data Engineer,US GA ATL 201 STE 900,workday,2026-11-09,2026-11-06,False,https://fis.wd5.myworkdayjobs.com/SearchJobs/job/US-GA-ATL-201-STE-900/Data-Engineer_JR0310705
-Other US,Tech,HP,Big Data Laser Analyst,"Vancouver, Washington, United States of America",workday,2026-11-02,2026-10-20,False,https://hp.wd5.myworkdayjobs.com/ExternalCareerSite/job/Vancouver-Washington-United-States-of-America/Big-Data-Laser-Analyst_3162874-1
 Other US,Finance,JPMorgan Chase,Data Engineering Associate,"OH, United States",oracle,2026-09-25,2026-09-27,False,https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210793562
 Other US,Fintech,Mastercard,Data Engineer II,"O'Fallon, Missouri",workday,2026-10-27,2026-09-29,False,https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/OFallon-Missouri/Data-Engineer-II_R-286580
 Other US,Fintech,Mastercard,Data Engineer II,"O'Fallon, Missouri",workday,2026-10-27,2026-10-07,False,https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/OFallon-Missouri/Data-Engineer-II_R-289305
@@ -81,11 +80,9 @@ Remote (US),Startup,People Data Labs,Data Engineer,Remote,ashby,2026-10-26,2026-
 Remote (US),Startup,Pika,Data Engineer,US remote,ashby,2026-09-22,2026-11-02,False,https://jobs.ashbyhq.com/pika/c3e5e920-3ff1-4fdf-a43c-552c94ac5b03
 Remote (US),Tech,Quora,"Software Engineer New Grad, Machine Learning Platform - Quora (Remote)",Remote - Multiple Locations,ashby,2026-09-25,2026-11-02,False,https://jobs.ashbyhq.com/quora/cf34f80e-fe5c-454d-bc9a-4c59993ffda0
 Remote (US),Tech,Reddit,Analytics Engineer,Remote - United States,greenhouse,2026-10-14,2026-10-15,False,https://job-boards.greenhouse.io/reddit/jobs/8282760
-Remote (US),Agency,Robert Half,Data Engineer · Direct hire,"Conshohocken, PA (Remote)",roberthalf,2026-10-08,2026-10-08,False,https://www.roberthalf.com/us/en/job/conshohocken-pa/data-engineer/03720-0013461058-usen
 Remote (US),Tech,Samsara,Data Engineer,Remote - US,greenhouse,2026-10-05,2026-10-05,False,https://www.samsara.com/company/careers/roles/8141959?gh_jid=8141959
 Remote (US),Tech,Supabase,Data API Engineer,"Remote, Global",ashby,2026-10-24,2026-10-24,False,https://jobs.ashbyhq.com/supabase/950e8ffc-79a5-4626-b1dd-115fcbcddad0
 Remote (US),Tech,Supabase,FinOps Data Engineer,"Remote, Global",ashby,2026-10-14,2026-10-14,False,https://jobs.ashbyhq.com/supabase/73ddf93b-fe0c-455d-ba27-cdde0d3fb94f
-SF Bay Area,Tech,Adobe,2027 University Graduate - Data Engineer,San Jose,workday,2026-11-09,2026-11-09,False,https://adobe.wd5.myworkdayjobs.com/external_experienced/job/San-Jose/XMLNAME-2027-University-Graduate---Data-Engineer_R173455
 SF Bay Area,Tech,Anthropic,Security Data Engineer,"Remote-Friendly (Travel Required) | San Francisco, CA",greenhouse,2026-10-26,2026-10-27,False,https://job-boards.greenhouse.io/anthropic/jobs/5462966008
 SF Bay Area,Tech,AppLovin,ML Data Infrastructure Engineer,"Palo Alto, CA",greenhouse,2026-09-24,2026-10-22,False,https://boards.greenhouse.io/applovin/jobs/4716524006?gh_jid=4716524006
 SF Bay Area,Startup,Baseten,Software Engineer - Inference Platform,San Francisco,ashby,2026-10-05,2026-11-02,False,https://jobs.ashbyhq.com/baseten/14c4a663-0b1f-4c11-93ff-1359741ee456
@@ -100,6 +97,7 @@ SF Bay Area,Tech,DoorDash,"Software Engineer, Data and AI Platform","San Francis
 SF Bay Area,Tech,DoorDash,"Software Engineer, ML Infrastructure (MDX)","San Francisco, CA; Sunnyvale, CA; Seattle, WA",greenhouse,2026-10-14,2026-11-02,False,https://job-boards.greenhouse.io/doordashusa/jobs/8283735
 SF Bay Area,Tech,DoorDash,"Software Engineer, Machine Learning Platform - Gen AI","San Francisco, CA; Sunnyvale, CA; Seattle, WA",greenhouse,2026-10-08,2026-11-02,False,https://job-boards.greenhouse.io/doordashusa/jobs/8264542
 SF Bay Area,Startup,Fireworks AI,"Member of Technical Staff, Data",San Mateo,ashby,2026-09-19,2026-11-02,False,https://jobs.ashbyhq.com/fireworks/85486dc8-023f-4a82-9cdb-8394bbfcf1ab
+SF Bay Area,Startup,Fireworks AI,"Member of Technical Staff, Data Platform",San Mateo,ashby,2026-11-10,2026-11-10,True,https://jobs.ashbyhq.com/fireworks/bcf1530f-b720-4244-92c4-d3a1d68905f4
 SF Bay Area,Tech,Google,"Data Engineer, Technical Solutions, Geo","Mountain View, CA, USA",google,2026-10-21,2026-10-21,False,https://www.google.com/about/careers/applications/jobs/results/103320076387525318
 SF Bay Area,Tech,Harvey,"Research Engineer, Infrastructure",San Francisco,ashby,2026-11-02,2026-11-02,False,https://jobs.ashbyhq.com/harvey/264aac9e-3f8d-402f-a33b-04d2fe1e16be
 SF Bay Area,Startup,Luma AI,Research Scientist / Engineer – Training Infrastructure,"Redwood City, CA",ashby,2026-10-08,2026-11-02,False,https://jobs.ashbyhq.com/lumaai/d2ecd718-6ba4-42a4-a067-e5f8c4c8bb1d
