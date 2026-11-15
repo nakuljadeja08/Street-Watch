@@ -11,10 +11,14 @@ Chicago,Finance,Northern Trust,Data Program Engineer,"Chicago, IL",workday,2026-
 Chicago,Agency,Robert Half,Data Engineer · Direct hire,"Chicago, IL",roberthalf,2026-11-09,2026-10-05,False,https://www.roberthalf.com/us/en/job/chicago-il/data-engineer/01300-0013433936-usen
 DC / Virginia,Agency,Robert Half,Data Engineer · Direct hire,"Arlington, TX",roberthalf,2026-10-17,2026-10-17,False,https://www.roberthalf.com/us/en/job/arlington-tx/data-engineer/04030-0013527669-usen
 Denver,Tech,Google,"Data Engineer, gUP Engineering","Boulder, CO, USA",google,2026-11-12,2026-11-12,False,https://www.google.com/about/careers/applications/jobs/results/98668707068158662
+Los Angeles,Gaming,Activision Blizzard,Analytics Engineer,"Santa Monica, California, United States of America",phenom,2026-11-09,2026-11-15,True,https://xboxgaming.wd1.myworkdayjobs.com/External/job/Santa-Monica/Analytics-Engineer_R027920
+Los Angeles,Tech,Apple,Software Engineer - Distributed Data Systems,"San Diego, United States of America",apple,2026-11-13,2026-11-15,True,https://jobs.apple.com/en-us/details/200694753/software-engineer-distributed-data-systems
+Los Angeles,Gaming,PlayStation,"Data Engineer II, JVM","United States, San Diego, CA",greenhouse,2026-11-05,2026-11-15,True,https://job-boards.greenhouse.io/sonyinteractiveentertainmentglobal/jobs/6250753004
 NYC Area,Fintech,Addepar,AI Engineer - AI Platform,"New York, NY",greenhouse,2026-10-27,2026-11-02,False,https://job-boards.greenhouse.io/addepar1/jobs/8906234002
 NYC Area,Fintech,Addepar,Full Stack Software Engineer - Alts & Data Management,"New York, NY",greenhouse,2026-10-28,2026-10-29,False,https://job-boards.greenhouse.io/addepar1/jobs/8912699002
 NYC Area,Tech,Anthropic,"Data Engineer, Billing & Payments","San Francisco, CA | New York City, NY",greenhouse,2026-10-12,2026-10-12,False,https://job-boards.greenhouse.io/anthropic/jobs/5450099008
 NYC Area,Tech,Anthropic,"Research Engineer / Performance Engineer, RL Distributed Systems","San Francisco, CA | New York City, NY | Seattle, WA",greenhouse,2026-09-29,2026-11-02,False,https://job-boards.greenhouse.io/anthropic/jobs/5438030008
+NYC Area,Tech,Apple,"Software Engineer, Apple Services Engineering - Music Data Engineering","New York City, United States of America",apple,2026-10-06,2026-11-15,True,https://jobs.apple.com/en-us/details/200685980/software-engineer-apple-services-engineering-music-data-engineering
 NYC Area,Finance,Capital One,Data Engineer - 4 (Bank Tech),"McLean, VA; Richmond, VA; New York, NY; Wilmington, DE",workday,2026-11-12,2026-11-12,False,https://capitalone.wd12.myworkdayjobs.com/Capital_One/job/McLean-VA/Data-Engineer---4--Bank-Tech-_R1005704-1
 NYC Area,Startup,Cloaked,"Analytics Engineer, Semantic Layer","New York, NY",ashby,2026-10-16,2026-11-02,False,https://jobs.ashbyhq.com/cloaked/f749ab20-4fa2-45e8-8ef6-aba01f0a645e
 NYC Area,Tech,DoorDash,"Software Engineer, Data Platform","San Francisco, CA; Sunnyvale, CA; Seattle, WA; New York City, NY",greenhouse,2026-10-13,2026-10-22,False,https://job-boards.greenhouse.io/doordashusa/jobs/8191886
@@ -51,13 +55,14 @@ Other US,Tech,Meta,"Research Engineer, Synthetic Data Generation","Burlingame, C
 Other US,Tech,Microsoft,Data Engineer,US,microsoft,2026-11-12,2026-11-12,False,https://apply.careers.microsoft.com/careers/job/1970393557056093
 Other US,Finance,Nasdaq,Data Software Engineer,USA - Philadelphia - Pennsylvania,workday,2026-10-15,2026-09-27,False,https://nasdaq.wd1.myworkdayjobs.com/Global_External_Site/job/USA---Philadelphia---Pennsylvania/Data-Software-Engineer_R0026752
 Other US,Startup,Nous Research,Data Engineer,Americas (US time zones),ashby,2026-10-15,2026-11-02,False,https://jobs.ashbyhq.com/nousresearch/170e061a-5df1-420c-84df-c2d20ef93dbd
+Other US,Tech,Oracle,AI Systems Engineer (OCI/AI Infrastructure),"Nashville, TN, United States",oracle,2026-10-22,2026-11-15,True,https://eeho.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/jobsearch/job/348534
+Other US,Tech,Oracle,Data Migration Engineer II,United States,oracle,2026-11-06,2026-11-15,True,https://eeho.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/jobsearch/job/336039
 Other US,Finance,Regions Securities,Cloud Data Engineer - AI Platform,"Hoover, Alabama, United States of America",phenom,2026-11-13,2026-10-14,False,https://regions.wd5.myworkdayjobs.com/Regions_Careers/job/Hoover-AL---Riverchase-Operations-Center-Birmingham-AL/Cloud-Data-Engineer---AI-Platform_R106825
 Other US,Agency,Robert Half,Analytics Engineer · Direct hire,"Cranberry, PA",roberthalf,2026-11-09,2026-11-09,False,https://www.roberthalf.com/us/en/job/cranberry-pa/analytics-engineer/03730-0013540468-usen
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Memphis, TN",roberthalf,2026-11-03,2026-11-03,False,https://www.roberthalf.com/us/en/job/memphis-tn/data-engineer/03900-9504421867-usen
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Salt Lake City, UT",roberthalf,2026-11-11,2026-10-05,False,https://www.roberthalf.com/us/en/job/salt-lake-city-ut/data-engineer/04820-0013472516-usen
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Minneapolis, MN",roberthalf,2026-10-30,2026-10-30,False,https://www.roberthalf.com/us/en/job/minneapolis-mn/data-engineer/02310-0013535137-usen
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Naperville, IL",roberthalf,2026-10-29,2026-10-29,False,https://www.roberthalf.com/us/en/job/naperville-il/data-engineer/01300-0013534672-usen
-Other US,Agency,Robert Half,Data Engineer · Direct hire,"Brookfield, WI",roberthalf,2026-11-12,2026-10-05,False,https://www.roberthalf.com/us/en/job/brookfield-wi/data-engineer/04600-0013514110-usen
 Other US,Agency,Robert Half,Data Platform Engineer · Direct hire,"Cleveland, OH",roberthalf,2026-10-30,2026-10-30,False,https://www.roberthalf.com/us/en/job/cleveland-oh/data-platform-engineer/03340-0013535323-usen
 Other US,Agency,Robert Half,Snowflake Data Engineer · Direct hire,"Radnor, PA",roberthalf,2026-11-03,2026-10-05,False,https://www.roberthalf.com/us/en/job/radnor-pa/snowflake-data-engineer/03720-0013512453-usen
 Other US,Tech,Snowflake,Software Engineer - Database Search,DE-Berlin-Trion Building,ashby,2026-11-11,2026-11-11,False,https://jobs.ashbyhq.com/snowflake/bc74e54d-04d7-4946-9a2c-e2e48f67a251
@@ -84,8 +89,15 @@ Remote (US),Tech,Reddit,Analytics Engineer,Remote - United States,greenhouse,202
 Remote (US),Tech,Samsara,Data Engineer,Remote - US,greenhouse,2026-10-05,2026-10-05,False,https://www.samsara.com/company/careers/roles/8141959?gh_jid=8141959
 Remote (US),Tech,Supabase,Data API Engineer,"Remote, Global",ashby,2026-10-24,2026-10-24,False,https://jobs.ashbyhq.com/supabase/950e8ffc-79a5-4626-b1dd-115fcbcddad0
 Remote (US),Tech,Supabase,FinOps Data Engineer,"Remote, Global",ashby,2026-10-14,2026-10-14,False,https://jobs.ashbyhq.com/supabase/73ddf93b-fe0c-455d-ba27-cdde0d3fb94f
+Remote (US),Tech,Thumbtack,"Software Engineer, AI/ML Infrastructure (US-Based)","Remote, United States",ashby,2026-10-14,2026-11-15,True,https://jobs.ashbyhq.com/thumbtack/3efb1a7b-cfaf-475a-86a9-abff37581b4b
 SF Bay Area,Tech,Anthropic,Security Data Engineer,"Remote-Friendly (Travel Required) | San Francisco, CA",greenhouse,2026-10-26,2026-10-27,False,https://job-boards.greenhouse.io/anthropic/jobs/5462966008
 SF Bay Area,Tech,AppLovin,ML Data Infrastructure Engineer,"Palo Alto, CA",greenhouse,2026-09-24,2026-10-22,False,https://boards.greenhouse.io/applovin/jobs/4716524006?gh_jid=4716524006
+SF Bay Area,Tech,Apple,Data Engineer (Data Products - Apple Ads),"Cupertino, United States of America",apple,2026-10-12,2026-11-15,True,https://jobs.apple.com/en-us/details/200687054/data-engineer-data-products-apple-ads
+SF Bay Area,Tech,Apple,"Data Engineer, Operations Finance","Sunnyvale, United States of America",apple,2026-10-20,2026-11-15,True,https://jobs.apple.com/en-us/details/200688811/data-engineer-operations-finance
+SF Bay Area,Tech,Apple,Health Research Data Engineer,"Sunnyvale, United States of America",apple,2026-11-09,2026-11-15,True,https://jobs.apple.com/en-us/details/200694134/health-research-data-engineer
+SF Bay Area,Tech,Apple,Simulation Synthetic Data Engineer - Special Projects,"Cupertino, United States of America",apple,2026-11-10,2026-11-15,True,https://jobs.apple.com/en-us/details/200637194/simulation-synthetic-data-engineer-special-projects
+SF Bay Area,Tech,Apple,Software Engineer - Data Platform,"Cupertino, United States of America",apple,2026-10-02,2026-11-15,True,https://jobs.apple.com/en-us/details/200687061/software-engineer-data-platform
+SF Bay Area,Tech,Apple,"Software Engineer - Generative Data Platform, Evaluation","San Francisco, United States of America",apple,2026-09-30,2026-11-15,True,https://jobs.apple.com/en-us/details/200686470/software-engineer-generative-data-platform-evaluation
 SF Bay Area,Startup,Baseten,Software Engineer - Inference Platform,San Francisco,ashby,2026-10-05,2026-11-02,False,https://jobs.ashbyhq.com/baseten/14c4a663-0b1f-4c11-93ff-1359741ee456
 SF Bay Area,Startup,Campfire,Data Engineer,San Francisco,ashby,2026-09-18,2026-11-02,False,https://jobs.ashbyhq.com/campfire/2b30b7a1-3649-40e5-804a-ea07bfc94318
 SF Bay Area,Startup,Cartesia,"Research Engineer, Data Infrastructure (Language Modeling)","*HQ - San Francisco, CA",ashby,2026-09-24,2026-11-02,False,https://jobs.ashbyhq.com/cartesia/6ca9b352-6a7b-42a3-a7c4-8f071712db90
@@ -96,6 +108,7 @@ SF Bay Area,Tech,DoorDash,"Software Engineer, Data Engineering","San Francisco, 
 SF Bay Area,Tech,DoorDash,"Software Engineer, Data and AI Platform","San Francisco, CA; Sunnyvale, CA",greenhouse,2026-10-13,2026-10-22,False,https://job-boards.greenhouse.io/doordashusa/jobs/8192187
 SF Bay Area,Tech,DoorDash,"Software Engineer, ML Infrastructure (MDX)","San Francisco, CA; Sunnyvale, CA; Seattle, WA",greenhouse,2026-10-14,2026-11-02,False,https://job-boards.greenhouse.io/doordashusa/jobs/8283735
 SF Bay Area,Tech,DoorDash,"Software Engineer, Machine Learning Platform - Gen AI","San Francisco, CA; Sunnyvale, CA; Seattle, WA",greenhouse,2026-10-08,2026-11-02,False,https://job-boards.greenhouse.io/doordashusa/jobs/8264542
+SF Bay Area,Tech,Everpure (Pure Storage),"Data Scientist Engineer, Digital Experience","Santa Clara, California",greenhouse,2026-10-13,2026-11-15,True,https://job-boards.greenhouse.io/purestorage/jobs/8237850
 SF Bay Area,Startup,Fireworks AI,"Member of Technical Staff, Data",San Mateo,ashby,2026-09-19,2026-11-02,False,https://jobs.ashbyhq.com/fireworks/85486dc8-023f-4a82-9cdb-8394bbfcf1ab
 SF Bay Area,Startup,Fireworks AI,"Member of Technical Staff, Data Platform",San Mateo,ashby,2026-11-10,2026-11-10,False,https://jobs.ashbyhq.com/fireworks/bcf1530f-b720-4244-92c4-d3a1d68905f4
 SF Bay Area,Tech,Google,"Data Engineer, Technical Solutions, Geo","Mountain View, CA, USA",google,2026-10-21,2026-10-21,False,https://www.google.com/about/careers/applications/jobs/results/103320076387525318
@@ -114,13 +127,14 @@ SF Bay Area,Tech,Perplexity,"Member of Technical Staff (Software Engineer, GPU C
 SF Bay Area,Tech,Perplexity,"Member of Technical Staff (Software Engineer, Training Infrastructure)",San Francisco,ashby,2026-10-31,2026-11-02,False,https://jobs.ashbyhq.com/Perplexity/2a5aa5f6-596b-45c3-84db-ac0b96363f93
 SF Bay Area,Startup,Physical Intelligence,"ML Infra Engineer, Platform",San Francisco,ashby,2026-10-09,2026-11-02,False,https://jobs.ashbyhq.com/physicalintelligence/16093ed0-49de-429e-81d4-6d8b5d715c01
 SF Bay Area,Tech,Pinterest,"Software Engineer II, Data Analytics & Engineering","San Francisco, CA, US; Remote, US",greenhouse,2026-09-18,2026-09-27,False,https://www.pinterestcareers.com/jobs/?gh_jid=8213988
+SF Bay Area,Gaming,PlayStation,"Data Engineer II, JVM","United States, San Mateo, CA",greenhouse,2026-11-05,2026-11-15,True,https://job-boards.greenhouse.io/sonyinteractiveentertainmentglobal/jobs/6250762004
 SF Bay Area,Startup,Prime Intellect,Research Engineer - Data and Evaluation,San Francisco,ashby,2026-10-16,2026-11-02,False,https://jobs.ashbyhq.com/PrimeIntellect/7ef14297-51c3-45b1-abe4-890489a0bddb
 SF Bay Area,Startup,Prime Intellect,Research Engineer - Inference,San Francisco,ashby,2026-10-16,2026-11-02,False,https://jobs.ashbyhq.com/PrimeIntellect/3103e1a4-2515-4ae0-a2f0-784e25d30cfe
 SF Bay Area,Startup,Prime Intellect,Research Engineer - Pre-training Data,San Francisco,ashby,2026-10-16,2026-11-02,False,https://jobs.ashbyhq.com/PrimeIntellect/eecf9af5-46fb-4b62-b8c8-921098fd6514
 SF Bay Area,Startup,Prime Intellect,Research Engineer - RL Infrastructure,San Francisco,ashby,2026-10-19,2026-11-02,False,https://jobs.ashbyhq.com/PrimeIntellect/07f6f7bc-5f5b-4565-8897-9876763198dd
 SF Bay Area,Startup,Reflection AI,Member of Technical Staff - Pre-Training  Data,"San Francisco, CA",ashby,2026-10-22,2026-11-02,False,https://jobs.ashbyhq.com/reflectionai/2b0b0fbf-0e82-4212-be2e-36e4ca37756c
-SF Bay Area,Tech,Roblox,"Software Engineer, Data Access","San Mateo, CA, United States",greenhouse,2026-09-23,2026-09-27,False,https://careers.roblox.com/jobs/8168881?gh_jid=8168881
-SF Bay Area,Tech,Roblox,"Software Engineer, Data Model","San Mateo, CA, United States",greenhouse,2026-10-08,2026-10-22,False,https://careers.roblox.com/jobs/8159857?gh_jid=8159857
+SF Bay Area,Gaming,Roblox,"Software Engineer, Data Access","San Mateo, CA, United States",greenhouse,2026-09-23,2026-09-27,False,https://careers.roblox.com/jobs/8168881?gh_jid=8168881
+SF Bay Area,Gaming,Roblox,"Software Engineer, Data Model","San Mateo, CA, United States",greenhouse,2026-10-08,2026-10-22,False,https://careers.roblox.com/jobs/8159857?gh_jid=8159857
 SF Bay Area,Tech,ServiceNow,Data Platform Software Engineer,"Santa Clara, US",smartrecruiters,2026-10-14,2026-10-22,False,https://jobs.smartrecruiters.com/ServiceNow/744000155582891
 SF Bay Area,Startup,Thinking Machines,"Software Engineer, Privacy & Data Governance",San Francisco,ashby,2026-10-27,2026-11-02,False,https://jobs.ashbyhq.com/ThinkingMachines/d6098644-7904-4423-9330-a1b7f5767fbc
 SF Bay Area,Fintech,Visa,Associate Data Engineer,"US - Foster City, CA",workday,2026-11-13,2026-11-09,False,https://visa.wd5.myworkdayjobs.com/Visa/job/US---Foster-City-CA/Associate-Data-Engineer_REF089618W
@@ -128,9 +142,15 @@ SF Bay Area,Tech,xAI,Analytics Engineer (X),"Palo Alto, CA",greenhouse,2026-11-0
 SF Bay Area,Tech,xAI,Data Visualization Engineer,"Palo Alto, CA",greenhouse,2026-10-13,2026-10-22,False,https://job-boards.greenhouse.io/xai/jobs/5265194007
 Seattle,Tech,Meta,Hardware Data Engineer - Meta Robotics Studio,"Redmond, WA",meta,,2026-11-09,False,https://www.metacareers.com/profile/job_details/1095477260156217
 Seattle,Tech,SpaceX,Data Engineer (Starlink Mobile),"Redmond, WA",greenhouse,2026-10-21,2026-10-21,False,https://boards.greenhouse.io/spacex/jobs/8694609002?gh_jid=8694609002
+Texas,Tech,Apple,AIOps Software Engineer - Strategic Data Solutions,"Austin, United States of America",apple,2026-11-12,2026-11-15,True,https://jobs.apple.com/en-us/details/200693736/aiops-software-engineer-strategic-data-solutions
+Texas,Tech,Apple,Data Governance Engineer,"Austin, United States of America",apple,2026-09-21,2026-11-15,True,https://jobs.apple.com/en-us/details/200684475/data-governance-engineer
+Texas,Tech,Apple,"Software Engineer (Data Solutions), AI & Data Platforms (AiDP)","Austin, United States of America",apple,2026-09-18,2026-11-15,True,https://jobs.apple.com/en-us/details/200684577/software-engineer-data-solutions-ai-data-platforms-aidp
+Texas,Gaming,Aristocrat,Data Engineer,"Austin, TX, US",workday,2026-11-02,2026-11-15,True,https://aristocrat.wd3.myworkdayjobs.com/AristocratExternalCareersSite/job/Austin-TX-US/Data-Engineer_R0022072
 Texas,Agency,Blue Signal,GTM & AI Analytics Engineer,"Houston, Texas, United States",loxo,,2026-10-05,False,https://blue-signal-search.app.loxo.co/job/MzY5MzEtaHFubGFtaXducndra3ZsNw==
 Texas,Finance,Charles Schwab,Platform Support Data Engineer,"Austin, TX; Southlake, TX",charles,,2026-09-29,False,https://www.schwabjobs.com/job/austin/platform-support-data-engineer/33727/98102690752
 Texas,Tech,Dell,Postgres Database Engineer,"Austin, TX, United States",oracle,2026-11-05,2026-10-24,False,https://enterpriseplatform.dell.com/hcmUI/CandidateExperience/en/sites/careers/job/297513
 Texas,Startup,Fluidstack,Data Engineer,"Austin, TX",ashby,2026-10-01,2026-11-02,False,https://jobs.ashbyhq.com/fluidstack/78365bf7-7a0e-4e15-b30f-827d68c9b8b8
 Texas,Finance,Macquarie Group,Data Platform Engineer,Houston Office,pageup,2026-10-28,2026-10-28,False,https://recruitment.macquarie.com/en_US/careers/JobDetail?jobId=24612
+Texas,Tech,Oracle,"Software Engineer, Core Infrastructure (AI Infrastructure)","Austin, TX, United States",oracle,2026-10-28,2026-11-15,True,https://eeho.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/jobsearch/job/333513
+Texas,Gaming,PlayStation,Data Engineer,"United States, Austin, TX",greenhouse,2026-10-09,2026-11-15,True,https://job-boards.greenhouse.io/sonyinteractiveentertainmentglobal/jobs/6147057004
 Texas,Finance,TPG,"Analytics Engineer, Associate","Fort Worth, Texas, United States",greenhouse,2026-10-06,2026-10-07,False,https://job-boards.greenhouse.io/tpgcareers/jobs/8008733003
