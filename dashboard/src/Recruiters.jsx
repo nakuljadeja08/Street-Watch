@@ -113,6 +113,7 @@ const TECH_SECTOR_IND = {
   Fintech: ["FTC", "FIN"],
   Finance: ["FIN", "BAN", "INV"],
   Startup: ["HIT", "SFT", "WWW", "BIG", "CYB", "CMP", "APP"],
+  Gaming: ["HIT", "SFT", "WWW", "APP"],
 };
 
 function jobCodes(job, watch, category) {

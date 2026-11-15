@@ -210,6 +210,38 @@ already wired (those two counts cover Greenhouse and Ashby boards).
 - **Coverage gap:** Workday and other keyword-searched boards only look for "data
   engineer", so the research rule mostly reaches full-feed boards.
 
+### 2026-11-15: gaming sector + Bay Area wave
+Nakul asked for gaming companies (a second industry besides banking, where NY
+applications got little traction) and more Bay Area roles (he wants to move west).
+
+- **New sector `Gaming`.** Riot Games, Epic Games and Roblox moved here from Tech.
+  Greenhouse: PlayStation (`sonyinteractiveentertainmentglobal`), Bungie, Naughty Dog,
+  Insomniac, Take-Two (`taketwo`), Rockstar, 2K, Zynga (`zyngacareers`), Nintendo,
+  Scopely, Crystal Dynamics. Lever: Jam City. Workday: Aristocrat
+  (`aristocrat/wd3/AristocratExternalCareersSite`), Light & Wonder
+  (`lnw/wd5/LightWonderExternalCareers`). Phenom: Activision Blizzard
+  (`careers.activisionblizzard.com`). Avature: Electronic Arts (`jobs.ea.com`), read by
+  `fetch_avature`, which Bloomberg now shares.
+- **Gaming title rule:** at Gaming firms a Software Engineer title that names
+  analytics, telemetry, experimentation, game data or player data counts (EA's data
+  roles look like "Platform Software Engineer - Experimentation and Analytics").
+- **Probe-day yield was small:** PlayStation 4, Activision 1, Aristocrat 1. Game
+  studios post few entry-level data roles; most boards are wired for coverage.
+- **Gaming, not wired:** Unity and Valve (no readable board; in Apply manually), sports
+  betting (DraftKings `draftkings/wd1/DraftKings`, PrizePicks GH `prizepicks`, Underdog GH
+  `underdog`; FanDuel stays in Tech), Fanatics, Hasbro, Krafton, Kabam (mostly non-US).
+- **Bay Area wave:** Apple (`fetch_apple`, jobs.apple.com hydration JSON, quoted
+  phrase queries; about 22 matching US roles on day one, most in Cupertino/Sunnyvale),
+  Oracle (Oracle CE `eeho.fa.us2.oraclecloud.com/CX_45001`), Workday: KLA, Cadence, Palo
+  Alto Networks, Zendesk, Broadcom, Marvell; Phenom: HPE, Yelp; SmartRecruiters: Western
+  Digital; Greenhouse: Everpure (Pure Storage, `purestorage`); Ashby: Applied Intuition
+  (`applied`), Thumbtack, Character.AI (Startup).
+- **Bay Area, not wired:** Uber (robots.txt disallows `/api/`), LinkedIn (no public
+  board), Synopsys (Avature cards carry no location), Gilead, Genentech, Clorox, Gap
+  (non-tech, declined earlier), AMD/Rivian/Atlassian (iCIMS portals returned nothing),
+  Anduril (Greenhouse `andurilindustries` works and had 10 US data roles, mostly Costa
+  Mesa, but it is defense work like Booz Allen; ask before wiring).
+
 ### 2026-11-01: "Apply manually" list
 Firms we couldn't add now appear in the dashboard's Apply manually view, from
 `dashboard/src/manualFirms.json` (Street Watch uses the same file). When a firm gets
