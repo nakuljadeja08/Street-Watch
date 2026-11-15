@@ -45,7 +45,7 @@ GREENHOUSE = {
         "Cloudflare": "cloudflare", "Datadog": "datadog", "MongoDB": "mongodb",
         "Elastic": "elastic", "Okta": "okta", "Databricks": "databricks", "Fivetran": "fivetran",
         "Starburst": "starburst", "Scale AI": "scaleai", "Asana": "asana", "Discord": "discord",
-        "Roblox": "roblox", "Duolingo": "duolingo", "Flexport": "flexport", "Vercel": "vercel",
+        "Duolingo": "duolingo", "Flexport": "flexport", "Vercel": "vercel",
         "GitLab": "gitlab", "Waymo": "waymo", "Nuro": "nuro", "Lucid Motors": "lucidmotors",
         "Tripadvisor": "tripadvisor", "Squarespace": "squarespace", "Peloton": "peloton",
         "Instacart": "instacart",
@@ -206,7 +206,7 @@ GREENHOUSE["Tech"].update({
     "AppLovin": "applovin", "xAI": "xai", "HubSpot": "hubspotjobs", "Roku": "roku",
     "Zscaler": "zscaler", "Neo4j": "neo4j", "Cribl": "cribl", "Together AI": "togetherai",
     "Snorkel AI": "snorkelai", "The New York Times": "thenewyorktimes",
-    "Riot Games": "riotgames", "Epic Games": "epicgames", "Box": "boxinc",
+    "Box": "boxinc",
     "AlphaSense": "alphasense", "PitchBook": "pitchbookdata", "Compass": "urbancompass",
     "SingleStore": "singlestore", "Gong": "gongio", "ZoomInfo": "zoominfo",
     "Anaplan": "anaplan",
@@ -243,13 +243,54 @@ GREENHOUSE["Startup"] = {
     "Lila Sciences": "lilasciences", "Redwood Materials": "redwoodmaterials",
 }
 
+# Gaming wave (2026-11-15, sector "Gaming"). Nakul wants a second industry
+# besides banking; Riot, Epic and Roblox moved here from Tech. Studios post few
+# data roles at a time, so most boards are wired for coverage. On the probe day
+# PlayStation (4), Activision Blizzard (1) and Aristocrat (1) had a match.
+# Sports betting (FanDuel in Tech, DraftKings, PrizePicks) is left out of
+# this sector; Unity's board could not be found.
+GREENHOUSE["Gaming"] = {
+    "Roblox": "roblox", "Riot Games": "riotgames", "Epic Games": "epicgames",
+    "PlayStation": "sonyinteractiveentertainmentglobal", "Bungie": "bungie",
+    "Naughty Dog": "naughtydog", "Insomniac Games": "insomniac",
+    "Take-Two Interactive": "taketwo", "Rockstar Games": "rockstargames", "2K": "2k",
+    "Zynga": "zyngacareers", "Nintendo": "nintendo", "Scopely": "scopely",
+    "Crystal Dynamics": "crystaldynamics",
+}
+LEVER["Gaming"] = {"Jam City": "jamcity"}
+WORKDAY["Gaming"] = {
+    "Aristocrat": ("aristocrat", "wd3", "AristocratExternalCareersSite"),
+    "Light & Wonder": ("lnw", "wd5", "LightWonderExternalCareers"),
+}
+PHENOM = {"Gaming": {"Activision Blizzard": "careers.activisionblizzard.com"}}
+AVATURE = {"Gaming": {"Electronic Arts": "https://jobs.ea.com/en_US/careers"}}
+
+# Bay Area wave (2026-11-15). Nakul is aiming for the West Coast; these are
+# large Bay Area employers that answered a live probe that day. Apple has its
+# own fetcher (fetch_apple). Uber's careers API is disallowed by robots.txt
+# and LinkedIn has no public board, so both are left out.
+WORKDAY["Tech"].update({
+    "KLA": ("kla", "wd1", "Search"),
+    "Cadence": ("cadence", "wd1", "External_Careers"),
+    "Palo Alto Networks": ("paloaltonetworks", "wd5", "panwexternalcareers"),
+    "Zendesk": ("zendesk", "wd1", "zendesk"),
+    "Broadcom": ("broadcom", "wd1", "External_Career"),
+    "Marvell": ("marvell", "wd1", "MarvellCareers"),
+})
+GREENHOUSE["Tech"].update({"Everpure (Pure Storage)": "purestorage"})
+ASHBY["Tech"].update({"Applied Intuition": "applied", "Thumbtack": "thumbtack"})
+ASHBY["Startup"].update({"Character.AI": "character"})
+PHENOM["Tech"] = {"HPE": "careers.hpe.com", "Yelp": "www.yelp.careers"}
+SMARTRECRUITERS["Tech"].update({"Western Digital": "WesternDigital"})
+
 # Custom-fetcher firms (TASKS.md, added 2026-09-28). Same ATS products Street
 # Watch already scrapes, so they reuse its fetchers.
-ORACLE = {"Tech": {"Dell": ("enterpriseplatform.dell.com", "CX_1001", "careers")}}
+ORACLE = {"Tech": {"Dell": ("enterpriseplatform.dell.com", "CX_1001", "careers"),
+                   "Oracle": ("eeho.fa.us2.oraclecloud.com", "CX_45001", "jobsearch")}}   # Bay Area wave
 RADANCY = {"Finance": {"Charles Schwab": "www.schwabjobs.com"}}
 EIGHTFOLD = {"Tech": {"Netflix": ("explore.jobs.netflix.net", "netflix.com", "United States")}}
 # Own-API fetchers below (fetch_google / fetch_microsoft / fetch_bloomberg / fetch_meta).
-CUSTOM = {"Tech": ["Google", "Microsoft", "Meta"], "Fintech": ["Bloomberg"]}
+CUSTOM = {"Tech": ["Google", "Microsoft", "Meta", "Apple"], "Fintech": ["Bloomberg"]}
 # Staffing agencies (fetch_agencies below); their rows get the "Agency" sector.
 AGENCIES = {"Agency": ["Robert Half", "Randstad", "Michael Page", "TEKsystems",
                        "Motion Recruitment", "Harvey Nash", "Blue Signal"]}
@@ -264,7 +305,8 @@ def _street(reg):
             if _STREET_CAT.get(f) not in _STREET_SKIP and f not in _OWN}
 
 SECTOR = {}
-for _reg in (GREENHOUSE, ASHBY, LEVER, SMARTRECRUITERS, WORKDAY, ORACLE, RADANCY, EIGHTFOLD, CUSTOM, AGENCIES):
+for _reg in (GREENHOUSE, ASHBY, LEVER, SMARTRECRUITERS, WORKDAY, ORACLE, RADANCY, EIGHTFOLD, PHENOM,
+             AVATURE, CUSTOM, AGENCIES):
     for _sec, _firms in _reg.items():
         for _f in _firms:
             SECTOR[_f] = _sec
@@ -422,36 +464,83 @@ _AVATURE_CARD_RE = re.compile(
     r'<h3[^>]*>\s*<a[^>]*href="([^"]+/JobDetail/[^"]+?/(\d+))"[^>]*>(.*?)</a>', re.S)
 
 
-def fetch_bloomberg(query=SEARCH, max_rows=600):
-    """Bloomberg's Avature board (bloomberg.avature.net) is server-rendered HTML:
-    each result card has the title link (…/JobDetail/<slug>/<id>) and a
-    location span. Paged by jobOffset, 12 cards a page (larger
-    jobRecordsPerPage values are ignored). Cards carry no posted date."""
+def fetch_avature(firm, base, query=SEARCH, max_rows=600):
+    """Avature boards (Bloomberg, EA) are server-rendered HTML: each result card
+    has the title link (…/JobDetail/<slug>/<id>) and location spans (EA lists
+    extra locations as list-item-0, -1 …). Paged by jobOffset; the page size
+    differs per tenant (Bloomberg 12, EA 20), so the offset advances by the
+    cards actually returned. Cards carry no posted date."""
     import html as _html
-    base = f"https://bloomberg.avature.net/careers/SearchJobs/{requests.utils.quote(query)}"
-    out, seen = [], set()
+    url = f"{base}/SearchJobs/{requests.utils.quote(query)}"
+    slug = re.sub(r"[^a-z0-9]+", "", firm.lower())
+    out, seen, offset = [], set(), 0
     try:
-        for offset in range(0, max_rows, 12):
-            r = requests.get(base, headers=UA, timeout=TIMEOUT,
-                             params={"jobRecordsPerPage": 12, "jobOffset": offset})
+        while offset < max_rows:
+            r = requests.get(url, headers=UA, timeout=TIMEOUT,
+                             params={"jobRecordsPerPage": 20, "jobOffset": offset})
             r.raise_for_status()
-            cards = re.findall(r'<article class="article article--result".*?</article>', r.text, re.S)
+            cards = re.findall(r'<article class="article article--result[^"]*".*?</article>', r.text, re.S)
             new = 0
             for c in cards:
                 m = _AVATURE_CARD_RE.search(c)
                 if not m or m.group(2) in seen:
                     continue
                 seen.add(m.group(2)); new += 1
-                loc = re.search(r'list-item-location">([^<]*)<', c)
-                out.append(dict(firm="Bloomberg", id=f"bloomberg-{m.group(2)}",
+                locs = re.findall(r'<span class="list-item-(?:location|\d+)">([^<]*)<', c)
+                out.append(dict(firm=firm, id=f"{slug}-{m.group(2)}",
                                 title=_html.unescape(re.sub(r"\s+", " ", m.group(3))).strip(),
-                                location=_html.unescape(loc.group(1)).strip() if loc else "",
+                                location="; ".join(_html.unescape(l).strip() for l in locs),
                                 url=m.group(1), source="avature", posted_date=None))
             if not new:
                 break
+            offset += len(cards)
             time.sleep(0.25)
     except Exception as e:
-        print(f"  ! bloomberg: {e}", file=sys.stderr)
+        print(f"  ! avature {firm}: {e}", file=sys.stderr)
+    return out
+
+
+def fetch_bloomberg(query=SEARCH, max_rows=600):
+    return fetch_avature("Bloomberg", "https://bloomberg.avature.net/careers", query, max_rows)
+
+
+# Apple (Bay Area wave, 2026-11-15). jobs.apple.com is server-rendered: the
+# search page carries its results in window.__staticRouterHydrationData
+# (loaderData.search: totalRecords + 20 searchResults a page). Unquoted terms
+# match thousands of roles, so quoted phrases keep each query small.
+APPLE_QUERIES = ['"data engineer"', '"data engineering"', '"analytics engineer"', '"data platform"',
+                 '"data infrastructure"', '"data pipeline"', '"big data"', '"distributed data"']
+_APPLE_DATA_RE = re.compile(r'window\.__staticRouterHydrationData\s*=\s*JSON\.parse\((".*?")\);', re.S)
+
+
+def fetch_apple(max_pages=10):
+    base = "https://jobs.apple.com/en-us"
+    out, seen = [], set()
+    for q in APPLE_QUERIES:
+        for page in range(1, max_pages + 1):
+            try:
+                r = requests.get(f"{base}/search", headers=UA, timeout=TIMEOUT,
+                                 params={"search": q, "location": "united-states-USA", "page": page})
+                r.raise_for_status()
+                m = _APPLE_DATA_RE.search(r.text)
+                data = json.loads(json.loads(m.group(1)))["loaderData"]["search"]
+            except Exception as e:
+                print(f"  ! apple {q}: {e}", file=sys.stderr); break
+            jobs = data.get("searchResults") or []
+            for j in jobs:
+                pid = j.get("positionId")
+                if not pid or pid in seen:
+                    continue
+                seen.add(pid)
+                locs = ["{}, {}".format(l.get("name"), l.get("countryName") or "")
+                        for l in j.get("locations") or [] if l.get("name")]
+                out.append(dict(firm="Apple", id=f"apple-{pid}", title=(j.get("postingTitle") or "").strip(),
+                                location="; ".join(locs),
+                                url=f"{base}/details/{pid}/{j.get('transformedPostingTitle') or ''}",
+                                source="apple", posted_date=(j.get("postDateInGMT") or "")[:10] or None))
+            if len(jobs) < 20 or page * 20 >= (data.get("totalRecords") or 0):
+                break
+            time.sleep(0.4)
     return out
 
 
@@ -652,7 +741,14 @@ def _research_infra(title):
                 or (_ML_INFRA_RE.search(title) and _ENGINEER_RE.search(title)))
 
 
+# Game studios title their data engineers "Software Engineer, Analytics /
+# Telemetry / Experimentation" (EA, 2026-11-15). Gaming-sector firms only.
+_GAME_DATA_RE = re.compile(r"\banalytics\b|telemetry|experimentation|\bgame\s+data\b|\bplayer\s+data\b", re.I)
+
+
 def title_ok(title, firm=None):
+    if SECTOR.get(firm) == "Gaming" and _INFRA_SWE_RE.search(title) and _GAME_DATA_RE.search(title):
+        return not _DE_EXCLUDE_RE.search(_SOFTWARE_RE.sub("", title))
     if _research_infra(title):
         return not _DE_EXCLUDE_RE.search(_SOFTWARE_RE.sub("", _MTS_RE.sub("", title)))
     if _INFRA_SWE_RE.search(title) and _INFRA_DATA_RE.search(title):
@@ -792,14 +888,15 @@ def collect():
     raw += _run("iCIMS…", list(_street(P.ICIMS).items()), P.fetch_icims)
     raw += _run("Radancy…", _flat(RADANCY) + list(_street(P.RADANCY).items()),
                 lambda f, host: P.fetch_radancy(f, host, f.lower().split()[0], keywords=[SEARCH]))
-    raw += _run("Phenom People…", list(_street(P.PHENOM).items()), P.fetch_phenom)
+    raw += _run("Phenom People…", _flat(PHENOM) + list(_street(P.PHENOM).items()), P.fetch_phenom)
+    raw += _run("Avature…", _flat(AVATURE), fetch_avature)
     raw += _run("Eightfold…", list(_street(P.EIGHTFOLD).items()), P.fetch_eightfold)
     raw += _run("Eightfold (search)…", _flat(EIGHTFOLD),
                 lambda f, host, domain, loc: P.fetch_eightfold(f, host, domain, loc, query=SEARCH))
-    print("Goldman Sachs / Citadel Securities / Google / Microsoft / Bloomberg / Meta…")
+    print("Goldman Sachs / Citadel Securities / Google / Microsoft / Bloomberg / Meta / Apple…")
     for rows in (P.fetch_goldman("Goldman Sachs", search_text=SEARCH),
                  P.fetch_citadel("Citadel Securities"),
-                 fetch_google(), fetch_microsoft(), fetch_bloomberg(), fetch_meta()):
+                 fetch_google(), fetch_microsoft(), fetch_bloomberg(), fetch_meta(), fetch_apple()):
         print(f"  {(rows[0]['firm'] if rows else '—'):<28}{len(rows):>5}")
         raw += rows
     print("Staffing agencies…")
@@ -843,7 +940,7 @@ BG, PANEL, INK, SOFT, FAINT, LINE = "#eef0f4", "#ffffff", "#0f1115", "#5b6270", 
 ACC, NEW, TERM, TERM_INK, TERM_DIM, AMBER, CYAN = "#2b59ff", "#0a8f5c", "#0d1117", "#c9d1d9", "#6e7681", "#e3b341", "#79c0ff"
 SECT = {"Tech": ("#e8ecfd", "#3148c8"), "Fintech": ("#e6f4f1", "#0f766e"), "Finance": ("#fbf1dc", "#8a5a00"),
         "Agency": ("#f3eafb", "#7a3aa8"), "Energy": ("#fcebe0", "#b1480f"),
-        "Startup": ("#e3f6ec", "#0a7d50")}
+        "Startup": ("#e3f6ec", "#0a7d50"), "Gaming": ("#fbe7f1", "#b0246f")}
 SANS = "'Geist', 'IBM Plex Sans', -apple-system, Segoe UI, Arial, sans-serif"
 MONO = "'JetBrains Mono', 'Geist Mono', ui-monospace, 'Courier New', monospace"
 FONTS = ("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&"

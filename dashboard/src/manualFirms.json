@@ -848,14 +848,6 @@
   "url": "https://www.anduril.com/careers"
  },
  {
-  "firm": "Apple",
-  "watch": "tech",
-  "group": "Big tech",
-  "reason": "no_reader",
-  "note": "Needs a custom reader.",
-  "url": "https://jobs.apple.com/en-us/search?search=data%20engineer&location=united-states-USA"
- },
- {
   "firm": "Atlassian",
   "watch": "tech",
   "group": "Big tech",
@@ -880,14 +872,6 @@
   "url": "https://www.klarna.com/careers"
  },
  {
-  "firm": "Palo Alto Networks",
-  "watch": "tech",
-  "group": "Big tech",
-  "reason": "no_reader",
-  "note": "Needs a custom reader.",
-  "url": "https://jobs.paloaltonetworks.com"
- },
- {
   "firm": "Revolut",
   "watch": "tech",
   "group": "Big tech",
@@ -910,14 +894,6 @@
   "reason": "no_reader",
   "note": "Needs a custom reader.",
   "url": "https://www.shopify.com/careers"
- },
- {
-  "firm": "Uber",
-  "watch": "tech",
-  "group": "Big tech",
-  "reason": "no_reader",
-  "note": "Old job API is gone.",
-  "url": ""
  },
  {
   "firm": "Beehiiv",
@@ -1158,14 +1134,6 @@
   "reason": "not_found",
   "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
   "url": "https://www.vastdata.com/careers"
- },
- {
-  "firm": "Applied Intuition",
-  "watch": "tech",
-  "group": "Defense & robotics",
-  "reason": "not_found",
-  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
-  "url": "https://www.appliedintuition.com/careers"
  },
  {
   "firm": "Aurora",
@@ -1766,5 +1734,29 @@
   "reason": "no_reader",
   "note": "Its public job feed is switched off.",
   "url": "https://www.whatnot.com/careers"
+ },
+ {
+  "firm": "Unity",
+  "watch": "tech",
+  "group": "Gaming",
+  "reason": "not_found",
+  "note": "Common board addresses didn't match. Its job board is probably elsewhere.",
+  "url": "https://unity.com/careers"
+ },
+ {
+  "firm": "Valve",
+  "watch": "tech",
+  "group": "Gaming",
+  "reason": "no_board",
+  "note": "Openings listed on its own site.",
+  "url": "https://www.valvesoftware.com/en/jobs"
+ },
+ {
+  "firm": "Uber",
+  "watch": "tech",
+  "group": "Big tech",
+  "reason": "no_reader",
+  "note": "Its careers API is blocked for bots (robots.txt).",
+  "url": "https://www.uber.com/us/en/careers/list/?query=data%20engineer"
  }
 ]
