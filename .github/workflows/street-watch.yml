@@ -1,11 +1,13 @@
 name: Street Watch — daily job pull
 
-# Target: run at 10:00 UTC (6am ET), newsletter delivered by ~6:30am ET.
+# Target: both newsletters delivered by 9am ET. Runs start at 7:30am ET
+# (America/New_York, so it follows daylight saving); with boards fetched in
+# parallel (2026-11-18) each job takes roughly 10-20 min.
 # GitHub's scheduled queue is best-effort: whatever cron time we set (11:00,
 # 10:20, 12:47 UTC), runs started 4-5 HOURS late (14:15-15:30 UTC) and some days
 # never fired at all (Sep 21, 22, 24 2026). Moving the cron doesn't fix that.
 # So the primary trigger is EXTERNAL — cron-job.org calls workflow_dispatch at
-# 10:00 UTC (see README -> "Reliable daily trigger"). The crons below are only
+# 07:30 America/New_York (see README -> "Reliable daily trigger"). The crons below are only
 # backups, set a few minutes past the hour because GitHub's queue is busiest on
 # the hour. pipeline.py mails at most once per UTC day, so extra runs just
 # refresh the data without a duplicate email.
@@ -51,7 +53,7 @@ jobs:
           NEWSLETTER_TO:        ${{ secrets.NEWSLETTER_TO }}
           DASHBOARD_URL:        ${{ secrets.DASHBOARD_URL }}
           NEWSLETTER_SEND_EMPTY: "1"   # still send the morning greeting on zero-new days
-        run: python pipeline.py
+        run: python -u pipeline.py      # -u: log each board as it finishes
 
       # This run's outputs are the newest data, so they always win. Rather than
       # rebasing (which conflicted on 2026-09-24 when main changed the same JSON
@@ -104,7 +106,7 @@ jobs:
           SMTP_PASSWORD:        ${{ secrets.SMTP_PASSWORD }}
           NEWSLETTER_TO:        ${{ secrets.NEWSLETTER_TO }}
           DASHBOARD_URL:        ${{ secrets.DASHBOARD_URL }}
-        run: python tech_pipeline.py
+        run: python -u tech_pipeline.py
 
       - name: Persist state + outputs
         run: |

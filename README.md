@@ -412,7 +412,9 @@ Setup (once):
    `Street-Watch` only → permission **Actions: Read and write**.
 2. [cron-job.org](https://cron-job.org) (free) → new cron job:
    - URL `https://api.github.com/repos/nakuljadeja08/Street-Watch/actions/workflows/street-watch.yml/dispatches`
-   - Method **POST**, schedule daily **10:00 UTC** (timezone UTC)
+   - Method **POST**, schedule daily **07:30**, timezone **America/New_York**
+     (follows daylight saving; both emails land by about 8am ET. Before
+     2026-11-18 it was set to 10:00 ET, when a sequential scrape took up to an hour.)
    - Headers: `Authorization: Bearer <token>`, `Accept: application/vnd.github+json`,
      `Content-Type: application/json`
    - Body: `{"ref":"main"}` — success is HTTP **204**.

@@ -291,7 +291,7 @@ RADANCY = {"Finance": {"Charles Schwab": "www.schwabjobs.com"}}
 EIGHTFOLD = {"Tech": {"Netflix": ("explore.jobs.netflix.net", "netflix.com", "United States")}}
 # Own-API fetchers below (fetch_google / fetch_microsoft / fetch_bloomberg / fetch_meta).
 CUSTOM = {"Tech": ["Google", "Microsoft", "Meta", "Apple"], "Fintech": ["Bloomberg"]}
-# Staffing agencies (fetch_agencies below); their rows get the "Agency" sector.
+# Staffing agencies (_agency_fetchers below); their rows get the "Agency" sector.
 AGENCIES = {"Agency": ["Robert Half", "Randstad", "Michael Page", "TEKsystems",
                        "Motion Recruitment", "Harvey Nash", "Blue Signal"]}
 
@@ -630,15 +630,17 @@ def fetch_blue_signal(firm="Blue Signal"):
     return out
 
 
-def fetch_agencies():
+def _agency_fetchers():
+    """(agency, zero-arg fetch) pairs; collect() runs them in parallel."""
     return [
-        ("Robert Half", P.fetch_robert_half("Robert Half", searches=[("all", _SLUG)])),
-        ("Randstad", P.fetch_randstad("Randstad", paths=[f"q-{_SLUG}"], relevant=_looks_de, max_pages=15)),
-        ("Michael Page", P.fetch_michael_page("Michael Page", paths=[_SLUG])),
-        ("TEKsystems", fetch_teksystems()),
-        ("Motion Recruitment", fetch_motion()),
-        ("Harvey Nash", fetch_harvey_nash()),
-        ("Blue Signal", fetch_blue_signal()),
+        ("Robert Half", lambda: P.fetch_robert_half("Robert Half", searches=[("all", _SLUG)])),
+        ("Randstad", lambda: P.fetch_randstad("Randstad", paths=[f"q-{_SLUG}"], relevant=_looks_de,
+                                              max_pages=15)),
+        ("Michael Page", lambda: P.fetch_michael_page("Michael Page", paths=[_SLUG])),
+        ("TEKsystems", fetch_teksystems),
+        ("Motion Recruitment", fetch_motion),
+        ("Harvey Nash", fetch_harvey_nash),
+        ("Blue Signal", fetch_blue_signal),
     ]
 
 
@@ -858,13 +860,13 @@ def us_hub(loc):
 
 
 # ---------------------------------------------------------------- collect
-def _run(label, items, fn):
-    print(label)
+def _tasks(label, items, fn, key=None):
+    """Fetch tasks for P.run_parallel. `key` (args -> server name) defaults to
+    the board's own host, the first registry value."""
     out = []
     for f, args in items:
-        rows = fn(f, *args) if isinstance(args, tuple) else fn(f, args)
-        print(f"  {f:<28}{len(rows):>5}")
-        out += rows
+        a = args if isinstance(args, tuple) else (args,)
+        out.append(P.task(label, f, key(a) if key else a[0], fn, *a))
     return out
 
 
@@ -873,36 +875,36 @@ def _flat(reg):
 
 
 def collect():
-    raw = []
-    raw += _run("Greenhouse…", _flat(GREENHOUSE) + list(_street(P.GREENHOUSE).items()), P.fetch_greenhouse)
-    raw += _run("Ashby…", _flat(ASHBY) + list(_street(P.ASHBY).items()), P.fetch_ashby)
-    raw += _run("Lever…", _flat(LEVER), fetch_lever)
-    raw += _run("SmartRecruiters…", _flat(SMARTRECRUITERS), P.fetch_smartrecruiters)
-    raw += _run("Workday…", _flat(WORKDAY) + list(_street(P.WORKDAY).items()), fetch_workday)
-    raw += _run("Workday (myworkdaysite)…", list(_street(P.WORKDAY_SITE).items()),
-                lambda f, dc, t, s: P.fetch_workday_site(f, dc, t, s))
-    raw += _run("Jibe/iCIMS…", list(_street(P.JIBE).items()), P.fetch_jibe)
-    raw += _run("Oracle Recruiting…", _flat(ORACLE) + list(_street(P.ORACLE).items()), P.fetch_oracle)
-    raw += _run("HRM Direct…", list(_street(P.HRMDIRECT).items()), P.fetch_hrmdirect)
-    raw += _run("PageUp…", list(_street(P.PAGEUP).items()), P.fetch_pageup)
-    raw += _run("iCIMS…", list(_street(P.ICIMS).items()), P.fetch_icims)
-    raw += _run("Radancy…", _flat(RADANCY) + list(_street(P.RADANCY).items()),
-                lambda f, host: P.fetch_radancy(f, host, f.lower().split()[0], keywords=[SEARCH]))
-    raw += _run("Phenom People…", _flat(PHENOM) + list(_street(P.PHENOM).items()), P.fetch_phenom)
-    raw += _run("Avature…", _flat(AVATURE), fetch_avature)
-    raw += _run("Eightfold…", list(_street(P.EIGHTFOLD).items()), P.fetch_eightfold)
-    raw += _run("Eightfold (search)…", _flat(EIGHTFOLD),
-                lambda f, host, domain, loc: P.fetch_eightfold(f, host, domain, loc, query=SEARCH))
-    print("Goldman Sachs / Citadel Securities / Google / Microsoft / Bloomberg / Meta / Apple…")
-    for rows in (P.fetch_goldman("Goldman Sachs", search_text=SEARCH),
-                 P.fetch_citadel("Citadel Securities"),
-                 fetch_google(), fetch_microsoft(), fetch_bloomberg(), fetch_meta(), fetch_apple()):
-        print(f"  {(rows[0]['firm'] if rows else '—'):<28}{len(rows):>5}")
-        raw += rows
-    print("Staffing agencies…")
-    for f, rows in fetch_agencies():
-        print(f"  {f:<28}{len(rows):>5}")
-        raw += rows
+    # Boards run in parallel (P.run_parallel); rows come back in this order.
+    print("Fetching boards…", flush=True)
+    gh, wd = (lambda a: "greenhouse"), (lambda a: f"workday:{a[1]}")
+    T = (_tasks("Greenhouse", _flat(GREENHOUSE) + list(_street(P.GREENHOUSE).items()), P.fetch_greenhouse, gh)
+         + _tasks("Ashby", _flat(ASHBY) + list(_street(P.ASHBY).items()), P.fetch_ashby, lambda a: "ashby")
+         + _tasks("Lever", _flat(LEVER), fetch_lever, lambda a: "lever")
+         + _tasks("SmartRecruiters", _flat(SMARTRECRUITERS), P.fetch_smartrecruiters,
+                  lambda a: "smartrecruiters")
+         + _tasks("Workday", _flat(WORKDAY) + list(_street(P.WORKDAY).items()), fetch_workday, wd)
+         + _tasks("Workday site", list(_street(P.WORKDAY_SITE).items()), P.fetch_workday_site,
+                  lambda a: f"wdsite:{a[0]}")
+         + _tasks("Jibe", list(_street(P.JIBE).items()), P.fetch_jibe)
+         + _tasks("Oracle", _flat(ORACLE) + list(_street(P.ORACLE).items()), P.fetch_oracle)
+         + _tasks("HRM Direct", list(_street(P.HRMDIRECT).items()), P.fetch_hrmdirect)
+         + _tasks("PageUp", list(_street(P.PAGEUP).items()), P.fetch_pageup)
+         + _tasks("iCIMS", list(_street(P.ICIMS).items()), P.fetch_icims)
+         + _tasks("Radancy", _flat(RADANCY) + list(_street(P.RADANCY).items()),
+                  lambda f, host: P.fetch_radancy(f, host, f.lower().split()[0], keywords=[SEARCH]))
+         + _tasks("Phenom", _flat(PHENOM) + list(_street(P.PHENOM).items()), P.fetch_phenom)
+         + _tasks("Avature", _flat(AVATURE), fetch_avature)
+         + _tasks("Eightfold", list(_street(P.EIGHTFOLD).items()), P.fetch_eightfold)
+         + _tasks("Eightfold search", _flat(EIGHTFOLD),
+                  lambda f, host, domain, loc: P.fetch_eightfold(f, host, domain, loc, query=SEARCH))
+         + [("Custom", "Goldman Sachs", "goldman", lambda: P.fetch_goldman("Goldman Sachs", search_text=SEARCH)),
+            ("Custom", "Citadel Securities", "citadel", lambda: P.fetch_citadel("Citadel Securities")),
+            ("Custom", "Google", "google", fetch_google), ("Custom", "Microsoft", "microsoft", fetch_microsoft),
+            ("Custom", "Bloomberg", "bloomberg", fetch_bloomberg), ("Custom", "Meta", "meta", fetch_meta),
+            ("Custom", "Apple", "apple", fetch_apple)]
+         + [("Agency", f, f.lower().replace(" ", ""), fn) for f, fn in _agency_fetchers()])
+    raw = P.run_parallel(T)
 
     kept, seen = [], set()
     for r in raw:
