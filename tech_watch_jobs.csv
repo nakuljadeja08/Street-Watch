@@ -38,6 +38,8 @@ NYC Area,Agency,Robert Half,Data Engineer · Direct hire,"Princeton, NJ",roberth
 NYC Area,Startup,Tennr,Data Engineer,New York City Office,ashby,2026-09-28,2026-11-02,False,https://jobs.ashbyhq.com/tennr/ce18e908-3e76-4828-a95d-ef98569937e0
 NYC Area,Finance,Tower Research Capital,Research Platform Engineer,New York,greenhouse,2026-10-01,2026-11-02,False,https://www.tower-research.com/open-positions/?gh_jid=8095925
 Other US,Tech,Cohere,Member of Technical Staff - Post-training (Data Infrastructure),United States,ashby,2026-10-14,2026-11-02,False,https://jobs.ashbyhq.com/cohere/eef82766-7e31-430f-a102-bc33a5022597
+Other US,Tech,Dell,"Consultant, Data Engineering","TX, United States",oracle,2026-11-19,2026-10-05,False,https://enterpriseplatform.dell.com/hcmUI/CandidateExperience/en/sites/careers/job/300054
+Other US,Tech,Dell,"Consultant, Data Engineering","TX, United States",oracle,2026-11-19,2026-10-05,False,https://enterpriseplatform.dell.com/hcmUI/CandidateExperience/en/sites/careers/job/300056
 Other US,Tech,Elastic,"Analytics Engineer, HR Analytics",United States,greenhouse,2026-10-05,2026-10-05,False,https://jobs.elastic.co/jobs?gh_jid=8244449&gh_jid=8244449
 Other US,Tech,HPE,Business Systems & Data Engineer,"Chippewa Falls, Wisconsin, United States of America",phenom,2026-11-17,2026-11-18,False,https://hpe.wd5.myworkdayjobs.com/Jobsathpe/job/Chippewa-Falls-Wisconsin-United-States-of-America/Business-Systems---Data-Engineer_1214711-2
 Other US,Finance,JPMorgan Chase,Data Engineering Associate,"OH, United States",oracle,2026-09-25,2026-09-27,False,https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210793562
@@ -45,7 +47,6 @@ Other US,Fintech,Kraken,Software Engineer - Database - Bitnomial,United States,a
 Other US,Tech,Meta,"Research Engineer, Synthetic Data Generation","Burlingame, CA",meta,,2026-11-02,False,https://www.metacareers.com/profile/job_details/2207519130043101
 Other US,Tech,Microsoft,Data Engineer,US,microsoft,2026-11-12,2026-11-12,False,https://apply.careers.microsoft.com/careers/job/1970393557056093
 Other US,Startup,Nous Research,Data Engineer,Americas (US time zones),ashby,2026-10-15,2026-11-02,False,https://jobs.ashbyhq.com/nousresearch/170e061a-5df1-420c-84df-c2d20ef93dbd
-Other US,Tech,Oracle,AI Systems Engineer (OCI/AI Infrastructure),"Nashville, TN, United States",oracle,2026-10-22,2026-11-15,False,https://eeho.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/jobsearch/job/348534
 Other US,Tech,Oracle,Data Migration Engineer II,United States,oracle,2026-11-06,2026-11-15,False,https://eeho.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/jobsearch/job/336039
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Memphis, TN",roberthalf,2026-11-03,2026-11-03,False,https://www.roberthalf.com/us/en/job/memphis-tn/data-engineer/03900-9504421867-usen
 Other US,Agency,Robert Half,Data Engineer · Direct hire,"Salt Lake City, UT",roberthalf,2026-11-11,2026-10-05,False,https://www.roberthalf.com/us/en/job/salt-lake-city-ut/data-engineer/04820-0013472516-usen
@@ -82,6 +83,7 @@ SF Bay Area,Tech,Anthropic,Security Data Engineer,"Remote-Friendly (Travel Requi
 SF Bay Area,Tech,AppLovin,ML Data Infrastructure Engineer,"Palo Alto, CA",greenhouse,2026-09-24,2026-10-22,False,https://boards.greenhouse.io/applovin/jobs/4716524006?gh_jid=4716524006
 SF Bay Area,Tech,Apple,Data Engineer (Data Products - Apple Ads),"Cupertino, United States of America",apple,2026-10-12,2026-11-15,False,https://jobs.apple.com/en-us/details/200687054/data-engineer-data-products-apple-ads
 SF Bay Area,Tech,Apple,"Data Engineer, Operations Finance","Sunnyvale, United States of America",apple,2026-10-20,2026-11-15,False,https://jobs.apple.com/en-us/details/200688811/data-engineer-operations-finance
+SF Bay Area,Tech,Apple,Data Governance Engineer,"Cupertino, United States of America",apple,2026-09-21,2026-11-15,False,https://jobs.apple.com/en-us/details/200684475/data-governance-engineer
 SF Bay Area,Tech,Apple,Health Research Data Engineer,"Sunnyvale, United States of America",apple,2026-11-09,2026-11-15,False,https://jobs.apple.com/en-us/details/200694134/health-research-data-engineer
 SF Bay Area,Tech,Apple,Simulation Synthetic Data Engineer - Special Projects,"Cupertino, United States of America",apple,2026-11-10,2026-11-15,False,https://jobs.apple.com/en-us/details/200637194/simulation-synthetic-data-engineer-special-projects
 SF Bay Area,Tech,Apple,Software Engineer - Data Platform,"Cupertino, United States of America",apple,2026-10-02,2026-11-15,False,https://jobs.apple.com/en-us/details/200687061/software-engineer-data-platform
@@ -140,4 +142,3 @@ Texas,Tech,Oracle,"Software Engineer, Core Infrastructure (AI Infrastructure)","
 Texas,Gaming,PlayStation,Data Engineer,"United States, Austin, TX",greenhouse,2026-10-09,2026-11-15,False,https://job-boards.greenhouse.io/sonyinteractiveentertainmentglobal/jobs/6147057004
 Texas,Gaming,PlayStation,"Data Engineer II, JVM","United States, Austin, TX",greenhouse,2026-11-17,2026-11-18,False,https://job-boards.greenhouse.io/sonyinteractiveentertainmentglobal/jobs/6252099004
 Texas,Finance,TPG,"Analytics Engineer, Associate","Fort Worth, Texas, United States",greenhouse,2026-10-06,2026-10-07,False,https://job-boards.greenhouse.io/tpgcareers/jobs/8008733003
-Texas,Finance,U.S. Bancorp,Data Engineer,"Irving, TX",workday,2026-11-16,2026-11-16,False,https://usbank.wd1.myworkdayjobs.com/US_Bank_Careers/job/Irving-TX/Data-Engineer_2026-0035249-1
