@@ -1758,5 +1758,1077 @@
   "reason": "no_reader",
   "note": "Its careers API is blocked for bots (robots.txt).",
   "url": "https://www.uber.com/us/en/careers/list/?query=data%20engineer"
+ },
+ {
+  "firm": "Adobe",
+  "watch": "tech",
+  "group": "Workday: Tech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://adobe.wd5.myworkdayjobs.com/external_experienced"
+ },
+ {
+  "firm": "AllianceBernstein",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://abglobal.wd1.myworkdayjobs.com/alliancebernsteincareers"
+ },
+ {
+  "firm": "Allstate",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://allstate.wd5.myworkdayjobs.com/allstate_careers"
+ },
+ {
+  "firm": "Ardian",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://ardian.wd103.myworkdayjobs.com/ArdianCareers"
+ },
+ {
+  "firm": "Ares Management",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://aresmgmt.wd1.myworkdayjobs.com/External"
+ },
+ {
+  "firm": "Aristocrat",
+  "watch": "tech",
+  "group": "Workday: Gaming",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://aristocrat.wd3.myworkdayjobs.com/AristocratExternalCareersSite"
+ },
+ {
+  "firm": "Autodesk",
+  "watch": "tech",
+  "group": "Workday: Tech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://autodesk.wd1.myworkdayjobs.com/Ext"
+ },
+ {
+  "firm": "BMO",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://bmo.wd3.myworkdayjobs.com/External"
+ },
+ {
+  "firm": "Baird",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://baird.wd1.myworkdayjobs.com/Careers"
+ },
+ {
+  "firm": "Baker Hughes",
+  "watch": "tech",
+  "group": "Workday: Energy",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://bakerhughes.wd5.myworkdayjobs.com/BakerHughes"
+ },
+ {
+  "firm": "Bank of America",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://ghr.wd1.myworkdayjobs.com/Lateral-US"
+ },
+ {
+  "firm": "Blackstone",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://blackstone.wd1.myworkdayjobs.com/Blackstone_Careers"
+ },
+ {
+  "firm": "Blue Owl Capital",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://blueowl.wd1.myworkdayjobs.com/blueowl"
+ },
+ {
+  "firm": "Broadcom",
+  "watch": "tech",
+  "group": "Workday: Tech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://broadcom.wd1.myworkdayjobs.com/External_Career"
+ },
+ {
+  "firm": "Broadridge",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://broadridge.wd5.myworkdayjobs.com/Careers"
+ },
+ {
+  "firm": "CIBC",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://cibc.wd3.myworkdayjobs.com/search"
+ },
+ {
+  "firm": "CME Group",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://cmegroup.wd1.myworkdayjobs.com/cme_careers"
+ },
+ {
+  "firm": "Cadence",
+  "watch": "tech",
+  "group": "Workday: Tech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://cadence.wd1.myworkdayjobs.com/External_Careers"
+ },
+ {
+  "firm": "Capital Group",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://capgroup.wd1.myworkdayjobs.com/capitalgroupcareers"
+ },
+ {
+  "firm": "Capital One",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://capitalone.wd12.myworkdayjobs.com/Capital_One"
+ },
+ {
+  "firm": "Cboe",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://cboe.wd1.myworkdayjobs.com/External_Career_CBOE"
+ },
+ {
+  "firm": "Chevron",
+  "watch": "tech",
+  "group": "Workday: Energy",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://chevron.wd5.myworkdayjobs.com/jobs"
+ },
+ {
+  "firm": "Chewy",
+  "watch": "tech",
+  "group": "Workday: Tech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://chewy.wd5.myworkdayjobs.com/External"
+ },
+ {
+  "firm": "Cisco",
+  "watch": "tech",
+  "group": "Workday: Tech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://cisco.wd5.myworkdayjobs.com/Cisco_Careers"
+ },
+ {
+  "firm": "CrowdStrike",
+  "watch": "tech",
+  "group": "Workday: Tech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://crowdstrike.wd5.myworkdayjobs.com/crowdstrikecareers"
+ },
+ {
+  "firm": "Deutsche Bank",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://db.wd3.myworkdayjobs.com/DBWebsite"
+ },
+ {
+  "firm": "Devon Energy",
+  "watch": "tech",
+  "group": "Workday: Energy",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://devonenergy.wd5.myworkdayjobs.com/Careers"
+ },
+ {
+  "firm": "Enbridge",
+  "watch": "tech",
+  "group": "Workday: Energy",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://enbridge.wd3.myworkdayjobs.com/enbridge_careers"
+ },
+ {
+  "firm": "Equifax",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://equifax.wd5.myworkdayjobs.com/External"
+ },
+ {
+  "firm": "Expedia",
+  "watch": "tech",
+  "group": "Workday: Tech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://expedia.wd108.myworkdayjobs.com/search"
+ },
+ {
+  "firm": "FIS",
+  "watch": "tech",
+  "group": "Workday: Fintech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://fis.wd5.myworkdayjobs.com/SearchJobs"
+ },
+ {
+  "firm": "FactSet",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://factset.wd108.myworkdayjobs.com/FactSetCareers"
+ },
+ {
+  "firm": "Fidelity",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://fmr.wd1.myworkdayjobs.com/FidelityCareers"
+ },
+ {
+  "firm": "Fiserv",
+  "watch": "tech",
+  "group": "Workday: Fintech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://fiserv.wd5.myworkdayjobs.com/EXT"
+ },
+ {
+  "firm": "Global Payments",
+  "watch": "tech",
+  "group": "Workday: Fintech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://tsys.wd1.myworkdayjobs.com/TSYS"
+ },
+ {
+  "firm": "HP",
+  "watch": "tech",
+  "group": "Workday: Tech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://hp.wd5.myworkdayjobs.com/ExternalCareerSite"
+ },
+ {
+  "firm": "Houlihan Lokey",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://hl.wd1.myworkdayjobs.com/Lateral"
+ },
+ {
+  "firm": "Intel",
+  "watch": "tech",
+  "group": "Workday: Tech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://intel.wd1.myworkdayjobs.com/External"
+ },
+ {
+  "firm": "Invesco",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://invesco.wd1.myworkdayjobs.com/IVZ"
+ },
+ {
+  "firm": "KLA",
+  "watch": "tech",
+  "group": "Workday: Tech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://kla.wd1.myworkdayjobs.com/Search"
+ },
+ {
+  "firm": "KeyBank",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://keybank.wd5.myworkdayjobs.com/External_Career_Site"
+ },
+ {
+  "firm": "LPL Financial",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://lplfinancial.wd1.myworkdayjobs.com/External"
+ },
+ {
+  "firm": "Light & Wonder",
+  "watch": "tech",
+  "group": "Workday: Gaming",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://lnw.wd5.myworkdayjobs.com/LightWonderExternalCareers"
+ },
+ {
+  "firm": "MUFG",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://mufgub.wd3.myworkdayjobs.com/MUFG-Careers"
+ },
+ {
+  "firm": "Marathon Petroleum",
+  "watch": "tech",
+  "group": "Workday: Energy",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://mpc.wd1.myworkdayjobs.com/MPCCareers"
+ },
+ {
+  "firm": "Marvell",
+  "watch": "tech",
+  "group": "Workday: Tech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://marvell.wd1.myworkdayjobs.com/MarvellCareers"
+ },
+ {
+  "firm": "Mastercard",
+  "watch": "tech",
+  "group": "Workday: Fintech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://mastercard.wd1.myworkdayjobs.com/CorporateCareers"
+ },
+ {
+  "firm": "Mizuho",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas"
+ },
+ {
+  "firm": "Moelis & Company",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://moelis.wd1.myworkdayjobs.com/Experienced-Hires"
+ },
+ {
+  "firm": "Morgan Stanley",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://ms.wd5.myworkdayjobs.com/External"
+ },
+ {
+  "firm": "Morningstar",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://morningstar.wd5.myworkdayjobs.com/Americas"
+ },
+ {
+  "firm": "NVIDIA",
+  "watch": "tech",
+  "group": "Workday: Tech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite"
+ },
+ {
+  "firm": "Nasdaq",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://nasdaq.wd1.myworkdayjobs.com/Global_External_Site"
+ },
+ {
+  "firm": "Neuberger Berman",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://nb.wd1.myworkdayjobs.com/NBCareers"
+ },
+ {
+  "firm": "Nike",
+  "watch": "tech",
+  "group": "Workday: Tech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://nike.wd1.myworkdayjobs.com/nke"
+ },
+ {
+  "firm": "Northern Trust",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust"
+ },
+ {
+  "firm": "ONEOK",
+  "watch": "tech",
+  "group": "Workday: Energy",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://oneok.wd1.myworkdayjobs.com/ONEOK"
+ },
+ {
+  "firm": "Oaktree Capital Management",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://oaktree.wd1.myworkdayjobs.com/Oaktree"
+ },
+ {
+  "firm": "Occidental",
+  "watch": "tech",
+  "group": "Workday: Energy",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://oxy.wd5.myworkdayjobs.com/corporate"
+ },
+ {
+  "firm": "PGIM",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://pru.wd5.myworkdayjobs.com/PGIM_Careers"
+ },
+ {
+  "firm": "PIMCO",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://pimco.wd1.myworkdayjobs.com/pimco-careers"
+ },
+ {
+  "firm": "Palo Alto Networks",
+  "watch": "tech",
+  "group": "Workday: Tech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://paloaltonetworks.wd5.myworkdayjobs.com/panwexternalcareers"
+ },
+ {
+  "firm": "PayPal",
+  "watch": "tech",
+  "group": "Workday: Fintech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://paypal.wd1.myworkdayjobs.com/jobs"
+ },
+ {
+  "firm": "Prudential",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://pru.wd5.myworkdayjobs.com/Careers"
+ },
+ {
+  "firm": "Raymond James",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://raymondjames.wd1.myworkdayjobs.com/RaymondJamesCareers"
+ },
+ {
+  "firm": "Red Hat",
+  "watch": "tech",
+  "group": "Workday: Tech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://redhat.wd5.myworkdayjobs.com/jobs"
+ },
+ {
+  "firm": "S&P Global",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://spgi.wd5.myworkdayjobs.com/SPGI_Careers"
+ },
+ {
+  "firm": "Salesforce",
+  "watch": "tech",
+  "group": "Workday: Tech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://salesforce.wd12.myworkdayjobs.com/External_Career_Site"
+ },
+ {
+  "firm": "Sixth Street",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://sixthstreet.wd1.myworkdayjobs.com/SixthStreetCareers"
+ },
+ {
+  "firm": "Snap",
+  "watch": "tech",
+  "group": "Workday: Tech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://snapchat.wd1.myworkdayjobs.com/snap"
+ },
+ {
+  "firm": "State Street",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://statestreet.wd1.myworkdayjobs.com/Global"
+ },
+ {
+  "firm": "T. Rowe Price",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://troweprice.wd5.myworkdayjobs.com/TRowePrice"
+ },
+ {
+  "firm": "TD Bank",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://td.wd3.myworkdayjobs.com/TD_Bank_Careers"
+ },
+ {
+  "firm": "Target",
+  "watch": "tech",
+  "group": "Workday: Tech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://target.wd5.myworkdayjobs.com/targetcareers"
+ },
+ {
+  "firm": "TransUnion",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://transunion.wd5.myworkdayjobs.com/TransUnion"
+ },
+ {
+  "firm": "U.S. Bancorp",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://usbank.wd1.myworkdayjobs.com/US_Bank_Careers"
+ },
+ {
+  "firm": "Vanguard",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://vanguard.wd5.myworkdayjobs.com/vanguard_external"
+ },
+ {
+  "firm": "Visa",
+  "watch": "tech",
+  "group": "Workday: Fintech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://visa.wd5.myworkdayjobs.com/Visa"
+ },
+ {
+  "firm": "Warner Bros. Discovery",
+  "watch": "tech",
+  "group": "Workday: Tech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://warnerbros.wd5.myworkdayjobs.com/global"
+ },
+ {
+  "firm": "Wellington Management",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://wellington.wd5.myworkdayjobs.com/External"
+ },
+ {
+  "firm": "Wells Fargo",
+  "watch": "tech",
+  "group": "Workday: Finance",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs"
+ },
+ {
+  "firm": "Williams",
+  "watch": "tech",
+  "group": "Workday: Energy",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://williams.wd5.myworkdayjobs.com/External"
+ },
+ {
+  "firm": "Workday",
+  "watch": "tech",
+  "group": "Workday: Tech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://workday.wd5.myworkdayjobs.com/Workday"
+ },
+ {
+  "firm": "Zendesk",
+  "watch": "tech",
+  "group": "Workday: Tech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://zendesk.wd1.myworkdayjobs.com/zendesk"
+ },
+ {
+  "firm": "Zillow",
+  "watch": "tech",
+  "group": "Workday: Tech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://zillow.wd5.myworkdayjobs.com/Zillow_Group_External"
+ },
+ {
+  "firm": "Zoom",
+  "watch": "tech",
+  "group": "Workday: Tech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://zoom.wd5.myworkdayjobs.com/Zoom"
+ },
+ {
+  "firm": "eBay",
+  "watch": "tech",
+  "group": "Workday: Tech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://ebay.wd5.myworkdayjobs.com/apply"
+ },
+ {
+  "firm": "AllianceBernstein",
+  "watch": "street",
+  "group": "Workday: Asset Management",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://abglobal.wd1.myworkdayjobs.com/alliancebernsteincareers"
+ },
+ {
+  "firm": "Apollo Global Management",
+  "watch": "street",
+  "group": "Workday: PE & Alts",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://athene.wd5.myworkdayjobs.com/Apollo_Careers"
+ },
+ {
+  "firm": "Ardian",
+  "watch": "street",
+  "group": "Workday: PE & Alts",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://ardian.wd103.myworkdayjobs.com/ArdianCareers"
+ },
+ {
+  "firm": "Ares Management",
+  "watch": "street",
+  "group": "Workday: PE & Alts",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://aresmgmt.wd1.myworkdayjobs.com/External"
+ },
+ {
+  "firm": "BMO",
+  "watch": "street",
+  "group": "Workday: Banks",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://bmo.wd3.myworkdayjobs.com/External"
+ },
+ {
+  "firm": "Bain Capital",
+  "watch": "street",
+  "group": "Workday: PE & Alts",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://baincapital.wd1.myworkdayjobs.com/External_Public"
+ },
+ {
+  "firm": "Baird",
+  "watch": "street",
+  "group": "Workday: Middle Market IB",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://baird.wd1.myworkdayjobs.com/Careers"
+ },
+ {
+  "firm": "Bank of America",
+  "watch": "street",
+  "group": "Workday: Bulge Bracket",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://ghr.wd1.myworkdayjobs.com/Lateral-US"
+ },
+ {
+  "firm": "Berkeley Research Group",
+  "watch": "street",
+  "group": "Workday: Consulting",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://thinkbrg.wd5.myworkdayjobs.com/BRG_External_Career_Site"
+ },
+ {
+  "firm": "Blackstone",
+  "watch": "street",
+  "group": "Workday: PE & Alts",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://blackstone.wd1.myworkdayjobs.com/Blackstone_Careers"
+ },
+ {
+  "firm": "Blue Owl Capital",
+  "watch": "street",
+  "group": "Workday: PE & Alts",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://blueowl.wd1.myworkdayjobs.com/blueowl"
+ },
+ {
+  "firm": "Brookfield Asset Management",
+  "watch": "street",
+  "group": "Workday: PE & Alts",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://brookfield.wd5.myworkdayjobs.com/brookfield"
+ },
+ {
+  "firm": "CIBC",
+  "watch": "street",
+  "group": "Workday: Banks",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://cibc.wd3.myworkdayjobs.com/search"
+ },
+ {
+  "firm": "Capital Group",
+  "watch": "street",
+  "group": "Workday: Asset Management",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://capgroup.wd1.myworkdayjobs.com/capitalgroupcareers"
+ },
+ {
+  "firm": "Capital One",
+  "watch": "street",
+  "group": "Workday: Banks",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://capitalone.wd12.myworkdayjobs.com/Capital_One"
+ },
+ {
+  "firm": "Carlyle",
+  "watch": "street",
+  "group": "Workday: PE & Alts",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://carlyle.wd1.myworkdayjobs.com/Carlyle"
+ },
+ {
+  "firm": "Chanel",
+  "watch": "street",
+  "group": "Workday: Fashion & Luxury",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://cc.wd3.myworkdayjobs.com/ChanelCareers"
+ },
+ {
+  "firm": "Christie's",
+  "watch": "street",
+  "group": "Workday: Fashion & Luxury",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://christies.wd3.myworkdayjobs.com/Christies_Careers"
+ },
+ {
+  "firm": "Deutsche Bank",
+  "watch": "street",
+  "group": "Workday: Bulge Bracket",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://db.wd3.myworkdayjobs.com/DBWebsite"
+ },
+ {
+  "firm": "Gap Inc.",
+  "watch": "street",
+  "group": "Workday: Fashion & Luxury",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://gapinc.wd1.myworkdayjobs.com/GAPINC"
+ },
+ {
+  "firm": "Guggenheim Securities",
+  "watch": "street",
+  "group": "Workday: Elite Boutique",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://guggenheiminvestment.wd5.myworkdayjobs.com/External"
+ },
+ {
+  "firm": "Hamilton Lane",
+  "watch": "street",
+  "group": "Workday: PE & Alts",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://hamiltonlane.wd108.myworkdayjobs.com/search"
+ },
+ {
+  "firm": "Heartland Bank",
+  "watch": "street",
+  "group": "Workday: New Zealand",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://heartland.wd3.myworkdayjobs.com/External"
+ },
+ {
+  "firm": "Houlihan Lokey",
+  "watch": "street",
+  "group": "Workday: Middle Market IB",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://hl.wd1.myworkdayjobs.com/Lateral"
+ },
+ {
+  "firm": "Invesco",
+  "watch": "street",
+  "group": "Workday: Asset Management",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://invesco.wd1.myworkdayjobs.com/IVZ"
+ },
+ {
+  "firm": "KeyBank",
+  "watch": "street",
+  "group": "Workday: Middle Market IB",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://keybank.wd5.myworkdayjobs.com/External_Career_Site"
+ },
+ {
+  "firm": "LPL Financial",
+  "watch": "street",
+  "group": "Workday: Asset Management",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://lplfinancial.wd1.myworkdayjobs.com/External"
+ },
+ {
+  "firm": "LendingClub",
+  "watch": "street",
+  "group": "Workday: Fintech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://lendingclub.wd1.myworkdayjobs.com/External"
+ },
+ {
+  "firm": "Levi Strauss & Co.",
+  "watch": "street",
+  "group": "Workday: Fashion & Luxury",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://levistraussandco.wd5.myworkdayjobs.com/External"
+ },
+ {
+  "firm": "MUFG",
+  "watch": "street",
+  "group": "Workday: Banks",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://mufgub.wd3.myworkdayjobs.com/MUFG-Careers"
+ },
+ {
+  "firm": "Mizuho",
+  "watch": "street",
+  "group": "Workday: Banks",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas"
+ },
+ {
+  "firm": "Moelis & Company",
+  "watch": "street",
+  "group": "Workday: Elite Boutique",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://moelis.wd1.myworkdayjobs.com/Experienced-Hires"
+ },
+ {
+  "firm": "Morgan Stanley",
+  "watch": "street",
+  "group": "Workday: Bulge Bracket",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://ms.wd5.myworkdayjobs.com/External"
+ },
+ {
+  "firm": "Neuberger Berman",
+  "watch": "street",
+  "group": "Workday: Asset Management",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://nb.wd1.myworkdayjobs.com/NBCareers"
+ },
+ {
+  "firm": "Oaktree Capital Management",
+  "watch": "street",
+  "group": "Workday: PE & Alts",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://oaktree.wd1.myworkdayjobs.com/Oaktree"
+ },
+ {
+  "firm": "PGIM",
+  "watch": "street",
+  "group": "Workday: Asset Management",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://pru.wd5.myworkdayjobs.com/PGIM_Careers"
+ },
+ {
+  "firm": "PIMCO",
+  "watch": "street",
+  "group": "Workday: Asset Management",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://pimco.wd1.myworkdayjobs.com/pimco-careers"
+ },
+ {
+  "firm": "PJT Partners",
+  "watch": "street",
+  "group": "Workday: Elite Boutique",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://pjtpartners.wd1.myworkdayjobs.com/Careers"
+ },
+ {
+  "firm": "Richemont",
+  "watch": "street",
+  "group": "Workday: Fashion & Luxury",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://richemont.wd3.myworkdayjobs.com/Richemont"
+ },
+ {
+  "firm": "Sixth Street",
+  "watch": "street",
+  "group": "Workday: PE & Alts",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://sixthstreet.wd1.myworkdayjobs.com/SixthStreetCareers"
+ },
+ {
+  "firm": "State Street",
+  "watch": "street",
+  "group": "Workday: Banks",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://statestreet.wd1.myworkdayjobs.com/Global"
+ },
+ {
+  "firm": "TD Bank",
+  "watch": "street",
+  "group": "Workday: Banks",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://td.wd3.myworkdayjobs.com/TD_Bank_Careers"
+ },
+ {
+  "firm": "Tapestry",
+  "watch": "street",
+  "group": "Workday: Fashion & Luxury",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://tapestry.wd108.myworkdayjobs.com/Tapestry_Careers"
+ },
+ {
+  "firm": "U.S. Bancorp",
+  "watch": "street",
+  "group": "Workday: Banks",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://usbank.wd1.myworkdayjobs.com/US_Bank_Careers"
+ },
+ {
+  "firm": "Visa",
+  "watch": "street",
+  "group": "Workday: Fintech",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://visa.wd5.myworkdayjobs.com/Visa"
+ },
+ {
+  "firm": "Wellington Management",
+  "watch": "street",
+  "group": "Workday: Asset Management",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://wellington.wd5.myworkdayjobs.com/External"
+ },
+ {
+  "firm": "Wells Fargo",
+  "watch": "street",
+  "group": "Workday: Bulge Bracket",
+  "reason": "blocked",
+  "note": "Workday has blocked our reader since Nov 16, 2026, so new roles here are often missed. Roles already found stay on the board. Check the careers page yourself.",
+  "url": "https://wf.wd1.myworkdayjobs.com/WellsFargoJobs"
  }
 ]
