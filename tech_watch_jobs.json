@@ -90,24 +90,6 @@
     "orig_first_seen": null
   },
   {
-    "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0122029EXTERNALENUS",
-    "title": "Data Engineer",
-    "location": "Charlotte, North Carolina, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Charlotte-NC/Data-Engineer_R0122029",
-    "source": "phenom",
-    "posted_date": "2026-11-19",
-    "metro": "Charlotte",
-    "sector": "Finance",
-    "pay_min": null,
-    "pay_max": null,
-    "pay_period": null,
-    "first_seen": "2026-11-19",
-    "is_new": false,
-    "repost_count": 0,
-    "orig_first_seen": null
-  },
-  {
     "firm": "DRW",
     "id": "gh-drweng-8230509",
     "title": "AI Inference Platform Engineer",
@@ -300,10 +282,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-11-16",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-16",
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -318,10 +300,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-11-16",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-16",
+    "is_new": false
   },
   {
     "firm": "Carlyle",
@@ -336,10 +318,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-09-27",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-09-27",
+    "is_new": false
   },
   {
     "firm": "Cloaked",
@@ -624,10 +606,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-09-27",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-09-27",
+    "is_new": false
   },
   {
     "firm": "MotherDuck",
@@ -990,6 +972,24 @@
     "orig_first_seen": null
   },
   {
+    "firm": "Regions Securities",
+    "id": "phenom-careers.regions.com-RFCOUSR106825ENUSEXTERNAL",
+    "title": "Cloud Data Engineer - AI Platform",
+    "location": "Hoover, Alabama, United States of America",
+    "url": "https://regions.wd5.myworkdayjobs.com/Regions_Careers/job/Hoover-AL---Riverchase-Operations-Center-Birmingham-AL/Cloud-Data-Engineer---AI-Platform_R106825",
+    "source": "phenom",
+    "posted_date": "2026-11-23",
+    "metro": "Other US",
+    "sector": "Finance",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
+    "first_seen": "2026-10-14",
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
     "firm": "Robert Half",
     "id": "roberthalf-04820-0013472516-usen",
     "title": "Data Engineer \u00b7 Direct hire",
@@ -1224,6 +1224,24 @@
     "orig_first_seen": null
   },
   {
+    "firm": "Truist Securities",
+    "id": "phenom-careers.truist.com-TBJTBFUSR0120705EXTERNALENUS",
+    "title": "Data Transmission Infrastructure Engineer",
+    "location": "Raleigh, North Carolina, USA",
+    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Raleigh-NC/Data-Transmission-Infrastructure-Engineer_R0120705",
+    "source": "phenom",
+    "posted_date": "2026-11-10",
+    "metro": "Other US",
+    "sector": "Finance",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
+    "first_seen": "2026-10-13",
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
     "firm": "Turbopuffer",
     "id": "ashby-turbopuffer-317f14bf-49dc-46ae-a4d8-6aea3fa41ecc",
     "title": "database engineer",
@@ -1291,6 +1309,24 @@
     "pay_max": 186000,
     "pay_period": "year",
     "first_seen": "2026-11-20",
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "Allstate",
+    "id": "wd-allstate-allstate_careers-/job/US---Remote/Managing-Engineer--Data-Engineering_R35362-1",
+    "title": "Managing Engineer, Data Engineering",
+    "location": "US - Remote",
+    "url": "https://allstate.wd5.myworkdayjobs.com/allstate_careers/job/US---Remote/Managing-Engineer--Data-Engineering_R35362-1",
+    "source": "workday",
+    "posted_date": "2026-10-23",
+    "metro": "Remote (US)",
+    "sector": "Finance",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
+    "first_seen": "2026-10-05",
     "is_new": false,
     "repost_count": 0,
     "orig_first_seen": null
@@ -1525,6 +1561,24 @@
     "pay_max": 170000,
     "pay_period": "year",
     "first_seen": "2026-11-17",
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "Adobe",
+    "id": "wd-adobe-external_experienced-/job/San-Jose/Finance-Lead--Marketing-Finance_R171712",
+    "title": "Business Intelligence Engineer, Marketing Finance",
+    "location": "San Jose",
+    "url": "https://adobe.wd5.myworkdayjobs.com/external_experienced/job/San-Jose/Finance-Lead--Marketing-Finance_R171712",
+    "source": "workday",
+    "posted_date": "2026-11-02",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
+    "first_seen": "2026-11-02",
     "is_new": false,
     "repost_count": 0,
     "orig_first_seen": null
@@ -1926,6 +1980,24 @@
     "orig_first_seen": null
   },
   {
+    "firm": "KLA",
+    "id": "wd-kla-Search-/job/Milpitas-CA/Agentic-AI-Software-Engineer---Equipment-Data-Analytics_2641710",
+    "title": "Agentic AI Software Engineer - Equipment Data Analytics",
+    "location": "Milpitas, CA",
+    "url": "https://kla.wd1.myworkdayjobs.com/Search/job/Milpitas-CA/Agentic-AI-Software-Engineer---Equipment-Data-Analytics_2641710",
+    "source": "workday",
+    "posted_date": "2026-11-03",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
+    "first_seen": "2026-11-17",
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
     "firm": "Luma AI",
     "id": "ashby-lumaai-d2ecd718-6ba4-42a4-a067-e5f8c4c8bb1d",
     "title": "Research Scientist / Engineer \u2013 Training Infrastructure",
@@ -2070,6 +2142,24 @@
     "orig_first_seen": null
   },
   {
+    "firm": "NVIDIA",
+    "id": "wd-nvidia-NVIDIAExternalCareerSite-/job/US-CA-Santa-Clara/Data-Application-Engineer--Enterprise-Data-Management_JR2024551",
+    "title": "Data Application Engineer, Enterprise Data Management",
+    "location": "US, CA, Santa Clara",
+    "url": "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Data-Application-Engineer--Enterprise-Data-Management_JR2024551",
+    "source": "workday",
+    "posted_date": "2026-11-23",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
+    "first_seen": "2026-09-27",
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
     "firm": "OpenAI",
     "id": "ashby-openai-c25fd30e-056e-4a26-af80-7ea1074fc56e",
     "title": "Data Engineer, Hardware & Consumer Devices",
@@ -2120,6 +2210,24 @@
     "pay_period": null,
     "first_seen": "2026-11-02",
     "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "Perplexity",
+    "id": "ashby-perplexity-9e738c21-f2ab-49d7-b545-b519bb2cf8ae",
+    "title": "Member of Technical Staff (Software Engineer, SPACE - Sandbox Platform)",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/Perplexity/9e738c21-f2ab-49d7-b545-b519bb2cf8ae",
+    "source": "ashby",
+    "posted_date": "2026-11-23",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
+    "first_seen": "2026-11-23",
+    "is_new": true,
     "repost_count": 0,
     "orig_first_seen": null
   },
@@ -2304,6 +2412,24 @@
     "orig_first_seen": null
   },
   {
+    "firm": "Roblox",
+    "id": "gh-roblox-8395051",
+    "title": "Software Engineer, Data Tooling",
+    "location": "San Mateo, CA, United States",
+    "url": "https://careers.roblox.com/jobs/8395051?gh_jid=8395051",
+    "source": "greenhouse",
+    "posted_date": "2026-11-23",
+    "metro": "SF Bay Area",
+    "sector": "Gaming",
+    "pay_min": 153120,
+    "pay_max": 196750,
+    "pay_period": "year",
+    "first_seen": "2026-11-23",
+    "is_new": true,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
     "firm": "Thinking Machines",
     "id": "ashby-thinkingmachines-ec5f88b6-e221-499c-bc8f-a27b66213b87",
     "title": "Software Engineer, Data Infrastructure",
@@ -2394,24 +2520,6 @@
     "orig_first_seen": null
   },
   {
-    "firm": "Meta",
-    "id": "meta-1095477260156217",
-    "title": "Hardware Data Engineer - Meta Robotics Studio",
-    "location": "Redmond, WA",
-    "url": "https://www.metacareers.com/profile/job_details/1095477260156217",
-    "source": "meta",
-    "posted_date": null,
-    "metro": "Seattle",
-    "sector": "Tech",
-    "pay_min": null,
-    "pay_max": null,
-    "pay_period": null,
-    "first_seen": "2026-11-09",
-    "is_new": false,
-    "repost_count": 0,
-    "orig_first_seen": null
-  },
-  {
     "firm": "SpaceX",
     "id": "gh-spacex-8694609002",
     "title": "Data Engineer (Starlink Mobile)",
@@ -2444,6 +2552,24 @@
     "pay_period": "year",
     "first_seen": "2026-11-20",
     "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "Stripe",
+    "id": "gh-stripe-8411927",
+    "title": "Software Engineer, Data Warehouse Analytics",
+    "location": "Seattle, WA",
+    "url": "https://stripe.com/jobs/search?gh_jid=8411927",
+    "source": "greenhouse",
+    "posted_date": "2026-11-23",
+    "metro": "Seattle",
+    "sector": "Fintech",
+    "pay_min": 174595,
+    "pay_max": 235200,
+    "pay_period": "year",
+    "first_seen": "2026-11-23",
+    "is_new": true,
     "repost_count": 0,
     "orig_first_seen": null
   },
