@@ -27,6 +27,15 @@ import requests
 UA = {"User-Agent": "street-watch/0.2 (personal job tracker)"}
 TIMEOUT = 25
 
+# Boards whose fetch errored this run (e.g. Workday's bot check, which since
+# 2026-11-16 answers most requests from CI with a 429 page). Filled by the
+# fetchers, read by carry_forward(); see there.
+FAILED_BOARDS = set()
+
+
+def mark_failed(firm):
+    FAILED_BOARDS.add(firm)   # set.add is atomic under the GIL; workers call this
+
 # ---------------------------------------------------------------- registries
 GREENHOUSE = {   # firm -> board token  (boards-api.greenhouse.io/v1/boards/<token>/jobs)
     "Jane Street": "janestreet", "DRW": "drweng", "IMC Trading": "imc",
@@ -654,6 +663,7 @@ def fetch_workday_site(firm, dc, tenant, site):
             time.sleep(0.25)
     except Exception as e:
         print(f"  ! workday-site {firm}: {e}", file=sys.stderr)
+        mark_failed(firm)
     return out
 
 
@@ -720,6 +730,7 @@ def fetch_workday(firm, tenant, dc, site, search_text="", relevant=None, facets=
             time.sleep(0.25)
     except Exception as e:
         print(f"  ! workday {firm}: {e}", file=sys.stderr)
+        mark_failed(firm)
     if expand_locations:
         for row in out:
             if not _WD_MULTI_LOC_RE.match(row["location"]) or not title_ok(firm, row["title"]):
@@ -2494,7 +2505,8 @@ def filter_rows(raw):
 NEW_JOB_COLS = ("pay_min", "pay_max", "pay_period", "repost_count", "orig_first_seen")
 
 
-def push_supabase(rows, table="jobs", apps_table="applications", max_age_days=None, prune_firms=()):
+def push_supabase(rows, table="jobs", apps_table="applications", max_age_days=None, prune_firms=(),
+                  keep_firms=()):
     url, key = os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_SERVICE_KEY")
     if not (url and key):
         print("Supabase env not set — skipping DB upsert."); return
@@ -2574,7 +2586,8 @@ def push_supabase(rows, table="jobs", apps_table="applications", max_age_days=No
             if tracked else {})
     # prune_firms: firms whose feed worked but whose every role a late filter
     # dropped, so they have no row here yet their old rows should still go.
-    for firm in sorted({r["firm"] for r in rows} | set(prune_firms)):
+    # keep_firms: boards that errored this run (partly fetched at best) — skip.
+    for firm in sorted(({r["firm"] for r in rows} | set(prune_firms)) - set(keep_firms)):
         try:
             d = requests.delete(f"{url}/rest/v1/{table}",
                                 headers={**headers, "Prefer": "return=minimal"},
@@ -3456,6 +3469,43 @@ def _repost_key(j):
             re.sub(r"\s+", " ", j["location"]).strip().lower())
 
 
+CARRY_KEY = "__carried__"   # state: posting id -> first day it was carried forward
+CARRY_MAX_DAYS = 7
+
+
+def carry_forward(jobs, raw, prev_jobs, state, today, keep=lambda j: True):
+    """Keep a failed board's roles on the board (added 2026-11-23).
+
+    When a board errors (FAILED_BOARDS), its roles used to drop off the board
+    and the newsletter, then come back on the next good run; a board that
+    failed half-way also looked like it had taken roles down. Now each role of
+    a failed firm that was on the previous board but isn't in today's rows is
+    kept as it was, for up to CARRY_MAX_DAYS in a row, then let go. `keep`
+    re-applies the age cap. Returns (jobs, raw_ok, failed): raw_ok is `raw`
+    without the failed firms, for the takedown check and trends, which then
+    treat those firms as "feed down today, can't tell"."""
+    failed = set(FAILED_BOARDS)
+    carried = state.get(CARRY_KEY) or {}
+    have = {j["id"] for j in jobs}
+    added = []
+    for p in prev_jobs:
+        if p["firm"] not in failed or p["id"] in have or not keep(p):
+            continue
+        since = carried.get(p["id"], today)
+        if (datetime.strptime(today, "%Y-%m-%d") - datetime.strptime(since, "%Y-%m-%d")).days >= CARRY_MAX_DAYS:
+            continue
+        carried[p["id"]] = since
+        have.add(p["id"])
+        added.append({k: v for k, v in p.items() if k not in ("is_new", "first_seen")})
+    kept_ids = {a["id"] for a in added}
+    state[CARRY_KEY] = {i: d for i, d in carried.items() if i in kept_ids}
+    if failed:
+        print(f"  {len(failed)} board(s) failed; kept {len(added)} of their roles from the last good run: "
+              + ", ".join(sorted(failed))[:400], flush=True)
+    raw_ok = [r for r in raw if r["firm"] not in failed]
+    return jobs + added, raw_ok, failed
+
+
 def assign_first_seen(jobs, state, prev_jobs, today):
     """Set first_seen / is_new from the id -> date state; returns the new count.
     Boards sometimes re-key every listing overnight (Citi's Radancy site issued
@@ -3546,6 +3596,9 @@ def main():
     prev = json.load(open("street_watch_jobs.json", encoding="utf-8")) if os.path.exists("street_watch_jobs.json") else []
     jobs, raw = collect()
     live_firms = {j["firm"] for j in jobs}
+    jobs, raw, failed = carry_forward(jobs, raw, prev, state, today,
+                                      keep=lambda j: age_ok(j.get("posted_date"),
+                                                           VC_MAX_AGE_DAYS if j["firm"] in VC_FIRMS else None))
     jobs = drop_over_experience(jobs, state)
 
     new = assign_first_seen(jobs, state, prev, today)
@@ -3559,7 +3612,7 @@ def main():
             w.writerow([j["metro"], j["firm"], j["title"], j["location"], j["source"],
                         j.get("posted_date"), j["first_seen"], j["is_new"], j["url"]])
 
-    push_supabase(jobs, prune_firms=live_firms)
+    push_supabase(jobs, prune_firms=live_firms - failed, keep_firms=failed)
     taken = flag_taken_down(raw, today)
 
     trends = json.load(open(TRENDS_FILE)) if os.path.exists(TRENDS_FILE) else {}

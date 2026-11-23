@@ -85,6 +85,29 @@ export function researchLinks(firm, title = "") {
   ];
 }
 
+// People to reach out to about a role: LinkedIn people searches (links only,
+// nothing is fetched). The hiring manager and a technical recruiter are who
+// move an application; engineers on the team are the referral route. Mirrors
+// contact_links() in tech_pipeline.py (newsletter).
+export function contactLinks(firm, team = "data engineering") {
+  const q = (s) => `https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(s)}`;
+  return [
+    { label: "Hiring manager", url: q(`${firm} ${team} manager`) },
+    { label: "Tech recruiter", url: q(`${firm} technical recruiter`) },
+    { label: "Engineers (referral)", url: q(`${firm} data engineer`) },
+  ];
+}
+
+// "Fresh": posted in the last 24h. posted_date is a day, so that's today or
+// yesterday; a board with no post date falls back to the day we first saw it.
+export const FRESH_DAYS = 1;
+export function isFresh(j) {
+  const d = j.posted_date || j.first_seen;
+  if (!d || j.custom || j.taken_down_on) return false;
+  const t = Date.parse(d.slice(0, 10) + "T00:00:00Z");
+  return !isNaN(t) && Math.floor((Date.now() - t) / 86400000) <= FRESH_DAYS;
+}
+
 // --- CSV export -----------------------------------------------------------
 const CSV_COLS = ["firm", "title", "status", "applied_at", "location", "metro", "source", "url", "notes"];
 

@@ -145,6 +145,7 @@ body.tw-body .addBtn, body.tw-body .clearBtn { border-radius: 7px; }
 .tw-row-tags { display: flex; align-items: center; gap: 6px; }
 .tw-badge { font-size: 11px; padding: 1px 7px; border-radius: 5px; background: var(--tw-side); color: var(--tw-soft); }
 .tw-badge.new { background: var(--tw-newS); color: var(--tw-new); }
+.tw-badge.fresh { background: var(--tw-new); color: var(--tw-bg); font-weight: 600; }
 .tw-badge.sec-tech { background: var(--tw-techS); color: var(--tw-tech); }
 .tw-badge.sec-fintech { background: var(--tw-ftcS); color: var(--tw-ftc); }
 .tw-badge.sec-finance { background: var(--tw-finS); color: var(--tw-fin); }
