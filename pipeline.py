@@ -27,6 +27,15 @@ import requests
 UA = {"User-Agent": "street-watch/0.2 (personal job tracker)"}
 TIMEOUT = 25
 
+# Boards whose fetch errored this run (e.g. Workday's bot check, which since
+# 2026-11-16 answers most requests from CI with a 429 page). Filled by the
+# fetchers, read by carry_forward(); see there.
+FAILED_BOARDS = set()
+
+
+def mark_failed(firm):
+    FAILED_BOARDS.add(firm)   # set.add is atomic under the GIL; workers call this
+
 # ---------------------------------------------------------------- registries
 GREENHOUSE = {   # firm -> board token  (boards-api.greenhouse.io/v1/boards/<token>/jobs)
     "Jane Street": "janestreet", "DRW": "drweng", "IMC Trading": "imc",
@@ -654,7 +663,16 @@ def fetch_workday_site(firm, dc, tenant, site):
             time.sleep(0.25)
     except Exception as e:
         print(f"  ! workday-site {firm}: {e}", file=sys.stderr)
+        mark_failed(firm)
     return out
+
+
+def _retry_after(r, default):
+    """Seconds a 429 asks us to wait (Retry-After), capped at 60; else `default`."""
+    try:
+        return min(60, max(1, int(r.headers.get("Retry-After", ""))))
+    except ValueError:
+        return default
 
 
 def fetch_workday(firm, tenant, dc, site, search_text="", relevant=None, facets=None,
@@ -673,12 +691,12 @@ def fetch_workday(firm, tenant, dc, site, search_text="", relevant=None, facets=
     try:
         while True:
             body = {"appliedFacets": facets or {}, "limit": LIMIT, "offset": offset, "searchText": search_text}
-            for attempt in range(3):     # Workday rate-limits bursts (Salesforce 429s)
+            for attempt in range(4):     # Workday rate-limits bursts (Salesforce, NVIDIA 429s)
                 r = requests.post(base, headers={**UA, "Content-Type": "application/json"},
                                   json=body, timeout=TIMEOUT)
-                if r.status_code != 429:
+                if r.status_code != 429 or attempt == 3:
                     break
-                time.sleep(5 * (attempt + 1))
+                time.sleep(_retry_after(r, 5 * (attempt + 1)))
             r.raise_for_status()
             data = r.json()
             posts = data.get("jobPostings", [])
@@ -712,6 +730,7 @@ def fetch_workday(firm, tenant, dc, site, search_text="", relevant=None, facets=
             time.sleep(0.25)
     except Exception as e:
         print(f"  ! workday {firm}: {e}", file=sys.stderr)
+        mark_failed(firm)
     if expand_locations:
         for row in out:
             if not _WD_MULTI_LOC_RE.match(row["location"]) or not title_ok(firm, row["title"]):
@@ -1725,36 +1744,29 @@ def fetch_qjumpers(firm, sub):
             for href, jid, title, loc in _QJ_CARD.findall(r.text)]
 
 
-def collect_nz():
-    """Every New Zealand source; collect() files the rows under "New Zealand"."""
-    raw = []
-    print("New Zealand…")
-    for f, nm in NZ_ASHBY.items():
-        rows = fetch_ashby(f, nm); print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    for f, sub in NZ_BAMBOOHR.items():
-        rows = fetch_bamboohr(f, sub); print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    for f, (t, dc, s) in NZ_WORKDAY.items():
-        rows = fetch_workday(f, t, dc, s); print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    for f, (host, num, name) in NZ_ORACLE.items():
-        rows = fetch_oracle(f, host, num, name); print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    for f, host in NZ_SUCCESSFACTORS.items():
-        rows = fetch_successfactors(f, host, locations=("NZ",)); print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    for f, (host, domain, loc, ms) in NZ_EIGHTFOLD_PCSX.items():
-        rows = fetch_eightfold_pcsx(f, host, domain, loc, microsite=ms); print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    for f, (host, country, lang) in NZ_PHENOM.items():
-        rows = fetch_phenom(f, host, country, lang, selected={"country": ["New Zealand"]})
-        print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    for f, slug in NZ_LEVER.items():
-        rows = fetch_lever(f, slug, _BIG4_TEAM_RE); print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    for f, co in NZ_SMARTRECRUITERS.items():
-        rows = fetch_smartrecruiters(f, co, _BIG4_TEAM_RE); print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    for f, sub in NZ_ELMO.items():
-        rows = fetch_elmo(f, sub); print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    for f, sub in NZ_QJUMPERS.items():
-        rows = fetch_qjumpers(f, sub); print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    rows = fetch_robert_half("Robert Half", ROBERT_HALF_NZ_SEARCHES, country="nz")
-    print(f"  {'Robert Half (NZ)':<24}{len(rows):>4}"); raw += rows
-    return raw
+def nz_tasks():
+    """Every New Zealand source, as fetch tasks; collect() files the rows under
+    "New Zealand"."""
+    return ([task("NZ Ashby", f, "ashby", fetch_ashby, nm) for f, nm in NZ_ASHBY.items()]
+            + [task("NZ BambooHR", f, sub, fetch_bamboohr, sub) for f, sub in NZ_BAMBOOHR.items()]
+            + [task("NZ Workday", f, f"workday:{dc}", fetch_workday, t, dc, s)
+               for f, (t, dc, s) in NZ_WORKDAY.items()]
+            + [task("NZ Oracle", f, host, fetch_oracle, host, num, name)
+               for f, (host, num, name) in NZ_ORACLE.items()]
+            + [task("NZ SuccessF.", f, host, fetch_successfactors, host, locations=("NZ",))
+               for f, host in NZ_SUCCESSFACTORS.items()]
+            + [task("NZ Eightfold", f, host, fetch_eightfold_pcsx, host, domain, loc, microsite=ms)
+               for f, (host, domain, loc, ms) in NZ_EIGHTFOLD_PCSX.items()]
+            + [task("NZ Phenom", f, host, fetch_phenom, host, country, lang,
+                    selected={"country": ["New Zealand"]})
+               for f, (host, country, lang) in NZ_PHENOM.items()]
+            + [task("NZ Lever", f, "lever", fetch_lever, slug, _BIG4_TEAM_RE) for f, slug in NZ_LEVER.items()]
+            + [task("NZ SmartRecr.", f, "smartrecruiters", fetch_smartrecruiters, co, _BIG4_TEAM_RE)
+               for f, co in NZ_SMARTRECRUITERS.items()]
+            + [task("NZ ELMO", f, sub, fetch_elmo, sub) for f, sub in NZ_ELMO.items()]
+            + [task("NZ QJumpers", f, sub, fetch_qjumpers, sub) for f, sub in NZ_QJUMPERS.items()]
+            + [task("NZ agency", "Robert Half", "roberthalf", fetch_robert_half,
+                    ROBERT_HALF_NZ_SEARCHES, country="nz")])
 
 
 # NZ "Senior Analyst/Associate/Consultant" titles are kept only when the posting
@@ -2330,92 +2342,129 @@ def age_ok(posted_date, max_days=None):
     return (datetime.now(timezone.utc).date() - d).days <= (max_days or MAX_AGE_DAYS)
 
 
-def collect():
-    raw = []
-    print("Greenhouse…")
-    for f, tok in GREENHOUSE.items():
-        rows = fetch_greenhouse(f, tok); print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    print("Ashby…")
-    for f, nm in ASHBY.items():
-        rows = fetch_ashby(f, nm); print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    print("Jibe/iCIMS…")
-    for f, host in JIBE.items():
-        rows = fetch_jibe(f, host); print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    print("Pinpoint…")
-    for f, host in PINPOINT.items():
-        rows = fetch_pinpoint(f, host); print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    print("Oracle Recruiting…")
-    for f, (host, num, name) in ORACLE.items():
-        rows = fetch_oracle(f, host, num, name); print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    print("HRM Direct…")
-    for f, host in HRMDIRECT.items():
-        rows = fetch_hrmdirect(f, host); print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    print("PageUp…")
-    for f, (host, locale) in PAGEUP.items():
-        rows = fetch_pageup(f, host, locale); print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    print("iCIMS…")
-    for f, host in ICIMS.items():
-        rows = fetch_icims(f, host); print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    print("Workday…")
-    for f, (t, dc, s) in WORKDAY.items():
-        rows = fetch_workday(f, t, dc, s, facets=WORKDAY_FACETS.get(f),
-                             expand_locations=f in WORKDAY_EXPAND_LOCATIONS)
-        print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    print("Workday (myworkdaysite)…")
-    for f, (dc, t, s) in WORKDAY_SITE.items():
-        rows = fetch_workday_site(f, dc, t, s); print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    print("Goldman Sachs (higher.gs)…")
-    rows = fetch_goldman("Goldman Sachs"); print(f"  {'Goldman Sachs':<24}{len(rows):>4}"); raw += rows
-    print("Citadel Securities (cloudscraper)…")
-    rows = fetch_citadel("Citadel Securities"); print(f"  {'Citadel Securities':<24}{len(rows):>4}"); raw += rows
-    print("Radancy…")
-    for f, host in RADANCY.items():
-        rows = fetch_radancy(f, host, f.lower().split()[0]); print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    print("Phenom People…")
-    for f, (host, country, lang) in PHENOM.items():
-        kw = PHENOM_KEYWORDS.get(f, "")
-        rows = fetch_phenom(f, host, country, lang, keywords=kw)
-        if kw:
-            rows = [r for r in rows if kw.lower() in r["title"].lower()]
-        print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    print("Eightfold…")
-    for f, (host, domain, loc) in EIGHTFOLD.items():
-        rows = fetch_eightfold(f, host, domain, loc); print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    print("Eightfold (pcsx)…")
-    for f, (host, domain, loc) in EIGHTFOLD_PCSX.items():
-        rows = fetch_eightfold_pcsx(f, host, domain, loc); print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    print("SuccessFactors…")
-    for f, host in SUCCESSFACTORS.items():
-        rows = fetch_successfactors(f, host); print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    print("Jobvite…")
-    for f, slug in JOBVITE.items():
-        rows = fetch_jobvite(f, slug); print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    print("BambooHR…")
-    for f, sub in BAMBOOHR.items():
-        rows = fetch_bamboohr(f, sub); print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    print("Paylocity…")
-    for f, guid in PAYLOCITY.items():
-        rows = fetch_paylocity(f, guid); print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    print("Lever…")
-    for f, slug in LEVER.items():
-        rows = fetch_lever(f, slug); print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    print("JazzHR…")
-    for f, sub in JAZZHR.items():
-        rows = fetch_jazzhr(f, sub); print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    print("Oleeo (tal.net)…")
-    for f, (host, boards) in OLEEO.items():
-        rows = fetch_oleeo(f, host, boards, relevant=lambda t, f=f: title_ok(f, t))
-        print(f"  {f:<24}{len(rows):>4}"); raw += rows
-    print("Rago | Wright (ragoarts.com)…")
-    rows = fetch_rago(); print(f"  {'Rago | Wright':<24}{len(rows):>4}"); raw += rows
-    print("LVMH (lvmh.com)…")
-    rows = fetch_lvmh("LVMH"); print(f"  {'LVMH':<24}{len(rows):>4}"); raw += rows
-    print("Staffing agencies…")
-    for f, fetch in (("Robert Half", fetch_robert_half), ("Randstad", fetch_randstad),
-                     ("Michael Page", fetch_michael_page), ("Aston Carter", fetch_aston_carter)):
-        rows = fetch(f); print(f"  {f:<24}{len(rows):>4}"); raw += rows
+# ---------------------------------------------------------------- parallel fetch
+# Each run checks several hundred boards. Done one after another that took
+# 35-60 min, nearly all of it waiting on slow sites, so the newsletter missed
+# 9am (2026-11-18). Boards are now fetched FETCH_WORKERS at a time. A task's
+# `key` names the server it hits; at most KEY_LIMITS[key prefix] (else
+# DEFAULT_KEY_LIMIT) tasks share a key at once, so one ATS host never sees a
+# burst bigger than it did from a sequential run times that limit. Workday is
+# keyed per data center (wd1, wd5, ...), the shared hosts that send the 429s.
+FETCH_WORKERS = int(os.environ.get("FETCH_WORKERS") or 12)
+KEY_LIMITS = {"workday": 3, "wdsite": 2, "greenhouse": 6, "ashby": 4, "lever": 4,
+              "smartrecruiters": 3}
+DEFAULT_KEY_LIMIT = 2
 
-    raw += collect_nz()
+
+def task(family, firm, key, fn, *args, **kw):
+    """One board fetch for run_parallel: fn(firm, *args, **kw) -> rows."""
+    return (family, firm, key, lambda: fn(firm, *args, **kw))
+
+
+def run_parallel(tasks, workers=None):
+    """Run fetch tasks on a thread pool, honouring the per-key limits. Returns
+    every row in task order (the same order the old sequential loops produced,
+    so de-dupe keeps the same first copy). Logs each board's row count and time
+    as it finishes, then the slowest boards."""
+    import threading
+    from collections import defaultdict
+    # Keys must be strings: a registry's first value is sometimes a list.
+    pending = [(i, (fam, firm, key if isinstance(key, str) else repr(key), fn))
+               for i, (fam, firm, key, fn) in enumerate(tasks)]
+    results, active = [None] * len(tasks), defaultdict(int)
+    cond = threading.Condition()
+
+    def cap(key):
+        return KEY_LIMITS.get(key.split(":")[0], DEFAULT_KEY_LIMIT)
+
+    def worker():
+        while True:
+            with cond:
+                while True:
+                    if not pending:
+                        return
+                    pick = next((n for n, (_, t) in enumerate(pending) if active[t[2]] < cap(t[2])), None)
+                    if pick is not None:
+                        break
+                    cond.wait()
+                i, (family, firm, key, thunk) = pending.pop(pick)
+                active[key] += 1
+            t0 = time.monotonic()
+            try:
+                rows = thunk() or []
+            except Exception as e:          # fetchers catch their own errors; belt and braces
+                print(f"  ! {family} {firm}: {e}", file=sys.stderr, flush=True)
+                rows = []
+            secs = time.monotonic() - t0
+            print(f"  {family:<16}{firm:<30}{len(rows):>5}{secs:>7.1f}s", flush=True)
+            with cond:
+                active[key] -= 1
+                results[i] = (rows, secs, f"{family} {firm}")
+                cond.notify_all()
+
+    start = time.monotonic()
+    threads = [threading.Thread(target=worker, daemon=True)
+               for _ in range(min(workers or FETCH_WORKERS, len(tasks)) or 1)]
+    for th in threads:
+        th.start()
+    for th in threads:
+        th.join()
+    # A scheduler bug must fail the run, never pass off a partial board list as
+    # complete (trends would read every missing role as taken down).
+    missing = [t[1] for t, r in zip(tasks, results) if r is None]
+    if missing:
+        raise RuntimeError(f"run_parallel: {len(missing)} boards never ran: {missing[:10]}")
+    slow = sorted(results, key=lambda r: -r[1])[:10]
+    print(f"Fetched {len(tasks)} boards in {time.monotonic() - start:.0f}s. Slowest: "
+          + ", ".join(f"{name} {secs:.0f}s" for _, secs, name in slow), flush=True)
+    return [row for r in results if r for row in r[0]]
+
+
+def _phenom_kw(f, host, country, lang):
+    """Phenom fetch with PHENOM_KEYWORDS' server-side search + title check."""
+    kw = PHENOM_KEYWORDS.get(f, "")
+    rows = fetch_phenom(f, host, country, lang, keywords=kw)
+    return [r for r in rows if kw.lower() in r["title"].lower()] if kw else rows
+
+
+def collect():
+    print("Fetching boards…", flush=True)
+    T = ([task("Greenhouse", f, "greenhouse", fetch_greenhouse, tok) for f, tok in GREENHOUSE.items()]
+         + [task("Ashby", f, "ashby", fetch_ashby, nm) for f, nm in ASHBY.items()]
+         + [task("Jibe", f, host, fetch_jibe, host) for f, host in JIBE.items()]
+         + [task("Pinpoint", f, host, fetch_pinpoint, host) for f, host in PINPOINT.items()]
+         + [task("Oracle", f, host, fetch_oracle, host, num, name) for f, (host, num, name) in ORACLE.items()]
+         + [task("HRM Direct", f, host, fetch_hrmdirect, host) for f, host in HRMDIRECT.items()]
+         + [task("PageUp", f, host, fetch_pageup, host, locale) for f, (host, locale) in PAGEUP.items()]
+         + [task("iCIMS", f, host, fetch_icims, host) for f, host in ICIMS.items()]
+         + [task("Workday", f, f"workday:{dc}", fetch_workday, t, dc, s, facets=WORKDAY_FACETS.get(f),
+                 expand_locations=f in WORKDAY_EXPAND_LOCATIONS) for f, (t, dc, s) in WORKDAY.items()]
+         + [task("Workday site", f, f"wdsite:{dc}", fetch_workday_site, dc, t, s)
+            for f, (dc, t, s) in WORKDAY_SITE.items()]
+         + [task("Goldman", "Goldman Sachs", "goldman", fetch_goldman),
+            task("Citadel", "Citadel Securities", "citadel", fetch_citadel)]
+         + [task("Radancy", f, host, fetch_radancy, host, f.lower().split()[0]) for f, host in RADANCY.items()]
+         + [task("Phenom", f, host, _phenom_kw, host, country, lang)
+            for f, (host, country, lang) in PHENOM.items()]
+         + [task("Eightfold", f, host, fetch_eightfold, host, domain, loc)
+            for f, (host, domain, loc) in EIGHTFOLD.items()]
+         + [task("Eightfold pcsx", f, host, fetch_eightfold_pcsx, host, domain, loc)
+            for f, (host, domain, loc) in EIGHTFOLD_PCSX.items()]
+         + [task("SuccessFactors", f, host, fetch_successfactors, host) for f, host in SUCCESSFACTORS.items()]
+         + [task("Jobvite", f, "jobvite", fetch_jobvite, slug) for f, slug in JOBVITE.items()]
+         + [task("BambooHR", f, sub, fetch_bamboohr, sub) for f, sub in BAMBOOHR.items()]
+         + [task("Paylocity", f, "paylocity", fetch_paylocity, guid) for f, guid in PAYLOCITY.items()]
+         + [task("Lever", f, "lever", fetch_lever, slug) for f, slug in LEVER.items()]
+         + [task("JazzHR", f, sub, fetch_jazzhr, sub) for f, sub in JAZZHR.items()]
+         + [task("Oleeo", f, host, fetch_oleeo, host, boards, relevant=lambda t, f=f: title_ok(f, t))
+            for f, (host, boards) in OLEEO.items()]
+         + [("Rago", "Rago | Wright", "rago", fetch_rago),
+            task("LVMH", "LVMH", "lvmh", fetch_lvmh)]
+         + [task("Agency", f, f.lower().replace(" ", ""), fetch)
+            for f, fetch in (("Robert Half", fetch_robert_half), ("Randstad", fetch_randstad),
+                             ("Michael Page", fetch_michael_page), ("Aston Carter", fetch_aston_carter))]
+         + nz_tasks())
+    raw = run_parallel(T)
     # `raw` (every posting each feed returned, before our filters) lets the
     # trends tracker tell a role the firm took down from one we filtered out.
     return filter_rows(raw), raw
@@ -2456,7 +2505,8 @@ def filter_rows(raw):
 NEW_JOB_COLS = ("pay_min", "pay_max", "pay_period", "repost_count", "orig_first_seen")
 
 
-def push_supabase(rows, table="jobs", apps_table="applications", max_age_days=None, prune_firms=()):
+def push_supabase(rows, table="jobs", apps_table="applications", max_age_days=None, prune_firms=(),
+                  keep_firms=()):
     url, key = os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_SERVICE_KEY")
     if not (url and key):
         print("Supabase env not set — skipping DB upsert."); return
@@ -2536,7 +2586,8 @@ def push_supabase(rows, table="jobs", apps_table="applications", max_age_days=No
             if tracked else {})
     # prune_firms: firms whose feed worked but whose every role a late filter
     # dropped, so they have no row here yet their old rows should still go.
-    for firm in sorted({r["firm"] for r in rows} | set(prune_firms)):
+    # keep_firms: boards that errored this run (partly fetched at best) — skip.
+    for firm in sorted(({r["firm"] for r in rows} | set(prune_firms)) - set(keep_firms)):
         try:
             d = requests.delete(f"{url}/rest/v1/{table}",
                                 headers={**headers, "Prefer": "return=minimal"},
@@ -3418,6 +3469,43 @@ def _repost_key(j):
             re.sub(r"\s+", " ", j["location"]).strip().lower())
 
 
+CARRY_KEY = "__carried__"   # state: posting id -> first day it was carried forward
+CARRY_MAX_DAYS = 7
+
+
+def carry_forward(jobs, raw, prev_jobs, state, today, keep=lambda j: True):
+    """Keep a failed board's roles on the board (added 2026-11-23).
+
+    When a board errors (FAILED_BOARDS), its roles used to drop off the board
+    and the newsletter, then come back on the next good run; a board that
+    failed half-way also looked like it had taken roles down. Now each role of
+    a failed firm that was on the previous board but isn't in today's rows is
+    kept as it was, for up to CARRY_MAX_DAYS in a row, then let go. `keep`
+    re-applies the age cap. Returns (jobs, raw_ok, failed): raw_ok is `raw`
+    without the failed firms, for the takedown check and trends, which then
+    treat those firms as "feed down today, can't tell"."""
+    failed = set(FAILED_BOARDS)
+    carried = state.get(CARRY_KEY) or {}
+    have = {j["id"] for j in jobs}
+    added = []
+    for p in prev_jobs:
+        if p["firm"] not in failed or p["id"] in have or not keep(p):
+            continue
+        since = carried.get(p["id"], today)
+        if (datetime.strptime(today, "%Y-%m-%d") - datetime.strptime(since, "%Y-%m-%d")).days >= CARRY_MAX_DAYS:
+            continue
+        carried[p["id"]] = since
+        have.add(p["id"])
+        added.append({k: v for k, v in p.items() if k not in ("is_new", "first_seen")})
+    kept_ids = {a["id"] for a in added}
+    state[CARRY_KEY] = {i: d for i, d in carried.items() if i in kept_ids}
+    if failed:
+        print(f"  {len(failed)} board(s) failed; kept {len(added)} of their roles from the last good run: "
+              + ", ".join(sorted(failed))[:400], flush=True)
+    raw_ok = [r for r in raw if r["firm"] not in failed]
+    return jobs + added, raw_ok, failed
+
+
 def assign_first_seen(jobs, state, prev_jobs, today):
     """Set first_seen / is_new from the id -> date state; returns the new count.
     Boards sometimes re-key every listing overnight (Citi's Radancy site issued
@@ -3508,6 +3596,9 @@ def main():
     prev = json.load(open("street_watch_jobs.json", encoding="utf-8")) if os.path.exists("street_watch_jobs.json") else []
     jobs, raw = collect()
     live_firms = {j["firm"] for j in jobs}
+    jobs, raw, failed = carry_forward(jobs, raw, prev, state, today,
+                                      keep=lambda j: age_ok(j.get("posted_date"),
+                                                           VC_MAX_AGE_DAYS if j["firm"] in VC_FIRMS else None))
     jobs = drop_over_experience(jobs, state)
 
     new = assign_first_seen(jobs, state, prev, today)
@@ -3521,7 +3612,7 @@ def main():
             w.writerow([j["metro"], j["firm"], j["title"], j["location"], j["source"],
                         j.get("posted_date"), j["first_seen"], j["is_new"], j["url"]])
 
-    push_supabase(jobs, prune_firms=live_firms)
+    push_supabase(jobs, prune_firms=live_firms - failed, keep_firms=failed)
     taken = flag_taken_down(raw, today)
 
     trends = json.load(open(TRENDS_FILE)) if os.path.exists(TRENDS_FILE) else {}

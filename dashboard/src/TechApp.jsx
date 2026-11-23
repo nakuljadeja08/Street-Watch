@@ -7,7 +7,7 @@ import ManualFirms, { manualFirmCount } from "./ManualFirms.jsx";
 import Notepad from "./Notepad.jsx";
 import {
   needsFollowUp, daysSinceApplied, researchLinks, jobsToCsv, downloadCsv,
-  payLabel, payTop, openDays, staleTitle, recentTakedowns, STALE_DAYS,
+  payLabel, payTop, openDays, staleTitle, recentTakedowns, STALE_DAYS, contactLinks, isFresh,
 } from "./tracker.js";
 import "./tech.css";
 
@@ -60,7 +60,7 @@ const customToJob = (c) => ({
 // "sector:fintech hub:nyc new spark" -> filter spec. Unknown words search.
 export function parseCmd(cmd) {
   const f = {
-    words: [], sector: null, hub: null, status: null, sort: "new", isNew: false, outside: false, followup: false, days: null,
+    words: [], sector: null, hub: null, status: null, sort: "new", isNew: false, fresh: false, outside: false, followup: false, days: null,
     pay: null, paid: false, reposted: false, stale: false, down: false,
   };
   for (const tok of cmd.trim().split(/\s+/).filter(Boolean)) {
@@ -79,6 +79,7 @@ export function parseCmd(cmd) {
     else if (!rest.length && key === "stale") f.stale = true;
     else if (!rest.length && key === "down") f.down = true;
     else if (!rest.length && key === "new") f.isNew = true;
+    else if (!rest.length && key === "fresh") f.fresh = true;
     else if (!rest.length && key === "outside") f.outside = true;
     else if (!rest.length && key === "followup") f.followup = true;
     else if (!rest.length && key === "remote") f.hub = "Remote (US)";
@@ -93,6 +94,7 @@ function matches(j, f, app) {
   if (f.sector && j.sector !== f.sector) return false;
   if (f.hub && j.metro !== f.hub) return false;
   if (f.isNew && !j.is_new) return false;
+  if (f.fresh && !isFresh(j)) return false;
   if (f.outside && !j.custom) return false;
   if (f.followup && !needsFollowUp(app)) return false;
   if (f.paid && payTop(j) === null) return false;
@@ -440,9 +442,10 @@ export default function TechApp({ header, signedIn }) {
   const takedowns = useMemo(() => recentTakedowns(allJobs, tracked), [allJobs, tracked]);
 
   const counts = useMemo(() => {
-    const c = { all: allJobs.length, new: 0, outside: customs.length, followup: 0, sector: {}, hub: {}, status: {} };
+    const c = { all: allJobs.length, new: 0, fresh: 0, outside: customs.length, followup: 0, sector: {}, hub: {}, status: {} };
     for (const j of allJobs) {
       if (j.is_new) c.new++;
+      if (isFresh(j)) c.fresh++;
       c.sector[j.sector] = (c.sector[j.sector] || 0) + 1;
       c.hub[j.metro] = (c.hub[j.metro] || 0) + 1;
       const app = tracked[j.id];
@@ -510,6 +513,7 @@ export default function TechApp({ header, signedIn }) {
     spec.hub && `hub:${SLUG_OF[spec.hub]}`,
     spec.status && `status:${spec.status}`,
     spec.isNew && "new",
+    spec.fresh && "fresh",
     spec.outside && "outside",
     spec.followup && "followup",
     spec.days != null && `age:${spec.days}`,
@@ -539,6 +543,7 @@ export default function TechApp({ header, signedIn }) {
 
           <NavGroup title="Views">
             <NavItem on={!cmd.trim() && view === "list"} n={counts.all} onClick={() => (setCmd(""), setView("list"))}>All roles</NavItem>
+            <NavItem on={hasTok("fresh")} n={counts.fresh} onClick={() => toggleToken("fresh")}>Posted &lt; 24h</NavItem>
             <NavItem on={hasTok("new")} n={counts.new} onClick={() => toggleToken("new")}>New today</NavItem>
             {SECTORS.map((s) => (
               <NavItem key={s} on={spec.sector === s} n={counts.sector[s] || 0} onClick={() => toggleToken(`sector:${s.toLowerCase()}`, "sector")}>
@@ -831,7 +836,11 @@ function Row({ job, on, status, follow, fit, onClick }) {
         {!job.custom && !job.taken_down_on && (openDays(job) ?? 0) >= STALE_DAYS && (
           <span className="tw-badge stale" title={staleTitle(job)}>open {openDays(job)}d</span>
         )}
-        {job.is_new && <span className="tw-badge new">new</span>}
+        {isFresh(job) ? (
+          <span className="tw-badge fresh" title="Posted in the last 24 hours: apply early">⚡ &lt;24h</span>
+        ) : (
+          job.is_new && <span className="tw-badge new">new</span>
+        )}
         {payLabel(job) && <span className="tw-pay">{payLabel(job)}</span>}
         <span className={`tw-badge sec-${(job.sector || "").toLowerCase()}`}>{(job.sector || "").toLowerCase()}</span>
         <span className="tw-age">{age == null ? "–" : `${age}d`}</span>
@@ -949,6 +958,20 @@ function Detail({ job, app, fit, scoring, aiReady, hasDraft, onStatus, onNotes, 
         <div className="tw-section">
           <h3>Recruiters</h3>
           {recruiters}
+        </div>
+      )}
+
+      {!job.custom && (
+        <div className="tw-section">
+          <h3>Who to reach</h3>
+          <div className="tw-research">
+            {contactLinks(job.firm).map((l) => (
+              <a key={l.label} className="tw-btn ghost small" href={l.url} target="_blank" rel="noopener noreferrer">
+                {l.label} ↗
+              </a>
+            ))}
+          </div>
+          <div className="tw-hint">LinkedIn people search. A short note to the hiring manager the day a role posts beats a cold application.</div>
         </div>
       )}
 

@@ -291,7 +291,7 @@ RADANCY = {"Finance": {"Charles Schwab": "www.schwabjobs.com"}}
 EIGHTFOLD = {"Tech": {"Netflix": ("explore.jobs.netflix.net", "netflix.com", "United States")}}
 # Own-API fetchers below (fetch_google / fetch_microsoft / fetch_bloomberg / fetch_meta).
 CUSTOM = {"Tech": ["Google", "Microsoft", "Meta", "Apple"], "Fintech": ["Bloomberg"]}
-# Staffing agencies (fetch_agencies below); their rows get the "Agency" sector.
+# Staffing agencies (_agency_fetchers below); their rows get the "Agency" sector.
 AGENCIES = {"Agency": ["Robert Half", "Randstad", "Michael Page", "TEKsystems",
                        "Motion Recruitment", "Harvey Nash", "Blue Signal"]}
 
@@ -630,15 +630,17 @@ def fetch_blue_signal(firm="Blue Signal"):
     return out
 
 
-def fetch_agencies():
+def _agency_fetchers():
+    """(agency, zero-arg fetch) pairs; collect() runs them in parallel."""
     return [
-        ("Robert Half", P.fetch_robert_half("Robert Half", searches=[("all", _SLUG)])),
-        ("Randstad", P.fetch_randstad("Randstad", paths=[f"q-{_SLUG}"], relevant=_looks_de, max_pages=15)),
-        ("Michael Page", P.fetch_michael_page("Michael Page", paths=[_SLUG])),
-        ("TEKsystems", fetch_teksystems()),
-        ("Motion Recruitment", fetch_motion()),
-        ("Harvey Nash", fetch_harvey_nash()),
-        ("Blue Signal", fetch_blue_signal()),
+        ("Robert Half", lambda: P.fetch_robert_half("Robert Half", searches=[("all", _SLUG)])),
+        ("Randstad", lambda: P.fetch_randstad("Randstad", paths=[f"q-{_SLUG}"], relevant=_looks_de,
+                                              max_pages=15)),
+        ("Michael Page", lambda: P.fetch_michael_page("Michael Page", paths=[_SLUG])),
+        ("TEKsystems", fetch_teksystems),
+        ("Motion Recruitment", fetch_motion),
+        ("Harvey Nash", fetch_harvey_nash),
+        ("Blue Signal", fetch_blue_signal),
     ]
 
 
@@ -858,13 +860,13 @@ def us_hub(loc):
 
 
 # ---------------------------------------------------------------- collect
-def _run(label, items, fn):
-    print(label)
+def _tasks(label, items, fn, key=None):
+    """Fetch tasks for P.run_parallel. `key` (args -> server name) defaults to
+    the board's own host, the first registry value."""
     out = []
     for f, args in items:
-        rows = fn(f, *args) if isinstance(args, tuple) else fn(f, args)
-        print(f"  {f:<28}{len(rows):>5}")
-        out += rows
+        a = args if isinstance(args, tuple) else (args,)
+        out.append(P.task(label, f, key(a) if key else a[0], fn, *a))
     return out
 
 
@@ -873,36 +875,36 @@ def _flat(reg):
 
 
 def collect():
-    raw = []
-    raw += _run("Greenhouse…", _flat(GREENHOUSE) + list(_street(P.GREENHOUSE).items()), P.fetch_greenhouse)
-    raw += _run("Ashby…", _flat(ASHBY) + list(_street(P.ASHBY).items()), P.fetch_ashby)
-    raw += _run("Lever…", _flat(LEVER), fetch_lever)
-    raw += _run("SmartRecruiters…", _flat(SMARTRECRUITERS), P.fetch_smartrecruiters)
-    raw += _run("Workday…", _flat(WORKDAY) + list(_street(P.WORKDAY).items()), fetch_workday)
-    raw += _run("Workday (myworkdaysite)…", list(_street(P.WORKDAY_SITE).items()),
-                lambda f, dc, t, s: P.fetch_workday_site(f, dc, t, s))
-    raw += _run("Jibe/iCIMS…", list(_street(P.JIBE).items()), P.fetch_jibe)
-    raw += _run("Oracle Recruiting…", _flat(ORACLE) + list(_street(P.ORACLE).items()), P.fetch_oracle)
-    raw += _run("HRM Direct…", list(_street(P.HRMDIRECT).items()), P.fetch_hrmdirect)
-    raw += _run("PageUp…", list(_street(P.PAGEUP).items()), P.fetch_pageup)
-    raw += _run("iCIMS…", list(_street(P.ICIMS).items()), P.fetch_icims)
-    raw += _run("Radancy…", _flat(RADANCY) + list(_street(P.RADANCY).items()),
-                lambda f, host: P.fetch_radancy(f, host, f.lower().split()[0], keywords=[SEARCH]))
-    raw += _run("Phenom People…", _flat(PHENOM) + list(_street(P.PHENOM).items()), P.fetch_phenom)
-    raw += _run("Avature…", _flat(AVATURE), fetch_avature)
-    raw += _run("Eightfold…", list(_street(P.EIGHTFOLD).items()), P.fetch_eightfold)
-    raw += _run("Eightfold (search)…", _flat(EIGHTFOLD),
-                lambda f, host, domain, loc: P.fetch_eightfold(f, host, domain, loc, query=SEARCH))
-    print("Goldman Sachs / Citadel Securities / Google / Microsoft / Bloomberg / Meta / Apple…")
-    for rows in (P.fetch_goldman("Goldman Sachs", search_text=SEARCH),
-                 P.fetch_citadel("Citadel Securities"),
-                 fetch_google(), fetch_microsoft(), fetch_bloomberg(), fetch_meta(), fetch_apple()):
-        print(f"  {(rows[0]['firm'] if rows else '—'):<28}{len(rows):>5}")
-        raw += rows
-    print("Staffing agencies…")
-    for f, rows in fetch_agencies():
-        print(f"  {f:<28}{len(rows):>5}")
-        raw += rows
+    # Boards run in parallel (P.run_parallel); rows come back in this order.
+    print("Fetching boards…", flush=True)
+    gh, wd = (lambda a: "greenhouse"), (lambda a: f"workday:{a[1]}")
+    T = (_tasks("Greenhouse", _flat(GREENHOUSE) + list(_street(P.GREENHOUSE).items()), P.fetch_greenhouse, gh)
+         + _tasks("Ashby", _flat(ASHBY) + list(_street(P.ASHBY).items()), P.fetch_ashby, lambda a: "ashby")
+         + _tasks("Lever", _flat(LEVER), fetch_lever, lambda a: "lever")
+         + _tasks("SmartRecruiters", _flat(SMARTRECRUITERS), P.fetch_smartrecruiters,
+                  lambda a: "smartrecruiters")
+         + _tasks("Workday", _flat(WORKDAY) + list(_street(P.WORKDAY).items()), fetch_workday, wd)
+         + _tasks("Workday site", list(_street(P.WORKDAY_SITE).items()), P.fetch_workday_site,
+                  lambda a: f"wdsite:{a[0]}")
+         + _tasks("Jibe", list(_street(P.JIBE).items()), P.fetch_jibe)
+         + _tasks("Oracle", _flat(ORACLE) + list(_street(P.ORACLE).items()), P.fetch_oracle)
+         + _tasks("HRM Direct", list(_street(P.HRMDIRECT).items()), P.fetch_hrmdirect)
+         + _tasks("PageUp", list(_street(P.PAGEUP).items()), P.fetch_pageup)
+         + _tasks("iCIMS", list(_street(P.ICIMS).items()), P.fetch_icims)
+         + _tasks("Radancy", _flat(RADANCY) + list(_street(P.RADANCY).items()),
+                  lambda f, host: P.fetch_radancy(f, host, f.lower().split()[0], keywords=[SEARCH]))
+         + _tasks("Phenom", _flat(PHENOM) + list(_street(P.PHENOM).items()), P.fetch_phenom)
+         + _tasks("Avature", _flat(AVATURE), fetch_avature)
+         + _tasks("Eightfold", list(_street(P.EIGHTFOLD).items()), P.fetch_eightfold)
+         + _tasks("Eightfold search", _flat(EIGHTFOLD),
+                  lambda f, host, domain, loc: P.fetch_eightfold(f, host, domain, loc, query=SEARCH))
+         + [("Custom", "Goldman Sachs", "goldman", lambda: P.fetch_goldman("Goldman Sachs", search_text=SEARCH)),
+            ("Custom", "Citadel Securities", "citadel", lambda: P.fetch_citadel("Citadel Securities")),
+            ("Custom", "Google", "google", fetch_google), ("Custom", "Microsoft", "microsoft", fetch_microsoft),
+            ("Custom", "Bloomberg", "bloomberg", fetch_bloomberg), ("Custom", "Meta", "meta", fetch_meta),
+            ("Custom", "Apple", "apple", fetch_apple)]
+         + [("Agency", f, f.lower().replace(" ", ""), fn) for f, fn in _agency_fetchers()])
+    raw = P.run_parallel(T)
 
     kept, seen = [], set()
     for r in raw:
@@ -973,7 +975,67 @@ def _pulse_html(p, url):
 </td></tr>"""
 
 
-def _newsletter_html(new_jobs, total, today, url, hits=(), pulse=None, recruiters=None, gone=()):
+# ---------------------------------------------------------------- fresh roles
+# Applying in the first day is the best shot at a reply (user, 2026-11-23), so
+# roles posted in the last 24h lead the newsletter, each with LinkedIn people
+# searches for who to message. posted_date is a day: today or yesterday counts.
+# Boards with no post date fall back to the day we first saw the role.
+FRESH_DAYS = 1
+
+
+def _is_fresh(j, today):
+    d = (j.get("posted_date") or j.get("first_seen") or "")[:10]
+    try:
+        age = (datetime.strptime(today, "%Y-%m-%d") - datetime.strptime(d, "%Y-%m-%d")).days
+    except ValueError:
+        return False
+    return age <= FRESH_DAYS
+
+
+def contact_links(firm):
+    """LinkedIn people searches (links only). Mirrors contactLinks() in tracker.js."""
+    from urllib.parse import quote_plus
+    q = lambda s: "https://www.linkedin.com/search/results/people/?keywords=" + quote_plus(s)
+    return [("hiring manager", q(f"{firm} data engineering manager")),
+            ("tech recruiter", q(f"{firm} technical recruiter")),
+            ("engineers", q(f"{firm} data engineer"))]
+
+
+def _fresh_html(fresh):
+    if not fresh:
+        return ""
+    items = "".join(
+        f'<div style="padding:8px 0;border-bottom:1px solid #d7eee2">'
+        f'<a href="{_esc(j["url"])}" style="font-family:{SANS};font-weight:600;font-size:15px;color:{INK};'
+        f'text-decoration:none">{_esc(j["title"])}</a>'
+        f'<div style="font-family:{SANS};font-size:12.5px;color:{SOFT};padding-top:2px">'
+        f'{_esc(" · ".join(x for x in (j["firm"], j.get("location") or "", P.pay_label(j)) if x))}</div>'
+        f'<div style="font-family:{MONO};font-size:11px;padding-top:4px;color:{SOFT}">reach out: '
+        + " · ".join(f'<a href="{_esc(u)}" style="color:{ACC}">{_esc(l)}</a>' for l, u in contact_links(j["firm"]))
+        + '</div></div>'
+        for j in fresh[:15])
+    more = (f'<div style="font-family:{MONO};font-size:12px;color:{SOFT};padding-top:8px">… {len(fresh) - 15} more '
+            f'on the board (type <b>fresh</b>)</div>') if len(fresh) > 15 else ""
+    return (f'<tr><td style="padding:14px 32px 0"><div style="border:1px solid #bfe5d1;border-left:3px solid #0a8f5c;'
+            f'border-radius:8px;padding:8px 14px 10px;background:#f2fbf6">'
+            f'<div style="font-family:{MONO};font-size:11px;letter-spacing:.08em;text-transform:uppercase;'
+            f'color:#0a8f5c;padding:2px 0 4px">⚡ Posted in the last 24h · {len(fresh)} · apply today</div>'
+            f'{items}{more}</div></td></tr>')
+
+
+def _fresh_text(fresh):
+    if not fresh:
+        return []
+    out = [f"⚡ POSTED IN THE LAST 24H ({len(fresh)}) — apply today"]
+    for j in fresh[:15]:
+        out.append(f"  • {j['firm']} — {j['title']} · {j.get('location') or ''}\n    {j['url']}")
+        out.append("    reach out: " + " | ".join(f"{l}: {u}" for l, u in contact_links(j["firm"])))
+    if len(fresh) > 15:
+        out.append(f"  … {len(fresh) - 15} more on the board (type: fresh)")
+    return out + [""]
+
+
+def _newsletter_html(new_jobs, total, today, url, hits=(), pulse=None, recruiters=None, gone=(), fresh=()):
     CAP = 40
     rows, cur = [], None
     for j in new_jobs[:CAP]:
@@ -1024,6 +1086,7 @@ def _newsletter_html(new_jobs, total, today, url, hits=(), pulse=None, recruiter
   <div><span style="color:{AMBER}">{total}</span> live on the board</div>
 </td></tr>
 <tr><td style="padding:22px 32px 0;font-family:{SANS};font-size:17px;font-weight:600;color:{INK}">Good morning, Nakul.</td></tr>
+{_fresh_html(fresh)}
 {pinned}
 {P.takedowns_html(gone, INK, SOFT, LINE, ACC, MONO, SANS)}
 <tr><td style="padding:4px 32px 10px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">{''.join(rows)}</table></td></tr>
@@ -1037,11 +1100,12 @@ def _newsletter_html(new_jobs, total, today, url, hits=(), pulse=None, recruiter
 </td></tr></table></body></html>"""
 
 
-def _newsletter_text(new_jobs, total, today, url, hits=(), pulse=None, recruiters=None, gone=()):
+def _newsletter_text(new_jobs, total, today, url, hits=(), pulse=None, recruiters=None, gone=(), fresh=()):
     n = len(new_jobs)
     lines = [f"Tech Watch — {today}", "", "Good morning, Nakul.", "",
              f"{n} new data role{'s' if n != 1 else ''} since yesterday ({total} live)." if n
              else f"No new data roles overnight — {total} live on the board.", ""]
+    lines += _fresh_text(fresh)
     for name, found in hits:
         lines.append(f"★ {name} — {len(found)} new")
         lines += [f"  • {j['firm']} — {j['title']} · {j.get('location') or ''}\n    {j['url']}" for j in found[:8]]
@@ -1078,18 +1142,21 @@ def send_newsletter(jobs, today, trends=None, taken=None):
     order = {name: i for i, (name, _) in enumerate(HUBS)}
     order.update({"Remote (US)": len(order), "Other US": len(order) + 1})
     new_jobs.sort(key=lambda j: (order.get(j["metro"], 99), j["firm"], j["title"]))
+    fresh = sorted((j for j in jobs if _is_fresh(j, today)), key=lambda j: (j["firm"], j["title"]))
     n = len(new_jobs)
     msg = MIMEMultipart("alternative")
     msg["Subject"] = (f"Tech Watch — {n} new data role{'s' if n != 1 else ''} this morning"
                       if n else "Tech Watch — no new data roles today")
+    if fresh:
+        msg["Subject"] += f" · ⚡ {len(fresh)} posted in the last 24h"
     msg["From"] = os.getenv("TECH_NEWSLETTER_FROM") or formataddr(("Tech Watch", user))
     msg["To"] = ", ".join(recipients)
     hits = P.saved_search_hits(new_jobs, table=TABLES["searches"], matches=_matches_search)
     pulse = P.trend_summary(trends, today)
     recruiters = P.recruiter_nudge("tech", today)
     gone = P.takedowns_for_digest(taken, today)
-    msg.attach(MIMEText(_newsletter_text(new_jobs, len(jobs), today, url, hits, pulse, recruiters, gone), "plain", "utf-8"))
-    msg.attach(MIMEText(_newsletter_html(new_jobs, len(jobs), today, url, hits, pulse, recruiters, gone), "html", "utf-8"))
+    msg.attach(MIMEText(_newsletter_text(new_jobs, len(jobs), today, url, hits, pulse, recruiters, gone, fresh), "plain", "utf-8"))
+    msg.attach(MIMEText(_newsletter_html(new_jobs, len(jobs), today, url, hits, pulse, recruiters, gone, fresh), "html", "utf-8"))
     if P._smtp_send(host, port, user, password, recipients, msg):
         print(f"  tech newsletter sent to {len(recipients)} recipient(s) ({n} new roles)")
         return True
@@ -1108,6 +1175,8 @@ def main():
     prev = json.load(open(JOBS_JSON, encoding="utf-8")) if os.path.exists(JOBS_JSON) else []
     jobs, raw = collect()
     live_firms = {j["firm"] for j in jobs}
+    jobs, raw, failed = P.carry_forward(jobs, raw, prev, state, today,
+                                        keep=lambda j: P.age_ok(j.get("posted_date"), MAX_AGE_DAYS))
     jobs = P.drop_over_experience(jobs, state)
 
     new = P.assign_first_seen(jobs, state, prev, today)
@@ -1123,7 +1192,7 @@ def main():
                         j.get("posted_date"), j["first_seen"], j["is_new"], j["url"]])
 
     P.push_supabase(jobs, table=TABLES["jobs"], apps_table=TABLES["apps"], max_age_days=MAX_AGE_DAYS,
-                    prune_firms=live_firms)
+                    prune_firms=live_firms - failed, keep_firms=failed)
     taken = P.flag_taken_down(raw, today, table=TABLES["jobs"], apps_table=TABLES["apps"])
 
     trends = json.load(open(TRENDS_FILE)) if os.path.exists(TRENDS_FILE) else {}
