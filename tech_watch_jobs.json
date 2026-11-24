@@ -12,10 +12,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-10-30",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-30",
+    "is_new": false
   },
   {
     "firm": "Equifax",
@@ -30,10 +30,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-10-22",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-22",
+    "is_new": false
   },
   {
     "firm": "Equifax",
@@ -48,10 +48,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-10-22",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-22",
+    "is_new": false
   },
   {
     "firm": "FanDuel",
@@ -85,6 +85,24 @@
     "pay_max": 165000,
     "pay_period": "year",
     "first_seen": "2026-10-28",
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "Capital Group",
+    "id": "wd-capgroup-capitalgroupcareers-/job/Charlotte/Platform-Engineer-IV_JR6886",
+    "title": "AI Platform Engineer",
+    "location": "Charlotte",
+    "url": "https://capgroup.wd1.myworkdayjobs.com/capitalgroupcareers/job/Charlotte/Platform-Engineer-IV_JR6886",
+    "source": "workday",
+    "posted_date": "2026-10-24",
+    "metro": "Charlotte",
+    "sector": "Finance",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
+    "first_seen": "2026-11-02",
     "is_new": false,
     "repost_count": 0,
     "orig_first_seen": null
@@ -312,16 +330,16 @@
     "location": "New York, NY",
     "url": "https://carlyle.wd1.myworkdayjobs.com/Carlyle/job/New-York-NY/Data-Engineer_R-00280",
     "source": "workday",
-    "posted_date": "2026-10-23",
+    "posted_date": "2026-10-24",
     "metro": "NYC Area",
     "sector": "Finance",
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "repost_count": 0,
-    "orig_first_seen": null,
     "first_seen": "2026-09-27",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Cloaked",
@@ -930,10 +948,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-09-27",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-09-27",
+    "is_new": false
   },
   {
     "firm": "Nous Research",
@@ -1135,6 +1153,24 @@
   },
   {
     "firm": "SpaceX",
+    "id": "gh-spacex-8957339002",
+    "title": "Data Engineer, Hardware Reliability (Starlink)",
+    "location": "Bastrop, TX",
+    "url": "https://boards.greenhouse.io/spacex/jobs/8957339002?gh_jid=8957339002",
+    "source": "greenhouse",
+    "posted_date": "2026-11-23",
+    "metro": "Other US",
+    "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
+    "first_seen": "2026-11-24",
+    "is_new": true,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "SpaceX",
     "id": "gh-spacex-8880868002",
     "title": "Software Engineer (AI Data Engineering)",
     "location": "Hawthorne, CA",
@@ -1320,7 +1356,7 @@
     "location": "US - Remote",
     "url": "https://allstate.wd5.myworkdayjobs.com/allstate_careers/job/US---Remote/Managing-Engineer--Data-Engineering_R35362-1",
     "source": "workday",
-    "posted_date": "2026-10-23",
+    "posted_date": "2026-10-24",
     "metro": "Remote (US)",
     "sector": "Finance",
     "pay_min": null,
@@ -1548,24 +1584,6 @@
     "orig_first_seen": null
   },
   {
-    "firm": "Toast",
-    "id": "gh-toast-8359240",
-    "title": "Data Engineer",
-    "location": "Remote, US",
-    "url": "https://careers.toasttab.com/jobs?gh_jid=8359240",
-    "source": "greenhouse",
-    "posted_date": "2026-11-17",
-    "metro": "Remote (US)",
-    "sector": "Fintech",
-    "pay_min": 83000,
-    "pay_max": 170000,
-    "pay_period": "year",
-    "first_seen": "2026-11-17",
-    "is_new": false,
-    "repost_count": 0,
-    "orig_first_seen": null
-  },
-  {
     "firm": "Adobe",
     "id": "wd-adobe-external_experienced-/job/San-Jose/Finance-Lead--Marketing-Finance_R171712",
     "title": "Business Intelligence Engineer, Marketing Finance",
@@ -1578,10 +1596,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-11-02",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-02",
+    "is_new": false
   },
   {
     "firm": "Anthropic",
@@ -1597,24 +1615,6 @@
     "pay_max": 405000,
     "pay_period": "year",
     "first_seen": "2026-10-27",
-    "is_new": false,
-    "repost_count": 0,
-    "orig_first_seen": null
-  },
-  {
-    "firm": "AppLovin",
-    "id": "gh-applovin-4716524006",
-    "title": "ML Data Infrastructure Engineer",
-    "location": "Palo Alto, CA",
-    "url": "https://boards.greenhouse.io/applovin/jobs/4716524006?gh_jid=4716524006",
-    "source": "greenhouse",
-    "posted_date": "2026-09-24",
-    "metro": "SF Bay Area",
-    "sector": "Tech",
-    "pay_min": 140000,
-    "pay_max": 250000,
-    "pay_period": "year",
-    "first_seen": "2026-10-22",
     "is_new": false,
     "repost_count": 0,
     "orig_first_seen": null
@@ -1777,42 +1777,6 @@
     "pay_max": null,
     "pay_period": null,
     "first_seen": "2026-11-17",
-    "is_new": false,
-    "repost_count": 0,
-    "orig_first_seen": null
-  },
-  {
-    "firm": "Cartesia",
-    "id": "ashby-cartesia-6ca9b352-6a7b-42a3-a7c4-8f071712db90",
-    "title": "Research Engineer, Text Data",
-    "location": "*HQ - San Francisco, CA",
-    "url": "https://jobs.ashbyhq.com/cartesia/6ca9b352-6a7b-42a3-a7c4-8f071712db90",
-    "source": "ashby",
-    "posted_date": "2026-09-24",
-    "metro": "SF Bay Area",
-    "sector": "Startup",
-    "pay_min": null,
-    "pay_max": null,
-    "pay_period": null,
-    "first_seen": "2026-11-02",
-    "is_new": false,
-    "repost_count": 0,
-    "orig_first_seen": null
-  },
-  {
-    "firm": "Chai Discovery",
-    "id": "ashby-chaidiscovery-dd8bf1b0-be34-42ba-94f7-76e6ebe204f6",
-    "title": "ML Infrastructure and Optimization Engineer",
-    "location": "San Francisco office",
-    "url": "https://jobs.ashbyhq.com/chaidiscovery/dd8bf1b0-be34-42ba-94f7-76e6ebe204f6",
-    "source": "ashby",
-    "posted_date": "2026-09-24",
-    "metro": "SF Bay Area",
-    "sector": "Startup",
-    "pay_min": null,
-    "pay_max": null,
-    "pay_period": null,
-    "first_seen": "2026-11-02",
     "is_new": false,
     "repost_count": 0,
     "orig_first_seen": null
@@ -1992,10 +1956,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-11-17",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-17",
+    "is_new": false
   },
   {
     "firm": "Luma AI",
@@ -2154,10 +2118,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-09-27",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-09-27",
+    "is_new": false
   },
   {
     "firm": "OpenAI",
@@ -2227,7 +2191,7 @@
     "pay_max": null,
     "pay_period": null,
     "first_seen": "2026-11-23",
-    "is_new": true,
+    "is_new": false,
     "repost_count": 0,
     "orig_first_seen": null
   },
@@ -2425,7 +2389,7 @@
     "pay_max": 196750,
     "pay_period": "year",
     "first_seen": "2026-11-23",
-    "is_new": true,
+    "is_new": false,
     "repost_count": 0,
     "orig_first_seen": null
   },
@@ -2569,7 +2533,7 @@
     "pay_max": 235200,
     "pay_period": "year",
     "first_seen": "2026-11-23",
-    "is_new": true,
+    "is_new": false,
     "repost_count": 0,
     "orig_first_seen": null
   },
@@ -2583,6 +2547,24 @@
     "posted_date": "2026-11-12",
     "metro": "Texas",
     "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
+    "first_seen": "2026-11-15",
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "Aristocrat",
+    "id": "wd-aristocrat-AristocratExternalCareersSite-/job/Austin-TX-US/Data-Engineer_R0022072",
+    "title": "Data Engineer",
+    "location": "Austin, TX, US",
+    "url": "https://aristocrat.wd3.myworkdayjobs.com/AristocratExternalCareersSite/job/Austin-TX-US/Data-Engineer_R0022072",
+    "source": "workday",
+    "posted_date": "2026-11-03",
+    "metro": "Texas",
+    "sector": "Gaming",
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
