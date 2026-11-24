@@ -1,18 +1,22 @@
 metro,sector,firm,title,location,source,posted_date,first_seen,is_new,url
 Atlanta,Finance,Equifax,Big Data / SMAC Technology Developer,USA - Georgia - Alpharetta - 30005,workday,2026-10-30,2026-10-30,False,https://equifax.wd5.myworkdayjobs.com/External/job/USA---Georgia---Alpharetta---30005/Big-Data---SMAC-Technology-Developer_J00179355
 Atlanta,Tech,FanDuel,Data Engineer,"Atlanta, Georgia, United States",greenhouse,2026-10-20,2026-10-22,False,https://www.fanduel.careers/open-positions?gh_jid=8267158
+Atlanta,Finance,Truist Securities,Software Engineer for Card Fraud Strategy Data Delivery,"Atlanta, Georgia, USA",phenom,2026-10-08,2026-10-22,False,https://truist.wd1.myworkdayjobs.com/Careers/job/Atlanta-GA/Software-Engineer_R0120558
 Boston,Agency,Motion Recruitment,"Quantitative Analytics Engineer - Python/SQL/Finance - Boston, MA · Direct hire","Boston, MA",motion,,2026-10-28,False,https://motionrecruitment.com/tech-jobs/boston/direct-hire/quantitative-analytics-engineer-python-sql-finance-boston-ma/893559
 Boston,Finance,State Street,Technology Financial Operations Data Analytics & BI Engineer,"Quincy, Massachusetts",workday,2026-10-24,2026-10-22,False,https://statestreet.wd1.myworkdayjobs.com/Global/job/Quincy-Massachusetts/Technology-Financial-Operations-Data-Analytics---BI-Engineer_R-796407
 Charlotte,Finance,Capital Group,AI Platform Engineer,Charlotte,workday,2026-10-24,2026-11-02,False,https://capgroup.wd1.myworkdayjobs.com/capitalgroupcareers/job/Charlotte/Platform-Engineer-IV_JR6886
+Charlotte,Finance,Truist Securities,Data Engineer,"Charlotte, North Carolina, USA",phenom,2026-11-19,2026-11-19,False,https://truist.wd1.myworkdayjobs.com/Careers/job/Charlotte-NC/Data-Engineer_R0122029
 Chicago,Finance,DRW,AI Inference Platform Engineer,Chicago,greenhouse,2026-09-29,2026-11-02,False,https://job-boards.greenhouse.io/drweng/jobs/8230509
 Chicago,Finance,Northern Trust,Cloud Data Platform Engineer,"Chicago, IL",workday,2026-10-24,2026-09-27,False,https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Cloud-Data-Platform-Engineer_R158514-1
 Chicago,Finance,Northern Trust,Data Analytics Engineer,"Chicago, IL",workday,2026-10-24,2026-09-27,False,https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Analytics-Engineer_R150313
 Chicago,Agency,Robert Half,Data Engineer · Direct hire,"Chicago, IL",roberthalf,2026-11-09,2026-10-05,False,https://www.roberthalf.com/us/en/job/chicago-il/data-engineer/01300-0013433936-usen
+DC / Virginia,Finance,Franklin Templeton,Data Engineer,"Baltimore, Maryland, United States of America",phenom,2026-11-04,2026-10-06,False,https://franklintempleton.wd5.myworkdayjobs.com/Primary-External-1/job/Baltimore-Maryland-United-States-of-America/Data-Engineer_869238
 Denver,Tech,Google,"Data Engineer, gUP Engineering","Boulder, CO, USA",google,2026-11-12,2026-11-12,False,https://www.google.com/about/careers/applications/jobs/results/98668707068158662
 Los Angeles,Tech,Apple,Software Engineer - Distributed Data Systems,"San Diego, United States of America",apple,2026-11-13,2026-11-15,False,https://jobs.apple.com/en-us/details/200694753/software-engineer-distributed-data-systems
 Los Angeles,Gaming,PlayStation,"Data Engineer II, JVM","United States, San Diego, CA",greenhouse,2026-11-05,2026-11-15,False,https://job-boards.greenhouse.io/sonyinteractiveentertainmentglobal/jobs/6250753004
 NYC Area,Fintech,Addepar,AI Engineer - AI Platform,"New York, NY",greenhouse,2026-10-27,2026-11-02,False,https://job-boards.greenhouse.io/addepar1/jobs/8906234002
 NYC Area,Fintech,Addepar,Full Stack Software Engineer - Alts & Data Management,"New York, NY",greenhouse,2026-10-28,2026-10-29,False,https://job-boards.greenhouse.io/addepar1/jobs/8912699002
+NYC Area,Tech,Anthropic,Accounting Analytics & BI Engineer,"San Francisco, CA | New York City, NY",greenhouse,2026-11-04,2026-11-04,False,https://job-boards.greenhouse.io/anthropic/jobs/5471539008
 NYC Area,Tech,Anthropic,"Data Engineer, Billing & Payments","San Francisco, CA | New York City, NY",greenhouse,2026-10-12,2026-10-12,False,https://job-boards.greenhouse.io/anthropic/jobs/5450099008
 NYC Area,Tech,Anthropic,"Research Engineer / Performance Engineer, RL Distributed Systems","San Francisco, CA | New York City, NY | Seattle, WA",greenhouse,2026-09-29,2026-11-02,False,https://job-boards.greenhouse.io/anthropic/jobs/5438030008
 NYC Area,Finance,Ares Management,"Associate, Data Platform Engineering","New York, NY",workday,,2026-11-16,False,https://aresmgmt.wd1.myworkdayjobs.com/External/job/New-York-NY/Associate--Data-Platform-Engineering_R8756
@@ -67,6 +71,7 @@ Other US,Tech,SpaceX,Data Engineer (Starship),"Starbase, TX",greenhouse,2026-11-
 Other US,Tech,SpaceX,"Data Engineer, Hardware Reliability (Starlink)","Bastrop, TX",greenhouse,2026-11-23,2026-11-24,True,https://boards.greenhouse.io/spacex/jobs/8957339002?gh_jid=8957339002
 Other US,Tech,SpaceX,Software Engineer (AI Data Engineering),"Hawthorne, CA",greenhouse,2026-10-08,2026-10-22,False,https://boards.greenhouse.io/spacex/jobs/8880868002?gh_jid=8880868002
 Other US,Tech,SpaceX,"Software Engineer, Full Stack (Data & Video Analysis)","Hawthorne, CA",greenhouse,2026-11-03,2026-11-03,False,https://boards.greenhouse.io/spacex/jobs/8927919002?gh_jid=8927919002
+Other US,Finance,Susquehanna International Group,Data Engineer | Compliance Technology | Experienced Hire,"Bala Cynwyd (Greater Philadelphia), Pennsylvania",jibe,2026-11-24,2026-11-24,True,https://careers.sig.com/jobs/12047
 Other US,Finance,Susquehanna International Group,Quantitative/Data Developer | Fixed Income | Experienced Hire,"Bala Cynwyd (Philadelphia Area), Pennsylvania",jibe,2026-09-28,2026-09-29,False,https://careers.sig.com/jobs/10778
 Other US,Agency,TEKsystems,Data Engineer II · Direct hire,"Hanover, Maryland, USA",phenom,2026-11-10,2026-11-10,False,https://careers.teksystems.com/us/en/job/TESYUSJP006411815ENUS
 Other US,Agency,TEKsystems,Database Engineer · Direct hire,"Minneapolis, Minnesota, USA",phenom,2026-11-16,2026-11-16,False,https://careers.teksystems.com/us/en/job/TESYUSJP006425184ENUS
