@@ -36,24 +36,6 @@
     "orig_first_seen": null
   },
   {
-    "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0120558EXTERNALENUS",
-    "title": "Software Engineer for Card Fraud Strategy Data Delivery",
-    "location": "Atlanta, Georgia, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Atlanta-GA/Software-Engineer_R0120558",
-    "source": "phenom",
-    "posted_date": "2026-10-08",
-    "metro": "Atlanta",
-    "sector": "Finance",
-    "pay_min": null,
-    "pay_max": null,
-    "pay_period": null,
-    "first_seen": "2026-10-22",
-    "is_new": false,
-    "repost_count": 0,
-    "orig_first_seen": null
-  },
-  {
     "firm": "Motion Recruitment",
     "id": "motion-895566",
     "title": "Data Engineer - Boston, MA \u00b7 Direct hire",
@@ -102,10 +84,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-10-22",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-22",
+    "is_new": false
   },
   {
     "firm": "Capital Group",
@@ -120,10 +102,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-11-02",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-02",
+    "is_new": false
   },
   {
     "firm": "Truist Securities",
@@ -158,6 +140,24 @@
     "pay_period": "year",
     "first_seen": "2026-11-02",
     "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "Meta",
+    "id": "meta-1926983275422529",
+    "title": "Data Engineer",
+    "location": "Chicago, IL",
+    "url": "https://www.metacareers.com/profile/job_details/1926983275422529",
+    "source": "meta",
+    "posted_date": null,
+    "metro": "Chicago",
+    "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
+    "first_seen": "2026-11-25",
+    "is_new": true,
     "repost_count": 0,
     "orig_first_seen": null
   },
@@ -408,10 +408,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-09-27",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-09-27",
+    "is_new": false
   },
   {
     "firm": "Cloaked",
@@ -469,24 +469,6 @@
   },
   {
     "firm": "FanDuel",
-    "id": "gh-fanduel-8357302",
-    "title": "Analytics Engineer",
-    "location": "New York City",
-    "url": "https://www.fanduel.careers/open-positions?gh_jid=8357302",
-    "source": "greenhouse",
-    "posted_date": "2026-11-12",
-    "metro": "NYC Area",
-    "sector": "Tech",
-    "pay_min": 98000,
-    "pay_max": 122000,
-    "pay_period": "year",
-    "first_seen": "2026-11-13",
-    "is_new": false,
-    "repost_count": 0,
-    "orig_first_seen": null
-  },
-  {
-    "firm": "FanDuel",
     "id": "gh-fanduel-8368191",
     "title": "Analytics Engineer",
     "location": "New York City",
@@ -499,6 +481,24 @@
     "pay_max": 145000,
     "pay_period": "year",
     "first_seen": "2026-11-12",
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "FanDuel",
+    "id": "gh-fanduel-8357302",
+    "title": "Analytics Engineer",
+    "location": "New York City",
+    "url": "https://www.fanduel.careers/open-positions?gh_jid=8357302",
+    "source": "greenhouse",
+    "posted_date": "2026-11-12",
+    "metro": "NYC Area",
+    "sector": "Tech",
+    "pay_min": 98000,
+    "pay_max": 122000,
+    "pay_period": "year",
+    "first_seen": "2026-11-13",
     "is_new": false,
     "repost_count": 0,
     "orig_first_seen": null
@@ -613,10 +613,10 @@
   },
   {
     "firm": "Meta",
-    "id": "meta-438521235471941",
+    "id": "meta-1283364266159062",
     "title": "Data Engineer, Product Analytics",
-    "location": "Bellevue, WA; Menlo Park, CA; Seattle, WA; Burlingame, CA; New York, NY",
-    "url": "https://www.metacareers.com/profile/job_details/438521235471941",
+    "location": "Sunnyvale, CA; Remote, US; Bellevue, WA; Redmond, WA; Menlo Park, CA; Burlingame, CA; New York, NY",
+    "url": "https://www.metacareers.com/profile/job_details/1283364266159062",
     "source": "meta",
     "posted_date": null,
     "metro": "NYC Area",
@@ -631,10 +631,10 @@
   },
   {
     "firm": "Meta",
-    "id": "meta-1283364266159062",
+    "id": "meta-438521235471941",
     "title": "Data Engineer, Product Analytics",
-    "location": "Sunnyvale, CA; Remote, US; Bellevue, WA; Redmond, WA; Menlo Park, CA; Burlingame, CA; New York, NY",
-    "url": "https://www.metacareers.com/profile/job_details/1283364266159062",
+    "location": "Bellevue, WA; Menlo Park, CA; Seattle, WA; Burlingame, CA; New York, NY",
+    "url": "https://www.metacareers.com/profile/job_details/438521235471941",
     "source": "meta",
     "posted_date": null,
     "metro": "NYC Area",
@@ -714,10 +714,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-09-27",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-09-27",
+    "is_new": false
   },
   {
     "firm": "MotherDuck",
@@ -894,10 +894,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-11-24",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-24",
+    "is_new": false
   },
   {
     "firm": "Cohere",
@@ -984,10 +984,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-11-06",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-06",
+    "is_new": false
   },
   {
     "firm": "FIS",
@@ -1002,10 +1002,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-11-24",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-24",
+    "is_new": false
   },
   {
     "firm": "HPE",
@@ -1021,24 +1021,6 @@
     "pay_max": 252500,
     "pay_period": "year",
     "first_seen": "2026-11-16",
-    "is_new": false,
-    "repost_count": 0,
-    "orig_first_seen": null
-  },
-  {
-    "firm": "HPE",
-    "id": "phenom-careers.hpe.com-HPE1US1214711EXTERNALENUS",
-    "title": "Business Systems & Data Engineer",
-    "location": "Chippewa Falls, Wisconsin, United States of America",
-    "url": "https://hpe.wd5.myworkdayjobs.com/Jobsathpe/job/Chippewa-Falls-Wisconsin-United-States-of-America/Business-Systems---Data-Engineer_1214711-2",
-    "source": "phenom",
-    "posted_date": "2026-11-17",
-    "metro": "Other US",
-    "sector": "Tech",
-    "pay_min": 65200,
-    "pay_max": 150500,
-    "pay_period": "year",
-    "first_seen": "2026-11-18",
     "is_new": false,
     "repost_count": 0,
     "orig_first_seen": null
@@ -1092,10 +1074,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-09-27",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-09-27",
+    "is_new": false
   },
   {
     "firm": "Nous Research",
@@ -1878,16 +1860,16 @@
     "location": "SAN JOSE",
     "url": "https://cadence.wd1.myworkdayjobs.com/External_Careers/job/SAN-JOSE/Data-Warehouse-Engineer_R51065",
     "source": "workday",
-    "posted_date": "2026-10-24",
+    "posted_date": "2026-10-25",
     "metro": "SF Bay Area",
     "sector": "Tech",
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "repost_count": 0,
-    "orig_first_seen": null,
     "first_seen": "2026-11-16",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Chai Discovery",
@@ -2064,10 +2046,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-11-17",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-17",
+    "is_new": false
   },
   {
     "firm": "Luma AI",
@@ -2120,6 +2102,24 @@
     "pay_period": null,
     "first_seen": "2026-11-02",
     "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "Meta",
+    "id": "meta-1510642494269521",
+    "title": "Data Engineer, Analytics",
+    "location": "Menlo Park, CA",
+    "url": "https://www.metacareers.com/profile/job_details/1510642494269521",
+    "source": "meta",
+    "posted_date": null,
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
+    "first_seen": "2026-11-25",
+    "is_new": true,
     "repost_count": 0,
     "orig_first_seen": null
   },
@@ -2802,9 +2802,9 @@
     "pay_min": 86500,
     "pay_max": 134400,
     "pay_period": "year",
-    "first_seen": "2026-11-25",
-    "is_new": true,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-25",
+    "is_new": true
   }
 ]
