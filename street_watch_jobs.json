@@ -402,10 +402,10 @@
     "pay_min": 110000,
     "pay_max": 115000,
     "pay_period": "year",
-    "first_seen": "2026-11-02",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-02",
+    "is_new": false
   },
   {
     "firm": "Houlihan Lokey",
@@ -419,10 +419,10 @@
     "pay_min": 175000,
     "pay_max": 225000,
     "pay_period": "year",
-    "first_seen": "2026-11-23",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-23",
+    "is_new": false
   },
   {
     "firm": "Houlihan Lokey",
@@ -436,10 +436,10 @@
     "pay_min": 175000,
     "pay_max": 225000,
     "pay_period": "year",
-    "first_seen": "2026-10-23",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-23",
+    "is_new": false
   },
   {
     "firm": "Houlihan Lokey",
@@ -453,10 +453,10 @@
     "pay_min": 175000,
     "pay_max": 225000,
     "pay_period": "year",
-    "first_seen": "2026-09-15",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-09-15",
+    "is_new": false
   },
   {
     "firm": "JPMorgan Chase",
@@ -969,23 +969,6 @@
     "orig_first_seen": null
   },
   {
-    "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0120890EXTERNALENUS",
-    "title": "Wealth Advisor Associate",
-    "location": "Chicago, Illinois, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/Chicago-IL/Wealth-Advisor-Associate_R0120890",
-    "source": "phenom",
-    "posted_date": "2026-10-28",
-    "metro": "Chicago",
-    "pay_min": null,
-    "pay_max": null,
-    "pay_period": null,
-    "first_seen": "2026-10-28",
-    "is_new": false,
-    "repost_count": 0,
-    "orig_first_seen": null
-  },
-  {
     "firm": "Vista Equity Partners",
     "id": "icims-careers3-vistaequitypartners.icims.com-3041",
     "title": "2027 Private Equity Associate, Chicago",
@@ -1167,10 +1150,10 @@
     "pay_min": 76000,
     "pay_max": 88000,
     "pay_period": "year",
-    "first_seen": "2026-10-24",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-24",
+    "is_new": false
   },
   {
     "firm": "Apollo Global Management",
@@ -1184,10 +1167,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-11-03",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-03",
+    "is_new": false
   },
   {
     "firm": "Apollo Global Management",
@@ -1201,10 +1184,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-10-24",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-24",
+    "is_new": false
   },
   {
     "firm": "Apollo Global Management",
@@ -1218,27 +1201,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
+    "repost_count": 0,
+    "orig_first_seen": null,
     "first_seen": "2026-10-24",
-    "is_new": false,
-    "repost_count": 0,
-    "orig_first_seen": null
-  },
-  {
-    "firm": "Aston Carter",
-    "id": "phenom-careers.astoncarter.com-ASCAUSJP006421883ENUS",
-    "title": "Financial Analyst \u00b7 Contract",
-    "location": "Los Angeles, California, USA",
-    "url": "https://careers.astoncarter.com/us/en/job/ASCAUSJP006421883ENUS",
-    "source": "phenom",
-    "posted_date": "2026-11-14",
-    "metro": "Los Angeles",
-    "pay_min": 67,
-    "pay_max": 73,
-    "pay_period": "hour",
-    "first_seen": "2026-11-14",
-    "is_new": false,
-    "repost_count": 0,
-    "orig_first_seen": null
+    "is_new": false
   },
   {
     "firm": "Aston Carter",
@@ -1286,7 +1252,24 @@
     "pay_min": 96918,
     "pay_max": 155069,
     "pay_period": "year",
+    "repost_count": 0,
+    "orig_first_seen": null,
     "first_seen": "2026-11-24",
+    "is_new": false
+  },
+  {
+    "firm": "Franklin Templeton",
+    "id": "phenom-careers.franklintempleton.com-FTGFTMUS869984EXTERNALENUS",
+    "title": "Client Reporting Analyst",
+    "location": "Pasadena, California, United States of America",
+    "url": "https://franklintempleton.wd5.myworkdayjobs.com/Primary-External-1/job/Pasadena-California-United-States-of-America/Client-Reporting-Analyst_869984-1",
+    "source": "phenom",
+    "posted_date": "2026-11-16",
+    "metro": "Los Angeles",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
+    "first_seen": "2026-11-04",
     "is_new": false,
     "repost_count": 0,
     "orig_first_seen": null
@@ -1354,10 +1337,10 @@
     "pay_min": 175000,
     "pay_max": 225000,
     "pay_period": "year",
-    "first_seen": "2026-10-24",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-24",
+    "is_new": false
   },
   {
     "firm": "Houlihan Lokey",
@@ -1371,10 +1354,10 @@
     "pay_min": 175000,
     "pay_max": 225000,
     "pay_period": "year",
-    "first_seen": "2026-10-24",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-24",
+    "is_new": false
   },
   {
     "firm": "JPMorgan Chase",
@@ -1456,10 +1439,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-11-25",
-    "is_new": true,
     "repost_count": 1,
-    "orig_first_seen": "2026-10-26"
+    "orig_first_seen": "2026-10-26",
+    "first_seen": "2026-11-25",
+    "is_new": true
   },
   {
     "firm": "PIMCO",
@@ -1473,10 +1456,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-10-24",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-24",
+    "is_new": false
   },
   {
     "firm": "PIMCO",
@@ -1490,10 +1473,10 @@
     "pay_min": 87000,
     "pay_max": 93000,
     "pay_period": "year",
-    "first_seen": "2026-10-24",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-24",
+    "is_new": false
   },
   {
     "firm": "PIMCO",
@@ -1507,10 +1490,10 @@
     "pay_min": 205000,
     "pay_max": 230000,
     "pay_period": "year",
-    "first_seen": "2026-10-29",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-29",
+    "is_new": false
   },
   {
     "firm": "Reformation",
@@ -1643,10 +1626,10 @@
     "pay_min": 80000,
     "pay_max": 86000,
     "pay_period": "year",
-    "first_seen": "2026-10-27",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-27",
+    "is_new": false
   },
   {
     "firm": "AllianceBernstein",
@@ -1677,10 +1660,10 @@
     "pay_min": 95000,
     "pay_max": 105000,
     "pay_period": "year",
-    "first_seen": "2026-11-12",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-12",
+    "is_new": false
   },
   {
     "firm": "Apollo Global Management",
@@ -1694,10 +1677,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-10-02",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-02",
+    "is_new": false
   },
   {
     "firm": "Apollo Global Management",
@@ -1711,10 +1694,10 @@
     "pay_min": 110000,
     "pay_max": 130000,
     "pay_period": "year",
-    "first_seen": "2026-09-16",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-09-16",
+    "is_new": false
   },
   {
     "firm": "Apollo Global Management",
@@ -1728,10 +1711,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-11-25",
-    "is_new": true,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-25",
+    "is_new": true
   },
   {
     "firm": "Apollo Global Management",
@@ -1745,10 +1728,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-09-15",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-09-15",
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -2255,10 +2238,10 @@
     "pay_min": 110000,
     "pay_max": 125000,
     "pay_period": "year",
-    "first_seen": "2026-09-19",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-09-19",
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -2272,10 +2255,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-11-12",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-12",
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -2340,10 +2323,10 @@
     "pay_min": 100000,
     "pay_max": 140000,
     "pay_period": "year",
-    "first_seen": "2026-11-12",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-12",
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -2544,10 +2527,10 @@
     "pay_min": 150000,
     "pay_max": 200000,
     "pay_period": "year",
-    "first_seen": "2026-11-03",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-03",
+    "is_new": false
   },
   {
     "firm": "Brookfield Asset Management",
@@ -2697,10 +2680,10 @@
     "pay_min": 80073,
     "pay_max": 128117,
     "pay_period": "year",
-    "first_seen": "2026-11-24",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-24",
+    "is_new": false
   },
   {
     "firm": "Carlyle",
@@ -2714,10 +2697,10 @@
     "pay_min": 150000,
     "pay_max": 150000,
     "pay_period": "year",
-    "first_seen": "2026-09-17",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-09-17",
+    "is_new": false
   },
   {
     "firm": "Carlyle",
@@ -2731,10 +2714,10 @@
     "pay_min": 105000,
     "pay_max": 105000,
     "pay_period": "year",
-    "first_seen": "2026-10-28",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-28",
+    "is_new": false
   },
   {
     "firm": "Carlyle",
@@ -2748,10 +2731,10 @@
     "pay_min": 150000,
     "pay_max": 150000,
     "pay_period": "year",
-    "first_seen": "2026-09-19",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-09-19",
+    "is_new": false
   },
   {
     "firm": "Citi",
@@ -2857,23 +2840,6 @@
   },
   {
     "firm": "Citi",
-    "id": "citi-101406626784",
-    "title": "Cash and Trade Processing Analyst 2",
-    "location": "Getzville, New York, United States",
-    "url": "https://jobs.citi.com/job/getzville/cash-and-trade-processing-analyst-2/287/101406626784",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "pay_min": 55341,
-    "pay_max": 68270,
-    "pay_period": "year",
-    "first_seen": "2026-10-02",
-    "is_new": false,
-    "repost_count": 0,
-    "orig_first_seen": null
-  },
-  {
-    "firm": "Citi",
     "id": "citi-103214415200",
     "title": "Client Institutional Credit Management/Credit Underwriting, Full-Time Analyst, New York, NY - USA 2027",
     "location": "New York, New York, United States",
@@ -2936,6 +2902,23 @@
     "pay_max": 185000,
     "pay_period": "year",
     "first_seen": "2026-09-16",
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "Citi",
+    "id": "citi-103535962976",
+    "title": "Data Governance Analyst, Wholesale Loans",
+    "location": "Getzville, New York, United States",
+    "url": "https://jobs.citi.com/job/getzville/data-governance-analyst-wholesale-loans/287/103535962976",
+    "source": "citi",
+    "posted_date": null,
+    "metro": "NY + Jersey City",
+    "pay_min": 61,
+    "pay_max": 85,
+    "pay_period": "hour",
+    "first_seen": "2026-11-20",
     "is_new": false,
     "repost_count": 0,
     "orig_first_seen": null
@@ -3247,23 +3230,6 @@
     "orig_first_seen": null
   },
   {
-    "firm": "Citi",
-    "id": "citi-102340905520",
-    "title": "Technology, Production Support, Full-Time Analyst, New York - USA, 2027",
-    "location": "New York, New York, United States",
-    "url": "https://jobs.citi.com/job/new-york/technology-production-support-full-time-analyst-new-york-usa-2027/287/102340905520",
-    "source": "citi",
-    "posted_date": null,
-    "metro": "NY + Jersey City",
-    "pay_min": 80000,
-    "pay_max": 115000,
-    "pay_period": "year",
-    "first_seen": "2026-10-24",
-    "is_new": false,
-    "repost_count": 0,
-    "orig_first_seen": null
-  },
-  {
     "firm": "Citizens Financial Group",
     "id": "citizens-93143168448",
     "title": "Associate II - Advisory (Digital Infrastructure)",
@@ -3360,10 +3326,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-10-15",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-15",
+    "is_new": false
   },
   {
     "firm": "Est\u00e9e Lauder",
@@ -3503,18 +3469,18 @@
   },
   {
     "firm": "Franklin Templeton",
-    "id": "phenom-careers.franklintempleton.com-FTGFTMUS870454EXTERNALENUS",
-    "title": "Relationship Associate - Trust Administration",
+    "id": "phenom-careers.franklintempleton.com-FTGFTMUS870531EXTERNALENUS",
+    "title": "Estate Settlement Associate",
     "location": "New York, New York, United States of America",
-    "url": "https://franklintempleton.wd5.myworkdayjobs.com/Primary-External-1/job/New-York-New-York-United-States-of-America/Relationship-Associate---Trust-Administration_870454",
+    "url": "https://franklintempleton.wd5.myworkdayjobs.com/Primary-External-1/job/New-York-New-York-United-States-of-America/Estate-Settlement-Associate_870531",
     "source": "phenom",
-    "posted_date": "2026-11-10",
+    "posted_date": "2026-11-25",
     "metro": "NY + Jersey City",
-    "pay_min": 75000,
-    "pay_max": 90000,
-    "pay_period": "year",
-    "first_seen": "2026-11-11",
-    "is_new": false,
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
+    "first_seen": "2026-11-25",
+    "is_new": true,
     "repost_count": 0,
     "orig_first_seen": null
   },
@@ -4805,10 +4771,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-09-15",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-09-15",
+    "is_new": false
   },
   {
     "firm": "Houlihan Lokey",
@@ -4822,10 +4788,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-11-09",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-09",
+    "is_new": false
   },
   {
     "firm": "Houlihan Lokey",
@@ -4839,10 +4805,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-09-16",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-09-16",
+    "is_new": false
   },
   {
     "firm": "Houlihan Lokey",
@@ -4856,10 +4822,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-11-02",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-02",
+    "is_new": false
   },
   {
     "firm": "Houlihan Lokey",
@@ -4873,10 +4839,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-09-16",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-09-16",
+    "is_new": false
   },
   {
     "firm": "IMC Trading",
@@ -6896,10 +6862,10 @@
     "pay_min": 85000,
     "pay_max": 95000,
     "pay_period": "year",
-    "first_seen": "2026-11-13",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-13",
+    "is_new": false
   },
   {
     "firm": "Mizuho",
@@ -6913,10 +6879,10 @@
     "pay_min": 120000,
     "pay_max": 200000,
     "pay_period": "year",
-    "first_seen": "2026-11-19",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-19",
+    "is_new": false
   },
   {
     "firm": "Mizuho",
@@ -6930,10 +6896,10 @@
     "pay_min": 175000,
     "pay_max": 225000,
     "pay_period": "year",
-    "first_seen": "2026-10-01",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-01",
+    "is_new": false
   },
   {
     "firm": "Mizuho",
@@ -6947,10 +6913,10 @@
     "pay_min": 175000,
     "pay_max": 225000,
     "pay_period": "year",
-    "first_seen": "2026-11-24",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-24",
+    "is_new": false
   },
   {
     "firm": "Mizuho",
@@ -6964,10 +6930,10 @@
     "pay_min": 175000,
     "pay_max": 225000,
     "pay_period": "year",
-    "first_seen": "2026-10-30",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-30",
+    "is_new": false
   },
   {
     "firm": "Mizuho",
@@ -6981,10 +6947,10 @@
     "pay_min": 110000,
     "pay_max": 130000,
     "pay_period": "year",
-    "first_seen": "2026-10-28",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-28",
+    "is_new": false
   },
   {
     "firm": "Mizuho",
@@ -6998,10 +6964,10 @@
     "pay_min": 110000,
     "pay_max": 130000,
     "pay_period": "year",
-    "first_seen": "2026-11-09",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-09",
+    "is_new": false
   },
   {
     "firm": "Mizuho",
@@ -7015,10 +6981,10 @@
     "pay_min": 110000,
     "pay_max": 130000,
     "pay_period": "year",
-    "first_seen": "2026-11-09",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-09",
+    "is_new": false
   },
   {
     "firm": "Mizuho",
@@ -7032,10 +6998,10 @@
     "pay_min": 92000,
     "pay_max": 100000,
     "pay_period": "year",
-    "first_seen": "2026-10-02",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-02",
+    "is_new": false
   },
   {
     "firm": "Moelis & Company",
@@ -7049,10 +7015,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-09-15",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-09-15",
+    "is_new": false
   },
   {
     "firm": "Moelis & Company",
@@ -7066,10 +7032,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-10-16",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-16",
+    "is_new": false
   },
   {
     "firm": "Moelis & Company",
@@ -7083,10 +7049,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-10-29",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-29",
+    "is_new": false
   },
   {
     "firm": "Moelis & Company",
@@ -7100,10 +7066,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-09-15",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-09-15",
+    "is_new": false
   },
   {
     "firm": "Moelis & Company",
@@ -7117,10 +7083,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-09-15",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-09-15",
+    "is_new": false
   },
   {
     "firm": "Moelis & Company",
@@ -7134,10 +7100,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-09-15",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-09-15",
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -7168,10 +7134,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-11-25",
-    "is_new": true,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-25",
+    "is_new": true
   },
   {
     "firm": "Morgan Stanley",
@@ -7270,10 +7236,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-10-30",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-30",
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -7287,10 +7253,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-10-30",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-30",
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -7304,10 +7270,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-10-30",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-30",
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -7508,10 +7474,10 @@
     "pay_min": 140000,
     "pay_max": 180000,
     "pay_period": "year",
-    "first_seen": "2026-11-06",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-06",
+    "is_new": false
   },
   {
     "firm": "Oliver Wyman",
@@ -7542,10 +7508,10 @@
     "pay_min": 90000,
     "pay_max": 115000,
     "pay_period": "year",
-    "first_seen": "2026-10-30",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-30",
+    "is_new": false
   },
   {
     "firm": "PIMCO",
@@ -7559,10 +7525,10 @@
     "pay_min": 87000,
     "pay_max": 93000,
     "pay_period": "year",
-    "first_seen": "2026-11-10",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-10",
+    "is_new": false
   },
   {
     "firm": "PJT Partners",
@@ -7576,10 +7542,10 @@
     "pay_min": 80000,
     "pay_max": 100000,
     "pay_period": "year",
-    "first_seen": "2026-09-18",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-09-18",
+    "is_new": false
   },
   {
     "firm": "PJT Partners",
@@ -7593,10 +7559,10 @@
     "pay_min": 120000,
     "pay_max": 150000,
     "pay_period": "year",
-    "first_seen": "2026-10-22",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-22",
+    "is_new": false
   },
   {
     "firm": "PJT Partners",
@@ -7610,10 +7576,10 @@
     "pay_min": 200000,
     "pay_max": 250000,
     "pay_period": "year",
-    "first_seen": "2026-10-26",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-26",
+    "is_new": false
   },
   {
     "firm": "PJT Partners",
@@ -7627,10 +7593,10 @@
     "pay_min": 200000,
     "pay_max": 250000,
     "pay_period": "year",
-    "first_seen": "2026-09-18",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-09-18",
+    "is_new": false
   },
   {
     "firm": "PJT Partners",
@@ -7644,10 +7610,10 @@
     "pay_min": 200000,
     "pay_max": 250000,
     "pay_period": "year",
-    "first_seen": "2026-09-18",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-09-18",
+    "is_new": false
   },
   {
     "firm": "PJT Partners",
@@ -7661,10 +7627,10 @@
     "pay_min": 100000,
     "pay_max": 120000,
     "pay_period": "year",
-    "first_seen": "2026-10-02",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-02",
+    "is_new": false
   },
   {
     "firm": "PVH",
@@ -7855,6 +7821,23 @@
   },
   {
     "firm": "RBC Capital Markets",
+    "id": "phenom-jobs.rbc.com-RBCAA0088R0000189701EXTERNALENCA",
+    "title": "Associate, Global Investment Banking, Consumer & Retail",
+    "location": "New York, New York, United States of America",
+    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Associate--Global-Investment-Banking--Consumer---Retail_R-0000189701-1",
+    "source": "phenom",
+    "posted_date": "2026-11-18",
+    "metro": "NY + Jersey City",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
+    "first_seen": "2026-10-06",
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "RBC Capital Markets",
     "id": "phenom-jobs.rbc.com-RBCAA0088R0000192835EXTERNALENCA",
     "title": "Associate, Global Investment Banking, Healthcare",
     "location": "New York, New York, United States of America",
@@ -8001,10 +7984,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-11-25",
-    "is_new": true,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-25",
+    "is_new": true
   },
   {
     "firm": "Robert Half",
@@ -8059,40 +8042,6 @@
   },
   {
     "firm": "Saks Global",
-    "id": "phenom-careers.exemplarluxurygroup.com-SFAVUSR110290EXTERNALENUS",
-    "title": "Specialist, Affiliate Marketing",
-    "location": "New York, New York, United States of America",
-    "url": "https://saks.wd1.myworkdayjobs.com/careers_at_saks/job/Remote_New-York/Specialist--Affiliate-Marketing_R-110290",
-    "source": "phenom",
-    "posted_date": "2026-11-17",
-    "metro": "NY + Jersey City",
-    "pay_min": null,
-    "pay_max": null,
-    "pay_period": null,
-    "first_seen": "2026-11-16",
-    "is_new": false,
-    "repost_count": 0,
-    "orig_first_seen": null
-  },
-  {
-    "firm": "Saks Global",
-    "id": "phenom-careers.exemplarluxurygroup.com-SFAVUSR110275EXTERNALENUS",
-    "title": "Specialist, Category Growth, David Yurman",
-    "location": "New York, New York, United States of America",
-    "url": "https://saks.wd1.myworkdayjobs.com/careers_at_saks/job/SF_0689_Saks-Direct/Specialist--Category-Growth--David-Yurman_R-110275",
-    "source": "phenom",
-    "posted_date": "2026-11-24",
-    "metro": "NY + Jersey City",
-    "pay_min": null,
-    "pay_max": null,
-    "pay_period": null,
-    "first_seen": "2026-11-15",
-    "is_new": false,
-    "repost_count": 0,
-    "orig_first_seen": null
-  },
-  {
-    "firm": "Saks Global",
     "id": "phenom-careers.exemplarluxurygroup.com-SFAVUSR110136EXTERNALENUS",
     "title": "Specialist, Category Growth, Home/Jewelry/Beauty, Saks",
     "location": "New York, New York, United States of America",
@@ -8104,23 +8053,6 @@
     "pay_max": null,
     "pay_period": null,
     "first_seen": "2026-11-09",
-    "is_new": false,
-    "repost_count": 0,
-    "orig_first_seen": null
-  },
-  {
-    "firm": "Saks Global",
-    "id": "phenom-careers.exemplarluxurygroup.com-SFAVUSR110214EXTERNALENUS",
-    "title": "Specialist, Category Growth, Saks",
-    "location": "New York, New York, United States of America",
-    "url": "https://saks.wd1.myworkdayjobs.com/careers_at_saks/job/SF_0689_Saks-Direct/Specialist--Category-Growth--Saks_R-110214",
-    "source": "phenom",
-    "posted_date": "2026-11-11",
-    "metro": "NY + Jersey City",
-    "pay_min": 72000,
-    "pay_max": 89000,
-    "pay_period": "year",
-    "first_seen": "2026-11-12",
     "is_new": false,
     "repost_count": 0,
     "orig_first_seen": null
@@ -8926,57 +8858,6 @@
   },
   {
     "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0121746EXTERNALENUS",
-    "title": "Brokerage Registered Client Service Associate",
-    "location": "New York, New York, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY/Brokerage-Registered-Client-Service-Associate_R0121746",
-    "source": "phenom",
-    "posted_date": "2026-11-12",
-    "metro": "NY + Jersey City",
-    "pay_min": null,
-    "pay_max": null,
-    "pay_period": null,
-    "first_seen": "2026-11-13",
-    "is_new": false,
-    "repost_count": 0,
-    "orig_first_seen": null
-  },
-  {
-    "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0118087EXTERNALENUS",
-    "title": "Equity Research Associate - Biotech",
-    "location": "New York, New York, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY/Associate-Equity-Research---Biotech_R0118087",
-    "source": "phenom",
-    "posted_date": "2026-11-06",
-    "metro": "NY + Jersey City",
-    "pay_min": null,
-    "pay_max": null,
-    "pay_period": null,
-    "first_seen": "2026-11-06",
-    "is_new": false,
-    "repost_count": 0,
-    "orig_first_seen": null
-  },
-  {
-    "firm": "Truist Securities",
-    "id": "phenom-careers.truist.com-TBJTBFUSR0119372EXTERNALENUS",
-    "title": "Investment Banking Associate - Power, Utilities & Infrastructure (Renewables)",
-    "location": "New York, New York, USA",
-    "url": "https://truist.wd1.myworkdayjobs.com/Careers/job/New-York-NY/Investment-Banking-Associate---Power--Utilities---Infrastructure--Renewables-_R0119372",
-    "source": "phenom",
-    "posted_date": "2026-11-05",
-    "metro": "NY + Jersey City",
-    "pay_min": null,
-    "pay_max": null,
-    "pay_period": null,
-    "first_seen": "2026-09-19",
-    "is_new": false,
-    "repost_count": 0,
-    "orig_first_seen": null
-  },
-  {
-    "firm": "Truist Securities",
     "id": "phenom-careers.truist.com-TBJTBFUSR0121977EXTERNALENUS",
     "title": "Securitized Products Originations Analyst I",
     "location": "New York, New York, USA",
@@ -9681,9 +9562,9 @@
     "source": "workday",
     "posted_date": "2026-11-18",
     "metro": "SF / Bay Area",
-    "pay_min": null,
-    "pay_max": null,
-    "pay_period": null,
+    "pay_min": 35152,
+    "pay_max": 90000,
+    "pay_period": "year",
     "repost_count": 0,
     "orig_first_seen": null,
     "first_seen": "2026-11-20",
@@ -9718,10 +9599,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-11-23",
-    "is_new": false,
     "repost_count": 1,
-    "orig_first_seen": "2026-10-28"
+    "orig_first_seen": "2026-10-28",
+    "first_seen": "2026-11-23",
+    "is_new": false
   },
   {
     "firm": "Morgan Stanley",
@@ -9752,10 +9633,10 @@
     "pay_min": 120000,
     "pay_max": 150000,
     "pay_period": "year",
-    "first_seen": "2026-10-10",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-10",
+    "is_new": false
   },
   {
     "firm": "Plaid",
@@ -10075,10 +9956,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-11-25",
-    "is_new": true,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-25",
+    "is_new": true
   },
   {
     "firm": "William Blair",
