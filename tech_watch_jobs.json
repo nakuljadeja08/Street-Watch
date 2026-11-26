@@ -120,10 +120,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-11-02",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-02",
+    "is_new": false
   },
   {
     "firm": "Truist Securities",
@@ -175,7 +175,7 @@
     "pay_max": null,
     "pay_period": null,
     "first_seen": "2026-11-25",
-    "is_new": true,
+    "is_new": false,
     "repost_count": 0,
     "orig_first_seen": null
   },
@@ -186,16 +186,16 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Cloud-Data-Platform-Engineer_R158514-1",
     "source": "workday",
-    "posted_date": "2026-10-24",
+    "posted_date": "2026-10-26",
     "metro": "Chicago",
     "sector": "Finance",
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "repost_count": 0,
-    "orig_first_seen": null,
     "first_seen": "2026-09-27",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Northern Trust",
@@ -204,16 +204,16 @@
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Analytics-Engineer_R150313",
     "source": "workday",
-    "posted_date": "2026-10-24",
+    "posted_date": "2026-10-26",
     "metro": "Chicago",
     "sector": "Finance",
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "repost_count": 0,
-    "orig_first_seen": null,
     "first_seen": "2026-09-27",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Robert Half",
@@ -408,10 +408,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-11-16",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-16",
+    "is_new": false
   },
   {
     "firm": "Ares Management",
@@ -426,10 +426,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-11-16",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-16",
+    "is_new": false
   },
   {
     "firm": "Carlyle",
@@ -744,16 +744,16 @@
     "location": "MetroPark",
     "url": "https://mizuho.wd1.myworkdayjobs.com/mizuhoamericas/job/MetroPark/Cloud-Data-Engineer_R7127",
     "source": "workday",
-    "posted_date": "2026-10-25",
+    "posted_date": "2026-10-26",
     "metro": "NYC Area",
     "sector": "Finance",
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "repost_count": 0,
-    "orig_first_seen": null,
     "first_seen": "2026-09-27",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "MotherDuck",
@@ -930,10 +930,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "repost_count": 0,
-    "orig_first_seen": null,
     "first_seen": "2026-11-24",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Cohere",
@@ -1962,6 +1962,24 @@
     "orig_first_seen": "2026-10-22"
   },
   {
+    "firm": "Discord",
+    "id": "gh-discord-8942144002",
+    "title": "Data Engineer",
+    "location": "San Francisco Bay Area",
+    "url": "https://job-boards.greenhouse.io/discord/jobs/8942144002",
+    "source": "greenhouse",
+    "posted_date": "2026-11-25",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "pay_min": 160000,
+    "pay_max": 200000,
+    "pay_period": "year",
+    "first_seen": "2026-11-26",
+    "is_new": true,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
     "firm": "DoorDash",
     "id": "gh-doordashusa-8192116",
     "title": "Software Engineer, Data Engineering",
@@ -2173,7 +2191,7 @@
     "pay_max": null,
     "pay_period": null,
     "first_seen": "2026-11-25",
-    "is_new": true,
+    "is_new": false,
     "repost_count": 0,
     "orig_first_seen": null
   },
@@ -2264,6 +2282,42 @@
     "pay_period": null,
     "first_seen": "2026-11-02",
     "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "NVIDIA",
+    "id": "wd-nvidia-NVIDIAExternalCareerSite-/job/US-CA-Santa-Clara/Data-Application-Engineer--Enterprise-Data-Management_JR2024551",
+    "title": "Data Application Engineer, Enterprise Data Management",
+    "location": "US, CA, Santa Clara",
+    "url": "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Data-Application-Engineer--Enterprise-Data-Management_JR2024551",
+    "source": "workday",
+    "posted_date": "2026-11-25",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
+    "first_seen": "2026-09-27",
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "NVIDIA",
+    "id": "wd-nvidia-NVIDIAExternalCareerSite-/job/US-CA-Santa-Clara/Product-Data-Operations-Engineering-Systems-Analyst_JR2013016",
+    "title": "Product Data Operations Engineering Systems Analyst",
+    "location": "US, CA, Santa Clara",
+    "url": "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Product-Data-Operations-Engineering-Systems-Analyst_JR2013016",
+    "source": "workday",
+    "posted_date": "2026-11-25",
+    "metro": "SF Bay Area",
+    "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
+    "first_seen": "2026-11-26",
+    "is_new": true,
     "repost_count": 0,
     "orig_first_seen": null
   },
@@ -2521,6 +2575,24 @@
   },
   {
     "firm": "Thinking Machines",
+    "id": "ashby-thinkingmachines-c09f086c-b34b-4d34-b1fb-e5672c666dd8",
+    "title": "Research Engineer, Infrastructure, RL Infra / Systems",
+    "location": "San Francisco",
+    "url": "https://jobs.ashbyhq.com/ThinkingMachines/c09f086c-b34b-4d34-b1fb-e5672c666dd8",
+    "source": "ashby",
+    "posted_date": "2026-11-25",
+    "metro": "SF Bay Area",
+    "sector": "Startup",
+    "pay_min": 400000,
+    "pay_max": 500000,
+    "pay_period": "year",
+    "first_seen": "2026-11-26",
+    "is_new": true,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "Thinking Machines",
     "id": "ashby-thinkingmachines-ec5f88b6-e221-499c-bc8f-a27b66213b87",
     "title": "Software Engineer, Data Infrastructure",
     "location": "San Francisco",
@@ -2623,7 +2695,7 @@
     "pay_max": null,
     "pay_period": null,
     "first_seen": "2026-11-25",
-    "is_new": true,
+    "is_new": false,
     "repost_count": 0,
     "orig_first_seen": null
   },
@@ -2736,24 +2808,6 @@
     "orig_first_seen": null
   },
   {
-    "firm": "Charles Schwab",
-    "id": "charles-98102690752",
-    "title": "Platform Support Data Engineer",
-    "location": "Austin, TX; Southlake, TX",
-    "url": "https://www.schwabjobs.com/job/austin/platform-support-data-engineer/33727/98102690752",
-    "source": "charles",
-    "posted_date": null,
-    "metro": "Texas",
-    "sector": "Finance",
-    "pay_min": null,
-    "pay_max": null,
-    "pay_period": null,
-    "first_seen": "2026-09-29",
-    "is_new": false,
-    "repost_count": 0,
-    "orig_first_seen": null
-  },
-  {
     "firm": "Fluidstack",
     "id": "ashby-fluidstack-78365bf7-7a0e-4e15-b30f-827d68c9b8b8",
     "title": "Data Engineer",
@@ -2859,6 +2913,6 @@
     "repost_count": 0,
     "orig_first_seen": null,
     "first_seen": "2026-11-25",
-    "is_new": true
+    "is_new": false
   }
 ]
