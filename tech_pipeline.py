@@ -1145,10 +1145,13 @@ def send_newsletter(jobs, today, trends=None, taken=None):
     fresh = sorted((j for j in jobs if _is_fresh(j, today)), key=lambda j: (j["firm"], j["title"]))
     n = len(new_jobs)
     msg = MIMEMultipart("alternative")
-    msg["Subject"] = (f"Tech Watch — {n} new data role{'s' if n != 1 else ''} this morning"
-                      if n else "Tech Watch — no new data roles today")
+    subject = (f"Tech Watch — {n} new data role{'s' if n != 1 else ''} this morning"
+               if n else "Tech Watch — no new data roles today")
     if fresh:
-        msg["Subject"] += f" · ⚡ {len(fresh)} posted in the last 24h"
+        subject += f" · ⚡ {len(fresh)} posted in the last 24h"
+    # Set once: Message.__setitem__ APPENDS, so `msg["Subject"] += ...` made two
+    # Subject headers and Gmail rejected the mail (550 5.7.1, Nov 24-26 2026).
+    msg["Subject"] = subject
     msg["From"] = os.getenv("TECH_NEWSLETTER_FROM") or formataddr(("Tech Watch", user))
     msg["To"] = ", ".join(recipients)
     hits = P.saved_search_hits(new_jobs, table=TABLES["searches"], matches=_matches_search)
