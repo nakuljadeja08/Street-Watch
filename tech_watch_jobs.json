@@ -12,10 +12,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "repost_count": 0,
-    "orig_first_seen": null,
     "first_seen": "2026-10-30",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Equifax",
@@ -30,10 +30,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "repost_count": 0,
-    "orig_first_seen": null,
     "first_seen": "2026-10-22",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Equifax",
@@ -48,10 +48,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "repost_count": 0,
-    "orig_first_seen": null,
     "first_seen": "2026-10-22",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "FanDuel",
@@ -373,6 +373,24 @@
     "pay_max": 850000,
     "pay_period": "year",
     "first_seen": "2026-11-02",
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "Carlyle",
+    "id": "wd-carlyle-Carlyle-/job/New-York-NY/Data-Engineer_R-00280",
+    "title": "Data Engineer",
+    "location": "New York, NY",
+    "url": "https://carlyle.wd1.myworkdayjobs.com/Carlyle/job/New-York-NY/Data-Engineer_R-00280",
+    "source": "workday",
+    "posted_date": "2026-10-27",
+    "metro": "NYC Area",
+    "sector": "Finance",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
+    "first_seen": "2026-09-27",
     "is_new": false,
     "repost_count": 0,
     "orig_first_seen": null
@@ -901,6 +919,24 @@
   },
   {
     "firm": "HPE",
+    "id": "phenom-careers.hpe.com-HPE1US1213202EXTERNALENUS",
+    "title": "AI Data Foundation Research Engineer",
+    "location": "Ft. Collins, Colorado, United States of America",
+    "url": "https://hpe.wd5.myworkdayjobs.com/Jobsathpe/job/Ft-Collins-Colorado-United-States-of-America/AI-Data-Foundation-Research-Engineer_1213202",
+    "source": "phenom",
+    "posted_date": "2026-10-05",
+    "metro": "Other US",
+    "sector": "Tech",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
+    "first_seen": "2026-11-16",
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "HPE",
     "id": "phenom-careers.hpe.com-HPE1US1214711EXTERNALENUS",
     "title": "Business Systems & Data Engineer",
     "location": "Chippewa Falls, Wisconsin, United States of America",
@@ -1243,24 +1279,6 @@
   },
   {
     "firm": "TEKsystems",
-    "id": "phenom-careers.teksystems.com-TESYUSJP006411815ENUS",
-    "title": "Data Engineer II \u00b7 Direct hire",
-    "location": "Hanover, Maryland, USA",
-    "url": "https://careers.teksystems.com/us/en/job/TESYUSJP006411815ENUS",
-    "source": "phenom",
-    "posted_date": "2026-11-10",
-    "metro": "Other US",
-    "sector": "Agency",
-    "pay_min": null,
-    "pay_max": null,
-    "pay_period": null,
-    "first_seen": "2026-11-10",
-    "is_new": false,
-    "repost_count": 1,
-    "orig_first_seen": "2026-10-09"
-  },
-  {
-    "firm": "TEKsystems",
     "id": "phenom-careers.teksystems.com-TESYUSJP006425184ENUS",
     "title": "Database Engineer \u00b7 Direct hire",
     "location": "Minneapolis, Minnesota, USA",
@@ -1344,10 +1362,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "repost_count": 0,
-    "orig_first_seen": null,
     "first_seen": "2026-10-05",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Branch",
@@ -2100,10 +2118,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-09-27",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-09-27",
+    "is_new": false
   },
   {
     "firm": "NVIDIA",
@@ -2118,10 +2136,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-11-26",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-26",
+    "is_new": false
   },
   {
     "firm": "OpenAI",
@@ -2533,24 +2551,6 @@
     "pay_max": 200000,
     "pay_period": "year",
     "first_seen": "2026-11-20",
-    "is_new": false,
-    "repost_count": 0,
-    "orig_first_seen": null
-  },
-  {
-    "firm": "Stripe",
-    "id": "gh-stripe-8411927",
-    "title": "Software Engineer, Data Warehouse Analytics",
-    "location": "Seattle, WA",
-    "url": "https://stripe.com/jobs/search?gh_jid=8411927",
-    "source": "greenhouse",
-    "posted_date": "2026-11-23",
-    "metro": "Seattle",
-    "sector": "Fintech",
-    "pay_min": 174595,
-    "pay_max": 235200,
-    "pay_period": "year",
-    "first_seen": "2026-11-23",
     "is_new": false,
     "repost_count": 0,
     "orig_first_seen": null
