@@ -130,10 +130,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-11-10",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-10",
+    "is_new": false
   },
   {
     "firm": "Brookfield Asset Management",
@@ -436,10 +436,10 @@
     "pay_min": 175000,
     "pay_max": 225000,
     "pay_period": "year",
-    "repost_count": 0,
-    "orig_first_seen": null,
     "first_seen": "2026-11-23",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Houlihan Lokey",
@@ -453,10 +453,10 @@
     "pay_min": 175000,
     "pay_max": 225000,
     "pay_period": "year",
-    "repost_count": 0,
-    "orig_first_seen": null,
     "first_seen": "2026-10-23",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Houlihan Lokey",
@@ -470,10 +470,10 @@
     "pay_min": 175000,
     "pay_max": 225000,
     "pay_period": "year",
-    "repost_count": 0,
-    "orig_first_seen": null,
     "first_seen": "2026-09-15",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "JPMorgan Chase",
@@ -761,6 +761,23 @@
     "pay_period": "hour",
     "first_seen": "2026-11-09",
     "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "Lincoln International",
+    "id": "gh-lincolninternational-8417648",
+    "title": "Associate, Capital Advisory",
+    "location": "Chicago, IL",
+    "url": "http://www.lincolninternational.com/greenhouse/?gh_jid=8417648",
+    "source": "greenhouse",
+    "posted_date": "2026-11-27",
+    "metro": "Chicago",
+    "pay_min": 175000,
+    "pay_max": 225000,
+    "pay_period": "year",
+    "first_seen": "2026-11-27",
+    "is_new": true,
     "repost_count": 0,
     "orig_first_seen": null
   },
@@ -1184,10 +1201,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "repost_count": 0,
-    "orig_first_seen": null,
     "first_seen": "2026-11-03",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Apollo Global Management",
@@ -1371,10 +1388,10 @@
     "pay_min": 175000,
     "pay_max": 225000,
     "pay_period": "year",
-    "repost_count": 0,
-    "orig_first_seen": null,
     "first_seen": "2026-10-24",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Houlihan Lokey",
@@ -1388,10 +1405,10 @@
     "pay_min": 175000,
     "pay_max": 225000,
     "pay_period": "year",
-    "repost_count": 0,
-    "orig_first_seen": null,
     "first_seen": "2026-10-24",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "JPMorgan Chase",
@@ -1406,6 +1423,23 @@
     "pay_max": null,
     "pay_period": null,
     "first_seen": "2026-11-04",
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210803125",
+    "title": "J.P. Morgan Wealth Management - Client Specialist Associate",
+    "location": "Los Angeles, CA, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210803125",
+    "source": "oracle",
+    "posted_date": "2026-11-27",
+    "metro": "Los Angeles",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
+    "first_seen": "2026-10-24",
     "is_new": false,
     "repost_count": 0,
     "orig_first_seen": null
@@ -1441,6 +1475,23 @@
     "pay_period": null,
     "first_seen": "2026-11-17",
     "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "Lincoln International",
+    "id": "gh-lincolninternational-8417879",
+    "title": "Associate, Capital Advisory",
+    "location": "Los Angeles, CA",
+    "url": "http://www.lincolninternational.com/greenhouse/?gh_jid=8417879",
+    "source": "greenhouse",
+    "posted_date": "2026-11-27",
+    "metro": "Los Angeles",
+    "pay_min": 175000,
+    "pay_max": 225000,
+    "pay_period": "year",
+    "first_seen": "2026-11-27",
+    "is_new": true,
     "repost_count": 0,
     "orig_first_seen": null
   },
@@ -1711,10 +1762,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "repost_count": 0,
-    "orig_first_seen": null,
     "first_seen": "2026-10-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Apollo Global Management",
@@ -1745,10 +1796,10 @@
     "pay_min": 120000,
     "pay_max": 160000,
     "pay_period": "year",
-    "repost_count": 0,
-    "orig_first_seen": null,
     "first_seen": "2026-11-25",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Apollo Global Management",
@@ -2340,10 +2391,10 @@
     "pay_min": 100000,
     "pay_max": 140000,
     "pay_period": "year",
-    "first_seen": "2026-11-12",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-12",
+    "is_new": false
   },
   {
     "firm": "Blackstone",
@@ -2442,10 +2493,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-11-02",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-11-02",
+    "is_new": false
   },
   {
     "firm": "Blue Owl Capital",
@@ -2493,10 +2544,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-09-15",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-09-15",
+    "is_new": false
   },
   {
     "firm": "Blue Owl Capital",
@@ -2510,10 +2561,10 @@
     "pay_min": 80000,
     "pay_max": 95000,
     "pay_period": "year",
-    "first_seen": "2026-09-15",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-09-15",
+    "is_new": false
   },
   {
     "firm": "Bonhams",
@@ -3531,6 +3582,23 @@
     "pay_max": null,
     "pay_period": null,
     "first_seen": "2026-11-25",
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "Franklin Templeton",
+    "id": "phenom-careers.franklintempleton.com-FTGFTMUS870454EXTERNALENUS",
+    "title": "Relationship Associate - Trust Administration",
+    "location": "New York, New York, United States of America",
+    "url": "https://franklintempleton.wd5.myworkdayjobs.com/Primary-External-1/job/New-York-New-York-United-States-of-America/Relationship-Associate---Trust-Administration_870454",
+    "source": "phenom",
+    "posted_date": "2026-11-10",
+    "metro": "NY + Jersey City",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
+    "first_seen": "2026-11-11",
     "is_new": false,
     "repost_count": 0,
     "orig_first_seen": null
@@ -4822,10 +4890,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "repost_count": 0,
-    "orig_first_seen": null,
     "first_seen": "2026-09-15",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Houlihan Lokey",
@@ -4839,10 +4907,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "repost_count": 0,
-    "orig_first_seen": null,
     "first_seen": "2026-11-09",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Houlihan Lokey",
@@ -4856,10 +4924,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "repost_count": 0,
-    "orig_first_seen": null,
     "first_seen": "2026-09-16",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Houlihan Lokey",
@@ -4873,10 +4941,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "repost_count": 0,
-    "orig_first_seen": null,
     "first_seen": "2026-11-02",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Houlihan Lokey",
@@ -4890,10 +4958,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "repost_count": 0,
-    "orig_first_seen": null,
     "first_seen": "2026-09-16",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "IMC Trading",
@@ -5009,10 +5077,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "repost_count": 0,
-    "orig_first_seen": null,
     "first_seen": "2026-11-04",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Invesco",
@@ -5043,10 +5111,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "repost_count": 0,
-    "orig_first_seen": null,
     "first_seen": "2026-10-22",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "JPMorgan Chase",
@@ -5118,23 +5186,6 @@
   },
   {
     "firm": "JPMorgan Chase",
-    "id": "oracle-jpmc.fa.oraclecloud.com-210773611",
-    "title": "Applied AI/ML Data Scientist - Data & Analytics - Associate",
-    "location": "Jersey City, NJ, United States",
-    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210773611",
-    "source": "oracle",
-    "posted_date": "2026-11-24",
-    "metro": "NY + Jersey City",
-    "pay_min": null,
-    "pay_max": null,
-    "pay_period": null,
-    "first_seen": "2026-11-24",
-    "is_new": false,
-    "repost_count": 0,
-    "orig_first_seen": null
-  },
-  {
-    "firm": "JPMorgan Chase",
     "id": "oracle-jpmc.fa.oraclecloud.com-210794633",
     "title": "Asset Management - Investment Grade Trader - Associate",
     "location": "New York, NY, United States",
@@ -5181,6 +5232,23 @@
     "pay_period": null,
     "first_seen": "2026-11-04",
     "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210811701",
+    "title": "Associate - Commercial Solutions Field Enablement & Change Lead",
+    "location": "New York, NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210811701",
+    "source": "oracle",
+    "posted_date": "2026-11-27",
+    "metro": "NY + Jersey City",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
+    "first_seen": "2026-11-27",
+    "is_new": true,
     "repost_count": 0,
     "orig_first_seen": null
   },
@@ -5690,6 +5758,23 @@
     "pay_max": null,
     "pay_period": null,
     "first_seen": "2026-09-19",
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "JPMorgan Chase",
+    "id": "oracle-jpmc.fa.oraclecloud.com-210801379",
+    "title": "J.P. Morgan Wealth Management - Private Client Investment Associate -  Huntington, NY",
+    "location": "Huntington, NY, United States",
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210801379",
+    "source": "oracle",
+    "posted_date": "2026-11-27",
+    "metro": "NY + Jersey City",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
+    "first_seen": "2026-10-19",
     "is_new": false,
     "repost_count": 0,
     "orig_first_seen": null
@@ -6478,6 +6563,23 @@
   },
   {
     "firm": "Lincoln International",
+    "id": "gh-lincolninternational-8417980",
+    "title": "Analyst, Capital Advisory (Restructuring)",
+    "location": "New York, NY",
+    "url": "http://www.lincolninternational.com/greenhouse/?gh_jid=8417980",
+    "source": "greenhouse",
+    "posted_date": "2026-11-27",
+    "metro": "NY + Jersey City",
+    "pay_min": 110000,
+    "pay_max": 130000,
+    "pay_period": "year",
+    "first_seen": "2026-11-27",
+    "is_new": true,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "Lincoln International",
     "id": "gh-lincolninternational-8325689",
     "title": "Associate, Business Services M&A (Asset & Wealth Management)",
     "location": "New York, NY",
@@ -6490,6 +6592,23 @@
     "pay_period": "year",
     "first_seen": "2026-11-24",
     "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "Lincoln International",
+    "id": "gh-lincolninternational-8417885",
+    "title": "Associate, Capital Advisory (Restructuring)",
+    "location": "New York, NY",
+    "url": "http://www.lincolninternational.com/greenhouse/?gh_jid=8417885",
+    "source": "greenhouse",
+    "posted_date": "2026-11-27",
+    "metro": "NY + Jersey City",
+    "pay_min": 175000,
+    "pay_max": 225000,
+    "pay_period": "year",
+    "first_seen": "2026-11-27",
+    "is_new": true,
     "repost_count": 0,
     "orig_first_seen": null
   },
@@ -7634,23 +7753,6 @@
   },
   {
     "firm": "RBC Capital Markets",
-    "id": "phenom-jobs.rbc.com-RBCAA0088R0000192508EXTERNALENCA",
-    "title": "Analyst, Central Funding Group Sales",
-    "location": "New York, New York, United States of America",
-    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/New-York-New-York-United-States-of-America/Analyst--Central-Funding-Group-Sales_R-0000192508",
-    "source": "phenom",
-    "posted_date": "2026-11-11",
-    "metro": "NY + Jersey City",
-    "pay_min": 110000,
-    "pay_max": 110000,
-    "pay_period": "year",
-    "first_seen": "2026-11-11",
-    "is_new": false,
-    "repost_count": 0,
-    "orig_first_seen": null
-  },
-  {
-    "firm": "RBC Capital Markets",
     "id": "phenom-jobs.rbc.com-RBCAA0088R0000191995EXTERNALENCA",
     "title": "Analyst/Associate, Debt Capital Markets",
     "location": "New York, New York, United States of America",
@@ -8615,6 +8717,23 @@
     "pay_period": null,
     "first_seen": "2026-11-06",
     "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "Stripe",
+    "id": "gh-stripe-8421263",
+    "title": "Product Strategy & Operations, Crypto S&O",
+    "location": "New York, NY",
+    "url": "https://stripe.com/jobs/search?gh_jid=8421263",
+    "source": "greenhouse",
+    "posted_date": "2026-11-27",
+    "metro": "NY + Jersey City",
+    "pay_min": 161637,
+    "pay_max": 238700,
+    "pay_period": "year",
+    "first_seen": "2026-11-27",
+    "is_new": true,
     "repost_count": 0,
     "orig_first_seen": null
   },
@@ -9855,6 +9974,40 @@
     "pay_max": 40,
     "pay_period": "hour",
     "first_seen": "2026-11-26",
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "Aston Carter",
+    "id": "phenom-careers.astoncarter.com-ASCAUSJP006445902ENUS",
+    "title": "Financial Analyst \u00b7 Contract",
+    "location": "San Diego, California, USA",
+    "url": "https://careers.astoncarter.com/us/en/job/ASCAUSJP006445902ENUS",
+    "source": "phenom",
+    "posted_date": "2026-11-27",
+    "metro": "San Diego",
+    "pay_min": 33,
+    "pay_max": 40,
+    "pay_period": "hour",
+    "first_seen": "2026-11-27",
+    "is_new": true,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "Aston Carter",
+    "id": "phenom-careers.astoncarter.com-ASCAUSJP006419271ENUS",
+    "title": "Financial Systems Analyst \u00b7 Contract",
+    "location": "San Diego, California, USA",
+    "url": "https://careers.astoncarter.com/us/en/job/ASCAUSJP006419271ENUS",
+    "source": "phenom",
+    "posted_date": "2026-11-13",
+    "metro": "San Diego",
+    "pay_min": 33,
+    "pay_max": 40,
+    "pay_period": "hour",
+    "first_seen": "2026-11-13",
     "is_new": false,
     "repost_count": 0,
     "orig_first_seen": null
