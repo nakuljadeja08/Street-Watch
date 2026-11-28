@@ -12,10 +12,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-10-30",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-30",
+    "is_new": false
   },
   {
     "firm": "Equifax",
@@ -30,10 +30,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-10-22",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-22",
+    "is_new": false
   },
   {
     "firm": "Equifax",
@@ -48,10 +48,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-10-22",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-10-22",
+    "is_new": false
   },
   {
     "firm": "FanDuel",
@@ -181,21 +181,39 @@
   },
   {
     "firm": "Northern Trust",
+    "id": "wd-ntrs-northerntrust-/job/Chicago-IL/Cloud-Data-Platform-Engineer_R158514-1",
+    "title": "Cloud Data Platform Engineer",
+    "location": "Chicago, IL",
+    "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Cloud-Data-Platform-Engineer_R158514-1",
+    "source": "workday",
+    "posted_date": "2026-10-28",
+    "metro": "Chicago",
+    "sector": "Finance",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
+    "first_seen": "2026-09-27",
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "Northern Trust",
     "id": "wd-ntrs-northerntrust-/job/Chicago-IL/Data-Analytics-Engineer_R150313",
     "title": "Data Analytics Engineer",
     "location": "Chicago, IL",
     "url": "https://ntrs.wd1.myworkdayjobs.com/northerntrust/job/Chicago-IL/Data-Analytics-Engineer_R150313",
     "source": "workday",
-    "posted_date": "2026-10-26",
+    "posted_date": "2026-10-28",
     "metro": "Chicago",
     "sector": "Finance",
     "pay_min": 114500,
     "pay_max": 194700,
     "pay_period": "year",
-    "repost_count": 0,
-    "orig_first_seen": null,
     "first_seen": "2026-09-27",
-    "is_new": false
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
   },
   {
     "firm": "Robert Half",
@@ -378,6 +396,42 @@
     "orig_first_seen": null
   },
   {
+    "firm": "Ares Management",
+    "id": "wd-aresmgmt-External-/job/New-York-NY/Associate--Data-Platform-Engineering_R8756",
+    "title": "Associate, Data Platform Engineering",
+    "location": "New York, NY",
+    "url": "https://aresmgmt.wd1.myworkdayjobs.com/External/job/New-York-NY/Associate--Data-Platform-Engineering_R8756",
+    "source": "workday",
+    "posted_date": null,
+    "metro": "NYC Area",
+    "sector": "Finance",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
+    "first_seen": "2026-11-16",
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
+    "firm": "Ares Management",
+    "id": "wd-aresmgmt-External-/job/New-York-NY/Associate--Data-Platform-Engineering_R8755",
+    "title": "Associate, Data Platform Engineering",
+    "location": "New York, NY",
+    "url": "https://aresmgmt.wd1.myworkdayjobs.com/External/job/New-York-NY/Associate--Data-Platform-Engineering_R8755",
+    "source": "workday",
+    "posted_date": null,
+    "metro": "NYC Area",
+    "sector": "Finance",
+    "pay_min": null,
+    "pay_max": null,
+    "pay_period": null,
+    "first_seen": "2026-11-16",
+    "is_new": false,
+    "repost_count": 0,
+    "orig_first_seen": null
+  },
+  {
     "firm": "Carlyle",
     "id": "wd-carlyle-Carlyle-/job/New-York-NY/Data-Engineer_R-00280",
     "title": "Data Engineer",
@@ -390,10 +444,10 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "first_seen": "2026-09-27",
-    "is_new": false,
     "repost_count": 0,
-    "orig_first_seen": null
+    "orig_first_seen": null,
+    "first_seen": "2026-09-27",
+    "is_new": false
   },
   {
     "firm": "Cloaked",
@@ -792,24 +846,6 @@
     "orig_first_seen": null
   },
   {
-    "firm": "Tennr",
-    "id": "ashby-tennr-ce18e908-3e76-4828-a95d-ef98569937e0",
-    "title": "Data Engineer",
-    "location": "New York City Office",
-    "url": "https://jobs.ashbyhq.com/tennr/ce18e908-3e76-4828-a95d-ef98569937e0",
-    "source": "ashby",
-    "posted_date": "2026-09-28",
-    "metro": "NYC Area",
-    "sector": "Startup",
-    "pay_min": null,
-    "pay_max": null,
-    "pay_period": null,
-    "first_seen": "2026-11-02",
-    "is_new": false,
-    "repost_count": 0,
-    "orig_first_seen": null
-  },
-  {
     "firm": "Tower Research Capital",
     "id": "gh-towerresearchcapital-8095925",
     "title": "Research Platform Engineer",
@@ -912,25 +948,7 @@
     "pay_min": null,
     "pay_max": null,
     "pay_period": null,
-    "repost_count": 0,
-    "orig_first_seen": null,
     "first_seen": "2026-11-24",
-    "is_new": false
-  },
-  {
-    "firm": "HPE",
-    "id": "phenom-careers.hpe.com-HPE1US1213202EXTERNALENUS",
-    "title": "AI Data Foundation Research Engineer",
-    "location": "Ft. Collins, Colorado, United States of America",
-    "url": "https://hpe.wd5.myworkdayjobs.com/Jobsathpe/job/Ft-Collins-Colorado-United-States-of-America/AI-Data-Foundation-Research-Engineer_1213202",
-    "source": "phenom",
-    "posted_date": "2026-10-05",
-    "metro": "Other US",
-    "sector": "Tech",
-    "pay_min": null,
-    "pay_max": null,
-    "pay_period": null,
-    "first_seen": "2026-11-16",
     "is_new": false,
     "repost_count": 0,
     "orig_first_seen": null
@@ -1260,24 +1278,6 @@
     "orig_first_seen": null
   },
   {
-    "firm": "Susquehanna International Group",
-    "id": "jibe-careers.sig.com-10778",
-    "title": "Quantitative/Data Developer | Fixed Income | Experienced Hire",
-    "location": "Bala Cynwyd (Philadelphia Area), Pennsylvania",
-    "url": "https://careers.sig.com/jobs/10778",
-    "source": "jibe",
-    "posted_date": "2026-09-28",
-    "metro": "Other US",
-    "sector": "Finance",
-    "pay_min": null,
-    "pay_max": null,
-    "pay_period": null,
-    "first_seen": "2026-09-29",
-    "is_new": false,
-    "repost_count": 0,
-    "orig_first_seen": null
-  },
-  {
     "firm": "TEKsystems",
     "id": "phenom-careers.teksystems.com-TESYUSJP006425184ENUS",
     "title": "Database Engineer \u00b7 Direct hire",
@@ -1356,7 +1356,7 @@
     "location": "US - Remote",
     "url": "https://allstate.wd5.myworkdayjobs.com/allstate_careers/job/US---Remote/Managing-Engineer--Data-Engineering_R35362-1",
     "source": "workday",
-    "posted_date": "2026-10-27",
+    "posted_date": "2026-10-28",
     "metro": "Remote (US)",
     "sector": "Finance",
     "pay_min": null,
@@ -2623,7 +2623,7 @@
     "pay_max": null,
     "pay_period": null,
     "first_seen": "2026-11-27",
-    "is_new": true,
+    "is_new": false,
     "repost_count": 1,
     "orig_first_seen": "2026-09-29"
   },
